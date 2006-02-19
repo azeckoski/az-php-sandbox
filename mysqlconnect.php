@@ -22,4 +22,5 @@ if (!$db) {
 if (!mysql_select_db("$dbname", $db)) {
    die("Unable to select $dbname: " . mysql_error());
 }
+
 ?>

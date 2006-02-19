@@ -8,8 +8,9 @@ CREATE TABLE users (
     email       	varchar(100) NULL,
     access      	varchar(100) NULL,
     date_created	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    activated   	enum('0','1') NOT NULL DEFAULT '0',
     PRIMARY KEY(pk)
-);
+)
 
 CREATE TABLE sessions ( 
     pk          	int(10) AUTO_INCREMENT NOT NULL,

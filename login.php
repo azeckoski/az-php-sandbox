@@ -1,4 +1,12 @@
 <?php
+	require_once ("globals.php");
+
+	// Handle the login process or display a login page
+	$PAGE_NAME = "Login";
+
+	// connect to database
+	require "mysqlconnect.php";
+
 	// Clear the current session cookie
 	setcookie("SESSION_ID", "NULL", null, "/", false, 0);
 
@@ -11,11 +19,9 @@
 
 	// check the username/password to auth if present
 	if (strlen($USERNAME) && strlen($PASSWORD)) {
-		// connect to database to authenticate
-		require "mysqlconnect.php";
-
 		// check the username and password
-		$sql1 = "SELECT pk FROM users WHERE username = '$USERNAME' and password = PASSWORD('$PASSWORD')";
+		$sql1 = "SELECT pk FROM users WHERE username = '$USERNAME' and " .
+			"password = PASSWORD('$PASSWORD') and activated = '1'";
 		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
 		$count = mysql_num_rows($result);
 		$row = mysql_fetch_assoc($result);
@@ -42,7 +48,8 @@
 
 		} else {
 			// user/pass combo not found
-			$Message = "<span class='error'>Invalid login: $USERNAME </span><br/>";
+			$Message = "<span class='error'>Invalid login: $USERNAME </span><br/>" .
+				"Please check your username and password and make sure your account is activated.";
 
 			// Clear the current session cookie
 			setcookie("SESSION_ID", "NULL", null, "/", false, 0);
@@ -55,7 +62,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Sakai Requirements Voting - login</title>
+<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
 <link href="./requirements_vote.css" rel="stylesheet" type="text/css">
 
 <script>
@@ -90,6 +97,11 @@ include 'header.php'; ?>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" name="login" value="Login" tabindex="3"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<a class="pwhelp" href="createaccount.php">Need to create an account?</a>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2">

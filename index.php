@@ -1,5 +1,9 @@
 <?php
-	// check if user is logged in, if not then redirect to login page
+	require_once ("globals.php");
+
+	// Introduction or main page
+	$PAGE_NAME = "Introduction";
+
 	// connect to database
 	require "mysqlconnect.php";
 
@@ -28,7 +32,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Sakai Requirements Voting</title>
+<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
 <link href="./requirements_vote.css" rel="stylesheet" type="text/css">
 
 <script>
@@ -48,9 +52,6 @@ function focus(){document.login.username.focus();}
 		$result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
 		$USER = mysql_fetch_assoc($result);
 	}
-
-	// Set the page name
-	$PAGE_NAME = "Introduction";
 ?>
 
 <? // Include the HEADER -AZ

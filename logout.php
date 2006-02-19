@@ -1,6 +1,11 @@
 <?php
+	require_once ("globals.php");
+
 	// Clear the current session cookie
 	setcookie("SESSION_ID", "NULL", null, "/", false, 0);
+
+	// Handle the login process or display a login page
+	$PAGE_NAME = "Logout";
 
 	// redirect to the main page
 	header('location:index.php');
@@ -9,7 +14,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Sakai Requirements Voting - logout</title>
+<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
 <link href="./requirements_vote.css" rel="stylesheet" type="text/css">
 </head>
 <body>

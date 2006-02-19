@@ -1,5 +1,9 @@
 <?php
-	// check if user is logged in, if not then create a new account for them
+	require_once ("globals.php");
+
+	// Allow user to modify account settings
+	$PAGE_NAME = "My Account";
+
 	// connect to database
 	require "mysqlconnect.php";
 
@@ -29,7 +33,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Sakai Requirements Voting - myaccount</title>
+<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
 <link href="./requirements_vote.css" rel="stylesheet" type="text/css">
 
 <script>
@@ -79,7 +83,7 @@ function focus(){document.filter.searchtext.focus();}
 
 			$passChange = "";
 			if (strlen($PASS1) > 0) {
-				$passChange = " password=PASSWORD('$PASSWORD'), ";
+				$passChange = " password=PASSWORD('$PASS1'), ";
 			}
 
 			$sqledit = "UPDATE users set email='$EMAIL', firstname='$FIRSTNAME', " .
@@ -107,9 +111,6 @@ function focus(){document.filter.searchtext.focus();}
 		if (!strlen($LASTNAME)) { $LASTNAME = $USER["lastname"]; }
 	}
 	mysql_free_result($result);
-
-	// Set the page name
-	$PAGE_NAME = "My Account";
 ?>
 
 <? // Include the HEADER -AZ
