@@ -2,7 +2,7 @@
 
 // Set some system variables
 $SERVER_NAME = "http://localhost/";
-$TOOL_PATH = "trunk/";
+$TOOL_PATH = "voting/";
 
 $TOOL_NAME = "Requirements Voting";
 $HELP_EMAIL = "shardin@umich.edu";
