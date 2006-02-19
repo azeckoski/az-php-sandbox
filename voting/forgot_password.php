@@ -63,7 +63,7 @@ $TOOL_NAME automatic mailer
 This is an automated response, please do not reply!";
 
 		// For testing only -AZ
-		print ("Subject: $subject<br><pre>$message</pre><br>");
+		//print ("Subject: $subject<br><pre>$message</pre><br>");
 
 		mail($email_address, $subject, $message,
 			"From: $HELP_EMAIL\n
