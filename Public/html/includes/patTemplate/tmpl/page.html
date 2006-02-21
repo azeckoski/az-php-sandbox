@@ -1,0 +1,186 @@
+<mos:comment>
+@version $Id: page.html,v 1.10 2005/02/06 18:28:24 eddieajau Exp $
+@package Mambo_4.5.2
+@copyright (C) (C) 2000 - 2005 Miro International Pty Ltd
+@license http://www.gnu.org/copyleft/gpl.html GNU/GPL
+</mos:comment>
+
+<!-- GENERIC PAGE -->
+<mos:tmpl name="page" src="dynamic" autoload="off" parse="on" />
+
+<!-- GENERIC FORM -->
+<mos:tmpl name="form" autoclear="yes">
+	<form action="{FORMACTION}" method="post" name="{FORMNAME}">
+		<mos:tmpl name="body" src="dynamic" autoload="off" parse="on" varscope="form" />
+	</form>
+</mos:tmpl>
+
+<!-- MOSMSG -->
+<mos:tmpl name="mosmsg" type="simplecondition" requiredvars="mosmsg" useglobals="yes">
+	<mos:Translate><div class="message">{MOSMSG}</div></mos:Translate>
+</mos:tmpl>
+
+<!-- A HELP LINK -->
+<mos:tmpl name="help">
+	<a href="#" onclick="window.open('{SITEURL}/help/{FILE}.xml', 'mambo_help_win', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');">
+		<mos:Translate>Help</mos:Translate>
+	</a>
+</mos:tmpl>
+
+<!-- FORM VALIDATION -->
+<mos:tmpl name="js-validate" type="simplecondition" requiredvars="condition, message">
+	if ({CONDITION}) {
+		alert( '<mos:Translate>{MESSAGE}</mos:Translate>' );
+		return false;
+	}
+</mos:tmpl>
+
+<mos:tmpl name="js-cancel" type="simplecondition" requiredvars="TASK">
+	if (pressbutton == '{TASK}') {
+		submitform( pressbutton );
+		return;
+	}
+</mos:tmpl>
+
+<mos:tmpl name="js-refresh-frame">
+	<script language="javascript" type="text/javascript">
+	if (window.location != parent.{FRAME}.location) {
+		parent.{FRAME}.location=parent.{FRAME}.location;
+	}
+	</script>
+</mos:tmpl>
+
+<!-- TOOLBARS -->
+<mos:tmpl name="toolbar-button-site">
+		<a class="toolbar" href="javascript:void submitbutton('{EVENT}');" onmouseout="MM_swapImgRestore();"  onmouseover="MM_swapImage('{EVENT}','','{SITEURL}/{IMAGE_OFF}',1);">
+			<img src="{SITEURL}/{IMAGE_ON}" alt="{ALT}" align="{ALIGN}" name="{EVENT}" border="0" />
+			{ALT}</a>
+</mos:tmpl>
+
+<mos:tmpl name="toolbar-button-admin">
+		<a class="toolbar" href="javascript:void submitbutton('{EVENT}');" onmouseout="MM_swapImgRestore();"  onmouseover="MM_swapImage('{EVENT}','','{ADMINURL}/images/{IMAGE_OFF}',1);">
+			<img src="{ADMINURL}/images/{IMAGE_ON}" alt="{ALT}" align="{ALIGN}" name="{EVENT}" border="0" />
+			{ALT}</a>
+</mos:tmpl>
+
+<mos:tmpl name="toolbar-help">
+		<a class="toolbar" href="#" onclick="window.open('{SITEURL}/help/{REF}.xml', 'mambo_help_win', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');" onmouseout="MM_swapImgRestore();"  onmouseover="MM_swapImage('help','','{ADMINURL}/images/{IMAGE_OFF}',1);">
+			<img src="{ADMINURL}/images/{IMAGE_ON}" alt="{ALT}" align="{ALIGN}" name="help" border="0" />
+			{ALT}</a>
+</mos:tmpl>
+
+<mos:tmpl name="toolbar-help-a">
+		<a class="toolbar" href="#" onclick="window.open('{ADMINURL}/components/{OPTION}/{REF}', 'mambo_help_win', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');" onmouseout="MM_swapImgRestore();"  onmouseover="MM_swapImage('help','','{ADMINURL}/images/{IMAGE_OFF}',1);">
+			<img src="{ADMINURL}/images/{IMAGE_ON}" alt="{ALT}" align="{ALIGN}" name="help" border="0" />
+			{ALT}</a>
+</mos:tmpl>
+
+<!-- TOOL TIPS :: note include must go last -->
+<mos:tmpl name="include-tooltips">
+<script language="JavaScript" type="text/javascript" src="{SITEURL}/includes/js/wz_tooltip.js"></script>
+</mos:tmpl>
+
+<mos:tmpl name="tooltip">
+	<a href="#" onmouseover="{OPTIONS};return escape('<mos:Translate>{TIP}</mos:Translate>')">
+		<mos:Translate>{TEXT}</mos:Translate></a>
+</mos:tmpl>
+<mos:tmpl name="tooltip-i">
+	<a href="#" onmouseover="{OPTIONS};return escape('<mos:Translate>{TIP}</mos:Translate>')">
+		<img src="{SITEURL}/includes/js/ThemeOffice/tooltip.png" border="0" /></a>
+</mos:tmpl>
+
+<!-- DYNAMIC TABS -->
+<mos:tmpl name="includeTabs" useglobals="yes">
+	<link id="luna-tab-style-sheet" type="text/css" rel="stylesheet" href="{SITEURL}/includes/js/tabs/tabpane.css" />
+	<script type="text/javascript" src="{SITEURL}/includes/js/tabs/tabpane.js"></script>
+</mos:tmpl>
+
+<mos:tmpl name="startTabPane" varscope="body">
+	<div class="tab-page" id="{PANEID}">
+	<script type="text/javascript">
+	var tabPane1 = new WebFXTabPane( document.getElementById( '{PANEID}' ), {PANECOOKIES} );
+	</script>
+</mos:tmpl>
+
+<mos:tmpl name="startTab" varscope="body">
+	<div class="tab-page" id="{PANEID}">
+	<h2 class="tab">
+		<mos:Translate>{TABTITLE}</mos:Translate>
+	</h2>
+	<script type="text/javascript">
+	tabPane1.addTabPage( document.getElementById( '{PANEID}' ) );
+	</script>
+</mos:tmpl>
+
+<mos:tmpl name="endTab">
+	</div>
+</mos:tmpl>
+
+<mos:tmpl name="endTabPane">
+	</div>
+</mos:tmpl>
+
+<!-- CALENDAR -->
+<mos:tmpl name="includeCalendar" useglobals="yes">
+	<link rel="stylesheet" type="text/css" media="all" href="{SITEURL}/includes/js/calendar/calendar-mos.css" title="green" />
+	<script type="text/javascript" src="{SITEURL}/includes/js/calendar/calendar.js"></script>
+	<script type="text/javascript" src="{SITEURL}/includes/js/calendar/lang/calendar-en.js"></script>
+	<script type="text/javascript" src="{SITEURL}/includes/js/calendar/calendar-setup.js"></script>
+</mos:tmpl>
+
+<!-- GENERIC LIST -->
+<mos:tmpl name="select-list-options" type="condition" conditionvar="selected">
+	<mos:sub condition="__default">
+		<option value="{VALUE}">{TEXT}</option>
+	</mos:sub>
+	<mos:sub condition="yes">
+		<option value="{VALUE}" selected="yes">{TEXT}</option>
+	</mos:sub>
+</mos:tmpl>
+
+<!-- LIST PAGINATION -->
+<mos:tmpl name="admin-list-footer" varscope="body">
+	<table class="adminlist">
+	<tr>
+		<th colspan="3">
+			{PAGE_LINKS}
+		</th>
+	</tr>
+	<tr>
+		<td nowrap="true" width="48%" align="right">
+			<mos:Translate>Display #</mos:Translate>
+		</td>
+		<td>
+			<select name="limit" size="1" class="inputbox" onchange="document.adminForm.submit();">
+				{PAGE_LIMIT_OPTIONS}
+			</select>
+		</td>
+		<td nowrap="true" width="48%" align="left">
+			{PAGE_COUNTER}
+		</td>
+	</tr>
+	</table>
+</mos:tmpl>
+
+
+<!-- SELECT LISTS -->
+<mos:tmpl name="yes-no-radio" type="condition" conditionvar="value">
+	<mos:sub condition="__default">
+		<input type="radio" name="{NAME}" class="{CLASS}" />
+		<mos:Translate>No</mos:Translate>
+		<input type="radio" name="{NAME}" class="{CLASS}" />
+		<mos:Translate>Yes</mos:Translate>
+	</mos:sub>
+	<mos:sub condition="0">
+		<input type="radio" name="{NAME}" class="{CLASS}" checked="yes" />
+		<mos:Translate>No</mos:Translate>
+		<input type="radio" name="{NAME}" class="{CLASS}" />
+		<mos:Translate>Yes</mos:Translate>
+	</mos:sub>
+	<mos:sub condition="1">
+		<input type="radio" name="{NAME}" class="{CLASS}" />
+		<mos:Translate>No</mos:Translate>
+		<input type="radio" name="{NAME}" class="{CLASS}" checked="yes" />
+		<mos:Translate>Yes</mos:Translate>
+	</mos:sub>
+</mos:tmpl>

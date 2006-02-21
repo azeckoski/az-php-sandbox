@@ -1,0 +1,89 @@
+                       265850885<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="0.92">
+
+<channel>
+	<title>Comments for Space: DG: Development (DEV) (SAKDEV)</title>
+	<description>The home space for members of the SakaiDev Discussion Group.</description>
+    <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV</link>
+    <language>en</language>
+
+            <item>
+            <title>Comment Added for SAKDEV:Sakai-Dev</title>
+            <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Internationalization?showComments=true#comment-11952</link>
+            <description><![CDATA[
+                <p>See also the localization posting under: <span class="nobr"><a href="http://bugs.sakaiproject.org/confluence/display/ENC/Localization" title="Visit page outside Confluence" rel="nofollow">http://bugs.sakaiproject.org/confluence/display/ENC/Localization<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+            ]]></description>
+        </item>
+            <item>
+            <title>Comment Added for SAKDEV:Sakai-Dev</title>
+            <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Internationalization?showComments=true#comment-11951</link>
+            <description><![CDATA[
+                <p>Instructions for translating localized text in Sakai can be found at: <span class="nobr"><a href="http://collab.sakaiproject.org/access/content/group/1117804916661-111798/README.html" title="Visit page outside Confluence" rel="nofollow">http://collab.sakaiproject.org/access/content/group/1117804916661-111798/README.html<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+            ]]></description>
+        </item>
+            <item>
+            <title>Comment Added for SAKDEV:Sakai-Dev</title>
+            <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Sakai+Setup+Scripts?showComments=true#comment-9325</link>
+            <description><![CDATA[
+                <p>Post 2.0.1, the plugin-version is not necessarily the same as the Sakai version.  The correct version to use will be available as the value of the sakai.plugin.version property in the sakai/master/project.properties file.</p>
+            ]]></description>
+        </item>
+            <item>
+            <title>Comment Added for SAKDEV:Sakai-Dev</title>
+            <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Code?showComments=true#comment-9128</link>
+            <description><![CDATA[
+                <p>The Resource tools makes extensive use of Velocity ... Is this???  the Case for Rls. 2.1 or are you moving towards Jelly JSF .... </p>
+
+<p>Can you directed me to documentation for changing the Resource options (ie. adding item(s)) </p>
+
+<p>Such as the option to display the same named document via a Word Processor and/or PDF... </p>
+
+<p>Thank You </p>
+
+            ]]></description>
+        </item>
+            <item>
+            <title>Comment Added for SAKDEV:Sakai-Dev</title>
+            <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Virginia+Tech+Sakai+Quick+Deployment+Notes?showComments=true#comment-9083</link>
+            <description><![CDATA[
+                <p>What flavor (+version) *nix are you running?</p>
+            ]]></description>
+        </item>
+            <item>
+            <title>Comment Added for SAKDEV:Sakai-Dev</title>
+            <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/UoC+Meeting+Agenda?showComments=true#comment-7765</link>
+            <description><![CDATA[
+                <p>Anyone blogging this meeting? <img class="emoticon" src="/confluence/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0"/></p>
+            ]]></description>
+        </item>
+            <item>
+            <title>Comment Added for SAKDEV:Sakai-Dev</title>
+            <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/UoC+Meeting+Agenda?showComments=true#comment-7749</link>
+            <description><![CDATA[
+                <p>I've promised Anthony to write up a short how-did-it-went text of our Fall term experiment of migrating Sakai from version 1.0 to 2.0 and implementing a synchronization between our Registrar System and Sakais lists of sites.</p>
+
+<p>I'm having some difficulties updating the most fitting page for this information, the Enterprise - Integrate forum, so as consequence I'll submit it here.</p>
+
+<div class="information-block" align='center'><div class='informationMacroPadding'><table cellpadding='5' width='85%' cellspacing='0' class='infoMacro' border='0'><tr><td width='16' valign='top'><img src="/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b class="strong">Update</b><br />
+<p>OK, we actually did much of the specified steps on <a href="/confluence/display/ENTR/Roskilde+University%2C+Denmark" title="Roskilde University, Denmark">this page</a>. The results were mixed and the experience dear (as expected when you feel you pay dearly for it). I have written a document describing <span class="nobr"><a href="https://bscw.ruc.dk/pub/bscw.cgi/d9197146/Integration%20of%20eCampus%20(Sakai)%20at%20Roskilde%20University.pdf" title="Visit page outside Confluence" rel="nofollow">the migration and integration efforts of Sakai at Roskilde University<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p></td></tr></table></div></div>
+            ]]></description>
+        </item>
+            <item>
+            <title>Comment Added for SAKDEV:Sakai-Dev</title>
+            <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/UoC+Meeting+Agenda?showComments=true#comment-7628</link>
+            <description><![CDATA[
+                <p>My proposals for agenda items:</p>
+
+<p>JSF costs and benefits. Skinning. Implications of JSF usage in different scenarios. Alternatives. </p>
+
+<p>Sakai permissions/user model. Directions. Tool integration, local and remote (FlowTalk experiences)</p>
+
+<p>Web services - can .jws do it all? Performance experiences.</p>
+
+<p>Hibernate performance experiences. Will it really scale? Can we get it to work with memcache?</p>
+
+<p>"Request Scope Application Context" (if sufficient interest - a recent Cambridge brew). Can it really work? Is it worth using?</p>
+            ]]></description>
+        </item>
+    </channel>
+</rss>

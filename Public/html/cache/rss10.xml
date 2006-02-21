@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- generator="FeedCreator 1.7.2" -->
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="http://www.sakaiproject.org">
+        <title>Sakai Project News</title>
+        <description>Sakai Project News Syndication</description>
+        <link>http://www.sakaiproject.org</link>
+       <dc:date>2006-01-15T11:17:47+01:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=318&amp;Itemid=312"/>
+                <rdf:li rdf:resource="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=317&amp;Itemid=222"/>
+                <rdf:li rdf:resource="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=314&amp;Itemid=312"/>
+                <rdf:li rdf:resource="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=313&amp;Itemid=258"/>
+                <rdf:li rdf:resource="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=312&amp;Itemid=222"/>
+                <rdf:li rdf:resource="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=311&amp;Itemid=312"/>
+                <rdf:li rdf:resource="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=304&amp;Itemid=312"/>
+                <rdf:li rdf:resource="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=303&amp;Itemid=312"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <item rdf:about="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=318&amp;Itemid=312">
+        <dc:format>text/html</dc:format>
+        <dc:source>http://www.sakaiproject.org</dc:source>
+        <title>Unicon Announces ''Sakai v2.1 Test Drive'' Open Source Learning Environment for Educators</title>
+        <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=318&amp;Itemid=312</link>
+        <description>Colleges and Universities Can Experience the Latest Sakai Tools -- Risk Free
+ PHOENIX--(BUSINESS WIRE)--Dec. 15, 2005--Unicon, Inc., the leading
+independent provider of enterprise portal, collaboration, learning, and
+integration technology for higher education institutions, today
+announced a new, hosted &quot;Sakai Test Drive&quot; program done...</description>
+    </item>
+    <item rdf:about="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=317&amp;Itemid=222">
+        <dc:format>text/html</dc:format>
+        <dc:source>http://www.sakaiproject.org</dc:source>
+        <title>Michigan, Indiana, MIT, Stanford Contribute Sakai Software to the Sakai Foundation, Sakai 2.1 ...</title>
+        <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=317&amp;Itemid=222</link>
+        <description>PRESS RELEASE
+Austin, Texas, USA --  6 December 2005  --
+Michigan, Indiana, MIT, and Stanford Contribute Sakai Software to the
+Sakai Foundation, Sakai 2.1 Released to the Public, 500+ Gather in
+Austin for 7-9 December Conference 
+     
+mmiles@umich.edu...</description>
+    </item>
+    <item rdf:about="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=314&amp;Itemid=312">
+        <dc:format>text/html</dc:format>
+        <dc:source>http://www.sakaiproject.org</dc:source>
+        <title>We Want Posters!</title>
+        <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=314&amp;Itemid=312</link>
+        <description>powerpoint template (/austin/sakai_poster_template.ppt) for you to use.  Create your poster using this template (http://www.sakaiproject.org/austin/sakai_poster_template.ppt), print it out and
+bring it to the conference.  We'll hang these posters all over the
+conference area throughout the conference.  
+</description>
+    </item>
+    <item rdf:about="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=313&amp;Itemid=258">
+        <dc:format>text/html</dc:format>
+        <dc:source>http://www.sakaiproject.org</dc:source>
+        <title>Sakai 2.1.0 released</title>
+        <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=313&amp;Itemid=258</link>
+        <description>The Sakai 2.1.0 release is now available.  This release adds the
+ability to manage sub-sections within course sites, and it has
+redesigned several of the Sakai tools to take advantage of such
+sections.  This sectioning facility represents the first stage of
+employing...</description>
+    </item>
+    <item rdf:about="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=312&amp;Itemid=222">
+        <dc:format>text/html</dc:format>
+        <dc:source>http://www.sakaiproject.org</dc:source>
+        <title>Charles Sturt University commits to the Sakai Foundation</title>
+        <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=312&amp;Itemid=222</link>
+        <description>Thursday 1st December 2005-- Charles Sturt University, Australia’s largest distance education
+provider and a pioneer in online delivery today announced that it will
+join some of the world’s leading universities in committing to the
+support of the community source Sakai Foundation and in...</description>
+    </item>
+    <item rdf:about="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=311&amp;Itemid=312">
+        <dc:format>text/html</dc:format>
+        <dc:source>http://www.sakaiproject.org</dc:source>
+        <title>Sakai Conference begins December 6th - Latest News and Updates</title>
+        <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=311&amp;Itemid=312</link>
+        <description>Updated --  List of Technical Demonstrations  (http://www.sakaiproject.org/index.php?option=com_content task=blogcategory id=162 Itemid=499) planned for Thursday, December 8th
+
+Have you already registered?  Then add your photo to the Sakai
+Austin Facebook (https://sakaiproject.org/austin/facebook). 
+Share your photo and interests and get to know other...</description>
+    </item>
+    <item rdf:about="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=304&amp;Itemid=312">
+        <dc:format>text/html</dc:format>
+        <dc:source>http://www.sakaiproject.org</dc:source>
+        <title>First Sakai Foundation Board Elections Results</title>
+        <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=304&amp;Itemid=312</link>
+        <description>The first Sakai Foundation Board elections have completed.  This
+is another significant step in the development of the Sakai community
+and its Foundation.  As many said, the field of nominees was so
+strong that it was hard to choose among them....</description>
+    </item>
+    <item rdf:about="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=303&amp;Itemid=312">
+        <dc:format>text/html</dc:format>
+        <dc:source>http://www.sakaiproject.org</dc:source>
+        <title>Sakai Foundation Board elections have begun, results are expected to be announced in early December</title>
+        <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=303&amp;Itemid=312</link>
+        <description>Three new Sakai board members will be elected by the
+organizational representatives as specified in the Sakai Foundation
+bylaws. A current list of  organizational representatives has been posted here (http://sakaiproject.org/index.php?option=com_content task=view id=104 Itemid=203#reps) .   The Sakai
+community can view...</description>
+    </item>
+</rdf:RDF>

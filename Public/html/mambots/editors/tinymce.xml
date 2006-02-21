@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<mosinstall version="4.5.2" type="mambot" group="editors">
+    <name>TinyMCE</name>
+    <version>1.26</version>
+    <creationDate>August 2004</creationDate>
+    <author>Moxiecode Systems AB</author>
+    <authorEmail>N/A</authorEmail>
+    <authorUrl>tinymce.moxiecode.com/</authorUrl>
+    <copyright>Moxiecode Systems AB</copyright>
+    <license>LGPL</license>
+    <description>TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor control.</description>
+    <files>
+        <filename>tinymce/docs/license.htm</filename>
+        <filename>tinymce/docs/style.css</filename>
+        <filename>tinymce/jscripts/tiny_mce/blank.htm</filename>
+        <filename>tinymce/jscripts/tiny_mce/langs/uk.js</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/docs/uk/about.htm</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/docs/uk/common_buttons.htm</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/docs/uk/images/insert_image_window.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/docs/uk/images/insert_link_window.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/docs/uk/index.htm</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/docs/uk/insert_image_button.htm</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/docs/uk/insert_link_button.htm</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/docs/uk/style.css</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/editor_content.css</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/editor_popup.css</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/editor_template.js</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/editor_ui.css</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/bold.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/bold_de_se.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/bullist.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/center.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/cleanup.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/code.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/copy.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/cut.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/full.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/help.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/image.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/indent.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/italic.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/italic_de_se.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/left.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/link.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/mosimage.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/mospage.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/numlist.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/outdent.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/paste.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/redo.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/right.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/spacer.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/strikethrough.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/underline.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/undo.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/themes/default/images/unlink.gif</filename>
+        <filename>tinymce/jscripts/tiny_mce/tiny_mce.js</filename>
+        <filename>tinymce/jscripts/tiny_mce/tiny_mce_popup.js</filename>
+        <filename mambot="tinymce">tinymce.php</filename>
+	</files>
+	<params>
+		<param name="theme" type="list" default="default" label="Functionality" description="Select functionality">
+			<option value="default">Basic</option>
+			<option value="advanced">Advanced</option>
+		</param>
+ 		<param name="@spacer" type="spacer" default="" label="" description="" />
+ 		<param name="text_direction" type="list" default="ltr" label="Text Direction" description="Ability to change text direction">
+ 			<option value="ltr">Left to Right</option>
+ 			<option value="rtl">Right to Left</option>
+ 		</param>
+ 		<param name="invalid_elements" type="text" default="script,object,applet,iframe" label="Prohibited Elements" description="Elements that will be cleaned from the text"/>
+ 		<param name="content_css" type="list" default="1" label="Template CSS classes" description="Load CSS classes from template_css.css">
+ 			<option value="0">No</option>
+ 			<option value="1">Yes</option>
+ 		</param>
+ 		<param name="content_css_custom" type="text" default="" label="Custom CSS Classes" description="You can specify the loading of a custom CSS file - simply enter the FULL path to the css file you want loaded"/>
+  		<param name="newlines" type="list" default="false" label="Newlines" description="Newlines will be made into the selected option">
+ 			<option value="true">BR Elements</option>
+ 			<option value="false">P Elements</option>
+ 		</param>
+ 		<param name="@spacer" type="spacer" default="" label="" description="" />
+ 		<param name="toolbar" type="list" default="top" label="Toolbar" description="Position of the toolbar">
+ 			<option value="top">Top</option>
+ 			<option value="bottom">Bottom</option>
+ 		</param>
+ 		<param name="html_height" type="text" default="550" label="Popup Height" description="Height of HTML mode pop-up window - only in Advanced Mode"/>
+ 		<param name="html_width" type="text" default="750" label="Popup Width" description="Width of HTML mode pop-up window - only in Advanced Mode"/>
+ 	</params>
+</mosinstall>

@@ -1,0 +1,28 @@
+User-agent: * 
+Disallow: /administrator/
+Disallow: /cache/
+Disallow: /components/
+Disallow: /editor/
+Disallow: /help/
+Disallow: /images/
+Disallow: /includes/
+Disallow: /language/
+Disallow: /mambots/
+Disallow: /media/
+Disallow: /modules/
+Disallow: /templates/
+Disallow: /installation/
+Disallow: /cgi-data/
+Disallow: /dev/
+Disallow: /secure/
+Disallow: /phpIncludes/
+Disallow: /requirements/
+Disallow: /style/
+Disallow: /vancouver/
+Disallow: /graphics/
+Disallow: /conf/
+Disallow: /austin/
+Disallow: /photos/
+Disallow: /sakaiLogo_files/
+
+ 

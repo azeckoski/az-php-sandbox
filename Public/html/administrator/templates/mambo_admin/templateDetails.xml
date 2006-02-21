@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template" version="4.5.2" client="administrator">
+	<name>Mambo Admin</name>
+	<creationDate>07/27/04</creationDate>
+	<author>Robert Castley</author>
+	<copyright>GNU/GPL</copyright>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>http://www.mamboserver.com</authorUrl>
+	<version>4.5.2</version>
+	<description></description>
+	<files>
+		<filename>index.php</filename>
+		<filename>css/template_css.css</filename>
+	</files>
+</mosinstall>

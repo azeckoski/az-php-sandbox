@@ -1,0 +1,15 @@
+AuthUserFile /afs/umich.edu/user/s/h/shardin/Public/html/.sepp/dev 
+AuthGroupFile /dev/null
+AuthName sakaiStageEnvironment 
+AuthType Basic
+
+<Limit GET>
+require user sakaisan 
+require user jkoich
+require user jleasia
+require user mmiles
+require user shardin
+require user mwagner
+require user mara
+require user adam
+</Limit>

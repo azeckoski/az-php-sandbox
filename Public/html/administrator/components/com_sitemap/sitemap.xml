@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<mosinstall type="component">
+  <name>SiteMap</name>
+  <creationDate>2003-11-20</creationDate>
+  <author>Alex Kempkens</author>
+  <copyright>Think Network GmbH, Munich</copyright>
+  <authorEmail>Alex.Kempkens@ThinkNetwork.com</authorEmail>
+  <authorUrl>http://www.ThinkNetwork.com</authorUrl>
+  <version>1.2</version>
+  <description>The component creates a nice site map based on the menu structure.</description>
+  <files>
+    <filename>sitemap.html.php</filename>
+    <filename>sitemap.php</filename>
+    <filename>language/dutch.php</filename>
+    <filename>language/english.php</filename>
+    <filename>language/germanf.php</filename>
+    <filename>language/germani.php</filename>
+    <filename>language/italian.php</filename>
+  </files>
+  <images>
+    <filename>images/lock.png</filename>
+    <filename>images/sitemap.png</filename>
+  </images>
+  <install>
+  </install>
+  <uninstall>
+  </uninstall>
+  <administration>
+    <menu>SiteMap</menu>
+    <submenu>
+      <menu act="config">Configuration</menu>
+      <menu act="help">Help</menu>
+      <menu act="about">About</menu>
+    </submenu>
+    <files>
+      <filename>admin.sitemap.class.php</filename>
+      <filename>admin.sitemap.html.php</filename>
+      <filename>admin.sitemap.php</filename>
+      <filename>config.sitemap.php</filename>
+      <filename>toolbar.sitemap.html.php</filename>
+      <filename>toolbar.sitemap.php</filename>
+    </files>
+</administration>
+</mosinstall>
