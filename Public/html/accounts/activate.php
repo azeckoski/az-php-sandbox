@@ -16,9 +16,14 @@
 	$sql_doublecheck = mysql_query("SELECT * FROM users WHERE pk='$ID' AND activated='1'");
 	$doublecheck = mysql_num_rows($sql_doublecheck);
 
-	if($doublecheck == 1 && ($CODE == $ACTIVATION_PASSCODE)){
+	// check to see if the activation code corresponds to a valid user
+    $sql_activationcheck = mysql_query("SELECT username from users where pk='$ID'");
+    $activationRow = mysql_fetch_array($sql_activationcheck);
+    $myActivationCode = base64_encode($activationRow[0]);
+    
+	if($doublecheck == 1 && ($CODE == $myActivationCode)){
 		$Message = "<strong>Your account has been activated!</strong><br/>" .
-			"Please <a href='login.php'>login</a> to continue.";
+			"Please <a href='login.php'>log in</a> to continue.";
 	} else {
 		$Message = "<span class='error'>Your account could not be activated!</span><br/>" .
 			"Please contact an administrator at $HELP_EMAIL.";
