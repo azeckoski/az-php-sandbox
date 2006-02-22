@@ -10,6 +10,9 @@
 	// Clear the current session cookie
 	setcookie("SESSION_ID", "NULL", null, "/", false, 0);
 
+	// Pass along the referrer
+	$REF = $_REQUEST["ref"]; // This is the refering page
+
 	// reset message
 	$Message = "";
 
@@ -44,10 +47,9 @@
 			$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
 
 			// redirect after login -AZ
-			$REFERRER = $_REQUEST["referrer"]; // This is the referring page
-			//print "referrer = $REFERRER<br/>";
-			if ($REFERRER) {
-				header('location:$REFERRER');
+			//print "ref = $REF<br/>";
+			if ($REF) {
+				header('location:'.$REF);
 			} else {
 				header('location:index.php');
 			}
@@ -90,6 +92,9 @@ include 'header.php'; ?>
 <td width="10%" valign="top" height="100">
 	<div class="login">
 	<form action="login.php" method="post" name="login" style="margin:0px;">
+<?php if($REF) { ?>
+	<input type="hidden" name="ref" value="<?= $REF ?>">
+<?php } ?>
 	<div class="loginheader">Voting Form Login</div>
 	<table border="0" class="padded">
 		<tr>

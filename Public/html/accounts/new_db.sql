@@ -20,5 +20,6 @@ CREATE TABLE sessions (
     users_pk    	int(10) NOT NULL DEFAULT '0',
     passkey     	varchar(100) NOT NULL,
     date_created	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(pk)
+    PRIMARY KEY(pk),
+    FOREIGN KEY (users_pk) REFERENCES users(pk)
 );
