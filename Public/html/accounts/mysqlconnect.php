@@ -9,10 +9,18 @@ $dbpass = "mujoIII";
 **/
 
 // localhost settings
+/**/
 $dbhost = "localhost";
-$dbname = "sakaivote";
-$dbuser = "voter";
-$dbpass = "3l3ct1on";
+$dbname = "sakaiweb";
+$dbuser = "sakaiwww";
+$dbpass = "5aka1w3b";
+/**/
+
+// Creating the mySQL database
+// create database sakaiweb;
+// grant all privileges on sakaiweb.* to 'sakaiwww'@'localhost' identified by '5aka1w3b';
+// grant all privileges on sakaiweb.* to 'sakaiwww'@'%' identified by '5aka1w3b';
+// flush privileges;
 
 // connect to the DB
 $db = mysql_connect("$dbhost", "$dbuser", "$dbpass");
