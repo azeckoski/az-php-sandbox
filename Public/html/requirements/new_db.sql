@@ -12,6 +12,8 @@ CREATE TABLE requirements_data (
     PRIMARY KEY(pk)
 );
 
+// Import a JIRA export saved as a CSV file
+//mysqlimport -c jirakey,summary,component,description,audience --fields-optionally-enclosed-by=""" --fields-terminated-by=, --lines-terminated-by="\r\n" --local -usakaiwww -p sakaiweb requirements_data.csv
 
 CREATE TABLE requirements_vote ( 
     pk	         	int(10) AUTO_INCREMENT NOT NULL,
