@@ -99,59 +99,56 @@ function focus(){document.account.username.focus();}
 			$username_check = mysql_num_rows($sql_username_check);
 
 			if(($email_check > 0) || ($username_check > 0)){
-			    $Message .= "<span class='error'>Please fix the following errors:<br />";
+			    $displayMessage .= "<div class='error'>Please fix the following errors:\n<blockquote>";
 			    if($email_check > 0){
-			        $Message .= "This email address is already in use. Please submit a different Email address!<br />";
+			        $displayMessage .= "This email address is already in use. Please submit a different Email address!<br />";
 			        unset($EMAIL);
 			    }
 			    if($username_check > 0){
-			        $Message .= "The username you have selected is already taken. Please choose a different Username!<br />";
+			        $displayMessage .= "The username you have selected is already taken. Please choose a different Username!<br />";
 			        unset($USERNAME);
 			    }
-			    $Message .= "</span>";
+			    $displayMessage .= "</blockquote></div>";
 			    $errors++;
 			}
 		}
 
 		if ($errors == 0) {
-
 			// write the new values to the DB
 			$sqledit = "INSERT INTO users (username,password,firstname,lastname,email) values " .
 				"('$USERNAME',PASSWORD('$PASS1'),'$FIRSTNAME','$LASTNAME','$EMAIL')";
 
 			$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());
 			$user_pk = mysql_insert_id();
-			$Message = "<b>New user account created</b><br/>" .
+
+            // generate a unique identifier based on the user_pk
+            $myActivationCode = base64_encode($USERNAME);
+
+			$displayMessage = "<b>New user account created</b><br/>" .
 				"An email has been sent to $EMAIL.<br/>" .
 				"Use the link in the email to activate your account.<br/>";
 			$created = 1;
 
 			// send an email to the new user with a confirmation URL
 			$subject = "$TOOL_NAME account";
-			$message = "Dear $FIRSTNAME $LASTNAME,
-Thank you for registering at our website, $SERVER_NAME
-
-You are two steps away from logging in and accessing the $TOOL_NAME system.
-
-To activate your membership, please click here:\n" .
-$SERVER_NAME.$TOOL_PATH."activate.php?id=$user_pk&code=$ACTIVATION_PASSCODE
-
-Once you activate your membership, you will be able to login with the following
-information:
-Username: $USERNAME
-Password: (not shown)
-
-Thanks!
-$TOOL_NAME Account Creation System
-
-This is an automated response, please do not reply!";
+			$message = "Dear $FIRSTNAME $LASTNAME,\n" .
+					"Thank you for registering at our website, $SERVER_NAME.\n\n" .
+					"You are two steps away from logging in and accessing the $TOOL_NAME system.\n\n" .
+					"To activate your membership, please click here:\n\n" .
+					"$SERVER_NAME$TOOL_PATH/activate.php?id=$user_pk&code=$myActivationCode\n\n" .
+					"Once you activate your membership, you will be able to log in with the following\n" .
+					"information:\n\n" .
+					"Username: $USERNAME\n" .
+					"Password: (not shown)\n\n" .
+					"Thanks!\n" .
+					"$TOOL_NAME Account Creation System\n\n" .
+					"==\nThis is an automated response, please do not reply!";
 
 			// For testing only -AZ
 			//print ("Subject: $subject<br><pre>$message</pre><br>");
-
+            ini_set(SMTP, $MAIL_SERVER);
 			mail($EMAIL, $subject, $message,
-				"From: $HELP_EMAIL\n
-				X-Mailer: PHP/" . phpversion());
+				"From: $HELP_EMAIL\r\nX-Mailer: PHP/" . phpversion());
 		}
 	}
 
@@ -160,11 +157,11 @@ This is an automated response, please do not reply!";
 <? // Include the HEADER -AZ
 include 'header.php'; ?>
 
-<?= $Message ?>
+<?= $displayMessage ?>
 
 <?php if (!$created) { ?>
 
-	<i style="font-size:9pt;">All fields are required</i><br/>
+	<span style="font-style:italic;font-size:9pt;">All fields are required</span><br/>
 	<form action="createaccount.php" method="post" name="account" style="margin:0px;">
 	<input type="hidden" name="saving" value="1">
 	<table border="0" class="padded">
