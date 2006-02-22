@@ -7,5 +7,6 @@ $ACCOUNTS_PAGE = "myaccount.php";
 $LOGIN_PAGE = "login.php";
 $LOGOUT_PAGE = "logout.php";
 $HELP_EMAIL = "shardin@umich.edu";
+$MAIL_SERVER = "mail.vt.edu";
 
 ?>
