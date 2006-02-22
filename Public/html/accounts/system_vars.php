@@ -9,4 +9,5 @@ $LOGOUT_PAGE = "logout.php";
 $HELP_EMAIL = "shardin@umich.edu";
 $MAIL_SERVER = "mail.vt.edu";
 
+
 ?>

@@ -159,7 +159,11 @@ include 'header.php'; ?>
 
 <?= $displayMessage ?>
 
-<?php if (!$created) { ?>
+<?php if (!$created) { 
+	
+	$institutionDropdownText = generate_partner_dropdown();
+	?>
+	
 
 	<span style="font-style:italic;font-size:9pt;">All fields are required</span><br/>
 	<form action="createaccount.php" method="post" name="account" style="margin:0px;">
@@ -188,6 +192,10 @@ include 'header.php'; ?>
 		<tr>
 			<td class="account"><b>Email:</b></td>
 			<td><input type="text" name="email" tabindex="6" value="<?= $EMAIL ?>" size="50" maxlength="50"></td>
+		</tr>
+		<tr>
+			<td class="account"><b>Institution:</b></td>
+			<td><?= $institutionDropdownText?></td>
 		</tr>
 		<tr>
 			<td colspan="2">
