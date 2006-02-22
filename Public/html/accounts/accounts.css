@@ -29,6 +29,19 @@ a:hover {
  font-weight:bold;
 }
 
+div.error {
+ padding: .25em;
+ background-color: #ffcccc;
+ border: solid 1px #cc0000;
+}
+
+.error blockquote {
+  margin-left:1em;
+  margin-top:.25em;
+  margin-bottom:.25em;
+  margin-right: 1em;
+}
+
 .login {
  font-family: Arial, Helvetica, sans-serif;
  font-size: 10pt;
