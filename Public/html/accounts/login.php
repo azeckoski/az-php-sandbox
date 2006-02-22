@@ -44,7 +44,8 @@
 			$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
 
 			// redirect after login -AZ
-			$REFERRER = stripslashes($_POST["referrer"]); // This is the referring page
+			$REFERRER = $_REQUEST["referrer"]; // This is the referring page
+			//print "referrer = $REFERRER<br/>";
 			if ($REFERRER) {
 				header('location:$REFERRER');
 			} else {
@@ -59,7 +60,6 @@
 			// Clear the current session cookie
 			setcookie("SESSION_ID", "NULL", null, "/", false, 0);
 		}
-		mysql_free_result($result);
 	}
 
 ?>
