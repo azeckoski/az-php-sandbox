@@ -8,24 +8,25 @@
 	<table width="100%" border="0">
 	<tr>
 	<td width="90%" valign="top">
-	  	<span style="font-size:1.3em;font-weight:bold;">Sakai&nbsp;Requirements&nbsp;Voting</span>
+	  	<span style="font-size:1.3em;font-weight:bold;"><?= $SYSTEM_NAME ?> <?= $TOOL_NAME ?></span>
 <?php if (isset($PAGE_NAME)) { ?>
 	  	<span style="font-size:1.1em;font-weight:bold;"> - <?= $PAGE_NAME ?></span>
 <?php } ?>
 	<br/>
-	<a style="font-size:.8em;" href="index.php">Intro Page</a> -
+	<a style="font-size:.8em;" href="index.php">Main Page</a> -
 	<a style="font-size:.8em;" href="vote.php">Voting Form</a> -
-  	<a style="font-size:.8em;" href="results.php">View Results</a>
+	<a style="font-size:.8em;" href="results.php">View Results</a>
+  	<?= $EXTRA_LINKS ?>
 	</td>
 	<td width="10%" align="right" valign="top">
 <?php if ($USER_PK > 0) { ?>
 	<span style="font-size:.9em;">
   	Welcome,&nbsp;<?= $USER["firstname"] ?>&nbsp;<?= $USER["lastname"] ?>
   	</span><br/>
-  	<a style="font-size:.8em;" href="myaccount.php">My Account</a><br/>
-  	<a style="font-size:.8em;" href="logout.php">Logout</a><br/>
+  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
+  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $LOGOUT_PAGE ?>">Logout</a><br/>
 <?php } else { ?>
-  	<a style="font-size:.8em;" href="login.php">Login</a>
+  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $LOGIN_PAGE ?>">Login</a>
 <?php } ?>
 	</td>
 	</tr>
