@@ -13,14 +13,12 @@ CREATE TABLE requirements_data (
 );
 
 
-
-CREATE TABLE requirement_vote ( 
+CREATE TABLE requirements_vote ( 
     pk	         	int(10) AUTO_INCREMENT NOT NULL,
-    summary     	text NOT NULL,
-    rank        	varchar(30) NOT NULL,
-    contribute  	varchar(6) NOT NULL,
-    resource    	text NOT NULL,
-    name        	varchar(100) NOT NULL,
-    organization	varchar(200) NOT NULL,
-    PRIMARY KEY(pk)
+    users_pk		int(10) NOT NULL,
+    req_data_pk		int(10) NOT NULL,
+    vote		int(2) NOT NULL,
+    PRIMARY KEY(pk),
+    FOREIGN KEY (users_pk) REFERENCES users(pk),
+    FOREIGN KEY (req_data_pk) REFERENCES requirements_data(pk)
 );
