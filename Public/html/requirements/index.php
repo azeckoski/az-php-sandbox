@@ -59,7 +59,7 @@ resourcing requirements for the next release of Sakai, targeted for
 July 2006.<br/>
 <br/>
 <h4>Step 1:</h4>
-The open call for requirements closed on <b>February 8</b>. 
+The open call for requirements closed on <b>February 8</b>.
 To review and/or add requirements, please visit:<br/>
 <a href="http://bugs.sakaiproject.org/jira/secure/CreateIssue!default.jspa">
 http://bugs.sakaiproject.org/jira/secure/CreateIssue!default.jspa</a><br/>
@@ -77,9 +77,9 @@ You will be able to review (using various filters) the poll results
 by visiting <a href="results.php">View Results</a>.<br/>
 <br/>
 <h4>Step 3:</h4>
-The expectation is that Sakai participants will follow their 
-established local processes for achieving consensus on requirements 
-prioritization and considering the resources they are able to commit 
+The expectation is that Sakai participants will follow their
+established local processes for achieving consensus on requirements
+prioritization and considering the resources they are able to commit
 to items they consider of the highest priority.
 <a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=104&Itemid=203#reps">
 Institutional representatives</a> will submit a
@@ -91,7 +91,8 @@ The results will be reviewed and aligned with available resources or
 working groups. The Sakai Project Coordinator will work with the members of the Sakai
 community to identify needed resources. To track the progress of
 requirements under active development for the next Sakai release, visit
-the <a href="http://sakaiproject.org/">online project summary</a>. If you have questions about a
+the <a href="http://bugs.sakaiproject.org/confluence/display/MGT">online project summary</a>.
+If you have questions about a
 particular requirement or would like to volunteer resources to work on a
 requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">Peter Knoop</a>.<br/>
 </div>
