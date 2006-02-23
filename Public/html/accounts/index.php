@@ -59,16 +59,24 @@ include 'header.php'; ?>
 
 
 <div class="info">
-This page will allow you to create an account to access the following tools:<br/>
+<?php if($USER_PK) { ?>
+You may access the following tools:<br/>
+<?php } else { ?>
+This page allows you to create an account to access the following tools:<br/>
+<?php } ?>
 <a href="/requirements">Requirements Voting</a><br/>
 <br/>
+<?php if($USER_PK) { ?>
+You can <a href="<?= $ACCOUNTS_PAGE ?>">manage your account settings</a> and change your password if you would like.<br/>
+<br/>
+<?php } else { ?>
 You should <a href="createaccount.php">create an account</a> first if you do not have one.<br/>
 <br/>
 You can <a href="<?= $LOGIN_PAGE ?>">login</a> if you already have an account.<br/>
 <br/>
-You can <a href="<?= $ACCOUNTS_PAGE ?>">manage your account settings</a> and change your password if you would like.<br/>
-<br/>
 You can even <a href="forgot_password.php">reset your password</a> if you forgot it.<br/>
+<br/>
+<?php } ?>
 
 </div>
 

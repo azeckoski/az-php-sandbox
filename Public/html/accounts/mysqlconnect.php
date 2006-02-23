@@ -1,7 +1,7 @@
 <?php
 
 // Sakai server settings
-/**/
+/**
 $dbhost = "bengali.web.itd.umich.edu";
 $dbname = "sakai_stage";
 $dbuser = "sakai";
@@ -9,7 +9,7 @@ $dbpass = "mujoIII";
 /**/
 
 // localhost settings
-/**
+/**/
 $dbhost = "localhost";
 $dbname = "sakaiweb";
 $dbuser = "sakaiwww";
