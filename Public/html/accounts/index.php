@@ -35,14 +35,8 @@
 <title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
 <link href="./accounts.css" rel="stylesheet" type="text/css">
 
-<script>
-<!--
-function focus(){document.login.username.focus();}
-// -->
-</script>
-
 </head>
-<body onLoad="focus();">
+<body>
 
 <?php
 	$USER = "";
