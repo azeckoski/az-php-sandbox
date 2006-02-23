@@ -1,4 +1,12 @@
 <?xml version="1.0"?>
+<!--
+
+jira2sql.xsl:  A simple XSL stylesheet to convert JIRA's XML data into a series of SQL insert statement.  
+
+Written 02/23/2006 by Anthony Atkins (anthony.atkins@vt.edu) for use with the requirements voting process.
+
+-->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  version="1.0">
 <xsl:output method="text" disable-output-escaping="yes"/>
 
