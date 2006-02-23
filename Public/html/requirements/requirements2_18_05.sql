@@ -46,7 +46,7 @@ INSERT INTO `requirement_vote` VALUES ('REQ-54', 'In tools like Discussion, Anno
 DROP TABLE IF EXISTS `requirements_data`;
 CREATE TABLE IF NOT EXISTS `requirements_data` (
   `key` varchar(10) NOT NULL default '',
-  `reporter` varchar(200) NOT NULL default '',`
+  `reporter` varchar(200) NOT NULL default '',
   `summary` text NOT NULL,
   `description` text NOT NULL,
   `audience` varchar(100) NOT NULL default '',
