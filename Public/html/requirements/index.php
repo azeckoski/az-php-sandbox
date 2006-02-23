@@ -35,14 +35,8 @@
 <title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
 <link href="./requirements_vote.css" rel="stylesheet" type="text/css">
 
-<script>
-<!--
-function focus(){document.login.username.focus();}
-// -->
-</script>
-
 </head>
-<body onLoad="focus();">
+<body>
 
 <?php
 	$USER = "";
@@ -62,41 +56,44 @@ include 'header.php'; ?>
 The REQ Workgroup is coordinating a three-step process by which the
 Sakai community can participate in defining, prioritizing and
 resourcing requirements for the next release of Sakai, targeted for
-June 2006.<br/>
+July 2006.<br/>
 <br/>
 <h4>Step 1:</h4>
-An open call for requirements is in progress and closes on
-<b>February 8</b>.  To review and add requirements, please visit:<br/>
+The open call for requirements closed on <b>February 8</b>. 
+To review and/or add requirements, please visit:<br/>
 <a href="http://bugs.sakaiproject.org/jira/secure/CreateIssue!default.jspa">
 http://bugs.sakaiproject.org/jira/secure/CreateIssue!default.jspa</a><br/>
 <br/>
 <h4>Step 2:</h4>
-Volunteers working with the REQ-WG will do an initial
+Volunteers working with the REQ-WG are doing an initial
 analysis of the requirements in order to cluster them, look for
 overlaps, etc. The final list of clustered requirements will be
-available for a community poll starting February 24th. The poll will
+available for a community poll starting <b>February 24th</b>. The poll will
 close at <b>midnight (EST) on March 5</b>.<br/>
 <br/>
 You will be able to submit your individual response to the poll using the <a href="vote.php">Voting form</a>.<br/>
 <br/>
 You will be able to review (using various filters) the poll results
-to date by visiting <a href="results.php">View Results</a>.<br/>
+by visiting <a href="results.php">View Results</a>.<br/>
 <br/>
 <h4>Step 3:</h4>
-The expectation is that the Sakai participants at each
-institution will follow their established campus processes for coming
-to consensus on their institutional priorities and consider resources
-they are able to commit to items of highest priority to their
-institution. Reps (hot link or pointer to rep list) will submit a
+The expectation is that Sakai participants will follow their 
+established local processes for achieving consensus on requirements 
+prioritization and considering the resources they are able to commit 
+to items they consider of the highest priority.
+<a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=104&Itemid=203#reps">
+Institutional representatives</a> will submit a
 formal vote on the requirements for their institution. The voting
 period will open <b>March 6</b> and close on <b>March 13 at midnight(EST)</b>.
 The results of the vote will be available by <b>TBD-date</b> at <a href=""><b>TBD</b></a>.<br/>
 <br/>
 The results will be reviewed and aligned with available resources or
-working groups. The final commitments for the Sakai 2.2 release will
-be negotiated by Sakai Foundation staff and community resources.
-Information about the release features and commitment of resources
-will be available by <b>TBD-date</b> at <a href=""><b>TBD</b></a>.<br/>
+working groups. The Sakai Project Coordinator will work with the members of the Sakai
+community to identify needed resources. To track the progress of
+requirements under active development for the next Sakai release, visit
+the <a href="http://sakaiproject.org/">online project summary</a>. If you have questions about a
+particular requirement or would like to volunteer resources to work on a
+requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">Peter Knoop</a>.<br/>
 </div>
 
 
