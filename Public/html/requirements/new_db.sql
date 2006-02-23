@@ -4,11 +4,9 @@ CREATE TABLE requirements_data (
     jirakey             varchar(10) NOT NULL UNIQUE,
     summary      	text NOT NULL,
     description  	text NOT NULL,
-    audience     	varchar(100) NOT NULL,
     component    	varchar(100) NOT NULL,
-    toolname     	varchar(100),
-    need         	varchar(100),
-    timeframe    	varchar(100),
+    audience     	varchar(100) NOT NULL,
+    round		int(4) NOT NULL default 1,
     PRIMARY KEY(pk)
 );
 
@@ -20,7 +18,16 @@ CREATE TABLE requirements_vote (
     users_pk		int(10) NOT NULL,
     req_data_pk		int(10) NOT NULL,
     vote		int(2) NOT NULL,
+    round		int(4) NOT NULL default 1,
     PRIMARY KEY(pk),
     FOREIGN KEY (users_pk) REFERENCES users(pk),
     FOREIGN KEY (req_data_pk) REFERENCES requirements_data(pk)
 );
+
+/**** to get old tables to line up with new structure
+alter table requirements_data drop column toolname;
+alter table requirements_data drop column need;
+alter table requirements_data drop column timeframe;
+alter table requirements_data add round int(4) NOT NULL default 1;
+alter table requirements_vote add round int(4) NOT NULL default 1;
+*****/

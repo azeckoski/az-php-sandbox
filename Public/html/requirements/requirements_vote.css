@@ -98,8 +98,12 @@ a:hover {
  background: #F8F8EC;
 }
 
-.desc {
+.summary {
  font-size:.9em;
+}
+
+.description {
+ font-size:.8em;
 }
 
 /* tag adjustment */
