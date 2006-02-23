@@ -54,6 +54,7 @@ function focus(){document.account.username.focus();}
 	$FIRSTNAME = stripslashes($_POST["firstname"]);
 	$LASTNAME = stripslashes($_POST["lastname"]);
 	$EMAIL = stripslashes($_POST["email"]);
+	$INSTITUTION_PK = stripslashes($_POST["institution_pk"]);
 
 	$Message = "<a href='login.php'>Login if you already have an account</a><br/>";
 	$Message .= "If you need to create an account, enter your information below.<br/>";
@@ -115,8 +116,8 @@ function focus(){document.account.username.focus();}
 
 		if ($errors == 0) {
 			// write the new values to the DB
-			$sqledit = "INSERT INTO users (username,password,firstname,lastname,email) values " .
-				"('$USERNAME',PASSWORD('$PASS1'),'$FIRSTNAME','$LASTNAME','$EMAIL')";
+			$sqledit = "INSERT INTO users (username,password,firstname,lastname,email,institution_pk) values " .
+				"('$USERNAME',PASSWORD('$PASS1'),'$FIRSTNAME','$LASTNAME','$EMAIL','$INSTITUTION_PK')";
 
 			$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());
 			$user_pk = mysql_insert_id();
@@ -195,7 +196,11 @@ include 'header.php'; ?>
 		</tr>
 		<tr>
 			<td class="account"><b>Institution:</b></td>
-			<td><?= $institutionDropdownText?></td>
+			<td>
+			<select name="institution_pk" tabindex="7">
+			<?= $institutionDropdownText?>
+			</select>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2">

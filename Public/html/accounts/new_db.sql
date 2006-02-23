@@ -9,6 +9,7 @@ CREATE TABLE users (
     access      	varchar(100) NULL,
     date_created	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     activated   	enum('0','1') NOT NULL DEFAULT '0',
+    institution_pk  int(10) null,
     PRIMARY KEY(pk)
 )
 
@@ -36,6 +37,7 @@ create table institution (
     foreign key (rep_pk) references users(pk)
   );
   
+insert into institution (name, pk) values ('Unknown', 0);
 insert into institution (name) values ('Albany Medical College');
 insert into institution (name) values ('Arizona State University');
 insert into institution (name) values ('Australian National University');

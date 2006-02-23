@@ -53,14 +53,15 @@ function focus(){document.filter.searchtext.focus();}
 	$PASS2 = $_POST["password2"];
 	$FIRSTNAME = $_POST["firstname"];
 	$LASTNAME = $_POST["lastname"];
+	$INSTITUTION_PK = $_POST["institution_pk"];
 
-	$Message = "Edit the information below to adjust your account.<br/>";
+	$Message = "";
 
 	// this matters when the form is submitted
 	if ($SAVE) {
 		// Check for form completeness
 		$errors = 0;
-		if (!strlen($EMAIL)) {
+		if (!strlen($EMAIL)) {			
 			$Message .= "<span class='error'>Error: Email cannot be blank</span><br/>";
 			$errors++;
 		}
@@ -78,17 +79,27 @@ function focus(){document.filter.searchtext.focus();}
 			$errors++;
 		}
 
+		$sql_email_check = mysql_query("SELECT email FROM users WHERE email='$EMAIL' and pk != '$USER_PK'");
+		$email_check = mysql_num_rows($sql_email_check);
+		if ($email_check > 0) {
+			$Message .= "<span class='error'>Error: The new email address you have chosen ($EMAIL) is already in use.</span><br/>";
+			$errors++;
+		}
+
 		if ($errors == 0) {
 			// write the new values to the DB
-
+			$Message = "Edit the information below to adjust your account.<br/>";
 			$passChange = "";
 			if (strlen($PASS1) > 0) {
 				$passChange = " password=PASSWORD('$PASS1'), ";
 			}
 
-			$sqledit = "UPDATE users set email='$EMAIL', firstname='$FIRSTNAME', " .
-				$passChange . "lastname='$LASTNAME' where pk='$USER_PK'";
-
+			$sqledit = 
+					"UPDATE users set email='$EMAIL', " .
+					"firstname='$FIRSTNAME', " . $passChange . 
+					"lastname='$LASTNAME', institution_pk='$INSTITUTION_PK' " .
+					"where pk='$USER_PK'";
+					
 			$result = mysql_query($sqledit) or die('Update query failed: ' . mysql_error());
 			$Message = "<b>Updated user information</b><br/>";
 
@@ -96,6 +107,10 @@ function focus(){document.filter.searchtext.focus();}
 			$EMAIL = "";
 			$FIRSTNAME = "";
 			$LASTNAME = "";
+			$INSTITUTION_PK = "";
+		}
+		else {
+		$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";	
 		}
 	}
 
@@ -109,12 +124,19 @@ function focus(){document.filter.searchtext.focus();}
 		if (!strlen($EMAIL)) { $EMAIL = $USER["email"]; }
 		if (!strlen($FIRSTNAME)) { $FIRSTNAME = $USER["firstname"]; }
 		if (!strlen($LASTNAME)) { $LASTNAME = $USER["lastname"]; }
+		if (!strlen($INSTITUTION_PK)) { $INSTITUTION_PK = $USER["institution_pk"]; }
 	}
 	mysql_free_result($result);
 ?>
 
-<? // Include the HEADER -AZ
-include 'header.php'; ?>
+<? 
+// Include the HEADER -AZ
+include 'header.php'; 
+
+// generate the institution drop down based on the information returned
+$institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
+
+?>
 
 <?= $Message ?>
 
@@ -147,9 +169,16 @@ include 'header.php'; ?>
 		<td><input type="text" name="email" tabindex="6" value="<?= $EMAIL ?>" size="50" maxlength="50"></td>
 	</tr>
 	<tr>
+		<td class="account"><b>Institution:</b></td>
+		<td>
+		  <select name="institution_pk" tabindex="7">
+			<?= $institutionDropdownText?>
+		  </select>
+		</td>
+	</tr>
+	<tr>
 		<td colspan="2">
-			<input type="submit" name="account" value="Save information" tabindex="6">
-			<input type="button" value="Back" onClick="javascript:history.go(-1);return false;" tabindex="7">
+			<input type="submit" name="account" value="Save information" tabindex="8">			
 		</td>
 	</tr>
 </table>
