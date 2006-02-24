@@ -38,7 +38,7 @@
 
 <script>
 <!--
-function focus(){document.filter.searchtext.focus();}
+function focus(){document.account.firstname.focus();}
 // -->
 </script>
 
@@ -61,7 +61,7 @@ function focus(){document.filter.searchtext.focus();}
 	if ($SAVE) {
 		// Check for form completeness
 		$errors = 0;
-		if (!strlen($EMAIL)) {			
+		if (!strlen($EMAIL)) {
 			$Message .= "<span class='error'>Error: Email cannot be blank</span><br/>";
 			$errors++;
 		}
@@ -94,12 +94,12 @@ function focus(){document.filter.searchtext.focus();}
 				$passChange = " password=PASSWORD('$PASS1'), ";
 			}
 
-			$sqledit = 
+			$sqledit =
 					"UPDATE users set email='$EMAIL', " .
-					"firstname='$FIRSTNAME', " . $passChange . 
+					"firstname='$FIRSTNAME', " . $passChange .
 					"lastname='$LASTNAME', institution_pk='$INSTITUTION_PK' " .
 					"where pk='$USER_PK'";
-					
+
 			$result = mysql_query($sqledit) or die('Update query failed: ' . mysql_error());
 			$Message = "<b>Updated user information</b><br/>";
 
@@ -110,7 +110,7 @@ function focus(){document.filter.searchtext.focus();}
 			$INSTITUTION_PK = "";
 		}
 		else {
-		$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";	
+		$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";
 		}
 	}
 
@@ -129,9 +129,9 @@ function focus(){document.filter.searchtext.focus();}
 	mysql_free_result($result);
 ?>
 
-<? 
+<?
 // Include the HEADER -AZ
-include 'header.php'; 
+include 'header.php';
 
 // generate the institution drop down based on the information returned
 $institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
@@ -178,7 +178,7 @@ $institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="submit" name="account" value="Save information" tabindex="8">			
+			<input type="submit" name="account" value="Save information" tabindex="8">
 		</td>
 	</tr>
 </table>
