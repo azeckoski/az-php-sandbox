@@ -81,7 +81,7 @@ The expectation is that Sakai participants will follow their
 established local processes for achieving consensus on requirements
 prioritization and considering the resources they are able to commit
 to items they consider of the highest priority.
-<a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=104&Itemid=203#reps">
+<a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=104&Itemid=203#reps" target="_REPS">
 Institutional representatives</a> will submit a
 formal vote on the requirements for their institution. The voting
 period will open <b>March 6</b> and close on <b>March 13 at midnight(EST)</b>.
@@ -91,7 +91,7 @@ The results will be reviewed and aligned with available resources or
 working groups. The Sakai Project Coordinator will work with the members of the Sakai
 community to identify needed resources. To track the progress of
 requirements under active development for the next Sakai release, visit
-the <a href="http://bugs.sakaiproject.org/confluence/display/MGT">online project summary</a>.
+the <a href="http://bugs.sakaiproject.org/confluence/display/MGT" target="_OPS">online project summary</a>.
 If you have questions about a
 particular requirement or would like to volunteer resources to work on a
 requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">Peter Knoop</a>.<br/>
