@@ -51,7 +51,9 @@
 <? // Include the HEADER -AZ
 include 'header.php'; ?>
 
-
+<table border=0 cellpadding=0 cellspacing=3 width="100%">
+<tr>
+<td valign="top" width="80%">
 <div class="info">
 The REQ Workgroup is coordinating a three-step process by which the
 Sakai community can participate in defining, prioritizing and
@@ -96,6 +98,56 @@ If you have questions about a
 particular requirement or would like to volunteer resources to work on a
 requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">Peter Knoop</a>.<br/>
 </div>
+</td>
+<td valign="top" width="20%">
+	<div class="right">
+	<div class="rightheader"><?= $TOOL_NAME ?> information</div>
+	<div class="padded">
+
+	<b>Voting Round:</b> <?= $ROUND ?><br/>
+	<b>Open voting begins:</b><br/>
+	<?= date($ROUND_DATE_FORMAT,strtotime($ROUND_OPEN_DATE)) ?><br/>
+	<b>Rep voting begins:</b><br/>
+	<?= date($ROUND_DATE_FORMAT,strtotime($ROUND_SWITCH_DATE)) ?><br/>
+	<b>Voting closes:</b><br/>
+	<?= date($ROUND_DATE_FORMAT,strtotime($ROUND_CLOSE_DATE)) ?><br/>
+	<br/>
+
+<?php
+	// fetch helpful information about this tool
+	$data_sql = "select count(*) from requirements_data where round='$ROUND'";
+	$result = mysql_query($data_sql) or warn('Query failed: ' . mysql_error());
+	$req_round_data = mysql_fetch_row($result);
+	mysql_free_result($result);
+
+	$vote_sql = "select count(*) from requirements_vote where round='$ROUND'";
+	$result = mysql_query($vote_sql) or warn('Query failed: ' . mysql_error());
+	$req_round_votes = mysql_fetch_row($result);
+	mysql_free_result($result);
+
+	$vote_types = "select count(pk) from requirements_vote where round='$ROUND' " .
+		"group by vote order by vote desc";
+	$result = mysql_query($vote_types) or warn('Query failed: ' . mysql_error());
+	$critical_votes = mysql_fetch_row($result);
+	$essential_votes = mysql_fetch_row($result);
+	$desirable_votes = mysql_fetch_row($result);
+	$na_votes = mysql_fetch_row($result);
+	mysql_free_result($result);
+?>
+
+	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
+	<b>Requirements:</b> <?= $req_round_data[0] ?><br/>
+	<b>Total votes:</b> <?= $req_round_votes[0] ?><br/>
+	- <b>Critical:</b> <?= $critical_votes[0] ?><br/>
+	- <b>Essential:</b> <?= $essential_votes[0] ?><br/>
+	- <b>Desirable:</b> <?= $desirable_votes[0] ?><br/>
+	- <b>Not Applicable:</b> <?= $na_votes[0] ?><br/>
+
+	</div>
+	</div>
+</td>
+</tr>
+</table>
 
 
 <div class="help">

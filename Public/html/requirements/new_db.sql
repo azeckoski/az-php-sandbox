@@ -8,8 +8,7 @@ CREATE TABLE requirements_data (
     audience     	varchar(100) NOT NULL,
     round           int(4) NOT NULL default 1,
     PRIMARY KEY(pk)
-)
-go
+);
 
 // Import a JIRA export saved as a CSV file
 //mysqlimport -c jirakey,summary,component,description,audience --fields-optionally-enclosed-by=""" --fields-terminated-by=, --lines-terminated-by="\r\n" --local -usakaiwww -p sakaiweb requirements_data.csv
@@ -27,7 +26,7 @@ CREATE TABLE requirements_vote (
     PRIMARY KEY(pk),
     FOREIGN KEY (users_pk) REFERENCES users(pk),
     FOREIGN KEY (req_data_pk) REFERENCES requirements_data(pk)
-)
+);
 
 /**** to get old tables to line up with new structure (use if needed)
 alter table requirements_data drop column toolname
