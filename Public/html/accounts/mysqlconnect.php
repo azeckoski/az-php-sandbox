@@ -1,20 +1,24 @@
 <?php
 
-// Sakai server settings
-/**
-$dbhost = "bengali.web.itd.umich.edu";
-$dbname = "sakai_stage";
-$dbuser = "sakai";
-$dbpass = "mujoIII";
-/**/
+// mySQL server settings
 
-// localhost settings
-/**/
-$dbhost = "localhost";
-$dbname = "sakaiweb";
-$dbuser = "sakaiwww";
-$dbpass = "5aka1w3b";
-/**/
+if ($ENVIRONMENT == "dev") {
+	// localhost settings
+	$dbhost = "localhost";
+	$dbname = "sakaiweb";
+	$dbuser = "sakaiwww";
+	$dbpass = "5aka1w3b";
+} elseif ($ENVIRONMENT == "preprod") {
+	$dbhost = "bengali.web.itd.umich.edu";
+	$dbname = "sakai_stage";
+	$dbuser = "sakai";
+	$dbpass = "mujoIII";
+} elseif ($ENVIRONMENT == "prod") {
+	$dbhost = "bengali.web.itd.umich.edu";
+	$dbname = "sakai";
+	$dbuser = "sakai";
+	$dbpass = "mujoIII";
+}
 
 // Creating the mySQL database
 // create database sakaiweb;
