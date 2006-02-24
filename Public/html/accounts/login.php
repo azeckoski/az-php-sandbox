@@ -129,13 +129,7 @@ include 'header.php'; ?>
 	<table border="0" class="padded">
 	<tr>
 	<td>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris purus.
-	Donec malesuada felis. In sollicitudin condimentum nisl. Cum sociis natoque
-	penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer
-	nec odio. Etiam scelerisque. Donec nec leo. Curabitur sit amet nunc non
-	purus molestie fermentum. Donec fermentum, dolor ac gravida ullamcorper,
-	nulla orci varius magna, eget accumsan lacus leo sed orci. Integer et libero.
-	Nulla facilisi. Nulla facilisi.
+	This space is planned to be used later to add help information as needed.
 
 	</td>
 	</tr>

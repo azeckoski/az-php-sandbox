@@ -51,6 +51,9 @@
 <? // Include the HEADER -AZ
 include 'header.php'; ?>
 
+<table border=0 cellpadding=0 cellspacing=3 width="100%">
+<tr>
+<td valign="top" width="80%">
 
 <div class="info">
 <?php if($USER_PK) { ?>
@@ -73,7 +76,22 @@ You can even <a href="forgot_password.php">reset your password</a> if you forgot
 <?php } ?>
 
 </div>
+</td>
+<td valign="top" width="20%">
+	<div class="right">
+	<div class="rightheader"><?= $TOOL_NAME ?> information</div>
+	<div class="padded">
 
+	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
+	<b>Accounts:</b> <?= get_table_rows("users") ?><br/>
+	<b>Partners:</b> <?= get_table_rows("institution")-2 ?><br/>
+	<br/>
+
+	</div>
+	</div>
+</td>
+</tr>
+</table>
 
 <div class="help">
 	<b>Help:</b>

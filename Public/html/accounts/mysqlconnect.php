@@ -22,6 +22,14 @@ $dbpass = "5aka1w3b";
 // grant all privileges on sakaiweb.* to 'sakaiwww'@'%' identified by '5aka1w3b';
 // flush privileges;
 
+// System SQL functions
+function get_table_rows ($table) {
+       $temp = mysql_query("SELECT SQL_CALC_FOUND_ROWS * FROM $table LIMIT 1");
+       $result = mysql_query("SELECT FOUND_ROWS()");
+       $total = mysql_fetch_row($result);
+       return $total[0];
+}
+
 // connect to the DB
 $db = mysql_connect("$dbhost", "$dbuser", "$dbpass");
 if (!$db) {
