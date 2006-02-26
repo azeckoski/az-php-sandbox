@@ -1,29 +1,59 @@
 <?
 	require_once ("tool_vars.php");
 
-	// This is the account activation script
-	$PAGE_NAME = "Activate Account";
+	// This is the forgot password or username script
+	$PAGE_NAME = "Forgot Password";
 
 	// connect to database
 	require "mysqlconnect.php";
 
+	// get the passkey from the cookie if it exists
+	$PASSKEY = $_COOKIE["SESSION_ID"];
+
+	// check the passkey
+	$USER_PK = 0;
+	$USER = array();
+	if (isset($PASSKEY)) {
+		$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
+		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
+		$count = mysql_num_rows($result);
+		$row = mysql_fetch_assoc($result);
+
+		if( empty($result) || ($count < 1)) {
+			// no valid key exists, user not authenticated
+			$USER_PK = 0;
+		} else {
+			// authenticated user
+			$USER_PK = $row["users_pk"];
+			$authsql = "SELECT * FROM users WHERE pk = '$USER_PK'";
+			$result = mysql_query($authsql) or die('User query failed: ' . mysql_error());
+			$USER = mysql_fetch_assoc($result);
+		}
+		mysql_free_result($result);
+	}
+		
 	// get POST var
 	$EMAIL = stripslashes($_POST['email']);
 
 	$errors = 0;
-	$Message = "Please enter your email address and a new password will be emailed to you.<br/>";
+	$Message = "Please enter your email address and your username and a new password will be emailed to you.<br/>";
     if (!$EMAIL) {
         $errors++;
     }
 
     // quick check to see if email exists
+    $USERNAME = "UNKNOWN";
 	if ($errors == 0) {
-		$sql_check = mysql_query("SELECT * FROM users WHERE email='$EMAIL'")
+		$sql_check = mysql_query("SELECT username FROM users WHERE email='$EMAIL'")
 			or die('User email check failed: ' . mysql_error());
 		$sql_check_num = mysql_num_rows($sql_check);
 		if ($sql_check_num == 0) {
 			$Message = "<span class='error'>That email address does not exist in the system.</span><br />";
 			$errors++;
+		} else {
+			// put username in variable
+			$row = mysql_fetch_row($sql_check);
+			$USERNAME = $row[0];
 		}
 	}
 
@@ -50,6 +80,7 @@
 		$subject = "$TOOL_NAME password reset";
 		$message = "Hi, we have reset your password.
 
+Username: $USERNAME
 New Password: $random_password
 
 Login using the URL below:\n".
@@ -62,17 +93,17 @@ $TOOL_NAME automatic mailer
 
 This is an automated response, please do not reply!";
 
-		// For testing only -AZ
-		//print ("Subject: $subject<br><pre>$message</pre><br>");
-
 		mail($email_address, $subject, $message,
 			"From: $HELP_EMAIL\n
 			X-Mailer: PHP/" . phpversion());
 
-		$Message = "Your new password has been sent to $EMAIL! Please check your email!<br />" .
+		$Message = "Your username and new password has been sent to $EMAIL! Please check your email!<br />" .
 			"You can change your password in My Account after you login.<br/>";
-	}
 
+		// For testing only -AZ
+		//$Message .= "<br/>Subject: $subject<br><pre>$message</pre><br>";
+
+	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
