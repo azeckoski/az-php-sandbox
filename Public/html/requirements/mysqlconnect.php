@@ -1,4 +1,10 @@
 <?php
+/*
+ * Created on Febrary 18, 2006 by @author aaronz
+ * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
+ */
+?>
+<?php
 
 // Comment this out if the server is different from the one for accounts
 require_once ("$ACCOUNTS_PATH/mysqlconnect.php");

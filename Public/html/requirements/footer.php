@@ -1,3 +1,9 @@
+<?php
+/*
+ * Created on Febrary 18, 2006 by @author aaronz
+ * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
+ */
+?>
 <div style="border:solid gray 1px;padding:.2em;text-align:center;margin-top:6px;">
 <a href="http://sakaiproject.org/">Sakai Project</a> (<a href="http://sakaiproject.org/">http://sakaiproject.org/</a>) --
 <?= $TOOL_NAME ?> --
