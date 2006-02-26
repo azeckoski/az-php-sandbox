@@ -1,6 +1,6 @@
 <?php
 /*
- * Created on Febrary 18, 2006 by @author aaronz
+ * Created on Febrary 20, 2006 by @author aaronz
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
@@ -24,9 +24,14 @@ $ROUND = 1;
 $ROUND_DATE_FORMAT = "l, F dS, Y h:i A";
 // dates below in format: YYYY/MM/DD HH24:MI
 //$ROUND_OPEN_DATE = "2006/01/01 1:00"; // FOR TESTING
+/*** TESTING DATES **/
+$ROUND_OPEN_DATE = "2005/02/27 11:00";
+$ROUND_SWITCH_DATE = "2005/03/06 1:00";
+$ROUND_CLOSE_DATE = "2005/03/14 1:00";
+/***/
+/*** OFFICIAL DATES
 $ROUND_OPEN_DATE = "2006/02/27 11:00";
 $ROUND_SWITCH_DATE = "2006/03/06 1:00";
 $ROUND_CLOSE_DATE = "2006/03/14 1:00";
-$ROUND_REVIEW_DATE = "2006/03/14 8:00";
-
+***/
 ?>
