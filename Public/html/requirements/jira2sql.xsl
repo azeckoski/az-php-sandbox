@@ -46,13 +46,26 @@ Written 02/23/2006 by Anthony Atkins (anthony.atkins@vt.edu) for use with the re
   <xsl:value-of select="$field_enclosure_character"/>
   <xsl:value-of select="$field_separation_character"/>
 
+  <xsl:value-of select="$field_enclosure_character"/>
   <xsl:apply-templates select="component"/>
+  <xsl:value-of select="$field_enclosure_character"/>
 
   <xsl:text>);</xsl:text>
   <xsl:value-of select="$carriage_return"/>
 </xsl:template>
 
 <xsl:template match="customfieldvalue">
+  <xsl:if test="position() &gt; 1">
+    <xsl:value-of select="$subfield_separation_character"/>
+  </xsl:if>
+  <xsl:call-template name="fix_quotes">
+    <xsl:with-param name="input">
+      <xsl:value-of select="."/>
+    </xsl:with-param>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="component">
   <xsl:if test="position() &gt; 1">
     <xsl:value-of select="$subfield_separation_character"/>
   </xsl:if>
