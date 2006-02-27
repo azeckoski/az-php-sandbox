@@ -61,7 +61,7 @@ You may access the following tools:<br/>
 <?php } else { ?>
 This page allows you to create an account to access the following tools:<br/>
 <?php } ?>
-<a href="/requirements">Requirements Voting</a><br/>
+<a href="/requirements/">Requirements Voting</a><br/>
 <br/>
 <?php if($USER_PK) { ?>
 You can <a href="<?= $ACCOUNTS_PAGE ?>">manage your account settings</a> and change your password if you would like.<br/>
