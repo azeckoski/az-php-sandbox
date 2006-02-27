@@ -155,13 +155,14 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 </tr>
 </table>
 
-
+<?php if (!$USER_PK) { ?>
 <div class="help">
 	<b>Help:</b>
 	<a class="pwhelp" href="<?= $ACCOUNTS_PATH ?>createaccount.php">I need to create an account</a> -
 	<a class="pwhelp" href="<?= $ACCOUNTS_PATH ?>login.php">I need to login</a> -
 	<a class="pwhelp" href="<?= $ACCOUNTS_PATH ?>forgot_password.php">I forgot my password</a>
 </div>
+<?php } ?>
 
 <? // Include the FOOTER -AZ
 include 'footer.php'; ?>
