@@ -71,7 +71,9 @@ Written 02/23/2006 by Anthony Atkins (anthony.atkins@vt.edu) for use with the re
   </xsl:if>
   <xsl:call-template name="fix_quotes">
     <xsl:with-param name="input">
-      <xsl:value-of select="."/>
+  	<xsl:call-template name="Trim">
+	   <xsl:with-param name="strInput" select="."/>
+  	</xsl:call-template>
     </xsl:with-param>
   </xsl:call-template>
 </xsl:template>
@@ -105,6 +107,66 @@ Written 02/23/2006 by Anthony Atkins (anthony.atkins@vt.edu) for use with the re
       <xsl:value-of select="$input"/>
     </xsl:otherwise>
   </xsl:choose>
+</xsl:template>
+
+<!-- trim whitespace -->
+<xsl:template name="Trim">
+	<!--This template will recursively trim the trailing spaces from a string-->
+   	<xsl:param name="strInput" select="''"/>
+	<!-- Call the template that will trim off Left spaces (recursively, of course ) -->
+	<xsl:variable name="InputL">
+		<xsl:call-template name="TrimL" >
+			<xsl:with-param name="strInput" select="$strInput"/>
+		</xsl:call-template>
+	</xsl:variable>
+
+	<!-- Call the template that will trim off right spaces (recursively, of course ) -->
+	<xsl:variable name="InputR">
+		<xsl:call-template name="TrimR" >
+			<xsl:with-param name="strInput" select="$InputL"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<xsl:value-of select="$InputR" />
+</xsl:template>
+
+<xsl:template name="TrimL">
+	<!--This template will recursively trim the trailing spaces from a string-->
+   	<xsl:param name="strInput" select="''"/>
+	<xsl:variable name="strLen" select="string-length($strInput)" />
+	<xsl:variable name="strOutput" select="substring($strInput, 2, $strLen - 1 )" />
+	<xsl:variable name="strFirstChar" select="substring($strInput, 1, 1 )" />
+
+	<xsl:choose> 
+	   <xsl:when test="$strFirstChar = ' '">	
+		<!-- At this point, the template will recursively call itself until it is trimmed -->
+		<xsl:call-template name="TrimL" > 
+			<xsl:with-param name="strInput" select="$strOutput"/>
+		</xsl:call-template>
+	   </xsl:when>
+	   <xsl:otherwise>
+		<xsl:value-of select="$strInput" />
+	  </xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+<xsl:template name="TrimR">
+	<!--This template will recursively trim the trailing spaces from a string-->
+   	<xsl:param name="strInput" select="''"/>
+	<xsl:variable name="strLen" select="string-length($strInput)" />
+	<xsl:variable name="strOutput" select="substring($strInput, 1, $strLen - 1 )" />
+	<xsl:variable name="strLastChar" select="substring($strInput, $strLen, 1 )" />
+
+	<xsl:choose> 
+	   <xsl:when test="$strLastChar = ' '">	
+		<!-- At this point, the template will recursively call itself until it is trimmed -->
+		<xsl:call-template name="TrimR" > 
+			<xsl:with-param name="strInput" select="$strOutput"/>
+		</xsl:call-template>
+	   </xsl:when>
+	   <xsl:otherwise>
+		<xsl:value-of select="$strInput" />
+	   </xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>

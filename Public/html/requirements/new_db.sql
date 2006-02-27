@@ -4,8 +4,8 @@ CREATE TABLE requirements_data (
     jiranum         int(5) NOT NULL default 0,
     summary      	text NOT NULL,
     description  	text NOT NULL,
-    component    	varchar(100) NOT NULL,
-    audience     	varchar(100) NOT NULL,
+    component    	varchar(255) NOT NULL,
+    audience     	varchar(255) NOT NULL,
     round           int(4) NOT NULL default 1,
     PRIMARY KEY(pk)
 );
