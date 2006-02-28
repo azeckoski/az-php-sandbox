@@ -76,7 +76,7 @@ http://bugs.sakaiproject.org/jira/secure/CreateIssue!default.jspa</a><br/>
 Volunteers working with the REQ-WG are doing an initial
 analysis of the requirements in order to cluster them, look for
 overlaps, etc. The final list of clustered requirements will be
-available for a community poll starting <b>February 24th</b>. The poll will
+available for a community poll starting <b>February 27th</b>. The poll will
 close at <b>midnight (EST) on March 5</b>.<br/>
 <br/>
 You will be able to submit your individual response to the poll using the <a href="vote.php">Voting form</a>.<br/>
