@@ -139,10 +139,16 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 	$desirable_votes = mysql_fetch_row($result);
 	$na_votes = mysql_fetch_row($result);
 	mysql_free_result($result);
+
+	$vote_users_sql = "select count(distinct(users_pk)) from requirements_vote where round='$ROUND'";
+	$result = mysql_query($vote_users_sql) or warn('Query failed: ' . mysql_error());
+	$req_round_users = mysql_fetch_row($result);
+	mysql_free_result($result);
 ?>
 
 	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
 	<b>Requirements:</b> <?= $req_round_data[0] ?><br/>
+	<b>Total users:</b> <?= $req_round_users[0] ?><br/>	
 	<b>Total votes:</b> <?= $req_round_votes[0] ?><br/>
 	- <b>Critical:</b> <?= $critical_votes[0] ?><br/>
 	- <b>Essential:</b> <?= $essential_votes[0] ?><br/>
