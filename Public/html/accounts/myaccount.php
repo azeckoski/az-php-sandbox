@@ -15,19 +15,25 @@
 	if (isset($PASSKEY)) {
 		$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
 		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
-		$count = mysql_num_rows($result);
 		$row = mysql_fetch_assoc($result);
 
-		if( empty($result) || ($count < 1)) {
+		if( !$result ) {
 			// no valid key exists, user not authenticated
-			header('location:login.php');
-			exit;
+			$USER_PK = -1;
 		} else {
 			// authenticated user
 			$USER_PK = $row["users_pk"];
 		}
 		mysql_free_result($result);
 	}
+
+	if( $USER_PK <= 0 ) {
+		// no user_pk, user not authenticated
+		// redirect to the login page
+		header('location:'.$ACCOUNTS_PATH.'login.php?ref='.$_SERVER['PHP_SELF']);
+		exit;
+	}
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -79,6 +85,13 @@ function focus(){document.account.firstname.focus();}
 			$errors++;
 		}
 
+		// verify that the email address is valid
+		if(!eregi('^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$', $EMAIL)) {
+			$Message .= "<span class='error'>Error: You have entered an invalid email address!</span><br/>";
+			$errors++;
+	        unset($EMAIL);
+		}
+
 		$sql_email_check = mysql_query("SELECT email FROM users WHERE email='$EMAIL' and pk != '$USER_PK'");
 		$email_check = mysql_num_rows($sql_email_check);
 		if ($email_check > 0) {
@@ -108,9 +121,8 @@ function focus(){document.account.firstname.focus();}
 			$FIRSTNAME = "";
 			$LASTNAME = "";
 			$INSTITUTION_PK = "";
-		}
-		else {
-		$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";
+		} else {
+			$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";
 		}
 	}
 
@@ -141,7 +153,7 @@ $institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
 <?= $Message ?>
 
 <i style="font-size:9pt;">All fields are required</i><br/>
-<form action="myaccount.php" method="post" name="account" style="margin:0px;">
+<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post" name="account" style="margin:0px;">
 <input type="hidden" name="saving" value="1">
 <table border="0" class="padded">
 	<tr>

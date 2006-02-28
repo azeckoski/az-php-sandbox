@@ -63,6 +63,7 @@ function focus(){document.account.username.focus();}
 	$created = 0;
 	if ($SAVE) {
 		// Check for form completeness
+		$Message = "";
 		$errors = 0;
 		if (!strlen($USERNAME)) {
 			$Message .= "<span class='error'>Error: Username cannot be blank</span><br/>";
@@ -84,10 +85,23 @@ function focus(){document.account.username.focus();}
 			$Message .= "<span class='error'>Error: Password cannot be blank</span><br/>";
 			$errors++;
 		}
+		if (!strlen($INSTITUTION_PK)) {
+			$Message .= "<span class='error'>Error: Institution must be selected</span><br/>";
+			$errors++;
+		}
 
 		if ((strlen($PASS1) > 0 || strlen($PASS2) > 0) && ($PASS1 != $PASS2)) {
 			$Message .= "<span class='error'>Error: Passwords do not match</span><br/>";
 			$errors++;
+		}
+
+		if ($errors == 0) {
+			// verify that the email address is valid
+			if(!eregi('^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$', $EMAIL)) {
+				$Message .= "<span class='error'>Error: You have entered an invalid email address!</span><br/>";
+				$errors++;
+		        unset($EMAIL);
+			}
 		}
 
 		if ($errors == 0) {
@@ -100,16 +114,16 @@ function focus(){document.account.username.focus();}
 			$username_check = mysql_num_rows($sql_username_check);
 
 			if(($email_check > 0) || ($username_check > 0)){
-			    $displayMessage .= "<div class='error'>Please fix the following errors:\n<blockquote>";
+			    $Message .= "<div class='error'>Please fix the following errors:\n<blockquote>";
 			    if($email_check > 0){
-			        $displayMessage .= "This email address is already in use. Please submit a different Email address!<br />";
+			        $Message .= "This email address is already in use. Please submit a different Email address!<br />";
 			        unset($EMAIL);
 			    }
 			    if($username_check > 0){
-			        $displayMessage .= "The username you have selected is already taken. Please choose a different Username!<br />";
+			        $Message .= "The username you have selected is already taken. Please choose a different Username!<br />";
 			        unset($USERNAME);
 			    }
-			    $displayMessage .= "</blockquote></div>";
+			    $Message .= "</blockquote></div>";
 			    $errors++;
 			}
 		}
@@ -125,14 +139,14 @@ function focus(){document.account.username.focus();}
             // generate a unique identifier based on the user_pk
             $myActivationCode = base64_encode($USERNAME);
 
-			$displayMessage = "<b>New user account created</b><br/>" .
+			$Message = "<b>New user account created</b><br/>" .
 				"An email has been sent to $EMAIL.<br/>" .
 				"Use the link in the email to activate your account.<br/>";
 			$created = 1;
 
 			// send an email to the new user with a confirmation URL
 			$subject = "$TOOL_NAME account";
-			$message = "Dear $FIRSTNAME $LASTNAME,\n" .
+			$mail_message = "Dear $FIRSTNAME $LASTNAME,\n" .
 					"Thank you for registering at our website, $SERVER_NAME.\n\n" .
 					"You are two steps away from logging in and accessing the $TOOL_NAME system.\n\n" .
 					"To activate your membership, please click here:\n\n" .
@@ -148,7 +162,7 @@ function focus(){document.account.username.focus();}
 			// For testing only -AZ
 			//print ("Subject: $subject<br><pre>$message</pre><br>");
             ini_set(SMTP, $MAIL_SERVER);
-			mail($EMAIL, $subject, $message,
+			mail($EMAIL, $subject, $mail_message,
 				"From: $HELP_EMAIL\r\nX-Mailer: PHP/" . phpversion());
 		}
 	}
@@ -158,11 +172,11 @@ function focus(){document.account.username.focus();}
 <? // Include the HEADER -AZ
 include 'header.php'; ?>
 
-<?= $displayMessage ?>
+<?= $Message ?>
 
 <?php if (!$created) {
 
-	$institutionDropdownText = generate_partner_dropdown();
+	$institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
 	?>
 
 
