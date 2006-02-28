@@ -86,7 +86,7 @@ function focus(){document.account.firstname.focus();}
 		}
 
 		// verify that the email address is valid
-		if(!eregi(' ^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$', $EMAIL)) {
+		if(!eregi('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$', $EMAIL)) {
 			$Message .= "<span class='error'>Error: You have entered an invalid email address!</span><br/>";
 			$errors++;
 	        unset($EMAIL);
