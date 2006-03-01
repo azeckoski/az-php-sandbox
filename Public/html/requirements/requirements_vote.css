@@ -129,6 +129,29 @@ a:hover {
  text-align:right;
 }
 
+.filterarea {
+ font-size:10pt;
+ background:#ECECEC;
+ border:1px solid #ccc;
+ padding:3px;
+ margin-bottom:10px;
+}
+
+.myvote {
+ background: #000099;
+ color:white;
+}
+
+.avgvote {
+ background: #990000;
+ color:white;
+}
+
+.matchvote {
+ background: #660066;
+ color:white;
+}
+
 /* tag adjustment */
 h4 {
  font-family: Arial, Helvetica, sans-serif;
