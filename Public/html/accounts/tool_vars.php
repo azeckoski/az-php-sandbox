@@ -10,24 +10,4 @@ require ("$ACCOUNTS_PATH/system_vars.php");
 $TOOL_PATH = "/accounts";
 $TOOL_NAME = "Account Management";
 
-function generate_partner_dropdown($institution="") {
-	global $SAKAI_PARTNERS;
-	$output = "";
-
-	if (!isset($institution)) { $institution = $_POST['institution']; }
-	if (!isset($institution)) { $institution = $_GET['institution']; }
-
-	$output .= "<option value=''> --Select Your Organization--</option>";
-
-    $institution_select_statement = "select PK, NAME from institution";
-    $result = mysql_query($institution_select_statement);
-    while ($instRow = mysql_fetch_array($result)) {
-	    if (isset($instRow['PK']) && ($institution == $instRow['PK'])) { $selected="selected=\"Y\""; }
-	    else { $selected=""; }
-		$output .= "<option value=\"" . $instRow['PK'] . "\"$selected>" . $instRow['NAME'] . "</option>\n";
-	}
- 
- 
- 	return $output;
-}
 ?>

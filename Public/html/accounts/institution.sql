@@ -1,4 +1,3 @@
-insert into institution (name, pk) values ('Unknown', 0);
 insert into institution (name) values ('Albany Medical College');
 insert into institution (name) values ('Arizona State University');
 insert into institution (name) values ('Australian National University');

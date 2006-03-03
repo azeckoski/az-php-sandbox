@@ -184,6 +184,7 @@ $institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
 		<td class="account"><b>Institution:</b></td>
 		<td>
 		  <select name="institution_pk" tabindex="7">
+		  	<option value=''> --Select Your Organization-- </option>
 			<?= $institutionDropdownText?>
 		  </select>
 		</td>

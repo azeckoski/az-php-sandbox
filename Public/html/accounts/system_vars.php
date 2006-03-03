@@ -43,5 +43,26 @@ else {
   die("Don't how how to operate in the environment entitled &quot;$ENVIRONMENT&quot;.'");	
 }
 
+// GLOBAL functions
+function generate_partner_dropdown($institution="", $short=0) {
+	global $SAKAI_PARTNERS;
+	$output = "";
+
+    $institution_select_statement = "select PK, NAME from institution";
+    $result = mysql_query($institution_select_statement);
+    while ($instRow = mysql_fetch_array($result)) {
+    		$selected="";
+	    if ( $institution == $instRow['PK'] ) { 
+	    		$selected=" selected='Y'";
+	    	}
+	    $instName = $instRow['NAME'];
+	    if ($short && (strlen($instName) > 38) ) {
+			$instName = substr($instName,0,35) . "...";
+	    	}
+		$output .= "<option title=\"".$instRow['NAME']."\" value=\"" . $instRow['PK'] . "\"$selected>" . $instName . "</option>\n";
+	}
+ 
+ 	return $output;
+}
 
 ?>

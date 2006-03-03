@@ -212,7 +212,8 @@ include 'header.php'; ?>
 			<td class="account"><b>Institution:</b></td>
 			<td>
 			<select name="institution_pk" tabindex="7">
-			<?= $institutionDropdownText?>
+				<option value=''> --Select Your Organization--</option>
+				<?= $institutionDropdownText?>
 			</select>
 			</td>
 		</tr>
