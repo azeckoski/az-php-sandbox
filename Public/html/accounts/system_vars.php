@@ -6,7 +6,7 @@
 // You should change the environment variable to correspond to the environment you're using.
 
 // supported options are "dev", "preprod", and "prod"
-$ENVIRONMENT = "dev";
+$ENVIRONMENT = "preprod";
 
 
 if ($ENVIRONMENT == "dev") {
