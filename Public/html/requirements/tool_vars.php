@@ -18,6 +18,12 @@ $TOOL_NAME = "Requirements Voting";
 
 $JIRA_REQ = "http://bugs.sakaiproject.org/jira/browse/";
 
+// Weighting for sorting votes
+// NA, Desiable, Essential, Critical
+$SCORE_MOD = array(0.5, 1, 2, 4);
+// IMPORTANT: If you change these values you must run "Recalculate scores" in the admin screen
+// or all scores will be inaccurate
+
 // these control the round of voting
 $ROUND = 1;
 // date format for display

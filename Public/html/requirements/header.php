@@ -30,6 +30,9 @@
   	Welcome,&nbsp;<?= $USER["firstname"] ?>&nbsp;<?= $USER["lastname"] ?>
   	</span><br/>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
+<?php if ($USER["access"]) { ?>
+  	<a style="font-size:.8em;" href="<?= $TOOL_PATH ?>/admin.php">Tool Admin</a> - 
+<?php } ?>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $LOGOUT_PAGE ?>">Logout</a><br/>
 <?php } else { ?>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $LOGIN_PAGE ?>">Login</a>
