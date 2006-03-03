@@ -44,8 +44,8 @@ if ($ENVIRONMENT == "prod") {
 } else { // assume dev environment
 	// DEV DATES
 	$ROUND_OPEN_DATE = "2006/01/01 11:00";
-	$ROUND_SWITCH_DATE = "2006/02/05 1:00";
-	$ROUND_CLOSE_DATE = "2006/03/01 1:00";
+	$ROUND_SWITCH_DATE = "2006/03/01 1:00";
+	$ROUND_CLOSE_DATE = "2006/04/01 1:00";
 }
 
 ?>
