@@ -111,8 +111,7 @@ $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " where (username like '%$searchtext%' OR firstname like '%$searchtext%' " .
-		"OR lastname like '%$searchtext%' OR email like '%$searchtext%') ";
+	$sqlsearch = " where (CONCAT_WS(' ',U1.username, U1.firstname, U1.lastname, U1.email) like '%$searchtext%') ";
 }
 
 // sorting
@@ -161,7 +160,7 @@ if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
 $users_sql = "select U1.*, I1.name as institution, U2.username as rep_username, U2.email as rep_email " . 
-	$from_sql . $searchtext . $sqlsorting . $mysql_limit;
+	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
 $items_displayed = mysql_num_rows($result);
@@ -179,13 +178,13 @@ $items_displayed = mysql_num_rows($result);
 		<input type="hidden" name="page" value="<?= $page ?>">
 		<input type="submit" name="paging" value="first" title="Go to the first page">
 		<input type="submit" name="paging" value="prev" title="Go to the previous page">
-		Page <?= $page ?> of <?= $total_pages ?>
+		<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
 		<input type="submit" name="paging" value="next" title="Go to the next page">
 		<input type="submit" name="paging" value="last" title="Go to the last page">
-		&nbsp;-&nbsp;
+		<span class="keytext">&nbsp;-&nbsp;
 		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 		&nbsp;-&nbsp;
-		Max of
+		Max of</span>
 		<select name="num_limit" title="Choose the max items to view per page">
 			<option value="<?= $num_limit ?>"><?= $num_limit ?></option>
 			<option value="10">10</option>
@@ -193,9 +192,10 @@ $items_displayed = mysql_num_rows($result);
 			<option value="50">50</option>
 			<option value="100">100</option>
 			<option value="150">150</option>
+			<option value="200">200</option>
 			<option value="250">250</option>
 		</select>
-		items per page
+		<span class="keytext">items per page</span>
 	</td>
 
 	<td nowrap="y" align="right">
