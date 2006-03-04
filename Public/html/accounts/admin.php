@@ -174,7 +174,7 @@ $items_displayed = mysql_num_rows($result);
 	<tr>
 
 	<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
-	<td nowrap="y" style="font-size:8pt;">
+	<td nowrap="y">
 		<input type="hidden" name="page" value="<?= $page ?>">
 		<input type="submit" name="paging" value="first" title="Go to the first page">
 		<input type="submit" name="paging" value="prev" title="Go to the previous page">
