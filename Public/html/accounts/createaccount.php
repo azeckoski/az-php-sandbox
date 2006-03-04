@@ -136,34 +136,14 @@ function focus(){document.account.username.focus();}
 			$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());
 			$user_pk = mysql_insert_id();
 
-            // generate a unique identifier based on the user_pk
-            $myActivationCode = base64_encode($USERNAME);
-
 			$Message = "<b>New user account created</b><br/>" .
 				"An email has been sent to $EMAIL.<br/>" .
 				"Use the link in the email to activate your account.<br/>";
 			$created = 1;
-
-			// send an email to the new user with a confirmation URL
-			$subject = "$TOOL_NAME account";
-			$mail_message = "Dear $FIRSTNAME $LASTNAME,\n" .
-					"Thank you for registering at our website, $SERVER_NAME.\n\n" .
-					"You are two steps away from logging in and accessing the $TOOL_NAME system.\n\n" .
-					"To activate your membership, please click here:\n\n" .
-					"$SERVER_NAME$TOOL_PATH/activate.php?id=$user_pk&code=$myActivationCode\n\n" .
-					"Once you activate your membership, you will be able to log in with the following\n" .
-					"information:\n\n" .
-					"Username: $USERNAME\n" .
-					"Password: (not shown)\n\n" .
-					"Thanks!\n" .
-					"$TOOL_NAME Account Creation System\n\n" .
-					"==\nThis is an automated response, please do not reply!";
-
-			// For testing only -AZ
-			//print ("Subject: $subject<br><pre>$message</pre><br>");
-            ini_set(SMTP, $MAIL_SERVER);
-			mail($EMAIL, $subject, $mail_message,
-				"From: $HELP_EMAIL\r\nX-Mailer: PHP/" . phpversion());
+			$PK = $USER_PK;
+			
+			// bring in the activation email sending form
+			include ("activation_email.php");
 		}
 	}
 

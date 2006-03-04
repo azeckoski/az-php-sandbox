@@ -78,7 +78,7 @@
 				or die('User password reset failed: ' . mysql_error());
 
 		$subject = "$TOOL_NAME password reset";
-		$message = "Hi, we have reset your password.
+		$mail_message = "Hi, we have reset your password.
 
 Username: $USERNAME
 New Password: $random_password
@@ -93,11 +93,15 @@ $TOOL_NAME automatic mailer
 
 This is an automated response, please do not reply!";
 
-		mail($email_address, $subject, $message,
-			"From: $HELP_EMAIL\n
-			X-Mailer: PHP/" . phpversion());
+		ini_set(SMTP, $MAIL_SERVER);
+        	$headers  = 'From: ' . $HELP_EMAIL . "\n";
+		$headers .= 'To: ' . $EMAIL . "\n";
+		$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
+		$headers .= 'MIME-Version: 1.0' ."\n";
+		$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
+		mail($EMAIL, $subject, $mail_message, $headers);
 
-		$Message = "Your username and new password has been sent to $EMAIL! Please check your email!<br />" .
+		$Message = "Your username and new password have been sent to $EMAIL! Please check your email!<br />" .
 			"You can change your password in My Account after you login.<br/>";
 
 		// For testing only -AZ
