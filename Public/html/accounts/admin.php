@@ -105,36 +105,6 @@ include 'header.php'; ?>
 ?>
 
 <?php
-// process form actions
-if ($_REQUEST["rescore"]) {
-	// recalculate all scores
-	$get_reqs_sql = "select pk from requirements_data where round='$ROUND'";
-	$result_items = mysql_query($get_reqs_sql) or die('Query failed: ' . mysql_error());
-	$output = "Recalculated all scores, " . mysql_num_rows($result_items) . " items affected.";
-	while($item = mysql_fetch_array($result_items)) {
-		$itemPk = $item[0];
-		$writeScore = 0;
-
-		$score_calc_sql="select vote as VOTE, COUNT(pk) as COUNT from requirements_vote " .
-			"where round='$ROUND' and req_data_pk = '$itemPk' group by vote";
-		$result = mysql_query($score_calc_sql) or die('Query failed: ' . mysql_error());
-		while($row = mysql_fetch_array($result)) {
-			$writeScore += $row[1] * $SCORE_MOD[ $row[0] ];
-			//print " -- $writeScore += ".$row[1]." * ".$SCORE_MOD[ $row[0] ]."<br/>";
-		}
-		mysql_free_result($result);
-		//print "$itemPk = $writeScore<br/>";
-		
-		$update_score_sql="update requirements_data set score = '$writeScore' where pk = '$itemPk'";
-		$result = mysql_query($update_score_sql) or die('Query failed: ' . mysql_error());
-	}
-	print "<h3 style='color:darkblue;'>$output</h3>";
-	mysql_free_result($result_items);
-}
-?>
-
-
-<?php
 
 // get the search
 $searchtext = "";
@@ -245,13 +215,18 @@ $items_displayed = mysql_num_rows($result);
 <td><a href="javascript:orderBy('email');">Email</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
 <td align="center">Rep</td>
-<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
 </tr>
 
 <?php while($row=mysql_fetch_assoc($result)) { ?>
 
 <?php
 	$line++;
+	
+	if (strlen($row["institution"]) > 38) {
+		$row["institution"] = substr($row["institution"],0,35) . "...";
+	}
+	
 	$rowstyle = "";
 	if ($row["activated"] == 0) {
 		$rowstyle = " style = 'color:red;' ";
@@ -275,7 +250,7 @@ $items_displayed = mysql_num_rows($result);
 	echo "<b>Inst Rep</b>";
 } else {
 	if ($row["rep_username"]) {
-		echo $row["rep_email"];
+		echo $row["rep_username"];
 	} else {
 		echo "<i>none</i>";
 	}
