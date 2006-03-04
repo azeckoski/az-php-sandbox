@@ -18,8 +18,13 @@ $TOOL_NAME = "Requirements Voting";
 
 $JIRA_REQ = "http://bugs.sakaiproject.org/jira/browse/";
 
+$VOTE_TEXT = array("not applicable","desirable","essential","critical");
+$VOTE_HELP = array("Does not impact our use of Sakai",
+	"Can use Sakai but would like this",
+	"Can use Sakai but need this as soon as possible",
+	"Cannot use Sakai without it");
 // Weighting for sorting votes
-// NA, Desiable, Essential, Critical
+// NA, Desirable, Essential, Critical
 $SCORE_MOD = array(0.5, 1, 2, 4);
 // IMPORTANT: If you change these values you must run "Recalculate scores" in the admin screen
 // or all scores will be inaccurate
