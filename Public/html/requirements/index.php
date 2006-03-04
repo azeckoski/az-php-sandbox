@@ -132,12 +132,14 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 	mysql_free_result($result);
 
 	$vote_types = "select count(pk) from requirements_vote where round='$ROUND' " .
-		"group by vote order by vote desc";
+		"group by vote order by vote asc";
 	$result = mysql_query($vote_types) or warn('Query failed: ' . mysql_error());
-	$critical_votes = mysql_fetch_row($result);
-	$essential_votes = mysql_fetch_row($result);
-	$desirable_votes = mysql_fetch_row($result);
-	$na_votes = mysql_fetch_row($result);
+	$votes = array();
+	$counter=0;
+	while ($row=mysql_fetch_row($result)) {
+		$votes[$counter] = $row[0];
+		$counter++;
+	}
 	mysql_free_result($result);
 
 	$vote_users_sql = "select count(distinct(users_pk)) from requirements_vote where round='$ROUND'";
@@ -150,11 +152,9 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 	<b>Requirements:</b> <?= $req_round_data[0] ?><br/>
 	<b>Total users:</b> <?= $req_round_users[0] ?><br/>	
 	<b>Total votes:</b> <?= $req_round_votes[0] ?><br/>
-	- <b>Critical:</b> <?= $critical_votes[0] ?><br/>
-	- <b>Essential:</b> <?= $essential_votes[0] ?><br/>
-	- <b>Desirable:</b> <?= $desirable_votes[0] ?><br/>
-	- <b>Not Applicable:</b> <?= $na_votes[0] ?><br/>
-
+<?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?> 
+	- <label title="<?= $VOTE_HELP[$vi] ?>"><b><?= $VOTE_TEXT[$vi] ?>:</b> <?= $votes[$vi] ?></label><br/>
+<?php	} ?>
 	</div>
 	</div>
 </td>
