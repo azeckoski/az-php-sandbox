@@ -176,11 +176,11 @@ $items_displayed = mysql_num_rows($result);
 	<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
 	<td nowrap="y">
 		<input type="hidden" name="page" value="<?= $page ?>">
-		<input type="submit" name="paging" value="first" title="Go to the first page">
-		<input type="submit" name="paging" value="prev" title="Go to the previous page">
+		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page">
+		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page">
 		<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
-		<input type="submit" name="paging" value="next" title="Go to the next page">
-		<input type="submit" name="paging" value="last" title="Go to the last page">
+		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page">
+		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page">
 		<span class="keytext">&nbsp;-&nbsp;
 		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 		&nbsp;-&nbsp;
@@ -199,9 +199,9 @@ $items_displayed = mysql_num_rows($result);
 	</td>
 
 	<td nowrap="y" align="right">
-        <input type="text" name="searchtext" value="<?= $searchtext ?>"
+        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	length="20" title="Enter search text here">
-        <input type="submit" name="search" value="Search" title="Search the requirements">
+        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
 	</td>
 
 	</tr>
