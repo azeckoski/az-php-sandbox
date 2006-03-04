@@ -84,7 +84,7 @@ Username: $USERNAME
 New Password: $random_password
 
 Login using the URL below:\n".
-$SERVER_NAME.$TOOL_PATH."login.php
+$SERVER_NAME.$TOOL_PATH."/login.php
 
 You can change your password in My Account after you login.
 
