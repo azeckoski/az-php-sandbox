@@ -87,6 +87,26 @@ div.error {
  color:white;
 }
 
+.filterarea {
+ font-size:10pt;
+ background:#ECECEC;
+ border:1px solid #ccc;
+ padding:3px;
+ margin-bottom:10px;
+}
+
+#evenrow{
+ background: #eee;
+}
+
+#oddrow{
+ background: #F8F8EC;
+}
+
+.line {
+ font-size:.9em;
+}
+
 /* tag adjustment */
 h4 {
  font-family: Arial, Helvetica, sans-serif;
@@ -173,11 +193,11 @@ color:#000;
 
 
 .tableheader{
- background:#336699;
+ color:#993333;
+ background:#AAAAAA;
  font-weight: bold;
  border:none;
-  padding-top:2px;
- color:#ffcc33;
+ padding-top:2px;
 }
 
 
