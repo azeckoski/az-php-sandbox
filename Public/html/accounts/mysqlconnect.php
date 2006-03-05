@@ -8,7 +8,7 @@ if ($ENVIRONMENT == "dev") {
 	$dbname = "sakaiweb";
 	$dbuser = "sakaiwww";
 	$dbpass = "5aka1w3b";
-} elseif ($ENVIRONMENT == "preprod") {
+} elseif ($ENVIRONMENT == "test") {
 	$dbhost = "bengali.web.itd.umich.edu";
 	$dbname = "sakai_stage";
 	$dbuser = "sakai";
