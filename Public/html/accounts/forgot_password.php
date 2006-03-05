@@ -97,7 +97,6 @@ This is an automated response, please do not reply!";
 
 		ini_set(SMTP, $MAIL_SERVER);
         	$headers  = 'From: ' . $HELP_EMAIL . "\n";
-		$headers .= 'To: ' . $EMAIL . "\n";
 		$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
 		$headers .= 'MIME-Version: 1.0' ."\n";
 		$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
