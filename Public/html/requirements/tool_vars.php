@@ -15,6 +15,8 @@ require ($ACCOUNTS_PATH."system_vars.php");
 // Tool variables
 $TOOL_PATH = "/requirements";
 $TOOL_NAME = "Requirements Voting";
+$TOOL_SHORT = "reqs";
+$CSS_FILE = "requirements_vote.css";
 
 $JIRA_REQ = "http://bugs.sakaiproject.org/jira/browse/";
 
@@ -49,8 +51,8 @@ if ($ENVIRONMENT == "prod") {
 } else { // assume dev environment
 	// DEV DATES
 	$ROUND_OPEN_DATE = "2006/01/01 11:00";
-	$ROUND_SWITCH_DATE = "2006/03/01 1:00";
-	$ROUND_CLOSE_DATE = "2006/04/01 1:00";
+	$ROUND_SWITCH_DATE = "2006/04/01 1:00";
+	$ROUND_CLOSE_DATE = "2006/05/01 1:00";
 }
 
 ?>
