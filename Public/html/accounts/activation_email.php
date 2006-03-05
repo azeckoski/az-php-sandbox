@@ -8,7 +8,7 @@
 ?>
 <?php
         // generate a unique identifier based on the user_pk
-        $myActivationCode = md5($USERNAME,true);
+        $myActivationCode = substr(md5($USERNAME),0,10);
 
 		// send an email to the new user with a confirmation URL
 		$subject = "$TOOL_NAME account";
