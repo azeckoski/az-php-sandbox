@@ -8,7 +8,7 @@
 ?>
 <?php
         // generate a unique identifier based on the user_pk
-        $myActivationCode = base64_encode($USERNAME);
+        $myActivationCode = md5($USERNAME,true);
 
 		// send an email to the new user with a confirmation URL
 		$subject = "$TOOL_NAME account";
@@ -16,7 +16,7 @@
 				"Thank you for registering at our website, $SERVER_NAME.\n\n" .
 				"You are two steps away from logging in and accessing the $TOOL_NAME system.\n\n" .
 				"To activate your membership, please click here:\n\n" .
-				"$SERVER_NAME$TOOL_PATH/activate.php?id=$PK&code=$myActivationCode\n\n" .
+				"$SERVER_NAME$TOOL_PATH/activate.php?id=$PK&code=$myActivationCode&end=1\n\n" .
 				"Once you activate your membership, you will be able to log in with the following\n" .
 				"information:\n\n" .
 				"Username: $USERNAME\n" .
