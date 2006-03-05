@@ -20,7 +20,6 @@
     $sql_activationcheck = mysql_query("SELECT username from users where pk='$ID'");
     $activationRow = mysql_fetch_array($sql_activationcheck);
     $myActivationCode = substr(md5($activationRow[0]),0,10);
-    print "$myActivationCode<br>";
     
 	if($doublecheck == 1 && ($CODE == $myActivationCode)){
 		$Message = "<strong>Your account has been activated!</strong><br/>" .

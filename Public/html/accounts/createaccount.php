@@ -22,7 +22,7 @@
 			// no valid key exists, user not authenticated
 			$USER_PK = 0;
 		} else {
-			// authenticated user
+			// authenticated user, send to myaccount instead
 			$USER_PK = $row["users_pk"];
 			header('location:myaccount.php');
 		}
@@ -134,13 +134,12 @@ function focus(){document.account.username.focus();}
 				"('$USERNAME',PASSWORD('$PASS1'),'$FIRSTNAME','$LASTNAME','$EMAIL','$INSTITUTION_PK')";
 
 			$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());
-			$user_pk = mysql_insert_id();
+			$userPk = mysql_insert_id();
 
 			$Message = "<b>New user account created</b><br/>" .
 				"An email has been sent to $EMAIL.<br/>" .
 				"Use the link in the email to activate your account.<br/>";
 			$created = 1;
-			$PK = $USER_PK;
 			
 			// log account creation
 			writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"created account: $USERNAME ($EMAIL) " .
