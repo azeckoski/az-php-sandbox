@@ -77,6 +77,8 @@
 		$sql = mysql_query("UPDATE users SET password=PASSWORD('$random_password') WHERE email='$EMAIL'")
 				or die('User password reset failed: ' . mysql_error());
 
+		writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"password reset: $EMAIL");
+
 		$subject = "$TOOL_NAME password reset";
 		$mail_message = "Hi, we have reset your password.
 
@@ -114,7 +116,7 @@ This is an automated response, please do not reply!";
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
-<link href="./accounts.css" rel="stylesheet" type="text/css">
+<link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
 
 <script>
 <!--

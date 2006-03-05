@@ -15,7 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
-<link href="./accounts.css" rel="stylesheet" type="text/css">
+<link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
 </head>
 <body>
 Logged out user, redirecting to main page

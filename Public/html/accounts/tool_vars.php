@@ -9,6 +9,7 @@ require ("$ACCOUNTS_PATH/system_vars.php");
 // Tool variables
 $TOOL_PATH = "/accounts";
 $TOOL_NAME = "Account Management";
+$TOOL_SHORT = "acnts";
 $CSS_FILE = "accounts.css";
 
 ?>

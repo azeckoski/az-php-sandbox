@@ -46,6 +46,9 @@
 			$sql3 = "insert into sessions (users_pk, passkey) values ('$user_pk', '$cookie_val')";
 			$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
 
+			// log the login
+			writeLog($TOOL_SHORT,$USERNAME,"user logged in:" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
+
 			// redirect after login -AZ
 			//print "ref = $REF<br/>";
 			if ($REF) {
@@ -70,7 +73,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
-<link href="./accounts.css" rel="stylesheet" type="text/css">
+<link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
 
 <script>
 <!--

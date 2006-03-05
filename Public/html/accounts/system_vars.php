@@ -2,30 +2,25 @@
 // PLEASE READ THIS
 //
 // this file now supports a flag with three options, so that we can have different
-// settings for development (local machines), preprod (sakaitest) and prod
+// settings for development (local machines), test (QA and testing) and prod (production)
 // You should change the environment variable to correspond to the environment you're using.
 
-// supported options are "dev", "preprod", and "prod"
-$ENVIRONMENT = "preprod";
-
+// supported options are "dev","test", and "prod"
+$ENVIRONMENT = "dev";
 
 if ($ENVIRONMENT == "dev") {
 	// Set needed system variables
-	$SYSTEM_NAME = "Sakai Web";
-	$SERVER_NAME = "http:/localhost";
-	$ACCOUNTS_PAGE = "myaccount.php";
-	$LOGIN_PAGE = "login.php";
-	$LOGOUT_PAGE = "logout.php";
-	$HELP_EMAIL = "shardin@umich.edu";
+	$SYSTEM_NAME = "Sakai WebDev";
+	$SERVER_NAME = "http://localhost";
+
+	$HELP_EMAIL = "aaronz@vt.edu";
 	$MAIL_SERVER = "mail.vt.edu";
 }
-elseif ($ENVIRONMENT == "preprod") {
+elseif ($ENVIRONMENT == "test") {
 	// Set needed system variables
-	$SYSTEM_NAME = "Sakai Web";
+	$SYSTEM_NAME = "Sakai WebTest";
 	$SERVER_NAME = "http://sakaitest.org";
-	$ACCOUNTS_PAGE = "myaccount.php";
-	$LOGIN_PAGE = "login.php";
-	$LOGOUT_PAGE = "logout.php";
+
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
 }
@@ -33,15 +28,18 @@ elseif ($ENVIRONMENT == "prod") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai Web";
 	$SERVER_NAME = "http://sakaiproject.org";
-	$ACCOUNTS_PAGE = "myaccount.php";
-	$LOGIN_PAGE = "login.php";
-	$LOGOUT_PAGE = "logout.php";
+
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
 }
 else {
   die("Don't how how to operate in the environment entitled &quot;$ENVIRONMENT&quot;.'");	
 }
+
+// Non-environment dependent globals
+$ACCOUNTS_PAGE = "myaccount.php";
+$LOGIN_PAGE = "login.php";
+$LOGOUT_PAGE = "logout.php";
 
 // GLOBAL functions
 function generate_partner_dropdown($institution="", $short=0) {
@@ -65,4 +63,16 @@ function generate_partner_dropdown($institution="", $short=0) {
  	return $output;
 }
 
+// $UID should be a user ID, $str will be written
+function writeLog($tool,$UID, $str) {
+	// if the logs directory is not writeable by the webserver then this will fail
+	$date=date("Ymd");
+	$time=date("H:i:s");
+	$filename = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR."logs".DIRECTORY_SEPARATOR.$tool."_".$date.".log";
+	$output = "$UID;$date $time;".$_SERVER["PHP_SELF"].";$str\n";
+	$fp = @fopen($filename,"a");
+	$wcheck = fwrite($fp,$output);
+	fclose($fp);
+	return $wcheck;
+}
 ?>

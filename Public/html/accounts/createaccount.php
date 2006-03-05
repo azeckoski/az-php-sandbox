@@ -142,6 +142,10 @@ function focus(){document.account.username.focus();}
 			$created = 1;
 			$PK = $USER_PK;
 			
+			// log account creation
+			writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"created account: $USERNAME ($EMAIL) " .
+					"$LASTNAME,$FIRSTNAME inst=$INSTITUTION_PK");
+			
 			// bring in the activation email sending form
 			include ("activation_email.php");
 		}
