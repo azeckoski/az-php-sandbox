@@ -49,6 +49,19 @@
 	$result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
 	$USER = mysql_fetch_assoc($result);
 
+	// Make sure user is authorized
+	$allowed = 0; // assume user is NOT allowed unless otherwise shown
+	$Message = "";
+	if (!$USER["admin_accounts"]) {
+		$allowed = 0;
+		$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
+			"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
+	} else {
+		$allowed = 1;
+	}
+	
+	$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
+		"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -77,27 +90,13 @@ function orderBy(newOrder) {
 </head>
 <body onLoad="focus()">
 
-<?php
-	$allowed = 0; // assume user is NOT allowed unless otherwise shown
-	$Message = "";
-	
-	if (!$USER["access"]) {
-		$allowed = 0;
-		$Message = "Only admins may view this page.<br/>" .
-			"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
-	} else {
-		$allowed = 1;
-	}
-?>
-
 <? // Include the HEADER -AZ
 include 'header.php'; ?>
 
 <?= $Message ?>
 
 <?php
-	// This part will punt the user out if they are not allowed to vote right now
-	// this is a nice punt in that it simply stops the rest of the page from loading -AZ
+	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
 		include 'footer.php';
 		exit;
@@ -185,8 +184,25 @@ include 'header.php'; ?>
 				$passChange = " password=PASSWORD('$PASS1'), ";
 			}
 
+			$permsSql = "";
+			if ($_REQUEST["admin_accounts"]) {
+				$permsSql .= " admin_accounts = '1', ";
+			} else {
+				$permsSql .= " admin_accounts = null, ";
+			}
+			if ($_REQUEST["admin_insts"]) {
+				$permsSql .= " admin_insts = '1', ";
+			} else {
+				$permsSql .= " admin_insts = null, ";
+			}
+			if ($_REQUEST["admin_reqs"]) {
+				$permsSql .= " admin_reqs = '1', ";
+			} else {
+				$permsSql .= " admin_reqs = null, ";
+			}
+
 			$sqledit = "UPDATE users set username='$USERNAME', email='$EMAIL', " .
-					"firstname='$FIRSTNAME', " . $passChange .
+					"firstname='$FIRSTNAME', " . $passChange . $permsSql .
 					"lastname='$LASTNAME', institution_pk='$INSTITUTION_PK', " .
 					"activated='$ACTIVATED' where pk='$PK'";
 
@@ -199,6 +215,11 @@ include 'header.php'; ?>
 				$instrepsql = "UPDATE institution set rep_pk='$PK' where pk='$INSTITUTION_PK'";
 				$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
 				$Message .= "<b>Set this user as an institutional rep.</b><br/>";
+			} else {
+				// UNset this user as the rep for the currently selected institution
+				$instrepsql = "UPDATE institution set rep_pk = null where pk='$INSTITUTION_PK' and rep_pk='$PK'";
+				$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
+				$Message .= "<b>Unset this user as an institutional rep.</b><br/>";
 			}
 
 			// clear all values
@@ -243,6 +264,11 @@ include 'header.php'; ?>
 <form action="<?=$_SERVER['PHP_SELF']; ?>" method="post" name="account" style="margin:0px;">
 <input type="hidden" name="pk" value="<?= $PK ?>">
 <input type="hidden" name="saving" value="1">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="50%">
+
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Username:</b></td>
@@ -253,7 +279,7 @@ include 'header.php'; ?>
 		<td><input type="password" name="password1" tabindex="2" maxlength="50"></td>
 	</tr>
 	<tr>
-		<td class="account"><b>Confirm password:</b></td>
+		<td class="account"><b>Confirm&nbsp;pwd:</b></td>
 		<td><input type="password" name="password2" tabindex="3" maxlength="50"></td>
 	</tr>
 	<tr>
@@ -279,29 +305,76 @@ include 'header.php'; ?>
 	</tr>
 
 	<tr>
-		<td class="account"><b>Activated:</b></td>
-		<td>
-			<input type="checkbox" name="activated" tabindex="8" value="1" <?php
-				if ($thisUser["activated"]) { echo " checked='Y' "; }
-			?>>
-		</td>
-	</tr>
-
-	<tr>
-		<td class="account"><b>Inst Rep:</b></td>
-		<td>
-			<input type="checkbox" name="setrep" tabindex="9" value="1" <?php
-				if ($isRep) { echo " checked='Y' "; }
-			?>>
-		</td>
-	</tr>
-
-	<tr>
 		<td colspan="2">
 			<input type="submit" name="account" value="Save information" tabindex="8">
 		</td>
 	</tr>
 </table>
+
+</td>
+<td valign="top">
+
+<table border="0" class="padded">
+	<tr>
+		<td class="account"><b>Activated:</b></td>
+		<td class="checkbox">
+			<input type="checkbox" name="activated" tabindex="9" value="1" <?php
+				if ($thisUser["activated"]) { echo " checked='Y' "; }
+			?>>
+			<i> - is this account active? (inactive accounts cannot login)</i>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Inst Rep:</b></td>
+		<td class="checkbox">
+			<input type="checkbox" name="setrep" tabindex="10" value="1" <?php
+				if ($isRep) { echo " checked='Y' "; }
+			?>>
+			<i> - is this user the representative for the listed institution?</i>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2" class="account"><b>Admin Permissions:</b></td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Accounts:</b></td>
+		<td class="checkbox">
+			<input type="checkbox" name="admin_accounts" tabindex="11" value="1" <?php
+				if ($thisUser["admin_accounts"]) { echo " checked='Y' "; }
+			?>>
+			<i> - does this user have admin access to accounts?</i>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Institutions:</b></td>
+		<td class="checkbox">
+			<input type="checkbox" name="admin_insts" tabindex="12" value="1" <?php
+				if ($thisUser["admin_insts"]) { echo " checked='Y' "; }
+			?>>
+			<i> - does this user have admin access to institutions?</i>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Requirements:</b></td>
+		<td class="checkbox">
+			<input type="checkbox" name="admin_reqs" tabindex="12" value="1" <?php
+				if ($thisUser["admin_reqs"]) { echo " checked='Y' "; }
+			?>>
+			<i> - can this user administrate requirements?</i>
+		</td>
+	</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
 </form>
 
 <?php // Include the FOOTER -AZ

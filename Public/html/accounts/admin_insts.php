@@ -1,7 +1,7 @@
 <?php
 /*
- * file: admin.php
- * Created on Mar 3, 2006 9:45:03 PM by @author aaronz
+ * file: admin_insts.php
+ * Created on Mar 5, 2006 8:26:54 PM by @author aaronz
  * 
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
@@ -10,7 +10,7 @@
 	require_once ("tool_vars.php");
 
 	// Form to allow user admin control
-	$PAGE_NAME = "Admin Control";
+	$PAGE_NAME = "Admin Institutions";
 
 	// connect to database
 	require "mysqlconnect.php";
@@ -51,16 +51,16 @@
 	// Make sure user is authorized
 	$allowed = 0; // assume user is NOT allowed unless otherwise shown
 	$Message = "";
-	if (!$USER["admin_accounts"]) {
+	if (!$USER["admin_insts"]) {
 		$allowed = 0;
-		$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
+		$Message = "Only admins with <b>admin_insts</b> may view this page.<br/>" .
 			"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 	} else {
 		$allowed = 1;
 	}
 	
-	$EXTRA_LINKS = "<br><span style='font-size:9pt;'>Users admin - " .
-		"<a href='admin_insts.php'>Institutions admin</a></span>";
+	$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
+		"Institutions admin</span>";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -109,17 +109,16 @@ $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " where (CONCAT_WS(' ',U1.username, U1.firstname, U1.lastname, U1.email) like '%$searchtext%') ";
+	$sqlsearch = " where (CONCAT_WS(' ',I1.abbr, I1.name, I1.type,U1.username,U1.firstname,U1.lastname) like '%$searchtext%') ";
 }
 
 // sorting
-$sortorder = "username";
+$sortorder = "name";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all users
-$from_sql = " from users U1 left join institution I1 on U1.institution_pk=I1.pk " .
-	"left join users U2 on U2.pk = I1.rep_pk ";
+$from_sql = " from institution I1 left join users U1 on U1.pk=I1.rep_pk ";
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
@@ -157,7 +156,7 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
-$users_sql = "select U1.*, I1.name as institution, U2.username as rep_username, U2.email as rep_email " . 
+$users_sql = "select I1.*, U1.* " . 
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
@@ -208,32 +207,21 @@ $items_displayed = mysql_num_rows($result);
 
 <table border="0" cellspacing="0" width="100%">
 <tr class='tableheader'>
-<td><a href="javascript:orderBy('username');">username</a></td>
-<td><a href="javascript:orderBy('lastname');">Name</a></td>
-<td><a href="javascript:orderBy('email');">Email</a></td>
-<td><a href="javascript:orderBy('institution');">Institution</a></td>
-<td align="center">Rep</td>
-<td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
+<td><a href="javascript:orderBy('name');">Name</a></td>
+<td><a href="javascript:orderBy('abbr');">Abbr</a></td>
+<td><a href="javascript:orderBy('type');">Type</a></td>
+<td>Rep</td>
+<td align="center"><a title="Add a new institution" href="admin_inst.php?pk=0&add=1">add</a></td>
 </tr>
 
 <?php 
 $line = 0;
 while($row=mysql_fetch_assoc($result)) {
 	$line++;
-	
-	if (strlen($row["institution"]) > 38) {
-		$row["institution"] = substr($row["institution"],0,35) . "...";
-	}
 
 	$rowstyle = "";
-	if (!$row["activated"]) {
+	if (!$row["rep_pk"]) {
 		$rowstyle = " style = 'color:red;' ";
-	} else if ($row["admin_reqs"]) {
-		$rowstyle = " style = 'color:darkgreen;' ";
-	} else if ($row["admin_insts"]) {
-		$rowstyle = " style = 'color:darkblue;' ";
-	} else if ($row["admin_accounts"]) {
-		$rowstyle = " style = 'color:#330066;' ";
 	}
 	
 	$linestyle = "oddrow";
@@ -245,27 +233,23 @@ while($row=mysql_fetch_assoc($result)) {
 ?>
 
 <tr id="<?= $linestyle ?>" <?= $rowstyle ?> >
-	<td class="line"><?= $row["username"] ?></td>
-	<td class="line"><?= $row["firstname"] ?> <?= $row["lastname"] ?></td>
-	<td class="line"><?= $row["email"] ?></td>
-	<td class="line"><?= $row["institution"] ?></td>
-	<td class="line" align="center">
-<?php if ($row["username"] == $row["rep_username"]) { 
-	echo "<b>Inst Rep</b>";
-} else {
-	if ($row["rep_username"]) {
-		$short_name = $row["rep_username"];
-		if (strlen($row["rep_username"]) > 12) {
-			$short_name = substr($row["rep_username"],0,9) . "...";
-		}
-		echo "<label title='".$row["rep_username"]."'>".$short_name."</label>";
-	} else {
-		echo "<i>none</i>";
+	<td class="line"><?= $row["name"] ?></td>
+	<td class="line"><?= $row["abbr"] ?></td>
+	<td class="line"><?= $row["type"] ?></td>
+	<td class="line" align="left">
+<?php 
+if ($row["rep_pk"]) {
+	$short_name = $row["username"];
+	if (strlen($row["username"]) > 12) {
+		$short_name = substr($row["username"],0,9) . "...";
 	}
+	echo "<label title='".$row["username"]."'>".$short_name."</label>";
+} else {
+	echo "<i>none</i>";
 } ?>
 	</td>
 	<td class="line" align="center">
-		<a href="admin_user.php?pk=<?= $row['pk']?>">edit</a>
+		<a href="admin_inst.php?pk=<?= $row['pk']?>">edit</a>
 	</td>
 </tr>
 
