@@ -6,7 +6,8 @@ CREATE TABLE requirements_data (
     description  	text NOT NULL,
     component    	varchar(255) NOT NULL,
     audience     	varchar(255) NOT NULL,
-    round           int(4) NOT NULL default 1,
+    round			int(4) NOT NULL default 1,
+    	score			int NOT NULL DEFAULT 0,
     PRIMARY KEY(pk)
 );
 
