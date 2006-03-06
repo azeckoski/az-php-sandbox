@@ -46,7 +46,7 @@ function generate_partner_dropdown($institution="", $short=0) {
 	global $SAKAI_PARTNERS;
 	$output = "";
 
-    $institution_select_statement = "select PK, NAME from institution";
+    $institution_select_statement = "select PK, NAME from institution order by NAME";
     $result = mysql_query($institution_select_statement);
     while ($instRow = mysql_fetch_array($result)) {
     		$selected="";

@@ -88,4 +88,4 @@ insert into institution (name) values ('Virginia Tech');
 insert into institution (name) values ('Weber State University');
 insert into institution (name) values ('Whitman College');
 insert into institution (name) values ('Yale University');
-insert into institution (name) values ('Other');
+insert into institution (name) values ('~ Other ~');
