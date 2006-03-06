@@ -8,16 +8,16 @@ CREATE TABLE users (
     date_created		timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     activated   		enum('0','1') NOT NULL DEFAULT '0',
     institution_pk  	int(10) NULL,
-    admin_accounts	int(2) NULL,
-    admin_reqs		int(2) NULL,
-    admin_insts		int(2) NULL,
+    admin_accounts	enum('0','1') NOT NULL DEFAULT '0',
+    admin_reqs		enum('0','1') NOT NULL DEFAULT '0',
+    admin_insts		enum('0','1') NOT NULL DEFAULT '0',
     PRIMARY KEY(pk)
 );
 
 //alter table users drop column access;
-//alter table users add admin_accounts int(2) NULL;
-//alter table users add admin_reqs int(2) NULL;
-//alter table users add admin_insts int(2) NULL;
+//alter table users add admin_accounts enum('0','1') NOT NULL DEFAULT '0';
+//alter table users add admin_reqs enum('0','1') NOT NULL DEFAULT '0';
+//alter table users add admin_insts enum('0','1') NOT NULL DEFAULT '0';
 
 insert into users (username, password, email,activated) values ('aaronz',PASSWORD('password1'),'aaronz@vt.edu','1');
 insert into users (username, password, email,activated) values ('shardin',PASSWORD('password2'),'shardin@umich.edu','1');

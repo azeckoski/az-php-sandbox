@@ -188,17 +188,17 @@ include 'header.php'; ?>
 			if ($_REQUEST["admin_accounts"]) {
 				$permsSql .= " admin_accounts = '1', ";
 			} else {
-				$permsSql .= " admin_accounts = null, ";
+				$permsSql .= " admin_accounts = '0', ";
 			}
 			if ($_REQUEST["admin_insts"]) {
 				$permsSql .= " admin_insts = '1', ";
 			} else {
-				$permsSql .= " admin_insts = null, ";
+				$permsSql .= " admin_insts = '0', ";
 			}
 			if ($_REQUEST["admin_reqs"]) {
 				$permsSql .= " admin_reqs = '1', ";
 			} else {
-				$permsSql .= " admin_reqs = null, ";
+				$permsSql .= " admin_reqs = '0', ";
 			}
 
 			$sqledit = "UPDATE users set username='$USERNAME', email='$EMAIL', " .
