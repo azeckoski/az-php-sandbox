@@ -119,7 +119,7 @@ $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all users
 $from_sql = " from users U1 left join institution I1 on U1.institution_pk=I1.pk " .
-	"left join users U2 on U2.pk = I1.rep_pk ";
+	"left join users U2 on U2.pk = I1.rep_pk left join users U3 on U3.pk = I1.repvote_pk ";
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
@@ -157,7 +157,8 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
-$users_sql = "select U1.*, I1.name as institution, U2.username as rep_username, U2.email as rep_email " . 
+$users_sql = "select U1.*, I1.name as institution, U2.username as rep_username, U2.email as rep_email, " .
+	" U3.username as vote_username, U3.email as vote_email " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
@@ -250,8 +251,11 @@ while($row=mysql_fetch_assoc($result)) {
 	<td class="line"><?= $row["email"] ?></td>
 	<td class="line"><?= $row["institution"] ?></td>
 	<td class="line" align="center">
-<?php if ($row["username"] == $row["rep_username"]) { 
-	echo "<b>Inst Rep</b>";
+<?php 
+if ($row["username"] == $row["rep_username"]) { 
+	echo "<b style='color:#000066;'>Inst Rep</b>";
+} else if ($row["username"] == $row["vote_username"]) { 
+	echo "<b style='color:#006600;'>Vote Rep</b>";
 } else {
 	if ($row["rep_username"]) {
 		$short_name = $row["rep_username"];
@@ -260,7 +264,7 @@ while($row=mysql_fetch_assoc($result)) {
 		}
 		echo "<label title='".$row["rep_username"]."'>".$short_name."</label>";
 	} else {
-		echo "<i>none</i>";
+		echo "<i style='color:#CC0000;'>none</i>";
 	}
 } ?>
 	</td>

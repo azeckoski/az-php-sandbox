@@ -33,16 +33,20 @@ CREATE TABLE sessions (
 );
 
 CREATE TABLE institution (
-    pk			int(10) auto_increment not null,
+    pk				int(10) auto_increment not null,
     abbr			varchar(25) null,
     name			varchar(255) NOT NULL,
     type			enum('educational','commerical') NOT NULL DEFAULT 'educational',
-    rep_pk		int(1) null,
+    rep_pk			int(10) null,
+    repvote_pk		int(10) null,
     primary key(pk),
-    foreign key (rep_pk) references users(pk)
+    foreign key (rep_pk) references users(pk),
+    foreign key (repvote_pk) references users(pk)
 );
 
 // alter table institution add type enum('educational','commerical') NOT NULL DEFAULT 'educational';
+// alter table institution add repvote_pk int(10) null;
+// update institution set repvote_pk = rep_pk where rep_pk is not null;
 
 // see institution.sql file to import the list of institutions 
 // Make sure you have ';' seperators turned on

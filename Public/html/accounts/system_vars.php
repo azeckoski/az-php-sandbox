@@ -71,6 +71,7 @@ function writeLog($tool,$UID, $str) {
 	$filename = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR."logs".DIRECTORY_SEPARATOR.$tool."_".$date.".log";
 	$output = "$UID;$date $time;".$_SERVER["PHP_SELF"].";$str\n";
 	$fp = @fopen($filename,"a");
+	if (!$fp) {return false;}
 	$wcheck = fwrite($fp,$output);
 	fclose($fp);
 	return $wcheck;

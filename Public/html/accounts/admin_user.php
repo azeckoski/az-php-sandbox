@@ -10,9 +10,9 @@
 <?php
 	require_once ("tool_vars.php");
 
-	// Form to allow admin user editing
 	$PAGE_NAME = "Admin User Edit";
-
+	$Message = "";
+	
 	// connect to database
 	require "mysqlconnect.php";
 
@@ -51,7 +51,6 @@
 
 	// Make sure user is authorized
 	$allowed = 0; // assume user is NOT allowed unless otherwise shown
-	$Message = "";
 	if (!$USER["admin_accounts"]) {
 		$allowed = 0;
 		$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
@@ -72,7 +71,7 @@
 
 <script>
 <!--
-function focus(){document.adminform.searchtext.focus();}
+function focus(){document.account.firstname.focus();}
 
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
@@ -209,17 +208,42 @@ include 'header.php'; ?>
 			$result = mysql_query($sqledit) or die('User update query failed: ' . mysql_error());
 			$Message = "<b>Updated user information</b><br/>";
 
-			// write the inst rep if needed
+			// set or unset the voting rep (this has to happen before the rep set)
+			if ($_REQUEST["setrepvote"]) {
+				// set this user as the rep for the currently selected institution
+				$instrepsql = "UPDATE institution set repvote_pk='$PK' where pk='$INSTITUTION_PK'";
+				$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
+				$Message .= "<b>Set this user as a voting rep.</b><br/>";
+			} else {
+				// UNset this user as the rep for the currently selected institution
+				$instrepsql = "UPDATE institution set repvote_pk = null where pk='$INSTITUTION_PK' and repvote_pk='$PK'";
+				$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
+				//$Message .= "<b>Unset this user as a voting rep.</b><br/>";
+			}
+
+			// set or unset the inst rep if needed
 			if ($_REQUEST["setrep"]) {
 				// set this user as the rep for the currently selected institution
 				$instrepsql = "UPDATE institution set rep_pk='$PK' where pk='$INSTITUTION_PK'";
 				$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
 				$Message .= "<b>Set this user as an institutional rep.</b><br/>";
+				
+				// now also set the voting rep if it is not set for this inst
+				$check_rep_sql="select repvote_pk from institution where pk = '$INSTITUTION_PK'";
+				$result = mysql_query($check_rep_sql) or die('Query failed: ' . mysql_error());	
+				$checkRep = mysql_fetch_row($result);
+				mysql_free_result($result);
+				
+				if (!$checkRep[0]) {
+					$instrepsql = "UPDATE institution set repvote_pk='$PK' where pk='$INSTITUTION_PK'";
+					$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
+					$Message .= "<b>Auto set this user as a voting rep also.</b><br/>";
+				}
 			} else {
 				// UNset this user as the rep for the currently selected institution
 				$instrepsql = "UPDATE institution set rep_pk = null where pk='$INSTITUTION_PK' and rep_pk='$PK'";
 				$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
-				$Message .= "<b>Unset this user as an institutional rep.</b><br/>";
+				//$Message .= "<b>Unset this user as an institutional rep.</b><br/>";
 			}
 
 			// clear all values
@@ -248,11 +272,10 @@ include 'header.php'; ?>
 	}
 	mysql_free_result($result);
 	
-	// get if this user is an institutional rep
-	$isRep = 0;
-	$check_rep_sql="select pk from institution where rep_pk = '$PK'";
+	// get if this user is an institutional rep or voting rep
+	$check_rep_sql="select rep_pk, repvote_pk from institution where pk = '$INSTITUTION_PK'";
 	$result = mysql_query($check_rep_sql) or die('Query failed: ' . mysql_error());	
-	if (mysql_num_rows($result) != 0) { $isRep = 1; }
+	$checkRep = mysql_fetch_assoc($result);
 	mysql_free_result($result);
 ?>
 
@@ -321,7 +344,7 @@ include 'header.php'; ?>
 			<input type="checkbox" name="activated" tabindex="9" value="1" <?php
 				if ($thisUser["activated"]) { echo " checked='Y' "; }
 			?>>
-			<i> - is this account active? (inactive accounts cannot login)</i>
+			<i> - account is active (inactive accounts cannot login)</i>
 		</td>
 	</tr>
 
@@ -329,12 +352,22 @@ include 'header.php'; ?>
 		<td class="account"><b>Inst Rep:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="setrep" tabindex="10" value="1" <?php
-				if ($isRep) { echo " checked='Y' "; }
+				if ($checkRep["rep_pk"] == $PK) { echo " checked='Y' "; }
 			?>>
-			<i> - is this user the representative for the listed institution?</i>
+			<i> - user is the representative for the listed institution</i>
 		</td>
 	</tr>
 
+	<tr>
+		<td class="account"><b>Vote Rep:</b></td>
+		<td class="checkbox">
+			<input type="checkbox" name="setrepvote" tabindex="11" value="1" <?php
+				if ($checkRep["repvote_pk"] == $PK) { echo " checked='Y' "; }
+			?>>
+			<i> - user is the voting rep for the listed institution</i>
+		</td>
+	</tr>
+	
 	<tr>
 		<td colspan="2" class="account"><b>Admin Permissions:</b></td>
 	</tr>
@@ -342,30 +375,30 @@ include 'header.php'; ?>
 	<tr>
 		<td class="account"><b>Accounts:</b></td>
 		<td class="checkbox">
-			<input type="checkbox" name="admin_accounts" tabindex="11" value="1" <?php
+			<input type="checkbox" name="admin_accounts" tabindex="12" value="1" <?php
 				if ($thisUser["admin_accounts"]) { echo " checked='Y' "; }
 			?>>
-			<i> - does this user have admin access to accounts?</i>
+			<i> - user has admin access to accounts</i>
 		</td>
 	</tr>
 
 	<tr>
 		<td class="account"><b>Institutions:</b></td>
 		<td class="checkbox">
-			<input type="checkbox" name="admin_insts" tabindex="12" value="1" <?php
+			<input type="checkbox" name="admin_insts" tabindex="13" value="1" <?php
 				if ($thisUser["admin_insts"]) { echo " checked='Y' "; }
 			?>>
-			<i> - does this user have admin access to institutions?</i>
+			<i> - user has admin access to institutions</i>
 		</td>
 	</tr>
 
 	<tr>
 		<td class="account"><b>Requirements:</b></td>
 		<td class="checkbox">
-			<input type="checkbox" name="admin_reqs" tabindex="12" value="1" <?php
+			<input type="checkbox" name="admin_reqs" tabindex="14" value="1" <?php
 				if ($thisUser["admin_reqs"]) { echo " checked='Y' "; }
 			?>>
-			<i> - can this user administrate requirements?</i>
+			<i> - user has admin access to req voting</i>
 		</td>
 	</tr>
 
