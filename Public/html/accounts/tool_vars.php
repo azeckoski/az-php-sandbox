@@ -12,4 +12,6 @@ $TOOL_NAME = "Account Management";
 $TOOL_SHORT = "acnts";
 $CSS_FILE = "accounts.css";
 
+$DATE_FORMAT = "l, F dS, Y h:i A";
+
 ?>

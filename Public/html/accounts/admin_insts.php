@@ -61,6 +61,80 @@
 	
 	$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
 		"Institutions admin</span>";
+
+
+// get the search
+$searchtext = "";
+if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
+$sqlsearch = "";
+if ($searchtext) {
+	$sqlsearch = " where (CONCAT_WS(' ',I1.abbr, I1.name, I1.type,U1.username,U1.firstname,U1.lastname) like '%$searchtext%') ";
+}
+
+// sorting
+$sortorder = "name";
+if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
+$sqlsorting = " order by $sortorder ";
+
+// main SQL to fetch all users
+$from_sql = " from institution I1 left join users U1 on U1.pk=I1.rep_pk " .
+	"left join users U2 on U2.pk=I1.repvote_pk ";
+
+// counting number of items
+// **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
+$count_sql = "select count(*) " . $from_sql . $sqlsearch;
+$result = mysql_query($count_sql) or die('Count query failed: ' . mysql_error());
+$row = mysql_fetch_array($result);
+$total_items = $row[0];
+
+// pagination control
+$num_limit = 25;
+if ($_REQUEST["num_limit"]) { $num_limit = $_REQUEST["num_limit"]; }
+
+$total_pages = ceil($total_items / $num_limit);
+
+$page = 1;
+$PAGE = $_REQUEST["page"];
+if ($PAGE) { $page = $PAGE; }
+
+$PAGING = $_REQUEST["paging"];
+if ($PAGING) {
+	if ($PAGING == 'first') { $page = 1; }
+	else if ($PAGING == 'prev') { $page--; }
+	else if ($PAGING == 'next') { $page++; }
+	else if ($PAGING == 'last') { $page = $total_pages; }
+}
+
+if ($page > $total_pages) { $page = $total_pages; }
+if ($page <= 0) { $page = 1; }
+
+$limitvalue = $page * $num_limit - ($num_limit);
+$mysql_limit = " LIMIT $limitvalue, $num_limit";
+
+$start_item = $limitvalue + 1;
+$end_item = $limitvalue + $num_limit;
+if ($end_item > $total_items) { $end_item = $total_items; }
+
+// the main user fetching query
+$users_sql = "select I1.*, U1.username as rep_username, U1.email as rep_email, " . 
+	"U2.username as repvote_username, U2.email as repvote_email " .
+	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
+//print "SQL=$users_sql<br/>";
+$result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
+$items_displayed = mysql_num_rows($result);
+
+
+// Do the export as requested by the user
+if ($_REQUEST["export"] && $allowed) {
+	$date = date("Ymd-Hi",time());
+	$filename = "institutions-" . $date . ".csv";
+	header("Content-type: text/x-csv");
+	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Pragma: no-cache");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0"); 
+} else {
+	// display the page normally
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -102,66 +176,6 @@ include 'header.php'; ?>
 	}
 ?>
 
-<?php
-
-// get the search
-$searchtext = "";
-if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
-$sqlsearch = "";
-if ($searchtext) {
-	$sqlsearch = " where (CONCAT_WS(' ',I1.abbr, I1.name, I1.type,U1.username,U1.firstname,U1.lastname) like '%$searchtext%') ";
-}
-
-// sorting
-$sortorder = "name";
-if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
-$sqlsorting = " order by $sortorder ";
-
-// main SQL to fetch all users
-$from_sql = " from institution I1 left join users U1 on U1.pk=I1.rep_pk ";
-
-// counting number of items
-// **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
-$count_sql = "select count(*) " . $from_sql . $sqlsearch;
-$result = mysql_query($count_sql) or die('Count query failed: ' . mysql_error());
-$row = mysql_fetch_array($result);
-$total_items = $row[0];
-
-// pagination control
-$num_limit = 25;
-if ($_REQUEST["num_limit"]) { $num_limit = $_REQUEST["num_limit"]; }
-
-$total_pages = ceil($total_items / $num_limit);
-
-$page = 1;
-$PAGE = $_REQUEST["page"];
-if ($PAGE) { $page = $PAGE; }
-
-$PAGING = $_REQUEST["paging"];
-if ($PAGING) {
-	if ($PAGING == 'first') { $page = 1; }
-	else if ($PAGING == 'prev') { $page--; }
-	else if ($PAGING == 'next') { $page++; }
-	else if ($PAGING == 'last') { $page = $total_pages; }
-}
-
-if ($page > $total_pages) { $page = $total_pages; }
-if ($page <= 0) { $page = 1; }
-
-$limitvalue = $page * $num_limit - ($num_limit);
-$mysql_limit = " LIMIT $limitvalue, $num_limit";
-
-$start_item = $limitvalue + 1;
-$end_item = $limitvalue + $num_limit;
-if ($end_item > $total_items) { $end_item = $total_items; }
-
-// the main user fetching query
-$users_sql = "select I1.*, U1.username " . 
-	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
-//print "SQL=$users_sql<br/>";
-$result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
-$items_displayed = mysql_num_rows($result);
-?>
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>">
@@ -196,6 +210,7 @@ $items_displayed = mysql_num_rows($result);
 	</td>
 
 	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters">
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	length="20" title="Enter search text here">
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
@@ -210,50 +225,85 @@ $items_displayed = mysql_num_rows($result);
 <td><a href="javascript:orderBy('name');">Name</a></td>
 <td><a href="javascript:orderBy('abbr');">Abbr</a></td>
 <td><a href="javascript:orderBy('type');">Type</a></td>
-<td>Rep</td>
+<td>InstRep</td>
+<td>VoteRep</td>
 <td align="center"><a title="Add a new institution" href="admin_inst.php?pk=0&add=1">add</a></td>
 </tr>
 
-<?php 
+<?php } // end export else 
 $line = 0;
-while($row=mysql_fetch_assoc($result)) {
+while($itemrow=mysql_fetch_assoc($result)) {
 	$line++;
 
-	$rowstyle = "";
-	if (!$row["rep_pk"]) {
-		$rowstyle = " style = 'color:red;' ";
-	}
-	
-	$linestyle = "oddrow";
-	if ($line % 2 == 0) {
-		$linestyle = "evenrow";
+	if ($_REQUEST["export"]) {
+		// print out EXPORT format instead of display
+		if ($line == 1) {
+			$output = "\"Institutions Export:\",\n";
+			print join(',', array_keys($itemrow)) . "\n"; // add header line
+		}
+		
+		foreach ($itemrow as $name=>$value) {
+			$value = str_replace("\"", "\"\"", $value); // fix for double quotes
+			$itemrow[$name] = '"' . $value . '"'; // put quotes around each item
+		}
+		print join(',', $itemrow) . "\n";
+		
 	} else {
+		// display normally
+		$rowstyle = "";
+		if (!$itemrow["rep_pk"]) {
+			$rowstyle = " style = 'color:red;' ";
+		}
+		
 		$linestyle = "oddrow";
-	}
+		if ($line % 2 == 0) {
+			$linestyle = "evenrow";
+		} else {
+			$linestyle = "oddrow";
+		}
 ?>
 
 <tr id="<?= $linestyle ?>" <?= $rowstyle ?> >
-	<td class="line"><?= $row["name"] ?></td>
-	<td class="line"><?= $row["abbr"] ?></td>
-	<td class="line"><?= $row["type"] ?></td>
+	<td class="line"><?= $itemrow["name"] ?></td>
+	<td class="line"><?= $itemrow["abbr"] ?>&nbsp;</td>
+	<td class="line"><?= $itemrow["type"] ?></td>
 	<td class="line" align="left">
 <?php 
-if ($row["rep_pk"]) {
-	$short_name = $row["username"];
-	if (strlen($row["username"]) > 12) {
-		$short_name = substr($row["username"],0,9) . "...";
+if ($itemrow["rep_pk"]) {
+	$short_name = $itemrow["rep_username"];
+	if (strlen($itemrow["rep_username"]) > 12) {
+		$short_name = substr($itemrow["rep_username"],0,9) . "...";
 	}
-	echo "<label title='".$row["username"]."'>".$short_name."</label>";
+	echo "<label title='".$itemrow["rep_username"]."'>".$short_name."</label>";
+} else {
+	echo "<i>none</i>";
+} ?>
+	</td>
+	<td class="line" align="left">
+<?php 
+if ($itemrow["repvote_pk"]) {
+	$short_name = $itemrow["repvote_username"];
+	if (strlen($itemrow["repvote_username"]) > 12) {
+		$short_name = substr($itemrow["repvote_username"],0,9) . "...";
+	}
+	echo "<label title='".$itemrow["repvote_username"]."'>".$short_name."</label>";
 } else {
 	echo "<i>none</i>";
 } ?>
 	</td>
 	<td class="line" align="center">
-		<a href="admin_inst.php?pk=<?= $row['pk']?>">edit</a>
+		<a href="admin_inst.php?pk=<?= $itemrow['pk']?>">edit</a>
 	</td>
 </tr>
 
-<?php } ?>
+<?php 
+	} // end display else
+} // end while
+
+if ($_REQUEST["export"]) {
+	print "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
+} else { // display only
+?>
 
 </table>
 </form>
@@ -263,3 +313,5 @@ include 'footer.php'; ?>
 
 </body>
 </html>
+
+<?php } // end display ?>
