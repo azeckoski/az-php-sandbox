@@ -69,10 +69,7 @@
 		$Message .= "<a href='admin_insts.php'>Go back</a>";
 		$allowed = 0;
 	}
-	
-	if ($_REQUEST["add"]) {
-		print "Adding new inst<br>";
-	}
+
 
 	$SAVE = $_POST["saving"]; // this indicates we are saving values
 
@@ -104,17 +101,30 @@
 		mysql_free_result($sql_name_check);
 
 		if ($errors == 0) {
-			// write the new values to the DB
-			$sqledit = "UPDATE institution set name='$NAME', abbr='$ABBR', " .
-					"type='$TYPE' where pk='$PK'";
-
-			$result = mysql_query($sqledit) or die('Inst update query failed: ' . mysql_error());
-			$Message = "<b>Updated institution information</b><br/>";
-
-			// clear all values
-			$NAME = "";
-			$ABBR = "";
-			$TYPE = "";
+			if ($_REQUEST["add"]) {
+				// insert new institution
+				$sqlinsert = "INSERT into institution (name,abbr,type) values ('$NAME','$ABBR','$TYPE')";
+				$result = mysql_query($sqlinsert) or die('Inst insert query failed: ' . mysql_error());
+				$PK = mysql_insert_id();
+				$Message = "<b>Added new institution</b><br/>";
+				$_REQUEST["add"] = "";
+			} else if ($_REQUEST["remove"]) {
+				// remove this institution if no users are in it
+				$sqlremove = "DELETE from institution where pk='$PK' and rep_pk is null and repvote_pk is null";
+				$result = mysql_query($sqlremove) or die('Inst remove query failed: ' . mysql_error());
+				$Message = "<b>Remove institution $NAME</b><br/>";
+			} else {
+				// write the new values to the DB
+				$sqledit = "UPDATE institution set name='$NAME', abbr='$ABBR', " .
+						"type='$TYPE' where pk='$PK'";
+				$result = mysql_query($sqledit) or die('Inst update query failed: ' . mysql_error());
+				$Message = "<b>Updated institution information</b><br/>";
+	
+				// clear all values
+				$NAME = "";
+				$ABBR = "";
+				$TYPE = "";
+			}
 		} else {
 			$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";
 		}
@@ -122,8 +132,11 @@
 
 
 	// get the item information from the DB
-	$authsql = "SELECT * FROM institution WHERE pk = '$PK'";
-	$result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
+	$itemsql = "SELECT I1.*, U1.firstname,U1.lastname,U1.email," .
+		"U2.firstname as vfirstname,U2.lastname as vlastname,U2.email as vemail " .
+		"from institution I1 left join users U1 on U1.pk=I1.rep_pk " .
+		"left join users U2 on U2.pk=I1.repvote_pk WHERE I1.pk = '$PK'";
+	$result = mysql_query($itemsql) or die('Query failed: ' . mysql_error());
 	$thisItem = mysql_fetch_assoc($result);
 
 	if (!empty($result)) {
@@ -182,16 +195,50 @@ include 'header.php'; ?>
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Name:</b></td>
-		<td><input type="text" name="name" tabindex="1" value="<?= $thisItem["name"] ?>" maxlength="250"></td>
+		<td><input type="text" name="name" tabindex="1" value="<?= $thisItem["name"] ?>" size="40" maxlength="250"></td>
 	</tr>
 	<tr>
 		<td class="account"><b>Abbreviation:</b></td>
-		<td><input type="text" name="abbr" tabindex="2" value="<?= $thisItem["abbr"] ?>" maxlength="50"></td>
+		<td><input type="text" name="abbr" tabindex="2" value="<?= $thisItem["abbr"] ?>" size="10" maxlength="50"></td>
 	</tr>
 	<tr>
 		<td class="account"><b>Type:</b></td>
-		<td><input type="text" name="type" tabindex="3" value="<?= $thisItem["type"] ?>" maxlength="50"></td>
+		<td>
+			<input type="radio" name="type" tabindex="3" value="educational" <?php
+				if (!$thisItem["type"] || $thisItem["type"] == "educational") { echo " checked='Y' "; }
+			?>> educational
+			&nbsp;
+			<input type="radio" name="type" tabindex="3" value="commercial" <?php
+				if ($thisItem["type"] == "commercial") { echo " checked='Y' "; }
+			?>> commercial
+		</td>
 	</tr>
+<?php if (!$_REQUEST["add"]) { ?>
+	<tr>
+		<td class="account"><b>Inst Rep:</b></td>
+		<td>
+<?php
+	if ($thisItem["rep_pk"]) {
+		echo $thisItem["firstname"]." ".$thisItem["lastname"]." (<a href='mailto:".$thisItem["email"]."'>".$thisItem["email"]."</a>)";
+	} else {
+		echo "<i style='color:red;'>none</i>";
+	}
+?>
+		</td>
+	</tr>
+	<tr>
+		<td class="account"><b>Voting Rep:</b></td>
+		<td>
+<?php
+	if ($thisItem["repvote_pk"]) {
+		echo $thisItem["vfirstname"]." ".$thisItem["vlastname"]." (<a href='mailto:".$thisItem["vemail"]."'>".$thisItem["vemail"]."</a>)";
+	} else {
+		echo "<i style='color:red;'>none</i>";
+	}
+?>
+		</td>
+	</tr>
+<?php } // end add check ?>
 
 	<tr>
 		<td colspan="2">
