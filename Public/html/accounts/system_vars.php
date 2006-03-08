@@ -12,6 +12,7 @@ if ($ENVIRONMENT == "dev") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai WebDev";
 	$SERVER_NAME = "http://localhost";
+	$USE_LDAP = 1; // 0=no ldap
 
 	$HELP_EMAIL = "aaronz@vt.edu";
 	$MAIL_SERVER = "mail.vt.edu";
@@ -20,6 +21,7 @@ elseif ($ENVIRONMENT == "test") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai WebTest";
 	$SERVER_NAME = "http://sakaitest.org";
+	$USE_LDAP = 1; // 0=no ldap
 
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
@@ -28,6 +30,7 @@ elseif ($ENVIRONMENT == "prod") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai Web";
 	$SERVER_NAME = "http://sakaiproject.org";
+	$USE_LDAP = 1; // 0=no ldap
 
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
@@ -40,6 +43,7 @@ else {
 $ACCOUNTS_PAGE = "myaccount.php";
 $LOGIN_PAGE = "login.php";
 $LOGOUT_PAGE = "logout.php";
+
 
 // GLOBAL functions
 function generate_partner_dropdown($institution="", $short=0) {

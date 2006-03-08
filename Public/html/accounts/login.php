@@ -19,35 +19,90 @@ $PASSWORD = stripslashes($_POST["password"]);
 
 // check the username/password to auth if present
 if (strlen($USERNAME) && strlen($PASSWORD)) {
-	// check the username and password
-	$sql1 = "SELECT pk FROM users WHERE username = '$USERNAME' and " .
-		"password = PASSWORD('$PASSWORD') and activated = '1'";
-	$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
-	$count = mysql_num_rows($result);
-	$row = mysql_fetch_assoc($result);
+	$login_success = 0;
+	
+	// ATTEMPT LDAP AUTH FIRST
+	if ($USE_LDAP) {
+		$ds=ldap_connect("reynolds.cc.vt.edu","389");  // must be a valid LDAP server!
+		if ($ds) {
+			$reporting_level = error_reporting(E_ERROR); // suppress warning messages
+			$anon_bind=ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
+			if ($anon_bind) {
+				// Searching for (sakaiUser=username)
+			   	$sr=ldap_search($ds, "dc=sakaiproject,dc=org", "sakaiUser=$USERNAME"); // expect sr=array
+		
+				//echo "Number of entries = " . ldap_count_entries($ds, $sr) . "<br />";
+				$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
+				
+				// annonymous call to sakai ldap will only return the dn
+				$user_dn = $info[0]["dn"];
+		
+				// now attempt to bind as the userdn and password
+				$auth_bind=ldap_bind($ds, $user_dn, $PASSWORD);
+				if ($auth_bind) {
+					// valid bind, user is authentic
+					$login_success = 1;
+					writeLog($TOOL_SHORT,$USERNAME,"user logged in (ldap):" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
+					
+					$sr=ldap_search($ds, $user_dn, "sakaiUser=$USERNAME");
+					$info = ldap_get_entries($ds, $sr);
+					$user_pk = $info[0]["uid"][0]; // uid is multivalue, we want the first only
+				} else {
+					// invalid bind, password is not good
+					$login_success = 0;
+				}
+			} else {
+				$login_success = 0;
+				$Message ="ERROR: Anonymous bind to ldap failed";
+			}
+			ldap_close($ds); // close connection
+			error_reporting($reporting_level); // reset error reporting
+						
+		} else {
+		   $Message = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
+		   $login_success = 0;
+		}
+	} // end use ldap check
+		
+	if (!$login_success) {
+		// ATTEMPT AUTH VIA LOCAL DB
+	
+		// check the username and password
+		$sql1 = "SELECT pk FROM users WHERE username = '$USERNAME' and " .
+			"password = PASSWORD('$PASSWORD') and activated = '1'";
+		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
+		$count = mysql_num_rows($result);
+		$row = mysql_fetch_assoc($result);
+	
+		if( !empty($result) && ($count == 1)) {
+			// valid login
+			$Message = "Valid login: $USERNAME <br/>";
+			$user_pk = $row["pk"];
 
-	if( !empty($result) && ($count == 1)) {
-		// valid login
-		$Message = "Valid login: $USERNAME <br/>";
-		$user_pk = $row["pk"];
+			//print ("Internal Auth Suceeded");
+			writeLog($TOOL_SHORT,$USERNAME,"user logged in (internal):" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
+			$login_success = 1;
+		}
+	}
+
+	if ($login_success && $user_pk) {
+		// login suceeded so create the session in the database
+		
+		$cookie_val = md5($row["pk"] . time() . mt_rand() );
+		// create session cookie, this should last until the user closes the browser
+		setcookie("SESSION_ID", $cookie_val, null, "/", false, 0);
 
 		// delete all sessions related to this user
 		$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
 		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());
 
-		$cookie_val = md5($row["pk"] . time() . mt_rand() );
-		// create session cookie, this should last until the user closes the browser
-		setcookie("SESSION_ID", $cookie_val, null, "/", false, 0);
-
 		// add user to sessions table
 		$sql3 = "insert into sessions (users_pk, passkey) values ('$user_pk', '$cookie_val')";
 		$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
 
-		// log the login
-		writeLog($TOOL_SHORT,$USERNAME,"user logged in:" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
-
 		// redirect after login -AZ
 		//print "ref = $REF<br/>";
+
 		if ($REF) {
 			header('location:'.$REF);
 		} else {
@@ -56,7 +111,7 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 
 	} else {
 		// user/pass combo not found
-		$Message = "<span class='error'>Invalid login: $USERNAME </span><br/>" .
+		$Message .= "<span class='error'>Invalid login: $USERNAME </span><br/>" .
 			"Please check your username and password and make sure your account is activated.";
 
 		// Clear the current session cookie
