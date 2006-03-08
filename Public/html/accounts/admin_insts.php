@@ -68,7 +68,11 @@ $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " where (CONCAT_WS(' ',I1.abbr, I1.name, I1.type,U1.username,U1.firstname,U1.lastname) like '%$searchtext%') ";
+	$sqlsearch = " where (I1.name like '%$searchtext%' or I1.abbr like '%$searchtext%' or " .
+		"I1.type like '%$searchtext%' or U1.username like '%$searchtext%' or " .
+		"U1.firstname like '%$searchtext%' or U1.lastname like '%$searchtext%' or " .
+		"U2.username like '%$searchtext%' or U2.firstname like '%$searchtext%' or " .
+		"U2.lastname like '%$searchtext%') ";
 }
 
 // sorting
