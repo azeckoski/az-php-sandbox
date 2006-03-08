@@ -34,7 +34,9 @@ $SCORE_MOD = array(0.5, 1, 2, 4);
 // these control the round of voting
 $ROUND = 1;
 // date format for display
+$DATE_FORMAT = "l, F dS, Y h:i A";
 $ROUND_DATE_FORMAT = "l, F dS, Y h:i A";
+
 // dates below in format: YYYY/MM/DD HH24:MI
 if ($ENVIRONMENT == "prod") {
 	// OFFICIAL DATES
