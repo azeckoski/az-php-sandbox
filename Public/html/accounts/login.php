@@ -1,91 +1,76 @@
 <?php
-	require_once ("tool_vars.php");
+require_once ("tool_vars.php");
 
-	// Handle the login process or display a login page
-	$PAGE_NAME = "Login";
+$PAGE_NAME = "Login";
+$Message = "";
 
-	// connect to database
-	require "mysqlconnect.php";
+// connect to database
+require "mysqlconnect.php";
 
-	// Clear the current session cookie
-	setcookie("SESSION_ID", "NULL", null, "/", false, 0);
+// Clear the current session cookie
+setcookie("SESSION_ID", "NULL", null, "/", false, 0);
 
-	// Pass along the referrer
-	$REF = $_REQUEST["ref"]; // This is the refering page
+// Pass along the referrer
+$REF = $_REQUEST["ref"]; // This is the refering page
 
-	// reset message
-	$Message = "";
+// Get the username and password (force username to lowercase)
+$USERNAME = strtolower($_POST["username"]);
+$PASSWORD = stripslashes($_POST["password"]);
 
-	// Get the username and password (force username to lowercase)
-	$USERNAME = strtolower($_POST["username"]);
-	$PASSWORD = stripslashes($_POST["password"]);
+// check the username/password to auth if present
+if (strlen($USERNAME) && strlen($PASSWORD)) {
+	// check the username and password
+	$sql1 = "SELECT pk FROM users WHERE username = '$USERNAME' and " .
+		"password = PASSWORD('$PASSWORD') and activated = '1'";
+	$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
+	$count = mysql_num_rows($result);
+	$row = mysql_fetch_assoc($result);
 
-	// check the username/password to auth if present
-	if (strlen($USERNAME) && strlen($PASSWORD)) {
-		// check the username and password
-		$sql1 = "SELECT pk FROM users WHERE username = '$USERNAME' and " .
-			"password = PASSWORD('$PASSWORD') and activated = '1'";
-		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
-		$count = mysql_num_rows($result);
-		$row = mysql_fetch_assoc($result);
+	if( !empty($result) && ($count == 1)) {
+		// valid login
+		$Message = "Valid login: $USERNAME <br/>";
+		$user_pk = $row["pk"];
 
-		if( !empty($result) && ($count == 1)) {
-			// valid login
-			$Message = "Valid login: $USERNAME <br/>";
-			$user_pk = $row["pk"];
+		// delete all sessions related to this user
+		$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
+		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());
 
-			// delete all sessions related to this user
-			$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
-			$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());
+		$cookie_val = md5($row["pk"] . time() . mt_rand() );
+		// create session cookie, this should last until the user closes the browser
+		setcookie("SESSION_ID", $cookie_val, null, "/", false, 0);
 
-			$cookie_val = md5($row["pk"] . time() . mt_rand() );
-			// create session cookie, this should last until the user closes the browser
-			setcookie("SESSION_ID", $cookie_val, null, "/", false, 0);
+		// add user to sessions table
+		$sql3 = "insert into sessions (users_pk, passkey) values ('$user_pk', '$cookie_val')";
+		$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
 
-			// add user to sessions table
-			$sql3 = "insert into sessions (users_pk, passkey) values ('$user_pk', '$cookie_val')";
-			$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
+		// log the login
+		writeLog($TOOL_SHORT,$USERNAME,"user logged in:" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
 
-			// log the login
-			writeLog($TOOL_SHORT,$USERNAME,"user logged in:" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
-
-			// redirect after login -AZ
-			//print "ref = $REF<br/>";
-			if ($REF) {
-				header('location:'.$REF);
-			} else {
-				header('location:index.php');
-			}
-
+		// redirect after login -AZ
+		//print "ref = $REF<br/>";
+		if ($REF) {
+			header('location:'.$REF);
 		} else {
-			// user/pass combo not found
-			$Message = "<span class='error'>Invalid login: $USERNAME </span><br/>" .
-				"Please check your username and password and make sure your account is activated.";
-
-			// Clear the current session cookie
-			setcookie("SESSION_ID", "NULL", null, "/", false, 0);
+			header('location:index.php');
 		}
+
+	} else {
+		// user/pass combo not found
+		$Message = "<span class='error'>Invalid login: $USERNAME </span><br/>" .
+			"Please check your username and password and make sure your account is activated.";
+
+		// Clear the current session cookie
+		setcookie("SESSION_ID", "NULL", null, "/", false, 0);
 	}
-
+}
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
-<link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
 
+<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
-function focus(){document.login.username.focus();}
 // -->
 </script>
-
-</head>
-<body onLoad="focus();">
-
-<? // Include the HEADER -AZ
-include 'header.php'; ?>
+<? include 'header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -94,7 +79,7 @@ include 'header.php'; ?>
 
 <td width="10%" valign="top" height="100">
 	<div class="login">
-	<form action="login.php" method="post" name="login" style="margin:0px;">
+	<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <?php if($REF) { ?>
 	<input type="hidden" name="ref" value="<?= $REF ?>">
 <?php } ?>
@@ -103,6 +88,7 @@ include 'header.php'; ?>
 		<tr>
 			<td><b>Username:</b></td>
 			<td><input type="text" name="username" tabindex="1" value="<?= $USERNAME ?>"></td>
+			<script>document.adminform.username.focus();</script>
 		</tr>
 		<tr>
 			<td><b>Password:</b></td>
@@ -143,8 +129,4 @@ include 'header.php'; ?>
 </tr>
 </table>
 
-<? // Include the FOOTER -AZ
-include 'footer.php'; ?>
-
-</body>
-</html>
+<? include 'footer.php'; // Include the FOOTER ?>

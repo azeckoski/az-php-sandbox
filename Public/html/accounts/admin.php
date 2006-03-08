@@ -7,72 +7,38 @@
  */
 ?>
 <?php
-	require_once ("tool_vars.php");
+require_once ("tool_vars.php");
 
-	// Form to allow user admin control
-	$PAGE_NAME = "Admin Control";
+$PAGE_NAME = "Admin User Control";
+$Message = "";
 
-	// connect to database
-	require "mysqlconnect.php";
+// connect to database
+require "mysqlconnect.php";
 
-	// get the passkey from the cookie if it exists
-	$PASSKEY = $_COOKIE["SESSION_ID"];
+// check authentication
+require "check_authentic.php";
 
-	// check the passkey
-	$USER_PK = 0;
-	if (isset($PASSKEY)) {
-		$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
-		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
-		$row = mysql_fetch_assoc($result);
+// login if not autheticated
+require "auth_login_redirect.php";
 
-		if( !$result ) {
-			// no valid key exists, user not authenticated
-			$USER_PK = -1;
-		} else {
-			// authenticated user
-			$USER_PK = $row["users_pk"];
-		}
-		mysql_free_result($result);
-	}
+// Make sure user is authorized
+$allowed = 0; // assume user is NOT allowed unless otherwise shown
+if (!$USER["admin_accounts"]) {
+	$allowed = 0;
+	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
+		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
+} else {
+	$allowed = 1;
+}
 
-	if( $USER_PK <= 0 ) {
-		// no user_pk, user not authenticated
-		// redirect to the login page
-		header('location:'.$ACCOUNTS_PATH.'login.php?ref='.$_SERVER['PHP_SELF']);
-		exit;
-	}
-
-	// if we get here, user should be authenticated
-	// get the authenticated user information
-	$authsql = "SELECT * FROM users WHERE pk = '$USER_PK'";
-	$result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
-	$USER = mysql_fetch_assoc($result);
-
-	// Make sure user is authorized
-	$allowed = 0; // assume user is NOT allowed unless otherwise shown
-	$Message = "";
-	if (!$USER["admin_accounts"]) {
-		$allowed = 0;
-		$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
-			"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
-	} else {
-		$allowed = 1;
-	}
-	
-	$EXTRA_LINKS = "<br><span style='font-size:9pt;'>Users admin - " .
-		"<a href='admin_insts.php'>Institutions admin</a></span>";
+// set header links
+$EXTRA_LINKS = "<br><span style='font-size:9pt;'>Users admin - " .
+	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
-<link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
 
+<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
-function focus(){document.adminform.searchtext.focus();}
-
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
 		document.adminform.sortorder.value = newOrder + " desc";
@@ -82,15 +48,9 @@ function orderBy(newOrder) {
 	document.adminform.submit();
 	return false;
 }
-
 // -->
 </script>
-
-</head>
-<body onLoad="focus()">
-
-<? // Include the HEADER -AZ
-include 'header.php'; ?>
+<? include 'header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -201,6 +161,7 @@ $items_displayed = mysql_num_rows($result);
 	<td nowrap="y" align="right">
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	length="20" title="Enter search text here">
+        <script>document.adminform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
 	</td>
 
@@ -279,8 +240,4 @@ if ($row["username"] == $row["rep_username"]) {
 </table>
 </form>
 
-<?php // Include the FOOTER -AZ
-include 'footer.php'; ?>
-
-</body>
-</html>
+<? include 'footer.php'; // Include the FOOTER ?>

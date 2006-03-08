@@ -4,75 +4,42 @@
  * Created on Mar 3, 2006 11:07:11 PM by @author aaronz
  * 
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
+ * Allows admins to edit users
  */
 ?>
-
 <?php
-	require_once ("tool_vars.php");
+require_once ("tool_vars.php");
 
-	$PAGE_NAME = "Admin User Edit";
-	$Message = "";
-	
-	// connect to database
-	require "mysqlconnect.php";
+$PAGE_NAME = "Admin User Edit";
+$Message = "";
 
-	// get the passkey from the cookie if it exists
-	$PASSKEY = $_COOKIE["SESSION_ID"];
+// connect to database
+require "mysqlconnect.php";
 
-	// check the passkey
-	$USER_PK = 0;
-	if (isset($PASSKEY)) {
-		$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
-		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
-		$row = mysql_fetch_assoc($result);
+// check authentication
+require "check_authentic.php";
 
-		if( !$result ) {
-			// no valid key exists, user not authenticated
-			$USER_PK = -1;
-		} else {
-			// authenticated user
-			$USER_PK = $row["users_pk"];
-		}
-		mysql_free_result($result);
-	}
+// login if not autheticated
+require "auth_login_redirect.php";
 
-	if( $USER_PK <= 0 ) {
-		// no user_pk, user not authenticated
-		// redirect to the login page
-		header('location:'.$ACCOUNTS_PATH.'login.php?ref='.$_SERVER['PHP_SELF']);
-		exit;
-	}
+// Make sure user is authorized
+$allowed = 0; // assume user is NOT allowed unless otherwise shown
+if (!$USER["admin_accounts"]) {
+	$allowed = 0;
+	$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
+		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
+} else {
+	$allowed = 1;
+}
 
-	// if we get here, user should be authenticated
-	// get the authenticated user information
-	$authsql = "SELECT * FROM users WHERE pk = '$USER_PK'";
-	$result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
-	$USER = mysql_fetch_assoc($result);
-
-	// Make sure user is authorized
-	$allowed = 0; // assume user is NOT allowed unless otherwise shown
-	if (!$USER["admin_accounts"]) {
-		$allowed = 0;
-		$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
-			"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
-	} else {
-		$allowed = 1;
-	}
-	
-	$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
-		"<a href='admin_insts.php'>Institutions admin</a></span>";
+// set the header links
+$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
+	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
-<link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
 
+<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
-function focus(){document.account.firstname.focus();}
-
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
 		document.adminform.sortorder.value = newOrder + " desc";
@@ -82,15 +49,9 @@ function orderBy(newOrder) {
 	document.adminform.submit();
 	return false;
 }
-
 // -->
 </script>
-
-</head>
-<body onLoad="focus()">
-
-<? // Include the HEADER -AZ
-include 'header.php'; ?>
+<? include 'header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -284,7 +245,7 @@ include 'header.php'; ?>
 <?= $Message ?>
 
 <i style="font-size:9pt;">All fields are required</i><br/>
-<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post" name="account" style="margin:0px;">
+<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post" name="adminform" style="margin:0px;">
 <input type="hidden" name="pk" value="<?= $PK ?>">
 <input type="hidden" name="saving" value="1">
 
@@ -308,6 +269,7 @@ include 'header.php'; ?>
 	<tr>
 		<td class="account"><b>First name:</b></td>
 		<td><input type="text" name="firstname" tabindex="4" value="<?= $FIRSTNAME ?>" size="40" maxlength="50"></td>
+		<script>document.adminform.firstname.focus();</script>
 	</tr>
 	<tr>
 		<td class="account"><b>Last name:</b></td>
@@ -410,8 +372,4 @@ include 'header.php'; ?>
 
 </form>
 
-<?php // Include the FOOTER -AZ
-include 'footer.php'; ?>
-
-</body>
-</html>
+<? include 'footer.php'; // Include the FOOTER ?>

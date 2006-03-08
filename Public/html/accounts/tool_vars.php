@@ -14,4 +14,19 @@ $CSS_FILE = "accounts.css";
 
 $DATE_FORMAT = "l, F dS, Y h:i A";
 
+// tool functions
+
+// Generate password, update db, and send email
+function makeRandomPassword() {
+      $salt = "abchefghjkmnpqrstuvwxyz0123456789";
+      srand((double)microtime()*1000000);
+      $i = 0;
+      while ($i <= 7) {
+            $num = rand() % 33;
+            $tmp = substr($salt, $num, 1);
+            $pass = $pass . $tmp;
+            $i++;
+      }
+      return $pass;
+}
 ?>

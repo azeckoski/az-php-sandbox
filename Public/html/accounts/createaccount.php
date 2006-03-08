@@ -7,45 +7,17 @@
 	// connect to database
 	require "mysqlconnect.php";
 
-	// get the passkey from the cookie if it exists
-	$PASSKEY = $_COOKIE["SESSION_ID"];
+	// check authentication
+	require "check_authentic.php";
 
-	// check the passkey
-	$USER_PK = 0;
-	if (isset($PASSKEY)) {
-		$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
-		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
-		$count = mysql_num_rows($result);
-		$row = mysql_fetch_assoc($result);
 
-		if( empty($result) || ($count < 1)) {
-			// no valid key exists, user not authenticated
-			$USER_PK = 0;
-		} else {
-			// authenticated user, send to myaccount instead
-			$USER_PK = $row["users_pk"];
-			header('location:myaccount.php');
-		}
-		mysql_free_result($result);
+	// if logged in, kick over to my account instead
+	if ($USER_PK) {
+		header('location:'.$ACCOUNTS_PATH.'myaccount.php');
+		exit;
 	}
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
-<link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
 
-<script>
-<!--
-function focus(){document.account.username.focus();}
-// -->
-</script>
-
-</head>
-<body onLoad="focus();">
-
-<?php
+	// process POST vars
 	$SAVE = $_POST["saving"];
 
 	$USERNAME = stripslashes($_POST["username"]);
@@ -149,27 +121,29 @@ function focus(){document.account.username.focus();}
 			include ("activation_email.php");
 		}
 	}
-
 ?>
 
-<? // Include the HEADER -AZ
-include 'header.php'; ?>
+<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<script>
+<!--
+// -->
+</script>
+<? include 'header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
 <?php if (!$created) {
-
 	$institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
-	?>
-
+?>
 
 	<span style="font-style:italic;font-size:9pt;">All fields are required</span><br/>
-	<form action="createaccount.php" method="post" name="account" style="margin:0px;">
+	<form action="createaccount.php" method="post" name="adminform" style="margin:0px;">
 	<input type="hidden" name="saving" value="1">
 	<table border="0" class="padded">
 		<tr>
 			<td class="account"><b>Username:</b></td>
 			<td><input type="text" name="username" tabindex="1" value="<?= $USERNAME ?>" maxlength="30"></td>
+			<script>document.adminform.username.focus();</script>
 		</tr>
 		<tr>
 			<td class="account"><b>Password:</b></td>
@@ -216,9 +190,4 @@ include 'header.php'; ?>
 
 <?php } ?>
 
-
-<? // Include the FOOTER -AZ
-include 'footer.php'; ?>
-
-</body>
-</html>
+<? include 'footer.php'; // Include the FOOTER ?>
