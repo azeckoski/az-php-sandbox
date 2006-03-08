@@ -5,57 +5,25 @@
  */
 ?>
 <?php
-	require_once ("tool_vars.php");
+require_once ('tool_vars.php');
 
-	// Introduction or main page
-	$PAGE_NAME = "Introduction";
+$PAGE_NAME = "Introduction";
+$Message = "";
 
-	// connect to database
-	require "mysqlconnect.php";
+// connect to database
+require 'mysqlconnect.php';
 
-	// get the passkey from the cookie if it exists
-	$PASSKEY = $_COOKIE["SESSION_ID"];
-
-	// check the passkey
-	$USER_PK = 0;
-	if (isset($PASSKEY)) {
-		$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
-		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
-		$count = mysql_num_rows($result);
-		$row = mysql_fetch_assoc($result);
-
-		if( empty($result) || ($count < 1)) {
-			// no valid key exists, user not authenticated
-			$USER_PK = 0;
-		} else {
-			// authenticated user
-			$USER_PK = $row["users_pk"];
-		}
-		mysql_free_result($result);
-	}
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
-<link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
-
-</head>
-<body>
-
-<?php
-	$USER = "";
-	if ($USER_PK) {
-		// get the authenticated user information
-		$authsql = "SELECT * FROM users WHERE pk = '$USER_PK'";
-		$result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
-		$USER = mysql_fetch_assoc($result);
-	}
+// check authentication
+require $ACCOUNTS_PATH.'check_authentic.php';
 ?>
 
-<? // Include the HEADER -AZ
-include 'header.php'; ?>
+<? include $ACCOUNTS_PATH.'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<script>
+<!--
+// -->
+</script>
+<? include 'header.php'; // INCLUDE THE HEADER ?>
+
 
 <table border=0 cellpadding=0 cellspacing=3 width="100%">
 <tr>
@@ -170,8 +138,4 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 </div>
 <?php } ?>
 
-<? // Include the FOOTER -AZ
-include 'footer.php'; ?>
-
-</body>
-</html>
+<? include 'footer.php'; // Include the FOOTER ?>

@@ -1,9 +1,5 @@
-<?php
-/*
- * Created on Febrary 18, 2006 by @author aaronz
- * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
- */
-?>
+</head>
+<body>
 <table class=main border="0" >
 <tr>
   <td width=120px style="border: 1px solid #ccc;">
@@ -35,7 +31,7 @@
 <?php } ?>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $LOGOUT_PAGE ?>">Logout</a><br/>
 <?php } else { ?>
-  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $LOGIN_PAGE ?>">Login</a>
+  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_PATH ?><?= $LOGIN_PAGE."?ref=".$_SERVER['PHP_SELF'] ?>">Login</a>
 <?php } ?>
 	</td>
 	</tr>
