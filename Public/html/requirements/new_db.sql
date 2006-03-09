@@ -29,13 +29,7 @@ CREATE TABLE requirements_vote (
     FOREIGN KEY (req_data_pk) REFERENCES requirements_data(pk)
 );
 
-/**** to get old tables to line up with new structure (use if needed)
-alter table requirements_data drop column toolname
-alter table requirements_data drop column need
-alter table requirements_data drop column timeframe
-alter table requirements_data add round int(4) NOT NULL default 1
-alter table requirements_vote add round int(4) NOT NULL default 1
-alter table requirements_vote add official enum('0','1') NOT NULL DEFAULT '0'
-alter table requirements_data add jiranum int(5) not null default 0
-update requirements_data set jiranum = replace(jirakey,'REQ-','')
+/**** to duplicate community votes over to rep votes
+insert into requirements_vote (users_pk,req_data_pk,vote,round,official) 
+SELECT users_pk,req_data_pk,vote,round,'1' FROM `requirements_vote` WHERE users_pk='###';
 *****/
