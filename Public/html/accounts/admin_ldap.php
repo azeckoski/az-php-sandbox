@@ -1,7 +1,7 @@
 <?php
 /*
- * file: admin.php
- * Created on Mar 3, 2006 9:45:03 PM by @author aaronz
+ * file: admin_ldap.php
+ * Created on Mar 8, 2006 10:52:28 PM by @author aaronz
  * 
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
@@ -33,7 +33,7 @@ if (!$USER["admin_accounts"]) {
 
 // set header links
 $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
-	"<a href='admin_ldap.php'>LDAP admin</a> - " .
+	"LDAP admin - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
@@ -63,26 +63,33 @@ function orderBy(newOrder) {
 	}
 ?>
 
-<table>
-    <tr>
-      <td valign="top"><a href="admin_users.php">Users Control</a></td>
-      <td>This allows control of internal user accounts and related properties<br>
-      Edit the user to set them as an institutional rep or voting rep and to control admin privileges
-      </td>
-    </tr>
-    <tr>
-      <td valign="top"><a href="admin_ldap.php">LDAP Control</a></td>
-      <td>This allows control of LDAP user accounts and related properties<br>
-      Edit the user to set them as an institutional rep or voting rep and to control admin privileges<br>
-      LDAP accounts should be used instead of internal accounts
-      </td>
-    </tr>
-    <tr>
-      <td valign="top"><a href="admin_insts.php">Institutional Control</a></td>
-      <td>This allows control of instituions<br>
-      Edit the institution to change the name, abbreviation, or type
-      </td>
-    </tr>
-</table>  
+<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
+<input type="hidden" name="sortorder" value="<?= $sortorder ?>">
+
+<div class="filterarea">
+	<table border=0 cellspacing=0 cellpadding=0 width="100%">
+	<tr>
+
+	<td nowrap="y" width="5%"><b style="font-size:1.1em;">Search:&nbsp;</b></td>
+	<td nowrap="y" align="left">
+		Enter search text to the right
+	</td>
+
+	<td nowrap="y" align="left">
+		<a href="admin_ldap_add.php">Add user to ldap</a>
+	</td>
+
+	<td nowrap="y" align="right">
+        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
+        	length="20" title="Enter search text here">
+        <script>document.adminform.searchtext.focus();</script>
+        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
+	</td>
+
+	</tr>
+	</table>
+</div>
+
+Info here
 
 <?php include 'footer.php'; // Include the FOOTER ?>

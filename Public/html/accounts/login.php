@@ -23,7 +23,7 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 	
 	// ATTEMPT LDAP AUTH FIRST
 	if ($USE_LDAP) {
-		$ds=ldap_connect("reynolds.cc.vt.edu","389");  // must be a valid LDAP server!
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);  // must be a valid LDAP server!
 		if ($ds) {
 			$reporting_level = error_reporting(E_ERROR); // suppress warning messages
 			$anon_bind=ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
