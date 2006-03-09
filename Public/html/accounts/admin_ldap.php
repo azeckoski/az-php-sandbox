@@ -9,7 +9,7 @@
 <?php
 require_once ("tool_vars.php");
 
-$PAGE_NAME = "Admin Accounts Control";
+$PAGE_NAME = "Admin LDAP Control";
 $Message = "";
 
 // connect to database
@@ -29,6 +29,67 @@ if (!$USER["admin_accounts"]) {
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
 	$allowed = 1;
+}
+
+
+// get the search
+$searchtext = "";
+if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
+
+$output = "Enter search text to the right";
+if ($USE_LDAP && $searchtext) {
+	$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);  // must be a valid LDAP server!
+	if ($ds) {
+		$reporting_level = error_reporting(E_ERROR); // suppress warning messages
+		$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+		if ($read_bind) {
+			// Searching for (sakaiUser=username)
+			$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","o","sakaiperm");
+		   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "sakaiUser=$searchtext", $attribs); // expect sr=array
+	
+			$output = "Number of ldap entries returned: " . ldap_count_entries($ds, $sr);
+			$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
+
+/**** This will do a straight output of all fields -AZ
+			$output = "<table>";
+			$output .= "<tr><td colspan='2'>Number of ldap entries returned: " . 
+				ldap_count_entries($ds, $sr) . "</td></tr>";
+			$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
+			for ($i=0; $i<$info["count"]; $i++) {
+				$output .= "<tr><td colspan='2'><b>LDAP user ".($i+1)." (" . $info[$i]["count"] . " data fields):</b></td></tr>";
+				foreach ($info[$i] as $key=>$value) {
+					$outvalue = $value;
+					if (is_numeric($key) || $key === "count") {
+						// skip it
+						continue;
+					} else if (is_array($value)) {
+						$outvalue = "";
+						foreach ($value as $key1=>$value1) {
+							if ($key1 !== "count") {
+								$outvalue .= "$value1 ";
+							}
+						}
+					}
+					$output .= "<tr><td align='right'>" . $key . ":</td><td>" . $outvalue . "</td></tr>";
+				}
+			}
+			$output .= "</table>";
+*****/
+
+		} else {
+			$output ="ERROR: Read bind to ldap failed";
+		}
+		ldap_close($ds); // close connection
+		error_reporting($reporting_level); // reset error reporting
+					
+	} else {
+	   $output = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
+	}
+} else { // end use ldap check
+	$output = "No seach text entered...";
+	if (!$USE_LDAP) {
+		$output = "<b>LDAP is disabled!</b>";
+	}
 }
 
 // set header links
@@ -72,7 +133,7 @@ function orderBy(newOrder) {
 
 	<td nowrap="y" width="5%"><b style="font-size:1.1em;">Search:&nbsp;</b></td>
 	<td nowrap="y" align="left">
-		Enter search text to the right
+		<?= $output ?>
 	</td>
 
 	<td nowrap="y" align="left">
@@ -90,6 +151,55 @@ function orderBy(newOrder) {
 	</table>
 </div>
 
-Info here
+<table border="0" cellspacing="0" width="100%">
+<tr class='tableheader'>
+<td><a href="javascript:orderBy('username');">username</a></td>
+<td><a href="javascript:orderBy('lastname');">Name</a></td>
+<td><a href="javascript:orderBy('email');">Email</a></td>
+<td><a href="javascript:orderBy('institution');">Institution</a></td>
+<td align="center">Rep</td>
+<td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
+</tr>
+
+<?php 
+for ($line=0; $line<$info["count"]; $line++) { 
+	if (strlen($row["institution"]) > 38) {
+		$row["institution"] = substr($row["institution"],0,35) . "...";
+	}
+
+	$rowstyle = "";
+	if ($not_activated) {
+		$rowstyle = " style = 'color:red;' ";
+	} else if ($admin_reqs) {
+		$rowstyle = " style = 'color:darkgreen;' ";
+	} else if ($admin_insts) {
+		$rowstyle = " style = 'color:darkblue;' ";
+	} else if ($admin_accounts) {
+		$rowstyle = " style = 'color:#330066;' ";
+	}
+	
+	$linestyle = "oddrow";
+	if ($line % 2 == 0) {
+		$linestyle = "evenrow";
+	} else {
+		$linestyle = "oddrow";
+	}
+?>
+<b>LDAP user <?=($line+1)?> (<?= $info[$line]["count"] ?> data fields):</b><br/>
+<tr id="<?= $linestyle ?>" <?= $rowstyle ?> >
+	<td class="line"><?= $info[$line]["sakaiuser"][0] ?></td>
+	<td class="line"><?= $info[$line]["givenname"][0] ?> <?= $info[$line]["sn"][0] ?></td>
+	<td class="line"><?= $info[$line]["mail"][0] ?></td>
+	<td class="line"><?= $info[$line]["o"][0] ?></td>
+	<td class="line" align="center"></td>
+	<td class="line" align="center">
+		<a href="admin_ldap_add.php?pk=<?= $info[$line]["uid"][0] ?>">edit</a>
+	</td>
+</tr>
+<?php } // end for loop ?>
+
+</table>
+
+</form>
 
 <?php include 'footer.php'; // Include the FOOTER ?>

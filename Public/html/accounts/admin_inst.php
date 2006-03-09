@@ -5,6 +5,15 @@
  * 
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
+ /***** LDAP
+  * objectClass (
+    1.3.6.1.4.1.6760.6.2.9
+    NAME 'sakaiInst'
+    DESC 'An institution in sakai'
+    SUP top
+    AUXILIARY
+    MAY ( iid $ o $ repUid $ voteUid ))
+  */
 ?>
 <?php
 require_once ("tool_vars.php");

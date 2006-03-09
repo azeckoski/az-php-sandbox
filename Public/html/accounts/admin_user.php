@@ -372,4 +372,9 @@ function orderBy(newOrder) {
 
 </form>
 
+<span style="font-size:9pt;">
+	<b>Note:</b> <i>To change your password, enter the new values in the fields above.<br/>
+	To leave your password at it's current value, leave the password fields blank.</i>
+</span>
+
 <? include 'footer.php'; // Include the FOOTER ?>

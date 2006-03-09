@@ -9,7 +9,7 @@
 <?php
 require_once ("tool_vars.php");
 
-$PAGE_NAME = "Admin LDAP add";
+$PAGE_NAME = "Admin LDAP user control";
 $Message = "";
 
 // connect to database
@@ -58,6 +58,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 <?php
 
 	$SAVE = $_POST["saving"];
+
+	$PK = $_REQUEST["pk"]; // if editing/removing this will be set
 
 	$USERNAME = $_POST["username"];
 	$EMAIL = $_POST["email"];
@@ -123,41 +125,53 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 		mysql_free_result($sql_email_check);
 
 		if ($errors == 0) {
-			// write the new values to LDAP
+			// write the values to LDAP
 			$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);
 			if ($ds) {
 				// bind with appropriate dn to give update access
 				$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 				if ($admin_bind) {
-					//prepare user dn, find next available uid
-					$sr=ldap_search($ds, "dc=sakaiproject,dc=org", "uid=*", array("uid"));
-					$info = ldap_get_entries($ds, $sr);
-					$uid = max( $info[0]["uid"] ) + 1;
-					
-					$user_dn = "uid=$uid,ou=person,dc=sakaiproject,dc=org";
-					print "uid: $uid; user_dn='$user_dn'<br>";
-	
-					// prepare data
-					$info = array();
-					$info["objectClass"][0]="person";
-					$info["objectClass"][1]="organizationalPerson";
-					$info["objectClass"][2]="inetOrgPerson";
-					$info["objectClass"][3]="sakaiAccount";
-					$info["cn"]="$FIRSTNAME $LASTNAME";
-					$info["givenname"]=$FIRSTNAME;
-					$info["sn"]=$LASTNAME;
-					$info["uid"]=(int) $uid;
-					$info["sakaiUser"]=$USERNAME;
-					$info["mail"]=$EMAIL;
-					$info["userPassword"]=$PASS1;				
-						
-					// add data to directory
-					$ldap_result=ldap_add($ds, $user_dn, $info);
-					if ($ldap_result) {
-						print "Added user to LDAP<br>";
+					if (!$PK) { // ADDING USER TO LDAP
+						//prepare user dn, find next available uid
+						$sr=ldap_search($ds, "dc=sakaiproject,dc=org", "uid=*", array("uid"));
+						ldap_sort($ds, $sr, 'uid');
+						$info = ldap_get_entries($ds, $sr);
+						$lastnum = $info["count"] - 1;
+						$uid = $info[$lastnum]["uid"][0] + 1;
+
+						// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
+						$user_dn = "uid=$uid,ou=users,dc=sakaiproject,dc=org";
+						print "uid: $uid; user_dn='$user_dn'<br>";
+		
+						// prepare data
+						$info = array();
+						$info["objectclass"][0]="top";
+						$info["objectclass"][1]="person";
+						$info["objectclass"][2]="organizationalPerson";
+						$info["objectclass"][3]="inetOrgPerson";
+						$info["objectclass"][4]="sakaiAccount";
+						$info["cn"]="$FIRSTNAME $LASTNAME";
+						$info["givenname"]=$FIRSTNAME;
+						$info["sn"]=$LASTNAME;
+						$info["uid"]=(int) $uid;
+						$info["sakaiuser"]=$USERNAME;
+						$info["mail"]=$EMAIL;
+						$info["userpassword"]=$PASS1;			
+						$info["o"]=$INSTITUTION_PK;
+							
+						// add data to directory
+						$ldap_result=ldap_add($ds, $user_dn, $info);
+						if ($ldap_result) {
+							print "Added user to LDAP<br>";
+							$PK = $uid;
+						} else {
+							print "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br>";
+						}
 					} else {
-						print "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br>";
+						// EDITING LDAP INFO
+						
 					}
+					
 				} else {
 					print "Critical ERROR: Admin bind failed<br>";
 				}
@@ -228,17 +242,39 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 	}
 
 
-	// get the user information
-/***
-	if (!empty($result)) {
-		if (!strlen($USERNAME)) { $USERNAME = $thisUser["username"]; }
-		if (!strlen($EMAIL)) { $EMAIL = $thisUser["email"]; }
-		if (!strlen($FIRSTNAME)) { $FIRSTNAME = $thisUser["firstname"]; }
-		if (!strlen($LASTNAME)) { $LASTNAME = $thisUser["lastname"]; }
-		if (!strlen($INSTITUTION_PK)) { $INSTITUTION_PK = $thisUser["institution_pk"]; }
+	// get the user information from LDAP if $PK is set
+	$result = array();
+	if ($USE_LDAP && $PK) {
+		print "fetching from ldap<br>";
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);  // must be a valid LDAP server!
+		if ($ds) {
+			$reporting_level = error_reporting(E_ERROR); // suppress warning messages
+			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+			if ($read_bind) {
+				$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","o","sakaiperm");
+			   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$PK", $attribs);
+				$result = ldap_get_entries($ds, $sr); // $info["count"] = items returned
+			} else {
+				$Message ="<h4>ERROR: Read bind to ldap failed</h4>";
+			}
+			ldap_close($ds); // close connection
+			error_reporting($reporting_level); // reset error reporting
+						
+		} else {
+		   $Message = "<h3>CRITICAL Error: Unable to connect to LDAP server</h3>";
+		}
 	}
-***/	
+
+	if (!empty($result)) {
+		if (!strlen($USERNAME)) { $USERNAME = $result[0]["sakaiuser"][0]; }
+		if (!strlen($EMAIL)) { $EMAIL = $result[0]["mail"][0]; }
+		if (!strlen($FIRSTNAME)) { $FIRSTNAME = $result[0]["givenname"][0]; }
+		if (!strlen($LASTNAME)) { $LASTNAME = $result[0]["sn"][0]; }
+		if (!strlen($INSTITUTION_PK)) { $INSTITUTION_PK = $result[0]["o"][0]; }
+	}
+
 	// get if this user is an institutional rep or voting rep
+
 ?>
 
 <?php $institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK); ?>
@@ -372,5 +408,10 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 </table>
 
 </form>
+
+<span style="font-size:9pt;">
+	<b>Note:</b> <i>To change your password, enter the new values in the fields above.<br/>
+	To leave your password at it's current value, leave the password fields blank.</i>
+</span>
 
 <? include 'footer.php'; // Include the FOOTER ?>
