@@ -1,14 +1,14 @@
 <?
-require_once ("tool_vars.php");
+require_once 'include/tool_vars.php';
 
 // This is the forgot password or username script
 $PAGE_NAME = "Forgot Password";
 
 // connect to database
-require "mysqlconnect.php";
+require 'sql/mysqlconnect.php';
 
 // check authentication
-require "check_authentic.php";
+require 'include/check_authentic.php';
 
 // get POST var
 $EMAIL = stripslashes($_POST['email']);
@@ -74,12 +74,12 @@ This is an automated response, please do not reply!";
 }
 ?>
 
-<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'header.php'; // INCLUDE THE HEADER ?>
+<? include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -102,4 +102,4 @@ This is an automated response, please do not reply!";
 
 
 
-<? include 'footer.php'; // Include the FOOTER ?>
+<? include 'include/footer.php'; // Include the FOOTER ?>

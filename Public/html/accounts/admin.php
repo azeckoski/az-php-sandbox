@@ -7,19 +7,19 @@
  */
 ?>
 <?php
-require_once ("tool_vars.php");
+require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Admin Accounts Control";
 $Message = "";
 
 // connect to database
-require "mysqlconnect.php";
+require 'sql/mysqlconnect.php';
 
 // check authentication
-require "check_authentic.php";
+require 'include/check_authentic.php';
 
 // login if not autheticated
-require "auth_login_redirect.php";
+require 'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
@@ -32,12 +32,15 @@ if (!$USER["admin_accounts"]) {
 }
 
 // set header links
-$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
-	"<a href='admin_ldap.php'>LDAP admin</a> - " .
+$EXTRA_LINKS = "<br><span style='font-size:9pt;'>";
+if ($USE_LDAP) {
+	$EXTRA_LINKS .=	"<a href='admin_users.php'>Users admin</a> - ";
+}
+$EXTRA_LINKS .= "<a href='admin_ldap.php'>LDAP admin</a> - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
-<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 function orderBy(newOrder) {
@@ -51,30 +54,32 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<? include 'header.php'; // INCLUDE THE HEADER ?>
+<? include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include 'footer.php';
+		include 'include/footer.php';
 		exit;
 	}
 ?>
 
 <table>
-    <tr>
-      <td valign="top"><a href="admin_users.php">Users Control</a></td>
-      <td>This allows control of internal user accounts and related properties<br>
-      Edit the user to set them as an institutional rep or voting rep and to control admin privileges
-      </td>
-    </tr>
+<?php if ($USE_LDAP) { ?>
     <tr>
       <td valign="top"><a href="admin_ldap.php">LDAP Control</a></td>
       <td>This allows control of LDAP user accounts and related properties<br>
       Edit the user to set them as an institutional rep or voting rep and to control admin privileges<br>
       LDAP accounts should be used instead of internal accounts
+      </td>
+    </tr>
+<?php } ?>
+    <tr>
+      <td valign="top"><a href="admin_users.php">Users Control</a></td>
+      <td>This allows control of internal user accounts and related properties<br>
+      Edit the user to set them as an institutional rep or voting rep and to control admin privileges
       </td>
     </tr>
     <tr>
@@ -85,4 +90,4 @@ function orderBy(newOrder) {
     </tr>
 </table>  
 
-<?php include 'footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>

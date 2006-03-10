@@ -1,5 +1,5 @@
 <?php
-	require_once ("tool_vars.php");
+	require_once 'include/tool_vars.php';
 
 	// Clear the current session cookie
 	setcookie("SESSION_ID", "NULL", null, "/", false, 0);

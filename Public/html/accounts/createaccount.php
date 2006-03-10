@@ -1,19 +1,19 @@
 <?php
-	require_once ("tool_vars.php");
+	require_once 'include/tool_vars.php';
 
 	// Account Creation - check if user is logged in, if not then create a new account for them
 	$PAGE_NAME = "Create Account";
 
 	// connect to database
-	require "mysqlconnect.php";
+	require 'sql/mysqlconnect.php';
 
 	// check authentication
-	require "check_authentic.php";
+	require 'include/check_authentic.php';
 
 
 	// if logged in, kick over to my account instead
 	if ($USER_PK) {
-		header('location:'.$ACCOUNTS_PATH.'myaccount.php');
+		header('location:'.$ACCOUNTS_URL.'/myaccount.php');
 		exit;
 	}
 
@@ -123,12 +123,12 @@
 	}
 ?>
 
-<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'header.php'; // INCLUDE THE HEADER ?>
+<? include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -190,4 +190,4 @@
 
 <?php } ?>
 
-<? include 'footer.php'; // Include the FOOTER ?>
+<? include 'include/footer.php'; // Include the FOOTER ?>

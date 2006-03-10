@@ -6,24 +6,24 @@
  */
 ?>
 <?php
-	require_once ("tool_vars.php");
+	require_once 'include/tool_vars.php';
 
 	// Introduction or main page
 	$PAGE_NAME = "Main";
 
 	// connect to database
-	require "mysqlconnect.php";
+	require 'sql/mysqlconnect.php';
 
 	// check authentication
-	require "check_authentic.php";
+	require 'include/check_authentic.php';
 ?>
 
-<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'header.php'; // INCLUDE THE HEADER ?>
+<? include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <table border=0 cellpadding=0 cellspacing=3 width="100%">
 <tr>
@@ -74,4 +74,4 @@ You can even <a href="forgot_password.php">reset your password</a> if you forgot
 	<a class="pwhelp" href="forgot_password.php">I forgot my password</a>
 </div>
 
-<? include 'footer.php'; // Include the FOOTER ?>
+<? include 'include/footer.php'; // Include the FOOTER ?>

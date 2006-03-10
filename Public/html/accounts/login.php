@@ -1,11 +1,11 @@
 <?php
-require_once ("tool_vars.php");
+require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Login";
 $Message = "";
 
 // connect to database
-require "mysqlconnect.php";
+require 'sql/mysqlconnect.php';
 
 // Clear the current session cookie
 setcookie("SESSION_ID", "NULL", null, "/", false, 0);
@@ -120,12 +120,12 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 }
 ?>
 
-<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'header.php'; // INCLUDE THE HEADER ?>
+<? include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -184,4 +184,4 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 </tr>
 </table>
 
-<? include 'footer.php'; // Include the FOOTER ?>
+<? include 'include/footer.php'; // Include the FOOTER ?>

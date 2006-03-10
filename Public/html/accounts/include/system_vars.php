@@ -30,16 +30,17 @@ elseif ($ENVIRONMENT == "prod") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai Web";
 	$SERVER_NAME = "http://sakaiproject.org";
-	$USE_LDAP = 1; // 0=no ldap
+	$USE_LDAP = 0; // 0=no ldap
 
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
 }
 else {
-  die("Don't how how to operate in the environment entitled &quot;$ENVIRONMENT&quot;.'");	
+  die("Invalid environment varaiable: &quot;$ENVIRONMENT&quot;.'");	
 }
 
 // Non-environment dependent globals
+$ACCOUNTS_URL = '/accounts';
 $ACCOUNTS_PAGE = "myaccount.php";
 $LOGIN_PAGE = "login.php";
 $LOGOUT_PAGE = "logout.php";

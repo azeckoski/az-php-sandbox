@@ -7,19 +7,19 @@
  */
 ?>
 <?php
-require_once ("tool_vars.php");
+require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Admin Institutions";
 $Message = "";
 
 // connect to database
-require "mysqlconnect.php";
+require 'sql/mysqlconnect.php';
 
 // check authentication
-require "check_authentic.php";
+require 'include/check_authentic.php';
 
 // login if not autheticated
-require "auth_login_redirect.php";
+require 'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
@@ -114,7 +114,7 @@ if ($_REQUEST["export"] && $allowed) {
 	// display the page normally
 ?>
 
-<? include 'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 function orderBy(newOrder) {
@@ -128,14 +128,14 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<? include 'header.php'; // INCLUDE THE HEADER ?>
+<? include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include 'footer.php';
+		include 'include/footer.php';
 		exit;
 	}
 ?>
@@ -273,6 +273,6 @@ if ($_REQUEST["export"]) {
 </table>
 </form>
 
-<? include 'footer.php'; // Include the FOOTER ?>
+<? include 'include/footer.php'; // Include the FOOTER ?>
 
 <?php } // end display ?>
