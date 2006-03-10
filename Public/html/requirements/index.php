@@ -5,24 +5,27 @@
  */
 ?>
 <?php
-require_once ('tool_vars.php');
+require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Introduction";
 $Message = "";
 
 // connect to database
-require 'mysqlconnect.php';
+require 'sql/mysqlconnect.php';
 
 // check authentication
-require $ACCOUNTS_PATH.'check_authentic.php';
+require $ACCOUNTS_PATH.'include/check_authentic.php';
+
+// add in the help link
+$EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
 ?>
 
-<? include $ACCOUNTS_PATH.'top_header.php'; // INCLUDE THE HTML HEAD ?>
+<? include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'header.php'; // INCLUDE THE HEADER ?>
+<? include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 
 <table border=0 cellpadding=0 cellspacing=3 width="100%">
@@ -132,10 +135,10 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 <?php if (!$USER_PK) { ?>
 <div class="help">
 	<b>Help:</b>
-	<a class="pwhelp" href="<?= $ACCOUNTS_PATH ?>createaccount.php">I need to create an account</a> -
-	<a class="pwhelp" href="<?= $ACCOUNTS_PATH ?>login.php">I need to login</a> -
-	<a class="pwhelp" href="<?= $ACCOUNTS_PATH ?>forgot_password.php">I forgot my password</a>
+	<a class="pwhelp" href="<?= $ACCOUNTS_URL ?>/createaccount.php">I need to create an account</a> -
+	<a class="pwhelp" href="<?= $ACCOUNTS_URL ?>/login.php">I need to login</a> -
+	<a class="pwhelp" href="<?= $ACCOUNTS_URL ?>/forgot_password.php">I forgot my password</a>
 </div>
 <?php } ?>
 
-<? include 'footer.php'; // Include the FOOTER ?>
+<? include 'include/footer.php'; // Include the FOOTER ?>

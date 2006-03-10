@@ -7,11 +7,11 @@
 <?php
 
 // Comment this out if the server is different from the one for accounts
-require_once ($ACCOUNTS_PATH."mysqlconnect.php");
+require_once ($ACCOUNTS_PATH.'sql/mysqlconnect.php');
 
 // Sakai Web mySQL server
 // Uncomment these if the server is not the same as the one for accounts
-/**/
+/**
 $dbhost = "localhost";
 $dbname = "sakaiweb";
 $dbuser = "sakaiwww";
