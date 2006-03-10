@@ -23,10 +23,10 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 	
 	// ATTEMPT LDAP AUTH FIRST
 	if ($USE_LDAP) {
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);  // must be a valid LDAP server!
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
 		if ($ds) {
 			$reporting_level = error_reporting(E_ERROR); // suppress warning messages
-			$anon_bind=ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
+			$anon_bind=@ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
 			if ($anon_bind) {
 				// Searching for (sakaiUser=username)
 			   	$sr=ldap_search($ds, "dc=sakaiproject,dc=org", "sakaiUser=$USERNAME"); // expect sr=array
@@ -38,7 +38,7 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 				$user_dn = $info[0]["dn"];
 		
 				// now attempt to bind as the userdn and password
-				$auth_bind=ldap_bind($ds, $user_dn, $PASSWORD);
+				$auth_bind=@ldap_bind($ds, $user_dn, $PASSWORD);
 				if ($auth_bind) {
 					// valid bind, user is authentic
 					$login_success = 1;
@@ -108,6 +108,7 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 		} else {
 			header('location:index.php');
 		}
+		exit;
 
 	} else {
 		// user/pass combo not found

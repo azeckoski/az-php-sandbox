@@ -21,7 +21,7 @@ elseif ($ENVIRONMENT == "test") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai WebTest";
 	$SERVER_NAME = "http://sakaitest.org";
-	$USE_LDAP = 1; // 0=no ldap
+	$USE_LDAP = 0; // 0=no ldap
 
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
