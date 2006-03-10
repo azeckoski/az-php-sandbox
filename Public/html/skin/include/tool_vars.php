@@ -50,7 +50,7 @@ if ($ENVIRONMENT == "prod") {
 
 } else { // assume dev environment
 	// DEV DATES
-	$ROUND_START_DATE = "2006/03/15 1:00";
+	$ROUND_START_DATE = "2006/03/01 1:00";
 	$ROUND_CLOSE_DATE = "2006/05/15 1:00";
 	$ROUND_VOTE_DATE = "2006/05/17 1:00";
 	$ROUND_END_DATE = "2006/05/31 10:00";	
