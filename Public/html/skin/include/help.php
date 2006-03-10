@@ -27,6 +27,7 @@
 
 </div>
 </div>
+<a class="pwhelp" href="mailto:<?= $HELP_EMAIL ?>">Email contact for assistance</a><br>
 
 <input type="button" value="Close Help Window" onClick="javascript:window.close();">
 
