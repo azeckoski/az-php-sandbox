@@ -10,8 +10,7 @@
 <a href="http://bugs.sakaiproject.org/jira/">Sakai JIRA</a> --
 <a href="http://bugs.sakaiproject.org/confluence/">Sakai Confluence</a>
 <div style="font-size:8pt;text-align:center;">
-Coded by <a href="mailto:aaronz@vt.edu">Aaron Zeckoski</a> (<a href="http://www.vt.edu/">Virginia Tech</a>) and
-<a href="mailto:shardin@umich.edu">Susan Hardin</a> (<a href="http://www.umich.edu/">University of Michigan</a>)
+Coded by <a href="mailto:aaronz@vt.edu">Aaron Zeckoski</a> (<a href="http://www.vt.edu/">Virginia Tech</a>)
 </div>
 </div>
 </body>

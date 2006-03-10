@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title><?= $TOOL_NAME ?> - Help</title>
-<link href="requirements_vote.css" rel="stylesheet" type="text/css">
+<link href="skin.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -27,8 +27,6 @@
 
 </div>
 </div>
-
-<?php include 'defineterms.html'; ?>
 
 <input type="button" value="Close Help Window" onClick="javascript:window.close();">
 
