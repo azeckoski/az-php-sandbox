@@ -45,6 +45,12 @@ $ACCOUNTS_PAGE = "myaccount.php";
 $LOGIN_PAGE = "login.php";
 $LOGOUT_PAGE = "logout.php";
 
+// Load LDAP module
+if ($USE_LDAP && !extension_loaded('ldap')) {
+	if (!dl('ldap.so')) {
+		die("Could not enable LDAP!");
+	}
+}
 
 // GLOBAL functions
 function generate_partner_dropdown($institution="", $short=0) {
