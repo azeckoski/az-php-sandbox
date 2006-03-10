@@ -18,11 +18,18 @@
 <div class="defheader">General Help</div>
 <div class="padded">
 
+Voting:
 <UL>
 <LI>Votes can be changed at any time during the voting period (see the top of the voting form for dates).
 <LI>Once votes have been saved, they cannot be removed. Please make sure you are happy with your votes before saving them.
 <LI>The Save button will save all vote selections.
 <LI>The Reset button will only reset the vote for a single item.
+</UL>
+
+Results Viewing:
+<UL>
+<LI>Export: You can export results to excel using the Export button. The export will use whatever your current filters
+and page settings are so if you want to export all items, make sure you select the maximum number of items per page.
 </UL>
 
 </div>
