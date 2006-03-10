@@ -32,7 +32,7 @@ elseif ($ENVIRONMENT == "prod") {
 	$SERVER_NAME = "http://sakaiproject.org";
 	$USE_LDAP = 0; // 0=no ldap
 
-	$HELP_EMAIL = "shardin@umich.edu";
+	$HELP_EMAIL = "sakaiproject_webmaster@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
 }
 else {
