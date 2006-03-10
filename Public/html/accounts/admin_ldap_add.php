@@ -60,6 +60,9 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 	$SAVE = $_POST["saving"];
 
 	$PK = $_REQUEST["pk"]; // if editing/removing this will be set
+	if ($PK) {
+		$Message = "Edit the information below to adjust the account.<br/>";
+	}
 
 	$USERNAME = $_POST["username"];
 	$EMAIL = $_POST["email"];
@@ -71,7 +74,6 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 	$ACTIVATED = $_POST["activated"];
 	if (!$ACTIVATED) { $ACTIVATED = 0; }
 
-	$Message = "";
 
 	// this matters when the form is submitted
 	if ($SAVE) {
@@ -91,6 +93,15 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 		}
 		if (!strlen($LASTNAME)) {
 			$Message .= "<span class='error'>Error: Last name cannot be blank</span><br/>";
+			$errors++;
+		}
+		if (!strlen($INSTITUTION_PK)) {
+			$Message .= "<span class='error'>Error: You must select an institution</span><br/>";
+			$errors++;
+		}
+		// password must be set for new user
+		if (!$PK && !strlen($PASS1)) {
+			$Message .= "<span class='error'>Error: Password cannot be blank</span><br/>";
 			$errors++;
 		}
 
@@ -131,79 +142,89 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 				// bind with appropriate dn to give update access
 				$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 				if ($admin_bind) {
+
+					// prepare data array
+					$info = array();
+					$info["cn"]="$FIRSTNAME $LASTNAME";
+					$info["givenname"]=$FIRSTNAME;
+					$info["sn"]=$LASTNAME;
+					$info["sakaiUser"]=$USERNAME;
+					$info["mail"]=$EMAIL;
+					$info["iid"]="$INSTITUTION_PK";
+
+					// get the institution name for this $INSTITUTION_PK
+					$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", "iid=$INSTITUTION_PK", array("o"));
+					$item = ldap_get_entries($ds, $sr);
+					if ($item["count"]) {
+						$info["o"]=$item[0]["o"][0];
+					}
+
+					// only set password if it is not blank
+					if (strlen($PASS1) > 0) {
+						$info["userPassword"]=$PASS1;
+					}
+
+					$permissions = array();
+					if ($_REQUEST["active"]) { $permissions[] = "active"; }
+					if ($_REQUEST["admin_accounts"]) { $permissions[] = "admin_accounts"; }
+					if ($_REQUEST["admin_insts"]) { $permissions[] = "admin_insts"; }
+					if ($_REQUEST["admin_reqs"]) { $permissions[] = "admin_reqs"; }
+					if ($PK or !empty($permissions)) {
+						$info["sakaiperm"]=$permissions;
+					}
+
 					if (!$PK) { // ADDING USER TO LDAP
 						//prepare user dn, find next available uid
-						$sr=ldap_search($ds, "dc=sakaiproject,dc=org", "uid=*", array("uid"));
+						$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
 						ldap_sort($ds, $sr, 'uid');
-						$info = ldap_get_entries($ds, $sr);
-						$lastnum = $info["count"] - 1;
-						$uid = $info[$lastnum]["uid"][0] + 1;
+						$uidinfo = ldap_get_entries($ds, $sr);
+						$lastnum = $uidinfo["count"] - 1;
+						$uid = $uidinfo[$lastnum]["uid"][0] + 1;
+						ldap_free_result($sr);
 
 						// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
 						$user_dn = "uid=$uid,ou=users,dc=sakaiproject,dc=org";
-						print "uid: $uid; user_dn='$user_dn'<br>";
+						//print "uid: $uid; user_dn='$user_dn'<br>";
 		
-						// prepare data
-						$info = array();
-						$info["objectclass"][0]="top";
-						$info["objectclass"][1]="person";
-						$info["objectclass"][2]="organizationalPerson";
-						$info["objectclass"][3]="inetOrgPerson";
-						$info["objectclass"][4]="sakaiAccount";
-						$info["cn"]="$FIRSTNAME $LASTNAME";
-						$info["givenname"]=$FIRSTNAME;
-						$info["sn"]=$LASTNAME;
-						$info["uid"]=(int) $uid;
-						$info["sakaiuser"]=$USERNAME;
-						$info["mail"]=$EMAIL;
-						$info["userpassword"]=$PASS1;			
-						$info["o"]=$INSTITUTION_PK;
-							
-						// add data to directory
+						$info["objectClass"][0]="top";
+						$info["objectClass"][1]="person";
+						$info["objectClass"][2]="organizationalPerson";
+						$info["objectClass"][3]="inetOrgPerson";
+						$info["objectClass"][4]="sakaiAccount";
+						$info["uid"]=$uid;
+                                        
 						$ldap_result=ldap_add($ds, $user_dn, $info);
 						if ($ldap_result) {
-							print "Added user to LDAP<br>";
+							$Message = "<b>Added new user</b><br/>";
 							$PK = $uid;
+							writeLog($TOOL_SHORT,$USERNAME,"user added (ldap): $FIRSTNAME $LASTNAME ($EMAIL) [$PK]" );
 						} else {
 							print "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br>";
 						}
 					} else {
 						// EDITING LDAP INFO
-						
+						$user_dn = "uid=$PK,ou=users,dc=sakaiproject,dc=org";
+						$ldap_result=ldap_modify($ds, $user_dn, $info);
+						if ($ldap_result) {
+							$Message = "<b>Updated user information</b><br/>";
+							writeLog($TOOL_SHORT,$USERNAME,"user modified (ldap): $FIRSTNAME $LASTNAME ($EMAIL) [$PK]" );
+						} else {
+							print "Failed to modify user in LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br>";
+						}
 					}
 					
 				} else {
-					print "Critical ERROR: Admin bind failed<br>";
+					$Message = "Critical ERROR: Admin bind failed<br>";
 				}
 				ldap_close($ds);
 			} else {
 				$Message = "ERROR: Unable to connect to LDAP server";
 			}
-			$Message = "Edit the information below to adjust the account.<br/>";
-			
-			$passChange = "";
-			if (strlen($PASS1) > 0) {
-				$passChange = " password=PASSWORD('$PASS1'), ";
-			}
 
-			if ($_REQUEST["admin_accounts"]) {
-				$permsSql .= " admin_accounts = '1', ";
-			} else {
-				$permsSql .= " admin_accounts = '0', ";
-			}
-			if ($_REQUEST["admin_insts"]) {
-				$permsSql .= " admin_insts = '1', ";
-			} else {
-				$permsSql .= " admin_insts = '0', ";
-			}
-			if ($_REQUEST["admin_reqs"]) {
-				$permsSql .= " admin_reqs = '1', ";
-			} else {
-				$permsSql .= " admin_reqs = '0', ";
-			}
 
-			$Message = "<b>Updated user information</b><br/>";
 
+
+			// TODO - REP STUFF
 			// set or unset the voting rep (this has to happen before the rep set)
 			if ($_REQUEST["setrepvote"]) {
 				// set this user as the rep for the currently selected institution
@@ -228,6 +249,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 				//$Message .= "<b>Unset this user as an institutional rep.</b><br/>";
 			}
 
+// TODO - do I need this?
 /**
 			// clear all values
 			$USERNAME = "";
@@ -243,17 +265,45 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 
 
 	// get the user information from LDAP if $PK is set
+	$output = "";
 	$result = array();
 	if ($USE_LDAP && $PK) {
-		print "fetching from ldap<br>";
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);  // must be a valid LDAP server!
 		if ($ds) {
 			$reporting_level = error_reporting(E_ERROR); // suppress warning messages
 			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
 			if ($read_bind) {
-				$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","o","sakaiperm");
+				$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","iid","o","sakaiperm");
 			   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$PK", $attribs);
-				$result = ldap_get_entries($ds, $sr); // $info["count"] = items returned
+				$result = ldap_get_entries($ds, $sr);
+				
+/**** TESTING ***/
+// TODO - comment this out
+				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$PK");
+				$output = "<table>";
+				$output .= "<tr><td colspan='2'>Number of ldap entries returned: " . 
+					ldap_count_entries($ds, $sr) . "</td></tr>";
+				$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
+				for ($i=0; $i<$info["count"]; $i++) {
+					$output .= "<tr><td colspan='2'><b>LDAP user ".($i+1)." (" . $info[$i]["count"] . " data fields):</b></td></tr>";
+					foreach ($info[$i] as $key=>$value) {
+						$outvalue = $value;
+						if (is_numeric($key) || $key === "count") {
+							// skip it
+							continue;
+						} else if (is_array($value)) {
+							$outvalue = "";
+							foreach ($value as $key1=>$value1) {
+								if ($key1 !== "count") {
+									$outvalue .= "$value1 ";
+								}
+							}
+						}
+						$output .= "<tr><td align='right'>" . $key . ":</td><td>" . $outvalue . "</td></tr>";
+					}
+				}
+				$output .= "</table>";
+/*******/
 			} else {
 				$Message ="<h4>ERROR: Read bind to ldap failed</h4>";
 			}
@@ -270,14 +320,13 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 		if (!strlen($EMAIL)) { $EMAIL = $result[0]["mail"][0]; }
 		if (!strlen($FIRSTNAME)) { $FIRSTNAME = $result[0]["givenname"][0]; }
 		if (!strlen($LASTNAME)) { $LASTNAME = $result[0]["sn"][0]; }
-		if (!strlen($INSTITUTION_PK)) { $INSTITUTION_PK = $result[0]["o"][0]; }
+		if (!strlen($INSTITUTION_PK)) { $INSTITUTION_PK = $result[0]["iid"][0]; }
 	}
 
 	// get if this user is an institutional rep or voting rep
 
+$institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
 ?>
-
-<?php $institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK); ?>
 
 <?= $Message ?>
 
@@ -293,15 +342,15 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Username:</b></td>
-		<td><input type="text" name="username" tabindex="1" value="<?= $USERNAME ?>" maxlength="50"></td>
+		<td><input type="text" name="username" tabindex="1" value="<?= $USERNAME ?>" size="40" maxlength="50"></td>
 	</tr>
 	<tr>
 		<td class="account"><b>Password:</b></td>
-		<td><input type="password" name="password1" tabindex="2" value="<?= $PASS1 ?>" maxlength="50"></td>
+		<td><input type="password" name="password1" tabindex="2" maxlength="50"></td>
 	</tr>
 	<tr>
 		<td class="account"><b>Confirm&nbsp;pwd:</b></td>
-		<td><input type="password" name="password2" tabindex="3" value="<?= $PASS1 ?>" maxlength="50"></td>
+		<td><input type="password" name="password2" tabindex="3" maxlength="50"></td>
 	</tr>
 	<tr>
 		<td class="account"><b>First name:</b></td>
@@ -340,8 +389,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 	<tr>
 		<td class="account"><b>Activated:</b></td>
 		<td class="checkbox">
-			<input type="checkbox" name="activated" tabindex="9" value="1" <?php
-				if ($thisUser["activated"]) { echo " checked='Y' "; }
+			<input type="checkbox" name="active" tabindex="9" value="1" <?php
+				if (in_array("active",$result[0]["sakaiperm"])) { echo " checked='Y' "; }
 			?>>
 			<i> - account is active (inactive accounts cannot login)</i>
 		</td>
@@ -350,8 +399,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 	<tr>
 		<td class="account"><b>Inst Rep:</b></td>
 		<td class="checkbox">
-			<input type="checkbox" name="setrep" tabindex="10" value="1" <?php
-				if ($checkRep["rep_pk"]) { echo " checked='Y' "; }
+			<input type="checkbox" name="instrep" tabindex="10" value="1" <?php
+				if (in_array("instrep",$result[0]["sakaiperm"])) { echo " checked='Y' "; }
 			?>>
 			<i> - user is the representative for the listed institution</i>
 		</td>
@@ -360,8 +409,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 	<tr>
 		<td class="account"><b>Vote Rep:</b></td>
 		<td class="checkbox">
-			<input type="checkbox" name="setrepvote" tabindex="11" value="1" <?php
-				if ($checkRep["repvote_pk"]) { echo " checked='Y' "; }
+			<input type="checkbox" name="voterep" tabindex="11" value="1" <?php
+				if (in_array("voterep",$result[0]["sakaiperm"])) { echo " checked='Y' "; }
 			?>>
 			<i> - user is the voting rep for the listed institution</i>
 		</td>
@@ -375,7 +424,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 		<td class="account"><b>Accounts:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_accounts" tabindex="12" value="1" <?php
-				if ($thisUser["admin_accounts"]) { echo " checked='Y' "; }
+				if (in_array("admin_accounts",$result[0]["sakaiperm"])) { echo " checked='Y' "; }
 			?>>
 			<i> - user has admin access to accounts</i>
 		</td>
@@ -385,7 +434,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 		<td class="account"><b>Institutions:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_insts" tabindex="13" value="1" <?php
-				if ($thisUser["admin_insts"]) { echo " checked='Y' "; }
+				if (in_array("admin_insts",$result[0]["sakaiperm"])) { echo " checked='Y' "; }
 			?>>
 			<i> - user has admin access to institutions</i>
 		</td>
@@ -395,7 +444,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 		<td class="account"><b>Requirements:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_reqs" tabindex="14" value="1" <?php
-				if ($thisUser["admin_reqs"]) { echo " checked='Y' "; }
+				if (in_array("admin_reqs",$result[0]["sakaiperm"])) { echo " checked='Y' "; }
 			?>>
 			<i> - user has admin access to req voting</i>
 		</td>
@@ -413,5 +462,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 	<b>Note:</b> <i>To change your password, enter the new values in the fields above.<br/>
 	To leave your password at it's current value, leave the password fields blank.</i>
 </span>
+
+<?= $output ?>
 
 <? include 'footer.php'; // Include the FOOTER ?>

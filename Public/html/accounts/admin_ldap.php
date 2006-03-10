@@ -32,6 +32,32 @@ if (!$USER["admin_accounts"]) {
 }
 
 
+// delete ldap item
+if ($_REQUEST["ldapdel"]) {
+	$LDAP_PK = $_REQUEST["ldapdel"];
+	$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);
+	if ($ds) {
+		$admin_bind=@ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+		if ($admin_bind) {
+			// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
+			$user_dn = "uid=$LDAP_PK,ou=users,dc=sakaiproject,dc=org";
+			$delresult = ldap_delete($ds,$user_dn);
+			if ($delresult) {
+				$output = "Removed ldap user<br>";
+			} else {
+				$output = "Failed to remove ldap user<br>";
+			}
+			// TODO - clean up inst rep and vote rep
+		} else {
+			$output ="ERROR: Read bind to ldap failed";
+		}
+		ldap_close($ds); // close connection
+	} else {
+	   $output = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
+	}	
+}
+
+
 // get the search
 $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
@@ -50,32 +76,6 @@ if ($USE_LDAP && $searchtext) {
 			$output = "Number of ldap entries returned: " . ldap_count_entries($ds, $sr);
 			$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
 
-/**** This will do a straight output of all fields -AZ
-			$output = "<table>";
-			$output .= "<tr><td colspan='2'>Number of ldap entries returned: " . 
-				ldap_count_entries($ds, $sr) . "</td></tr>";
-			$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
-			for ($i=0; $i<$info["count"]; $i++) {
-				$output .= "<tr><td colspan='2'><b>LDAP user ".($i+1)." (" . $info[$i]["count"] . " data fields):</b></td></tr>";
-				foreach ($info[$i] as $key=>$value) {
-					$outvalue = $value;
-					if (is_numeric($key) || $key === "count") {
-						// skip it
-						continue;
-					} else if (is_array($value)) {
-						$outvalue = "";
-						foreach ($value as $key1=>$value1) {
-							if ($key1 !== "count") {
-								$outvalue .= "$value1 ";
-							}
-						}
-					}
-					$output .= "<tr><td align='right'>" . $key . ":</td><td>" . $outvalue . "</td></tr>";
-				}
-			}
-			$output .= "</table>";
-*****/
-
 		} else {
 			$output ="ERROR: Read bind to ldap failed";
 		}
@@ -91,6 +91,7 @@ if ($USE_LDAP && $searchtext) {
 		$output = "<b>LDAP is disabled!</b>";
 	}
 }
+
 
 // set header links
 $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
@@ -110,6 +111,15 @@ function orderBy(newOrder) {
 	document.adminform.submit();
 	return false;
 }
+
+function ldapdel(itempk) {
+	var response = window.confirm("Are you sure you want to remove this user (id="+itempk+") from ldap?");
+	if (response) {
+		document.adminform.ldapdel.value = itempk;
+		document.adminform.submit();
+		return false;
+	}
+}
 // -->
 </script>
 <? include 'header.php'; // INCLUDE THE HEADER ?>
@@ -126,6 +136,7 @@ function orderBy(newOrder) {
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>">
+<input type="hidden" name="ldapdel" value="">
 
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -185,7 +196,6 @@ for ($line=0; $line<$info["count"]; $line++) {
 		$linestyle = "oddrow";
 	}
 ?>
-<b>LDAP user <?=($line+1)?> (<?= $info[$line]["count"] ?> data fields):</b><br/>
 <tr id="<?= $linestyle ?>" <?= $rowstyle ?> >
 	<td class="line"><?= $info[$line]["sakaiuser"][0] ?></td>
 	<td class="line"><?= $info[$line]["givenname"][0] ?> <?= $info[$line]["sn"][0] ?></td>
@@ -193,7 +203,8 @@ for ($line=0; $line<$info["count"]; $line++) {
 	<td class="line"><?= $info[$line]["o"][0] ?></td>
 	<td class="line" align="center"></td>
 	<td class="line" align="center">
-		<a href="admin_ldap_add.php?pk=<?= $info[$line]["uid"][0] ?>">edit</a>
+		<a href="admin_ldap_add.php?pk=<?= $info[$line]["uid"][0] ?>">edit</a> |
+		<a href="javascript:ldapdel('<?= $info[$line]["uid"][0] ?>')">del</a>
 	</td>
 </tr>
 <?php } // end for loop ?>
