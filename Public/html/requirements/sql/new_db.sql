@@ -1,7 +1,7 @@
 CREATE TABLE requirements_data ( 
-    pk          	int(10) AUTO_INCREMENT NOT NULL,
-    jirakey         varchar(10) NOT NULL UNIQUE,
-    jiranum         int(5) NOT NULL default 0,
+    pk				int(10) AUTO_INCREMENT NOT NULL,
+    jirakey			varchar(10) NOT NULL UNIQUE,
+    jiranum			int(5) NOT NULL default 0,
     summary      	text NOT NULL,
     description  	text NOT NULL,
     component    	varchar(255) NOT NULL,
@@ -18,14 +18,13 @@ CREATE TABLE requirements_data (
 // Fix components: update requirements_data set component = replace(component,'\'','|')
 
 CREATE TABLE requirements_vote ( 
-    pk	         	int(10) AUTO_INCREMENT NOT NULL,
-    users_pk		int(10) NOT NULL,
+    pk				int(10) AUTO_INCREMENT NOT NULL,
+    users_pk			int(10) NOT NULL,
     req_data_pk		int(10) NOT NULL,
-    vote		int(2) NOT NULL,
-    round		int(4) NOT NULL default 1,
-    official   		enum('0','1') NOT NULL DEFAULT '0',
+    vote				int(2) NOT NULL,
+    round			int(4) NOT NULL default 1,
+    official			enum('0','1') NOT NULL DEFAULT '0',
     PRIMARY KEY(pk),
-    FOREIGN KEY (users_pk) REFERENCES users(pk),
     FOREIGN KEY (req_data_pk) REFERENCES requirements_data(pk)
 );
 
