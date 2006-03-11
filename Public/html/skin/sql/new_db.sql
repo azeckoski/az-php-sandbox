@@ -1,35 +1,39 @@
-CREATE TABLE requirements_data ( 
-    pk          	int(10) AUTO_INCREMENT NOT NULL,
-    jirakey         varchar(10) NOT NULL UNIQUE,
-    jiranum         int(5) NOT NULL default 0,
-    summary      	text NOT NULL,
-    description  	text NOT NULL,
-    component    	varchar(255) NOT NULL,
-    audience     	varchar(255) NOT NULL,
-    round			int(4) NOT NULL default 1,
-    	score			int NOT NULL DEFAULT 0,
+// table for storing uploaded files
+CREATE TABLE files (
+	pk				INT(10) NOT NULL AUTO_INCREMENT,
+	name				VARCHAR(50) NOT NULL,
+	type				VARCHAR(50) NOT NULL,
+	size				INT NOT NULL,
+	content			MEDIUMBLOB NOT NULL,
+	thumb			MEDIUMBLOB,
+	date_created		timestamp,
+	PRIMARY KEY(pk)
+);
+
+// table for storing skin entries
+CREATE TABLE skin_data (
+	pk				int(10) AUTO_INCREMENT NOT NULL,
+	users_pk			int(10) NOT NULL,
+	title			varchar(50) NOT NULL,
+    description		text,
+    zip_pk			int(10) NOT NULL,
+    image1_pk		int(10) NOT NULL,
+    image2_pk		int(10) NOT NULL,
+    image3_pk		int(10) NOT NULL,
+    image4_pk		int(10) NOT NULL,
+	round			int(4) NOT NULL default 1,
+	date_created		timestamp,
     PRIMARY KEY(pk)
 );
 
-// Import a JIRA export saved as a CSV file
-//mysqlimport -c jirakey,summary,component,description,audience --fields-optionally-enclosed-by=""" --fields-terminated-by=, --lines-terminated-by="\r\n" --local -usakaiwww -p sakaiweb requirements_data.csv
-// Import the data in the sakai_requirements_data*.sql file
-// Make sure you have ';' seperators turned on
-// Fix components: update requirements_data set component = replace(component,'\'','|')
-
-CREATE TABLE requirements_vote ( 
-    pk	         	int(10) AUTO_INCREMENT NOT NULL,
-    users_pk		int(10) NOT NULL,
-    req_data_pk		int(10) NOT NULL,
-    vote		int(2) NOT NULL,
-    round		int(4) NOT NULL default 1,
-    official   		enum('0','1') NOT NULL DEFAULT '0',
-    PRIMARY KEY(pk),
-    FOREIGN KEY (users_pk) REFERENCES users(pk),
-    FOREIGN KEY (req_data_pk) REFERENCES requirements_data(pk)
+// table for storing skin votes
+CREATE TABLE skin_vote (
+	pk				int(10) AUTO_INCREMENT NOT NULL,
+	users_pk			int(10) NOT NULL,
+	skin_data_pk		int(10) NOT NULL,
+	vote				int(2) NOT NULL,
+	round			int(4) NOT NULL default 1,
+	date_created		timestamp,
+	PRIMARY KEY(pk),
+	FOREIGN KEY (skin_data_pk) REFERENCES skin_data(pk)
 );
-
-/**** to duplicate community votes over to rep votes
-insert into requirements_vote (users_pk,req_data_pk,vote,round,official) 
-SELECT users_pk,req_data_pk,vote,round,'1' FROM `requirements_vote` WHERE users_pk='###';
-*****/

@@ -166,6 +166,12 @@ a:hover {
  padding: 3px;
 }
 
+.filename {
+ font-size:11pt;
+ font-weight: bold;
+ margin: 6px;
+}
+
 /* tag adjustment */
 h1 {
  font-family: Arial, Helvetica, sans-serif;
