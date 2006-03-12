@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-<title>Ajax Form</title>
+<title>Ajax Testing Form</title>
 
 <script type="text/javascript" src="ajax/validate.js"></script>
 
@@ -20,17 +20,16 @@
 
 <?php
 if ($_REQUEST["submit"]) {
-	print "Form submitted sucessfully<br><br>Form Items Received:<br>";
+	print "<b>Form submitted sucessfully</b><br><br>Form Items Received:<br>";
 	foreach ($_REQUEST as $key=>$value) {
 		print "$key:$value<br>";
 	}
-	
 	exit();
 }
 ?>
 
 <fieldset>
-<legend>Ajax Form</legend>
+<legend>AJAX Demo Form</legend>
 
 <div id="requiredMessage"></div>
 <form method="post" action="<?= $_SERVER["PHP_SELF"] ?>" style="margin:0px;">
@@ -39,8 +38,8 @@ if ($_REQUEST["submit"]) {
 		<td>Username</td>
 		<td>
 			<img id="userImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" id="user" name="user" tabindex="1"/>
-			<input type="hidden" id="userValidate" value="required"/>
+			<input type="text" name="user" tabindex="1"/>
+			<input type="hidden" name="userValidate" value="required:::focus"/>
 			<span id="userMsg"></span>
 		</td>
 	</tr>
@@ -49,8 +48,8 @@ if ($_REQUEST["submit"]) {
 		<td>Email</td>
 		<td>
 			<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" id="email" name="email" tabindex="2"/>
-			<input type="hidden" id="emailValidate" value="required:email"/>
+			<input type="text" name="email" tabindex="2"/>
+			<input type="hidden" name="emailValidate" value="required:email"/>
 			<span id="emailMsg"></span>
 		</td>
 	</tr>	
@@ -59,8 +58,8 @@ if ($_REQUEST["submit"]) {
 		<td>Other</td>
 		<td>
 			<img id="otherImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" id="other" name="other" tabindex="3"/>
-			<input type="hidden" id="otherValidate" value="required"/>
+			<input type="text" name="other" tabindex="3"/>
+			<input type="hidden" name="otherValidate" value="required"/>
 			<span id="otherMsg"></span>
 		</td>
 	</tr>	
@@ -69,7 +68,7 @@ if ($_REQUEST["submit"]) {
 		<td>Auxillary</td>
 		<td>
 			<img src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" id="aux" name="aux" tabindex="3"/>
+			<input type="text" name="aux" tabindex="3"/>
 			<i>No validation</i>
 		</td>
 	</tr>	
@@ -77,6 +76,7 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td colspan="2">
 			<input type="submit" name="submit" value="Save Information" tabindex="4" />
+			<div id="errorMessage"></div>
 		</td>
 	</tr> 
 	
