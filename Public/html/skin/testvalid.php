@@ -19,8 +19,7 @@
 <body>
 <fieldset>
 <legend>Ajax Form</legend>
-
-
+  
 <form method="post" action="<?= $_SERVER["PHP_SELF"] ?>">
 <table>
 	<tr>

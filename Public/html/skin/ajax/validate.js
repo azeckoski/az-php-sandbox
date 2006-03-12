@@ -1,13 +1,27 @@
 // Created and modified from various code by Aaron Zeckoski (aaronz@vt.edu)
 
 // config variables
-var sUrl = "include/validate.php?ajax=1"; // url is the relative processor page which will do the checking (include ?ajax=1)
+var sUrl = "ajax/validate.php?ajax=1"; // url is the relative processor page which will do the checking (include ?ajax=1)
+var gPass = "ok"; // global - the response that indicates no problems
+var gFail = "error"; // global - the response that indicates failure
+var textRequired = "Required";
+
+// image paths and names
+var imgBln = "ajax/images/blank.gif"; // a blank image file
+var imgReq = "ajax/images/required.gif"; // a required image file (star)
+var imgVal = "ajax/images/validated.gif"; // a validated image file (check)
+var imgInv = "ajax/images/invalid.gif"; // an invalid image file (x mark)
 
 // global variables
 var gErrors = 0; // global - error count
-var gPass = "ok"; // global - the response that indicates no problems
-var gFail = "error"; // global - the response that indicates failure
 
+// Basic form element sample
+/******
+<img id="userImg" src="ajax/images/blank.gif" width="16" height="16"/>
+<input id="user" type="text" name="user" tabindex="1"/>
+<input id="userValidate" type="hidden" value="validate required none"/>
+<span id="userMsg"></span>
+******/
 
 // setup up the handlers on all appropriate form elements
 window.onload = attachFormHandlers;
@@ -21,13 +35,29 @@ function attachFormHandlers()
 				// handle submit differently
 				//items[i].disabled = true; // disable submit by default
 			} else {
-				items[i].style.fontVariant = "";
-				items[i].onchange = function(){return validateMe(this);} //attach the onchange to each form field
-				//items[i].onblur = function(){return validateMe(this);} //attach the onblur to each form field
+				validateItem = document.getElementById(items[i].id + "Validate");
+				if (validateItem != null) {
+					if (validateItem.value.match(" required ")) {
+						// this is required so add the images or the text
+						if ((var imgObject=document.getElementById(items[i].id + "Img")) != null) {
+							imgObject.src = imgReq;
+							alert("Found image object:"+items[i].id);
+						} else if ((var msgObject=document.getElementById(items[i].id + "Msg")) != null) {
+							msgObject.innerHtml = textRequired;
+						} else {
+							// no image or text object, go with setting color of item
+							items[i].style.backgroundColor = "#FFCCCC";
+						}
+					}
+					items[i].style.fontVariant = "";
+					items[i].onchange = function(){return validateMe(this);} //attach the onchange to each form field
+					//items[i].onblur = function(){return validateMe(this);} //attach the onblur to each form field
+				}
 			}
 		}
+		// attach the validate function to all form submit actions
 		document.forms[f].onsubmit = function(){return validate(this);}
-	}
+	}	
 }
 
 // get the http request object in a browser safe way
