@@ -12,7 +12,7 @@
 <head>
 <title>Ajax Form</title>
 
-<script type="text/javascript" src="include/validate.js"></script>
+<script type="text/javascript" src="ajax/validate.js"></script>
 
 </head>
 
@@ -26,24 +26,28 @@
 	<tr>
 		<td>Username</td>
 		<td>
-			<input id="user" type="text" name="user" tabindex="1" class="validate required none"/>
-			<span id="userMsg">Required</span>
+			<img id="userImg" src="ajax/images/blank.gif" width="16" height="16"/>
+			<input id="user" type="text" name="user" tabindex="1"/>
+			<input id="userValidate" type="hidden" value="validate required none"/>
+			<span id="userMsg"></span>
 		</td>
 	</tr>
  
 	<tr>
 		<td>Email</td>
 		<td>
+			<img id="userImg" src="ajax/images/blank.gif" width="16" height="16"/>
 			<input id="email" type="text" name="email" tabindex="2" class="validate required email"/>
-			<span id="emailMsg">Required</span>
+			<span id="emailMsg"></span>
 		</td>
 	</tr>	
 
 	<tr>
 		<td>Other</td>
 		<td>
+			<img id="userImg" src="ajax/images/blank.gif" width="16" height="16"/>
 			<input id="other" type="text" name="other" tabindex="3" class="validate required none"/>
-			<span id="otherMsg">Required</span>
+			<span id="otherMsg"></span>
 		</td>
 	</tr>	
 
