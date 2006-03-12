@@ -32,39 +32,48 @@ function ProcessAjax() {
 
 	writeLog($TOOL_SHORT,"ajax",$_SERVER["QUERY_STRING"]);
 
-	$required = $_GET["req"]; // is field required, "required" or "optional"
-	$type = $_GET["type"]; // additional requirements like email or none
-	$formid = $_GET["id"]; // id of the form element
-	$value = $_GET["val"]; // the value of the field
-	$param1 = $_GET["param3"]; // extra parameters
-	$param2 = $_GET["param4"]; // extra parameters
-	$param3 = $_GET["param5"]; // extra parameters
-	$param4 = $_GET["param6"]; // extra parameters
+	// fetch the passed items from the get string
+	$formid = stripslashes($_GET["id"]); // id of the form element
+	$value = stripslashes($_GET["val"]); // the value of the field
+	$type = stripslashes($_GET["type"]); // text requirements like email, date, time, zip
+	$spec = stripslashes($_GET["spec"]); // special requirements like unique
+	$param1 = stripslashes($_GET["param3"]); // extra parameters
+	$param2 = stripslashes($_GET["param4"]); // extra parameters
+	$param3 = stripslashes($_GET["param5"]); // extra parameters
+	$param4 = stripslashes($_GET["param6"]); // extra parameters
 
-	// the display id is always formid + "Msg"
-	$displayId = $formid . "Msg";
+	// required validating handled on javascript side to reduce server traffic
 
-	$ajaxReturn = "";
-	if ($required == "required") {
-		if(validateRequired($value)) {
-			$ajaxReturn = "$PASS|$displayId|Done";
-		} else {
-			// failed required check
-			$ajaxReturn = "$FAIL|$displayId|Required";
-			echo $ajaxReturn;
-			writeLog($TOOL_SHORT,"ajax","$ajaxReturn");
-			exit(); // if we fail the required check then no more checks needed
-		}
-	}
-
+	// do the type validation
 	if ($type == "email") {
 		if(validateEmail($value)) {
-			$ajaxReturn = "$PASS|$displayId|Valid Email";
+			$ajaxReturn = "$PASS|$formid|Valid Email";
 		} else {
-			$ajaxReturn = "$FAIL|$displayId|Invalid Email Address";
+			$ajaxReturn = "$FAIL|$formid|Invalid Email Address";
+		}
+	} else if ($type == "date") {
+		if(validateDate($value)) {
+			$ajaxReturn = "$PASS|$formid|Valid Date";
+		} else {
+			$ajaxReturn = "$FAIL|$formid|Invalid Date Entry";
+		}
+	} else if ($type == "time") {
+		if(validateTime($value)) {
+			$ajaxReturn = "$PASS|$formid|Valid Time";
+		} else {
+			$ajaxReturn = "$FAIL|$formid|Invalid Time Entry";
+		}
+	} else if ($type == "zip") {
+		if(validateZip($value)) {
+			$ajaxReturn = "$PASS|$formid|Valid Zip";
+		} else {
+			$ajaxReturn = "$FAIL|$formid|Invalid Zip Code";
 		}
 	}
-	
+
+	// do the special validation
+
+
 	echo $ajaxReturn;
 	writeLog($TOOL_SHORT,"ajax","$ajaxReturn");
 }
@@ -72,19 +81,73 @@ function ProcessAjax() {
 
 //--------------------------VALIDATION FUNCTIONS -----------------
 //Function to validate if the field is required.  It just checks to see if the field is empty.
-function validateRequired($value) {
+function validateRequired($val) {
 	// if it is required check to see if it validates
-	if (!$value) {
+	if (empty($val)) {
 		// if val is blank then then the field is invalid
 		return false;
 	}
 	return true;
 }
 
+// validate email address using regexp
 function validateEmail($val) {
+	if(empty($val)) {
+		// field is empty
+	    return false;
+	}
+
 	// check the email address with a regex function
 	if  (eregi('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$', $val)) {
 		return true;
 	}
 	return false;
+}
+
+// validate date using php function
+function validateDate($val) {
+	if(empty($val)) {
+		// field is empty
+	    return false;
+	}
+
+	if (!strtotime($val)) {
+		return false;
+	}
+	return true;
+}
+
+// validate time using php function
+function validateTime($val) {
+	if(empty($val)) {
+		// field is empty
+	    return false;
+	}
+
+	if (!strtotime($val)) {
+		return false;
+	}
+	return true;
+}
+
+// validate zip code
+function validateZip($val) {
+	if(empty($val)) {
+		// field is empty
+	    return false;
+	}
+
+	$Bad = eregi_replace("([-0-9]+)","",$val);	
+	if(!empty($Bad)) {
+		// invalid chars in zip code
+	    return false;
+	}
+	$Num = eregi_replace("\-","",$val);
+	$len = strlen($Num);
+	if ( ($len > 10) or ($len < 5) ) {
+	    // Invalid length for zipcode
+	    return false;
+	}
+	
+	return true;
 }
