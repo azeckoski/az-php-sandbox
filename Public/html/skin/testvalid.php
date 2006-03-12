@@ -20,7 +20,11 @@
 
 <?php
 if ($_REQUEST["submit"]) {
-	print "Form submitted sucessfully";
+	print "Form submitted sucessfully<br><br>Form Items Received:<br>";
+	foreach ($_REQUEST as $key=>$value) {
+		print "$key:$value<br>";
+	}
+	
 	exit();
 }
 ?>
@@ -46,7 +50,7 @@ if ($_REQUEST["submit"]) {
 		<td>
 			<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
 			<input type="text" id="email" name="email" tabindex="2"/>
-			<input type="hidden" id="emailValidate" value="required email"/>
+			<input type="hidden" id="emailValidate" value="required:email"/>
 			<span id="emailMsg"></span>
 		</td>
 	</tr>	

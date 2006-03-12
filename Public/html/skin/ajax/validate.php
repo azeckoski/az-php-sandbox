@@ -21,6 +21,7 @@ if ($_REQUEST["ajax"]) {
 	exit();
 } else {
 	print "Check<br>";
+	writeLog($TOOL_SHORT,"nonAJAX","Test call to validate");
 }
 
 
@@ -29,6 +30,7 @@ function ProcessAjax() {
 	global $TOOL_SHORT;
 	global $PASS;
 	global $FAIL;
+	$failed = 0;
 
 	writeLog($TOOL_SHORT,"ajax",$_SERVER["QUERY_STRING"]);
 
@@ -37,10 +39,15 @@ function ProcessAjax() {
 	$value = stripslashes($_GET["val"]); // the value of the field
 	$type = stripslashes($_GET["type"]); // text requirements like email, date, time, zip
 	$spec = stripslashes($_GET["spec"]); // special requirements like unique
-	$param1 = stripslashes($_GET["param3"]); // extra parameters
-	$param2 = stripslashes($_GET["param4"]); // extra parameters
-	$param3 = stripslashes($_GET["param5"]); // extra parameters
-	$param4 = stripslashes($_GET["param6"]); // extra parameters
+	$params = array();
+	$count = 0;
+	foreach ($_GET as $key=>$value) {
+		$check = strpos($key,'param');
+		if ( $check !== false && $check == 0 ) {
+			$params[$count] = stripslashes($_GET["param3"]); // extra parameters
+			$count++;
+		}
+	}
 
 	// required validating handled on javascript side to reduce server traffic
 
@@ -50,24 +57,28 @@ function ProcessAjax() {
 			$ajaxReturn = "$PASS|$formid|Valid Email";
 		} else {
 			$ajaxReturn = "$FAIL|$formid|Invalid Email Address";
+			$failed = 1;
 		}
 	} else if ($type == "date") {
 		if(validateDate($value)) {
 			$ajaxReturn = "$PASS|$formid|Valid Date";
 		} else {
 			$ajaxReturn = "$FAIL|$formid|Invalid Date Entry";
+			$failed = 1;
 		}
 	} else if ($type == "time") {
 		if(validateTime($value)) {
 			$ajaxReturn = "$PASS|$formid|Valid Time";
 		} else {
 			$ajaxReturn = "$FAIL|$formid|Invalid Time Entry";
+			$failed = 1;
 		}
 	} else if ($type == "zip") {
 		if(validateZip($value)) {
 			$ajaxReturn = "$PASS|$formid|Valid Zip";
 		} else {
 			$ajaxReturn = "$FAIL|$formid|Invalid Zip Code";
+			$failed = 1;
 		}
 	}
 

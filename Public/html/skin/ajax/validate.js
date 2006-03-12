@@ -1,11 +1,13 @@
 // AJAX validation script
 // Created by Aaron Zeckoski (aaronz@vt.edu)
-// Liscensed under the Educational 
-//
+// Copyright (c) 2006 Aaron Zeckoski, Virginia Tech
+// Licensed under the Educational Community License version 1.0
+// http://www.opensource.org/licenses/ecl1.php
+// Some code from other javascript projects
 // Helpful reference: http://www.w3schools.com/dhtml/dhtml_domreference.asp
 
 // config variables
-var sUrl = "ajax/validate.php?ajax=1"; // url is the relative processor page 
+var gProcUrl = "ajax/validate.php?ajax=1"; // url is the relative processor page 
 // processor will do the validation (include ?ajax=1 if using my php processor)
 // Processor should return a string: passId|elementId|textMessage
 // passId must equal gPass var value if valid and gFail var value if invalid
@@ -13,6 +15,22 @@ var sUrl = "ajax/validate.php?ajax=1"; // url is the relative processor page
 // ajax=1&id=user&type=none&spec=undefined&val=asd&param3=undefined
 var gPass = "ok"; // global - the response that indicates no problems
 var gFail = "error"; // global - the response that indicates failure
+var gSeparator = ":"; // this is the separator used in the validate value field
+
+// Include the required fields indicator message
+var useRequiredMessage = true;
+// just use the id on any field that can display text
+/*****
+	<div id="requiredMessage"></div>
+*****/
+
+// Basic form element sample
+/******
+	<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
+	<input type="text" id="email" name="email" tabindex="2"/>
+	<input type="hidden" id="emailValidate" value="required:email"/>
+	<span id="emailMsg"></span>
+******/
 
 // text message output
 var gUseText = true; // set to false to not use text processing
@@ -27,21 +45,6 @@ var imgBln = "ajax/images/blank.gif"; // a blank image file
 var imgReq = "ajax/images/required.gif"; // a required image file (star)
 var imgVal = "ajax/images/validated.gif"; // a validated image file (check)
 var imgInv = "ajax/images/invalid.gif"; // an invalid image file (x mark)
-
-// Include the required fields indicator message
-var useRequiredMessage = true;
-// just use the id on any field that can display text
-/*****
-	<div id="requiredMessage"></div>
-*****/
-
-// Basic form element sample
-/******
-	<img id="userImg" src="ajax/images/blank.gif" width="16" height="16"/>
-	<input type="text" id="user" name="user" tabindex="1"/>
-	<input type="hidden" id="userValidate" value="required none"/>
-	<span id="userMsg"></span>
-******/
 
 // these vars are for the wacky way we associate validation codes with an item
 var gFailCode = "red"; // this is the failure code to check for
@@ -153,8 +156,8 @@ function attachFormHandlers()
 					}
 					// attach handlers and set variant holder
 					validateItem.style.color = gFailCode; // start out as failed
-					items[i].onchange = function(){return validateMe(this);} //attach the onchange to each form field
-					//items[i].onblur = function(){return validateMe(this);} //attach the onblur to each form field
+					items[i].onchange = function(){return validateObject(this);} //attach the onchange to each form field
+					//items[i].onblur = function(){return validateObject(this);} //attach the onblur to each form field
 				}
 			}
 		}
@@ -214,12 +217,10 @@ function handleHttpResponse() {
 }
 
 
-/* validateMe is called with event triggers
- * It does the basic required validation and passes other validation to the
- * server side script via the AJAX call
+/* Called with event triggers, this does the basic required validation and 
+ * passes other validation to the server side script via the AJAX call
  */
-function validateMe(objInput) {
-	//var sRules = objInput.className.split(' '); // get all the rules from the input box classname
+function validateObject(objInput) {
 	var validateItem = document.getElementById(objInput.id + "Validate");
 	if (validateItem == null) { return; } // no validation on this object
 	
@@ -242,33 +243,33 @@ function validateMe(objInput) {
 		}
 	}
 
-	var sRules = validateItem.value.split(' '); // split the validation field, first item [0] = required or optional
-	var vText = sRules[1]; // text validation rules (ie. email, date, time)
-	var vSpec = sRules[2]; // special validation rules (ie. unique)
+	var vField = validateItem.value.split(gSeparator); // split the validation field, first item [0] = required or optional
+	var vText = vField[1]; // text validation rules (ie. email, date, time)
+	var vSpec = vField[2]; // special validation rules (ie. unique)
 	var vVal = objInput.value; //get value inside of input field
 	
 	// if the text or special validations are not set then don't bug the server
-	if(!sRules[1] && !sRules[2]) { return; }
+	if(!vField[1] && !vField[2]) { return; }
 
 	// get additional params and pass them on
 	var i = 1;
-    var vParams = ""; //"&param3=" + sRules[3] + "&param4=" + sRules[4] + "&param5=" + sRules[5] + "&param6=" + sRules[6];
-	while (sRules[i+2]) {
-		vParams = vParams + "&param" + i + "=" + sRules[i+2];
+    var vParams = ""; //  stores the params in get string ready form
+	while (vField[i+2]) {
+		vParams = vParams + "&param" + i + "=" + vField[i+2];
 		i++;
 		if (i > 10) { break; }
 	}
 
 	//sends the rules and value to be validated
-	var vUrl = sUrl + "&id=" + (objInput.id) + "&type=" + (vText) + "&spec=" + (vSpec) + "&val="+ (vVal) + (vParams);
+	var vUrl = gProcUrl + "&id=" + (objInput.id) + "&type=" + (vText) + "&spec=" + (vSpec) + "&val="+ (vVal) + (vParams);
+	alert("sending: " + vUrl);
 	http.open("GET", vUrl, true);
-	http.onreadystatechange = handleHttpResponse; 	// handle what to do with the feedback 
+	http.onreadystatechange = handleHttpResponse;
 	http.send(null);
 }
 
 
-// validates the elements for this form only
-// called by form submit
+// validates the elements for this form only, called by form submit
 function validate(formObj) {
 	var countErrors = 0;
 
@@ -290,7 +291,7 @@ function validate(formObj) {
 	}
 
 	if (countErrors > 0) {
-		//if there are any errors give a message
+		// send an alert to the user if there are errors remaining
 		alert("Please make sure all fields are properly completed\n(" + 
 			countErrors + " invalid fields indicated)");
 		return false;
