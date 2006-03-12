@@ -43,6 +43,10 @@ var useRequiredMessage = true;
 	<span id="userMsg"></span>
 ******/
 
+// these vars are for the wacky way we associate validation codes with an item
+var gFailCode = "red"; // this is the failure code to check for
+var gPassCode = "green"; // this is the passcode to check for
+
 
 /*
  * Handles the screen updates (most of them)
@@ -84,7 +88,7 @@ function checkError(passId, elementId, textMessage, changeMessage) {
 		}
 
 		item.style.backgroundColor = "";
-		validateItem.defaultValue = gPass;
+		validateItem.style.color = gPassCode;
 	} else if (passId == gFail) { // failed validation
 		if(gUseImages) {
 			var imgObject=document.getElementById(item.id + "Img");
@@ -107,7 +111,7 @@ function checkError(passId, elementId, textMessage, changeMessage) {
 		}
 
 		item.style.backgroundColor = bgColReq;
-		validateItem.defaultValue = gFail;
+		validateItem.style.color = gFailCode;
 	} else {
 		alert("ERROR: Invalid return options:\n" + passId +"|"+ elementId +"|"+ textMessage);
 	}
@@ -148,7 +152,7 @@ function attachFormHandlers()
 						}
 					}
 					// attach handlers and set variant holder
-					validateItem.defaultValue = gFail; // start out as failed
+					validateItem.style.color = gFailCode; // start out as failed
 					items[i].onchange = function(){return validateMe(this);} //attach the onchange to each form field
 					//items[i].onblur = function(){return validateMe(this);} //attach the onblur to each form field
 				}
@@ -210,12 +214,11 @@ function handleHttpResponse() {
 }
 
 
-/* validateMe is called with onblur each time the user leaves the input box
- * passed into it is the value entered, the rules (which you can extend), 
- * and the id of the area the results will show in
+/* validateMe is called with event triggers
+ * It does the basic required validation and passes other validation to the
+ * server side script via the AJAX call
  */
 function validateMe(objInput) {
-	alert("validate on " + objInput.id);
 	//var sRules = objInput.className.split(' '); // get all the rules from the input box classname
 	var validateItem = document.getElementById(objInput.id + "Validate");
 	if (validateItem == null) { return; } // no validation on this object
@@ -239,7 +242,7 @@ function validateMe(objInput) {
 		}
 	}
 
-	var sRules = validateItem.value.split(' '); // split the validation field, first item = required or optional
+	var sRules = validateItem.value.split(' '); // split the validation field, first item [0] = required or optional
 	var vText = sRules[1]; // text validation rules (ie. email, date, time)
 	var vSpec = sRules[2]; // special validation rules (ie. unique)
 	var vVal = objInput.value; //get value inside of input field
@@ -275,11 +278,11 @@ function validate(formObj) {
 		// if there is a validateItem for this object then check it		
 		var validateItem = document.getElementById(items[i].id + "Validate");
 		if (validateItem != null) {
-			if (validateItem.defaultValue == gPass) {
+			if (validateItem.style.color == gPassCode) {
 				checkError(gPass, items[i].id, "", false);
 			} else {
 				// assume failure if pass not found
-				//alert("Failure found: " + items[i].id + ":" + validateItem.defaultValue);
+				//alert("Failure found: " + items[i].id + ":" + validateItem.style.color);
 				checkError(gFail, items[i].id, "", false);
 				countErrors++;
 			}
