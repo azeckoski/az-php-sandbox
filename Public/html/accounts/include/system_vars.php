@@ -6,7 +6,7 @@
 // You should change the environment variable to correspond to the environment you're using.
 
 // supported options are "dev","test", and "prod"
-$ENVIRONMENT = "devSusan";
+$ENVIRONMENT = "dev";
 
 if ($ENVIRONMENT == "dev") {
 	// Set needed system variables
@@ -38,7 +38,7 @@ elseif ($ENVIRONMENT == "prod") {
 elseif ($ENVIRONMENT == "devSusan") {
 	// Set needed system variables
 	$SYSTEM_NAME = "SusanMac";
-	$SERVER_NAME = "http://locallhost";
+	$SERVER_NAME = "http://localhost";
 	$USE_LDAP = 0; // 0=no ldap
 
 	$HELP_EMAIL = "sakaiproject_webmaster@umich.edu";

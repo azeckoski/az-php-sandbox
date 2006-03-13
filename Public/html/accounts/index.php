@@ -18,12 +18,12 @@
 	require 'include/check_authentic.php';
 ?>
 
-<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <table border=0 cellpadding=0 cellspacing=3 width="100%">
 <tr>
@@ -75,4 +75,4 @@ You can even <a href="forgot_password.php">reset your password</a> if you forgot
 	<a class="pwhelp" href="forgot_password.php">I forgot my password</a>
 </div>
 
-<? include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>

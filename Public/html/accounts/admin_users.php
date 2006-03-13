@@ -36,7 +36,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'>Users admin - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
-<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 function orderBy(newOrder) {
@@ -50,7 +50,7 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<? include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -240,4 +240,4 @@ if ($row["username"] == $row["rep_username"]) {
 </table>
 </form>
 
-<? include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>

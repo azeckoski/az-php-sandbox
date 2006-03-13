@@ -123,12 +123,12 @@
 	}
 ?>
 
-<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -190,4 +190,4 @@
 
 <?php } ?>
 
-<? include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>

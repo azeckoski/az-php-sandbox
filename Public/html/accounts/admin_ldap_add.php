@@ -38,12 +38,12 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
-<? include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
@@ -465,4 +465,4 @@ $institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
 
 <?= $output ?>
 
-<? include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>
