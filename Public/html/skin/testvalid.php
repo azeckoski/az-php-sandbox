@@ -37,10 +37,10 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td>Username</td>
 		<td>
-			<img id="userImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="user" tabindex="1"/>
-			<input type="hidden" name="userValidate" value="required:::focus"/>
-			<span id="userMsg"></span>
+			<img id="usernameImg" src="ajax/images/blank.gif" width="16" height="16"/>
+			<input type="text" name="username" tabindex="1"/>
+			<input type="hidden" name="usernameValidate" value="required:focus:uniquesql;new;users;username"/>
+			<span id="usernameMsg"></span>
 		</td>
 	</tr>
  
@@ -49,10 +49,10 @@ if ($_REQUEST["submit"]) {
 		<td>
 			<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
 			<input type="text" name="email" tabindex="2"/>
-			<input type="hidden" name="emailValidate" value="required:email"/>
+			<input type="hidden" name="emailValidate" value="required:email:uniquesql;new;users;email"/>
 			<span id="emailMsg"></span>
 		</td>
-	</tr>	
+	</tr>
 
 	<tr>
 		<td>Other</td>

@@ -31,10 +31,11 @@ var useRequiredMessage = true;
 *****/
 
 // Basic form element sample
+// validation rules shown are "required", "email", and "unique sql check"
 /******
 	<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
-	<input type="text" id="email" name="email" tabindex="2"/>
-	<input type="hidden" id="emailValidate" value="required:email"/>
+	<input type="text" name="email" tabindex="2"/>
+	<input type="hidden" name="emailValidate" value="required:email:uniquesql;new;users;email"/>
 	<span id="emailMsg"></span>
 ******/
 
@@ -264,9 +265,12 @@ function handleHttpResponse() {
 }
 
 
-/* Called with event triggers, this does the basic required validation and 
- * passes other validation to the server side script via the AJAX call
- */
+//Called with event triggers, this does the basic required validation and 
+//passes other validation to the server side script via the AJAX call
+// Validation Rules: (not comprehensive)
+// required (must be the first rule always)
+// text validation rules (ie. email, date, time)
+// special validation rules (ie. unique)
 function validateObject(objInput) {
 	var validateItem = document.getElementById(objInput.name + "Validate");
 	if (validateItem == null) { return; } // no validation on this object
@@ -290,25 +294,24 @@ function validateObject(objInput) {
 		}
 	}
 
-	var vField = validateItem.value.split(gSeparator); // split the validation field, first item [0] = required or optional
-	var vText = vField[1]; // text validation rules (ie. email, date, time)
-	var vSpec = vField[2]; // special validation rules (ie. unique)
-	var vVal = objInput.value; //get value inside of input field
-	
-	// if the text or special validations are not set then don't bug the server
-	if(!vField[1] && !vField[2]) { return; }
+	var vVal = encodeURIComponent(objInput.value); //get value inside of input field
+	var vFields = validateItem.value.split(gSeparator); // split the validation field, first item [0] = required or optional
 
-	// get additional params and pass them on
+	// get additional validations and pass them on
 	var i = 1;
     var vParams = ""; //  stores the params in get string ready form
-	while (vField[i+2]) {
-		vParams = vParams + "&param" + i + "=" + vField[i+2];
+	for(var j=0; j<vFields.length; j++) {
+		var field = vFields[j];
+		if(field == "required" || field == "focus") { continue; } // skip required and focus flags
+		vParams = vParams + "&rule" + i + "=" + encodeURIComponent(field);
 		i++;
-		if (i > 10) { break; }
 	}
+	
+	// if no serverside validations are set then don't bug the server
+	if(vParams == "") { return; }
 
 	//sends the rules and value to be validated
-	var vUrl = gProcUrl + "&id=" + (objInput.name) + "&type=" + (vText) + "&spec=" + (vSpec) + "&val="+ (vVal) + (vParams);
+	var vUrl = gProcUrl + "&id=" + (objInput.name) + "&val="+ (vVal) + (vParams);
 	//alert("sending: " + vUrl);
 	http.open("GET", vUrl, true);
 	http.onreadystatechange = handleHttpResponse;

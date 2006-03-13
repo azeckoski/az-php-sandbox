@@ -32,66 +32,83 @@ function ProcessAjax() {
 	global $FAIL;
 	$failed = 0;
 
-	writeLog($TOOL_SHORT,"ajax",$_SERVER["QUERY_STRING"]);
+	//writeLog($TOOL_SHORT,"ajax",$_SERVER["QUERY_STRING"]);
 
 	// fetch the passed items from the get string
-	$formid = stripslashes($_GET["id"]); // id of the form element
-	$value = stripslashes($_GET["val"]); // the value of the field
-	$type = stripslashes($_GET["type"]); // text requirements like email, date, time, zip
-	$spec = stripslashes($_GET["spec"]); // special requirements like unique
+	$formid = $_GET["id"]; // id of the form element
+	$fvalue = urldecode($_GET["val"]); // the value of the field
+
+	// text requirements like email, date, time, zip
+	// special requirements like unique
 	$params = array();
-	$count = 0;
-	foreach ($_GET as $key=>$value) {
-		$check = strpos($key,'param');
+	foreach(array_keys($_GET) as $key) {
+		$check = strpos($key,'rule');
 		if ( $check !== false && $check == 0 ) {
-			$params[$count] = stripslashes($_GET["param3"]); // extra parameters
-			$count++;
+			$value = urldecode($_GET[$key]);
+			writeLog($TOOL_SHORT,"ajax","rules:".$key."=>".$value);
+			$params[$key] = $value; // validation rules
 		}
 	}
 
 	// required validating handled on javascript side to reduce server traffic
 
-	// do the type validation
-	if ($type == "email") {
-		if(validateEmail($value)) {
-			$ajaxReturn = "$PASS|$formid|Valid Email";
-		} else {
-			$ajaxReturn = "$FAIL|$formid|Invalid Email Address";
-			$failed = 1;
+	// do the validation
+	foreach($params as $key=>$value) {
+		$type = $value;
+		if (strpos($value,";") !== false) { // get the special rule type
+			$type = substr($value,0,strpos($value,";"));
 		}
-	} else if ($type == "date") {
-		if(validateDate($value)) {
-			$ajaxReturn = "$PASS|$formid|Valid Date";
-		} else {
-			$ajaxReturn = "$FAIL|$formid|Invalid Date Entry";
-			$failed = 1;
+		
+		//writeLog($TOOL_SHORT,"ajax","validate:".$type);
+		if ($type == "email") {
+			if(validateEmail($fvalue)) {
+				$ajaxReturn = "$PASS|$formid|Valid Email";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|Invalid Email Address";
+				$failed = 1;
+			}
+		} else if ($type == "date") {
+			if(validateDate($fvalue)) {
+				$ajaxReturn = "$PASS|$formid|Valid Date";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|Invalid Date Entry";
+				$failed = 1;
+			}
+		} else if ($type == "time") {
+			if(validateTime($fvalue)) {
+				$ajaxReturn = "$PASS|$formid|Valid Time";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|Invalid Time Entry";
+				$failed = 1;
+			}
+		} else if ($type == "zip") {
+			if(validateZip($fvalue)) {
+				$ajaxReturn = "$PASS|$formid|Valid Zip";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|Invalid Zip Code";
+				$failed = 1;
+			}
 		}
-	} else if ($type == "time") {
-		if(validateTime($value)) {
-			$ajaxReturn = "$PASS|$formid|Valid Time";
-		} else {
-			$ajaxReturn = "$FAIL|$formid|Invalid Time Entry";
-			$failed = 1;
-		}
-	} else if ($type == "zip") {
-		if(validateZip($value)) {
-			$ajaxReturn = "$PASS|$formid|Valid Zip";
-		} else {
-			$ajaxReturn = "$FAIL|$formid|Invalid Zip Code";
-			$failed = 1;
+		// do the special validations
+		else if ($type == "uniquesql") {
+			// should be uniquesql;(new|exists);(tablename);(columnname)
+			$parts = split(';',$value);
+			if(validateUnique($parts[1],$parts[2],$parts[3],$fvalue)) {
+				$ajaxReturn = "$PASS|$formid|Valid $formid";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|$formid already used";
+				$failed = 1;
+			}
 		}
 	}
 
-	// do the special validation
-
-
 	echo $ajaxReturn;
-	writeLog($TOOL_SHORT,"ajax","$ajaxReturn");
+	writeLog($TOOL_SHORT,"ajax","return=$ajaxReturn");
 }
 
 
-//--------------------------VALIDATION FUNCTIONS -----------------
-//Function to validate if the field is required.  It just checks to see if the field is empty.
+// ======== VALIDATION FUNCTIONS ========
+// validate required field (just checks to see if the field is empty)
 function validateRequired($val) {
 	// if it is required check to see if it validates
 	if (empty($val)) {
@@ -161,4 +178,18 @@ function validateZip($val) {
 	}
 	
 	return true;
+}
+
+// checks if an item is unique in the database or in use
+// params = (new|exists),(tablename),(columnname),value
+function validateUnique($status,$tablename,$columname,$val) {
+	$sql = "select * from $tablename where $columname = '$val'";
+	$result = mysql_query($sql) or die('Query failed: ('.$sql.'): ' . mysql_error());
+	$count = mysql_num_rows($result);
+	if ($status == "new") {
+		if ($count == 0) { return true; }
+	} else {
+		if ($count == 1) { return true; }
+	}
+	return false;
 }
