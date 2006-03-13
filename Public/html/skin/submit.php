@@ -254,4 +254,4 @@ if ($USER["admin_skin"]) { $allowed = 1; }
 </form>
 
 
-<? include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>

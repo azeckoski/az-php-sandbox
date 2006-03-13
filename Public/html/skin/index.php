@@ -102,4 +102,4 @@ Announce the winning skins at the <a href="http://www.sakaiproject.org/index.php
 </div>
 <?php } ?>
 
-<? include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>

@@ -22,12 +22,12 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 $EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
 ?>
 
-<? include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 <h2>Sakai Skin Contest - Round <?= $ROUND ?></h2>
 
@@ -196,4 +196,4 @@ This way we will allow the hard work beyond the image to be displayed as well. T
 	<li>Firebug (CSS debugging) - <a href="https://addons.mozilla.org/extensions/moreinfo.php?application=firefox&amp;id=1843" target="_new">https://addons.mozilla.org/extensions/moreinfo.php?application=firefox&amp;id=1843</a></li>
 </ul>
 
-<? include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>
