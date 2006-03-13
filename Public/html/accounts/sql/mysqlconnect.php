@@ -20,6 +20,13 @@ if ($ENVIRONMENT == "dev") {
 	$dbpass = "mujoIII";
 }
 
+elseif ($ENVIRONMENT == "devSusan") {
+	$dbhost = "localhost";
+	$dbname = "sakai";
+	$dbuser = "root";
+	$dbpass = "mujoIII";
+}
+
 // Creating the mySQL database
 // create database sakaiweb;
 // grant all privileges on sakaiweb.* to 'sakaiwww'@'localhost' identified by '5aka1w3b';
