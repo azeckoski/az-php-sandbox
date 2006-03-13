@@ -1,6 +1,5 @@
 <?php
 
-echo "ready for  with update";
 
 require_once('../includes/mysqlconnect.php');
 
@@ -47,6 +46,6 @@ $u_fax=addslashes($_SESSION['fax']);
 		 <a href=\"mailto:shardin@umich.edu\">sakaiproject.org webmaster</a>."));
 
 		if ($result)
-		echo "success";
+//		echo "success";
 
 ?>
