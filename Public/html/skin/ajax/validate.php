@@ -45,7 +45,7 @@ function ProcessAjax() {
 		$check = strpos($key,'rule');
 		if ( $check !== false && $check == 0 ) {
 			$value = urldecode($_GET[$key]);
-			writeLog($TOOL_SHORT,"ajax","rules:".$key."=>".$value);
+			//writeLog($TOOL_SHORT,"ajax","rules:".$key."=>".$value);
 			$params[$key] = $value; // validation rules
 		}
 	}
@@ -54,47 +54,77 @@ function ProcessAjax() {
 
 	// do the validation
 	foreach($params as $key=>$value) {
+		if ($failed) { break; }
+		
 		$type = $value;
 		if (strpos($value,";") !== false) { // get the special rule type
 			$type = substr($value,0,strpos($value,";"));
 		}
 		
-		//writeLog($TOOL_SHORT,"ajax","validate:".$type);
+		writeLog($TOOL_SHORT,"ajax","validate:".$type.":".$fvalue);
 		if ($type == "email") {
 			if(validateEmail($fvalue)) {
-				$ajaxReturn = "$PASS|$formid|Valid Email";
+				$ajaxReturn = "$PASS|$formid|";
 			} else {
 				$ajaxReturn = "$FAIL|$formid|Invalid Email Address";
 				$failed = 1;
 			}
 		} else if ($type == "date") {
 			if(validateDate($fvalue)) {
-				$ajaxReturn = "$PASS|$formid|Valid Date";
+				$ajaxReturn = "$PASS|$formid|";
 			} else {
-				$ajaxReturn = "$FAIL|$formid|Invalid Date Entry";
+				$ajaxReturn = "$FAIL|$formid|Invalid Date";
 				$failed = 1;
 			}
 		} else if ($type == "time") {
 			if(validateTime($fvalue)) {
-				$ajaxReturn = "$PASS|$formid|Valid Time";
+				$ajaxReturn = "$PASS|$formid|";
 			} else {
-				$ajaxReturn = "$FAIL|$formid|Invalid Time Entry";
+				$ajaxReturn = "$FAIL|$formid|Invalid Time";
 				$failed = 1;
 			}
 		} else if ($type == "zip") {
 			if(validateZip($fvalue)) {
-				$ajaxReturn = "$PASS|$formid|Valid Zip";
+				$ajaxReturn = "$PASS|$formid|";
 			} else {
 				$ajaxReturn = "$FAIL|$formid|Invalid Zip Code";
+				$failed = 1;
+			}
+		} else if ($type == "nospaces") {
+			if(validateNoSpaces($fvalue)) {
+				$ajaxReturn = "$PASS|$formid|";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|Cannot contain spaces";
+				$failed = 1;
+			}
+		} else if ($type == "alpha") {
+			if(validateAlpha($fvalue)) {
+				$ajaxReturn = "$PASS|$formid|";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|Alphabetic chars only";
+				$failed = 1;
+			}
+		} else if ($type == "alphanum") {
+			if(validateAlphaNumeric($fvalue)) {
+				$ajaxReturn = "$PASS|$formid|";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|Alphanumeric chars only";
+				$failed = 1;
+			}
+		} else if ($type == "number") {
+			if(validateNumeric($fvalue)) {
+				$ajaxReturn = "$PASS|$formid|";
+			} else {
+				$ajaxReturn = "$FAIL|$formid|Numbers only";
 				$failed = 1;
 			}
 		}
 		// do the special validations
 		else if ($type == "uniquesql") {
-			// should be uniquesql;(new|exists);(tablename);(columnname)
+			// should be uniquesql;(columnname);(tablename);(tableid);(userid)
 			$parts = split(';',$value);
-			if(validateUnique($parts[1],$parts[2],$parts[3],$fvalue)) {
-				$ajaxReturn = "$PASS|$formid|Valid $formid";
+			if(validateUnique($parts[1],$parts[2],$fvalue,$parts[3],$parts[4])) {
+				$ajaxReturn = "$PASS|$formid|";
 			} else {
 				$ajaxReturn = "$FAIL|$formid|$formid already used";
 				$failed = 1;
@@ -180,16 +210,55 @@ function validateZip($val) {
 	return true;
 }
 
+// validates an item has no spaces in it
+function validateNoSpaces($val) {
+	if (ereg('[[:space:]]',$val)) {
+		return false;
+	}
+	return true;
+}
+
+// validates an item is numeric digits only
+function validateNumeric($val) {
+	return ctype_digit($val);
+}
+
+// validates an item is alphabetic chars only
+function validateAlpha($val) {
+	return ctype_alpha($val);
+}
+
+// validates an item is alphanumeric chars only
+function validateAlphaNumeric($val) {
+	return ctype_alnum($val);
+}
+
 // checks if an item is unique in the database or in use
-// params = (new|exists),(tablename),(columnname),value
-function validateUnique($status,$tablename,$columname,$val) {
+// params = (columnname),(tablename),(value),(id),(idvalue)
+function validateUnique($columname,$tablename,$val,$id,$idval) {
+	// escape everything first
+	$columname = mysql_real_escape_string($columname);
+	$tablename = mysql_real_escape_string($tablename);
+	$val = mysql_real_escape_string($val);
+	$id = mysql_real_escape_string($id);
+	$idval = mysql_real_escape_string($idval);
+
+	// if there are any spaces in anything then something is wrong
+	if (!validateNoSpaces($columname) || !validateNoSpaces($tablename) ||
+		!validateNoSpaces($val) || !validateNoSpaces($id) ||
+		!validateNoSpaces($idval)) {
+			return false; // maybe return something else
+	}
+
+	// do the sql check
 	$sql = "select * from $tablename where $columname = '$val'";
+	if ($id != "" && $idval != "") {
+		$sql .= " and $id = '$idval'";
+	}
 	$result = mysql_query($sql) or die('Query failed: ('.$sql.'): ' . mysql_error());
 	$count = mysql_num_rows($result);
-	if ($status == "new") {
-		if ($count == 0) { return true; }
-	} else {
-		if ($count == 1) { return true; }
+	if ($count == 0) {
+		return true;
 	}
 	return false;
 }
