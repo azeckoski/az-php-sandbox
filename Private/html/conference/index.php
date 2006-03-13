@@ -20,12 +20,12 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 $EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
 ?>
 
-<? include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 // -->
 </script>
-<? include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
 
 
 <table border=0 cellpadding=0 cellspacing=3 width="100%">
@@ -141,4 +141,4 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 </div>
 <?php } ?>
 
-<? include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>
