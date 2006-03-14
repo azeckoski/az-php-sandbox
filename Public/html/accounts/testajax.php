@@ -65,17 +65,55 @@ if ($_REQUEST["submit"]) {
 	</tr>	
 
 	<tr>
-		<td>Auxillary</td>
+		<td>Drop-down List Box Test</td>
 		<td>
+			<img id="dropDownImg" src="ajax/images/blank.gif" width="16" height="16"/>
+			<select name="dropDown" tabindex="4"">
+			  <option value="" selected>blank value</option>
+			  <option value="non-blank">non-blank value</option>
+			</select>
+			<input type="hidden" name="dropDownValidate" value="required"/>
+			<span id="dropDownMsg"></span>
+		</td>
+	</tr>	
+
+	<tr>
+		<td valign="top">Radio Button Test</td>
+		<td valign="top">
+			<img id="radioImg" src="ajax/images/blank.gif" width="16" height="16"/>
+			<div style="vertical-align:top;">
+				<input type="radio" name="radio" value="" tabindex="5"> blank<br/>
+				<input type="radio" name="radio" value="non-blank" tabindex="6"> non-blank<br/>
+				<input type="radio" name="radio" value="also non-blank" tabindex="7"> also non-blank
+				<input type="hidden" name="radioValidate" value="required:nospaces"/>
+			</div>
+			<div style="vertical-align:top;" id="radioMsg"></div>
+		</td>
+	</tr>	
+
+	<tr>
+		<td valign="top">Checkbox Test</td>
+		<td valign="top">
+			<img id="checkboxImg" src="ajax/images/blank.gif" width="16" height="16"/>
+			<input type="checkbox" name="checkbox" value="non-blank" tabindex="8"/> check this box to continue
+			<input type="hidden" name="checkboxValidate" value="required:nospaces"/>
+			<span id="checkboxMsg"></span>
+		</td>
+	</tr>	
+
+
+	<tr>
+		<td valign="top">Auxillary</td>
+		<td valign="top">
 			<img src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="aux" tabindex="3"/>
+			<input type="text" name="aux" tabindex="9"/>
 			<i>No validation</i>
 		</td>
 	</tr>	
 
 	<tr>
 		<td colspan="2">
-			<input type="submit" name="submit" value="Save Information" tabindex="4" />
+			<input type="submit" name="submit" value="Save Information" tabindex="10" />
 			<div id="errorMessage"></div>
 		</td>
 	</tr> 
