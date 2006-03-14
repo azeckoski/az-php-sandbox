@@ -1,3 +1,4 @@
+
 <form name="<?php echo $formID; ?>" id=form1 method="post" action="<?php echo $_SERVER[PHP_SELF] . "?formid=$formID"; ?>">
   <table width="500px"  cellpadding="0" cellspacing="0">
     <tr>

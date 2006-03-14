@@ -14,28 +14,25 @@
       <table cellpadding="0" cellspacing="0" class="moduletable">
         <tr>
           <td> 
-              <div align="right" style="width:20em;height:5em;padding:10px;background:#eee; font-size:12pt;color:#000;">
+              <div align="right" style="width:18em;padding:10px;background:#eee;font-size:12pt;color:#000;">
 <?php if ($USER_PK > 0) { ?>
 	<span style="font-size:.8em;">
   	Welcome,&nbsp;<?= $USER["firstname"] ?>&nbsp;<?= $USER["lastname"] ?>
   	</span><br/>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
-<?php if ($USER["admin_reqs"]) { ?>
+<?php if ($USER["admin_conf"]) { ?>
   	<a style="font-size:.7em;" href="<?= $TOOL_PATH ?>/admin.php">Tool Admin</a> - 
 <?php } ?>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>
 <?php } else { ?>
-  	<a style="font-size:.9em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGIN_PAGE."?ref=".$_SERVER['PHP_SELF'] ?>">Login</a>
-	<br/>		
+  	<a style="font-size:.9em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGIN_PAGE."?ref=".$_SERVER['PHP_SELF'] ?>">Login</a><br/>		
+	<br/>
 <?php } ?>
-	<br/>
-	<span style="font-size: 8pt; color: #000;">
 	<?= $EXTRA_MESSAGE ?>
-  	</span>
-	<br/>
+	<div style="margin:6px;"></div>
 	<a style="font-size:9pt;" href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=169&amp;Itemid=518">Conference Home</a> -
-	<a style="font-size:9pt;" href="registration/">Registration</a> -
-	<a style="font-size:9pt;" href="proposals/">Proposals</a>
+	<a style="font-size:9pt;" href="<?= $TOOL_PATH ?>/registration/">Registration</a> -
+	<a style="font-size:9pt;" href="<?= $TOOL_PATH ?>/proposals/">Proposals</a>
 	<?= $EXTRA_LINKS ?>
               </div>
             </td>
@@ -97,6 +94,7 @@
   </table>
   <div id=activity>
     <!-- start activity div -->
+<?php if ($_SESSION['firstname']) { ?>
     <table cellpadding="0" cellspacing="0" class="moduletable">
       <tr>
         <th valign="top"> Proposal Activity</th>
@@ -113,6 +111,7 @@
           <br /></td>
       </tr>
     </table>
+<?php } ?>
   </div>
   <!-- end activity div -->
 </div>

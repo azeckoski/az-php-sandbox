@@ -18,7 +18,7 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // add in the help link
 //$EXTRA_LINKS = " - <a style='font-size:9pt;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
-$EXTRA_MESSAGE = "Technical problems? Please contact <a href='mailto:$HELP_EMAIL'>$HELP_EMAIL</a>";
+//$EXTRA_MESSAGE = "<br/><span style='font-size:8pt;'>Technical problems? Please contact <a href='mailto:$HELP_EMAIL'>$HELP_EMAIL</a></span><br/>";
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
