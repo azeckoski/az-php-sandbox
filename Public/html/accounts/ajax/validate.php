@@ -6,7 +6,7 @@
  */
 ?>
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"].'/skin/include/tool_vars.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/accounts/include/tool_vars.php';
 
 // connect to database
 require $_SERVER["DOCUMENT_ROOT"].$TOOL_PATH.'/sql/mysqlconnect.php';
