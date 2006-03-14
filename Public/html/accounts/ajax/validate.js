@@ -193,7 +193,7 @@ function attachFormHandlers()
 						items[i].id = items[i].name; // set the id to the name
 
 						// do the focus check, set focus on this item if specified
-						if (validateItem.value.match(gSeparator+"focus")) {
+						if (validateItem.value.match("focus")) {
 							items[i].focus();
 						}
 					}
