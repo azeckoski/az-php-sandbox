@@ -91,14 +91,15 @@ function errorAlert(message) {
  * textMessage (optional - this is a text message to show the user)
  */
 function checkError(passId, elementId, textMessage, changeMessage) {
+	//alert("doing check:"+elementId);
 	var item = document.getElementById(elementId); // the item being validated
 	if (item == null) { // failed to retrieve item
-		alert("ERROR: Failed to get item by name:" + elementId);
+		alert("ERROR: Failed to get item by id:" + elementId);
 		return false;
 	}
-	var validateItem = document.getElementById(elementId + "Validate");
+	var validateItem = document.getElementById(item.name + "Validate");
 	if (validateItem == null) { // items without a validator should not be sent here
-		alert("ERROR: Failed to get validate item for name:" + elementId);
+		alert("ERROR: Failed to get validate item for name:" + item.name);
 		return false;
 	}
 	
@@ -163,12 +164,6 @@ function attachFormHandlers()
 				// handle submit differently
 				//items[i].disabled = true; // disable submit by default
 			} else {
-				if (items[i].type.toLowerCase() == "radio" || items[i].type.toLowerCase() == "checkbox") {
-					// TODO - need to handle these guys differently
-					alert("radio/checkbox check:" + items[i].name);
-				} else {
-					items[i].id = items[i].name; // set the id to the name
-				}
 				var validateItems = document.getElementsByName(items[i].name + "Validate");
 				var validateItem = validateItems[0];
 				if (validateItem != null) {
@@ -176,10 +171,43 @@ function attachFormHandlers()
 						alert("FAILURE: bad naming in form, you MUST use unique names for validated fields");
 						return;
 					}
-					// do the focus check, set focus on this item is specified
-					if (validateItem.value.match(gSeparator+"focus")) {
-						items[i].focus();
+					validateItem.id = validateItem.name; // set the id to the name
+
+					// handle the different element types
+					if (items[i].type.toLowerCase() == "radio") {
+						// have to handle radiobuttons in a special way
+						var thisItems = document.getElementsByName(items[i].name);
+						if (thisItems.length == 1) {
+							// only one so set the id and move on
+							items[i].id = items[i].name;
+						} else {
+							// multiple items so set id by position encountered
+							for (var j=0; j<thisItems.length; j++) {
+								if (items[i] == thisItems[j]) {
+									items[i].id = items[i].name + j;
+								}
+							}
+							//alert ("mutiple id set:"+items[i].id);
+						}
+					} else {
+						items[i].id = items[i].name; // set the id to the name
+
+						// do the focus check, set focus on this item if specified
+						if (validateItem.value.match(gSeparator+"focus")) {
+							items[i].focus();
+						}
 					}
+
+					// attach handlers to items
+					if (items[i].type.toLowerCase() == "radio" || items[i].type.toLowerCase() == "checkbox") {
+						// attach onclick handlers to checkboxes and radio buttons
+						items[i].onclick = function(){return validateObject(this);}
+					} else {
+						//attach the onchange to each form field
+						items[i].onchange = function(){return validateObject(this);}
+						//items[i].onblur = function(){return validateObject(this);}
+					}
+
 					// do some extra stuff for required items
 					if (validateItem.value.match(/^required.*$/)) { // check if required at start
 						// this is required so add the images or the text
@@ -199,10 +227,8 @@ function attachFormHandlers()
 							items[i].style.backgroundColor = bgColReq;
 						}
 					}
-					// attach handlers and set variant holder
+					// set validate holder value
 					validateItem.style.color = gFailCode; // start out as failed
-					items[i].onchange = function(){return validateObject(this);} //attach the onchange to each form field
-					//items[i].onblur = function(){return validateObject(this);} //attach the onblur to each form field
 				}
 			}
 		}
@@ -272,32 +298,36 @@ function handleHttpResponse() {
 // text validation rules (ie. email, date, time)
 // special validation rules (ie. unique)
 function validateObject(objInput) {
-	var validateItem = document.getElementById(objInput.name + "Validate");
-	if (validateItem == null) { return; } // no validation on this object
+	var localCheck = false;
+	var localText = "";
+	//alert("valuecheck="+objInput.value);
 	
+	var validateItem = document.getElementById(objInput.name + "Validate");
+	if (validateItem == null) { // items without a validator should not be sent here
+		alert("ERROR: Failed to get validate item for name:" + objInput.name);
+		return false;
+	}
+
+	// do any local javascript checks
 	if (validateItem.value.match(/^required.*$/)) { // check if required is the first word
-		if (objInput.value == "") {
-			// required field is blank
-			if(gUseText) {
-				checkError(gFail, objInput.name, textReq, true);
-			} else {
-				checkError(gFail, objInput.name, "", false);
-			}
-			return; // exit, no need to do more validation
+		if (objInput.value == "" || 
+			(objInput.type.toLowerCase() == "checkbox" && !objInput.checked) ) {
+				// required field is blank
+				if(gUseText) {
+					checkError(gFail, objInput.id, textReq, true);
+				} else {
+					checkError(gFail, objInput.id, "", false);
+				}
+				return; // exit, no need to do more validation
 		} else {
 			// required field is set
-			if(gUseText) {
-				checkError(gPass, objInput.name, textVal, true);
-			} else {
-				checkError(gPass, objInput.name, "", false);
-			}
+			localCheck = true; // passed the local check
+			localText = textVal;
 		}
 	}
 
-	var vVal = encodeURIComponent(objInput.value); //get value inside of input field
-	var vFields = validateItem.value.split(gSeparator); // split the validation field, first item [0] = required or optional
-
 	// get additional validations and pass them on
+	var vFields = validateItem.value.split(gSeparator);
 	var i = 1;
     var vParams = ""; //  stores the params in get string ready form
 	for(var j=0; j<vFields.length; j++) {
@@ -307,11 +337,23 @@ function validateObject(objInput) {
 		i++;
 	}
 	
+	var vVal = encodeURIComponent(objInput.value); //get value inside of input field
+	
 	// if no serverside validations are set then don't bug the server
-	if(vParams == "") { return; }
+	if(vParams == "") {
+		// send to passed to check error and exit
+		if (localCheck) { // passed local checks (if failed, we should not get here)
+			if(gUseText) {
+				checkError(gPass, objInput.id, localText, true);
+			} else {
+				checkError(gPass, objInput.id, "", false);
+			}
+		}
+		return;
+	}
 
 	//sends the rules and value to be validated
-	var vUrl = gProcUrl + "&id=" + (objInput.name) + "&val="+ (vVal) + (vParams);
+	var vUrl = gProcUrl + "&id=" + (objInput.id) + "&val="+ (vVal) + (vParams);
 	//alert("sending: " + vUrl);
 	http.open("GET", vUrl, true);
 	http.onreadystatechange = handleHttpResponse;
@@ -330,14 +372,20 @@ function validate(formObj) {
 		var validateItem = document.getElementById(items[i].name + "Validate");
 		if (validateItem != null) {
 			if (validateItem.style.color == gPassCode) {
-				checkError(gPass, items[i].name, "", false);
+				checkError(gPass, items[i].id, "", false);
 			} else {
 				// assume failure if pass not found
 				//alert("Failure found: " + items[i].name + ":" + validateItem.style.color);
-				checkError(gFail, items[i].name, "", false);
-				countErrors++;
+				checkError(gFail, items[i].id, "", false);
+				// special handling for radio button error counting
+				if (items[i].type.toLowerCase() == "radio") {
+					// count the first item only
+					if (items[i].id == items[i].name + "0") { countErrors++; }
+				} else {
+					countErrors++;
+				}
 				if (countErrors == 1) {
-					items[i].focus(); // set the focus in the first invalid field
+					items[i].focus(); // set the focus on the first invalid field
 				}
 			}
 		}

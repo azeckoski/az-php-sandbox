@@ -96,7 +96,7 @@ if ($_REQUEST["submit"]) {
 		<td valign="top">
 			<img id="checkboxImg" src="ajax/images/blank.gif" width="16" height="16"/>
 			<input type="checkbox" name="checkbox" value="non-blank" tabindex="8"/> check this box to continue
-			<input type="hidden" name="checkboxValidate" value="required:nospaces"/>
+			<input type="hidden" name="checkboxValidate" value="required"/>
 			<span id="checkboxMsg"></span>
 		</td>
 	</tr>	
