@@ -7,7 +7,7 @@
 // Helpful reference: http://www.w3schools.com/dhtml/dhtml_domreference.asp
 
 // config variables
-var gProcUrl = "ajax/validate.php?ajax=1"; // url is the relative processor page 
+var gProcUrl = "/accounts/ajax/validate.php?ajax=1"; // url is the relative processor page 
 // processor will do the validation (include ?ajax=1 if using my php processor)
 // Processor should return a string: passId|elementId|textMessage
 // passId must equal gPass var value if valid and gFail var value if invalid
