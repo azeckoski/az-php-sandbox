@@ -1,104 +1,32 @@
-
-<form name="<?php echo $formID; ?>" id=form1 method="post" action="<?php echo $_SERVER[PHP_SELF] . "?formid=$formID"; ?>">
-  <table width="500px"  cellpadding="0" cellspacing="0">
-    <tr>
-      <td valign="top" colspan="2" style="padding:0px;"><span class="small"> * = Required fields</span> </td>
-    </tr>
-    <?php 
-if ($message) {
-	echo "<tr><td colspan=2><div class=\"errors\" align=\"left\"><font color=red><strong>Please provide the following information:</strong></font>
-	<ul class=small style=\"padding:0px 10px;\">";	
-	foreach ($message as $key => $value) {
-		echo $value;	
-	}
-	echo "</ul></div></td></tr> ";
-}
-
-
+<?php
+//echo "memberType=".$_SESSION['memberType'];
 ?>
-    <?php
-//echo $_SESSION['memberType'];
 
-if ($_SESSION['regType']==2)
-{
+<tr>
+	<td colspan=2>
+		<strong>Verify personal info:</strong><br />
+		<div style="padding-left: 40px;">
+<?php
+	echo "Name: " . $USER['firstname'] . " " . $USER['lastname'] . "<br>";
+	echo "Email: " . $USER['email'] . "<br>";
 ?>
-    <tr >
-      <td colspan=2 style="border-bottom:0px solid #eee;"><table width="100%" cellpadding=0 cellspacing=0>
-          <tr>
-            <td><div><strong>Registrant's Name</strong></div>
-              <div>* First Name<br />
-                <input type="text" name="firstname" size="30" maxlength="100" value="<?php echo $_POST['firstname'];?>" />
-              </div></td>
-            <td><div>&nbsp;</div>
-              <div>* Last Name<br />
-                <input type="text" name="lastname" size="30" maxlength="100" value="<?php echo $_POST['lastname'];?>" />
-              </div></td>
-          </tr>
-          <tr>
-            <td><div><strong>Registrant's Email Address</strong></div>
-              <div>* Enter Email <br />
-                <input type="text" name="email1" size="30" maxlength="65" value="<?php echo $_POST['email1'];?>" />
-              </div></td>
-            <td><div>&nbsp;</div>
-              <div>* Confirm email<br />
-                <input type="text" name="email2" size="30" maxlength="65" value="<?php echo $_POST['email2'];?>" />
-              </div></td>
-          </tr>
-        </table></td>
-    </tr>
-    <?php }
-      
-      else {
-      
-      ?>
-    <tr>
-      <td colspan=2 style="border-bottom:0px solid #eee;"><table width="100%" cellpadding=0 cellspacing=0>
-          <tr>
-            <td><strong>* First Name</strong><br />
-              <input type="text" name="firstname" size="30" maxlength="100" value="<?php echo $_POST['firstname'];?>" />
-            </td>
-            <td><strong> * Last Name</strong><br />
-              <input type="text" name="lastname" size="30" maxlength="100" value="<?php echo $_POST['lastname'];?>" />
-            </td>
-          </tr>
-          <tr>
-            <td><strong>* Email Address</strong><br />
-              <input type="text" name="email1" size="20" maxlength="65" value="<?php echo $_POST['email1'];?>" />
-            </td>
-            <td><strong>* Confirm email</strong><br />
-              <input type="text" name="email2" size="20" maxlength="65" value="<?php echo $_POST['email2'];?>" />
-              </div></td>
-          </tr>
-        </table></td>
-    </tr>
-    <?php }
-      
-      if ($_SESSION['regType']==2)
-{
+		</div>
+	</td>
+</tr>
 
-      
-      ?>
+<?php if ($_SESSION['regType']==2) { ?>
     <tr valign="top">
       <td width=160px><div align=right><strong>* Registrant's Role/Title</strong></div></td>
-      <td><?php }
-      
-     else
-{
-
-      
-      ?>
+      <td>
+<?php } else { ?>
     <tr valign="top">
       <td><div align=right><strong>* Your Role/Title</strong></div></td>
-      <td><?php
-      
-      }
+      <td>
+<?php }
       $title=$_POST['title'];
-      ?>
+?>
         <select name="title">
-          <?php if (!$title==""){
-echo "
- <option value=\"$title\" SELECTED>$title</option>";
- }  ?>
+<?php if (!$title=="") { echo "<option value=\"$title\" SELECTED>$title</option>"; } ?>
           <option value="">-- select --</option>
           <option value="Developer">Developer/Programmer</option>
           <option value="UI Developer">UI Developer</option>
@@ -115,21 +43,13 @@ echo "
         </select>
       </td>
     </tr>
-    <?php
-
-
-
-if ($_SESSION['memberType']=="1") {
-?>
+<?php if ($_SESSION['memberType']=="1") { ?>
     <tr>
       <td style="border-bottom:0px solid #ccc;"><div align=right><strong> Organization:</strong> </div></td>
       <td style="border-bottom:0px solid #ccc;"><?php echo $_SESSION['institution'];?>
         <input type=hidden name="institution" value="<?php echo $_SESSION['institution'];?>" /></td>
     </tr>
-    <?php
-         }   
-         
-         else { ?>
+<?php } else { ?>
     <tr>
       <td style="border-bottom:0px solid #ccc;"><div align="right"><span class="formLable"> <strong>Organization/Company </strong></span></div></td>
       <td><input type="text" name="otherInst" size="30" maxlength="40" value="<?php echo $_POST['otherInst'];?>" />
@@ -366,13 +286,3 @@ echo "
       <td><div align="right"><strong><span class="formLable">Fax:</span></strong> </div></td>
       <td><input type="text" name="fax" size="25" maxlength="18"  value="<?php echo $_POST['fax'];?>" /></td>
     </tr>
-    <tr>
-      <td></td>
-      <td><br />
-        <br />
-        <input id="submitbutton" type="submit" name="submit_attendee" value="Continue" />
-        <br />
-      </td>
-    </tr>
-  </table>
-</form>

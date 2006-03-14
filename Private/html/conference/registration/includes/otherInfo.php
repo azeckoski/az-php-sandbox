@@ -1,24 +1,3 @@
-
-<form name="<?php echo $formID; ?>" id=form1 method="post" action="<?php echo $_SERVER[PHP_SELF] . "?formid=$formID"; ?>">
-  <table width="500px"  cellpadding="0" cellspacing="0">
-    <tr>
-      <td valign="top" colspan="2" style="padding:0px;"><span class="small"> * = Required fields</span> </td>
-    </tr>
-    <?php 
-if ($message) {
-	echo "<tr><td colspan=2><div class=\"errors\" align=\"left\"><font color=red><strong>Please provide the following information:</strong></font>
-	<ul class=small style=\"padding:0px 10px;\">";	
-	foreach ($message as $key => $value) {
-		echo $value;	
-	}
-	echo "</ul></div></td></tr> ";
-}
-
-
-?>
-    <?php
-
-?>
     <tr>
       <td colspan=2><strong>* Hotel Information</strong><br />
         <br />
@@ -28,6 +7,7 @@ if ($message) {
           <input type="radio" name="hotelInfo" value="N" <?php if ($_POST['hotelInfo']=="N") echo "checked" ?>/>
           <strong>No</strong> </div></td>
     </tr>
+    
     <tr>
       <td colspan=2><strong>* Community Source Week Conferences:</strong><br />
         <br />
@@ -37,20 +17,23 @@ if ($message) {
           <input type="radio" name="jasig" value="N" <?php if ($_POST['jasig']=="N") echo "checked" ?>/>
           <strong>No </strong> </div></td>
     </tr>
+    
     <tr>
-      <td colspan=2><br />
-        <br />
-        <div style="padding:0px 20px;"><strong>Special Needs:</strong> We are committed to making our conference activities accessible and enjoyable for everyone.&nbsp; If you have any type of special needs (i.e. dietary or accessibility), please provide that information here.<br />
+      <td colspan=2>
+      	<strong>Special Needs:</strong><br/>
+        <div style="padding:0px 20px;">
+        	We are committed to making our conference activities 
+        	accessible and enjoyable for everyone.&nbsp; If you have any type of special needs 
+        	(i.e. dietary or accessibility), please provide that information here.<br />
         </div>
         <div style="padding-left: 40px;">
           <textarea name="special" cols=60 rows=3><?php echo $_POST['special'];?></textarea>
         </div></td>
     </tr>
-    <tr>
+
     <tr>
       <td colspan=2 valign=top><strong> * Conference T-Shirt : </strong><br />
-        <br />
-        <div style="padding-left: 40px;">Please select your t-shirt size
+        <div style="padding-left: 40px;">Please select your t-shirt size: 
           <?php                                  
 $shirt = $_POST['shirt'];
 ?>
@@ -69,6 +52,7 @@ echo "
           </select>
         </div></td>
     </tr>
+    
     <tr>
       <td colspan=2><strong> Attendance Lists:</strong><br />
         <div style="padding-left: 40px;">We may publish a list of conference attendees both on the website and in printed programs (Names/Institutions only, no email addresses will be published). Check the box below to request your name not be published on this lists. <br />
@@ -77,30 +61,3 @@ echo "
             Do <strong>NOT</strong> publish my name </div>
         </div></td>
     </tr>
-    <?php
-
-
-
-if ($_SESSION['memberType']=="1") {
-?>
-    <tr>
-      <td colspan=2><div align=center>
-          <input id="submitbutton" type="submit" name="submit_MemberReg" value="Submit my registration" />
-        </div></td>
-    </tr>
-    <?php  }   
-                        else {
-                        
-                        ?>
-    <tr>
-      <td colspan=2><div align=center>
-          <input id="submitbutton" type="submit" name="submit_NonMemberReg" value="continue" />
-        </div></td>
-    </tr>
-    <?php  } 
-                       
-                       
-                        
-                        ?>
-  </table>
-</form>
