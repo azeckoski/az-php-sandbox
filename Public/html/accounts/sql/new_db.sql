@@ -28,8 +28,7 @@ CREATE TABLE sessions (
     users_pk    	int(10) NOT NULL DEFAULT '0',
     passkey     	varchar(100) NOT NULL,
     date_created	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(pk),
-    FOREIGN KEY (users_pk) REFERENCES users(pk)
+    PRIMARY KEY(pk)
 );
 
 CREATE TABLE institution (
@@ -39,9 +38,7 @@ CREATE TABLE institution (
     type			enum('educational','commerical') NOT NULL DEFAULT 'educational',
     rep_pk			int(10) null,
     repvote_pk		int(10) null,
-    primary key(pk),
-    foreign key (rep_pk) references users(pk),
-    foreign key (repvote_pk) references users(pk)
+    primary key(pk)
 );
 
 // alter table institution add type enum('educational','commerical') NOT NULL DEFAULT 'educational';

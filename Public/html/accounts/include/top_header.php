@@ -10,4 +10,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title><?= $TOOL_NAME ?> - <?= $PAGE_NAME ?></title>
+<?php if ($CSS_FILE) { ?>
 <link href="<?= $CSS_FILE ?>" rel="stylesheet" type="text/css">
+<?php } ?>
+<?php if ($CSS_FILE2) { ?>
+<link href="<?= $CSS_FILE2 ?>" rel="stylesheet" type="text/css">
+<?php } ?>
+<?php if ($CSS_FILE3) { ?>
+<link href="<?= $CSS_FILE3 ?>" rel="stylesheet" type="text/css">
+<?php } ?>
+<?php if ($CSS_FILE4) { ?>
+<link href="<?= $CSS_FILE4 ?>" rel="stylesheet" type="text/css">
+<?php } ?>

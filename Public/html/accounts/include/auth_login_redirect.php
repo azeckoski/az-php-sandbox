@@ -6,10 +6,10 @@
  */
 ?>
 <?php
-	if( $USER_PK <= 0 ) {
-		// no user_pk, user not authenticated
-		// redirect to the login page
-		header('location:'.$ACCOUNTS_URL.'/login.php?ref='.$_SERVER['PHP_SELF']);
-		exit;
-	}
+if( $USER_PK <= 0 ) {
+	// no user_pk, user not authenticated
+	// redirect to the login page
+	header('location:'.$ACCOUNTS_URL.'/login.php?ref='.$_SERVER['PHP_SELF']);
+	exit;
+}
 ?>
