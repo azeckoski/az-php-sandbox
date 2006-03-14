@@ -45,4 +45,4 @@ From here you can:<br/>
 	Click here to enter a proposal for the upcoming Sakai conference<br/>
 </div>
 
-<?php include 'includes/footer.inc.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; // Include the FOOTER ?>

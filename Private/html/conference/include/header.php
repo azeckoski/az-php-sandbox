@@ -16,16 +16,16 @@
           <td> 
               <div align="right" style="width:20em;height:5em;padding:10px;background:#eee; font-size:12pt;color:#000;">
 <?php if ($USER_PK > 0) { ?>
-	<span style="font-size:.9em;">
+	<span style="font-size:.8em;">
   	Welcome,&nbsp;<?= $USER["firstname"] ?>&nbsp;<?= $USER["lastname"] ?>
   	</span><br/>
-  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
+  	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
 <?php if ($USER["admin_reqs"]) { ?>
-  	<a style="font-size:.8em;" href="<?= $TOOL_PATH ?>/admin.php">Tool Admin</a> - 
+  	<a style="font-size:.7em;" href="<?= $TOOL_PATH ?>/admin.php">Tool Admin</a> - 
 <?php } ?>
-  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>
+  	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>
 <?php } else { ?>
-  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGIN_PAGE."?ref=".$_SERVER['PHP_SELF'] ?>">Login</a>
+  	<a style="font-size:.9em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGIN_PAGE."?ref=".$_SERVER['PHP_SELF'] ?>">Login</a>
 	<br/>		
 <?php } ?>
 	<br/>
