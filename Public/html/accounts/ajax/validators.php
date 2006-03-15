@@ -11,8 +11,6 @@
 ?>
 <?php
 // global vars - sort of
-$PASS = "ok";
-$FAIL = "error";
 $VALIDATE_TEXT = "";
 
 // this should parse a validation string into an array and then hand it to
@@ -32,11 +30,12 @@ function ProcessVstring($itemname,$itemvalue,$vstring,$output_type) {
 // Process the validation rules for this item (formid) and it's value (fvalue)
 // The rules are stored in an array and are processed in order
 // The output type is ajax, print, or return
+// clear is a special action that sends back a "clear" response instead of pass/fail
 // NOTE: print and fail only give back failure info, success outputs nothing or returns blank
 function ProcessItem($formid,$fvalue,$params,$output_type) {
 	global $TOOL_SHORT;
-	global $PASS;
-	global $FAIL;
+	$PASS_VALUE = "ok";
+	$FAIL_VALUE = "error";
 	global $VALIDATE_TEXT;
 	$failed = false;
 	
@@ -72,7 +71,7 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 			if(!validateTime($fvalue)) {
 				$failed = true;
 			}
-		} else if ($type == "zip") {
+		} else if ($type == "zip" || $type == "zipcode") {
 			if(!validateZip($fvalue)) {
 				$failed = true;
 			}
@@ -105,10 +104,11 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 	}
 
 	if ($output_type == "ajax") {
-		$ajaxReturn = "$PASS|$formid|$VALIDATE_TEXT";
+		$status = $PASS_VALUE;
 		if ($failed) {
-			$ajaxReturn = "$FAIL|$formid|$VALIDATE_TEXT";
+			$status = $FAIL_VALUE;
 		}
+		$ajaxReturn = "$status|$formid|$VALIDATE_TEXT";
 		echo $ajaxReturn;
 		writeLog($TOOL_SHORT,"ajax","return=$ajaxReturn");
 	} else if ($output_type == "print") {

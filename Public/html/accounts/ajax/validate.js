@@ -16,6 +16,7 @@ var gProcUrl = ajaxPath + "validate.php?ajax=1"; // url is the relative processo
 // ajax=1&id=user&type=none&spec=undefined&val=asd&param3=undefined
 var gPass = "ok"; // global - the response that indicates no problems
 var gFail = "error"; // global - the response that indicates failure
+var gClear = "clear"; // global - the response that indicates clear
 var gSeparator = ":"; // this is the separator used in the validate value field
 
 // Include the required fields indicator message
@@ -61,7 +62,7 @@ var imgExc = imagePath + "exclaim.gif"; // an exclaimation mark image
 // these vars are for the wacky way we associate validation codes with an item
 var gFailCode = "red"; // this is the failure code to check for
 var gPassCode = "green"; // this is the passcode to check for
-
+var gInitialCheck = true; // do an initial check of the fields (needed if prepopulating)
 
 // this handles error message to the user
 // sending this a blank will clear out the error message
@@ -94,7 +95,7 @@ function errorAlert(message) {
  * elementId (this better be the id of the item being validated)
  * textMessage (optional - this is a text message to show the user)
  */
-function checkError(passId, elementId, textMessage, changeMessage) {
+function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 	//alert("doing check:"+elementId);
 	var item = document.getElementById(elementId); // the item being validated
 	if (item == null) { // failed to retrieve item
@@ -106,6 +107,10 @@ function checkError(passId, elementId, textMessage, changeMessage) {
 		alert("ERROR: Failed to get validate item for name:" + item.name);
 		return false;
 	}
+
+	// if doing a sweep check then we do not want to mark things as wrong
+	if (gInitialCheck) { sweepCheck = true; }
+	if (sweepCheck && passId == gFail) { passId = gClear; }
 	
 	if (passId == gPass) { // validation passed
 		if(gUseImages) {
@@ -160,6 +165,46 @@ function checkError(passId, elementId, textMessage, changeMessage) {
 		validateItem.style.color = gFailCode;
 		// put user back on that item when validation fails
 		item.focus();
+	} else if (passId == gClear) { // cleared, reset item back to initial state
+		var itemRequired = validateItem.value.match(/^required.*$/); // true/false
+		if(gUseImages) {
+			var imgObject=document.getElementById(item.name + "Img");
+			if (imgObject != null) {
+				if (itemRequired) {
+					imgObject.src = imgReq;
+				} else {
+					imgObject.src = imgBln;
+				}
+			}
+		}
+		if(gUseText) {
+			var msgObject=document.getElementById(item.name + "Msg");
+			if (msgObject != null) {
+				if (changeMessage) {
+					if (itemRequired && gRequiredText) {
+						msgObject.innerHTML = textReq;
+					} else {
+						if (textMessage != "") {
+							msgObject.innerHTML = textMessage;
+						}
+					}
+				}
+				msgObject.style.color = "";
+			}
+		}
+		item.style.backgroundColor = "";
+
+		// no image or text object, go with setting color of item
+		if(itemRequired && !gUseImages && !gUseText) {
+			item.style.backgroundColor = bgColReq;
+		}
+		
+		// reset the validate codes to initial states
+		if (itemRequired) {
+			validateItem.style.color = gFailCode;
+		} else {
+			validateItem.style.color = gPassCode;
+		}
 	} else {
 		alert("ERROR: Invalid return options:\n" + passId +"|"+ elementId +"|"+ textMessage);
 	}
@@ -219,7 +264,16 @@ function attachFormHandlers()
 						//items[i].onblur = function(){return validateObject(this);}
 					}
 
+					// do the initial validation check of all items
+					validateObject(items[i]);
+					
+/*** This should be handled in markFields now
 					// do some extra stuff for required items
+					validateItem.style.color = gPassCode;
+					// items start as passed, required items will get set to failed by default below
+					// this should leave the non-required but validated fields as passed until
+					// someone tries to enter data into them
+					
 					if (validateItem.value.match(/^required.*$/)) { // check if required at start
 						// this is required so add the images or the text
 						if(gUseImages) {
@@ -238,16 +292,20 @@ function attachFormHandlers()
 							// no image or text object, go with setting color of item
 							items[i].style.backgroundColor = bgColReq;
 						}
+						// required items start out as failed
+						validateItem.style.color = gFailCode;
 					}
-					// set validate holder value
-					validateItem.style.color = gFailCode; // start out as failed
+****/
 				}
 			}
 		}
 		// attach the validate function to all form submit actions
 		document.forms[f].onsubmit = function(){return validate(this);}
 	}
-	
+
+	// initial check is complete
+	gInitialCheck = false;
+
 	// do some other stuff on form load
 	if (useRequiredMessage) {
 		var reqMsgObject=document.getElementById("requiredMessage");
@@ -293,8 +351,8 @@ function handleHttpResponse() {
     		var rText = http.responseText;
     		if (rText != "") {
 			var sResults = rText.split("|"); // set to the feedback from the processor page
-			if (sResults[0] == gPass || sResults[0] == gFail) {
-				checkError(sResults[0],sResults[1],sResults[2],true);
+			if (sResults[0] == gPass || sResults[0] == gFail || sResults[0] == gClear) {
+				markField(sResults[0],sResults[1],sResults[2],true,false);
 			} else {
 				alert("ERROR: Invalid responsetext: " + rText);
 			}
@@ -321,20 +379,35 @@ function validateObject(objInput) {
 	}
 
 	// do any local javascript checks
-	if (validateItem.value.match(/^required.*$/)) { // check if required is the first word
-		if (objInput.value == "" || 
-			(objInput.type.toLowerCase() == "checkbox" && !objInput.checked) ) {
-				// required field is blank
-				if(gUseText) {
-					checkError(gFail, objInput.id, textReq, true);
-				} else {
-					checkError(gFail, objInput.id, "", false);
-				}
-				return; // exit, no need to do more validation
+	
+	// do a blank check first
+	var isBlank = false;
+	if (objInput.value == "" || (objInput.type.toLowerCase() == "checkbox" && !objInput.checked) ) {
+		isBlank = true;
+	}
+
+	// now do a required check
+	var isRequired = validateItem.value.match(/^required.*$/); // check if required is the first word
+	if (isBlank) {
+		if (isRequired) {
+			if(gUseText) {
+				markField(gFail, objInput.id, textReq, true, gInitialCheck);
+			} else {
+				markField(gFail, objInput.id, "", false, gInitialCheck);
+			}
+			return; // exit, no need to do more validation
 		} else {
+			// reset the field to clear happy state, only change msg text if outside the initial stage
+			markField(gClear, objInput.id, "", !gInitialCheck, false);
+			return; // no need to continue, the field is empty
+		}
+	} else {
+		if (isRequired) {
 			// required field is set
 			localCheck = true; // passed the local check
 			localText = textVal;
+		} else {
+			//alert("non-req:" + objInput.id +":"+ objInput.value);
 		}
 	}
 
@@ -348,25 +421,26 @@ function validateObject(objInput) {
 		vParams = vParams + "&rule" + i + "=" + encodeURIComponent(field);
 		i++;
 	}
-	
+
 	var vVal = encodeURIComponent(objInput.value); //get value inside of input field
 	
 	// if no serverside validations are set then don't bug the server
 	if(vParams == "") {
 		// send to passed to check error and exit
+		//alert("no params!"+objInput.id);
 		if (localCheck) { // passed local checks (if failed, we should not get here)
 			if(gUseText) {
-				checkError(gPass, objInput.id, localText, true);
+				markField(gPass, objInput.id, localText, true, gInitialCheck);
 			} else {
-				checkError(gPass, objInput.id, "", false);
+				markField(gPass, objInput.id, "", false, gInitialCheck);
 			}
 		}
 		return;
 	}
 
 	//sends the rules and value to be validated
-	var vUrl = gProcUrl + "&id=" + (objInput.id) + "&val="+ (vVal) + (vParams);
-	//alert("sending: " + vUrl);
+	var vUrl = gProcUrl + "&id=" + objInput.id + "&val="+ vVal + vParams;
+	alert("sending: " + vUrl);
 	http.open("GET", vUrl, true);
 	http.onreadystatechange = handleHttpResponse;
 	http.send(null);
@@ -385,11 +459,11 @@ function validate(formObj) {
 		var validateItem = document.getElementById(items[i].name + "Validate");
 		if (validateItem != null) {
 			if (validateItem.style.color == gPassCode) {
-				checkError(gPass, items[i].id, "", false);
+				markField(gPass, items[i].id, "", false, false);
 			} else {
 				// assume failure if pass not found
 				//alert("Failure found: " + items[i].name + ":" + validateItem.style.color);
-				checkError(gFail, items[i].id, "", false);
+				markField(gFail, items[i].id, "", false, false);
 				// special handling for radio button error counting
 				if (items[i].type.toLowerCase() == "radio") {
 					// count the first item only
