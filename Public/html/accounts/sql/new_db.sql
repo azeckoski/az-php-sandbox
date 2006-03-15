@@ -5,6 +5,12 @@ CREATE TABLE users (
     firstname   		varchar(100) NULL,
     lastname    		varchar(100) NULL,
     email       		varchar(100) NOT NULL UNIQUE,
+    city    			varchar(100) NULL,
+    state    			varchar(50) NULL,
+    zipcode   	 		varchar(20) NULL,
+    country   	 		varchar(100) NULL,
+    phone    			varchar(20) NULL,
+    fax		    		varchar(20) NULL,
     date_created		timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     activated   		enum('0','1') NOT NULL DEFAULT '0',
     institution_pk  	int(10) NULL,
@@ -14,10 +20,15 @@ CREATE TABLE users (
     PRIMARY KEY(pk)
 );
 
-//alter table users drop column access;
-//alter table users add admin_accounts enum('0','1') NOT NULL DEFAULT '0';
-//alter table users add admin_reqs enum('0','1') NOT NULL DEFAULT '0';
-//alter table users add admin_insts enum('0','1') NOT NULL DEFAULT '0';
+/*** EXTRA info to store in users
+alter table users add address varchar(200);
+alter table users add city varchar(100);
+alter table users add state varchar(50);
+alter table users add zipcode varchar(20);
+alter table users add country varchar(100);
+alter table users add phone varchar(20);
+alter table users add fax varchar(20);
+****/
 
 insert into users (username, password, email,activated) values ('aaronz',PASSWORD('password1'),'aaronz@vt.edu','1');
 insert into users (username, password, email,activated) values ('shardin',PASSWORD('password2'),'shardin@umich.edu','1');

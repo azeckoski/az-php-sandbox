@@ -52,7 +52,7 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 		}
 		
 		writeLog($TOOL_SHORT,"ajax","validate:".$type.":".$fvalue);
-		if ($type == "required") {
+		if ($type == "required" || $type == "notblank") {
 			if(!validateRequired($fvalue)) {
 				$failed = true;
 			}
@@ -145,12 +145,6 @@ function validateEmail($val) {
 	global $VALIDATE_TEXT;
 	$VALIDATE_TEXT = "";
 
-	if(empty($val)) {
-		// field is empty
-		$VALIDATE_TEXT = "Cannot be blank";
-	    return false;
-	}
-
 	// check the email address with a regex function
 	if  (!eregi('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$', $val)) {
 		$VALIDATE_TEXT = "Invalid email address";
@@ -163,12 +157,6 @@ function validateEmail($val) {
 function validatePhone($val) {
 	global $VALIDATE_TEXT;
 	$VALIDATE_TEXT = "";
-
-	if(empty($val)) {
-		// field is empty
-		$VALIDATE_TEXT = "Cannot be blank";
-	    return false;
-	}
 
 	$Num = ereg_replace("[[:space:]]","",$val); // strip all spaces out first
 	$Num = eregi_replace("(\(|\)|\-|\+)","",$Num); // strip out other chars
@@ -196,12 +184,6 @@ function validateDate($val) {
 	global $VALIDATE_TEXT;
 	$VALIDATE_TEXT = "";
 
-	if(empty($val)) {
-		// field is empty
-		$VALIDATE_TEXT = "Cannot be blank";
-	    return false;
-	}
-
 	if (!strtotime($val)) {
 		$VALIDATE_TEXT = "Invalid date (use MM/DD/YYYY)";
 		return false;
@@ -214,12 +196,6 @@ function validateTime($val) {
 	global $VALIDATE_TEXT;
 	$VALIDATE_TEXT = "";
 
-	if(empty($val)) {
-		// field is empty
-		$VALIDATE_TEXT = "Cannot be blank";
-	    return false;
-	}
-
 	if (!strtotime($val)) {
 		$VALIDATE_TEXT = "Invalid time (use HH:MM AM)";
 		return false;
@@ -231,12 +207,6 @@ function validateTime($val) {
 function validateZip($val) {
 	global $VALIDATE_TEXT;
 	$VALIDATE_TEXT = "";
-
-	if(empty($val)) {
-		// field is empty
-		$VALIDATE_TEXT = "Cannot be blank";
-	    return false;
-	}
 
 	$Bad = eregi_replace("([-0-9]+)","",$val);	
 	if(!empty($Bad)) {

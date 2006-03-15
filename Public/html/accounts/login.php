@@ -174,6 +174,11 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 	<table border="0" class="padded">
 	<tr>
 	<td>
+<?php // output the passed message if there is one
+	if ($_REQUEST["msg"]) {
+		echo "<b>NOTE:</b> ".$_REQUEST["msg"]."<br><br>";
+	}
+?>
 	This space is planned to be used later to add help information as needed.
 
 	</td>

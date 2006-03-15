@@ -9,7 +9,10 @@
 if( $USER_PK <= 0 ) {
 	// no user_pk, user not authenticated
 	// redirect to the login page
-	header('location:'.$ACCOUNTS_URL.'/login.php?ref='.$_SERVER['PHP_SELF']);
+	if ($AUTH_MESSAGE) {
+		$AUTH_MESSAGE = "&msg=".urlencode($AUTH_MESSAGE);
+	}
+	header('location:'.$ACCOUNTS_URL.'/login.php?ref='.$_SERVER['PHP_SELF'].$AUTH_MESSAGE);
 	exit;
 }
 ?>
