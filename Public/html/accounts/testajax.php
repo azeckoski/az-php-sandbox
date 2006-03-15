@@ -38,7 +38,7 @@ if ($_REQUEST["submit"]) {
 		<td>Username</td>
 		<td>
 			<img id="usernameImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="username" tabindex="1"/>
+			<input type="text" name="username" value="<?php echo "prefillvalid"; ?>" />
 			<input type="hidden" name="usernameValidate" value="required:focus:alphanum:uniquesql;username;users"/>
 			<span id="usernameMsg"></span>
 		</td>
@@ -48,7 +48,7 @@ if ($_REQUEST["submit"]) {
 		<td>Email</td>
 		<td>
 			<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="email" tabindex="2"/>
+			<input type="text" name="email" value="<?php echo "prefill invalid"; ?>" />
 			<input type="hidden" name="emailValidate" value="required:email:uniquesql;email;users"/>
 			<span id="emailMsg"></span>
 		</td>
@@ -58,7 +58,7 @@ if ($_REQUEST["submit"]) {
 		<td>Other</td>
 		<td>
 			<img id="otherImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="other" tabindex="3"/>
+			<input type="text" name="other" value=""/>
 			<input type="hidden" name="otherValidate" value="required:nospaces"/>
 			<span id="otherMsg"></span>
 		</td>
