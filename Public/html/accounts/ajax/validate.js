@@ -382,7 +382,9 @@ function validateObject(objInput) {
 	
 	// do a blank check first
 	var isBlank = false;
-	if (objInput.value == "" || (objInput.type.toLowerCase() == "checkbox" && !objInput.checked) ) {
+	if (objInput.value == "" || 
+		(objInput.type.toLowerCase() == "checkbox" && !objInput.checked) || 
+		(objInput.type.toLowerCase() == "radio" && !objInput.checked) ) {
 		isBlank = true;
 	}
 
@@ -440,7 +442,7 @@ function validateObject(objInput) {
 
 	//sends the rules and value to be validated
 	var vUrl = gProcUrl + "&id=" + objInput.id + "&val="+ vVal + vParams;
-	alert("sending: " + vUrl);
+	//alert("sending: " + vUrl);
 	http.open("GET", vUrl, true);
 	http.onreadystatechange = handleHttpResponse;
 	http.send(null);
