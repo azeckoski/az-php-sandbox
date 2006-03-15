@@ -16,8 +16,8 @@ require ($ACCOUNTS_PATH.'include/system_vars.php');
 $TOOL_PATH = "/conference";
 $TOOL_NAME = "Conference";
 $TOOL_SHORT = "conf";
-$CSS_FILE = "includes/template_css.css";
-$CSS_FILE2 = "includes/template_CFPform_css.css";
+$CSS_FILE = $TOOL_PATH."/include/template_css.css";
+$CSS_FILE2 = $TOOL_PATH."/include/template_CFPform_css.css";
 $HELP_LINK = "include/help.php";
 
 $CONF_ID = "Jun2006";

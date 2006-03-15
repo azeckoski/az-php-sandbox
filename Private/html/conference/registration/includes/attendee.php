@@ -10,8 +10,12 @@
 	  </td>
       <td>
         <select name="title">
+<?php if ($CONF['title']) {
+		echo "<option value='".$CONF['title']."'>".$CONF['title']."</option>";
+	}
+?>
           <option value="">-- select --</option>
-          <option value="Developer">Developer/Programmer</option>
+          <option value="Developer/Programmer">Developer/Programmer</option>
           <option value="UI Developer">UI Developer</option>
           <option value="User Support">User Support</option>
           <option value="Faculty">Faculty</option>
@@ -37,7 +41,7 @@
       	</div>
       </td>
       <td>
-      	<input type="text" name="otherInst" size="30" maxlength="40" value="<?php echo $_POST['otherInst'];?>" />
+      	<input type="text" name="otherInst" size="30" maxlength="40" value="<?php echo $CONF['otherInst']; ?>" />
       </td>
     </tr>
 <?php } ?>
@@ -50,7 +54,7 @@
       	</div>
       </td>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">(Department, Street address, PO Box, etc.) <br />
-        <textarea name="address1" cols='40' rows='3''><?php echo $_POST['address1'];?></textarea>
+        <textarea name="address1" cols='40' rows='3''><?php echo $USER['address'];?></textarea>
       	<input type="hidden" name="address1Validate" value="required"/>
         <span id="address1Msg"></span>
       </td>
@@ -65,7 +69,7 @@
 	      </div>
       </td>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-      	<input type="text" name="city" size="30" maxlength="30" value="<?php echo $_POST['city'];?>" />
+      	<input type="text" name="city" size="30" maxlength="30" value="<?php echo $USER['city'];?>" />
       	<input type="hidden" name="cityValidate" value="required"/>
         <span id="cityMsg"></span>
       </td>
@@ -79,15 +83,12 @@
       		<strong><span class="formLable">State/Province:</span></strong>
       	</div>
       </td>
-      <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;"><?php                         
-                          
-$state = $_POST['state'];
-?>
+      <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
         <select name="state">
-          <?php if (!$state==""){
-echo "
- <option value=\"$state\" SELECTED>$state</option>";
- }  ?>
+<?php if ($USER['state']) {
+		echo "<option value='".$USER['state']."'>".$USER['state']."</option>";
+	}
+?>
           <option value="">State/Province</option>
           <option value="">----United States----</option>
           <option value="AL"> Alabama</option>
@@ -180,7 +181,7 @@ echo "
       	</div>
       </td>
       <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-      	<input type="text" name="zip" size="10" maxlength="10"  value="<?php echo $_POST['zip'];?>" />
+      	<input type="text" name="zip" size="10" maxlength="10"  value="<?php echo $USER['zipcode'];?>" />
       	<input type="hidden" name="zipValidate" value="zipcode"/><br>
         <span id="zipMsg"></span>
       </td>
@@ -192,15 +193,12 @@ echo "
         <img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
       	<strong><span class="formLable">Country:</span></strong> 
       </div></td>
-      <td><?php                         
-                          
-$country = $_POST['country'];
-?>
+      <td>
           <select name="country">
-            <?php if (!$country==""){
-echo "
- <option value=\"$country\" SELECTED>$country</option>";
- }  ?>
+<?php if ($USER['country']) {
+		echo "<option value='".$USER['country']."'>".$USER['country']."</option>";
+	}
+?>
             <option value="">Country</option>
             <option value="US">United States</option>
             <option value="CA">Canada</option>
@@ -317,7 +315,7 @@ echo "
       	</div>
       </td>
       <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-      	<input type="text" name="phone" size="18" maxlength="18"  value="<?php echo $_POST['phone'];?>" />
+      	<input type="text" name="phone" size="18" maxlength="18"  value="<?php echo $USER['phone']; ?>" />
       	<input type="hidden" name="phoneValidate" value="required:phone"/><br/>
         <span id="phoneMsg"></span>
       </td>
@@ -330,7 +328,7 @@ echo "
       	</div>
       </td>
       <td>
-      	<input type="text" name="fax" size="18" maxlength="18"  value="<?php echo $_POST['fax'];?>" />
+      	<input type="text" name="fax" size="18" maxlength="18"  value="<?php echo $USER['fax']; ?>" />
       	<input type="hidden" name="faxValidate" value="phone"/><br>
         <span id="faxMsg"></span>
       </td>

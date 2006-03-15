@@ -5,8 +5,9 @@
   </tr>
   <tr>
     <td  colspan=2 style=" padding:5px;"><strong>Registration Complete</strong>: <br />
-      Thank you for registering for the Sakai Vancouver conference. You will receive a 
-      confirmation email shortly. We look forward to seeing you in Vancouver! <br />
+      Thank you for registering for the Sakai Vancouver conference.
+<?php if ($SEND_EMAIL) { echo "You will receive a confirmation email shortly."; } ?>
+      We look forward to seeing you in Vancouver! <br />
       <br />
       -- Sakai Conference Committee</td>
   </tr>

@@ -6,9 +6,9 @@
     <div style="padding-left: 40px;">
     	Will you be staying at the conference hotel, the Sheraton Vancouver Wall Centre, 
     	where the conference is being held?<br />
-      <input type="radio" name="hotelInfo" value="Y" <?php if ($_POST['hotelInfo']=="Y") echo "checked" ?>/>
+      <input type="radio" name="hotelInfo" value="Y" <?php if ($CONF['hotelInfo']=="Y") echo "checked" ?>/>
       <strong>Yes </strong>
-      <input type="radio" name="hotelInfo" value="N" <?php if ($_POST['hotelInfo']=="N") echo "checked" ?>/>
+      <input type="radio" name="hotelInfo" value="N" <?php if ($CONF['hotelInfo']=="N") echo "checked" ?>/>
       <strong>No</strong>
     </div>
 	<input type="hidden" name="hotelInfoValidate" value="required"/>
@@ -21,9 +21,9 @@
 	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>  
   	<strong>Community Source Week Conferences:</strong><br />
     <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Vancouver June 4-6, 2005?<br />
-      <input type="radio" name="jasig" value="Y" <?php if ($_POST['jasig']=="Y") echo "checked" ?> />
+      <input type="radio" name="jasig" value="Y" <?php if ($CONF['jasig']=="Y") echo "checked" ?> />
       <strong>Yes </strong>
-      <input type="radio" name="jasig" value="N" <?php if ($_POST['jasig']=="N") echo "checked" ?>/>
+      <input type="radio" name="jasig" value="N" <?php if ($CONF['jasig']=="N") echo "checked" ?>/>
       <strong>No </strong> 
     </div>
     <input type="hidden" name="jasigValidate" value="required"/>
@@ -40,7 +40,7 @@
     	(i.e. dietary or accessibility), please provide that information here.<br />
     </div>
     <div style="padding-left: 40px;">
-      <textarea name="special" cols=70 rows=3><?php echo $_POST['special'];?></textarea>
+      <textarea name="special" cols=70 rows=3><?php echo $CONF['special'];?></textarea>
     </div></td>
 </tr>
 
@@ -49,9 +49,11 @@
   	<img id="shirtImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
   	<strong>Conference T-Shirt:</strong><br />
     <div style="padding-left: 40px;">Please select your t-shirt size: 
-      <?php $shirt = $_POST['shirt']; ?>
       <select name="shirt">
-        <?php if (!$shirt==""){ echo "<option value=\"$shirt\" SELECTED>$shirt</option>"; }  ?>
+<?php if ($CONF['shirt']) {
+		echo "<option value='".$CONF['shirt']."'>".$CONF['shirt']."</option>";
+	}
+?>
         <option value="">-- Select Size --</option>
         <option value="Small">Small</option>
         <option value="Medium">Medium</option>
@@ -70,7 +72,7 @@
   <td colspan=2><strong> Attendance Lists:</strong><br />
     <div style="padding-left: 40px;">We may publish a list of conference attendees both on the website and in printed programs (Names/Institutions only, no email addresses will be published). Check the box below to request your name not be published on this lists. <br />
       <div style="padding-left: 40px;">
-        <input type="checkbox" name="publish" value="N" <?php if ($_POST['publish']=="N") echo "checked" ?> />
+        <input type="checkbox" name="publish" value="N" <?php if ($CONF['contactInfo']=="N") echo "checked" ?> />
         Do <strong>NOT</strong> publish my name </div>
     </div>
   </td>
