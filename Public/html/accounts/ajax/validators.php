@@ -55,9 +55,13 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 		if ($type == "required") {
 			if(!validateRequired($fvalue)) {
 				$failed = true;
-			} 
+			}
 		} else if ($type == "email") {
 			if(!validateEmail($fvalue)) {
+				$failed = true;
+			}
+		} else if ($type == "phone") {
+			if(!validatePhone($fvalue)) {
 				$failed = true;
 			}
 		} else if ($type == "date") {
@@ -150,6 +154,38 @@ function validateEmail($val) {
 	// check the email address with a regex function
 	if  (!eregi('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$', $val)) {
 		$VALIDATE_TEXT = "Invalid email address";
+		return false;
+	}
+	return true;
+}
+
+// validate phone numbers using regexp
+function validatePhone($val) {
+	global $VALIDATE_TEXT;
+	$VALIDATE_TEXT = "";
+
+	if(empty($val)) {
+		// field is empty
+		$VALIDATE_TEXT = "Cannot be blank";
+	    return false;
+	}
+
+	$Num = ereg_replace("[[:space:]]","",$val); // strip all spaces out first
+	$Num = eregi_replace("(\(|\)|\-|\+)","",$Num); // strip out other chars
+	if(!ctype_digit($Num)) {
+		$VALIDATE_TEXT = "Invalid phone number (e.g. (###) ###-####)";
+		return false;
+	}
+
+	// min of 7 digits
+	if ( (strlen($Num)) < 7) {
+		$VALIDATE_TEXT = "Invalid phone number, too short";
+		return false;
+	}
+
+	// max of 15 digits with 2 digit country code, 9 numbers, and 4 digit extension
+	if( (strlen($Num)) > 15) {
+		$VALIDATE_TEXT = "Invalid phone number, too long";
 		return false;
 	}
 	return true;

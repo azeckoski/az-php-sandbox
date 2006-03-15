@@ -7,7 +7,8 @@
 // Helpful reference: http://www.w3schools.com/dhtml/dhtml_domreference.asp
 
 // config variables
-var gProcUrl = "/accounts/ajax/validate.php?ajax=1"; // url is the relative processor page 
+var ajaxPath = "/accounts/ajax/"; // must the relative path from the web root
+var gProcUrl = ajaxPath + "validate.php?ajax=1"; // url is the relative processor page 
 // processor will do the validation (include ?ajax=1 if using my php processor)
 // Processor should return a string: passId|elementId|textMessage
 // passId must equal gPass var value if valid and gFail var value if invalid
@@ -40,7 +41,9 @@ var useRequiredMessage = true;
 ******/
 
 // text message output
-var gUseText = true; // set to false to not use text processing
+var gUseText = true; // display text messages
+var gRequiredText = false; // display required text in text message boxes on form load (gUseTest must be on)
+var gPositiveText = false; // display valid messages as returned from validation code
 var textReq = "Required";
 var textVal = "Valid";
 var textInv = "Invalid";
@@ -48,11 +51,12 @@ var bgColReq = "#FFCCCC";
 
 // image paths and names
 var gUseImages = true; // set to false to not use image processing
-var imgBln = "ajax/images/blank.gif"; // a blank image file
-var imgReq = "ajax/images/required.gif"; // a required image file (star)
-var imgVal = "ajax/images/validated.gif"; // a validated image file (check)
-var imgInv = "ajax/images/invalid.gif"; // an invalid image file (x mark)
-var imgExc = "ajax/images/exclaim.gif"; // an exclaimation mark image
+var imagePath = ajaxPath + "images/";
+var imgBln = imagePath + "blank.gif"; // a blank image file
+var imgReq = imagePath + "required.gif"; // a required image file (star)
+var imgVal = imagePath + "validated.gif"; // a validated image file (check)
+var imgInv = imagePath + "invalid.gif"; // an invalid image file (x mark)
+var imgExc = imagePath + "exclaim.gif"; // an exclaimation mark image
 
 // these vars are for the wacky way we associate validation codes with an item
 var gFailCode = "red"; // this is the failure code to check for
@@ -64,11 +68,11 @@ var gPassCode = "green"; // this is the passcode to check for
 function errorAlert(message) {
 	var errorMsgObject=document.getElementById("errorMessage");
 	if (errorMsgObject != null) {
-		if($message = "") {
+		if(message = "") {
 			errorMsgObject.innerHTML = "";
 		} else {
 			if(gUseImages) {
-				errorMsgObject.innerHTML = "<img src='" + imgExc + "'> " + message;
+				errorMsgObject.innerHTML = "<img src='" + imgExc + "'><span style='vertical-align:top;'>" + message + "</span>";
 			} else {
 				errorMsgObject.innerHTML = "ERROR: " + message;
 				errorMsgObject.backgroundColor = bgColReq; // this may not work for some tags
@@ -76,7 +80,7 @@ function errorAlert(message) {
 			errorMsgObject.style.color = "red";
 		}
 	} else {
-		if($message != "") { // blank message does not get sent to the user
+		if(message != "") { // blank message does not get sent to the user
 			// use the old standby
 			alert("Error: " + message);
 		}
@@ -114,10 +118,15 @@ function checkError(passId, elementId, textMessage, changeMessage) {
 			var msgObject=document.getElementById(item.name + "Msg");
 			if (msgObject != null) {
 				if (changeMessage) {
-					if (textMessage == "") {
-						msgObject.innerHTML = textVal;
+					if (gPositiveText) {
+						if (textMessage == "") {
+							msgObject.innerHTML = textVal;
+						} else {
+							msgObject.innerHTML = textMessage;
+						}
 					} else {
-						msgObject.innerHTML = textMessage;
+						// if positive text off then just clear the error text
+						msgObject.innerHTML = "";
 					}
 				}
 				msgObject.style.color = ""; // should reset to default color
@@ -149,6 +158,8 @@ function checkError(passId, elementId, textMessage, changeMessage) {
 
 		item.style.backgroundColor = bgColReq;
 		validateItem.style.color = gFailCode;
+		// put user back on that item when validation fails
+		item.focus();
 	} else {
 		alert("ERROR: Invalid return options:\n" + passId +"|"+ elementId +"|"+ textMessage);
 	}
@@ -217,12 +228,13 @@ function attachFormHandlers()
 								imgObject.src = imgReq;
 							}
 						}
-						if(gUseText) {
+						if(gUseText && gRequiredText) {
 							var msgObject=document.getElementById(items[i].name + "Msg");
 							if (msgObject != null) {
 								msgObject.innerHTML = textReq;
 							}
-						} else {
+						}
+						if(!gUseImages && !gUseText) {
 							// no image or text object, go with setting color of item
 							items[i].style.backgroundColor = bgColReq;
 						}
@@ -241,7 +253,7 @@ function attachFormHandlers()
 		var reqMsgObject=document.getElementById("requiredMessage");
 		if (reqMsgObject != null) {
 			if(gUseImages) {
-				reqMsgObject.innerHTML = "<img src='" + imgReq + "'> = Required fields";
+				reqMsgObject.innerHTML = "<img src='" + imgReq + "'><span style='vertical-align:top;'> = Required fields</span>";
 			} else if(gUseText) {
 				reqMsgObject.innerHTML = "Required fields marked as '" + textReq + "'";
 			} else {
@@ -364,6 +376,7 @@ function validateObject(objInput) {
 // validates the elements for this form only, called by form submit
 function validate(formObj) {
 	var countErrors = 0;
+	var firstError;
 
 	var items = formObj.elements;
 	//alert ("Items="+items.length);
@@ -385,13 +398,14 @@ function validate(formObj) {
 					countErrors++;
 				}
 				if (countErrors == 1) {
-					items[i].focus(); // set the focus on the first invalid field
+					firstError = items[i]; // save the first item with an error
 				}
 			}
 		}
 	}
 
 	if (countErrors > 0) {
+		firstError.focus(); // set the focus on the first invalid field
 		// send an alert to the user if there are errors remaining
 		errorAlert("Please make sure all fields are properly completed\n (" + 
 			countErrors + " invalid fields indicated)");
