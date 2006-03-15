@@ -1,63 +1,76 @@
-    <tr>
-      <td colspan=2><strong>* Hotel Information</strong><br />
-        <br />
-        <div style="padding-left: 40px;"> Will you be staying at the conference hotel, the Sheraton Vancouver Wall Centre, where the conference is being held?<br />
-          <input type="radio" name="hotelInfo" value="Y" <?php if ($_POST['hotelInfo']=="Y") echo "checked" ?>/>
-          <strong>Yes </strong>
-          <input type="radio" name="hotelInfo" value="N" <?php if ($_POST['hotelInfo']=="N") echo "checked" ?>/>
-          <strong>No</strong> </div></td>
-    </tr>
-    
-    <tr>
-      <td colspan=2><strong>* Community Source Week Conferences:</strong><br />
-        <br />
-        <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Vancouver June 4-6, 2005?<br />
-          <input type="radio" name="jasig" value="Y" <?php if ($_POST['jasig']=="Y") echo "checked" ?> />
-          <strong>Yes </strong>
-          <input type="radio" name="jasig" value="N" <?php if ($_POST['jasig']=="N") echo "checked" ?>/>
-          <strong>No </strong> </div></td>
-    </tr>
-    
-    <tr>
-      <td colspan=2>
-      	<strong>Special Needs:</strong><br/>
-        <div style="padding:0px 20px;">
-        	We are committed to making our conference activities 
-        	accessible and enjoyable for everyone.&nbsp; If you have any type of special needs 
-        	(i.e. dietary or accessibility), please provide that information here.<br />
-        </div>
-        <div style="padding-left: 40px;">
-          <textarea name="special" cols=60 rows=3><?php echo $_POST['special'];?></textarea>
-        </div></td>
-    </tr>
 
-    <tr>
-      <td colspan=2 valign=top><strong> * Conference T-Shirt : </strong><br />
-        <div style="padding-left: 40px;">Please select your t-shirt size: 
-          <?php                                  
-$shirt = $_POST['shirt'];
-?>
-          <select name="shirt">
-            <?php if (!$shirt==""){
-echo "
- <option value=\"$shirt\" SELECTED>$shirt</option>";
- }  ?>
-            <option value="">-- Select Size --</option>
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
-            <option value="X-Large">X-Large</option>
-            <option value="XX-Large">XX-Large</option>
-            <option value="XXX-Large">XXX-Large</option>
-          </select>
-        </div></td>
-    </tr>
-    
-    <tr>
-      <td colspan=2><strong> Attendance Lists:</strong><br />
-        <div style="padding-left: 40px;">We may publish a list of conference attendees both on the website and in printed programs (Names/Institutions only, no email addresses will be published). Check the box below to request your name not be published on this lists. <br />
-          <div style="padding-left: 40px;">
-            <input type="checkbox" name="publish" value="N" <?php if ($_POST['publish']=="N") echo "checked" ?> />
-            Do <strong>NOT</strong> publish my name </div>
-        </div></td>
-    </tr>
+<tr>
+  <td colspan=2>
+	<img id="hotelInfoImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>  
+  	<strong>Hotel Information:</strong><br />
+    <div style="padding-left: 40px;">
+    	Will you be staying at the conference hotel, the Sheraton Vancouver Wall Centre, 
+    	where the conference is being held?<br />
+      <input type="radio" name="hotelInfo" value="Y" <?php if ($_POST['hotelInfo']=="Y") echo "checked" ?>/>
+      <strong>Yes </strong>
+      <input type="radio" name="hotelInfo" value="N" <?php if ($_POST['hotelInfo']=="N") echo "checked" ?>/>
+      <strong>No</strong>
+    </div>
+	<input type="hidden" name="hotelInfoValidate" value="required"/>
+	<span id="hotelInfoMsg"></span>
+  </td>
+</tr>
+
+<tr>
+  <td colspan=2>
+	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>  
+  	<strong>Community Source Week Conferences:</strong><br />
+    <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Vancouver June 4-6, 2005?<br />
+      <input type="radio" name="jasig" value="Y" <?php if ($_POST['jasig']=="Y") echo "checked" ?> />
+      <strong>Yes </strong>
+      <input type="radio" name="jasig" value="N" <?php if ($_POST['jasig']=="N") echo "checked" ?>/>
+      <strong>No </strong> 
+    </div>
+    <input type="hidden" name="jasigValidate" value="required"/>
+	<span id="jasigMsg"></span>
+  </td>
+</tr>
+
+<tr>
+  <td colspan=2>
+  	<strong>Special Needs:</strong><br/>
+    <div style="padding:0px 20px;">
+    	We are committed to making our conference activities 
+    	accessible and enjoyable for everyone.&nbsp; If you have any type of special needs 
+    	(i.e. dietary or accessibility), please provide that information here.<br />
+    </div>
+    <div style="padding-left: 40px;">
+      <textarea name="special" cols=70 rows=3><?php echo $_POST['special'];?></textarea>
+    </div></td>
+</tr>
+
+<tr>
+  <td colspan=2 valign=top>
+  	<img id="shirtImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+  	<strong>Conference T-Shirt:</strong><br />
+    <div style="padding-left: 40px;">Please select your t-shirt size: 
+      <?php $shirt = $_POST['shirt']; ?>
+      <select name="shirt">
+        <?php if (!$shirt==""){ echo "<option value=\"$shirt\" SELECTED>$shirt</option>"; }  ?>
+        <option value="">-- Select Size --</option>
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="X-Large">X-Large</option>
+        <option value="XX-Large">XX-Large</option>
+        <option value="XXX-Large">XXX-Large</option>
+      </select>
+    </div>
+    <input type="hidden" name="shirtValidate" value="required"/>
+	<span id="shirtMsg"></span>    
+  </td>
+</tr>
+
+<tr>
+  <td colspan=2><strong> Attendance Lists:</strong><br />
+    <div style="padding-left: 40px;">We may publish a list of conference attendees both on the website and in printed programs (Names/Institutions only, no email addresses will be published). Check the box below to request your name not be published on this lists. <br />
+      <div style="padding-left: 40px;">
+        <input type="checkbox" name="publish" value="N" <?php if ($_POST['publish']=="N") echo "checked" ?> />
+        Do <strong>NOT</strong> publish my name </div>
+    </div></td>
+</tr>

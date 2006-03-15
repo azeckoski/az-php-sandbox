@@ -2,31 +2,14 @@
 //echo "memberType=".$_SESSION['memberType'];
 ?>
 
-<tr>
-	<td colspan=2>
-		<strong>Verify personal info:</strong><br />
-		<div style="padding-left: 40px;">
-<?php
-	echo "Name: " . $USER['firstname'] . " " . $USER['lastname'] . "<br>";
-	echo "Email: " . $USER['email'] . "<br>";
-?>
-		</div>
-	</td>
-</tr>
-
-<?php if ($_SESSION['regType']==2) { ?>
     <tr valign="top">
-      <td width=160px><div align=right><strong>* Registrant's Role/Title</strong></div></td>
+      <td><div align=right>
+		      <img id="titleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+		      <strong>Your Role/Title:</strong>
+	      </div>
+	  </td>
       <td>
-<?php } else { ?>
-    <tr valign="top">
-      <td><div align=right><strong>* Your Role/Title</strong></div></td>
-      <td>
-<?php }
-      $title=$_POST['title'];
-?>
         <select name="title">
-<?php if (!$title=="") { echo "<option value=\"$title\" SELECTED>$title</option>"; } ?>
           <option value="">-- select --</option>
           <option value="Developer">Developer/Programmer</option>
           <option value="UI Developer">UI Developer</option>
@@ -41,34 +24,54 @@
           <option value="System Administrator">System Administrator</option>
           <option value="University Administration">University Administration</option>
         </select>
+		<input type="hidden" name="titleValidate" value="required:focus"/>
+        <span id="titleMsg"></span>
       </td>
     </tr>
-<?php if ($_SESSION['memberType']=="1") { ?>
+    
+<?php if (!$isPartner) {  // this means the user is NOT in partner inst ?>
     <tr>
-      <td style="border-bottom:0px solid #ccc;"><div align=right><strong> Organization:</strong> </div></td>
-      <td style="border-bottom:0px solid #ccc;"><?php echo $_SESSION['institution'];?>
-        <input type=hidden name="institution" value="<?php echo $_SESSION['institution'];?>" /></td>
+      <td>
+      	<div align="right"><span class="formLable">
+      		<strong>Organization/Company: </strong>
+      	</div>
+      </td>
+      <td>
+      	<input type="text" name="otherInst" size="30" maxlength="40" value="<?php echo $_POST['otherInst'];?>" />
+      </td>
     </tr>
-<?php } else { ?>
+<?php } ?>
+
     <tr>
-      <td style="border-bottom:0px solid #ccc;"><div align="right"><span class="formLable"> <strong>Organization/Company </strong></span></div></td>
-      <td><input type="text" name="otherInst" size="30" maxlength="40" value="<?php echo $_POST['otherInst'];?>" />
-&nbsp; </td>
-    </tr>
-    <?php
-         
-         }     ?>
-    <tr>
-      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;"><div align="right"><strong><span class="formLable"> Address</span>: </strong></div></td>
+      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+      	<div align="right"><strong><span class="formLable">
+      		Address</span>: </strong>
+      	</div>
+      </td>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">(Department, Street address, PO Box, etc.) <br />
-        <textarea name="address1" cols=35 rows=3><?php echo $_POST['address1'];?></textarea></td>
+        <textarea name="address1" cols=35 rows=3><?php echo $_POST['address1'];?></textarea>
+      </td>
     </tr>
     <tr>
-      <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;"><div align="right"><strong><span class="formLable">Town/City:</span> <span class="required">*</span></strong></div></td>
-      <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;"><input type="text" name="city" size="30" maxlength="30" value="<?php echo $_POST['city'];?>" /></td>
+      <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+	      <div align="right">
+	      	<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+	      	<strong><span class="formLable">Town/City:</span></strong>
+	      </div>
+      </td>
+      <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+      	<input type="text" name="city" size="30" maxlength="30" value="<?php echo $_POST['city'];?>" />
+      	<input type="hidden" name="cityValidate" value="required"/>
+        <span id="cityMsg"></span>
+      </td>
     </tr>
     <tr>
-      <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;"><div align="right"><strong><span class="formLable">State/Province:</span> <span class="required">*</span></strong></div></td>
+      <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+      	<div align="right">
+      		<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<strong><span class="formLable">State/Province:</span></strong>
+      	</div>
+      </td>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;"><?php                         
                           
 $state = $_POST['state'];
@@ -156,14 +159,32 @@ echo "
           <option value="SK"> Saskatchewan</option>
           <option value="YT"> Yukon Territory</option>
         </select>
+      	<input type="hidden" name="stateValidate" value="required"/>
+        <span id="stateMsg"></span>
       </td>
     </tr>
+    
+    
     <tr>
-      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;"><div align="right"><strong><span class="formLable">Zip/Postal Code:</span></strong> </div></td>
-      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;"><input type="text" name="zip" size="10" maxlength="15"  value="<?php echo $_POST['zip'];?>" /></td>
+      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+      	<div align="right">
+	        <img id="zipImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<strong><span class="formLable">Zip/Postal Code:</span></strong>
+      	</div>
+      </td>
+      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+      	<input type="text" name="zip" size="10" maxlength="10"  value="<?php echo $_POST['zip'];?>" />
+      	<input type="hidden" name="zipValidate" value="zipcode"/><br>
+        <span id="zipMsg"></span>
+      </td>
     </tr>
+    
+    
     <tr>
-      <td><div align="right"><strong><span class="formLable">* Country:</span></strong> </div></td>
+      <td><div align="right">
+        <img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      	<strong><span class="formLable">Country:</span></strong> 
+      </div></td>
       <td><?php                         
                           
 $country = $_POST['country'];
@@ -268,21 +289,42 @@ echo "
             <option value="UG">Uganda</option>
             <option value="GB">United Kingdom</option>
             <option value="AE">United Arab Emirates</option>
-                        <option value="US">United States</option>
-
+            <option value="US">United States</option>
             <option value="UY">Uruguay</option>
             <option value="UZ">Uzbekistan</option>
             <option value="VE">Venezuela</option>
             <option value="VN">Vietnam</option>
             <option value="YE">Yemen</option>
             <option value="ZW">Zimbabwe</option>
-          </select></td>
+        </select>
+      	<input type="hidden" name="countryValidate" value="required"/>
+        <span id="countryMsg"></span>
+      </td>
+    </tr>
+    
+    <tr>
+      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+      	<div align="right">
+      		<img id="phoneImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<strong><span class="formLable">Phone:</span></strong>
+      	</div>
+      </td>
+      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+      	<input type="text" name="phone" size="18" maxlength="18"  value="<?php echo $_POST['phone'];?>" />
+      	<input type="hidden" name="phoneValidate" value="required:phone"/><br/>
+        <span id="phoneMsg"></span>
+      </td>
     </tr>
     <tr>
-      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;"><div align="right"><strong><span class="formLable">* Phone</span></strong> </div></td>
-      <td style="border-bottom:0px solid #eee; padding-bottom: 0px;"><input type="text" name="phone" size="25" maxlength="18"  value="<?php echo $_POST['phone'];?>" /></td>
-    </tr>
-    <tr>
-      <td><div align="right"><strong><span class="formLable">Fax:</span></strong> </div></td>
-      <td><input type="text" name="fax" size="25" maxlength="18"  value="<?php echo $_POST['fax'];?>" /></td>
+      <td>
+      	<div align="right">
+      		<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<strong><span class="formLable">Fax:</span></strong>
+      	</div>
+      </td>
+      <td>
+      	<input type="text" name="fax" size="18" maxlength="18"  value="<?php echo $_POST['fax'];?>" />
+      	<input type="hidden" name="faxValidate" value="phone"/><br>
+        <span id="faxMsg"></span>
+      </td>
     </tr>
