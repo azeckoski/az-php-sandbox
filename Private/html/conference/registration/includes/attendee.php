@@ -44,14 +44,19 @@
 
     <tr>
       <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-      	<div align="right"><strong><span class="formLable">
-      		Address</span>: </strong>
+      	<div align="right">
+      		<img id="address1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<strong><span class="formLable">Address</span>: </strong>
       	</div>
       </td>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">(Department, Street address, PO Box, etc.) <br />
-        <textarea name="address1" cols=35 rows=3><?php echo $_POST['address1'];?></textarea>
+        <textarea name="address1" cols='40' rows='3''><?php echo $_POST['address1'];?></textarea>
+      	<input type="hidden" name="address1Validate" value="required"/>
+        <span id="address1Msg"></span>
       </td>
     </tr>
+    
+    
     <tr>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
 	      <div align="right">
@@ -65,6 +70,8 @@
         <span id="cityMsg"></span>
       </td>
     </tr>
+    
+    
     <tr>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       	<div align="right">

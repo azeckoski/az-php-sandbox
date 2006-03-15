@@ -72,5 +72,21 @@
       <div style="padding-left: 40px;">
         <input type="checkbox" name="publish" value="N" <?php if ($_POST['publish']=="N") echo "checked" ?> />
         Do <strong>NOT</strong> publish my name </div>
-    </div></td>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan=2><strong>Registration delegate contact email:</strong> (optional)<br />
+    <div style="padding-left: 40px;">
+      If you are completing this registration for someone else, please enter your email address below
+      in case we need to contact you.
+      <div style="padding-left: 40px;">
+      	<img id="delegateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+        <input type="text" name="delegate" size="40" maxlength="50" />
+      </div>
+    </div>
+	<input type="hidden" name="delegateValidate" value="email"/>
+	<span id="delegateMsg"></span> 
+  </td>
 </tr>

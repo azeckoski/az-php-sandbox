@@ -1,32 +1,28 @@
-<?  
-/*
-if ($_SESSION['memberType'] =="1") {
-$firstname = $_SESSION['firstname']; 
-	 	 $lastname = $_SESSION['lastname'];
-	 	 $badge = $_SESSION['badge'];
-	 	 $email = $_SESSION['email1'];
-	 	 $institution = $_SESSION['institution'];
-	 	 $otherInst = $_SESSION['otherInst'];
-	 	 $dept = $_SESSION['dept'];
-	 	 $address1 = $_SESSION['address1'];
-	 	 $address2 = $_SESSION['address2'];
-	 	 $city = $_SESSION['city'];
-	 	 $state = $_SESSION['state'];
-	 	 $otherState = $_SESSION['otherState'];
-	 	 $zip = $_SESSION['zip'];
-	 	 $country = $_SESSION['country'];
-	 	 $phone = $_SESSION['phone'];
-	 	 $fax = $_SESSION['fax'];
-	 	 $shirt = $_SESSION['shirt'];
-	 	 $special = $_SESSION['special'];
-	 	 $hotelInfo = $_SESSION['hotelInfo'];
-	 	 $jasig = $_SESSION['jasig'];
-	 	 $ospi = $_SESSION['ospi'];
-	 	 $publish = $_SESSION['publish'];
-	 	 $co_registrant=$_SESSION['co_registrant'];
-}	 	 
-	 	 $today = date("F j, Y"); 
-*/
+<?php
+// get all the information that is needed into the correct variables for the email confirmation
+$firstname=$USER["firstname"];
+$lastname=$USER["lastname"];
+$email=$USER["email"];
+$address1=$USER["address"];
+$city=$USER["city"];
+$state=$USER["state"];
+$zip=$USER["zip"];
+$country=$USER["country"];
+$phone=$USER["phone"];
+$fax=$USER["fax"];
+
+$shirt=$CONF["shirt"];
+$special=$CONF["special"];
+$hotel=$CONF["hotelInfo"];
+$jasig=$CONF["jasig"];
+$publish=$CONF["contactInfo"];
+$fee=$CONF["fee"];
+$title=$CONF["title"];
+$institution=$CONF["institution"];
+$otherInst=$CONF["otherInst"];
+$co_registrant=$CONF["delegate"];
+
+$today = date("F j, Y"); 
 
 //set up mail message
 
@@ -40,15 +36,8 @@ $firstname = $_SESSION['firstname'];
 	 	
 	 	 $msg.="Attendee:  $firstname $lastname, $email\r\n\r\n";
 	 	 
-	 	
-	 	if ($badge){
-	 	 $msg.="Badge Name:  $badge \r\n\r\n";
 	 	 
-	 	 }
-	 	 
-	// 	 $msg.="Email:$email\r\n\r\n";
-	 	 
-	 	 if ($otherInst){
+	 	if ($otherInst){
 	 	 $msg.="Organizatoin:\r\n$otherInst \r\n";
 		}
 	 	 else {
@@ -64,17 +53,15 @@ $firstname = $_SESSION['firstname'];
 
 	 	 $msg.="Phone:  $phone  \r\n\r\n";
 	 	 if ($fax) {
-	 	 $msg.="Fax:   $fax \r\n\r\n";
-	 }
+	 	 	$msg.="Fax:   $fax \r\n\r\n";
+	 	 }
 	 	 $msg.="TShirt size: $shirt \r\n\r\n";
 	 	 
 	 	 if ($special) {
-	 	 $msg.="Special needs:   $special \r\n\r\n";
+	 	 	$msg.="Special needs:   $special \r\n\r\n";
 	 	 }
 	 	 else {
 	 	 	 	 $msg.="Special needs:  none \r\n\r\n";
-
-	 	 
 	 	 }
 	 	
 	 	 $msg.="Attending JA-SIG:   $jasig \r\n\r\n";
@@ -94,35 +81,36 @@ $firstname = $_SESSION['firstname'];
 
 
 	 	 
-	 	 //set up mail for Susan
-	 	 $recipient = "shardin@umich.edu";
-	 	 $subject= "COPY-Vancouver Reg- $lastname";
-	 	 $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	 	 $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-	 	 $mailheaders .="Reply-To: $email";
+ //set up mail for Susan
+ $recipient = "shardin@umich.edu";
+ $subject= "COPY-Vancouver Reg-$firstname $lastname";
+ $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
+ $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
+ $mailheaders .="Reply-To: $email";
 
-	 	 //send the mail to susan
-	 	 mail($recipient, $subject, $msg, $mailheaders);
-	 	 
-	  //set up mail for Kathi
-	 	 	 $recipient = "kreister@umich.edu";
-	  $subject= "COPY-Vancouver Registration";
-	 	 $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	 	 $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-	 	 $mailheaders .="Reply-To: $email";
+ //send the mail to susan
+ mail($recipient, $subject, $msg, $mailheaders);
 
-	 	 //send the mail to Kathi
-	 	 //mail($recipient, $subject, $msg, $mailheaders);
-	 	 
-	 	 //set up mail for registrant
-	 	 $recipient = "$email";
-	 	 $subject= "Sakai Conference Registration";
-	 	 $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	 	 $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-	 	 $mailheaders .="Reply-To: kreister@umich.edu";
+/***	 	 
+ //set up mail for Kathi
+ $recipient = "kreister@umich.edu";
+ $subject= "COPY-Vancouver Registration";
+ $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
+ $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
+ $mailheaders .="Reply-To: $email";
 
-	 	 //send the mail to registrant
-	 	 mail($recipient, $subject, $msg, $mailheaders);
+ //send the mail to Kathi
+ mail($recipient, $subject, $msg, $mailheaders);
+***/
+ 
+ //set up mail for registrant
+ $recipient = "$email";
+ $subject= "Sakai Conference Registration";
+ $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
+ $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
+ $mailheaders .="Reply-To: kreister@umich.edu";
 
+ //send the mail to registrant
+ mail($recipient, $subject, $msg, $mailheaders);
 
 ?>

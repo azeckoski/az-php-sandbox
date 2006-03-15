@@ -1,34 +1,44 @@
-CREATE TABLE requirements_data ( 
-    pk				int(10) AUTO_INCREMENT NOT NULL,
-    jirakey			varchar(10) NOT NULL UNIQUE,
-    jiranum			int(5) NOT NULL default 0,
-    summary      	text NOT NULL,
-    description  	text NOT NULL,
-    component    	varchar(255) NOT NULL,
-    audience     	varchar(255) NOT NULL,
-    round			int(4) NOT NULL default 1,
-    	score			int NOT NULL DEFAULT 0,
-    PRIMARY KEY(pk)
+CREATE TABLE sakaiConf_all ( 
+    id         	int(11) AUTO_INCREMENT NOT NULL,
+    datea      	timestamp NOT NULL,
+    confID     	varchar(10) NOT NULL,
+    firstname  	varchar(75) NULL,
+    lastname   	varchar(75) NULL,
+    badge      	varchar(75) NULL,
+    email      	varchar(75) NULL,
+    institution	varchar(75) NULL,
+    otherInst  	varchar(75) NULL,
+    dept       	varchar(75) NULL,
+    address1   	varchar(150) NULL,
+    address2   	varchar(75) NULL,
+    city       	varchar(75) NULL,
+    state      	varchar(30) NULL,
+    otherState 	varchar(50) NULL,
+    zip        	varchar(10) NULL,
+    country    	varchar(4) NULL,
+    phone      	varchar(20) NULL,
+    fax        	varchar(20) NULL,
+    shirt      	varchar(10) NULL,
+    special    	varchar(100) NULL,
+    hotelInfo  	char(2) NULL,
+    contactInfo	char(2) NULL,
+    jasig      	varchar(4) NOT NULL,
+    ospi       	varchar(4) NOT NULL,
+    fee        	decimal(7,0) NOT NULL DEFAULT '0',
+    title      	varchar(50) NULL,
+    delegate   	varchar(100) NULL,
+    activated  	enum('Y','N') NULL DEFAULT 'N',
+    payeeInfo  	text NULL,
+    transID    	varchar(100) NULL,
+    users_pk   	int(10) NOT NULL DEFAULT '0',
+    PRIMARY KEY(id)
 );
 
-// Import a JIRA export saved as a CSV file
-//mysqlimport -c jirakey,summary,component,description,audience --fields-optionally-enclosed-by=""" --fields-terminated-by=, --lines-terminated-by="\r\n" --local -usakaiwww -p sakaiweb requirements_data.csv
-// Import the data in the sakai_requirements_data*.sql file
-// Make sure you have ';' seperators turned on
-// Fix components: update requirements_data set component = replace(component,'\'','|')
-
-CREATE TABLE requirements_vote ( 
-    pk				int(10) AUTO_INCREMENT NOT NULL,
-    users_pk			int(10) NOT NULL,
-    req_data_pk		int(10) NOT NULL,
-    vote				int(2) NOT NULL,
-    round			int(4) NOT NULL default 1,
-    official			enum('0','1') NOT NULL DEFAULT '0',
-    PRIMARY KEY(pk),
-    FOREIGN KEY (req_data_pk) REFERENCES requirements_data(pk)
-);
-
-/**** to duplicate community votes over to rep votes
-insert into requirements_vote (users_pk,req_data_pk,vote,round,official) 
-SELECT users_pk,req_data_pk,vote,round,'1' FROM `requirements_vote` WHERE users_pk='###';
-*****/
+// changes to sakai_confall
+alter table sakaiConf_all add users_pk int(10) not null default 0;
+alter table sakaiConf_all add delegate varchar(100);
+alter table sakaiConf_all modify address1 varchar(150);
+alter table sakaiConf_all add activated enum('Y','N') default 'N';
+alter table sakaiConf_all modify title varchar(50);
+alter table sakaiConf_all add payeeInfo text;
+alter table sakaiConf_all add transID varchar(100);
