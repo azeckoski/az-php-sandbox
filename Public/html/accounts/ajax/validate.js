@@ -114,7 +114,6 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 	}
 
 	// if doing a sweep check then we do not want to mark things as wrong
-	if (gInitialCheck) { sweepCheck = true; }
 	if (sweepCheck && passId == gFail) { passId = gClear; }
 	
 	if (passId == gPass) { // validation passed
@@ -271,36 +270,6 @@ function attachFormHandlers()
 
 					// do the initial validation check of all items
 					validateObject(items[i]);
-					
-/*** This should be handled in markFields now
-					// do some extra stuff for required items
-					validateItem.style.color = gPassCode;
-					// items start as passed, required items will get set to failed by default below
-					// this should leave the non-required but validated fields as passed until
-					// someone tries to enter data into them
-					
-					if (validateItem.value.match(/^required.*$/)) { // check if required at start
-						// this is required so add the images or the text
-						if(gUseImages) {
-							var imgObject=document.getElementById(items[i].name + "Img");
-							if (imgObject != null) {
-								imgObject.src = imgReq;
-							}
-						}
-						if(gUseText && gRequiredText) {
-							var msgObject=document.getElementById(items[i].name + "Msg");
-							if (msgObject != null) {
-								msgObject.innerHTML = textReq;
-							}
-						}
-						if(!gUseImages && !gUseText) {
-							// no image or text object, go with setting color of item
-							items[i].style.backgroundColor = bgColReq;
-						}
-						// required items start out as failed
-						validateItem.style.color = gFailCode;
-					}
-****/
 				}
 			}
 		}
@@ -398,7 +367,7 @@ function validateObject(objInput) {
 	var isRequired = validateItem.value.match(/^required.*$/); // check if required is the first word
 	if (isBlank) {
 		if (isRequired) {
-			if(gUseText) {
+			if(gUseText && gRequiredText) {
 				markField(gFail, objInput.id, textReq, true, gInitialCheck);
 			} else {
 				markField(gFail, objInput.id, "", false, gInitialCheck);
