@@ -82,10 +82,10 @@ if ($_REQUEST["submit"]) {
 		<td valign="top">
 			<img id="radioImg" src="ajax/images/blank.gif" width="16" height="16"/>
 			<div style="vertical-align:top;">
-				<input type="radio" name="radio" value="" tabindex="5"> blank<br/>
-				<input type="radio" name="radio" value="non-blank" tabindex="6"> non-blank<br/>
+				<input type="radio" name="radio" value="" tabindex="5" checked="yes"> blank<br/>
+				<input type="radio" name="radio" value="non-blank" tabindex="6" > non-blank<br/>
 				<input type="radio" name="radio" value="also non-blank" tabindex="7"> also non-blank
-				<input type="hidden" name="radioValidate" value="required:nospaces"/>
+				<input type="hidden" name="radioValidate" value="required"/>
 			</div>
 			<div style="vertical-align:top;" id="radioMsg"></div>
 		</td>

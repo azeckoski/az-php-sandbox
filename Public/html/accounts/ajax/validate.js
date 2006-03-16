@@ -65,22 +65,19 @@ var gPassCode = "green"; // this is the passcode to check for
 var gInitialCheck = true; // do an initial check of the fields (needed if prepopulating)
 
 
-// this is the queuing stuff which lets us store mutliple ajax
-// calls and then send them one at a time
-
 
 // this handles error message to the user
 // sending this a blank will clear out the error message
-function errorAlert(message) {
+function errorAlert(myMessage) {
 	var errorMsgObject=document.getElementById("errorMessage");
 	if (errorMsgObject != null) {
-		if(message = "") {
+		if(myMessage == "") {
 			errorMsgObject.innerHTML = "";
 		} else {
 			if(gUseImages) {
-				errorMsgObject.innerHTML = "<img src='" + imgExc + "'><span style='vertical-align:top;'>" + message + "</span>";
+				errorMsgObject.innerHTML = "<img src='" + imgExc + "'><span style='vertical-align:top;'>" + myMessage + "</span>";
 			} else {
-				errorMsgObject.innerHTML = "ERROR: " + message;
+				errorMsgObject.innerHTML = "ERROR: " + myMessage;
 				errorMsgObject.backgroundColor = bgColReq; // this may not work for some tags
 			}
 			errorMsgObject.style.color = "red";
@@ -88,7 +85,7 @@ function errorAlert(message) {
 	} else {
 		if(message != "") { // blank message does not get sent to the user
 			// use the old standby
-			alert("Error: " + message);
+			alert("Error: " + myMessage);
 		}
 	}
 }
@@ -214,7 +211,8 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 	}
 }
 
-
+// This attachs all the nice handlers to the form elements
+// it also handles some initialization
 function attachFormHandlers()
 {
 	for (var f=0; f<document.forms.length; f++) {
@@ -236,26 +234,35 @@ function attachFormHandlers()
 					// handle the different element types
 					if (items[i].type.toLowerCase() == "radio") {
 						// have to handle radiobuttons in a special way
+						
+						// if this is the first button in this set then process, otherwise skip it
 						var thisItems = document.getElementsByName(items[i].name);
-						if (thisItems.length == 1) {
-							// only one so set the id and move on
-							items[i].id = items[i].name;
-						} else {
-							// multiple items so set id by position encountered
-							for (var j=0; j<thisItems.length; j++) {
-								if (items[i] == thisItems[j]) {
-									items[i].id = items[i].name + j;
+						if (items[i] == thisItems[0]) {
+							var k = 0;
+							if (thisItems.length == 1) {
+								// only one so set the id and move on
+								items[i].id = items[i].name;
+							} else {
+								// multiple items so set id by position encountered
+								for (var j=0; j<thisItems.length; j++) {
+									thisItems[j].id = items[i].name + j;
+									if (thisItems[j].checked) { k = j; } // marked the checked item
 								}
 							}
-							//alert ("mutiple id set:"+items[i].id);
+							// do validate on one of the buttons only
+							//alert("matched:" + k + ":" + thisItems[k].id);
+							validateObject(thisItems[k]);
 						}
 					} else {
 						items[i].id = items[i].name; // set the id to the name
+						
+						// do the initial validation check
+						validateObject(items[i]);
+					}
 
-						// do the focus check, set focus on this item if specified
-						if (validateItem.value.match("focus")) {
-							items[i].focus();
-						}
+					// do the focus check, set focus on this item if specified
+					if (validateItem.value.match("focus")) {
+						items[i].focus();
 					}
 
 					// attach handlers to items
@@ -267,9 +274,6 @@ function attachFormHandlers()
 						items[i].onchange = function(){return validateObject(this);}
 						//items[i].onblur = function(){return validateObject(this);}
 					}
-
-					// do the initial validation check of all items
-					validateObject(items[i]);
 				}
 			}
 		}
@@ -361,7 +365,7 @@ function validateObject(objInput) {
 		(objInput.type.toLowerCase() == "checkbox" && !objInput.checked) || 
 		(objInput.type.toLowerCase() == "radio" && !objInput.checked) ) {
 		isBlank = true;
-	}
+	}	
 
 	// now do a required check
 	var isRequired = validateItem.value.match(/^required.*$/); // check if required is the first word
