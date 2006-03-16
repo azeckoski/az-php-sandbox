@@ -64,6 +64,11 @@ var gFailCode = "red"; // this is the failure code to check for
 var gPassCode = "green"; // this is the passcode to check for
 var gInitialCheck = true; // do an initial check of the fields (needed if prepopulating)
 
+
+// this is the queuing stuff which lets us store mutliple ajax
+// calls and then send them one at a time
+
+
 // this handles error message to the user
 // sending this a blank will clear out the error message
 function errorAlert(message) {
@@ -342,10 +347,11 @@ function createRequestObject(){
 
 
 // This is the new XMLHttpRequest object (must use () at end of function)
-var http = createRequestObject();
+//var http = createRequestObject();
 
 // handle the response from the validation page
 // proper format is passId|elementId|textMessage
+/***
 function handleHttpResponse() {
     if(http.readyState == 4) {
     		var rText = http.responseText;
@@ -359,7 +365,7 @@ function handleHttpResponse() {
 		}
   	}
 }
-
+***/
 
 //Called with event triggers, this does the basic required validation and 
 //passes other validation to the server side script via the AJAX call
@@ -443,9 +449,24 @@ function validateObject(objInput) {
 	//sends the rules and value to be validated
 	var vUrl = gProcUrl + "&id=" + objInput.id + "&val="+ vVal + vParams;
 	//alert("sending: " + vUrl);
+	var http = createRequestObject(); // create the http object
 	http.open("GET", vUrl, true);
-	http.onreadystatechange = handleHttpResponse;
-	http.send(null);
+	// assign the function dynamically
+	http.onreadystatechange = function () {
+	    if(http.readyState == 4) {
+	    		var rText = http.responseText;
+	    		if (rText != "") {
+				var sResults = rText.split("|"); // set to the feedback from the processor page
+				if (sResults[0] == gPass || sResults[0] == gFail || sResults[0] == gClear) {
+					markField(sResults[0],sResults[1],sResults[2],true,false);
+				} else {
+					alert("ERROR: Invalid responsetext: " + rText);
+				}
+			}
+	  	}
+	}
+	http.send(null); // send (set POST to null)
+	delete(http); // clear the http object
 }
 
 

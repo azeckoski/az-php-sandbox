@@ -58,7 +58,7 @@ if ($_REQUEST["submit"]) {
 		<td>Other</td>
 		<td>
 			<img id="otherImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="other" value=""/>
+			<input type="text" name="other" value="<?php echo "prefill also invalid"; ?>" />
 			<input type="hidden" name="otherValidate" value="required:nospaces"/>
 			<span id="otherMsg"></span>
 		</td>
