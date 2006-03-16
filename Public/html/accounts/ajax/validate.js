@@ -65,7 +65,6 @@ var gPassCode = "green"; // this is the passcode to check for
 var gInitialCheck = true; // do an initial check of the fields (needed if prepopulating)
 
 
-
 // this handles error message to the user
 // sending this a blank will clear out the error message
 function errorAlert(myMessage) {
@@ -151,7 +150,8 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		if(gUseText) {
 			var msgObject=document.getElementById(item.name + "Msg");
 			if (msgObject != null) {
-				if (changeMessage) {
+				alert("change:"+changeMessage+":"+sweepCheck);
+				if (changeMessage || !sweepCheck) {
 					if (textMessage == "") {
 						msgObject.innerHTML = textInv;
 					} else {
@@ -167,11 +167,11 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		// put user back on that item when validation fails
 		item.focus();
 	} else if (passId == gClear) { // cleared, reset item back to initial state
-		var itemRequired = validateItem.value.match(/^required.*$/); // true/false
+		var isRequired = validateItem.value.match(gSeparator + "required" + gSeparator);
 		if(gUseImages) {
 			var imgObject=document.getElementById(item.name + "Img");
 			if (imgObject != null) {
-				if (itemRequired) {
+				if (isRequired) {
 					imgObject.src = imgReq;
 				} else {
 					imgObject.src = imgBln;
@@ -182,7 +182,7 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 			var msgObject=document.getElementById(item.name + "Msg");
 			if (msgObject != null) {
 				if (changeMessage) {
-					if (itemRequired && gRequiredText) {
+					if (isRequired && gRequiredText) {
 						msgObject.innerHTML = textReq;
 					} else {
 						if (textMessage != "") {
@@ -196,12 +196,12 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		item.style.backgroundColor = "";
 
 		// no image or text object, go with setting color of item
-		if(itemRequired && !gUseImages && !gUseText) {
+		if(isRequired && !gUseImages && !gUseText) {
 			item.style.backgroundColor = bgColReq;
 		}
 		
 		// reset the validate codes to initial states
-		if (itemRequired) {
+		if (isRequired) {
 			validateItem.style.color = gFailCode;
 		} else {
 			validateItem.style.color = gPassCode;
@@ -222,15 +222,11 @@ function attachFormHandlers()
 				// handle submit differently
 				//items[i].disabled = true; // disable submit by default
 			} else {
-				var validateItems = document.getElementsByName(items[i].name + "Validate");
-				var validateItem = validateItems[0];
+				var validateItem = document.getElementById(items[i].name + "Validate");
 				if (validateItem != null) {
-					if (validateItems.length > 1) {
-						alert("FAILURE: bad naming in form, you MUST use unique names for validated fields");
-						return;
-					}
-					validateItem.id = validateItem.name; // set the id to the name
-
+					// cleanup the validate string
+					validateItem.value = gSeparator + validateItem.value + gSeparator;
+				
 					// handle the different element types
 					if (items[i].type.toLowerCase() == "radio") {
 						// have to handle radiobuttons in a special way
@@ -251,17 +247,17 @@ function attachFormHandlers()
 							}
 							// do validate on one of the buttons only
 							//alert("matched:" + k + ":" + thisItems[k].id);
-							validateObject(thisItems[k]);
+							if (gInitialCheck) { validateObject(thisItems[k]); }
 						}
 					} else {
 						items[i].id = items[i].name; // set the id to the name
 						
 						// do the initial validation check
-						validateObject(items[i]);
+						if (gInitialCheck) { validateObject(items[i]); }
 					}
 
 					// do the focus check, set focus on this item if specified
-					if (validateItem.value.match("focus")) {
+					if (validateItem.value.match(gSeparator+"focus"+gSeparator)) {
 						items[i].focus();
 					}
 
@@ -318,27 +314,9 @@ function createRequestObject(){
 	return request_o; //return the object
 }
 
-
-// This is the new XMLHttpRequest object (must use () at end of function)
+// This is the way to create the new XMLHttpRequest object (must use () at end of function)
 //var http = createRequestObject();
 
-// handle the response from the validation page
-// proper format is passId|elementId|textMessage
-/***
-function handleHttpResponse() {
-    if(http.readyState == 4) {
-    		var rText = http.responseText;
-    		if (rText != "") {
-			var sResults = rText.split("|"); // set to the feedback from the processor page
-			if (sResults[0] == gPass || sResults[0] == gFail || sResults[0] == gClear) {
-				markField(sResults[0],sResults[1],sResults[2],true,false);
-			} else {
-				alert("ERROR: Invalid responsetext: " + rText);
-			}
-		}
-  	}
-}
-***/
 
 //Called with event triggers, this does the basic required validation and 
 //passes other validation to the server side script via the AJAX call
@@ -368,13 +346,13 @@ function validateObject(objInput) {
 	}	
 
 	// now do a required check
-	var isRequired = validateItem.value.match(/^required.*$/); // check if required is the first word
+	var isRequired = validateItem.value.match(gSeparator + "required" + gSeparator);
 	if (isBlank) {
 		if (isRequired) {
-			if(gUseText && gRequiredText) {
+			if(gRequiredText) {
 				markField(gFail, objInput.id, textReq, true, gInitialCheck);
 			} else {
-				markField(gFail, objInput.id, "", false, gInitialCheck);
+				markField(gFail, objInput.id, "Required", false, gInitialCheck);
 			}
 			return; // exit, no need to do more validation
 		} else {
@@ -398,7 +376,8 @@ function validateObject(objInput) {
     var vParams = ""; //  stores the params in get string ready form
 	for(var j=0; j<vFields.length; j++) {
 		var field = vFields[j];
-		if(field == "required" || field == "focus") { continue; } // skip required and focus flags
+		if(field == "required" || field == "focus" ||
+			field == "") { continue; } // skip blank and specified flags
 		vParams = vParams + "&rule" + i + "=" + encodeURIComponent(field);
 		i++;
 	}
@@ -426,6 +405,8 @@ function validateObject(objInput) {
 	http.open("GET", vUrl, true);
 	// assign the function dynamically
 	http.onreadystatechange = function () {
+		// handle the response from the validation page
+		// proper format is passId|elementId|textMessage
 	    if(http.readyState == 4) {
 	    		var rText = http.responseText;
 	    		if (rText != "") {
