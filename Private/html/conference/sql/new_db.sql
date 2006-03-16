@@ -1,5 +1,6 @@
 CREATE TABLE sakaiConf_all ( 
     id         	int(11) AUTO_INCREMENT NOT NULL,
+    users_pk   	int(10) NOT NULL DEFAULT '0',
     datea      	timestamp NOT NULL,
     confID     	varchar(10) NOT NULL,
     firstname  	varchar(75) NULL,
@@ -27,10 +28,10 @@ CREATE TABLE sakaiConf_all (
     fee        	decimal(7,0) NOT NULL DEFAULT '0',
     title      	varchar(50) NULL,
     delegate   	varchar(100) NULL,
+    expectations  	text NULL,
     activated  	enum('Y','N') NULL DEFAULT 'N',
     payeeInfo  	text NULL,
     transID    	varchar(100) NULL,
-    users_pk   	int(10) NOT NULL DEFAULT '0',
     PRIMARY KEY(id)
 );
 
@@ -42,3 +43,4 @@ alter table sakaiConf_all add activated enum('Y','N') default 'N';
 alter table sakaiConf_all modify title varchar(50);
 alter table sakaiConf_all add payeeInfo text;
 alter table sakaiConf_all add transID varchar(100);
+alter table sakaiConf_all add expectations text;

@@ -28,7 +28,7 @@
           <option value="System Administrator">System Administrator</option>
           <option value="University Administration">University Administration</option>
         </select>
-		<input type="hidden" name="titleValidate" value="required:focus"/>
+		<input type="hidden" id="titleValidate" value="required:focus"/>
         <span id="titleMsg"></span>
       </td>
     </tr>
@@ -55,7 +55,7 @@
       </td>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">(Department, Street address, PO Box, etc.) <br />
         <textarea name="address1" cols='40' rows='3''><?php echo $USER['address'];?></textarea>
-      	<input type="hidden" name="address1Validate" value="required"/>
+      	<input type="hidden" id="address1Validate" value="required"/>
         <span id="address1Msg"></span>
       </td>
     </tr>
@@ -70,7 +70,7 @@
       </td>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       	<input type="text" name="city" size="30" maxlength="30" value="<?php echo $USER['city'];?>" />
-      	<input type="hidden" name="cityValidate" value="required"/>
+      	<input type="hidden" id="cityValidate" value="required"/>
         <span id="cityMsg"></span>
       </td>
     </tr>
@@ -167,7 +167,7 @@
           <option value="SK"> Saskatchewan</option>
           <option value="YT"> Yukon Territory</option>
         </select>
-      	<input type="hidden" name="stateValidate" value="required"/>
+      	<input type="hidden" id="stateValidate" value="required"/>
         <span id="stateMsg"></span>
       </td>
     </tr>
@@ -182,7 +182,7 @@
       </td>
       <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       	<input type="text" name="zip" size="10" maxlength="10"  value="<?php echo $USER['zipcode'];?>" />
-      	<input type="hidden" name="zipValidate" value="zipcode"/><br>
+      	<input type="hidden" id="zipValidate" value="zipcode"/><br>
         <span id="zipMsg"></span>
       </td>
     </tr>
@@ -302,7 +302,7 @@
             <option value="YE">Yemen</option>
             <option value="ZW">Zimbabwe</option>
         </select>
-      	<input type="hidden" name="countryValidate" value="required"/>
+      	<input type="hidden" id="countryValidate" value="required"/>
         <span id="countryMsg"></span>
       </td>
     </tr>
@@ -316,7 +316,7 @@
       </td>
       <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       	<input type="text" name="phone" size="18" maxlength="18"  value="<?php echo $USER['phone']; ?>" />
-      	<input type="hidden" name="phoneValidate" value="required:phone"/><br/>
+      	<input type="hidden" id="phoneValidate" value="required:phone"/><br/>
         <span id="phoneMsg"></span>
       </td>
     </tr>
@@ -329,7 +329,7 @@
       </td>
       <td>
       	<input type="text" name="fax" size="18" maxlength="18"  value="<?php echo $USER['fax']; ?>" />
-      	<input type="hidden" name="faxValidate" value="phone"/><br>
+      	<input type="hidden" id="faxValidate" value="phone"/><br>
         <span id="faxMsg"></span>
       </td>
     </tr>

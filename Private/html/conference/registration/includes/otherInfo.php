@@ -11,7 +11,7 @@
       <input type="radio" name="hotelInfo" value="N" <?php if ($CONF['hotelInfo']=="N") echo "checked" ?>/>
       <strong>No</strong>
     </div>
-	<input type="hidden" name="hotelInfoValidate" value="required"/>
+	<input type="hidden" id="hotelInfoValidate" value="required"/>
 	<span id="hotelInfoMsg"></span>
   </td>
 </tr>
@@ -26,7 +26,7 @@
       <input type="radio" name="jasig" value="N" <?php if ($CONF['jasig']=="N") echo "checked" ?>/>
       <strong>No </strong> 
     </div>
-    <input type="hidden" name="jasigValidate" value="required"/>
+    <input type="hidden" id="jasigValidate" value="required"/>
 	<span id="jasigMsg"></span>
   </td>
 </tr>
@@ -63,7 +63,7 @@
         <option value="XXX-Large">XXX-Large</option>
       </select>
     </div>
-    <input type="hidden" name="shirtValidate" value="required"/>
+    <input type="hidden" id="shirtValidate" value="required"/>
 	<span id="shirtMsg"></span>    
   </td>
 </tr>
@@ -79,6 +79,17 @@
 </tr>
 
 <tr>
+  <td colspan=2><strong>Conference expectations:</strong> (optional)<br />
+    <div style="padding-left: 40px;">
+		What do you expect to get out of the conference?
+	    <div style="padding-left: 40px;">
+	      <textarea name="expectations" cols=70 rows=2><?php echo $CONF['expectations'];?></textarea>
+	    </div></td>
+    </div>
+  </td>
+</tr>
+
+<tr>
   <td colspan=2><strong>Registration delegate contact email:</strong> (optional)<br />
     <div style="padding-left: 40px;">
       If you are completing this registration for someone else, please enter your email address below
@@ -88,7 +99,7 @@
         <input type="text" name="delegate" size="40" maxlength="50" />
       </div>
     </div>
-	<input type="hidden" name="delegateValidate" value="email"/>
+	<input type="hidden" id="delegateValidate" value="email"/>
 	<span id="delegateMsg"></span> 
   </td>
 </tr>
