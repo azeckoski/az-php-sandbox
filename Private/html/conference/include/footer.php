@@ -13,7 +13,7 @@
 <!-- start outerright -->
 <div id=outerright> <!--end rightcol -->
   <div id=rightcol>
-    <?php if ($formID=="member_confirmation"){ ?>
+    <?php if ($isPartner){ ?>
     <div class="componentheading">Sakai Conference Facebook Needs You!</div>
     <div><br />
       <img src="includes/facebook.jpg" height="75px" width="130px"><br />
