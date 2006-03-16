@@ -80,16 +80,20 @@ $today = date("F j, Y");
 	 	 }
 
 
-	 	 
- //set up mail for Susan
- $recipient = "shardin@umich.edu";
- $subject= "COPY-Vancouver Reg-$firstname $lastname";
- $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
- $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
- $mailheaders .="Reply-To: $email";
+ini_set(SMTP, $MAIL_SERVER);
+$headers  = 'From: ' . $HELP_EMAIL . "\n";
+$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
+$headers .= 'Reply-To: ' . $email . "\n";
+$headers .= 'MIME-Version: 1.0' ."\n";
+$headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
- //send the mail to susan
- mail($recipient, $subject, $msg, $mailheaders);
+//set up mail for Susan
+$recipient = "shardin@umich.edu";
+$subject= "COPY-Vancouver Reg-$firstname $lastname";
+
+//send the mail to susan
+mail($recipient, $subject, $msg, $mailheaders);
 
 /***	 	 
  //set up mail for Kathi
@@ -103,12 +107,16 @@ $today = date("F j, Y");
  mail($recipient, $subject, $msg, $mailheaders);
 ***/
  
- //set up mail for registrant
- $recipient = "$email";
- $subject= "Sakai Conference Registration";
- $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
- $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
- $mailheaders .="Reply-To: kreister@umich.edu";
+//set up mail for registrant
+$headers  = 'From: ' . $HELP_EMAIL . "\n";
+$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
+$headers .= 'Reply-To: ' . "kreister@umich.edu" . "\n";
+$headers .= 'MIME-Version: 1.0' ."\n";
+$headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
+
+$recipient = "$email";
+$subject= "Sakai Conference Registration";
 
  //send the mail to registrant
  mail($recipient, $subject, $msg, $mailheaders);
