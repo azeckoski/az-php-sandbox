@@ -59,9 +59,6 @@ var imgVal = imagePath + "validated.gif"; // a validated image file (check)
 var imgInv = imagePath + "invalid.gif"; // an invalid image file (x mark)
 var imgExc = imagePath + "exclaim.gif"; // an exclaimation mark image
 
-// these vars are for the wacky way we associate validation codes with an item
-var gFailCode = "red"; // this is the failure code to check for
-var gPassCode = "green"; // this is the passcode to check for
 var gInitialCheck = true; // do an initial check of the fields (needed if prepopulating)
 
 
@@ -82,7 +79,7 @@ function errorAlert(myMessage) {
 			errorMsgObject.style.color = "red";
 		}
 	} else {
-		if(message != "") { // blank message does not get sent to the user
+		if(myMessage != "") { // blank message does not get sent to the user
 			// use the old standby
 			alert("Error: " + myMessage);
 		}
@@ -108,6 +105,9 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		alert("ERROR: Failed to get validate item for name:" + item.name);
 		return false;
 	}
+
+	// is this field required
+	var isRequired = validateItem.value.match(gSeparator + "required" + gSeparator);
 
 	// if doing a sweep check then we do not want to mark things as wrong
 	if (sweepCheck && passId == gFail) { passId = gClear; }
@@ -139,7 +139,7 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		}
 
 		item.style.backgroundColor = "";
-		validateItem.style.color = gPassCode;
+		validateItem.className = gPass;
 	} else if (passId == gFail) { // failed validation
 		if(gUseImages) {
 			var imgObject=document.getElementById(item.name + "Img");
@@ -150,10 +150,13 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		if(gUseText) {
 			var msgObject=document.getElementById(item.name + "Msg");
 			if (msgObject != null) {
-				alert("change:"+changeMessage+":"+sweepCheck);
 				if (changeMessage || !sweepCheck) {
 					if (textMessage == "") {
-						msgObject.innerHTML = textInv;
+						if (isRequired) {
+							msgObject.innerHTML = textReq;
+						} else {
+							msgObject.innerHTML = textInv;
+						}
 					} else {
 						msgObject.innerHTML = textMessage;
 					}
@@ -163,11 +166,10 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		}
 
 		item.style.backgroundColor = bgColReq;
-		validateItem.style.color = gFailCode;
+		validateItem.className = gFail;
 		// put user back on that item when validation fails
 		item.focus();
 	} else if (passId == gClear) { // cleared, reset item back to initial state
-		var isRequired = validateItem.value.match(gSeparator + "required" + gSeparator);
 		if(gUseImages) {
 			var imgObject=document.getElementById(item.name + "Img");
 			if (imgObject != null) {
@@ -185,9 +187,7 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 					if (isRequired && gRequiredText) {
 						msgObject.innerHTML = textReq;
 					} else {
-						if (textMessage != "") {
-							msgObject.innerHTML = textMessage;
-						}
+						msgObject.innerHTML = textMessage;
 					}
 				}
 				msgObject.style.color = "";
@@ -202,9 +202,9 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		
 		// reset the validate codes to initial states
 		if (isRequired) {
-			validateItem.style.color = gFailCode;
+			validateItem.className = gFail;
 		} else {
-			validateItem.style.color = gPassCode;
+			validateItem.className = gClear;
 		}
 	} else {
 		alert("ERROR: Invalid return options:\n" + passId +"|"+ elementId +"|"+ textMessage);
@@ -358,7 +358,7 @@ function validateObject(objInput) {
 		} else {
 			// reset the field to clear happy state, only change msg text if outside the initial stage
 			markField(gClear, objInput.id, "", !gInitialCheck, false);
-			return; // no need to continue, the field is empty
+			return false; // no need to continue, the field is empty
 		}
 	} else {
 		if (isRequired) {
@@ -395,7 +395,7 @@ function validateObject(objInput) {
 				markField(gPass, objInput.id, "", false, gInitialCheck);
 			}
 		}
-		return;
+		return false; // if not sent
 	}
 
 	//sends the rules and value to be validated
@@ -421,6 +421,7 @@ function validateObject(objInput) {
 	}
 	http.send(null); // send (set POST to null)
 	delete(http); // clear the http object
+	return true; // true if sent to the server
 }
 
 
@@ -435,11 +436,15 @@ function validate(formObj) {
 		// if there is a validateItem for this object then check it		
 		var validateItem = document.getElementById(items[i].name + "Validate");
 		if (validateItem != null) {
-			if (validateItem.style.color == gPassCode) {
+			if (validateItem.className == gPass) {
+				// Mark field as passed
 				markField(gPass, items[i].id, "", false, false);
+			} else if (validateItem.className == gClear) {
+				// Reset field to initial state
+				markField(gClear, items[i].id, "", false, false);
 			} else {
 				// assume failure if pass not found
-				//alert("Failure found: " + items[i].name + ":" + validateItem.style.color);
+				//alert("Failure found: " + items[i].name + ":" + validateItem.className);
 				markField(gFail, items[i].id, "", false, false);
 				// special handling for radio button error counting
 				if (items[i].type.toLowerCase() == "radio") {

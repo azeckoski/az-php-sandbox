@@ -177,14 +177,14 @@ border-top:1px solid #333;
   height:80px;
    padding-left:120px;
  padding-right: 50px;
-   font-style: Arial, Helvetica, san serif;
+   font-family: Arial, Helvetica, san serif;
  color: #330033;
 }
 
 
 .number {
 text-align: left;
- font-style: Arial, Helvetica, san serif;
+ font-family: Arial, Helvetica, san serif;
  color: #000;
 }
 
