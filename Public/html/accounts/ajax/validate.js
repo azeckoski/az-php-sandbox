@@ -208,7 +208,9 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		}
 	} else {
 		alert("ERROR: Invalid return options:\n" + passId +"|"+ elementId +"|"+ textMessage);
+		return false;
 	}
+	return true;
 }
 
 // This attachs all the nice handlers to the form elements
@@ -358,7 +360,7 @@ function validateObject(objInput) {
 		} else {
 			// reset the field to clear happy state, only change msg text if outside the initial stage
 			markField(gClear, objInput.id, "", !gInitialCheck, false);
-			return false; // no need to continue, the field is empty
+			return; // no need to continue, the field is empty
 		}
 	} else {
 		if (isRequired) {
@@ -395,7 +397,7 @@ function validateObject(objInput) {
 				markField(gPass, objInput.id, "", false, gInitialCheck);
 			}
 		}
-		return false; // if not sent
+		return;
 	}
 
 	//sends the rules and value to be validated
