@@ -2,7 +2,7 @@
 session_start();
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Conference";
+$PAGE_NAME = "Payment";
 $Message = "";
 
 // connect to database
@@ -166,5 +166,6 @@ if (!$isPartner){
   </form>
 </div>
 <!-- end cfp -->
+<?php } // end check paid ?>
 
 <?php require_once('../include/footer.php'); ?>
