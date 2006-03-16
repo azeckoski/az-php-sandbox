@@ -79,7 +79,7 @@ $today = date("F j, Y");
 	 	 $msg.="\r\n----------------------------------------------------------\r\nPayment Information: \r\n\r\n Paid by:\r\n$payeeInfo \r\n\r\n Transaction ID: $transID\r\n\r\n Amount Paid: $transAmount \r\n----------------------------------------------------------";
 	 	 }
 
-
+// This is a better set of mail headers -AZ
 ini_set(SMTP, $MAIL_SERVER);
 $headers  = 'From: ' . $HELP_EMAIL . "\n";
 $headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
@@ -93,7 +93,7 @@ $recipient = "shardin@umich.edu";
 $subject= "COPY-Vancouver Reg-$firstname $lastname";
 
 //send the mail to susan
-mail($recipient, $subject, $msg, $mailheaders);
+mail($recipient, $subject, $msg, $headers);
 
 /***	 	 
  //set up mail for Kathi
@@ -119,6 +119,6 @@ $recipient = "$email";
 $subject= "Sakai Conference Registration";
 
  //send the mail to registrant
- mail($recipient, $subject, $msg, $mailheaders);
+ mail($recipient, $subject, $msg, $headers);
 
 ?>
