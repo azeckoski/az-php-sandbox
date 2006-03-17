@@ -33,7 +33,9 @@ function ServerValidate($vItems, $output_type) {
 		if (array_key_exists($itemname, $vItems)) {
 			$vstring = $vItems[$itemname];
 			$outputArray[$itemname] = ProcessVstring($itemname,$itemvalue,$vstring,$output_type);
-			$outputString .= $itemname . ": " . $outputArray[$itemname]."<br/>";
+			if ($outputArray[$itemname]) {
+				$outputString .= "<b>".$itemname.":</b> " . $outputArray[$itemname]."<br/>";
+			}
 		}
 	}
 	if ($output_type == "array") {
@@ -74,6 +76,11 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 	$failed = false;
 	
 	$VALIDATE_TEXT = ""; // clear before doing the validation
+
+	if (!validateRequired($fvalue) && !array_key_exists("required",$params)) {
+		// blank and not required
+		return "";
+	}
 
 	// do the validation
 	foreach($params as $value) {
