@@ -38,7 +38,7 @@ $vItems['title'] = "required:focus";
 $vItems['address1'] = "required";
 $vItems['city'] = "required";
 $vItems['state'] = "required";
-$vItems['zip'] = "required:zipcode";
+$vItems['zip'] = "zipcode";
 $vItems['country'] = "required";
 $vItems['phone'] = "required:phone";
 $vItems['fax'] = "phone";
@@ -57,7 +57,9 @@ if ($_POST['save']) { // saving the form
 	$validationOutput = ServerValidate($vItems, "return");
 	if ($validationOutput) {
 		$errors++;
-		$Message = "<fieldset><legend>Validation Errors</legend>".$validationOutput."</fieldset>";
+		$Message = "<fieldset><legend>Validation Errors</legend>".
+			"<span style='color:red;'>Please fix the following errors:</span><br/>".
+			$validationOutput."</fieldset>";
 	}
 
 	// get the post variables - USER
