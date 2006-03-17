@@ -169,7 +169,10 @@
       <option value="PQ"> Quebec</option>
       <option value="SK"> Saskatchewan</option>
       <option value="YT"> Yukon Territory</option>
+      <option value="">&nbsp;</option>
+      <option value="-other-">Other (Not Listed)</option>
     </select>
+    <input style="display:none;" type="text" id="stateOther"  size="25" maxlength="50" value="<?= $USER['state'] ?>" />
   	<input type="hidden" id="stateValidate" value="<?= $vItems['state'] ?>"/>
     <span id="stateMsg"></span>
   </td>
@@ -304,7 +307,10 @@
         <option value="VN">Vietnam</option>
         <option value="YE">Yemen</option>
         <option value="ZW">Zimbabwe</option>
+		<option value="">&nbsp;</option>
+		<option value="-other-">Other (Not Listed)</option>
     </select>
+    <input style="display:none;" type="text" id="countryOther"  size="25" maxlength="100" value="<?= $USER['country'] ?>" />
   	<input type="hidden" id="countryValidate" value="<?= $vItems['country'] ?>"/>
     <span id="countryMsg"></span>
   </td>
@@ -420,7 +426,7 @@
 <tr>
   <td colspan=2><strong>Conference expectations:</strong> (optional)<br />
     <div style="padding-left: 40px;">
-		What do you expect to get out of the conference?
+		What do you expect to learn from this conference?
 	    <div style="padding-left: 40px;">
 	      <textarea name="expectations" cols=70 rows=2><?php echo $CONF['expectations'];?></textarea>
 	    </div></td>

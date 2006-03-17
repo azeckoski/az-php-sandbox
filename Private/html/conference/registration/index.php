@@ -37,9 +37,9 @@ $vItems = array();
 $vItems['title'] = "required:focus";
 $vItems['address1'] = "required";
 $vItems['city'] = "required";
-$vItems['state'] = "required";
+$vItems['state'] = "required:namespaces";
 $vItems['zip'] = "zipcode";
-$vItems['country'] = "required";
+$vItems['country'] = "required:namespaces";
 $vItems['phone'] = "required:phone";
 $vItems['fax'] = "phone";
 $vItems['hotelInfo'] = "required";
@@ -51,9 +51,9 @@ $vItems['delegate'] = "email";
 // writing data and other good things happen here
 $completed = false;
 if ($_POST['save']) { // saving the form
-	$errors = 0;
 
 	// DO SERVER SIDE VALIDATION
+	$errors = 0;
 	$validationOutput = ServerValidate($vItems, "return");
 	if ($validationOutput) {
 		$errors++;
