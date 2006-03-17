@@ -13,50 +13,56 @@ require 'include/check_authentic.php';
 // login if not autheticated
 require 'include/auth_login_redirect.php';
 
+// bring in the form validation code
+require 'ajax/validators.php';
 
-// process post vars
-$SAVE = $_POST["saving"];
-
-$EMAIL = $_POST["email"];
-$PASS1 = $_POST["password1"];
-$PASS2 = $_POST["password2"];
-$FIRSTNAME = $_POST["firstname"];
-$LASTNAME = $_POST["lastname"];
-$INSTITUTION_PK = $_POST["institution_pk"];
+// Define the array of items to validate and the validation strings
+$vItems = array();
+//$vItems['username'] = "required:name:uniquesql;username;users;pk;$USER_PK";
+$vItems['email'] = "required:email:uniquesql;email;users;pk;$USER_PK";
+$vItems['password1'] = "password";
+$vItems['password2'] = "password";
+$vItems['firstname'] = "required:focus";
+$vItems['lastname'] = "required";
+$vItems['institution_pk'] = "required";
+$vItems['address'] = "required";
+$vItems['city'] = "required";
+$vItems['state'] = "required:namespaces";
+$vItems['zip'] = "zipcode";
+$vItems['country'] = "required:namespaces";
+$vItems['phone'] = "required:phone";
+$vItems['fax'] = "phone";
 
 // this matters when the form is submitted
-if ($SAVE) {
-	// Check for form completeness
-	$errors = 0;
-	if (!strlen($EMAIL)) {
-		$Message .= "<span class='error'>Error: Email cannot be blank</span><br/>";
-		$errors++;
-	}
-	if (!strlen($FIRSTNAME)) {
-		$Message .= "<span class='error'>Error: First name cannot be blank</span><br/>";
-		$errors++;
-	}
-	if (!strlen($LASTNAME)) {
-		$Message .= "<span class='error'>Error: Last name cannot be blank</span><br/>";
-		$errors++;
-	}
+if ($_POST["save"]) {
 
+	$email = mysql_real_escape_string($_POST["email"]);
+	$PASS1 = mysql_real_escape_string($_POST["password1"]);
+	$PASS2 = mysql_real_escape_string($_POST["password2"]);
+	$firstname = mysql_real_escape_string($_POST["firstname"]);
+	$lastname = mysql_real_escape_string($_POST["lastname"]);
+	$institution_pk = mysql_real_escape_string($_POST["institution_pk"]);
+	$address = mysql_real_escape_string($_POST["address"]);
+	$city = mysql_real_escape_string($_POST["city"]);
+	$state = mysql_real_escape_string($_POST["state"]);
+	$zip = mysql_real_escape_string($_POST["zip"]);
+	$country = mysql_real_escape_string($_POST["country"]);
+	$phone = mysql_real_escape_string($_POST["phone"]);
+	$fax = mysql_real_escape_string($_POST["fax"]);
+
+	// DO SERVER SIDE VALIDATION
+	$errors = 0;
+	$validationOutput = ServerValidate($vItems, "return");
+	if ($validationOutput) {
+		$errors++;
+		$Message = "<fieldset><legend>Validation Errors</legend>".
+			"<span style='color:red;'>Please fix the following errors:</span><br/>".
+			$validationOutput."</fieldset>";
+	}
+	
+	// Check for password match
 	if ((strlen($PASS1) > 0 || strlen($PASS2) > 0) && ($PASS1 != $PASS2)) {
 		$Message .= "<span class='error'>Error: Passwords do not match</span><br/>";
-		$errors++;
-	}
-
-	// verify that the email address is valid
-	if(!eregi('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$', $EMAIL)) {
-		$Message .= "<span class='error'>Error: You have entered an invalid email address!</span><br/>";
-		$errors++;
-        unset($EMAIL);
-	}
-
-	$sql_email_check = mysql_query("SELECT email FROM users WHERE email='$EMAIL' and pk != '$USER_PK'");
-	$email_check = mysql_num_rows($sql_email_check);
-	if ($email_check > 0) {
-		$Message .= "<span class='error'>Error: The new email address you have chosen ($EMAIL) is already in use.</span><br/>";
 		$errors++;
 	}
 
@@ -68,85 +74,103 @@ if ($SAVE) {
 			$passChange = " password=PASSWORD('$PASS1'), ";
 		}
 
-		$sqledit =
-				"UPDATE users set email='$EMAIL', " .
-				"firstname='$FIRSTNAME', " . $passChange .
-				"lastname='$LASTNAME', institution_pk='$INSTITUTION_PK' " .
-				"where pk='$USER_PK'";
+		$sqledit = "UPDATE users set email='$email', " . $passChange .
+			"firstname='$firstname', lastname='$lastname', " .
+			"institution_pk='$institution_pk' address='$address1', city='$city', " .
+			"state='$state', zipcode='$zip', country='$country', phone='$phone', " .
+			"fax='$fax' where pk='$USER_PK'";
 
 		$result = mysql_query($sqledit) or die('Update query failed: ' . mysql_error());
 		$Message = "<b>Updated user information</b><br/>";
 
-		// clear all values
-		$EMAIL = "";
-		$FIRSTNAME = "";
-		$LASTNAME = "";
-		$INSTITUTION_PK = "";
-	} else {
-		$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";
+		// get new values from the USERS table
+		$sqlusers = "select * from users where pk = '$USER_PK'";
+		$result = mysql_query($sqledit) or die('User query failed: ' . mysql_error());
+		$USER = mysql_fetch_assoc($result);
 	}
-}
-
-if (!empty($result)) {
-	if (!strlen($EMAIL)) { $EMAIL = $USER["email"]; }
-	if (!strlen($FIRSTNAME)) { $FIRSTNAME = $USER["firstname"]; }
-	if (!strlen($LASTNAME)) { $LASTNAME = $USER["lastname"]; }
-	if (!strlen($INSTITUTION_PK)) { $INSTITUTION_PK = $USER["institution_pk"]; }
 }
 ?>
 
-<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script>
-<!--
-// -->
-</script>
-<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
+<!-- // INCLUDE THE HTML HEAD -->
+<?php include 'include/top_header.php';  ?>
+<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
+<!-- // INCLUDE THE HEADER -->
+<?php include 'include/header.php';  ?>
 
 <?= $Message ?>
 
-<?
-// generate the institution drop down based on the information returned
-$institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
-?>
-
-<i style="font-size:9pt;">All fields are required</i><br/>
+<div id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
-<input type="hidden" name="saving" value="1">
+<input type="hidden" name="save" value="1">
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Username:</b></td>
-		<td><?= $USER["username"] ?></td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $USER['username'] ?></td>
 	</tr>
+
 	<tr>
 		<td class="account"><b>Password:</b></td>
-		<td><input type="password" name="password1" tabindex="2" maxlength="50"></td>
-	</tr>
-	<tr>
-		<td class="account"><b>Confirm password:</b></td>
-		<td><input type="password" name="password2" tabindex="3" maxlength="50"></td>
-	</tr>
-	<tr>
-		<td class="account"><b>First name:</b></td>
-		<td><input type="text" name="firstname" tabindex="4" value="<?= $FIRSTNAME ?>" size="40" maxlength="50"></td>
-		<script>document.adminform.firstname.focus();</script>
-	</tr>
-	<tr>
-		<td class="account"><b>Last name:</b></td>
-		<td><input type="text" name="lastname" tabindex="5" value="<?= $LASTNAME ?>" size="40" maxlength="50"></td>
-	</tr>
-	<tr>
-		<td class="account"><b>Email:</b></td>
-		<td><input type="text" name="email" tabindex="6" value="<?= $EMAIL ?>" size="50" maxlength="50"></td>
-	</tr>
-	<tr>
-		<td class="account"><b>Institution:</b></td>
-		<td>
-		  <select name="institution_pk" tabindex="7">
-		  	<option value=''> --Select Your Organization-- </option>
-			<?= $institutionDropdownText?>
-		  </select>
+		<td nowrap="y">
+			<img id="password1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="password" name="password1" tabindex="2" maxlength="50">
+			<input type="hidden" id="password1Validate" value="<?= $vItems['password1'] ?>"/>
+			<span id="password1Msg"></span>
 		</td>
 	</tr>
+
+	<tr>
+		<td class="account"><b>Confirm pwd:</b></td>
+		<td nowrap="y">
+			<img id="password2Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="password" name="password2" tabindex="3" maxlength="50">
+			<input type="hidden" id="password2Validate" value="<?= $vItems['password2'] ?>"/>
+			<span id="password2Msg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>First name:</b></td>
+		<td nowrap="y">
+			<img id="firstnameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="text" name="firstname" tabindex="4" value="<?= $USER['firstname'] ?>" size="30" maxlength="50"/>
+			<input type="hidden" id="firstnameValidate" value="<?= $vItems['firstname'] ?>" />
+			<span id="firstnameMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Last name:</b></td>
+		<td nowrap="y">
+			<img id="lastnameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="text" name="lastname" tabindex="5" value="<?= $USER['lastname'] ?>" size="30" maxlength="50"/>
+			<input type="hidden" id="lastnameValidate" value="<?= $vItems['lastname'] ?>" />
+			<span id="lastnameMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Email:</b></td>
+		<td nowrap="y">
+			<img id="emailImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="text" name="email" tabindex="6" value="<?= $USER['email'] ?>" size="50" maxlength="50"/>
+			<input type="hidden" id="emailValidate" value="<?= $vItems['email'] ?>" />
+			<span id="emailMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Institution:</b></td>
+		<td nowrap="y">
+			<img id="institution_pkImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<select name="institution_pk" tabindex="7">
+				<option value=""> --Select Your Organization-- </option>
+				<?= generate_partner_dropdown($USER['institution_pk']) ?>
+			</select>
+			<input type="hidden" id="institution_pkValidate" value="<?= $vItems['institution_pk'] ?>" />
+			<span id="institution_pkMsg"></span>
+		</td>
+	</tr>
+
 	<tr>
 		<td colspan="2">
 			<input type="submit" name="account" value="Save information" tabindex="8">

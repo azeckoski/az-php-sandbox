@@ -116,7 +116,7 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 			if(!validateZip($fvalue)) {
 				$failed = true;
 			}
-		} else if ($type == "nospaces") {
+		} else if ($type == "nospaces" || $type == "password") {
 			if(!validateNoSpaces($fvalue)) {
 				$failed = true;
 			}
@@ -130,6 +130,14 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 			}
 		} else if ($type == "number") {
 			if(!validateNumeric($fvalue)) {
+				$failed = true;
+			}
+		} else if ($type == "name") {
+			if(!validateAlphaName($fvalue)) {
+				$failed = true;
+			}
+		} else if ($type == "namespaces") {
+			if(!validateAlphaNameSpaces($fvalue)) {
 				$failed = true;
 			}
 		}
@@ -253,18 +261,28 @@ function validateZip($val) {
 	global $VALIDATE_TEXT;
 	$VALIDATE_TEXT = "";
 
-	$Bad = eregi_replace("([-0-9]+)","",$val);	
+	$Bad = eregi_replace("([-0-9A-Z]+)","",$val);	
 	if(!empty($Bad)) {
 		// invalid chars in zip code
-		$VALIDATE_TEXT = "Invalid chars, use numbers and '-' only";
+		$VALIDATE_TEXT = "Invalid chars, use A-Z, numbers and '-' only";
 	    return false;
 	}
-	$Num = eregi_replace("\-","",$val);
-	$len = strlen($Num);
-	if ( ($len > 10) or ($len < 5) ) {
-	    // Invalid length for zipcode
-		$VALIDATE_TEXT = "Invalid length, must be 5 to 9 digits";
-	    return false;
+
+	if (ereg("[A-Z]")) {
+		// letters, this must be canadian
+		if (!ereg("[A-Z][0-9][A-Z] [0-9][A-Z][0-9]",$val)) {
+			$VALIDATE_TEXT = "Invalid Canadian zip (e.g. A1B 2C3)";
+			return false;
+		}
+	} else {
+		// must be US zip code
+		$Num = eregi_replace("\-","",$val);
+		$len = strlen($Num);
+		if ( ($len != 9) && ($len != 5) ) {
+		    // Invalid length for zipcode
+			$VALIDATE_TEXT = "Invalid US zip, must be 5 or 9 digits";
+		    return false;
+		}
 	}
 	return true;
 }
@@ -317,6 +335,32 @@ function validateAlphaNumeric($val) {
 	return true;
 }
 
+// validates an item is alphanumeric with spaces and .-_ only (name)
+function validateAlphaName($val) {
+	global $VALIDATE_TEXT;
+	$VALIDATE_TEXT = "";
+
+	if (ereg('[^a-zA-Z0-9_.-]{1,}', $val)) {
+		$VALIDATE_TEXT = "Alphanumeric chars and _.- only";
+		return false;
+	}
+	return true;
+}
+
+// validates an item is alphanumeric with spaces and .-_ only (name)
+function validateAlphaNameSpaces($val) {
+	global $VALIDATE_TEXT;
+	$VALIDATE_TEXT = "";
+
+	if (ereg('[^[:space:]a-zA-Z0-9_.-]{1,}', $val)) {
+		$VALIDATE_TEXT = "Alphanumeric chars, spaces, and _.- only";
+		return false;
+	}
+	return true;
+}
+
+
+
 // checks if an item is unique in the database or in use
 // params = (columnname),(tablename),(value),(id),(idvalue)
 function validateUnique($columname,$tablename,$val,$id,$idval) {
@@ -341,7 +385,7 @@ function validateUnique($columname,$tablename,$val,$id,$idval) {
 	// do the sql check
 	$sql = "select * from $tablename where $columname = '$val'";
 	if ($id != "" && $idval != "") {
-		$sql .= " and $id = '$idval'";
+		$sql .= " and $id != '$idval'";
 	}
 	$result = mysql_query($sql) or die('Query failed: ('.$sql.'): ' . mysql_error());
 	$count = mysql_num_rows($result);

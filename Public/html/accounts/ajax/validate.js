@@ -18,6 +18,7 @@ var gPass = "ok"; // global - the response that indicates no problems
 var gFail = "error"; // global - the response that indicates failure
 var gClear = "clear"; // global - the response that indicates clear
 var gSeparator = ":"; // this is the separator used in the validate value field
+var iSeparator = ";"; // this is the separator used inside items in the validate field
 var gInitialCheck = true; // do an initial check of the fields (needed if prepopulating)
 
 // Include the required fields indicator message
@@ -59,6 +60,16 @@ var imgReq = vImagePath + "required.gif"; // a required image file (star)
 var imgVal = vImagePath + "validated.gif"; // a validated image file (check)
 var imgInv = vImagePath + "invalid.gif"; // an invalid image file (x mark)
 var imgExc = vImagePath + "exclaim.gif"; // an exclaimation mark image
+
+// use the -other- capabilities (allows users to enter an other value when a list
+// is not complete, you just have to include an item in the list
+// with a value of (vOtherCode) and add an item as shown below
+// NOTE: You will want to add extra validation rules for the input field
+var vUseOther = true;
+var vOtherCode = "-other-";
+/******
+<input style="display:none;" type="text" id="emailOther"  size="30" maxlength="100" value="">
+******/
 
 
 // this handles error message to the user
@@ -227,7 +238,7 @@ function attachFormHandlers()
 				if (validateItem != null) {
 					// cleanup the validate string
 					validateItem.value = gSeparator + validateItem.value + gSeparator;
-				
+					
 					// handle the different element types
 					if (items[i].type.toLowerCase() == "radio") {
 						// have to handle radiobuttons in a special way
@@ -270,6 +281,12 @@ function attachFormHandlers()
 						//attach the onchange to each form field
 						items[i].onchange = function(){return validateObject(this);}
 						//items[i].onblur = function(){return validateObject(this);}
+
+						// handle "other" fields
+						var otherItem = document.getElementById(items[i].name + "Other");
+						if (otherItem != null) {
+							otherItem.onchange = function(){return validateObject(this);}
+						}
 					}
 				}
 			}
@@ -329,12 +346,45 @@ function validateObject(objInput) {
 	var localCheck = false;
 	var localText = "";
 	//alert("valuecheck="+objInput.value);
-	
+
+	// do the "other" checking first
+	if (vUseOther) {
+		var otherItem = document.getElementById(objInput.name + "Other");
+		if (!objInput.name) {
+			otherItem = document.getElementById(objInput.id + "Other");
+		}
+		if (otherItem != null && otherItem != objInput) {
+			// this is original with an other item
+			if (objInput.value == vOtherCode) {
+				// switch to the other item
+				otherItem.style.display = "";
+				otherItem.name = objInput.name;
+				objInput.style.backgroundColor = "#CCCCCC";
+				objInput.name = "";
+				// reset object to the current item
+				objInput = otherItem;
+				objInput.focus();
+			} else {
+				// if the other item is visible then switch
+				if (otherItem.style.display != "none") {
+					// switch back to the original item
+					objInput.style.backgroundColor = "";
+					objInput.name = otherItem.name;
+					otherItem.style.display = "none";
+					otherItem.name = "";
+				}
+			}
+		}
+	}
+
+
+	// get the validation item for this object
 	var validateItem = document.getElementById(objInput.name + "Validate");
 	if (validateItem == null) { // items without a validator should not be sent here
-		alert("ERROR: Failed to get validate item for name:" + objInput.name);
+		alert("ERROR: Failed to get validate item for name:" + objInput.name + ":" + objInput.id);
 		return false;
 	}
+
 
 	// do any local javascript checks
 	
@@ -371,6 +421,8 @@ function validateObject(objInput) {
 		}
 	}
 
+	// done with local checks
+
 	// get additional validations and pass them on
 	var vFields = validateItem.value.split(gSeparator);
 	var i = 1;
@@ -382,6 +434,7 @@ function validateObject(objInput) {
 		vParams = vParams + "&rule" + i + "=" + encodeURIComponent(field);
 		i++;
 	}
+
 
 	var vVal = encodeURIComponent(objInput.value); //get value inside of input field
 	
