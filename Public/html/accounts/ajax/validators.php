@@ -7,11 +7,44 @@
  * These function do the validation only, if you include this you had better
  * have already made a database connection and loaded the necessary globals
  * through a tool_vars file or something like that
+ * 
+ * Create an array like the one below, the automatic validator will use this array
+ * to validate all items that it receives that match the names in the array
+ * Then add a call after the array to the validator function
+ * output_type = print or return
+ * $vItems = array();
+ * $vItems['title'] = "required:focus";
+ * ServerValidate($vItems, $output_type);
  */
 ?>
 <?php
 // global vars - sort of
 $VALIDATE_TEXT = "";
+
+
+// this should validate every item that was received on this page
+// that matches the names in the array that was passed to it
+// The output type is print, array, or return
+function ServerValidate($vItems, $output_type) {
+	$outputString = "";
+	$printString = "<fieldset><legend>Validation Errors</legend>";
+	$outputArray = array();
+	foreach ($_REQUEST as $itemname=>$itemvalue) {
+		if (array_key_exists($itemname, $vItems)) {
+			$vstring = $vItems[$itemname];
+			$outputArray[$itemname] = ProcessVstring($itemname,$itemvalue,$vstring,$output_type);
+			$outputString .= $itemname . ": " . $outputArray[$itemname]."<br/>";
+		}
+	}
+	if ($output_type == "array") {
+		return $outputArray;
+	} else if ($output_type == "print") {
+		if ($outputString) { $printString .= $outputString . "</fieldset>"; }
+		print $printString;
+	}
+	return $outputString;
+}
+
 
 // this should parse a validation string into an array and then hand it to
 // ProcessItem to do the validation for the item
@@ -24,12 +57,13 @@ function ProcessVstring($itemname,$itemvalue,$vstring,$output_type) {
 	
 	// fix indexes
 	$params = array_values($params);
-	ProcessItem($itemname,$itemvalue,$params,$output_type);
+	return ProcessItem($itemname,$itemvalue,$params,$output_type);
 }
+
 
 // Process the validation rules for this item (formid) and it's value (fvalue)
 // The rules are stored in an array and are processed in order
-// The output type is ajax, print, or return
+// The output type is ajax, print, array, or return
 // clear is a special action that sends back a "clear" response instead of pass/fail
 // NOTE: print and fail only give back failure info, success outputs nothing or returns blank
 function ProcessItem($formid,$fvalue,$params,$output_type) {
@@ -113,13 +147,17 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 		writeLog($TOOL_SHORT,"ajax","return=$ajaxReturn");
 	} else if ($output_type == "print") {
 		if ($failed) {
-			print $VALIDATE_TEXT;
+			print $VALIDATE_TEXT . "<br>";
+		}
+	} else if ($output_type == "array") {
+		if ($failed) {
+			return $VALIDATE_TEXT;
 		}
 	}
 
 	// defaults to "return"
 	if ($failed) {
-		return $VALIDATE_TEXT;
+		return $VALIDATE_TEXT . "<br>";
 	}
 	return "";
 }

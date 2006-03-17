@@ -18,6 +18,7 @@ var gPass = "ok"; // global - the response that indicates no problems
 var gFail = "error"; // global - the response that indicates failure
 var gClear = "clear"; // global - the response that indicates clear
 var gSeparator = ":"; // this is the separator used in the validate value field
+var gInitialCheck = true; // do an initial check of the fields (needed if prepopulating)
 
 // Include the required fields indicator message
 var useRequiredMessage = true;
@@ -43,23 +44,21 @@ var useRequiredMessage = true;
 
 // text message output
 var gUseText = true; // display text messages
-var gRequiredText = false; // display required text in text message boxes on form load (gUseTest must be on)
+var gRequiredText = false; // display required text in text message boxes on form load (gUseText must be on)
 var gPositiveText = false; // display valid messages as returned from validation code
 var textReq = "Required";
 var textVal = "Valid";
 var textInv = "Invalid";
-var bgColReq = "#FFCCCC";
+var bgColReq = "#FFCCCC"; // background color for required or error fields
 
 // image paths and names
-var gUseImages = true; // set to false to not use image processing
-var imagePath = ajaxPath + "images/";
-var imgBln = imagePath + "blank.gif"; // a blank image file
-var imgReq = imagePath + "required.gif"; // a required image file (star)
-var imgVal = imagePath + "validated.gif"; // a validated image file (check)
-var imgInv = imagePath + "invalid.gif"; // an invalid image file (x mark)
-var imgExc = imagePath + "exclaim.gif"; // an exclaimation mark image
-
-var gInitialCheck = true; // do an initial check of the fields (needed if prepopulating)
+var vUseImages = true; // set to false to not use image processing
+var vImagePath = ajaxPath + "images/";
+var imgBln = vImagePath + "blank.gif"; // a blank image file
+var imgReq = vImagePath + "required.gif"; // a required image file (star)
+var imgVal = vImagePath + "validated.gif"; // a validated image file (check)
+var imgInv = vImagePath + "invalid.gif"; // an invalid image file (x mark)
+var imgExc = vImagePath + "exclaim.gif"; // an exclaimation mark image
 
 
 // this handles error message to the user
@@ -70,7 +69,7 @@ function errorAlert(myMessage) {
 		if(myMessage == "") {
 			errorMsgObject.innerHTML = "";
 		} else {
-			if(gUseImages) {
+			if(vUseImages) {
 				errorMsgObject.innerHTML = "<img src='" + imgExc + "'><span style='vertical-align:top;'>" + myMessage + "</span>";
 			} else {
 				errorMsgObject.innerHTML = "ERROR: " + myMessage;
@@ -113,7 +112,7 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 	if (sweepCheck && passId == gFail) { passId = gClear; }
 	
 	if (passId == gPass) { // validation passed
-		if(gUseImages) {
+		if(vUseImages) {
 			var imgObject=document.getElementById(item.name + "Img");
 			if (imgObject != null) {
 				imgObject.src = imgVal; // this is valid
@@ -141,7 +140,7 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		item.style.backgroundColor = "";
 		validateItem.className = gPass;
 	} else if (passId == gFail) { // failed validation
-		if(gUseImages) {
+		if(vUseImages) {
 			var imgObject=document.getElementById(item.name + "Img");
 			if (imgObject != null) {
 				imgObject.src = imgInv;
@@ -170,7 +169,7 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		// put user back on that item when validation fails
 		item.focus();
 	} else if (passId == gClear) { // cleared, reset item back to initial state
-		if(gUseImages) {
+		if(vUseImages) {
 			var imgObject=document.getElementById(item.name + "Img");
 			if (imgObject != null) {
 				if (isRequired) {
@@ -196,7 +195,7 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		item.style.backgroundColor = "";
 
 		// no image or text object, go with setting color of item
-		if(isRequired && !gUseImages && !gUseText) {
+		if(isRequired && !vUseImages && !gUseText) {
 			item.style.backgroundColor = bgColReq;
 		}
 		
@@ -286,7 +285,7 @@ function attachFormHandlers()
 	if (useRequiredMessage) {
 		var reqMsgObject=document.getElementById("requiredMessage");
 		if (reqMsgObject != null) {
-			if(gUseImages) {
+			if(vUseImages) {
 				reqMsgObject.innerHTML = "<img src='" + imgReq + "'><span style='vertical-align:top;'> = Required fields</span>";
 			} else if(gUseText) {
 				reqMsgObject.innerHTML = "Required fields marked as '" + textReq + "'";
