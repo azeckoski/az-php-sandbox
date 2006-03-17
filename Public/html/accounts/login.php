@@ -139,7 +139,7 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 <?php if($REF) { ?>
 	<input type="hidden" name="ref" value="<?= $REF ?>">
 <?php } ?>
-	<div class="loginheader">Voting Form Login</div>
+	<div class="loginheader"><?= $SYSTEM_NAME ?> Login</div>
 	<table border="0" class="padded">
 		<tr>
 			<td><b>Username:</b></td>
