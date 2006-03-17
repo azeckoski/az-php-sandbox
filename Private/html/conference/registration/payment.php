@@ -16,7 +16,7 @@ $AUTH_MESSAGE = "You must login to make payment for the $CONF_NAME conference. I
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // bring in inst and conf data
-require 'includes/getInstConf.php';
+require 'include/getInstConf.php';
 
 // kick them off this page if they should not be here
 if ( (!$isRegistered) || $isPartner) {
