@@ -28,7 +28,7 @@ $vItems['institution_pk'] = "required";
 $vItems['address'] = "required";
 $vItems['city'] = "required";
 $vItems['state'] = "required:namespaces";
-$vItems['zip'] = "zipcode";
+$vItems['zipcode'] = "zipcode";
 $vItems['country'] = "required:namespaces";
 $vItems['phone'] = "required:phone";
 $vItems['fax'] = "phone";
@@ -45,7 +45,7 @@ if ($_POST["save"]) {
 	$address = mysql_real_escape_string($_POST["address"]);
 	$city = mysql_real_escape_string($_POST["city"]);
 	$state = mysql_real_escape_string($_POST["state"]);
-	$zip = mysql_real_escape_string($_POST["zip"]);
+	$zipcode = mysql_real_escape_string($_POST["zipcode"]);
 	$country = mysql_real_escape_string($_POST["country"]);
 	$phone = mysql_real_escape_string($_POST["phone"]);
 	$fax = mysql_real_escape_string($_POST["fax"]);
@@ -76,8 +76,8 @@ if ($_POST["save"]) {
 
 		$sqledit = "UPDATE users set email='$email', " . $passChange .
 			"firstname='$firstname', lastname='$lastname', " .
-			"institution_pk='$institution_pk' address='$address1', city='$city', " .
-			"state='$state', zipcode='$zip', country='$country', phone='$phone', " .
+			"institution_pk='$institution_pk', address='$address1', city='$city', " .
+			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .
 			"fax='$fax' where pk='$USER_PK'";
 
 		$result = mysql_query($sqledit) or die('Update query failed: ' . mysql_error());
@@ -102,6 +102,13 @@ if ($_POST["save"]) {
 <div id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
 <input type="hidden" name="save" value="1">
+
+<table border="0" class="padded">
+<tr>
+<td width="50%">
+
+<!-- Column Two -->
+<fieldset>
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Username:</b></td>
@@ -171,12 +178,111 @@ if ($_POST["save"]) {
 		</td>
 	</tr>
 
+</table>
+</fieldset>
+
+<div style="margin:6px;"></div>
+<input type="submit" name="account" value="Save information" tabindex="8">
+
+</td>
+<td width="50%">
+
+
+<!-- Column One -->
+<fieldset>
+<table border="0" class="padded">
 	<tr>
-		<td colspan="2">
-			<input type="submit" name="account" value="Save information" tabindex="8">
+		<td class="account"><b>Address:</b></td>
+		<td nowrap="y">
+			<img id="addressImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<textarea name="address1" cols='40' rows='3''><?php echo $USER['address'];?></textarea>
+			<input type="hidden" id="addressValidate" value="<?= $vItems['address'] ?>"/>
+			<span id="addressMsg"></span>
 		</td>
 	</tr>
+
+	<tr>
+		<td class="account"><b>City:</b></td>
+		<td nowrap="y">
+			<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="text" name="city" value="<?= $USER['city'] ?>" size="40" maxlength="50">
+			<input type="hidden" id="cityValidate" value="<?= $vItems['city'] ?>"/>
+			<span id="cityMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>State:</b></td>
+		<td nowrap="y">
+			<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<select name="state">
+<?php
+	if ($USER['state']) { echo "<option value='".$USER['state']."'>".$USER['state']."</option>"; } 
+	require 'include/state_select.php';
+?>
+				<option value="">&nbsp;</option>
+				<option value="-other-">Other (Not Listed)</option>
+			</select>
+			<input style="display:none;" type="text" id="stateOther" value="<?= $USER['state'] ?>" size="25" maxlength="50" />
+			<input type="hidden" id="stateValidate" value="<?= $vItems['state'] ?>" />
+			<span id="stateMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Zipcode:</b></td>
+		<td nowrap="y">
+			<img id="zipcodeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="text" name="zipcode" tabindex="5" value="<?= $USER['zipcode'] ?>" size="10" maxlength="10"/>
+			<input type="hidden" id="zipcodeValidate" value="<?= $vItems['zipcode'] ?>" />
+			<span id="zipcodeMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Country:</b></td>
+		<td nowrap="y">
+			<img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<select name="state">
+<?php
+	if ($USER['country']) { echo "<option value='".$USER['country']."'>".$USER['country']."</option>"; } 
+	require 'include/country_select.php';
+?>
+				<option value="">&nbsp;</option>
+				<option value="-other-">Other (Not Listed)</option>
+			</select>
+			<input type="hidden" id="countryValidate" value="<?= $vItems['country'] ?>" />
+			<span id="countryMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Phone:</b></td>
+		<td nowrap="y">
+			<img id="phoneImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="text" name="phone" tabindex="6" value="<?= $USER['phone'] ?>" size="15" maxlength="15"/>
+			<input type="hidden" id="phoneValidate" value="<?= $vItems['phone'] ?>" />
+			<span id="phoneMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Fax:</b></td>
+		<td nowrap="y">
+			<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+			<input type="text" name="fax" tabindex="6" value="<?= $USER['fax'] ?>" size="15" maxlength="15"/>
+			<input type="hidden" id="faxValidate" value="<?= $vItems['fax'] ?>" />
+			<span id="faxMsg"></span>
+		</td>
+	</tr>
+
 </table>
+</fieldset>
+
+</td>
+</tr>
+</table>
+
 </form>
 
 <span style="font-size:9pt;">
