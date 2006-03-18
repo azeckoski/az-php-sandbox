@@ -23,7 +23,7 @@ if ($CONF) {
 	$isRegistered = true;
 	$transID = $CONF['transID'];
 	$Message = "<span style='color:red;'>You have already filled out a registration for this conference</span>";
-    if (!$transID=='') { //non-member payment transaction received from Verisign
+    if ($transID) { //non-member payment transaction received from Verisign
     	$Message  .="<span style='color:red;'><br />Your transaction confirmation number is: $transID </span>";
     }
 }
