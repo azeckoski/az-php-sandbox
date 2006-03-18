@@ -45,4 +45,6 @@ From here you can:<br/>
 	Click here to enter a proposal for the upcoming Sakai conference<br/>
 </div>
 
+<?php require 'include/outer_right.php'; // Include right column ?>
+
 <?php include 'include/footer.php'; // Include the FOOTER ?>
