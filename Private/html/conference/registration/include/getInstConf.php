@@ -22,7 +22,7 @@ $isRegistered = false;  // this means the user is already registered for the cur
 if ($CONF) {
 	$isRegistered = true;
 	$transID = $CONF['transID'];
-	$Message = "<span style='color:red;'>You have already filled out a registration for this conference</span>";
+	$Message = "<span style='color:red;'>You have already filled out a registration for this conference $transID</span>";
     if ($transID) { //non-member payment transaction received from Verisign
     	$Message  .="<span style='color:red;'><br />Your transaction confirmation number is: $transID </span>";
     }
