@@ -76,7 +76,7 @@ if ($_POST["save"]) {
 
 		$sqledit = "UPDATE users set email='$email', " . $passChange .
 			"firstname='$firstname', lastname='$lastname', " .
-			"institution_pk='$institution_pk', address='$address1', city='$city', " .
+			"institution_pk='$institution_pk', address='$address', city='$city', " .
 			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .
 			"fax='$fax' where pk='$USER_PK'";
 
@@ -85,7 +85,7 @@ if ($_POST["save"]) {
 
 		// get new values from the USERS table
 		$sqlusers = "select * from users where pk = '$USER_PK'";
-		$result = mysql_query($sqledit) or die('User query failed: ' . mysql_error());
+		$result = mysql_query($sqlusers) or die('User query failed: ' . mysql_error());
 		$USER = mysql_fetch_assoc($result);
 	}
 }
@@ -101,14 +101,14 @@ if ($_POST["save"]) {
 
 <div id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
-<input type="hidden" name="save" value="1">
+<input type="hidden" name="save" value="1" />
 
 <table border="0" class="padded">
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
-<!-- Column Two -->
-<fieldset>
+<!-- Column One -->
+<fieldset type="fieldset">
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Username:</b></td>
@@ -182,20 +182,19 @@ if ($_POST["save"]) {
 </fieldset>
 
 <div style="margin:6px;"></div>
-<input type="submit" name="account" value="Save information" tabindex="8">
+<input type="submit" value="Save information" tabindex="8">
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
-
-<!-- Column One -->
-<fieldset>
+<!-- Column Two -->
+<fieldset type="fieldset">
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Address:</b></td>
 		<td nowrap="y">
 			<img id="addressImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<textarea name="address1" cols='40' rows='3''><?php echo $USER['address'];?></textarea>
+			<textarea name="address" cols="40" rows="3"><?php echo $USER['address'];?></textarea>
 			<input type="hidden" id="addressValidate" value="<?= $vItems['address'] ?>"/>
 			<span id="addressMsg"></span>
 		</td>
@@ -243,7 +242,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Country:</b></td>
 		<td nowrap="y">
 			<img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<select name="state">
+			<select name="country">
 <?php
 	if ($USER['country']) { echo "<option value='".$USER['country']."'>".$USER['country']."</option>"; } 
 	require 'include/country_select.php';
@@ -251,6 +250,7 @@ if ($_POST["save"]) {
 				<option value="">&nbsp;</option>
 				<option value="-other-">Other (Not Listed)</option>
 			</select>
+			<input style="display:none;" type="text" id="countryOther" value="<?= $USER['country'] ?>" size="25" maxlength="50" />
 			<input type="hidden" id="countryValidate" value="<?= $vItems['country'] ?>" />
 			<span id="countryMsg"></span>
 		</td>
@@ -278,6 +278,7 @@ if ($_POST["save"]) {
 
 </table>
 </fieldset>
+
 
 </td>
 </tr>

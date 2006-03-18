@@ -268,7 +268,7 @@ function validateZip($val) {
 	    return false;
 	}
 
-	if (ereg("[A-Z]")) {
+	if (ereg("[A-Z]",$val)) {
 		// letters, this must be canadian
 		if (!ereg("[A-Z][0-9][A-Z] [0-9][A-Z][0-9]",$val)) {
 			$VALIDATE_TEXT = "Invalid Canadian zip (e.g. A1B 2C3)";
