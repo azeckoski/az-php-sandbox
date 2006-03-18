@@ -242,6 +242,9 @@ function attachFormHandlers()
 			} else {
 				var validateItem = document.getElementById(items[i].name + "Validate");
 				if (validateItem != null) {
+					// if the validation value is blank then skip this item
+					if (validateItem.value == "") { continue; }
+
 					// cleanup the validate string
 					validateItem.value = gSeparator + validateItem.value + gSeparator;
 					
@@ -496,6 +499,9 @@ function validate(formObj) {
 		// if there is a validateItem for this object then check it		
 		var validateItem = document.getElementById(items[i].name + "Validate");
 		if (validateItem != null) {
+			// if the validation value is blank then skip this item
+			if (validateItem.value == "") { continue; }
+
 			if (validateItem.className == gPass) {
 				// Mark field as passed
 				markField(gPass, items[i].id, "", false, false);
