@@ -233,7 +233,7 @@ function attachFormHandlers()
 		var thisForm = document.forms[f];
 		//alert("form:"+thisForm.name+":"+document.forms[f].elements.length);
 		var items = document.forms[f].elements;
-		alert("form:"+thisForm.name+":"+document.forms[f].childNodes.length);
+		//alert("form:"+thisForm.name+":"+document.forms[f].childNodes.length);
 		for (var i=0; i<100; i++) {
 			var thisElement = document.forms[f][i];
 			// skip items without a type and hidden items
