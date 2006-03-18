@@ -1,6 +1,7 @@
 <?php
 /*
  * Created on March 16, 2006 by @author aaronz
+ * Modified from code by Susan Hardin (shardin@umich.edu)
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
@@ -17,17 +18,17 @@ require '../sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-$AUTH_MESSAGE = "You must login to register for the $CONF_NAME conference. If you do not have an account, please create one.";
+$AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
-
-// bring in the form validation code
-require $ACCOUNTS_PATH.'ajax/validators.php';
-
 
 // get the passed message if there is one
 if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
+
+
+// bring in the form validation code
+require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
@@ -104,8 +105,9 @@ if ($_POST['save']) { // saving the form
 
 <?php echo $Message; ?>
 
-  <!-- start form section -->
-  <form id=form1 name="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>">
+<!-- start form section -->
+<form id=form1 name="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>">
+<input type="hidden" name="save" value="1" />
     <table width="500px"  cellpadding="0" cellspacing="0">
       <tr>
         <td valign="top" colspan="2" style="padding:0px;">
@@ -144,7 +146,7 @@ if ($_POST['save']) { // saving the form
 
       <tr>
         <td colspan=2 style="text-align:center;">
-        	<input type="submit" name="submit" value="continue" />
+        	<input type="submit" name="submit" value="Continue" />
         </td>
       </tr>
     </table>
