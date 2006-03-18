@@ -21,6 +21,10 @@ $CONF = mysql_fetch_assoc($result); // first result is all we care about
 $isRegistered = false;  // this means the user is already registered for the current conference
 if ($CONF) {
 	$isRegistered = true;
+	$transID = $CONF['transID'];
 	$Message = "<span style='color:red;'>You have already filled out a registration for this conference</span>";
+    if (!$transID=='') { //non-member payment transaction received from Verisign
+    	$Message  .="<span style='color:red;'><br />Your transaction confirmation number is: $transID </span>";
+    }
 }
 ?>
