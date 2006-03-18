@@ -232,13 +232,10 @@ function attachFormHandlers()
 	for (var f=0; f<document.forms.length; f++) {
 		var items = document.forms[f].elements;
 		for (var i=0; i<items.length; i++) {
-			if (items[i].type == null) {
-				//alert("ERROR: type is null, indicates tag error, skipping tag:"+i+":"+items[i].id+":"+items[i].name);
-				continue;
-			}
+			// skip items without a type and hidden items
+			if (items[i].type == null || items[i].type.toLowerCase() == "hidden") { continue; }
 			if (items[i].type.toLowerCase() == "submit") {
-				// handle submit differently
-				//items[i].disabled = true; // disable submit by default
+				// handle submit differently - handler attached to the form submit
 				if (!items[i].tabIndex) {
 					items[i].tabIndex = 50;
 				}
