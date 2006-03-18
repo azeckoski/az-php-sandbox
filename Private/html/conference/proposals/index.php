@@ -8,7 +8,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Registration";
+$PAGE_NAME = "Call for Proposals";
 $Message = "";
 
 // connect to database
@@ -85,11 +85,12 @@ if ($_POST['save']) { // saving the form
   </tr>
   <tr>
 	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
-	  	<span class="pathway"> <img src="../include/images/arrow.png" height="12" width="12" alt="arrow" />
-	  	<span class="activestep">
-	  	Start &nbsp; &nbsp; &nbsp;</span> <img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />
-	  	Proposal Details &nbsp; &nbsp; &nbsp; <img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />
-	  	Contact Information&nbsp; &nbsp; &nbsp; <img src="../include/images/arrow.png" height="8" width="8" alt="arrow" /> Confirmation
+	  	<span class="pathway">
+	  		<img src="../include/images/arrow.png" height="12" width="12" alt="arrow" />
+	  		<span class="activestep">Start &nbsp; &nbsp; &nbsp;</span>
+	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Proposal Details &nbsp; &nbsp; &nbsp; 
+	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Contact Information&nbsp; &nbsp; &nbsp; 
+	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Confirmation
 	  	</span>
 	  </td>
   </tr>
@@ -97,7 +98,7 @@ if ($_POST['save']) { // saving the form
 
 
 <!-- //show form -->
-<div id=cfp>
+<div id="cfp">
      <div>
      	<a style="color: #336699; font-weight: bold;" href="http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=170&Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br />
       <br />
@@ -106,9 +107,9 @@ if ($_POST['save']) { // saving the form
 <?php echo $Message; ?>
 
 <!-- start form section -->
-<form id=form1 name="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>">
+<form name="form1" id="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>" >
 <input type="hidden" name="save" value="1" />
-    <table width="500px"  cellpadding="0" cellspacing="0">
+    <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
         <td valign="top" colspan="2" style="padding:0px;">
         	<div id="requiredMessage"></div>
@@ -121,7 +122,7 @@ if ($_POST['save']) { // saving the form
         	<strong>Select the type of proposal to be submitted:</strong>
 			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>"/>
 			<span id="typeMsg"></span>
-            </td>
+		</td>
       </tr>
 
       <tr>
@@ -152,21 +153,15 @@ if ($_POST['save']) { // saving the form
     </table>
 
   </form>
-</div>
-<!-- end cfp -->
-<!-- start  spacer  -->
-<div><br />
-  <br />
-  <br />
-  <br />
-</div>
-<!-- end  spacer  -->
-</div>
-<!-- end  content_main  -->
-</div>
-<!-- end container-inner -->
-</div>
-<!--end of outer left -->
+</div> <!-- end cfp -->
+
+<div style="margin:16px;"></div> <!-- SPACER -->
+
+</div> <!-- end  content_main  -->
+</div> <!-- end container-inner -->
+</div> <!--end of outer left -->
+
+
 <!-- start outerright -->
 <div id=outerright>
   <!-- start of rightcol_top -->
@@ -190,5 +185,8 @@ if ($_POST['save']) { // saving the form
   <!--end rightcol -->
 </div>
 <!-- end outerright -->
+
+</div><!-- end containerbg -->
+
 
 <?php include '../include/footer.php'; // Include the FOOTER ?>

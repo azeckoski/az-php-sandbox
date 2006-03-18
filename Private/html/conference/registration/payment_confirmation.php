@@ -144,4 +144,6 @@ if ($Message) {
 	include('include/email_confirmation.php');
 ?>
 
-<?php require_once('../include/footer.php'); ?>
+<?php include '../include/outer_right.php'; // Include right column ?>
+
+<?php require '../include/footer.php'; ?>

@@ -168,4 +168,6 @@ if (!$isPartner){
 <!-- end cfp -->
 <?php } // end check paid ?>
 
-<?php require_once('../include/footer.php'); ?>
+<?php include '../include/outer_right.php'; // Include right column ?>
+
+<?php require '../include/footer.php'; ?>

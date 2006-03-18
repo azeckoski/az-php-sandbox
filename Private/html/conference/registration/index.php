@@ -262,4 +262,6 @@ if ($_POST['save']) { // saving the form
 
 <?php } // end show reg form ?>
 
-<?php include '../include/footer.php'; // Include the FOOTER ?>
+<?php require '../include/outer_right.php'; // Include right column ?>
+
+<?php require '../include/footer.php'; // Include the FOOTER ?>
