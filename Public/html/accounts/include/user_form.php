@@ -5,13 +5,13 @@
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
-<table border="0" class="padded">
+<table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td width="55%" valign="top">
 
 <!-- Column One -->
 <fieldset><legend>Personal</legend>
-<table border="0" class="padded">
+<table border="0" cellpadding="2" cellspacing="0">
 	<tr>
 		<td class="account"><b>Username:</b></td>
 		<td nowrap="y">
@@ -106,12 +106,12 @@ if ($submitButtonName) {
 
 <!-- Column Two -->
 <fieldset><legend>Location</legend>
-<table border="0" class="padded">
+<table border="0" cellpadding="2" cellspacing="0">
 	<tr>
 		<td class="account"><b>Address:</b></td>
 		<td nowrap="y">
 			<img id="addressImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<textarea name="address" cols="40" rows="3"><?php echo $thisUser['address'];?></textarea>
+			<textarea name="address" cols="30" rows="3"><?php echo $thisUser['address'];?></textarea>
 			<input type="hidden" id="addressValidate" value="<?= $vItems['address'] ?>"/>
 			<span id="addressMsg"></span>
 		</td>
@@ -121,7 +121,7 @@ if ($submitButtonName) {
 		<td class="account"><b>City:</b></td>
 		<td nowrap="y">
 			<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="city" value="<?= $thisUser['city'] ?>" size="40" maxlength="50">
+			<input type="text" name="city" value="<?= $thisUser['city'] ?>" size="30" maxlength="50">
 			<input type="hidden" id="cityValidate" value="<?= $vItems['city'] ?>"/>
 			<span id="cityMsg"></span>
 		</td>
