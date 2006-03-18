@@ -428,7 +428,7 @@
     <div style="padding-left: 40px;">
 		What do you expect to learn from this conference?
 	    <div style="padding-left: 40px;">
-	      <textarea name="expectations" cols=70 rows=2><?php echo $CONF['expectations'];?></textarea>
+	      <textarea name="expectations" cols=60 rows=2><?php echo $CONF['expectations'];?></textarea>
 	    </div></td>
     </div>
   </td>
