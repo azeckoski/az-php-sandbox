@@ -230,17 +230,21 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 function attachFormHandlers()
 {
 	for (var f=0; f<document.forms.length; f++) {
+		var thisForm = document.forms[f];
+		//alert("form:"+thisForm.name+":"+document.forms[f].elements.length);
 		var items = document.forms[f].elements;
-		for (var i=0; i<items.length; i++) {
+		alert("form:"+thisForm.name+":"+document.forms[f].childNodes.length);
+		for (var i=0; i<100; i++) {
+			var thisElement = document.forms[f][i];
 			// skip items without a type and hidden items
-			if (items[i].type == null || items[i].type.toLowerCase() == "hidden") { continue; }
-			if (items[i].type.toLowerCase() == "submit") {
+			if (thisElement.type == null || thisElement.type.toLowerCase() == "hidden") { continue; }
+			if (thisElement.type.toLowerCase() == "submit") {
 				// handle submit differently - handler attached to the form submit
-				if (!items[i].tabIndex) {
-					items[i].tabIndex = 50;
+				if (!thisElement.tabIndex) {
+					thisElement.tabIndex = 50;
 				}
 			} else {
-				var validateItem = document.getElementById(items[i].name + "Validate");
+				var validateItem = document.getElementById(thisElement.name + "Validate");
 				if (validateItem != null) {
 					// if the validation value is blank then skip this item
 					if (validateItem.value == "") { continue; }
@@ -249,20 +253,20 @@ function attachFormHandlers()
 					validateItem.value = gSeparator + validateItem.value + gSeparator;
 					
 					// handle the different element types
-					if (items[i].type.toLowerCase() == "radio") {
+					if (thisElement.type.toLowerCase() == "radio") {
 						// have to handle radiobuttons in a special way
 						
 						// if this is the first button in this set then process, otherwise skip it
-						var thisItems = document.getElementsByName(items[i].name);
-						if (items[i] == thisItems[0]) {
+						var thisItems = document.getElementsByName(thisElement.name);
+						if (thisElement == thisItems[0]) {
 							var k = 0;
 							if (thisItems.length == 1) {
 								// only one so set the id and move on
-								items[i].id = items[i].name;
+								thisElement.id = thisElement.name;
 							} else {
 								// multiple items so set id by position encountered
 								for (var j=0; j<thisItems.length; j++) {
-									thisItems[j].id = items[i].name + j;
+									thisItems[j].id = thisElement.name + j;
 									if (thisItems[j].checked) { k = j; } // marked the checked item
 								}
 							}
@@ -271,28 +275,28 @@ function attachFormHandlers()
 							if (gInitialCheck) { validateObject(thisItems[k]); }
 						}
 					} else {
-						items[i].id = items[i].name; // set the id to the name
+						thisElement.id = thisElement.name; // set the id to the name
 						
 						// do the initial validation check
-						if (gInitialCheck) { validateObject(items[i]); }
+						if (gInitialCheck) { validateObject(thisElement); }
 					}
 
 					// do the focus check, set focus on this item if specified
 					if (validateItem.value.match(gSeparator+"focus"+gSeparator)) {
-						items[i].focus();
+						thisElement.focus();
 					}
 
 					// attach handlers to items
-					if (items[i].type.toLowerCase() == "radio" || items[i].type.toLowerCase() == "checkbox") {
+					if (thisElement.type.toLowerCase() == "radio" || thisElement.type.toLowerCase() == "checkbox") {
 						// attach onclick handlers to checkboxes and radio buttons
-						items[i].onclick = function(){return validateObject(this);}
+						thisElement.onclick = function(){return validateObject(this);}
 					} else {
 						//attach the onchange to each form field
-						items[i].onchange = function(){return validateObject(this);}
-						//items[i].onblur = function(){return validateObject(this);}
+						thisElement.onchange = function(){return validateObject(this);}
+						//thisElement.onblur = function(){return validateObject(this);}
 
 						// handle "other" fields
-						var otherItem = document.getElementById(items[i].name + "Other");
+						var otherItem = document.getElementById(thisElement.name + "Other");
 						if (otherItem != null) {
 							otherItem.onchange = function(){return validateObject(this);}
 						}

@@ -31,7 +31,7 @@ if (!$USER["admin_accounts"]) {
 }
 
 // set header links
-$EXTRA_LINKS = "<br><span style='font-size:9pt;'>";
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
 if ($USE_LDAP) {
 	$EXTRA_LINKS .=	"<a href='admin_users.php'>Users admin</a> - ";
 }
@@ -41,7 +41,7 @@ $EXTRA_LINKS .= "<a href='admin_ldap.php'>LDAP admin</a> - " .
 
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script>
+<script type="text/javascript">
 <!--
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
@@ -70,21 +70,21 @@ function orderBy(newOrder) {
 <?php if ($USE_LDAP) { ?>
     <tr>
       <td valign="top"><a href="admin_ldap.php">LDAP Control</a></td>
-      <td>This allows control of LDAP user accounts and related properties<br>
-      Edit the user to set them as an institutional rep or voting rep and to control admin privileges<br>
+      <td>This allows control of LDAP user accounts and related properties<br/>
+      Edit the user to set them as an institutional rep or voting rep and to control admin privileges<br/>
       LDAP accounts should be used instead of internal accounts
       </td>
     </tr>
 <?php } ?>
     <tr>
       <td valign="top"><a href="admin_users.php">Users Control</a></td>
-      <td>This allows control of internal user accounts and related properties<br>
+      <td>This allows control of internal user accounts and related properties<br/>
       Edit the user to set them as an institutional rep or voting rep and to control admin privileges
       </td>
     </tr>
     <tr>
       <td valign="top"><a href="admin_insts.php">Institutional Control</a></td>
-      <td>This allows control of instituions<br>
+      <td>This allows control of instituions<br/>
       Edit the institution to change the name, abbreviation, or type
       </td>
     </tr>

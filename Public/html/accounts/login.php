@@ -1,6 +1,6 @@
 <?php
 /*
- * file: admin.php
+ * file: login.php
  * Created on Mar 3, 2006 9:45:03 PM by @author aaronz
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
@@ -141,8 +141,13 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 
 <!-- // INCLUDE THE HTML HEAD -->
 <?php include 'include/top_header.php';  ?>
-<script>
+<script type="text/javascript">
 <!--
+window.onload = doFocus;
+
+function doFocus() {
+	document.adminform.username.focus();
+}
 // -->
 </script>
 <!-- // INCLUDE THE HEADER -->
@@ -157,21 +162,20 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 	<div class="login">
 	<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <?php if($REF) { ?>
-	<input type="hidden" name="ref" value="<?= $REF ?>">
+	<input type="hidden" name="ref" value="<?= $REF ?>" />
 <?php } ?>
 	<div class="loginheader"><?= $SYSTEM_NAME ?> Login</div>
 	<table border="0" class="padded">
 		<tr>
 			<td><b>Username:</b></td>
-			<td><input type="text" name="username" tabindex="1" value="<?= $USERNAME ?>"></td>
-			<script>document.adminform.username.focus();</script>
+			<td><input type="text" name="username" tabindex="1" value="<?= $USERNAME ?>" /></td>
 		</tr>
 		<tr>
 			<td><b>Password:</b></td>
-			<td><input type="password" name="password" tabindex="2" value="<?= $PASSWORD ?>"></td>
+			<td><input type="password" name="password" tabindex="2" value="<?= $PASSWORD ?>" /></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" name="login" value="Login" tabindex="3"></td>
+			<td colspan="2"><input type="submit" name="login" value="Login" tabindex="3" /></td>
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -209,5 +213,11 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 
 </tr>
 </table>
+
+<script type="text/javascript">
+<!--
+	//document.adminform.username.focus();
+// -->
+</script>
 
 <?php include 'include/footer.php'; // Include the FOOTER ?>

@@ -2,8 +2,8 @@
 <body>
 <table class="main" border="0">
 <tr>
-	<td width=120px style="border: 1px solid #ccc;">
-		<a href="http://www.sakaiproject.org"><img src="http://www.sakaiproject.org/images/stories/conferenceLogos/logoslate160x89.jpg" height=59 width=110  border=0></a>
+	<td width="120" style="border: 1px solid #ccc;">
+		<a href="http://www.sakaiproject.org"><img src="<?= $ACCOUNTS_URL ?>/include/images/logoslate160x89.jpg" height="59" width="110" border="0" alt="Sakai Logo" /></a>
 	</td>
 	<td width="100%" valign=top style="background:#ECECEC;border: 1px solid #ccc;">
 	<table width="100%" border="0">

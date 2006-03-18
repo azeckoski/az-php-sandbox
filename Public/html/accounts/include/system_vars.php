@@ -71,7 +71,7 @@ function generate_partner_dropdown($institution="", $short=0) {
     while ($instRow = mysql_fetch_array($result)) {
     		$selected="";
 	    if ( $institution == $instRow['PK'] ) { 
-	    		$selected=" selected='Y'";
+	    		$selected=" selected='y'";
 	    	}
 	    $instName = $instRow['NAME'];
 	    if ($short && (strlen($instName) > 38) ) {

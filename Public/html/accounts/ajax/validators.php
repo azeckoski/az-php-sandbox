@@ -15,7 +15,15 @@
  * $vItems = array();
  * $vItems['title'] = "required:focus";
  * ServerValidate($vItems, $output_type);
+ * 
  */
+/***** sample clean html *****
+Item name
+<img id="Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+<input type="text" name="p_title" size="40" maxlength="75" value="<?= $item['item'] ?>" />
+<input type="hidden" id="Validate" value="<?= $vItems['item'] ?>"/>
+<span id="Msg"></span>
+******/
 ?>
 <?php
 // global vars - sort of

@@ -19,7 +19,7 @@
 ?>
 
 <?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script>
+<script type="text/javascript">
 <!--
 // -->
 </script>

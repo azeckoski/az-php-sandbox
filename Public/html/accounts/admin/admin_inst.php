@@ -41,7 +41,7 @@ if (!$USER["admin_insts"]) {
 	$allowed = 1;
 }
 
-$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 
 // get the form variables
@@ -130,7 +130,7 @@ mysql_free_result($result);
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script>
+<script type="text/javascript">
 <!--
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
@@ -165,7 +165,7 @@ function orderBy(newOrder) {
 	<tr>
 		<td class="account"><b>Name:</b></td>
 		<td><input type="text" name="name" tabindex="1" value="<?= $thisItem["name"] ?>" size="40" maxlength="250"></td>
-		<script>document.adminform.name.focus();</script>
+		<script type="text/javascript">document.adminform.name.focus();</script>
 	</tr>
 	<tr>
 		<td class="account"><b>Abbreviation:</b></td>

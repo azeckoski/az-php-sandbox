@@ -32,7 +32,7 @@ if($doublecheck == 1 && ($CODE == $myActivationCode)){
 ?>
 
 <?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script>
+<script type="text/javascript">
 <!--
 function focus(){document.adminform.searchtext.focus();}
 // -->

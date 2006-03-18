@@ -75,8 +75,13 @@ This is an automated response, please do not reply!";
 ?>
 
 <?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script>
+<script type="text/javascript">
 <!--
+window.onload = doFocus;
+
+function doFocus() {
+	document.resetpass.email.focus();
+}
 // -->
 </script>
 <?php include 'include/header.php'; // INCLUDE THE HEADER ?>
@@ -85,16 +90,15 @@ This is an automated response, please do not reply!";
 
 	<i style="font-size:9pt;">All fields are required</i><br/>
 	<form action="forgot_password.php" method="post" name="resetpass" style="margin:0px;">
-	<input type="hidden" name="saving" value="1">
+	<input type="hidden" name="saving" value="1"/>
 	<table border="0" class="padded">
 		<tr>
 			<td class="account"><b>Email:</b></td>
-			<td><input type="text" name="email" tabindex="6" value="<?= $EMAIL ?>" size="50" maxlength="50"></td>
-			<script>document.resetpass.email.focus();</script>
+			<td><input type="text" name="email" tabindex="6" value="<?= $EMAIL ?>" size="50" maxlength="50"/></td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" name="account" value="Reset password" tabindex="6">
+				<input type="submit" name="account" value="Reset password" tabindex="6"/>
 			</td>
 		</tr>
 	</table>

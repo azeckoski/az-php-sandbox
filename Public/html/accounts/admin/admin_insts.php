@@ -33,7 +33,7 @@ if (!$USER["admin_accounts"]) {
 
 
 // set header links
-$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
 	"Institutions admin</span>";
 
 // get the search
@@ -115,7 +115,7 @@ if ($_REQUEST["export"] && $allowed) {
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script>
+<script type="text/javascript">
 <!--
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
@@ -150,12 +150,12 @@ function orderBy(newOrder) {
 
 	<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
 	<td nowrap="y">
-		<input type="hidden" name="page" value="<?= $page ?>">
-		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page">
-		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page">
+		<input type="hidden" name="page" value="<?= $page ?>" />
+		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
+		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
 		<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
-		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page">
-		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page">
+		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page" />
+		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
 		<span class="keytext">&nbsp;-&nbsp;
 		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 		&nbsp;-&nbsp;
@@ -177,7 +177,7 @@ function orderBy(newOrder) {
 		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters">
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	length="20" title="Enter search text here">
-        <script>document.adminform.searchtext.focus();</script>
+        <script type="text/javascript">document.adminform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
 	</td>
 
@@ -228,7 +228,7 @@ while($itemrow=mysql_fetch_assoc($result)) {
 		}
 ?>
 
-<tr id="<?= $linestyle ?>" <?= $rowstyle ?> >
+<tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
 	<td class="line"><?= $itemrow["name"] ?></td>
 	<td class="line"><?= $itemrow["abbr"] ?>&nbsp;</td>
 	<td class="line"><?= $itemrow["type"] ?></td>

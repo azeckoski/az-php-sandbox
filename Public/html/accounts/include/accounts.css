@@ -109,12 +109,12 @@ div.error {
  margin-bottom:10px;
 }
 
-#evenrow{
+.evenrow{
  background: #eee;
 }
 
-#oddrow{
- background: #F8F8EC;
+.oddrow{
+ background: #fff;
 }
 
 .line {

@@ -3,7 +3,7 @@
 // Bring in the system variables
 // You must verify the path to the system_vars and the
 // user control directory are correct or many things will break -AZ
-$ACCOUNTS_PATH = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.'accounts'.DIRECTORY_SEPARATOR;
+$ACCOUNTS_PATH = $_SERVER["DOCUMENT_ROOT"].'/accounts/';
 require ($ACCOUNTS_PATH.'include/system_vars.php');
 
 // Tool variables

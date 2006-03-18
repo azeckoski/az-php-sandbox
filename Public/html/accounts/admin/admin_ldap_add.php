@@ -33,14 +33,14 @@ if (!$USER["admin_accounts"]) {
 
 // set the header links
 // set header links
-$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
 	"<a href='admin_ldap.php'>LDAP admin</a> - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
 <!-- // INCLUDE THE HTML HEAD -->
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
-<script>
+<script type="text/javascript">
 <!--
 // -->
 </script>
@@ -188,7 +188,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 
 						// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
 						$user_dn = "uid=$uid,ou=users,dc=sakaiproject,dc=org";
-						//print "uid: $uid; user_dn='$user_dn'<br>";
+						//print "uid: $uid; user_dn='$user_dn'<br/>";
 		
 						$info["objectClass"][0]="top";
 						$info["objectClass"][1]="person";
@@ -203,7 +203,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 							$PK = $uid;
 							writeLog($TOOL_SHORT,$USERNAME,"user added (ldap): $FIRSTNAME $LASTNAME ($EMAIL) [$PK]" );
 						} else {
-							print "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br>";
+							print "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br/>";
 						}
 					} else {
 						// EDITING LDAP INFO
@@ -213,12 +213,12 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users
 							$Message = "<b>Updated user information</b><br/>";
 							writeLog($TOOL_SHORT,$USERNAME,"user modified (ldap): $FIRSTNAME $LASTNAME ($EMAIL) [$PK]" );
 						} else {
-							print "Failed to modify user in LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br>";
+							print "Failed to modify user in LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br/>";
 						}
 					}
 					
 				} else {
-					$Message = "Critical ERROR: Admin bind failed<br>";
+					$Message = "Critical ERROR: Admin bind failed<br/>";
 				}
 				ldap_close($ds);
 			} else {
@@ -359,7 +359,7 @@ $institutionDropdownText = generate_partner_dropdown($INSTITUTION_PK);
 	<tr>
 		<td class="account"><b>First name:</b></td>
 		<td><input type="text" name="firstname" tabindex="4" value="<?= $FIRSTNAME ?>" size="40" maxlength="50"></td>
-		<script>document.adminform.firstname.focus();</script>
+		<script type="text/javascript">document.adminform.firstname.focus();</script>
 	</tr>
 	<tr>
 		<td class="account"><b>Last name:</b></td>

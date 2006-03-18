@@ -182,7 +182,7 @@ mysql_free_result($result);
 
 
 // set the header links
-$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
@@ -205,7 +205,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin
 
 <div class="required" id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
-<input type="hidden" name="pk" value="<?= $PK ?>">
+<input type="hidden" name="pk" value="<?= $PK ?>" />
 <input type="hidden" name="save" value="1" />
 
 <?php
@@ -228,8 +228,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin
 		<td class="account"><b>Activated:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="activated" tabindex="9" value="1" <?php
-				if ($thisUser["activated"]) { echo " checked='Y' "; }
-			?>>
+				if ($thisUser["activated"]) { echo " checked='y' "; }
+			?>/>
 			<i> - account is active (inactive accounts cannot login)</i>
 		</td>
 	</tr>
@@ -238,8 +238,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin
 		<td class="account"><b>Inst Rep:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="setrep" tabindex="10" value="1" <?php
-				if ($checkRep["rep_pk"] == $PK) { echo " checked='Y' "; }
-			?>>
+				if ($checkRep["rep_pk"] == $PK) { echo " checked='y' "; }
+			?>/>
 			<i> - user is the representative for the listed institution</i>
 		</td>
 	</tr>
@@ -248,8 +248,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin
 		<td class="account"><b>Vote Rep:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="setrepvote" tabindex="11" value="1" <?php
-				if ($checkRep["repvote_pk"] == $PK) { echo " checked='Y' "; }
-			?>>
+				if ($checkRep["repvote_pk"] == $PK) { echo " checked='y' "; }
+			?>/>
 			<i> - user is the voting rep for the listed institution</i>
 		</td>
 	</tr>
@@ -265,8 +265,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin
 		<td class="account"><b>Accounts:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_accounts" tabindex="12" value="1" <?php
-				if ($thisUser["admin_accounts"]) { echo " checked='Y' "; }
-			?>>
+				if ($thisUser["admin_accounts"]) { echo " checked='y' "; }
+			?>/>
 			<i> - user has admin access to accounts</i>
 		</td>
 	</tr>
@@ -275,8 +275,8 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin
 		<td class="account"><b>Institutions:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_insts" tabindex="13" value="1" <?php
-				if ($thisUser["admin_insts"]) { echo " checked='Y' "; }
-			?>>
+				if ($thisUser["admin_insts"]) { echo " checked='y' "; }
+			?>/>
 			<i> - user has admin access to institutions</i>
 		</td>
 	</tr>
@@ -285,17 +285,17 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin
 		<td class="account"><b>Requirements:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_reqs" tabindex="14" value="1" <?php
-				if ($thisUser["admin_reqs"]) { echo " checked='Y' "; }
-			?>>
+				if ($thisUser["admin_reqs"]) { echo " checked='y' "; }
+			?>/>
 			<i> - user has admin access to req voting</i>
 		</td>
 	</tr>
 </table>
+</fieldset>
 
 </td>
 </tr>
 </table>
-</fieldset>
 
 </form>
 

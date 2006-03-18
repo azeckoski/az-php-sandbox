@@ -43,9 +43,9 @@ if ($_REQUEST["ldapdel"]) {
 			$user_dn = "uid=$LDAP_PK,ou=users,dc=sakaiproject,dc=org";
 			$delresult = ldap_delete($ds,$user_dn);
 			if ($delresult) {
-				$output = "Removed ldap user<br>";
+				$output = "Removed ldap user<br/>";
 			} else {
-				$output = "Failed to remove ldap user<br>";
+				$output = "Failed to remove ldap user<br/>";
 			}
 			// TODO - clean up inst rep and vote rep
 		} else {
@@ -94,13 +94,13 @@ if ($USE_LDAP && $searchtext) {
 
 
 // set header links
-$EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
 	"LDAP admin - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script>
+<script type="text/javascript">
 <!--
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
@@ -154,7 +154,7 @@ function ldapdel(itempk) {
 	<td nowrap="y" align="right">
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	length="20" title="Enter search text here">
-        <script>document.adminform.searchtext.focus();</script>
+        <script type="text/javascript">document.adminform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
 	</td>
 
@@ -196,7 +196,7 @@ for ($line=0; $line<$info["count"]; $line++) {
 		$linestyle = "oddrow";
 	}
 ?>
-<tr id="<?= $linestyle ?>" <?= $rowstyle ?> >
+<tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
 	<td class="line"><?= $info[$line]["sakaiuser"][0] ?></td>
 	<td class="line"><?= $info[$line]["givenname"][0] ?> <?= $info[$line]["sn"][0] ?></td>
 	<td class="line"><?= $info[$line]["mail"][0] ?></td>
