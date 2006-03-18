@@ -14,7 +14,7 @@ require 'include/check_authentic.php';
 $EMAIL = stripslashes($_POST['email']);
 
 $errors = 0;
-$Message = "Please enter your email address and your username and a new password will be emailed to you.<br/>";
+$Message = "Please enter your email address below and your username and a new password will be emailed to you.<br/>";
 if (!$EMAIL) {
     $errors++;
 }

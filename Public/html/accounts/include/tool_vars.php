@@ -10,7 +10,7 @@ require ($ACCOUNTS_PATH.'include/system_vars.php');
 $TOOL_PATH = $ACCOUNTS_URL;
 $TOOL_NAME = "Account Management";
 $TOOL_SHORT = "acnts";
-$CSS_FILE = "include/accounts.css";
+$CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 //$HELP_LINK = "";
 
 $DATE_FORMAT = "l, F dS, Y h:i A";

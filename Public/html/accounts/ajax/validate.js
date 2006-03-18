@@ -1,10 +1,12 @@
-// AJAX validation script
-// Created by Aaron Zeckoski (aaronz@vt.edu)
-// Copyright (c) 2006 Aaron Zeckoski, Virginia Tech
-// Licensed under the Educational Community License version 1.0
-// http://www.opensource.org/licenses/ecl1.php
-// Some code from other javascript projects
-// Helpful reference: http://www.w3schools.com/dhtml/dhtml_domreference.asp
+/* 
+ * AJAX validation script
+ * Created by Aaron Zeckoski (aaronz@vt.edu)
+ * Copyright (c) 2006 Aaron Zeckoski, Virginia Tech
+ * Licensed under the Educational Community License version 1.0
+ * http://www.opensource.org/licenses/ecl1.php
+ * Some code from other javascript projects
+ * Helpful reference: http://www.w3schools.com/dhtml/dhtml_domreference.asp
+ */
 
 // config variables
 var ajaxPath = "/accounts/ajax/"; // must the relative path from the web root
@@ -231,12 +233,15 @@ function attachFormHandlers()
 		var items = document.forms[f].elements;
 		for (var i=0; i<items.length; i++) {
 			if (items[i].type == null) {
-				alert("ERROR: type is null, indicates tag error, skipping tag:"+i+":"+items[i].id+":"+items[i].name);
+				//alert("ERROR: type is null, indicates tag error, skipping tag:"+i+":"+items[i].id+":"+items[i].name);
 				continue;
 			}
 			if (items[i].type.toLowerCase() == "submit") {
 				// handle submit differently
 				//items[i].disabled = true; // disable submit by default
+				if (!items[i].tabIndex) {
+					items[i].tabIndex = 50;
+				}
 			} else {
 				var validateItem = document.getElementById(items[i].name + "Validate");
 				if (validateItem != null) {

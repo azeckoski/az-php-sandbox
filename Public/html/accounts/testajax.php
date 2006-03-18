@@ -2,7 +2,6 @@
 /*
  * file: testvalid.php
  * Created on Mar 11, 2006 4:30:06 PM by @author aaronz
- * 
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
@@ -58,8 +57,8 @@ if ($_REQUEST["submit"]) {
 		<td>Other</td>
 		<td>
 			<img id="otherImg" src="ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="other" value="<?php echo "prefill also invalid"; ?>" />
-			<input type="hidden" id="otherValidate" value="required:nospaces"/>
+			<input type="password" name="other" value="" />
+			<input type="hidden" id="otherValidate" value="required:password"/>
 			<span id="otherMsg"></span>
 		</td>
 	</tr>	

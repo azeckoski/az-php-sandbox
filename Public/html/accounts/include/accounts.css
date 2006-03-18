@@ -68,6 +68,12 @@ div.error {
  margin-bottom: 3px;
 }
 
+.required {
+ font-size:10pt;
+ vertical-align:middle;
+ margin-top:6px;
+}
+
 .pwhelp {
  font-size:.9em;
 }

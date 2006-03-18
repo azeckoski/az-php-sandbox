@@ -18,19 +18,19 @@ require 'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-//$vItems['username'] = "required:name:uniquesql;username;users;pk;$USER_PK";
+//$vItems['username'] = "required:nospaces:uniquesql;username;users;pk;$USER_PK";
 $vItems['email'] = "required:email:uniquesql;email;users;pk;$USER_PK";
 $vItems['password1'] = "password";
 $vItems['password2'] = "password";
 $vItems['firstname'] = "required:focus";
 $vItems['lastname'] = "required";
 $vItems['institution_pk'] = "required";
-$vItems['address'] = "required";
-$vItems['city'] = "required";
-$vItems['state'] = "required:namespaces";
+$vItems['address'] = "";
+$vItems['city'] = "namespaces";
+$vItems['state'] = "namespaces";
 $vItems['zipcode'] = "zipcode";
-$vItems['country'] = "required:namespaces";
-$vItems['phone'] = "required:phone";
+$vItems['country'] = "namespaces";
+$vItems['phone'] = "phone";
 $vItems['fax'] = "phone";
 
 // this matters when the form is submitted
@@ -99,7 +99,7 @@ if ($_POST["save"]) {
 
 <?= $Message ?>
 
-<div id="requiredMessage"></div>
+<div class="required" id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
 <input type="hidden" name="save" value="1" />
 
@@ -108,7 +108,7 @@ if ($_POST["save"]) {
 <td width="50%" valign="top">
 
 <!-- Column One -->
-<fieldset type="fieldset">
+<fieldset><legend>Personal</legend>
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Username:</b></td>
@@ -119,7 +119,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Password:</b></td>
 		<td nowrap="y">
 			<img id="password1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="password" name="password1" tabindex="2" maxlength="50">
+			<input type="password" name="password1" maxlength="50">
 			<input type="hidden" id="password1Validate" value="<?= $vItems['password1'] ?>"/>
 			<span id="password1Msg"></span>
 		</td>
@@ -129,7 +129,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Confirm pwd:</b></td>
 		<td nowrap="y">
 			<img id="password2Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="password" name="password2" tabindex="3" maxlength="50">
+			<input type="password" name="password2" maxlength="50">
 			<input type="hidden" id="password2Validate" value="<?= $vItems['password2'] ?>"/>
 			<span id="password2Msg"></span>
 		</td>
@@ -139,7 +139,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>First name:</b></td>
 		<td nowrap="y">
 			<img id="firstnameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="firstname" tabindex="4" value="<?= $USER['firstname'] ?>" size="30" maxlength="50"/>
+			<input type="text" name="firstname" value="<?= $USER['firstname'] ?>" size="30" maxlength="50"/>
 			<input type="hidden" id="firstnameValidate" value="<?= $vItems['firstname'] ?>" />
 			<span id="firstnameMsg"></span>
 		</td>
@@ -149,7 +149,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Last name:</b></td>
 		<td nowrap="y">
 			<img id="lastnameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="lastname" tabindex="5" value="<?= $USER['lastname'] ?>" size="30" maxlength="50"/>
+			<input type="text" name="lastname" value="<?= $USER['lastname'] ?>" size="30" maxlength="50"/>
 			<input type="hidden" id="lastnameValidate" value="<?= $vItems['lastname'] ?>" />
 			<span id="lastnameMsg"></span>
 		</td>
@@ -159,7 +159,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Email:</b></td>
 		<td nowrap="y">
 			<img id="emailImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="email" tabindex="6" value="<?= $USER['email'] ?>" size="50" maxlength="50"/>
+			<input type="text" name="email" value="<?= $USER['email'] ?>" size="50" maxlength="50"/>
 			<input type="hidden" id="emailValidate" value="<?= $vItems['email'] ?>" />
 			<span id="emailMsg"></span>
 		</td>
@@ -169,7 +169,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Institution:</b></td>
 		<td nowrap="y">
 			<img id="institution_pkImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<select name="institution_pk" tabindex="7">
+			<select name="institution_pk">
 				<option value=""> --Select Your Organization-- </option>
 				<?= generate_partner_dropdown($USER['institution_pk']) ?>
 			</select>
@@ -182,13 +182,13 @@ if ($_POST["save"]) {
 </fieldset>
 
 <div style="margin:6px;"></div>
-<input type="submit" value="Save information" tabindex="8">
+<input type="submit" value="Save information">
 
 </td>
 <td width="50%" valign="top">
 
 <!-- Column Two -->
-<fieldset type="fieldset">
+<fieldset><legend>Location</legend>
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Address:</b></td>
@@ -215,9 +215,9 @@ if ($_POST["save"]) {
 		<td nowrap="y">
 			<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
 			<select name="state">
-<?php
-	if ($USER['state']) { echo "<option value='".$USER['state']."'>".$USER['state']."</option>"; } 
-	require 'include/state_select.php';
+<?php	$selectItem = $USER['state'];
+		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
+		require 'include/state_select.php';
 ?>
 				<option value="">&nbsp;</option>
 				<option value="-other-">Other (Not Listed)</option>
@@ -232,7 +232,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Zipcode:</b></td>
 		<td nowrap="y">
 			<img id="zipcodeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="zipcode" tabindex="5" value="<?= $USER['zipcode'] ?>" size="10" maxlength="10"/>
+			<input type="text" name="zipcode" value="<?= $USER['zipcode'] ?>" size="10" maxlength="10"/>
 			<input type="hidden" id="zipcodeValidate" value="<?= $vItems['zipcode'] ?>" />
 			<span id="zipcodeMsg"></span>
 		</td>
@@ -243,9 +243,9 @@ if ($_POST["save"]) {
 		<td nowrap="y">
 			<img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
 			<select name="country">
-<?php
-	if ($USER['country']) { echo "<option value='".$USER['country']."'>".$USER['country']."</option>"; } 
-	require 'include/country_select.php';
+<?php	$selectItem = $USER['country'];
+		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
+		require 'include/country_select.php';
 ?>
 				<option value="">&nbsp;</option>
 				<option value="-other-">Other (Not Listed)</option>
@@ -260,7 +260,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Phone:</b></td>
 		<td nowrap="y">
 			<img id="phoneImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="phone" tabindex="6" value="<?= $USER['phone'] ?>" size="15" maxlength="15"/>
+			<input type="text" name="phone" value="<?= $USER['phone'] ?>" size="15" maxlength="15"/>
 			<input type="hidden" id="phoneValidate" value="<?= $vItems['phone'] ?>" />
 			<span id="phoneMsg"></span>
 		</td>
@@ -270,7 +270,7 @@ if ($_POST["save"]) {
 		<td class="account"><b>Fax:</b></td>
 		<td nowrap="y">
 			<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
-			<input type="text" name="fax" tabindex="6" value="<?= $USER['fax'] ?>" size="15" maxlength="15"/>
+			<input type="text" name="fax" value="<?= $USER['fax'] ?>" size="15" maxlength="15"/>
 			<input type="hidden" id="faxValidate" value="<?= $vItems['fax'] ?>" />
 			<span id="faxMsg"></span>
 		</td>

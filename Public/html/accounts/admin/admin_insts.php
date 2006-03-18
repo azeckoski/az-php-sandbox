@@ -7,30 +7,30 @@
  */
 ?>
 <?php
-require_once 'include/tool_vars.php';
+require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Admin Institutions";
 $Message = "";
 
 // connect to database
-require 'sql/mysqlconnect.php';
+require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 
 // check authentication
-require 'include/check_authentic.php';
+require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-require 'include/auth_login_redirect.php';
+require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
-$Message = "";
-if (!$USER["admin_insts"]) {
+if (!$USER["admin_accounts"]) {
 	$allowed = 0;
-	$Message = "Only admins with <b>admin_insts</b> may view this page.<br/>" .
+	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
 	$allowed = 1;
 }
+
 
 // set header links
 $EXTRA_LINKS = "<br><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
@@ -114,7 +114,7 @@ if ($_REQUEST["export"] && $allowed) {
 	// display the page normally
 ?>
 
-<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 function orderBy(newOrder) {
@@ -128,14 +128,14 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include 'include/footer.php';
+		include $ACCOUNTS_PATH.'include/footer.php';
 		exit;
 	}
 ?>
@@ -273,6 +273,6 @@ if ($_REQUEST["export"]) {
 </table>
 </form>
 
-<?php include 'include/footer.php'; // Include the FOOTER ?>
+<?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
 
 <?php } // end display ?>

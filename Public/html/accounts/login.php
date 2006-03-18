@@ -1,4 +1,11 @@
 <?php
+/*
+ * file: admin.php
+ * Created on Mar 3, 2006 9:45:03 PM by @author aaronz
+ * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
+ */
+?>
+<?php
 require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Login";
@@ -15,10 +22,21 @@ $REF = $_REQUEST["ref"]; // This is the refering page
 
 // Get the username and password (force username to lowercase)
 $USERNAME = strtolower($_POST["username"]);
-$PASSWORD = stripslashes($_POST["password"]);
+$PASSWORD = mysql_real_escape_string($_POST["password"]);
+
+$errors = 0;
+if (ereg('[[:space:]]',$USERNAME)) {
+	$errors++;
+	$Message .= "<span style='color:red;'>Username cannot contain spaces</span><br/>";
+}
+
+if (ereg('[[:space:]]',$PASSWORD)) {
+	$errors++;
+	$Message .= "<span style='color:red;'>Password cannot contain spaces</span><br/>";
+}
 
 // check the username/password to auth if present
-if (strlen($USERNAME) && strlen($PASSWORD)) {
+if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 	$login_success = 0;
 	
 	// ATTEMPT LDAP AUTH FIRST
@@ -121,12 +139,14 @@ if (strlen($USERNAME) && strlen($PASSWORD)) {
 }
 ?>
 
-<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<!-- // INCLUDE THE HTML HEAD -->
+<?php include 'include/top_header.php';  ?>
 <script>
 <!--
 // -->
 </script>
-<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
+<!-- // INCLUDE THE HEADER -->
+<?php include 'include/header.php';  ?>
 
 <?= $Message ?>
 

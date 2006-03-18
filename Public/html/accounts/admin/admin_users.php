@@ -6,19 +6,19 @@
  */
 ?>
 <?php
-require_once 'include/tool_vars.php';
+require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Admin User Control";
 $Message = "";
 
 // connect to database
-require 'sql/mysqlconnect.php';
+require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 
 // check authentication
-require 'include/check_authentic.php';
+require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-require 'include/auth_login_redirect.php';
+require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
@@ -36,7 +36,7 @@ $EXTRA_LINKS = "<br><span style='font-size:9pt;'>Users admin - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
-<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
 <script>
 <!--
 function orderBy(newOrder) {
@@ -50,14 +50,14 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include 'include/footer.php';
+		include $ACCOUNTS_PATH.'include/footer.php';
 		exit;
 	}
 ?>
@@ -240,4 +240,4 @@ if ($row["username"] == $row["rep_username"]) {
 </table>
 </form>
 
-<?php include 'include/footer.php'; // Include the FOOTER ?>
+<?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
