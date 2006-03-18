@@ -191,7 +191,7 @@ if ($_POST['save']) { // saving the form
 ?>
 
 <!-- start of the form td -->
-<div id=cfp><br /> <!-- start form section -->
+<div id=cfp> <!-- start form section -->
 <form name="form1" id="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="save" value="1" />
 <table width="500px"  cellpadding="0" cellspacing="0">

@@ -106,7 +106,7 @@ $msg= "new test for email problem - this is for the registration person using th
  //send the mail to Susan
  mail($recipient, $subject, $msg, $mailheaders);
 
- 
+
 //set up mail for registrant
 $headers  = 'From: ' . $HELP_EMAIL . "\n";
 $headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";

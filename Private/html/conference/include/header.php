@@ -87,7 +87,7 @@
             <td><a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=176&amp;Itemid=526" class="mainlevel" >About Vancouver</a></td>
           </tr>
           <tr align="left">
-            <td><span class="mainlevel" ></span></td>
+            <td><span class="mainlevel" >&nbsp;</span></td>
           </tr>
         </table></td>
     </tr>

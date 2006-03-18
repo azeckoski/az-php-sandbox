@@ -15,11 +15,11 @@ $Message = "";
 require '../sql/mysqlconnect.php';
 
 // check authentication
-require $ACCOUNTS_PATH.'include/check_authentic.php';
+//require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-$AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
-require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+//$AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
+//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // get the passed message if there is one
 if($_GET['msg']) {
