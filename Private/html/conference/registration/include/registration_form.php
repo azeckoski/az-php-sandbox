@@ -385,7 +385,7 @@
     	(i.e. dietary or accessibility), please provide that information here.<br />
     </div>
     <div style="padding-left: 40px;">
-      <textarea name="special" cols=70 rows=3><?php echo $CONF['special'];?></textarea>
+      <textarea name="special" cols=60 rows=3><?php echo $CONF['special'];?></textarea>
     </div></td>
 </tr>
 
