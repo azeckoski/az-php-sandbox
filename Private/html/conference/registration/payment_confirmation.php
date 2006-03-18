@@ -36,11 +36,7 @@ $Message = $_GET['msg'];
 
 // Gather Silent Post data from Verisign for payment for non-member.
 
-// Print out post contents
-// $last4cc=$_POST['USER2'];
-$user_id=$_POST['USER1'];
-$registrant=$_POST['USER2'];
-$co_registrant=$_POST['USER3'];
+$USER_PK=$_POST['USER1'];
 $transID=$_POST['PNREF'];
 $transAmount=$_POST['AMOUNT'];
 $payee=$_POST['NAME'];
@@ -49,8 +45,7 @@ $payeeEmail=$_POST['EMAIL'];
 $payeeInfo=$payee ."\r" .$payeePhone ."\r" .$payeeEmail ;
 $ResultCode=$_POST['RESULT'];
 $ResponseMsg=$_POST['RESPMSG'];
-$CSCMATCH=$_POST['CSCMATCH'];
-$AVSDATA=$_POST['AVSDATA'];
+
 
 if ($ResultCode== '0') {
 	//no errors
