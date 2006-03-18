@@ -91,9 +91,9 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 //set up mail for Susan
 $recipient = "shardin@umich.edu";
 $subject= "COPY-Vancouver Reg-$firstname $lastname";
-
+$newMsg= "new test for email problem- this is for the registration help person";
 //send the mail to susan
-mail($recipient, $subject, $msg, $headers);
+mail($recipient, $subject, $newMsg, $headers);
 
 	 
  //set up mail for Susan with the old mail method
@@ -102,7 +102,7 @@ mail($recipient, $subject, $msg, $headers);
  $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
  $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
  $mailheaders .="Reply-To: $email";
-
+$msg= "new test for email problem - this is for the registration person using the old mail method";
  //send the mail to Susan
  mail($recipient, $subject, $msg, $mailheaders);
 
@@ -117,8 +117,8 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 $recipient = "$email";
 $subject= "Sakai Conference Registration";
-
+$newMsg= "new test for email problem - this is for the attendee";
  //send the mail to registrant
- mail($recipient, $subject, $msg, $headers);
+ mail($recipient, $subject, $newMsg, $headers);
 
 ?>
