@@ -31,7 +31,7 @@ padding: 0px 5px;
 color:#000;
 }
 </style>
-<script>
+<script type="text/javascript">
 <!--
 // -->
 </script>

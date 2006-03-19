@@ -4,7 +4,7 @@
 
     <tr valign="top">
       <td><div align=right>
-		      <img id="titleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+		      <img id="titleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 		      <strong>Your Role/Title:</strong>
 	      </div>
 	  </td>
@@ -49,7 +49,7 @@
     <tr>
       <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       	<div align="right">
-      		<img id="address1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<img id="address1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       		<strong><span class="formLable">Address</span>: </strong>
       	</div>
       </td>
@@ -64,7 +64,7 @@
     <tr>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
 	      <div align="right">
-	      	<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+	      	<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 	      	<strong><span class="formLable">Town/City:</span></strong>
 	      </div>
       </td>
@@ -79,7 +79,7 @@
     <tr>
       <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       	<div align="right">
-      		<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       		<strong><span class="formLable">State/Province:</span></strong>
       	</div>
       </td>
@@ -176,7 +176,7 @@
     <tr>
       <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       	<div align="right">
-	        <img id="zipImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+	        <img id="zipImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       		<strong><span class="formLable">Zip/Postal Code:</span></strong>
       	</div>
       </td>
@@ -190,7 +190,7 @@
     
     <tr>
       <td><div align="right">
-        <img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+        <img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       	<strong><span class="formLable">Country:</span></strong> 
       </div></td>
       <td>
@@ -310,7 +310,7 @@
     <tr>
       <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       	<div align="right">
-      		<img id="phoneImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<img id="phoneImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       		<strong><span class="formLable">Phone:</span></strong>
       	</div>
       </td>
@@ -323,7 +323,7 @@
     <tr>
       <td>
       	<div align="right">
-      		<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      		<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       		<strong><span class="formLable">Fax:</span></strong>
       	</div>
       </td>

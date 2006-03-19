@@ -1,7 +1,7 @@
 
 <tr>
   <td colspan=2>
-	<img id="hotelInfoImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>  
+	<img id="hotelInfoImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Hotel Information:</strong><br />
     <div style="padding-left: 40px;">
     	Will you be staying at the conference hotel, the Sheraton Vancouver Wall Centre, 
@@ -18,7 +18,7 @@
 
 <tr>
   <td colspan=2>
-	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>  
+	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Community Source Week Conferences:</strong><br />
     <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Vancouver June 4-6, 2005?<br />
       <input type="radio" name="jasig" value="Y" <?php if ($CONF['jasig']=="Y") echo "checked" ?> />
@@ -46,7 +46,7 @@
 
 <tr>
   <td colspan=2 valign=top>
-  	<img id="shirtImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+  	<img id="shirtImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   	<strong>Conference T-Shirt:</strong><br />
     <div style="padding-left: 40px;">Please select your t-shirt size: 
       <select name="shirt">
@@ -95,7 +95,7 @@
       If you are completing this registration for someone else, please enter your email address below
       in case we need to contact you.
       <div style="padding-left: 40px;">
-      	<img id="delegateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      	<img id="delegateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
         <input type="text" name="delegate" size="40" maxlength="50" />
       </div>
     </div>

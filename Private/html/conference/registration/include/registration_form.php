@@ -6,7 +6,7 @@
 ?>
 <tr valign="top">
   <td><div align=right>
-	      <img id="titleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+	      <img id="titleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 	      <strong>Your Role/Title:</strong>
       </div>
   </td>
@@ -52,7 +52,7 @@
 <tr>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<div align="right">
-  		<img id="address1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+  		<img id="address1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">Address</span>: </strong>
   	</div>
   </td>
@@ -67,7 +67,7 @@
 <tr>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
       <div align="right">
-      	<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      	<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       	<strong><span class="formLable">Town/City:</span></strong>
       </div>
   </td>
@@ -82,7 +82,7 @@
 <tr>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<div align="right">
-  		<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+  		<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">State/Province:</span></strong>
   	</div>
   </td>
@@ -182,7 +182,7 @@
 <tr>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<div align="right">
-        <img id="zipImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+        <img id="zipImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">Zip/Postal Code:</span></strong>
   	</div>
   </td>
@@ -196,7 +196,7 @@
 
 <tr>
   <td><div align="right">
-    <img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+    <img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   	<strong><span class="formLable">Country:</span></strong> 
   </div></td>
   <td>
@@ -319,7 +319,7 @@
 <tr>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<div align="right">
-  		<img id="phoneImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+  		<img id="phoneImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">Phone:</span></strong>
   	</div>
   </td>
@@ -333,7 +333,7 @@
 <tr>
   <td>
   	<div align="right">
-  		<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+  		<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">Fax:</span></strong>
   	</div>
   </td>
@@ -346,7 +346,7 @@
     
 <tr>
   <td colspan=2>
-	<img id="hotelInfoImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />  
+	<img id="hotelInfoImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Hotel Information:</strong><br />
     <div style="padding-left: 40px;">
     	Will you be staying at the conference hotel, the Sheraton Vancouver Wall Centre, 
@@ -363,7 +363,7 @@
 
 <tr>
   <td colspan=2>
-	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>  
+	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Community Source Week Conferences:</strong><br />
     <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Vancouver June 4-6, 2005?<br />
       <input type="radio" name="jasig" value="Y" <?php if ($CONF['jasig']=="Y") echo "checked" ?> />
@@ -391,7 +391,7 @@
 
 <tr>
   <td colspan=2 valign=top>
-  	<img id="shirtImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+  	<img id="shirtImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   	<strong>Conference T-Shirt:</strong><br />
     <div style="padding-left: 40px;">Please select your t-shirt size: 
       <select name="shirt">
@@ -439,7 +439,7 @@
       If you are completing this registration for someone else, please enter your email address below
       in case we need to contact you.
       <div style="padding-left: 40px;">
-      	<img id="delegateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+      	<img id="delegateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
         <input type="text" name="delegate" size="40" maxlength="50" />
       </div>
     </div>

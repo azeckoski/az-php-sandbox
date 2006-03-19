@@ -14,7 +14,7 @@
 	    <?php if ($isPartner){ ?>
 	    <div class="componentheading">Sakai Conference Facebook Needs You!</div>
 	    <div><br />
-	      <img src="<?= $TOOL_PATH ?>/include/images/facebook.jpg" height="75" width="130" /><br />
+	      <img src="<?= $TOOL_PATH ?>/include/images/facebook.jpg" height="75" width="130" alt="Sakai facebook" /><br />
 	      <br />
 	      We look forward to seeing you in Vancouver, but we want to see you even before then --in the Sakai Conference Facebook. <br /><br /> Past conference attendees have greatly appreciated being able to put names to faces the moment they arrive at the conference, and often use the conference facebooks to help them locate someone they remember talking with at previous conferences. <br />
 	      <br />
