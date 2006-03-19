@@ -37,7 +37,7 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td>Username</td>
 		<td>
-			<img id="usernameImg" src="ajax/images/blank.gif" width="16" height="16"/>
+			<img id="usernameImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="text" name="username" tabindex="1"/>
 			<input type="hidden" name="usernameValidate" value="required:focus:alphanum:uniquesql;username;users"/>
 			<span id="usernameMsg"></span>
@@ -47,7 +47,7 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td>Email</td>
 		<td>
-			<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
+			<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="text" name="email" tabindex="2"/>
 			<input type="hidden" name="emailValidate" value="required:email:uniquesql;email;users"/>
 			<span id="emailMsg"></span>
@@ -57,7 +57,7 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td>Other</td>
 		<td>
-			<img id="otherImg" src="ajax/images/blank.gif" width="16" height="16"/>
+			<img id="otherImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="text" name="other" tabindex="3"/>
 			<input type="hidden" name="otherValidate" value="required:nospaces"/>
 			<span id="otherMsg"></span>
@@ -67,7 +67,7 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td>Auxillary</td>
 		<td>
-			<img src="ajax/images/blank.gif" width="16" height="16"/>
+			<img src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="text" name="aux" tabindex="3"/>
 			<i>No validation</i>
 		</td>
