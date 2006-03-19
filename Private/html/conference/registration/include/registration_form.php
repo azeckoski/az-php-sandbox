@@ -40,7 +40,7 @@
     <tr>
       <td>
       	<div align="right"><span class="formLable">
-      		<strong>Organization/Company: </strong>
+      		<strong>Organization/Company: </strong></span>
       	</div>
       </td>
       <td>
