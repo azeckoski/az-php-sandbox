@@ -230,14 +230,17 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 function attachFormHandlers()
 {
 	for (var f=0; f<document.forms.length; f++) {
-		var thisForm = document.forms[f];
-		//alert("form:"+thisForm.name+":"+document.forms[f].elements.length);
-		var items = document.forms[f].elements;
-		//alert("form:"+thisForm.name+":"+document.forms[f].childNodes.length);
-		for (var i=0; i<100; i++) {
+		//alert("form:"+document.forms[f].name+":"+document.forms[f].elements.length);
+		var itemCount = document.forms[f].elements.length;
+		//alert("form:"+document.forms[f].name+":"+itemCount);
+		if (document.forms[f] == document.forms[f].elements) { // this is to handle the stupid form error
+			itemCount = 250;
+		}
+		for (var i=0; i<itemCount; i++) {
 			var thisElement = document.forms[f][i];
-			// skip items without a type and hidden items
-			if (thisElement.type == null || thisElement.type.toLowerCase() == "hidden") { continue; }
+			// skip certain items
+			if (thisElement == null || thisElement.type == null || 
+				thisElement.type.toLowerCase() == "hidden") { continue; }
 			if (thisElement.type.toLowerCase() == "submit") {
 				// handle submit differently - handler attached to the form submit
 				if (!thisElement.tabIndex) {
