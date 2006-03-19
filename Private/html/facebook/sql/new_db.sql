@@ -1,5 +1,6 @@
 CREATE TABLE facebook_entries ( 
     pk          		int(10) AUTO_INCREMENT NOT NULL,
+    users_pk			int(10) NOT NULL,
     image_pk			int(10) NOT NULL,
     date_created		timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     interests   		text NULL,
