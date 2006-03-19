@@ -153,6 +153,8 @@ if ($_POST['save']) { // saving the form
     </table>
 
   </form>
+  
+  
 </div> <!-- end cfp -->
 
 <div style="margin:16px;"></div> <!-- SPACER -->
