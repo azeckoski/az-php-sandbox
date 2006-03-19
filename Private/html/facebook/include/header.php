@@ -1,16 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<link href="https://sakaiproject.org/secure/templates/vancouver/css/template_facebook.css" rel="stylesheet" type="text/css"/>
 </head>
-  <script language="JavaScript" type="text/javascript">
-
-function popup(url,name,w,h){
-settings="width=" + w + ",height=" + h + ",scrollbars=yes,location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=yes";
-win=window.open(url,name,settings);
-}
-
-</script>
 <body class="waterbody">
 <div align="center">
 <!-- start centering -->
@@ -92,18 +80,15 @@ win=window.open(url,name,settings);
             <div id=help><br />
 			<p><strong>Need help?</strong><br />If you experience problems adding your information to our facebook, 
 			or if you need to make changes after your information is published, please email 
-			<a style="color: #006699;" href="mailto:shardin@umich.edu">shardin@umich.edu</a></p>
+			<a style="color: #006699;" href="mailto:<?= $HELP_MAIL ?>"><?= $HELP_MAIL ?></a></p>
 		   </div>
 			</td></tr>
 		</table>
 	</div>
-	<!-- end left column. -->
+<!-- end left column. -->
 				
-	<!-- start main body -->
-	<div id="content_main">
-		<!-- start  photo section -->
-		<div id=photos>
+<!-- start main body -->
+<div id="content_main">
 
-
-		
-              
+<!-- start  photo section -->
+<div id=photos>

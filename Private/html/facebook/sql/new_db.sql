@@ -4,6 +4,8 @@ CREATE TABLE facebook_entries (
     date_created		timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     interests   		text NULL,
     url    				varchar(255) NULL,
+    approved			enum('0','1') NOT NULL DEFAULT '0',
+    viewable			enum('0','1') NOT NULL DEFAULT '0',
     PRIMARY KEY(pk)
 );
 

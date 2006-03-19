@@ -1,0 +1,624 @@
+/* ---------------------
+basic layout
+--------------------- */
+
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.waterbody {
+	background:#ffffff;
+	margin:0px 0px;
+	color:#333333;
+	
+	
+}
+
+div,
+td,
+p {
+	font-size:12px;
+	line-height:18px;
+	color:#333333;
+}
+
+a,
+a:link,
+a:active,
+a:visited {
+	text-decoration:underline;
+	color:#000000;
+}
+
+a:hover {
+	text-decoration:underline;
+	color:#3973AC;
+}
+
+ul {
+	margin: 5px;
+	padding: 5px;
+	list-style: none;
+}
+
+li {
+	line-height: 18px;
+	padding-left: 5px;
+	padding-top: 0px;
+	list-style-type: square;
+	list-style-position: inside;
+}
+
+/** clear the banner to make it sit in the bottom **/
+.clear {
+	clear:both;
+}
+
+/* ---------------------
+template layout
+--------------------- */
+
+/** wrapper to make the page center **/
+#container {
+	width:900px;
+	margin: 10px auto;
+	padding:0;
+	
+	
+}
+
+/**
+hold background, it should be float:left
+that's way we can not put it in #container
+**/
+#containerbg {
+	position:relative;
+	width: 900px;
+	background:transparent url(images/bg_insideG_full.jpg) repeat-y left top;
+	float:left;
+	top:0;
+	left:0;
+	border: 1px solid #000;
+	background:#F8F8EC;
+
+
+}
+
+#header {
+	position:relative;
+	float:left;
+	clear:both;
+	width:900px;
+	padding:0px;
+	height: 135px;
+
+		background:#294A8F;
+		z-index: 600;
+							border: 1px solid #000;
+
+
+}
+
+
+#outerleft {
+	position:relative;
+	float:left;
+	clear:left;
+	width:900px;
+	
+	
+}
+
+	#logoimg {
+	position: relative;
+	float:left;
+	clear:right;
+	width: 160px;
+	height: 135px;
+
+
+	background: url(images/sakaiWhaleCoin9.jpg) no-repeat left top;
+}
+
+#logo {
+	position:relative;
+		float:left;
+clear: right;
+	width:900px;
+	padding:0px;
+	height:127px;
+
+}
+#confbanner {
+position:relative;
+float:left;
+width: 342px;
+height:135px;
+	background:  url(images/banner.jpg) no-repeat left top;
+
+}
+
+#topSearch{
+position:relative;
+float:right;
+width:320px;
+padding: 10px;
+color:#ffffff;
+font-size:10px;
+
+}
+
+#topSearch input{
+font-size:10px; color:#333;
+
+}
+#ospBanner{
+	font-family: Arial, Helvetica, sans-serif;
+
+float:left; 
+text-align:left;
+
+}
+#ospBanner, #ospBanner a{
+font-size: 18px;
+color:#ffffff; 
+
+}
+
+#ospBanner a{
+color:#ffcc33;
+text-decoration:none;
+padding:0px;
+
+}
+
+
+/** div container for top menu. position:top **/
+#topmenu {
+	position:relative;
+	float:left;
+	background-color:#000000;
+	width: 100%;
+	height: 18px;
+	
+
+}
+
+#topmenu a {
+color: #ffffff;
+z-index: 1000;
+padding: 0px 10px;
+}
+
+#topmenu a:hover {
+color: #ffffff;
+
+}
+
+/** div container for image header **/
+#imgheader {
+	position:relative;
+	float:left;
+	clear:left;
+	width:100%;
+	height:99px;
+	background-color: #000000;
+}
+
+#container_inner {
+	position:relative;
+	float:left;
+	width:900px;
+
+}
+
+/** div container for left column **/
+#leftcol {
+	position:relative;
+	float:left;
+	clear:left;
+	width:160px;
+	background:transparent url(images/bg_leftcol.jpg) repeat-y left top;
+}
+
+
+/** div container for mainbody **/
+#content_main {
+	position:relative;
+	float:left;
+
+}
+
+
+
+
+#blackline {
+	position:relative;
+	clear:left;
+	float:left;
+	width:900px;
+	height:10px;
+	min-height:10px;
+	background-color: #000000;
+	color:#FFFFFF;
+	font-size:10px;
+}
+
+/** copyright **/
+
+#copyright {
+	position:relative;
+	width:900px;
+	display:block;
+	clear:both;
+	float:left;
+	background: #ffffff;
+	border-bottom: 1px solid #000;	
+	
+}
+
+#copyright div {
+	color:#666666;
+	font-size:10px;
+	font-weight:bold;
+	display:block!important;
+	width:900px;
+	float:left;
+	clear:left;
+	margin:10px 0 0 0;
+	text-align:center;
+}
+
+
+
+
+
+/** content title **/
+.componentheading {
+	font-family: Arial, Georgia, "Times New Roman", Times, serif;
+	color:#000000;
+	font-size: 20px;
+	padding: 3px 0 0px 0;
+	display:block;
+}
+
+#form1 table tr td.contentheading,
+.contentheading,
+.contentpagetitle,
+a.contentpagetitle:link,
+a.contentpagetitle:active,
+a.contentpagetitle:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#3973AC;
+	font-weight: bold;
+	padding-top: 15px;
+	background-color:inherit;
+	display:block;
+}
+
+
+/** small text in content **/
+.small {
+	color:#999999;
+	font-size:10px;
+	font-weight: bold;
+	background-color:inherit;
+}
+
+
+
+/** unordered list for latest news module **/
+ul.latestnews li,ul.mostread li {
+	line-height: 18px;
+	font-size:11px;
+	font-weight:bold;
+	list-style-position: inside;
+}
+
+
+
+/** fix opera table width for content list in table category**/
+table.contentpane td.contentdescription {
+	width:100%!important;
+}
+
+
+/* ---------------------
+Links
+--------------------- */
+
+/** any left column link **/
+#leftcol a:link,
+#leftcol a:active,
+#leftcol a:visited {
+	color:#FFFFFF;
+}
+
+
+
+/** generic menu item link **/
+a.mainlevel:link,
+a.mainlevel:active,
+a.mainlevel:visited,
+a.sublevel:link,
+a.sublevel:active,
+a.sublevel:visited {
+	color:#FFFFFF;
+	text-decoration:none;
+	font-size:11px;
+	line-height: 28px;
+}
+
+/** generic menu item link on mouseover **/
+a.mainlevel:hover,
+#leftcol a.mainlevel:hover {
+	background-color:#484848;
+	color:#FFFFFF!important;
+	text-decoration:none!important;
+}
+
+/** specific top right column menu item link **/
+a.mainlevel-right:link,
+a.mainlevel-right:active,
+a.mainlevel-right:visited,
+a.sublevel-right:link,
+a.sublevel-right:active,
+a.sublevel-right:visited {
+	color:#000000;
+	text-decoration:none;
+	font-size:11px;
+}
+
+/** specific top right column menu item link on mouseover **/
+a.mainlevel-right:hover {
+	background-color:#ffffff;
+	text-decoration:none;
+}
+
+
+/** pathway link item **/
+a.pathway:link,
+a.pathway:link,
+a.pathway:active,
+a.pathway:visited {
+	color:#999999;
+	text-decoration:none;
+}
+
+
+#leftcol a:hover {
+	color: #93B7DB;
+	text-decoration:underline;
+}
+
+
+/* ---------------------
+mambo module layout
+--------------------- */
+
+/** general module table **/
+#leftcol table,
+#rightcol table {
+	width:100%;
+	clear:left;
+	float:left;
+	
+}
+
+/** general module table **/
+#rightcol table,
+#leftcol table td {
+	font-size:11px !important;
+	color:#CCCCCC;
+}
+
+
+/** general module title **/
+table.moduletable th,
+table.moduletable-bgimg th,
+table.moduletable-right th {
+	border: 1px solid #000000;	
+	color:#FFFFFF;
+	font-family: Copperplate, "Times New Roman", Times, serif;
+	font-size:14px;
+	line-height:18px;
+	background-color:#484848;
+	height:20px;
+	text-align:left;
+	padding-left:15px;
+	font-weight:normal;
+}
+
+
+
+/** right column module td **/
+#rightcol table.moduletable td   {
+	padding:5px;
+}
+
+
+/** generic menu item **/
+.mainlevel  {
+	display:block;
+	height:25px;
+	line-height:25px;
+	padding-left:15px;
+	background:transparent url(images/bg_mainlevel.gif) repeat-x center top;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+
+
+/** module styles in #leftcol **/
+#leftcol table.moduletable td {
+	color:#DADADA;
+	font-size:11px;
+}
+
+/** search div in top right column. position:user4 **/
+div.search {
+	margin-left:10px;
+}
+
+/** search field in search div **/
+.search .inputbox {
+	width:130px;
+	border: 1px solid #000000;
+}
+
+
+.search  {
+	margin-top:30px;
+}
+
+
+#cfp {
+
+background:#F8F8EC;
+}
+
+
+#bottompadding	{
+	position:relative;
+	width:900px;
+	display:block;
+	height:0px;
+	
+}
+
+#photos {
+width: 700px;
+padding:10px;
+margin-top: 0px;
+margin-left: 0px;
+text-align:center;
+
+}
+
+#photos a, #photos a:link, #photos a:visited{
+font-weight: normal;
+color: #4E6483;
+
+
+}
+#photos a:hover{
+font-weight: normal;
+color: #ffcc33;
+
+}
+
+#help p, #help2 p{
+border: 1px solid #eee;
+background:#ffffff;
+font-size: 10px;
+padding: 3px 10px 3px 10px;
+margin:10px;
+
+}
+
+
+#frame{
+float: left;
+text-align: left;
+width: 120px;
+height: 150px;
+padding: 5px;
+margin: 5px;
+font-size: 10px;
+border: 0px solid tan;
+}
+
+
+
+#frame img {
+padding: 4px;
+border: 0px solid #e3e3e3;
+
+}
+
+ 
+ #nav {
+ font-size:11px;
+ clear: both;
+ 
+ }
+
+#about{
+padding:0;
+margin:0;
+text-align:left;
+
+
+}
+.name {
+  font-family: Arial, Helvetica, sans-serif;
+font-size: 11px;
+color:#000;
+font-weight: bold;
+
+
+}
+.institute{ 
+font-size: 10px;
+font-weight: bold;
+color:#666;
+padding: 0px 0px;
+
+}
+.interests {
+font-size: 10px;
+padding: 0px  0px 0px 0px;
+text-align:left;
+  font-family      : Arial, Helvetica, sans-serif;
+
+}
+
+
+
+#form1 {
+background: #F8F8EC;
+padding:0px 10px;
+font-size: 11px;
+
+}
+ #form1 table tr td div {
+color: #000;
+text-align:left;
+padding: 0px 0px;
+font-size: 11px;
+
+}
+#form1 table tr td {
+text-align:left;
+
+padding: 10px 5px;
+font-size: 11px;
+color: #000;
+vertical-align: top;
+
+
+
+}
+#form1 table tr td.label {
+text-align:right;
+
+padding: 10px 5px;
+font-size: 11px;
+color: #000;
+font-weight:bold;
+}
+
+
+#form1 textarea{
+font-size:11px;
+
+}
+
+.errors {
+background:#ffffff;
+border:1px solid #ffcc33;
+padding:10px;
+
+}
