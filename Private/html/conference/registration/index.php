@@ -174,7 +174,7 @@ if ($_POST['save']) { // saving the form
 	// this should never happen but just in case
 	if (!$USER['institution_pk']) {
 		print "<b style='color:red;'>Fatal Error: You must use the My Account link to set " .
-			"your institution before you can fill out your conference registration.</b>";
+			"your institution before you can fill out your conference registration.</strong>";
 	} else if ($completed) {
 		// registration complete
 		// draw confirmation page or send to payment page
@@ -194,7 +194,7 @@ if ($_POST['save']) { // saving the form
 <div id=cfp> <!-- start form section -->
 <form name="form1" id="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="save" value="1" />
-<table width="500px"  cellpadding="0" cellspacing="0">
+<table width="500"  cellpadding="0" cellspacing="0">
 
 <tr>
 	<td valign="top" colspan="2" style="padding:0px;">
@@ -208,9 +208,9 @@ if ($_POST['save']) { // saving the form
 		<div style="padding-left: 40px;">
 <?php
 	// get info for verification
-	echo "<b>Name:</b> " . $USER['firstname'] . " " . $USER['lastname'] . "<br>";
-	echo "<b>Email:</b> " . $USER['email'] . "<br>";
-	echo "<b>Institution:</b> " . $INST['name'] . "<br>";
+	echo "<strong>Name:</strong> " . $USER['firstname'] . " " . $USER['lastname'] . "<br />";
+	echo "<strong>Email:</strong> " . $USER['email'] . "<br />";
+	echo "<strong>Institution:</strong> " . $INST['name'] . "<br />";
 ?>
 		<div style="margin:10px;"></div>
 <?php
@@ -225,7 +225,7 @@ if ($_POST['save']) { // saving the form
 	<br/>
       <div style="margin:10px;"></div>
       <strong>Registration Fee:</strong> $395 per person. <br />
-      <i>If you are also attending the JA-SIG/uPortal conference, your fee will be $345</i><br />
+      <em>If you are also attending the JA-SIG/uPortal conference, your fee will be $345</em><br />
       <div style="margin:6px;"></div>
       Visa, Mastercard, and American express accepted<br />
       <img src="<?= $TOOL_PATH ?>/include/images/ccards.jpg" width="121px" height="30px">
@@ -233,7 +233,7 @@ if ($_POST['save']) { // saving the form
 	<div style="margin:10px;"></div>
 	If the above information is wrong, use 
 	<a href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>" >My Account</a>
-	to correct it <b>before</b> registering
+	to correct it <strong>before</strong> registering
 		</div>
 	</td>
 </tr>
