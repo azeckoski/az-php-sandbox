@@ -21,7 +21,7 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 //$EXTRA_MESSAGE = "<br/><span style='font-size:8pt;'>Technical problems? Please contact <a href='mailto:$HELP_EMAIL'>$HELP_EMAIL</a></span><br/>";
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <style type="text/css">
 #activity{
 color:#000;
@@ -35,7 +35,7 @@ color:#000;
 <!--
 // -->
 </script>
-<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; ?>
 
 <div style="text-align:left;">
 From here you can:<br/>
