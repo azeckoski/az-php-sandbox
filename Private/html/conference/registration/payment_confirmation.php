@@ -47,8 +47,8 @@ $ResultCode=$_POST['RESULT'];
 $ResponseMsg=$_POST['RESPMSG'];
 
 
-if ($ResultCode== '0') {
-	//no errors
+if ($ResultCode== '0') { 
+	//no fatal errors from Verisign 
 	require_once('../sql/mysqlconnect.php');
 	$sql = "UPDATE sakaiConf_all SET datea = NOW(), fee='$transAmount', " .
 	 	"transID = '$transID', payeeInfo='$payeeInfo', activated='1' " .
