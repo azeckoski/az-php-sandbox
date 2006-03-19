@@ -61,8 +61,8 @@ $conflict_fri=$_SESSION['conflict_fri'];
 $demo="INSERT INTO cfp_vancouver_presentation VALUES (
 '', 
 NOW( ) ,
-'June06', 
-'0', 
+'$CONF_ID', 
+'$USER_PK', 
 '$topics',
 '$p_format',
 '$p_title',
@@ -100,7 +100,7 @@ NOW( ) ,
 
 $result = mysql_query($demo) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 		"registration form submission. Please try to submit the registration again. " .
-		"If you continue to have prolems, please report the problem to the " .
+		"If you continue to have problems, please report the problem to the " .
 		"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
 		
 		$presentation_id=mysql_insert_id(); //this is how to query the last entered auto-id entry

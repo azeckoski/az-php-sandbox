@@ -15,7 +15,8 @@ $demo_url=addslashes($_SESSION['demo_url']);
 $demo="INSERT INTO cfp_vancouver_demo VALUES (
 '',
 NOW( ) ,
-'June06',
+'$CONF_ID', 
+'$USER_PK',
 '$firstname',
 '$lastname',
 '$email',
