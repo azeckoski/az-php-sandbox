@@ -28,7 +28,7 @@ Coded by <a href="mailto:aaronz@vt.edu">Aaron Zeckoski</a> (<a href="http://www.
 
 </div><!-- end outerleft -->
 </div><!-- end container -->
-</div><!-- end center -->
+
 
 </body>
 </html>
