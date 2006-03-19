@@ -91,3 +91,25 @@ CREATE TABLE `cfp_vancouver_presentation` (
 
 //changes to cfp_vancouver_presentation
 ALTER TABLE `cfp_vancouver_presentation` CHANGE `p_track` `users_pk` INT( 10 ) NOT NULL DEFAULT '0';
+
+
+
+
+
+
+CREATE TABLE cfp_vancouver_demo (
+  id int(11) NOT NULL,
+  `date` timestamp NULL,
+  confID varchar(10) NOT NULL default '',
+  users_pk int(10) NOT NULL default '0',
+  firstname varchar(30) NOT NULL default '',
+  lastname varchar(30) NOT NULL default '',
+  email1 varchar(70) NOT NULL default '',
+  product varchar(100) NOT NULL default '',
+  demo_desc text NOT NULL,
+  demo_speaker varchar(150) NOT NULL default '',
+  demo_url varchar(150) NOT NULL default '',
+  PRIMARY KEY  (id)
+)
+//changes to cfp_vancouver_demo
+ALTER TABLE `cfp_vancouver_demo` ADD `users_pk` INT( 10 ) NOT NULL AFTER `confID` ;
