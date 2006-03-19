@@ -10,16 +10,16 @@ $topicID="topic_" .$key;
  echo" <div class=topic_row>  <div class=topic_type>$value</div><div class=topic_vote>
              <span> <input name=$topicID type=\"radio\" value=\"0\" ";
               if ($_POST[$topicID]=="0") { echo "checked"; } 
-              echo">&nbsp;&nbsp;&nbsp;</span>
+              echo" />&nbsp;&nbsp;&nbsp;</span>
                <span> <input name=$topicID type=\"radio\" value=\"1\" ";
               if ($_POST[$topicID]=="1") { echo "checked"; } 
-              echo">&nbsp;&nbsp;&nbsp;</span>
+              echo" />&nbsp;&nbsp;&nbsp;</span>
               <span><input name=$topicID type=\"radio\" value=\"2\"  ";
               if ($_POST[$topicID]=="2") { echo "checked"; } 
-              echo">&nbsp;&nbsp;&nbsp;</span><span>
+              echo" />&nbsp;&nbsp;&nbsp;</span><span>
               <input name=$topicID type=\"radio\" value=\"3\"  ";
               if ($_POST[$topicID]=="3") { echo "checked"; } 
-              echo">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></div>  ";
+              echo" />&nbsp;&nbsp;&nbsp;&nbsp;</span></div></div>  ";
 }
 
 $topic_area=array( 'Development', 
@@ -62,16 +62,16 @@ $audienceID="audience_" .$key;
  echo" <div class=topic_row>  <div class=topic_type>$value</div><div class=topic_vote>
            <span> <input name=$audienceID type=\"radio\" value=\"0\" ";
               if ($_POST[$audienceID]=="0") { echo "checked"; } 
-              echo">&nbsp;&nbsp;&nbsp;</span>
+              echo" />&nbsp;&nbsp;&nbsp;</span>
                <span> <input name=$audienceID type=\"radio\" value=\"1\" ";
               if ($_POST[$audienceID]=="1") { echo "checked"; } 
-              echo">&nbsp;&nbsp;&nbsp;</span>
+              echo" />&nbsp;&nbsp;&nbsp;</span>
               <span><input name=$audienceID type=\"radio\" value=\"2\"  ";
               if ($_POST[$audienceID]=="2") { echo "checked"; } 
-              echo">&nbsp;&nbsp;&nbsp;</span><span>
+              echo" />&nbsp;&nbsp;&nbsp;</span><span>
               <input name=$audienceID type=\"radio\" value=\"3\"  ";
               if ($_POST[$audienceID]=="3") { echo "checked"; } 
-              echo">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></div>  ";
+              echo" />&nbsp;&nbsp;&nbsp;&nbsp;</span></div></div>  ";
 }
 
 $audience=array(
