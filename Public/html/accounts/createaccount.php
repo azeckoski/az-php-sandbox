@@ -95,12 +95,12 @@ if ($_POST["save"]) {
 		$userPk = mysql_insert_id();
 
 		$Message = "<b>New user account created</b><br/>" .
-			"An email has been sent to $EMAIL.<br/>" .
+			"An email has been sent to $email.<br/>" .
 			"Use the link in the email to activate your account.<br/>";
 		$created = true;
 
 		// log account creation
-		writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"created account: $USERNAME ($EMAIL) " .
+		writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"created account: $USERNAME ($email) " .
 				"$LASTNAME,$FIRSTNAME inst=$INSTITUTION_PK");
 		
 		// bring in the activation email sending form
