@@ -57,7 +57,7 @@
   	</div>
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">(Department, Street address, PO Box, etc.) <br />
-    <textarea name="address1" cols='40' rows='3''><?php echo $USER['address'];?></textarea>
+    <textarea name="address1" cols='40' rows='3'><?php echo $USER['address'];?></textarea>
   	<input type="hidden" id="address1Validate" value="<?= $vItems['address1'] ?>"/>
     <span id="address1Msg"></span>
   </td>
@@ -188,7 +188,7 @@
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<input type="text" name="zip" size="10" maxlength="10"  value="<?php echo $USER['zipcode'];?>" />
-  	<input type="hidden" id="zipValidate" value="<?= $vItems['zip'] ?>"/><br>
+  	<input type="hidden" id="zipValidate" value="<?= $vItems['zip'] ?>"/><br />
     <span id="zipMsg"></span>
   </td>
 </tr>
@@ -325,7 +325,7 @@
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<input type="text" name="phone" size="18" maxlength="18"  value="<?php echo $USER['phone']; ?>" />
-  	<input type="hidden" id="phoneValidate" value="<?= $vItems['phone'] ?>"/><br/>
+  	<input type="hidden" id="phoneValidate" value="<?= $vItems['phone'] ?>"/><br />
     <span id="phoneMsg"></span>
   </td>
 </tr>
@@ -339,24 +339,24 @@
   </td>
   <td>
   	<input type="text" name="fax" size="18" maxlength="18"  value="<?php echo $USER['fax']; ?>" />
-  	<input type="hidden" id="faxValidate" value="<?= $vItems['fax'] ?>"/><br>
+  	<input type="hidden" id="faxValidate" value="<?= $vItems['fax'] ?>"/><br />
     <span id="faxMsg"></span>
   </td>
 </tr>
     
 <tr>
   <td colspan=2>
-	<img id="hotelInfoImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>  
+	<img id="hotelInfoImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />  
   	<strong>Hotel Information:</strong><br />
     <div style="padding-left: 40px;">
     	Will you be staying at the conference hotel, the Sheraton Vancouver Wall Centre, 
     	where the conference is being held?<br />
-      <input type="radio" name="hotelInfo" value="Y" <?php if ($CONF['hotelInfo']=="Y") echo "checked" ?>/>
+      <input type="radio" name="hotelInfo" value="Y" <?php if ($CONF['hotelInfo']=="Y") echo "checked" ?> />
       <strong>Yes </strong>
-      <input type="radio" name="hotelInfo" value="N" <?php if ($CONF['hotelInfo']=="N") echo "checked" ?>/>
+      <input type="radio" name="hotelInfo" value="N" <?php if ($CONF['hotelInfo']=="N") echo "checked" ?> />
       <strong>No</strong>
     </div>
-	<input type="hidden" id="hotelInfoValidate" value="<?= $vItems['hotelInfo'] ?>"/>
+	<input type="hidden" id="hotelInfoValidate" value="<?= $vItems['hotelInfo'] ?>" />
 	<span id="hotelInfoMsg"></span>
   </td>
 </tr>
@@ -378,7 +378,7 @@
 
 <tr>
   <td colspan=2>
-  	<strong>Special Needs:</strong><br/>
+  	<strong>Special Needs:</strong><br />
     <div style="padding:0px 20px;">
     	We are committed to making our conference activities 
     	accessible and enjoyable for everyone.&nbsp; If you have any type of special needs 
@@ -426,12 +426,11 @@
 <tr>
   <td colspan=2><strong>Conference expectations:</strong> (optional)<br />
     <div style="padding-left: 40px;">
-		What do you expect to learn from this conference?
+		What do you expect to learn from this conference?</div>
 	    <div style="padding-left: 40px;">
 	      <textarea name="expectations" cols=60 rows=2><?php echo $CONF['expectations'];?></textarea>
 	    </div></td>
-    </div>
-  </td>
+    
 </tr>
 
 <tr>
