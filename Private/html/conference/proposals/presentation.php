@@ -32,9 +32,9 @@ session_start();
 
 if (isset($_POST['submit'])) {
 	
-	include_once('old-includes/validate_pres.php');
+	include ('old-includes/validate_pres.php');
 	
-	//$validated=TRUE;
+//	$validated=TRUE;
 	
 	if ($validated) {
 		
@@ -111,11 +111,22 @@ if (isset($_POST['submit'])) {
   </tr>
 </table>
 
-<?= $Message ?>
+<!-- <?= $Message ?> -->
     
 <div id="cfp">
-  <form name="form1" id="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>">
+  <form name="form1" id="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <table width="100%"  cellpadding="0" cellspacing="0">
+          <?php 
+if ($message) {
+	echo "<tr><td colspan=2><div class=\"errors\" align=\"left\"><blockquote><font color=red><strong>Please provide the following information:</strong></font><ul class=small>";	
+	foreach ($message as $key => $value) {
+		echo $value;	
+	}
+	echo "</ul></blockquote></div> </td></tr>";
+}
+
+
+?>
       <tr>
         <td colspan=2><div><strong> Proposal for Conference Presentation </strong></div>
           <div>Select the most appropriate Presentation Topic Areas, Intend Audiences, and Format for your presentation from the options provided below.
