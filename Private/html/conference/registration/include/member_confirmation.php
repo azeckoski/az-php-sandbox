@@ -1,5 +1,5 @@
 
-<table width="500px"  id=confirm  cellpadding="3" cellspacing="0">
+<table width="500"  id=confirm  cellpadding="3" cellspacing="0">
   <tr>
     <td>&nbsp;</td>
   </tr>
@@ -16,7 +16,7 @@
     <strong>Special announcements and reminders:</strong>
         <ul>
           <li><strong>Visit the Sakai Conference Facebook</strong> to see who else is attending -- and add your photo while you're there! (see sidebar for more information)</li>
-          <li><strong>Call for Proposals Deadline is March 31st.</strong> [ <a href=" http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=170&Itemid=519">more information</a> ]</li>
+          <li><strong>Call for Proposals Deadline is March 31st.</strong> [ <a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519">more information</a> ]</li>
         </ul>
       </blockquote></td>
   </tr>
