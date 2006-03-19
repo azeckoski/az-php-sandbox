@@ -279,7 +279,7 @@ array_walk($audience, 'echo_audience');
 ?>
       
 
-           
+           </div>
             <!-- end audienceinfo-->
         </td>
       </tr>
