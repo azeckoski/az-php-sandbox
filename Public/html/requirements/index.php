@@ -20,12 +20,12 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 $EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script>
 <!--
 // -->
 </script>
-<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; ?>
 
 
 <table border=0 cellpadding=0 cellspacing=3 width="100%">
