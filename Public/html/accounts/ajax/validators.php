@@ -19,9 +19,9 @@
  */
 /***** sample clean html *****
 Item name
-<img id="Img" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+<img id="Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 <input type="text" name="p_title" size="40" maxlength="75" value="<?= $item['item'] ?>" />
-<input type="hidden" id="Validate" value="<?= $vItems['item'] ?>"/>
+<input type="hidden" id="Validate" value="<?= $vItems['item'] ?>" />
 <span id="Msg"></span>
 ******/
 ?>

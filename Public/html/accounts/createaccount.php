@@ -112,6 +112,15 @@ if ($_POST["save"]) {
 <!-- // INCLUDE THE HTML HEAD -->
 <?php include 'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
+<script type="text/javascript">
+<!--
+window.onload = doFocus;
+
+function doFocus() {
+	document.adminform.username.focus();
+}
+// -->
+</script>
 <!-- // INCLUDE THE HEADER -->
 <?php include 'include/header.php';  ?>
 

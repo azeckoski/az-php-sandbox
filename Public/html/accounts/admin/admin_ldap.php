@@ -86,7 +86,7 @@ if ($USE_LDAP && $searchtext) {
 	   $output = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
 	}
 } else { // end use ldap check
-	$output = "No seach text entered...";
+	$output = "No search text entered...";
 	if (!$USE_LDAP) {
 		$output = "<b>LDAP is disabled!</b>";
 	}
@@ -135,8 +135,8 @@ function ldapdel(itempk) {
 ?>
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
-<input type="hidden" name="sortorder" value="<?= $sortorder ?>">
-<input type="hidden" name="ldapdel" value="">
+<input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
+<input type="hidden" name="ldapdel" value="" />
 
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -153,9 +153,9 @@ function ldapdel(itempk) {
 
 	<td nowrap="y" align="right">
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
-        	length="20" title="Enter search text here">
+        	size="20" title="Enter search text here" />
         <script type="text/javascript">document.adminform.searchtext.focus();</script>
-        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
+        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
 	</td>
 
 	</tr>

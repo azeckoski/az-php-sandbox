@@ -142,7 +142,7 @@ function orderBy(newOrder) {
 
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
-<input type="hidden" name="sortorder" value="<?= $sortorder ?>">
+<input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -174,11 +174,11 @@ function orderBy(newOrder) {
 	</td>
 
 	<td nowrap="y" align="right">
-		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters">
+		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
-        	length="20" title="Enter search text here">
+        	size="20" title="Enter search text here" />
         <script type="text/javascript">document.adminform.searchtext.focus();</script>
-        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
+        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
 	</td>
 
 	</tr>
@@ -192,7 +192,7 @@ function orderBy(newOrder) {
 <td><a href="javascript:orderBy('type');">Type</a></td>
 <td>InstRep</td>
 <td>VoteRep</td>
-<td align="center"><a title="Add a new institution" href="admin_inst.php?pk=-1&add=1">add</a></td>
+<td align="center"><a title="Add a new institution" href="admin_inst.php?pk=-1&amp;add=1">add</a></td>
 </tr>
 
 <?php } // end export else 
