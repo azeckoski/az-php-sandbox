@@ -22,13 +22,13 @@ copyright 2006
 Coded by <a href="mailto:aaronz@vt.edu">Aaron Zeckoski</a> (<a href="http://www.vt.edu/">Virginia Tech</a>) and
 <a href="mailto:shardin@umich.edu">Susan Hardin</a> (<a href="http://www.umich.edu/">University of Michigan</a>)
 </div>
-</div>
+
 <!--end  footer -->
 <br/>&nbsp;<br/> <!-- a little extra whitespace -->
 
 </div><!-- end outerleft -->
 </div><!-- end container -->
-
+</div><!-- end center -->
 
 </body>
 </html>
