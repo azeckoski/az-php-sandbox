@@ -100,7 +100,7 @@ if ($_POST['save']) { // saving the form
 <!-- //show form -->
 <div id="cfp">
      <div>
-     	<a style="color: #336699; font-weight: bold;" href="http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=170&Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br />
+     	<a style="color: #336699; font-weight: bold;" href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br />
       <br />
     </div>
 
@@ -118,9 +118,9 @@ if ($_POST['save']) { // saving the form
 
       <tr valign="top">
         <td colspan="2" style="border:0; padding-bottom:0px;">
-        	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16"/>
+        	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />
         	<strong>Select the type of proposal to be submitted:</strong>
-			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>"/>
+			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" />
 			<span id="typeMsg"></span>
 		</td>
       </tr>
@@ -140,7 +140,7 @@ if ($_POST['save']) { // saving the form
         	&nbsp;&nbsp;<strong>Technology Demo</strong>
 			<div style="padding:0px 10px;">
 				Technology Demos will take place on Thursday, June 1st. 
-				[<a href="http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=173&Itemid=523" target=blank>more information</a>]
+				[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]
 			</div>
 		</td>
       </tr>
@@ -169,17 +169,17 @@ if ($_POST['save']) { // saving the form
   <!--end rightcol -->
    <div id=rightcol>
     <div class="componentheading">More Info...</div>
-    <div class="contentheading" width="100%">What will you need to provide?</div>
+    <div class="contentheading">What will you need to provide?</div>
     <div class="contentpaneopen">
-     <div><a href="http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=170&Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br />
+     <div><a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br />
       <br />
     </div><p>Preview a <a href="http://sakaiproject.org/vancouver/sakai_vancouverCFP.pdf" title="not available yet...">sample proposal form</a> and instructions for completing this Call for Proposal submission process. </p>
     </div>
     
-    <div class="contentheading" width="100%">Review Previous Conference Sessions</div>
+    <div class="contentheading">Review Previous Conference Sessions</div>
     <div class="contentpaneopen"><a title="" href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=161&amp;Itemid=497" target="blank"> 
-    <img style="margin: 0px 10px 0px 0px;" width="100" height="61" border="1" title="" alt="" src="../include/images/agenda.gif"><br>
-      </a> Review the sessions offered at the Sakai Austin Conference (December 2005)<br>
+    <img style="margin: 0px 10px 0px 0px;" width="100" height="61" border="1" title="" alt="" src="../include/images/agenda.gif" /><br />
+      </a> Review the sessions offered at the Sakai Austin Conference (December 2005)<br />
     </div>
   </div>
   <!--end rightcol -->
