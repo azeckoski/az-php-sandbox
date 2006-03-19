@@ -1,6 +1,6 @@
 <?php
 
-require_once('../includes/mysqlconnect.php');
+require_once('../sql/mysqlconnect.php');
 
 	
 	$firstname=addslashes($_SESSION['firstname']);
@@ -30,10 +30,10 @@ NOW( ) ,
 ''
 	)";
 
-$result = mysql_query($register) or die(mysql_error("There was a problem with the registration form submission.
+$result = mysql_query($register) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the registration form submission.
 		Please try to submit the registration again. 
 		 If you continue to have prolems, please report the problem to the 
-		 <a href=\"mailto:shardin@umich.edu\">sakaiproject.org webmaster</a>."));
+		 <a href=\"mailto:shardin@umich.edu\">sakaiproject.org webmaster</a>.");
 
 
 //dataqbase entry was successful - now capture this for future entries during this session

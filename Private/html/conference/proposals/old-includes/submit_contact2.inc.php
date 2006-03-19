@@ -1,7 +1,7 @@
 <?php
 
 
-require_once('../includes/mysqlconnect.php');
+require_once('../sql/mysqlconnect.php');
 
 
 
@@ -40,10 +40,10 @@ $u_fax=addslashes($_SESSION['fax']);
  WHERE `id`='$user_id'"; 
  
  
- $result = mysql_query($sql) or die(mysql_error("There was a problem with the registration form submission.
+ $result = mysql_query($sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the registration form submission.
 		Please try to submit the registration again. 
 		 If you continue to have prolems, please report the problem to the 
-		 <a href=\"mailto:shardin@umich.edu\">sakaiproject.org webmaster</a>."));
+		 <a href=\"mailto:shardin@umich.edu\">sakaiproject.org webmaster</a>.");
 
 		if ($result)
 //		echo "success";

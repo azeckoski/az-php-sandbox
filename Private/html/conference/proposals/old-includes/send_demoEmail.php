@@ -1,5 +1,5 @@
 <?php
-require "../includes/mysqlconnect.php";
+require "../sql/mysqlconnect.php";
 
 $sql="Select * from `cfp_vancouver_demo` WHERE id='$demo_id' ";
 

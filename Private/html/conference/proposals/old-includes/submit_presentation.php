@@ -2,7 +2,7 @@
 //echo "VALIDATED<br /><br/>";
 
 
-require_once('../includes/mysqlconnect.php');
+require_once('../sql/mysqlconnect.php');
 
 $firstname=addslashes($_SESSION['firstname']);
 $lastname=addslashes($_SESSION['lastname']);
@@ -98,15 +98,12 @@ NOW( ) ,
 
 )";
 
-
-
-$result = mysql_query($demo) or die(mysql_error("There was a problem with the registration form submission.
-		Please try to submit the registration again. 
-		 If you continue to have prolems, please report the problem to the 
-		 <a href=\"mailto:shardin@umich.edu\">sakaiproject.org webmaster</a>."));
+$result = mysql_query($demo) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
+		"registration form submission. Please try to submit the registration again. " .
+		"If you continue to have prolems, please report the problem to the " .
+		"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
 		
 		$presentation_id=mysql_insert_id(); //this is how to query the last entered auto-id entry
-
 
 ?>
 

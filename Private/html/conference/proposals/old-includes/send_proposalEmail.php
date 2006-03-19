@@ -1,7 +1,7 @@
 <?php
 //$user_id=$_GET['id'];
 //echo "start <br />";
-require "../includes/mysqlconnect.php";
+require "../sql/mysqlconnect.php";
 
 //test email using susans test entry
 $sql="Select * from `cfp_vancouver_presentation` WHERE id='$presentation_id' ";
