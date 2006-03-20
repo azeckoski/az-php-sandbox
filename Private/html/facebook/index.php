@@ -30,12 +30,13 @@ if ($searchtext) {
 }
 
 // sorting
-$sortorder = "lastname";
+$sortorder = "date_created";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all facebook items
-$from_sql = " from facebook_entries F1 left join users U1 on U1.pk=F1.users_pk ";
+$from_sql = " from facebook_entries F1 left join users U1 on U1.pk=F1.users_pk " .
+		"left join institution I1 on I1.pk=U1.institution_pk ";
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
@@ -73,7 +74,8 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
-$users_sql = "select F1.*, U1.username, U1.email, U1.firstname, U1.lastname " .
+$users_sql = "select F1.*, U1.username, U1.email, U1.firstname, " .
+	"U1.lastname, I1.name as institution_name " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
@@ -114,23 +116,37 @@ function orderBy(newOrder) {
 	<input type="hidden" name="page" value="<?= $page ?>" />
 	<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
 	<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
-	<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
+	Page <?= $page ?> of <?= $total_pages ?>
 	<input class="filter" type="submit" name="paging" value="next" title="Go to the next page" />
 	<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
-	<span class="keytext">&nbsp;-&nbsp;
+	&nbsp;-&nbsp;
 	Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 </div>
 
-<div>
-Order by:
-<a href="javascript:orderBy('name');">Name</a> -
-<a href="javascript:orderBy('abbr');">Abbr</a> -
-<a href="javascript:orderBy('type');">Type</a>
+<?php while($items=mysql_fetch_array($result)) { 
+	// TODO - make the image resize itself so that it is mot larger than 100 px on either side
+?>
+
+<div id=frame>
+	<img src="include/drawImage.php?pk=<?= $items['image_pk'] ?>" alt="facebook image" />
+	<div id=about>
+		<div class=name>
+<?php if ($items['url']) { ?>
+			<a href='<?= $items['url'] ?>' target="_new"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
+<?php } ?>
+		<?= $items['firstname']." ".$items['lastname'] ?>
+		</div>
+		<div class=institute><?= $items['institution_name'] ?></div>
+<?php // TODO - make this to it shortens the output of interests
+	/**	
+		<div class=interests><?= $items['interests'] ?></div>
+	**/
+?>
+	</div>
 </div>
 
-Stuff here
+<?php } ?>
 
-</table>
 </form>
 
 <?php include 'include/footer.php'; ?>

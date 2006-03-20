@@ -68,10 +68,10 @@
 			<tr> <th>View Options</th> </tr>
 			<tr><td>
 				<ul><strong>Display by:</strong>
-				<li><a href=view_lastname.php>Last Name</a></li>
-            	 <li> <a href=view_recent.php>Recent Entry</a></li>
-            	 <li><a href=view_institution.php>Institution</a></li>
-            	 </ul><br />
+				<li><a href="javascript:orderBy('lastname');">Last Name</a></li>
+				<li><a href="javascript:orderBy('date_created');">Recent Entry</a></li>
+				<li><a href="javascript:orderBy('inst_name');">Institution</a></li>
+				</ul>
        		  </td></tr> 
              
              <tr><td>&nbsp;</td>
@@ -80,12 +80,11 @@
              
              
 		<table cellpadding="0" cellspacing="0" class="moduletable">
-			<tr><th valign="top">Submit Photo </th></tr>
+			<tr><th valign="top">Facebook Entry </th></tr>
 			<tr><td>
 				<div><ul>
-                 <li> <a href=add_photo.php> Submit New Entry</a> </li>
-               	<li>Edit Your Entry <br />
-               	<span class=small> (coming soon)</span></li>
+                 <li> <a href="add_entry.php">Submit New Entry</a> </li>
+               	<li> <a href="add_entry.php">Edit Your Entry<br/> </li>
                </ul>
                </div>	
               </td>
