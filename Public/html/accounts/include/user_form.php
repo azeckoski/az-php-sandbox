@@ -7,7 +7,7 @@
 ?>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
-<td width="55%" valign="top">
+<td width="50%" valign="top">
 
 <!-- Column One -->
 <fieldset><legend>Personal</legend>
@@ -77,6 +77,55 @@
 	</tr>
 
 	<tr>
+		<td class="account"><b>Primary&nbspRole:</b></td>
+		<td nowrap="y">
+			<img id="primaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+			<select name="primaryRole">
+<?php	$selectItem = $thisUser['primaryRole'];
+		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
+		require $ACCOUNTS_PATH.'include/role_select.php';
+?>
+			</select><br/>
+			<input type="hidden" id="primaryRoleValidate" value="<?= $vItems['primaryRole'] ?>" />
+			<span id="primaryRoleMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="account"><b>Secondary&nbspRole:</b></td>
+		<td nowrap="y">
+			<img id="secondaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+			<select name="secondaryRole">
+<?php	$selectItem = $thisUser['secondaryRole'];
+		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
+		require $ACCOUNTS_PATH.'include/role_select.php';
+?>
+				<option value="" <?php if(!$thisUser['secondaryRole']) echo " selected='y' "; ?> >None</option>
+			</select> <em style="font-size:.8em;">(if applicable)</em><br/>
+			<input type="hidden" id="secondaryRoleValidate" value="<?= $vItems['secondaryRole'] ?>" />
+			<span id="secondaryRoleMsg"></span>
+		</td>
+	</tr>
+
+</table>
+</fieldset>
+
+<div style="margin:6px;"></div>
+<?php 
+if ($submitButtonName) {
+	echo "<input type='submit' value='$submitButtonName' />";
+} else {
+	echo "<input type='submit' value='Save Information' />";
+}
+?>
+
+</td>
+<td width="50%" valign="top">
+
+<!-- Column Two -->
+<fieldset><legend>Location</legend>
+<table border="0" cellpadding="2" cellspacing="0">
+	<tr>
 		<td class="account"><b>Institution:</b></td>
 		<td nowrap="y">
 			<img id="institution_pkImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
@@ -95,24 +144,6 @@
 		</td>
 	</tr>
 
-</table>
-</fieldset>
-
-<div style="margin:6px;"></div>
-<?php 
-if ($submitButtonName) {
-	echo "<input type='submit' value='$submitButtonName' />";
-} else {
-	echo "<input type='submit' value='Save Information' />";
-}
-?>
-
-</td>
-<td width="45%" valign="top">
-
-<!-- Column Two -->
-<fieldset><legend>Location</legend>
-<table border="0" cellpadding="2" cellspacing="0">
 	<tr>
 		<td class="account"><b>Address:</b></td>
 		<td nowrap="y">

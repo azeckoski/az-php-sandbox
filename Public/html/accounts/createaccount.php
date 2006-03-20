@@ -38,6 +38,8 @@ $vItems['password1'] = "required:password";
 $vItems['password2'] = "required:password";
 $vItems['firstname'] = "required";
 $vItems['lastname'] = "required";
+$vItems['primaryRole'] = "required";
+$vItems['secondaryRole'] = "";
 $vItems['institution_pk'] = "required";
 $vItems['address'] = "";
 $vItems['city'] = "namespaces";
@@ -57,6 +59,8 @@ if ($_POST["save"]) {
 	$PASS2 = mysql_real_escape_string($_POST["password2"]);
 	$firstname = mysql_real_escape_string($_POST["firstname"]);
 	$lastname = mysql_real_escape_string($_POST["lastname"]);
+	$primaryRole = mysql_real_escape_string($_POST["primaryRole"]);
+	$secondaryRole = mysql_real_escape_string($_POST["secondaryRole"]);
 	$institution_pk = mysql_real_escape_string($_POST["institution_pk"]);
 	$address = mysql_real_escape_string($_POST["address"]);
 	$city = mysql_real_escape_string($_POST["city"]);
@@ -95,9 +99,11 @@ if ($_POST["save"]) {
 		}
 		
 		// write the new values to the DB
-		$sqledit = "INSERT INTO users (username,password,firstname,lastname,email,institution_pk," .
+		$sqledit = "INSERT INTO users (username,password,firstname,lastname,email," .
+				"primaryRole,secondaryRole,institution_pk," .
 				"address,city,state,zipcode,country,phone,fax,otherInst) values " .
-				"('$username',PASSWORD('$PASS1'),'$firstname','$lastname','$email','$institution_pk'," .
+				"('$username',PASSWORD('$PASS1'),'$firstname','$lastname','$email'," .
+				"'$primaryRole','$secondaryRole','$institution_pk'," .
 				"'$address','$city','$state','$zipcode','$country','$phone','$fax',$otherInstSql)";
 
 		$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());

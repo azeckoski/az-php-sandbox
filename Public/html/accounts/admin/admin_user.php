@@ -51,6 +51,8 @@ $vItems['password1'] = "password";
 $vItems['password2'] = "password";
 $vItems['firstname'] = "required:focus";
 $vItems['lastname'] = "required";
+$vItems['primaryRole'] = "required";
+$vItems['secondaryRole'] = "";
 $vItems['institution_pk'] = "required";
 $vItems['address'] = "";
 $vItems['city'] = "namespaces";
@@ -70,6 +72,8 @@ if ($_POST["save"] && $allowed) {
 	$PASS2 = mysql_real_escape_string($_POST["password2"]);
 	$firstname = mysql_real_escape_string($_POST["firstname"]);
 	$lastname = mysql_real_escape_string($_POST["lastname"]);
+	$primaryRole = mysql_real_escape_string($_POST["primaryRole"]);
+	$secondaryRole = mysql_real_escape_string($_POST["secondaryRole"]);
 	$institution_pk = mysql_real_escape_string($_POST["institution_pk"]);
 	$address = mysql_real_escape_string($_POST["address"]);
 	$city = mysql_real_escape_string($_POST["city"]);
@@ -129,6 +133,7 @@ if ($_POST["save"] && $allowed) {
 
 		$sqledit = "UPDATE users set email='$email', " . $passChange . $permsSql . $otherInstSql .
 			"firstname='$firstname', lastname='$lastname', username='$username'," .
+			"primaryRole='$primaryRole', secondaryRole='$secondaryRole'," .
 			"institution_pk='$institution_pk', address='$address', city='$city', " .
 			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .
 			"fax='$fax' where pk='$USER_PK'";

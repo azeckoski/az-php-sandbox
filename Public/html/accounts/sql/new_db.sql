@@ -5,6 +5,8 @@ CREATE TABLE users (
     firstname   		varchar(100) NULL,
     lastname    		varchar(100) NULL,
     email       		varchar(100) NOT NULL UNIQUE,
+    primaryRole			varchar(100) NULL,
+    secondaryRole		varchar(100) NULL,
     city    			varchar(100) NULL,
     state    			varchar(50) NULL,
     zipcode   	 		varchar(20) NULL,
@@ -31,6 +33,8 @@ alter table users add phone varchar(20);
 alter table users add fax varchar(20);
 alter table users add otherInst varchar(200);
 update users set otherInst='unknown' where institution_pk='1';
+alter table users add primaryRole varchar(100);
+alter table users add secondaryRole varchar(100);
 ****/
 
 insert into users (username, password, email,activated) values ('aaronz',PASSWORD('password1'),'aaronz@vt.edu','1');
