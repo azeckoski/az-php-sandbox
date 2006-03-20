@@ -76,8 +76,8 @@ if (!$isPartner){
 <div id=cfp> <br />
 
 <!-- start form section -->
-<form id='form1' method="POST" action="https://payments.verisign.com/payflowlink">
-<table width="500px"  cellpadding="0" cellspacing="0">
+<form id='form1' method="post" action="https://payments.verisign.com/payflowlink">
+<table width="500"  cellpadding="0" cellspacing="0">
 	<tr>
 		<td valign="top" colspan="2" style="padding:0px;">
 			<span class="small"> * = Required fields</span>
@@ -85,7 +85,7 @@ if (!$isPartner){
     </tr>
 	<tr>
 		<td valign=top>
-			<div align=\"right\">
+			<div align="right">
 				<strong>Registrant's Information: </strong>
 			</div>
 		</td>
@@ -111,11 +111,11 @@ if (!$isPartner){
 
 	<tr>
 		<td valign=top>
-			<div align=\"right\">
+			<div align="right">
 				<strong><span>Registration Fee</span>: &nbsp;&nbsp;&nbsp;</strong> 
-			</div></strong>
+			</div>
 		</td>
-	 	<td width='300px'><?= $amount ?></td>
+	 	<td width='300'><?= $amount ?></td>
 	</tr>
 
 <?php if ($CONF['transID']) { 
@@ -124,11 +124,11 @@ if (!$isPartner){
 
 	<tr>
 		<td valign=top>
-			<div align=\"right\">
+			<div align="right">
 				<strong><span>Registration Fee</span>: &nbsp;&nbsp;&nbsp;</strong> 
-			</div></strong>
+			</div>
 		</td>
-	 	<td width='300px'><?= $amount ?></td>
+	 	<td width='300'><?= $amount ?></td>
 	</tr>
 
 <?php } else { 
@@ -137,9 +137,9 @@ if (!$isPartner){
 	<tr>
 	    <td>&nbsp;</td>
 	    <td><br />
-			<input type="hidden" name="USER1" value="<?php echo $USER_PK ?>">
-			<input type="hidden" name="USER2" value="<?php echo $registrant ?>">
-			<input type="hidden" name="USER3" value="<?php echo $CONF['delegate'] ?>">
+			<input type="hidden" name="USER1" value="<?php echo $USER_PK ?>"/>
+			<input type="hidden" name="USER2" value="<?php echo $registrant ?>"/>
+			<input type="hidden" name="USER3" value="<?php echo $CONF['delegate'] ?>"/>
 			<!--  
 			<input type="hidden" name="ORDERFORM" value="TRUE" >
 			<input type="hidden" name="ECHODATA" value="TRUE" >
@@ -151,15 +151,15 @@ if (!$isPartner){
           <!-- cardnum for testing -->
          <!-- <input type="hidden" name="EXPDATE" value="0806" > -->
           <!--  exp date for testing -->
-          <input type="hidden" name="METHOD" value="CC" >
-          <input type="hidden" name="TYPE" value="S">
-          <input type="hidden" name="LOGIN" value="sakaiproject">
-          <input type="hidden" name="PARTNER" value="verisign">
+          <input type="hidden" name="METHOD" value="CC" />
+          <input type="hidden" name="TYPE" value="S"/>
+          <input type="hidden" name="LOGIN" value="sakaiproject"/>
+          <input type="hidden" name="PARTNER" value="verisign"/>
 <?php  $amount='1.00';
 ?>
-          <input type="hidden" name="AMOUNT" value="<?php echo $amount; ?>">
-          <input type="hidden" name="DESCRIPTION" value="Sakai -Vancover Conference registration">
-          <input type="submit" name="submit" value="pay by credit card >>" >
+          <input type="hidden" name="AMOUNT" value="<?php echo $amount; ?>"/>
+          <input type="hidden" name="DESCRIPTION" value="Sakai -Vancover Conference registration"/>
+          <input type="submit" name="submit" value="pay by credit card >>" />
         </td>
       </tr>
     </table>

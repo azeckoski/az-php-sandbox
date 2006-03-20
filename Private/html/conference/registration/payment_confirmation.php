@@ -118,32 +118,13 @@ if ($Message) {
 <!-- end container-inner -->
 </div>
 <!--end of outer left -->
-<!-- start outerright -->
-<div id=outerright>
-  <!-- start of rightcol_top -->
-  <!-- end of rightcol_top-->
-  <!--end rightcol -->
-  <div id=rightcol>
-    <div class="componentheading">Sakai Conference Facebook Needs You!</div>
-    <div>
-     <br /> <img src="includes/facebook.jpg" height="75" width="130" /><br />
-      <br />
-      We look forward to seeing you in Vancouver, but we want to see you even before then --in the Sakai Conference Facebook. <br />
-      <br />Past conference attendees have greatly appreciated being able to put names to faces the moment they arrive at the conference, and often use the conference facebooks to help them locate someone they remember talking with at previous conferences. <br />
-      <br />
-      <strong>Please take the time now to add your photo to the facebook. <br />
-      </strong> <br />
-    </div>
-  </div>
-  <!--end rightcol -->
-</div>
-<!-- end outerright -->
+
 <?php
 	// include('confirm_reg_data.php');
 	$memberType="2";  //non-member
 	include('include/email_confirmation.php');
 ?>
 
-//<?php include '../include/outer_right.php'; // Include right column ?>
+<?php include '../include/outer_right.php'; // Include right column ?>
 
 <?php require '../include/footer.php'; ?>
