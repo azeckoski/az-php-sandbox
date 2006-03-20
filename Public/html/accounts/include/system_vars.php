@@ -29,7 +29,7 @@ elseif ($ENVIRONMENT == "test") {
 elseif ($ENVIRONMENT == "prod") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai Web";
-	$SERVER_NAME = "http://sakaiproject.org";
+	$SERVER_NAME = "https://sakaiproject.org";
 	$USE_LDAP = 0; // 0=no ldap
 
 	$HELP_EMAIL = "sakaiproject_webmaster@umich.edu";
@@ -41,7 +41,7 @@ elseif ($ENVIRONMENT == "devSusan") {
 	$SERVER_NAME = "http://localhost";
 	$USE_LDAP = 0; // 0=no ldap
 
-	$HELP_EMAIL = "sakaiproject_webmaster@umich.edu";
+	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
 }
 else {
@@ -57,7 +57,13 @@ $LOGOUT_PAGE = "logout.php";
 // Load LDAP module
 if ($USE_LDAP && !extension_loaded('ldap')) {
 	if (!dl('ldap.so')) {
-		die("Could not enable LDAP!");
+		die("Could not enable LDAP library!");
+	}
+}
+// Load the GD module (for images)
+if (!extension_loaded('gd')) {
+	if (!dl('gd.so')) {
+		die("Could not enable GD library!");
 	}
 }
 
