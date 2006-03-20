@@ -84,7 +84,7 @@ if ($_POST['save']) { // saving the form
 		$usersql = "UPDATE users SET address='$address1', city='$city', state='$state', " .
 			"zipcode='$zip', country='$country', phone='$phone', fax='$fax' where pk='$USER_PK'";
 		$result = mysql_query($usersql) or die('User update query failed: ('.$usersql.')' . mysql_error());
-header("Location: index.php");
+header("Location: confirmpage.php");
 }
 }
 ?>
