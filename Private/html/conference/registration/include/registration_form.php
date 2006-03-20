@@ -440,7 +440,7 @@
       in case we need to contact you.
       <div style="padding-left: 40px;">
       	<img id="delegateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-        <input type="text" name="delegate" size="40" maxlength="50" />
+        <input type="text" name="delegate" value="<?php echo $CONF['delegate'];?>" size="40" maxlength="50" />
       </div>
     </div>
 	<input type="hidden" id="delegateValidate" value="<?= $vItems['delegate'] ?>"/>

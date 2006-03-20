@@ -154,12 +154,10 @@ if ($_POST['save']) { // saving the form
 //$EXTRA_LINKS = " - <a style='font-size:9pt;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
 //$EXTRA_MESSAGE = "<br/><span style='font-size:8pt;'>Technical problems? Please contact <a href='mailto:$HELP_EMAIL'>$HELP_EMAIL</a></span><br/>";
 ?>
-
-<!-- // INCLUDE THE HTML HEAD -->
-<?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
+<?php require $ACCOUNTS_PATH.'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
-<?php include '../include/header.php';  ?>
+<?php require '../include/header.php';  ?>
 
 
 <table width="100%" class="blog" cellpadding="0" cellspacing="0">
@@ -186,6 +184,11 @@ if ($_POST['save']) { // saving the form
 			if ($new_req) {
 				require 'include/email_confirmation.php';
 			}
+		}
+	} else if ($isRegistered) {
+		if ($isPartner || (!$isPartner && $CONF['transID'])) {
+			// already registered and not a partner that has not paid
+			require 'include/member_confirmation.php';
 		}
 	} else { // show registration form
 ?>
