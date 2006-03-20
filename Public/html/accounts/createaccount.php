@@ -108,11 +108,8 @@ if ($_POST["save"]) {
 	}
 }
 ?>
-
-<!-- // INCLUDE THE HTML HEAD -->
 <?php include 'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<!-- // INCLUDE THE HEADER -->
 <?php include 'include/header.php';  ?>
 
 <?= $Message ?>
@@ -123,9 +120,10 @@ if ($_POST["save"]) {
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
 <input type="hidden" name="save" value="1" />
 
-<?php 
+<?php
+	$thisUser = array();
 	$submitButtonName = "Create Account";
-	require 'include/user_form.php';
+	require $ACCOUNTS_PATH.'include/user_form.php';
 ?>
 
 </form>
@@ -138,11 +136,7 @@ if ($_POST["save"]) {
 
 <script type="text/javascript">
 <!--
-window.onload = doFocus;
-
-function doFocus() {
 	document.adminform.username.focus();
-}
 // -->
 </script>
 

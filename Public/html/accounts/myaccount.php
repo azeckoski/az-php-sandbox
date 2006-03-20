@@ -91,11 +91,8 @@ if ($_POST["save"]) {
 	}
 }
 ?>
-
-<!-- // INCLUDE THE HTML HEAD -->
 <?php include 'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<!-- // INCLUDE THE HEADER -->
 <?php include 'include/header.php';  ?>
 
 <?= $Message ?>
