@@ -112,7 +112,7 @@ if ($_POST["save"]) {
 
 <span style="font-size:9pt;">
 	<b>Note:</b> <i>To change your password, enter the new values in the fields above.<br/>
-	To leave your password at it's current value, leave the password fields blank.</i>
+	To leave your password at its current value, leave the password fields blank.</i>
 </span>
 <br/>
 
