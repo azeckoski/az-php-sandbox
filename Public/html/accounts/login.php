@@ -167,11 +167,11 @@ function doFocus() {
 	<div class="loginheader"><?= $SYSTEM_NAME ?> Login</div>
 	<table border="0" class="padded">
 		<tr>
-			<td><b>Username:</b></td>
+			<td><b style="font-size:11pt;">Username:</b></td>
 			<td><input type="text" name="username" tabindex="1" value="<?= $USERNAME ?>" /></td>
 		</tr>
 		<tr>
-			<td><b>Password:</b></td>
+			<td><b style="font-size:11pt;">Password:</b></td>
 			<td><input type="password" name="password" tabindex="2" value="<?= $PASSWORD ?>" /></td>
 		</tr>
 		<tr>
@@ -197,7 +197,7 @@ function doFocus() {
 	<div class="rightheader">Info Display</div>
 	<table border="0" class="padded">
 	<tr>
-	<td>
+	<td style="font-size:11pt;">
 <?php // output the passed message if there is one
 	if ($_REQUEST["msg"]) {
 		echo "<b>NOTE:</b> ".$_REQUEST["msg"]."<br><br>";
