@@ -1,7 +1,6 @@
 </head>
 <body class="waterbody">
-<div align="center">
-<!-- start centering -->
+
 <div id="container">
 <!-- start container -->
 <div id=header>
@@ -38,7 +37,7 @@
         </tr>
       </table>
     </div>
-  </div>
+  </div> <!-- end topsearch -->
   <!-- end logo -->
 </div>
 <!-- end header -->
@@ -48,7 +47,8 @@
 <!-- start outerleft -->
 <!-- start top menu. -->
 <div id="topmenu" align=right>
-	<a href="http://www.sakaiproject.org/index.php">sakaiproject.org</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
+	<a href="http://www.sakaiproject.org/index.php">sakaiproject.org</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 </div>
 <!-- end top menu.  -->
 <!-- start image header -->
 <!-- end image header -->
@@ -58,16 +58,16 @@
 				
 	    <table cellpadding="0" cellspacing="0" class="moduletable">
 	    <tr><th valign="top">Vancouver Conference</th></tr>
-		<tr align="left"><td><a href="http://www.sakaiproject.org/index.php?option=com_content&task=view&id=319&Itemid=527" class="mainlevel" >Conference Home</a></td></tr>
-		<tr align="left"><td><a href="https://www.sakaiproject.org/conference/registration/" class="mainlevel" id="active_menu">Registration</a></td></tr>
+		<tr align="left"><td><a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=319&amp;Itemid=527" class="mainlevel" >Conference Home</a></td></tr>
+		<tr align="left"><td><a href="https://www.sakaiproject.org/conference/registration/" class="mainlevel" >Registration</a></td></tr>
 		<tr align="left"><td><a href="index.php" class="mainlevel" id="active_menu">Facebook</a></td></tr>
 		<tr align="left"><td>&nbsp;<br /></td></tr>
 		</table>
 		
 		<table cellpadding="0" cellspacing="0" class="moduletable">
 			<tr> <th>View Options</th> </tr>
-			<tr><td>
-				<ul><strong>Display by:</strong>
+			<tr><td><br/>&nbsp;&nbsp;&nbsp;<strong>Display by:</strong>
+				<ul>
 				<li><a href="javascript:orderBy('lastname');">Last Name</a></li>
 				<li><a href="javascript:orderBy('date_created');">Recent Entry</a></li>
 				<li><a href="javascript:orderBy('inst_name');">Institution</a></li>
@@ -82,20 +82,21 @@
 		<table cellpadding="0" cellspacing="0" class="moduletable">
 			<tr><th valign="top">Facebook Entry </th></tr>
 			<tr><td>
-				<div><ul>
+				<ul>
                  <li> <a href="add_entry.php">Submit New Entry</a> </li>
-               	<li> <a href="add_entry.php">Edit Your Entry<br/> </li>
+               	<li> <a href="add_entry.php">Edit Your Entry</a><br/> </li>
                </ul>
-               </div>	
+               	
               </td>
 			</tr>
 				
-			<tr><td valign=top align=left>
-            <div id=help><br />
+			<tr><td valign=top>
+            <br /><div id=help>
 			<p><strong>Need help?</strong><br />If you experience problems adding your information to our facebook, 
 			or if you need to make changes after your information is published, please email 
-			<a style="color: #006699;" href="mailto:<?= $HELP_EMAIL ?>"><?= $HELP_EMAIL ?></a></p>
-		   </div>
+			 <a style="color: #006699;" href="mailto:<?= $HELP_EMAIL ?>">webmaster</a> .
+			<!-- <a style="color: #006699;" href="mailto:<?= $HELP_EMAIL ?>"><?= $HELP_EMAIL ?></a> -->
+		   </p></div>
 			</td></tr>
 		</table>
 	</div>

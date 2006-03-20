@@ -86,7 +86,7 @@ $items_displayed = mysql_num_rows($result);
 <!-- // INCLUDE THE HTML HEAD -->
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<script>
+<script type="text/javascript">
 <!--
 function popup(url,name,w,h){
 	settings="width=" + w + ",height=" + h + ",scrollbars=yes,location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=yes";
@@ -127,12 +127,12 @@ function orderBy(newOrder) {
 	// TODO - make the image resize itself so that it is mot larger than 100 px on either side
 ?>
 
-<div id=frame>
+<div class=frame>
 	<img src="include/drawImage.php?pk=<?= $items['image_pk'] ?>" alt="facebook image" />
-	<div id=about>
+	<div class=about>
 		<div class=name>
 <?php if ($items['url']) { ?>
-			<a href='<?= $items['url'] ?>' target="_new"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
+			<a href='<?= $items['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
 <?php } ?>
 		<?= $items['firstname']." ".$items['lastname'] ?>
 		</div>

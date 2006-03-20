@@ -1,17 +1,17 @@
 
-<!-- end main body stuff here -->
+<!-- end content main body stuff here -->
 </div>
 <!-- end of photo section -->
 </div>
-			
-<!-- end main body -->
-</div>
-</div>
 		
+</div>
+<!-- end of outerleft -->
+</div>
+<!-- end of container background -->
 <div id="blackline">
 </div>
 
-</div>
+
 <!-- copyright notice -->
 <div id="copyright">
 	copyright 2006
@@ -31,7 +31,9 @@
 	</div>
 </div>
 <!--end  footer -->
-<br/>&nbsp;<br/> <!-- a little extra whitespace -->
 
+</div> <!-- end container -->
+<div>&nbsp;</div>
+</div>
 </body>
 </html>
