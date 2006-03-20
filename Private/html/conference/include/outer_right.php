@@ -11,7 +11,8 @@
 <!-- start outerright -->
 <div id=outerright>
 	<div id=rightcol>
-	    <?php if ($isPartner){ ?>
+	    <?php // if ($isPartner){
+	    //we allow all conference attendees to do this ?>
 	    <div class="componentheading">Sakai Conference Facebook Needs You!</div>
 	    <div><br />
 	      <img src="<?= $TOOL_PATH ?>/include/images/facebook.jpg" height="75" width="130" alt="Sakai facebook" /><br />
@@ -21,7 +22,7 @@
 	      <strong>Please take the time now to <a href="#">add your photo to the facebook. </a><br />
 	      </strong> <br />
 	    </div>
-	    <?php } ?>
+	    <?php // } ?>
 	</div> <!--end rightcol -->
 </div> <!-- end outerright -->
 
