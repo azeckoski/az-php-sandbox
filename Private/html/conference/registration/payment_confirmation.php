@@ -71,7 +71,7 @@ if ($Message) {
 }
 ?>
 
-<table width="500px"  id=confirm  cellpadding="3" cellspacing="0">
+<table width="500"  id=confirm  cellpadding="3" cellspacing="0">
 
   <tr>
     <td>&nbsp;</td>
@@ -90,7 +90,7 @@ if ($Message) {
     <strong>Special announcements and reminders:</strong>
         <ul>
           <li><strong>Visit the Sakai Conference Facebook</strong> to see who else is attending -- and add your photo while you're there! (see sidebar for more information)</li>
-          <li><strong>Call for Proposals Deadline is March 31st.</strong> [ <a href=" http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=170&Itemid=519">more information</a> ]</li>
+          <li><strong>Call for Proposals Deadline is March 31st.</strong> [ <a href=" http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519">more information</a> ]</li>
         </ul>
       </blockquote><div><br />
   <br />
@@ -126,7 +126,7 @@ if ($Message) {
   <div id=rightcol>
     <div class="componentheading">Sakai Conference Facebook Needs You!</div>
     <div>
-     <br /> <img src="includes/facebook.jpg" height="75px" width="130px"><br />
+     <br /> <img src="includes/facebook.jpg" height="75" width="130" /><br />
       <br />
       We look forward to seeing you in Vancouver, but we want to see you even before then --in the Sakai Conference Facebook. <br />
       <br />Past conference attendees have greatly appreciated being able to put names to faces the moment they arrive at the conference, and often use the conference facebooks to help them locate someone they remember talking with at previous conferences. <br />
@@ -144,6 +144,6 @@ if ($Message) {
 	include('include/email_confirmation.php');
 ?>
 
-<?php include '../include/outer_right.php'; // Include right column ?>
+//<?php include '../include/outer_right.php'; // Include right column ?>
 
 <?php require '../include/footer.php'; ?>
