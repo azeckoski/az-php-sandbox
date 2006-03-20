@@ -32,11 +32,11 @@ require 'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['username'] = "required:nospaces:uniquesql;username;users";
+$vItems['username'] = "required:nospaces:focus:uniquesql;username;users";
 $vItems['email'] = "required:email:uniquesql;email;users";
 $vItems['password1'] = "required:password";
 $vItems['password2'] = "required:password";
-$vItems['firstname'] = "required:focus";
+$vItems['firstname'] = "required";
 $vItems['lastname'] = "required";
 $vItems['institution_pk'] = "required";
 $vItems['address'] = "";
@@ -133,12 +133,6 @@ if ($_POST["save"]) {
 	It will not be given to anyone else. Passwords are not stored as plain text in the database.</i>
 </span>
 <br/>
-
-<script type="text/javascript">
-<!--
-	document.adminform.username.focus();
-// -->
-</script>
 
 <?php } ?>
 
