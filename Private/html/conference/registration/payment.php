@@ -147,9 +147,9 @@ if (!$isPartner){
 			<input type="hidden" name="SHOWCONFIRM" value="TRUE" >
 			-->
           <!-- cardnum for testing -->
-          <input type="hidden" name="CARDNUM" value="4111111111111111" >
+       <!--   <input type="hidden" name="CARDNUM" value="4111111111111111" > -->
           <!-- cardnum for testing -->
-          <input type="hidden" name="EXPDATE" value="0806" >
+         <!-- <input type="hidden" name="EXPDATE" value="0806" > -->
           <!--  exp date for testing -->
           <input type="hidden" name="METHOD" value="CC" >
           <input type="hidden" name="TYPE" value="S">
