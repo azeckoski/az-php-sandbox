@@ -25,8 +25,9 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 // Define the array of items to validate and the validation strings
 $vItems = array();
 $vItems['image'] = "required";
-$vItems['url'] = "";
+$vItems['url'] = "focus";
 $vItems['interests'] = "";
+$vItems['viewable'] = "required";
 
 $PK = 0;
 
@@ -38,6 +39,7 @@ if ($_REQUEST["save"]) {
 	$image = $_FILES["image"]['name'];
 	$url = mysql_real_escape_string($_POST["url"]);
 	$interests = mysql_real_escape_string($_POST["interests"]);
+	$viewable = mysql_real_escape_string($_POST["viewable"]);
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -63,6 +65,8 @@ if ($_REQUEST["save"]) {
 			$fileName = $file['name'];
 			$fileSize = $file['size'];
 			$fileType = $file['type'];
+			list($width, $height) = getimagesize($file['tmp_name']);
+			$fileDimensions = $width."x".$height;
 			
 			$fp      = fopen($file['tmp_name'], 'r');
 			$content = fread($fp, filesize($file['tmp_name']));
@@ -71,17 +75,49 @@ if ($_REQUEST["save"]) {
 			
 			if(!get_magic_quotes_gpc()) { $fileName = addslashes($fileName); }
 
-			// TODO - remove the old image first or make this an update
+			// now create a thumbnail of the image if we need to
+			// no thumbnail is created or entered if the image is below maxheight and maxwidth
+			$maxWidth = $MAX_THUMB_WIDTH;
+			$maxHeight = $MAX_THUMB_HEIGHT;
+
+			if ($width > $maxWidth || $height > $maxHeight) {
+				print "making new thumbnail";
+				$temp_dir = ini_get(upload_tmp_dir);
+			
+				// Get new dimensions
+				if ($maxWidth && ($width < $height)) {
+				   $maxWidth = ($maxHeight / $height) * $width;
+				} else {
+				   $maxHeight = ($maxWidth / $width) * $height;
+				}
+
+				$image_input = "";
+				switch($IMAGE_MIMES[$file['type']]) {
+					case 'jpg': $image_input = imagecreatefromjpeg($file['tmp_name']); break;
+					case 'png': $image_input = imagecreatefrompng($file['tmp_name']);  break;
+					case 'gif': $image_input = imagecreatefromgif($file['tmp_name']);  break;
+					case 'bmp': $image_input = imagecreatefromwbmp($file['tmp_name']); break;
+					default: die("Invalid MIME type used...."); break;
+				}
+       				
+				$image_p = imagecreatetruecolor($maxWidth, $maxHeight); // create empty image of thumb size
+				imagecopyresampled($image_p, $image_input, 0, 0, 0, 0, $maxWidth, $maxHeight, $width, $height);
+
+
+				imagedestroy($image_p);
+			}
+
+			// updates the old image or creates a new one
 			if($PK && $image_pk) {
 				// entry exists already
 				$files_query = "UPDATE facebook_images SET name='$fileName'," .
-						"size='$fileSize', type='$fileType', content='$content' " .
-						"where pk='$image_pk'";
+						"size='$fileSize', type='$fileType', content='$content', " .
+						"dimensions='$fileDimensions' where pk='$image_pk'";
 				mysql_query($files_query) or die("Entry upload query failure: ".mysql_error());
 			} else {
 				// new entry
-				$files_query = "INSERT INTO facebook_images (name, size, type, content) ".
-					"VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
+				$files_query = "INSERT INTO facebook_images (name, size, type, dimensions, content) ".
+					"VALUES ('$fileName', '$fileSize', '$fileType', '$fileDimensions', '$content')";
 				mysql_query($files_query) or die("Entry upload query failure: ".mysql_error());
 				$image_pk = mysql_insert_id();
 			}
@@ -97,15 +133,15 @@ if ($_REQUEST["save"]) {
 			}
 			// update old entry
 			$entry_sql = "UPDATE facebook_entries set " . $image_sql .
-				"url='$url', interests='$interests' " .
+				"url='$url', interests='$interests', viewable='$viewable' " .
 				"where pk='$PK'";
 			mysql_query($entry_sql) or die("Entry update failed: ".mysql_error().": ".$entry_sql);
 			$Message .= "Updated existing entry<br>";
 		} else {
 			// new entry
 			$entry_sql = "insert into facebook_entries " .
-				"(users_pk, image_pk, url, interests) values " .
-				"('$USER_PK','$image_pk','$url','$interests')";
+				"(users_pk, image_pk, url, interests, viewable) values " .
+				"('$USER_PK','$image_pk','$url','$interests', '$viewable')";
 			mysql_query($entry_sql) or die("Entry query failed: ".mysql_error().": ".$entry_sql);
 			$PK = mysql_insert_id();
 			$Message .= "Saved new entry<br>";
@@ -157,6 +193,7 @@ $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 			<b>Name:</b> <?= $thisImage['name'] ?><br/>
 			<b>Type:</b> <?= $thisImage['type'] ?><br/>
 			<b>Size:</b> <?= $thisImage['size'] ?> bytes<br/>
+			<b>Dimensions:</b> <?= $thisImage['dimensions'] ?><br/>
 		</td>
 	</tr>
 <?php } ?>
@@ -198,6 +235,22 @@ $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 	</tr>
 
 	<tr>
+		<td><b>Viewable&nbsp;setting:</b></td>
+		<td colspan="2" class="field">
+			<img id="viewableImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+			<input type="radio" name="viewable" value="0" 
+				<?php if ($thisItem['viewable'] == "0") echo " checked='y' "; ?>
+			/> Sakai users only
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="viewable" value="1" 
+				<?php if ($thisItem['viewable'] == "1") echo " checked='y' "; ?>
+			/> Anyone
+			<input type="hidden" id="viewableValidate" value="<?= $vItems['viewable'] ?>" />
+			<span id="viewableMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
 		<td class="field" colspan="3">
 			<input type="submit" name="account" value="Save information" tabindex="8">
 		</td>
@@ -205,7 +258,5 @@ $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 </table>
 </form>
 </fieldset>
-
-<script type="text/javascript">document.adminform.title.focus();</script>
 
 <?php include 'include/footer.php'; // Include the FOOTER ?>

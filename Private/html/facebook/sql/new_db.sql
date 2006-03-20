@@ -17,7 +17,9 @@ CREATE TABLE facebook_images (
 	name				VARCHAR(100) NOT NULL,
 	type				VARCHAR(100) NOT NULL,
 	size				INT NOT NULL,
-	content				MEDIUMBLOB NOT NULL,
+	dimensions			VARCHAR(100) NOT NULL,
+	content				BLOB NOT NULL,
 	thumb				MEDIUMBLOB,
+	thumbtype			VARCHAR(100),
 	PRIMARY KEY(pk)
 );
