@@ -94,7 +94,7 @@ if ($_POST["save"]) {
 		$otherInstSql = "NULL";
 		if (!is_numeric($institution_pk)) {
 			// assume someone is using the other institution, Other MUST be pk=1
-			$otherInstSql = $institution_pk;
+			$otherInstSql = "'$institution_pk'";
 			$institution_pk = 1;
 		}
 		
