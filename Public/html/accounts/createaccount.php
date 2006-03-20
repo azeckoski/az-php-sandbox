@@ -100,17 +100,17 @@ if ($_POST["save"]) {
 		$created = true;
 
 		// log account creation
-		writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"created account: $USERNAME ($email) " .
-				"$LASTNAME,$FIRSTNAME inst=$INSTITUTION_PK");
+		writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"created account: $username ($email) " .
+				"$lastname,$firstname inst=$institution_pk");
 		
 		// bring in the activation email sending form
-		include ("include/activation_email.php");
+		require 'include/activation_email.php';
 	}
 }
 ?>
-<?php include 'include/top_header.php';  ?>
+<?php require 'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<?php include 'include/header.php';  ?>
+<?php require 'include/header.php';  ?>
 
 <?= $Message ?>
 
@@ -136,4 +136,4 @@ if ($_POST["save"]) {
 
 <?php } ?>
 
-<?php include 'include/footer.php'; // Include the FOOTER ?>
+<?php require 'include/footer.php'; // Include the FOOTER ?>
