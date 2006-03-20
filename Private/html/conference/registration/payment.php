@@ -155,7 +155,7 @@ if (!$isPartner){
           <input type="hidden" name="TYPE" value="S">
           <input type="hidden" name="LOGIN" value="sakaiproject">
           <input type="hidden" name="PARTNER" value="verisign">
-<?php // $amount='1.00';
+<?php  $amount='1.00';
 ?>
           <input type="hidden" name="AMOUNT" value="<?php echo $amount; ?>">
           <input type="hidden" name="DESCRIPTION" value="Sakai -Vancover Conference registration">
