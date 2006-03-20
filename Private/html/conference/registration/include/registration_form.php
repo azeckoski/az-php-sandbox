@@ -37,16 +37,19 @@
     
 <?php if (!$isPartner) {  // this means the user is NOT in partner inst 
 ?>
-    <tr>
-      <td>
-      	<div align="right"><span class="formLable">
-      		<strong>Organization/Company: </strong></span>
-      	</div>
-      </td>
-      <td>
-      	<input type="text" name="otherInst" size="30" maxlength="40" value="<?php echo $CONF['otherInst']; ?>" />
-      </td>
-    </tr>
+  <tr>
+  <td>
+      <div align="right">
+      	<img id="otherInstImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+      	<strong><span class="formLable">Organization:</span></strong>
+      </div>
+  </td>
+  <td>
+  	<input type="text" name="otherInst" size="30" maxlength="30" value="<?php echo $USER['otherInst'];?>" />
+  	<input type="hidden" id="otherInstValidate" value="<?= $vItems['otherInst'] ?>"/>
+    <span id="otherInstMsg"></span>
+  </td>
+</tr>
 <?php } ?>
 
 <tr>

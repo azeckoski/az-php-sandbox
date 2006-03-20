@@ -35,6 +35,7 @@ if($_GET['msg']) {
 // Define the array of items to validate and the validation strings
 $vItems = array();
 $vItems['title'] = "required:focus";
+$vItems['otherInst'] = "required";
 $vItems['address1'] = "required";
 $vItems['city'] = "required";
 $vItems['state'] = "required:namespaces";
