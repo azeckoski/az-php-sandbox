@@ -85,11 +85,20 @@ if ($_POST["save"]) {
 	$username = strtolower($username); // lowercase the username
 
 	if ($errors == 0) {
+		
+		// handle the other institution stuff in a special way
+		$otherInstSql = "NULL";
+		if (!is_numeric($institution_pk)) {
+			// assume someone is using the other institution, Other MUST be pk=1
+			$otherInstSql = $institution_pk;
+			$institution_pk = 1;
+		}
+		
 		// write the new values to the DB
 		$sqledit = "INSERT INTO users (username,password,firstname,lastname,email,institution_pk," .
-				"address,city,state,zipcode,country,phone,fax) values " .
+				"address,city,state,zipcode,country,phone,fax,otherInst) values " .
 				"('$username',PASSWORD('$PASS1'),'$firstname','$lastname','$email','$institution_pk'," .
-				"'$address','$city','$state','$zipcode','$country','$phone','$fax')";
+				"'$address','$city','$state','$zipcode','$country','$phone','$fax',$otherInstSql)";
 
 		$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());
 		$userPk = mysql_insert_id();

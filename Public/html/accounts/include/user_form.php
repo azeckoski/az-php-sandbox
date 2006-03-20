@@ -81,9 +81,15 @@
 		<td nowrap="y">
 			<img id="institution_pkImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="institution_pk">
+<?php	$selectItem = $thisUser['otherInst'];
+		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
+?>
 				<option value=""> --Select Your Organization-- </option>
-				<?= generate_partner_dropdown($thisUser['institution_pk']) ?>
-			</select>
+				<?= generate_partner_dropdown($thisUser['institution_pk'],false,'1') ?>
+				<option value="">&nbsp;</option>
+				<option value="-other-">Other (Not Listed)</option>
+			</select><br/>
+			<input style="display:none;" type="text" id="institution_pkOther" value="<?= $thisUser['otherInst'] ?>" size="40" maxlength="100" />
 			<input type="hidden" id="institution_pkValidate" value="<?= $vItems['institution_pk'] ?>" />
 			<span id="institution_pkMsg"></span>
 		</td>

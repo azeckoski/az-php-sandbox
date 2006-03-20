@@ -96,6 +96,14 @@ if ($_POST["save"] && $allowed) {
 	}
 
 	if ($errors == 0) {
+		// handle the other institution stuff in a special way
+		$otherInstSql = " otherInst=NULL, ";
+		if (!is_numeric($institution_pk)) {
+			// assume someone is using the other institution, Other MUST be pk=1
+			$otherInstSql = " otherInst='$institution_pk', ";
+			$institution_pk = 1;
+		}
+
 		// write the new values to the DB
 		$passChange = "";
 		if (strlen($PASS1) > 0) {
@@ -119,7 +127,7 @@ if ($_POST["save"] && $allowed) {
 			$permsSql .= " admin_reqs = '0', ";
 		}
 
-		$sqledit = "UPDATE users set email='$email', " . $passChange . $permsSql .
+		$sqledit = "UPDATE users set email='$email', " . $passChange . $permsSql . $otherInstSql .
 			"firstname='$firstname', lastname='$lastname', username='$username'," .
 			"institution_pk='$institution_pk', address='$address', city='$city', " .
 			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .

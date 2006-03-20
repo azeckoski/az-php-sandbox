@@ -62,21 +62,25 @@ if ($USE_LDAP && !extension_loaded('ldap')) {
 }
 
 // GLOBAL functions
-function generate_partner_dropdown($institution="", $short=0) {
+// setting the institution will select the institution with that pk
+// setting short to true will truncate the institution names
+// setting an ignore value will cause the list skip that item
+function generate_partner_dropdown($institution="", $short=false, $ignore="") {
 	global $SAKAI_PARTNERS;
 	$output = "";
 
     $institution_select_statement = "select PK, NAME from institution order by NAME";
     $result = mysql_query($institution_select_statement);
     while ($instRow = mysql_fetch_array($result)) {
-    		$selected="";
-	    if ( $institution == $instRow['PK'] ) { 
-	    		$selected=" selected='y'";
-	    	}
+    	$selected="";
+		if ($ignore == $instRow['PK']) { continue; } // skip the ignore item
+	    if ( $institution && $institution == $instRow['PK'] ) {
+	    	$selected=" selected='y'";
+	    }
 	    $instName = $instRow['NAME'];
 	    if ($short && (strlen($instName) > 38) ) {
 			$instName = substr($instName,0,35) . "...";
-	    	}
+	    }
 		$output .= "<option title=\"".$instRow['NAME']."\" value=\"" . $instRow['PK'] . "\"$selected>" . $instName . "</option>\n";
 	}
  

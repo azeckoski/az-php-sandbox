@@ -11,6 +11,7 @@ CREATE TABLE users (
     country   	 		varchar(100) NULL,
     phone    			varchar(20) NULL,
     fax		    		varchar(20) NULL,
+    otherInst			varchar(200) NULL,
     date_created		timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     activated   		enum('0','1') NOT NULL DEFAULT '0',
     institution_pk  	int(10) NULL,
@@ -28,6 +29,8 @@ alter table users add zipcode varchar(20);
 alter table users add country varchar(100);
 alter table users add phone varchar(20);
 alter table users add fax varchar(20);
+alter table users add otherInst varchar(200);
+update users set otherInst='unknown' where institution_pk='1';
 ****/
 
 insert into users (username, password, email,activated) values ('aaronz',PASSWORD('password1'),'aaronz@vt.edu','1');
@@ -46,7 +49,7 @@ CREATE TABLE institution (
     pk				int(10) auto_increment not null,
     abbr			varchar(25) null,
     name			varchar(255) NOT NULL,
-    type			enum('educational','commerical') NOT NULL DEFAULT 'educational',
+    type			enum('educational','commercial') NOT NULL DEFAULT 'educational',
     rep_pk			int(10) null,
     repvote_pk		int(10) null,
     primary key(pk)
@@ -55,6 +58,11 @@ CREATE TABLE institution (
 // alter table institution add type enum('educational','commerical') NOT NULL DEFAULT 'educational';
 // alter table institution add repvote_pk int(10) null;
 // update institution set repvote_pk = rep_pk where rep_pk is not null;
+
+/**** This is the base OTHER institution ****
+INSERT INTO `institution` ( `pk` , `abbr` , `name` , `rep_pk` , `type` , `repvote_pk` ) 
+VALUES ('1', 'Other', '~ Other (non-Member)', NULL , '', NULL );
+****/
 
 // see institution.sql file to import the list of institutions 
 // Make sure you have ';' seperators turned on

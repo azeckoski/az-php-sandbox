@@ -75,8 +75,16 @@ if ($_POST["save"]) {
 			$passChange = " password=PASSWORD('$PASS1'), ";
 		}
 
+		// handle the other institution stuff in a special way
+		$otherInstSql = " otherInst=NULL, ";
+		if (!is_numeric($institution_pk)) {
+			// assume someone is using the other institution, Other MUST be pk=1
+			$otherInstSql = " otherInst='$institution_pk', ";
+			$institution_pk = 1;
+		}
+
 		$sqledit = "UPDATE users set email='$email', " . $passChange .
-			"firstname='$firstname', lastname='$lastname', " .
+			"firstname='$firstname', lastname='$lastname', " . $otherInstSql .
 			"institution_pk='$institution_pk', address='$address', city='$city', " .
 			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .
 			"fax='$fax' where pk='$USER_PK'";

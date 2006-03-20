@@ -45,6 +45,17 @@ var useRequiredMessage = true;
 	<span id="emailMsg"></span>
 ******/
 
+// use the -other- capabilities (allows users to enter an other value when a list
+// is not complete, you just have to include an item in the list
+// with a value of (vOtherCode) and add an item as shown below
+// NOTE: You may want to add extra validation rules for the input field
+var vUseOther = true;
+var vOtherCode = "-other-";
+/******
+<input style="display:none;" type="text" id="emailOther"  size="30" maxlength="100" value="">
+******/
+
+
 // text message output
 var gUseText = true; // display text messages
 var gRequiredText = false; // display required text in text message boxes on form load (gUseText must be on)
@@ -63,18 +74,9 @@ var imgVal = vImagePath + "validated.gif"; // a validated image file (check)
 var imgInv = vImagePath + "invalid.gif"; // an invalid image file (x mark)
 var imgExc = vImagePath + "exclaim.gif"; // an exclaimation mark image
 
-// use the -other- capabilities (allows users to enter an other value when a list
-// is not complete, you just have to include an item in the list
-// with a value of (vOtherCode) and add an item as shown below
-// NOTE: You will want to add extra validation rules for the input field
-var vUseOther = true;
-var vOtherCode = "-other-";
-/******
-<input style="display:none;" type="text" id="emailOther"  size="30" maxlength="100" value="">
-******/
 
 
-// this handles error message to the user
+// this handles the error message to the user
 // sending this a blank will clear out the error message
 function errorAlert(myMessage) {
 	var errorMsgObject=document.getElementById("errorMessage");
