@@ -77,7 +77,7 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>Primary&nbspRole:</b></td>
+		<td class="account"><b>Primary&nbsp;Role:</b></td>
 		<td nowrap="y">
 			<img id="primaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="primaryRole">
@@ -92,7 +92,7 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>Secondary&nbspRole:</b></td>
+		<td class="account"><b>Secondary&nbsp;Role:</b></td>
 		<td nowrap="y">
 			<img id="secondaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="secondaryRole">
