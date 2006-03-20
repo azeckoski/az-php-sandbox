@@ -17,10 +17,10 @@ $firstname = $_SESSION['firstname'];
 	 	 $fax = $_SESSION['fax'];
 	 	 $shirt = $_SESSION['shirt'];
 	 	 $special = $_SESSION['special'];
-	 	 $hotelInfo = $_SESSION['hotelInfo'];
+	 	 $confHotel = $_SESSION['confHotel'];
 	 	 $jasig = $_SESSION['jasig'];
 	 	 $ospi = $_SESSION['ospi'];
-	 	 $contactInfo = $_SESSION['contactInfo'];
+	 	 $publishInfo = $_SESSION['publishInfo'];
 
 //set up mail message
 

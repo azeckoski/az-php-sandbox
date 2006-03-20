@@ -1,18 +1,18 @@
 
 <tr>
   <td colspan=2>
-	<img id="hotelInfoImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
+	<img id="confHotelImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Hotel Information:</strong><br />
     <div style="padding-left: 40px;">
     	Will you be staying at the conference hotel, the Sheraton Vancouver Wall Centre, 
     	where the conference is being held?<br />
-      <input type="radio" name="hotelInfo" value="Y" <?php if ($CONF['hotelInfo']=="Y") echo "checked" ?>/>
+      <input type="radio" name="confHotel" value="Y" <?php if ($CONF['confHotel']=="Y") echo "checked" ?>/>
       <strong>Yes </strong>
-      <input type="radio" name="hotelInfo" value="N" <?php if ($CONF['hotelInfo']=="N") echo "checked" ?>/>
+      <input type="radio" name="confHotel" value="N" <?php if ($CONF['confHotel']=="N") echo "checked" ?>/>
       <strong>No</strong>
     </div>
-	<input type="hidden" id="hotelInfoValidate" value="required"/>
-	<span id="hotelInfoMsg"></span>
+	<input type="hidden" id="confHotelValidate" value="required"/>
+	<span id="confHotelMsg"></span>
   </td>
 </tr>
 
@@ -72,7 +72,7 @@
   <td colspan=2><strong> Attendance Lists:</strong><br />
     <div style="padding-left: 40px;">We may publish a list of conference attendees both on the website and in printed programs (Names/Institutions only, no email addresses will be published). Check the box below to request your name not be published on this lists. <br />
       <div style="padding-left: 40px;">
-        <input type="checkbox" name="publish" value="N" <?php if ($CONF['contactInfo']=="N") echo "checked" ?> />
+        <input type="checkbox" name="publish" value="N" <?php if ($CONF['publishInfo']=="N") echo "checked" ?> />
         Do <strong>NOT</strong> publish my name </div>
     </div>
   </td>

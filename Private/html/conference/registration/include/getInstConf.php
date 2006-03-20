@@ -15,7 +15,7 @@ $isPartner = false;  // this means the user is in a partner inst
 if ($INST['type']) { $isPartner = true; }
 
 // get the current info out if it exists for this user
-$conf_sql = "select * from sakaiConf_all where users_pk='$USER_PK' and confID='$CONF_ID'";
+$conf_sql = "select * from conferences where users_pk='$USER_PK' and confID='$CONF_ID'";
 $result = mysql_query($conf_sql) or die('Conf fetch query failed: ' . mysql_error());
 $CONF = mysql_fetch_assoc($result); // first result is all we care about
 $isRegistered = false;  // this means the user is already registered for the current conference

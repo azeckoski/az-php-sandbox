@@ -43,7 +43,7 @@ $vItems['zip'] = "zipcode";
 $vItems['country'] = "required:namespaces";
 $vItems['phone'] = "required:phone";
 $vItems['fax'] = "phone";
-$vItems['hotelInfo'] = "required";
+$vItems['confHotel'] = "required";
 $vItems['jasig'] = "required";
 $vItems['shirt'] = "required";
 $vItems['delegate'] = "email";
@@ -77,9 +77,9 @@ if ($_POST['save']) { // saving the form
 	$title = mysql_real_escape_string($_POST["title"]);
 	$shirt = mysql_real_escape_string($_POST["shirt"]);
 	$special = mysql_real_escape_string($_POST["special"]);
-	$hotelInfo = mysql_real_escape_string($_POST["hotelInfo"]);
+	$confHotel = mysql_real_escape_string($_POST["confHotel"]);
 	$jasig = mysql_real_escape_string($_POST["jasig"]);
-	$contactInfo = mysql_real_escape_string($_POST["publish"]);
+	$publishInfo = mysql_real_escape_string($_POST["publish"]);
 	$delegate = mysql_real_escape_string($_POST["delegate"]);
 	$expectations = mysql_real_escape_string($_POST["expectations"]);
 
@@ -109,20 +109,17 @@ if ($_POST['save']) { // saving the form
 			}
 
 			// insert a new entry for the conference
-			$confsql = "INSERT INTO sakaiConf_all (confID, institution, otherInst, " .
-				"title, shirt, special, hotelInfo, jasig, contactInfo, " .
-				"fee, delegate, expectations, activated, users_pk) VALUES " .
-				"('$CONF_ID', '$institution', '$otherInst', " .
-				"'$title', '$shirt', '$special', '$hotelInfo', '$jasig', '$contactInfo', " .
-				"'$fee', '$delegate', '$expectations', '$activated', $USER_PK)";
+			$confsql = "INSERT INTO conferences (confID, shirt, special, confHotel, jasig, " .
+				"publishInfo, fee, delegate, expectations, activated, users_pk) VALUES " .
+				"('$CONF_ID', '$shirt', '$special', '$confHotel', '$jasig', " .
+				"'$publishInfo', '$fee', '$delegate', '$expectations', '$activated', $USER_PK)";
 			$result = mysql_query($confsql) or die('Conf insert query failed: ('.$confsql.')' . mysql_error());
 			$new_req = true;
 		} else {
 			// update the existing entry
-			$confsql = "UPDATE sakaiConf_all SET institution='$institution', " .
-				"otherInst='$otherInst', shirt='$shirt', special='$special', " .
-				"hotelInfo='$hotelInfo', jasig='$jasig', expectations='$expectations', " .
-				"title='$title', delegate='$delegate', contactInfo='$contactInfo' WHERE " .
+			$confsql = "UPDATE conferences SET shirt='$shirt', special='$special', " .
+				"confHotel='$confHotel', jasig='$jasig', expectations='$expectations', " .
+				"delegate='$delegate', publishInfo='$publishInfo', date_modified=NOW() WHERE " .
 				"users_pk='$USER_PK' and confID='$CONF_ID'";
 			$result = mysql_query($confsql) or die('Conf update query failed: ('.$confsql.')' . mysql_error());
 		}
@@ -136,7 +133,7 @@ if ($_POST['save']) { // saving the form
 		$USER = mysql_fetch_assoc($result); // first result is all we care about
 		
 		// get the new conf info for this user
-		$conf_sql = "select * from sakaiConf_all where users_pk='$USER_PK' and confID='$CONF_ID'";
+		$conf_sql = "select * from conferences where users_pk='$USER_PK' and confID='$CONF_ID'";
 		$result = mysql_query($conf_sql) or die('Conf fetch query failed: ' . mysql_error());
 		$CONF = mysql_fetch_assoc($result); // first result is all we care about
 

@@ -53,7 +53,7 @@ $fax=addslashes($_SESSION['fax']);
 $special=addslashes($_SESSION['special']);
 $shirt=$_SESSION['shirt'];
 $publish=$_SESSION['publish'];
-$hotelInfo=$_SESSION['hotelInfo'];
+$confHotel=$_SESSION['confHotel'];
 
 $jasig=$_SESSION['jasig'];
 if ($_SESSION['memberType']=="1"){
@@ -82,7 +82,7 @@ $register="INSERT INTO sakaiConf_vancouver VALUES (
 		'$fax',
 		'$shirt',
 		'$special',
-		'$hotelInfo',
+		'$confHotel',
 		'$publish',
 		'$jasig',
 		'$fee',

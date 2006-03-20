@@ -59,7 +59,7 @@ echo"<tr><td width=200px valign=top><div align=\"right\"><strong><span>DateSubmi
 			echo"<tr><td><div align=\"right\"><strong><span>Special Needs</span>: &nbsp;&nbsp;&nbsp;</strong> </div></td><td>$special</td></tr>";
 		 
 
-		if ($hotelInfo=='Y') {
+		if ($confHotel=='Y') {
 			echo"<tr><td><div align=\"right\"><strong><span>Staying at Conf. Hotel</span>: &nbsp;&nbsp;&nbsp;</strong> </div></td><td>Yes</td></tr>";
 		} else  {
 			echo"<tr><td><div align=\"right\"><strong><span>Staying at Conf. Hotel</span>: &nbsp;&nbsp;&nbsp;</strong> </div></td><td> No</td></tr>";
@@ -70,7 +70,7 @@ echo"<tr><td width=200px valign=top><div align=\"right\"><strong><span>DateSubmi
 			echo"<tr><td><div align=\"right\"><strong><span>Attending JA-SIG</span>: &nbsp;&nbsp;&nbsp;</strong> </div></td><td> No</td></tr>";
 			}
 			
-		if ($contactInfo=='Y')  {
+		if ($publishInfo=='Y')  {
 			echo"<tr><td valign=top><div align=\"right\"><strong><span>Publish name on Attendee list</span>: &nbsp;&nbsp;&nbsp;</strong> </div></td><td>Yes</td></tr>";
 	}	else  {
 			echo"<tr><td valign=top><div align=\"right\"><strong><span>Publish name on Attendee list</span>: &nbsp;&nbsp;&nbsp;</strong> </div></td><td>No<br /><br /><br /><br /><br /></td></tr>";

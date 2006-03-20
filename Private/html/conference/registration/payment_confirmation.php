@@ -50,7 +50,7 @@ $ResponseMsg=$_POST['RESPMSG'];
 if ($ResultCode== '0') { 
 	//no fatal errors from Verisign 
 	require_once('../sql/mysqlconnect.php');
-	$sql = "UPDATE sakaiConf_all SET datea = NOW(), fee='$transAmount', " .
+	$sql = "UPDATE conferences SET date_modified = NOW(), fee='$transAmount', " .
 	 	"transID = '$transID', payeeInfo='$payeeInfo', activated='1' " .
 	 	"WHERE users_pk='$USER_PK' and confID='$CONF_ID'";
 	$result = mysql_query($sql);

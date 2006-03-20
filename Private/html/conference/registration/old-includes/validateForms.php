@@ -226,14 +226,14 @@ if ($_POST['shirt']){
 			$jasig = FALSE;
 			$message[] = "<li>JA-SIG conference attendance</li>";
 	}
-    if ($_POST['hotelInfo']){
-	$hotelInfo = TRUE;
+    if ($_POST['confHotel']){
+	$confHotel = TRUE;
 	} else {
-			$hotelInfo = FALSE;
+			$confHotel = FALSE;
 			$message[] = "<li>Hotel Information</li>";
 	}
 	
-	if ($shirt AND $jasig AND $hotelInfo)  {
+	if ($shirt AND $jasig AND $confHotel)  {
 	$valid=TRUE;
 	
 	}

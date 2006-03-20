@@ -41,7 +41,7 @@ if ($_POST) {
 		// sql should be loaded already
 		
 		//no errors so update the conf table and activate this registration
-		$sql = "UPDATE sakaiConf_all SET datea = NOW(), " .
+		$sql = "UPDATE conferences SET date_modified = NOW(), " .
 			"fee='$transAmount', transID = '$transID', activated='1' " .
 			"WHERE users_pk='$USER_PK' and confID='$CONF_ID'"; 
 		$result = mysql_query($sql); 

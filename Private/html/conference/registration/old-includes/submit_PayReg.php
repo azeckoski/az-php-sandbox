@@ -51,7 +51,7 @@ $fax=addslashes($_SESSION['fax']);
 $special=addslashes($_SESSION['special']);
 $shirt=$_SESSION['shirt'];
 $publish=$_SESSION['publish'];
-$hotelInfo=$_SESSION['hotelInfo'];
+$confHotel=$_SESSION['confHotel'];
 
 $jasig=$_SESSION['jasig'];
 $fee=$_SESSION['fee'];
@@ -78,7 +78,7 @@ $register="INSERT INTO sakaiconf_vancouver_ccard VALUES (
 		'$fax',
 		'$shirt',
 		'$special',
-		'$hotelInfo',
+		'$confHotel',
 		'$publish',
 		'$jasig',
 		'$fee',

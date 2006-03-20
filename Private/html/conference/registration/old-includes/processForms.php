@@ -122,7 +122,7 @@ elseif (isset($_POST['submit_NonMemberReg'])) {
 		session_start();
 		$_SESSION['special']=$_POST['special'];
 		$_SESSION['publish']=$_POST['publish'];
-		$_SESSION['hotelInfo']=$_POST['hotelInfo'];
+		$_SESSION['confHotel']=$_POST['confHotel'];
 		$_SESSION['jasig']=$_POST['jasig'];
 		$_SESSION['shirt']=$_POST['shirt'];
 		
@@ -141,7 +141,7 @@ elseif (isset($_POST['submit_MemberReg'])) {
 		session_start();
 		$_SESSION['special']=$_POST['special'];
 		$_SESSION['publish']=$_POST['publish'];
-		$_SESSION['hotelInfo']=$_POST['hotelInfo'];
+		$_SESSION['confHotel']=$_POST['confHotel'];
 		$_SESSION['jasig']=$_POST['jasig'];
 		$_SESSION['shirt']=$_POST['shirt'];
 		

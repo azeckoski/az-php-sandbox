@@ -13,9 +13,9 @@ $fax=$USER["fax"];
 
 $shirt=$CONF["shirt"];
 $special=$CONF["special"];
-$hotel=$CONF["hotelInfo"];
+$hotel=$CONF["confHotel"];
 $jasig=$CONF["jasig"];
-$publish=$CONF["contactInfo"];
+$publish=$CONF["publishInfo"];
 $fee=$CONF["fee"];
 $title=$CONF["title"];
 $institution=$CONF["institution"];
@@ -66,7 +66,7 @@ $today = date("F j, Y");
 	 	
 	 	 $msg.="Attending JA-SIG:   $jasig \r\n\r\n";
 	 	
-	 	 $msg.="Staying at Conf. Hotel:   $hotelInfo \r\n\r\n";
+	 	 $msg.="Staying at Conf. Hotel:   $confHotel \r\n\r\n";
 	 	 
 	 	if ($publish){
 	 	 $msg.="Publish name on Attendee list:  $publish ";
