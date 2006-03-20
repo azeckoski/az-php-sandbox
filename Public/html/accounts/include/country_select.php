@@ -1,5 +1,6 @@
 <!-- country selection - you need to surround this with select tags -->
-    <option value="">Country</option>
+<option value="">-- Select Country --</option>
+<optgroup label="Country">
     <option value="US">United States</option>
     <option value="CA">Canada</option>
     <option value="AL">Albania</option>
@@ -101,3 +102,4 @@
     <option value="VN">Vietnam</option>
     <option value="YE">Yemen</option>
     <option value="ZW">Zimbabwe</option>
+</optgroup>

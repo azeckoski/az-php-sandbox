@@ -1,6 +1,6 @@
 <!-- state selection - you need to surround this with select tags -->
-  <option value="">State/Province</option>
-  <option value="">----United States----</option>
+<option value="">-- Select State/Province --</option>
+<optgroup label="United States">
   <option value="AL"> Alabama</option>
   <option value="AK"> Alaska</option>
   <option value="AZ"> Arizona</option>
@@ -52,8 +52,8 @@
   <option value="WV"> West Virginia</option>
   <option value="WI"> Wisconsin</option>
   <option value="WY"> Wyoming</option>
-  <option value="">&nbsp;</option>
-  <option value="">----US Territories----</option>
+</optgroup>
+<optgroup label="US Territories">
   <option value="AS"> America Samoa</option>
   <option value="GU"> Guam</option>
   <option value="MH"> Marshall Islands</option>
@@ -61,8 +61,8 @@
   <option value="PW"> Palau</option>
   <option value="PR"> Puerto Rico</option>
   <option value="VI"> Virgin Islands</option>
-  <option value="">&nbsp;</option>
-  <option value="">----Canada----</option>
+</optgroup>
+<optgroup label="Canada">
   <option value="AB"> Alberta</option>
   <option value="BC"> British Columbia</option>
   <option value="MB"> Manitoba</option>
@@ -76,3 +76,4 @@
   <option value="PQ"> Quebec</option>
   <option value="SK"> Saskatchewan</option>
   <option value="YT"> Yukon Territory</option>
+</optgroup>
