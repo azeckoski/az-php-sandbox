@@ -21,113 +21,160 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 $AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
-session_start();
-
-
-if (isset($_POST['submit'])) {
-
-
-if (!isset($_POST['next'])){
-$message[]="<li>Select an option below, then click on <strong>continue</strong>. </li>";
-
-}
-//add a presentation
-if($_POST['next']=="presentation")
-header("Location:presentation.php");
-
-//add a demo
-if($_POST['next']=="demo")
-header("Location:demo.php");
-
-//ready to complete contact information
-if($_POST['next']=="done") {
-header("Location:contact.php");
+// get the passed message if there is one
+if($_GET['msg']) {
+	$Message .= "<br/>" . $_GET['msg'];
 }
 
 
+// bring in the form validation code
+require $ACCOUNTS_PATH.'ajax/validators.php';
 
+// Define the array of items to validate and the validation strings
+$vItems = array();
+$vItems['type'] = "required";
+
+
+// writing data and other good things happen here
+$completed = false;
+if ($_POST['save']) { // saving the form
+	session_start();
+
+	// DO SERVER SIDE VALIDATION
+	$errors = 0;
+	$validationOutput = ServerValidate($vItems, "return");
+	if ($validationOutput) {
+		$errors++;
+		$Message = "<fieldset><legend>Validation Errors</legend>".
+			"<b style='color:red;'>Please fix the following errors:</b><br/>".
+			$validationOutput."</fieldset>";
+	}
+
+	if ($errors == 0) {
+		//all required information provided
+		if ($_POST['type']=="presentation") {
+			//if presentation is selected, go to presentation page 
+			header("Location: presentation.php");
+			exit;
+		} else if ($_POST['type']=="demo") {
+			//if demo is selected, go to demo page 
+			header("Location: demo.php");
+			exit;
+		} else if ($_POST['type']=="done") {
+			//if done is selected, go to contact info page 
+			header("Location: contact.php");
+			exit;
+		}
+	}
 }
-
- //show form 
-
 ?>
+
 
 <!-- // INCLUDE THE HTML HEAD -->
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
+<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
 <?php include '../include/header.php';  ?>
+
 
 <table width="100%" class="blog" cellpadding="0" cellspacing="0">
   <tr>
     <td valign="top"><div class="componentheading">Call for Proposals -- Submission Form</div></td>
   </tr>
   <tr>
-    <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;"><span class="pathway"> <img src="../includes/arrow.png" height="12" width="12" alt="arrow" />Start &nbsp; &nbsp; &nbsp; <img src="../includes/arrow.png" height="8" width="8" alt="arrow" /><span class="activestep">Proposal Details &nbsp; &nbsp; &nbsp;</span> <img src="../includes/arrow.png" height="8" width="8" alt="arrow" />Contact Information&nbsp; &nbsp; &nbsp; <img src="../includes/arrow.png" height="8" width="8" alt="arrow" /> Confirmation</span> </td>
+	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
+	  	<span class="pathway">
+	  		<img src="../include/images/arrow.png" height="12" width="12" alt="arrow" />
+	  		Start &nbsp; &nbsp; &nbsp;
+	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" /><span class="activestep">Proposal Details &nbsp; &nbsp; &nbsp;</span> 
+	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Contact Information&nbsp; &nbsp; &nbsp; 
+	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Confirmation
+	  	</span>
+	  </td>
   </tr>
 </table>
-<div id=cfp>
-  <form name="form1" id ="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>">
-    <table width="100%"  cellpadding="0" cellspacing="0">
-      <?php 
-if ($message) {
-	echo "<tr><td colspan=2><div class=\"errors\" align=\"left\"><blockquote><font color=red><strong>Please provide the following information:</strong></font><ul class=small>";	
-	foreach ($message as $key => $value) {
-		echo $value;	
-	}
-	echo "</ul></blockquote></div> </td></tr>";
-}
 
 
-?>
+<!-- //show form -->
+<div id="cfp">
+     <div>
+     	<a style="color: #336699; font-weight: bold;" href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br />
+      <br />
+    </div>
+
+<?php echo $Message; ?>
+
+<!-- start form section -->
+<form name="form1" id="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>" >
+<input type="hidden" name="save" value="1" />
+    <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
-        <td colspan="2"  style="padding-left: 20px; border:0px;"><br />
-          <span class="required">*</span><strong>Select next step: </strong>
-          <div>You may add another proposal or complete the contact information and submit your proposals to the Sakai Conference Program committee. </div></td>
+        <td valign="top" colspan="2" style="padding:0px;">
+        	<div id="requiredMessage"></div>
+        </td>
       </tr>
+
       <tr valign="top">
-        <td colspan=2 style="padding-left: 20px; border:0px;"><input name="next" type="radio" value="demo">
+        <td colspan="2" style="border:0; padding-bottom:0px;">
+        	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />
+        	<strong>Select the type of proposal to be submitted:</strong>
+			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" />
+			<span id="typeMsg"></span>
+		</td>
+      </tr>
+ <tr valign="top">
+        <td colspan=2 style="padding-left: 20px; border:0px;"><input name="type" type="radio" value="demo"/>
 &nbsp;&nbsp; <strong>Add a demo proposal</strong> <br />
-          <input name="next" type="radio" value="presentation">
+          <input name="type" type="radio" value="presentation"/>
 &nbsp;&nbsp; <strong>Add a presentation proposal</strong> <br />
-          <input name="next" type="radio" value="done">
+          <input name="type" type="radio" value="done"/>
 &nbsp;&nbsp; <strong>Complete required contact information and submit my proposal(s)</strong> </td>
       </tr>
+
       <tr>
-        <td>&nbsp;</td>
-        <td align=center><br />
-          <input type="submit" name="submit" value="continue" />
-          <br />
+        <td colspan=2 style="text-align:center;">
+        	<input type="submit" name="submit" value="Continue" />
         </td>
       </tr>
     </table>
+
   </form>
-</div>
-<!-- end cfp -->
-<div id=spacer> </div>
-</div>
-<!-- end  content_main  -->
-</div>
-<!-- end container-inner -->
-</div>
-<!--end of outer left -->
+  
+  
+</div> <!-- end cfp -->
+
+<div style="margin:16px;"></div> <!-- SPACER -->
+
+</div> <!-- end  content_main  -->
+</div> <!-- end container-inner -->
+</div> <!--end of outer left -->
+
+
 <!-- start outerright -->
 <div id=outerright>
   <!-- start of rightcol_top -->
   <!-- end of rightcol_top-->
   <!--end rightcol -->
-  <div id=rightcol>
+   <div id=rightcol>
     <div class="componentheading">More Info...</div>
-    <div class="contentheading" width="100%"> Conference Presentation</div>
+    <div class="contentheading">What will you need to provide?</div>
     <div class="contentpaneopen">
-      <p>Conference Presentation Presentation formats include: panel, workshop, discussion, lecture, and showcase (posters). Presentations will take place at the conference hotel, during the conference's daytime schedule for May 30 through June 2nd. 
+     <div><a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br />
+      <br />
+    </div><p>Preview a <a href="http://sakaiproject.org/vancouver/sakai_vancouverCFP.pdf" title="not available yet...">sample proposal form</a> and instructions for completing this Call for Proposal submission process. </p>
     </div>
-    <div class="contentheading" width="100%"> Technical Demo</div>
-    <div class="contentpaneopen">
-      <p>Technology Demos will take place during the Technical Demo Reception on the evening of Thursday, June 1st. </p>
+    
+    <div class="contentheading">Review Previous Conference Sessions</div>
+    <div class="contentpaneopen"><a title="" href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=161&amp;Itemid=497" target="blank"> 
+    <img style="margin: 0px 10px 0px 0px;" width="100" height="61" border="1" title="" alt="" src="../include/images/agenda.gif" /><br />
+      </a> Review the sessions offered at the Sakai Austin Conference (December 2005)<br />
     </div>
   </div>
   <!--end rightcol -->
 </div>
 <!-- end outerright -->
+
+</div><!-- end containerbg -->
+
 
 <?php include '../include/footer.php'; // Include the FOOTER ?>

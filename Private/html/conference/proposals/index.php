@@ -38,7 +38,6 @@ $vItems['type'] = "required";
 // writing data and other good things happen here
 $completed = false;
 if ($_POST['save']) { // saving the form
-	session_start();
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -52,12 +51,6 @@ if ($_POST['save']) { // saving the form
 
 	if ($errors == 0) {
 		//all required information provided
-		//set presentation and demo values to 0 since none have been submitted yet
-		// TODO - why are we storing the total number?
-			
-		$_SESSION['num_pres']='0';
-		$_SESSION['num_demo']='0';
-		
 		if ($_POST['type']=="presentation") {
 			//if presentation is selected, go to presentation page 
 			header("Location: presentation.php");
