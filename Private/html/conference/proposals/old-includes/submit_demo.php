@@ -12,7 +12,7 @@ $Dspeaker=addslashes($_SESSION['Dspeaker']);
 $demo_url=addslashes($_SESSION['demo_url']);
 
 	
-$demo="INSERT INTO cfp_vancouver_demo VALUES (
+$demo="INSERT INTO proposal_demo VALUES (
 '',
 NOW( ) ,
 '$CONF_ID', 

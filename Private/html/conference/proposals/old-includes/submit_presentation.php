@@ -58,7 +58,7 @@ $conflict_fri=$_SESSION['conflict_fri'];
 
 
 // TO DO  add librarian entry in database then add below
-$demo="INSERT INTO cfp_vancouver_presentation VALUES (
+$demo="INSERT INTO proposal_presentation VALUES (
 '', 
 NOW( ) ,
 '$CONF_ID', 
