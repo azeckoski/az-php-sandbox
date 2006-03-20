@@ -103,7 +103,9 @@ if ($_REQUEST["save"]) {
 				$image_p = imagecreatetruecolor($maxWidth, $maxHeight); // create empty image of thumb size
 				imagecopyresampled($image_p, $image_input, 0, 0, 0, 0, $maxWidth, $maxHeight, $width, $height);
 
+				
 
+				imagedestroy($image_input);
 				imagedestroy($image_p);
 			}
 

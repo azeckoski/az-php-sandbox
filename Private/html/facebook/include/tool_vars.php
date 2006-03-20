@@ -29,13 +29,13 @@ $MAX_THUMB_WIDTH = 120;
 $MAX_THUMB_HEIGHT = 100;
 
 $IMAGE_MIMES = array(
-'image/pjpeg'=>"jpg",
-'image/jpeg'=>"jpg",
-'image/jpg'=>"jpg",
-'image/png'=>"png",
-'image/x-png'=>"png",
-'image/gif'=>"gif",
-'image/bmp'=>"bmp");
+	'image/pjpeg'=>"jpg",
+	'image/jpeg'=>"jpg",
+	'image/jpg'=>"jpg",
+	'image/png'=>"png",
+	'image/x-png'=>"png",
+	'image/gif'=>"gif",
+	'image/bmp'=>"bmp");
 
 $IMAGE_EXTS  = array('.jpeg','.jpg','.png','.gif','.bmp');
 
