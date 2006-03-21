@@ -225,7 +225,7 @@ if ($_POST['save']) { // saving the form
 	<input type="hidden" name="memberType" value="1" />
 	<input type="hidden" name="institution" value="<?= $INST['name'] ?>" />
 <?php } else { // this is a member institution ?>
-	<strong><?= $INST['name'] ?> is not a Sakai Partner Organization</strong>&nbsp;
+	<strong><?= $USER['otherInst'] ?> is not a Sakai Partner Organization</strong>&nbsp;
 	<input type="hidden" name="memberType" value="2" />
 	<br/>
       <div style="margin:10px;"></div>
