@@ -256,6 +256,15 @@ function attachFormHandlers()
 
 					// cleanup the validate string
 					validateItem.value = gSeparator + validateItem.value + gSeparator;
+
+					// do the focus check, set focus on this item if specified
+					if (validateItem.value.match(gSeparator+"focus"+gSeparator)) {
+						thisElement.focus();
+						// handle focus only
+						if (validateItem.value == gSeparator+"focus"+gSeparator) {
+							validateItem.value = "";
+						}
+					}
 					
 					// handle the different element types
 					if (thisElement.type.toLowerCase() == "radio") {
@@ -284,11 +293,6 @@ function attachFormHandlers()
 						
 						// do the initial validation check
 						if (gInitialCheck) { validateObject(thisElement); }
-					}
-
-					// do the focus check, set focus on this item if specified
-					if (validateItem.value.match(gSeparator+"focus"+gSeparator)) {
-						thisElement.focus();
 					}
 
 					// attach handlers to items
@@ -452,7 +456,6 @@ function validateObject(objInput) {
 		vParams = vParams + "&rule" + i + "=" + encodeURIComponent(field);
 		i++;
 	}
-
 
 	var vVal = encodeURIComponent(objInput.value); //get value inside of input field
 	
