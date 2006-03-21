@@ -10,12 +10,12 @@ $result= mysql_query($sql);
 
 while($links=mysql_fetch_array($result))
 {
-$row++; 
-$id=$links["id"];
+
+
 $date=$links["date"];
-$conf=$links["confID"]; 
-$last=$USER["lastname"];
-$first=$USER["firstname"];
+
+$lastname=$USER["lastname"];
+$firstname=$USER["firstname"];
 $email=$USER["email"];
 
 $product=$links["product"];
@@ -38,7 +38,7 @@ $url=$links["demo_url"];
 	 	 $msg.="Date Submitted: $today \r\n\r\n";
 	 	 
 	 	 $msg.="Proposal:  TECHNICAL DEMO  \r\n\r\n";
-	 	 $msg.="Submitted by:  $first $last  \r\n\r\n";
+	 	 $msg.="Submitted by:  $firstname $lastname  \r\n\r\n";
 	 	 $msg.="Email:  $email  \r\n\r\n";
 	 	 $msg.="Demo product:  $product  \r\n\r\n";
 	 	 $msg.="Description:  $desc  \r\n\r\n";
