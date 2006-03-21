@@ -90,22 +90,22 @@ if (!$isPartner){
 			</div>
 		</td>
 		<td>
-			name: <?php echo $USER['firstname'] . " " . $USER['firstname']; ?><br /> 
-			email: <?php echo $USER['email']; ?><br/>
+			<strong>name:</strong><?php echo $USER['firstname'] . " " . $USER['firstname']; ?><br /> 
+			<strong>email: </strong><?php echo $USER['email']; ?><br/>
 			<br />
-			institution: 
+			<strong>institution: </strong>
 			<?php if ($CONF['otherInst']) {
 				echo $CONF['otherInst'];
 			} else {
 				echo $CONF['institution']; 
 			} ?><br/>
-			address:<br/>
+			<strong>address:</strong><br/>
 			<?php echo $USER['address']; ?><br />
 			<?php echo $USER['city'] ." ". $USER['state'] .", ". $USER['zipcode']; ?><br/>
 			<?php echo $USER['country']; ?><br />
 			<br />
-			phone: <?php echo $USER['phone']; ?><br />
-			fax: <?php echo $USER['fax']; ?><br/>
+			<strong>phone:</strong> <?php echo $USER['phone']; ?><br />
+			<strong>fax:</strong <?php echo $USER['fax']; ?><br/>
 		</td>
 	</tr>
 
