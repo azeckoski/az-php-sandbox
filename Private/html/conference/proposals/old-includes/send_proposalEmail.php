@@ -3,11 +3,9 @@
 //echo "start <br />";
 require "../sql/mysqlconnect.php";
 
-//test email using susans test entry
-$sql="Select * from `cfp_vancouver_presentation` WHERE id='$presentation_id' ";
-//$sql="Select * from `cfp_vancouver_presentation` WHERE id='145' ";
-//test
-//		$sql="Select * from `cfp_vancouver_presentation`";
+
+$sql="Select * from `proposal_presentation` WHERE id='$presentation_id' ";
+
 $result= mysql_query($sql);
 
 
