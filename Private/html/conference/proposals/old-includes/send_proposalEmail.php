@@ -221,20 +221,6 @@ $subject= "COPY-Vancouver CFP Presentation- $lastname";
 //send the mail to susan
 mail($recipient, $subject, $msg, $headers);
 
- /*******	 	 
-	 	 //set up mail for Susan
-	 	 $recipient = "shardin@umich.edu";
-	 	 $subject= "COPY- Vancouver CFP Presentation - $lastname";
-	 	 $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	 	 $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-	 	 $mailheaders .="Reply-To: $email";
-
-	 	 //send the mail to susan
-	 	 mail($recipient, $subject, $msg, $mailheaders);
-	 	 
-	 	 echo "done sending susan copy<br />";
-*******/ 	
-
 
 // This is a better set of mail headers -AZ
 ini_set(SMTP, $MAIL_SERVER);
@@ -246,24 +232,12 @@ $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 //set up mail for attendee
-$recipient = "email";
-$subject= "Sakai Conference Registration- $lastname";
+$recipient = "$email";
+$subject= "Sakai Call for Proposals: Presentation- $lastname";
 //send the mail to attendee
 mail($recipient, $subject, $msg, $headers);
  	 
-/*******	 	 	 	 
-	 	 //set up mail for registrant
-	 $recipient = "$email";
-	  $subject= "Sakai- Vancouver CFP - presentation submission";
-	 	 $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	 	 $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-	 	 $mailheaders .="Reply-To: shardin@umich.edu";
 
-	 	 //send the mail to registrant
-	 mail($recipient, $subject, $msg, $mailheaders);
-	 	 
-	 	 
-*******/	 
 	 	 
 	 	 	 //	 echo "done sending user copy<br />";
 

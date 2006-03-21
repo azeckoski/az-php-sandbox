@@ -1,7 +1,7 @@
 <?php
 require "../sql/mysqlconnect.php";
 
-$sql="Select * from `cfp_vancouver_demo` WHERE id='$demo_id' ";
+$sql="Select * from `proposal_demo` WHERE id='$demo_id' ";
 
 
 $result= mysql_query($sql);
@@ -48,32 +48,37 @@ $url=$links["demo_url"];
 	 	
 
 
- 	 
-	 	 //set up mail for Susan
-	 	 $recipient = "shardin@umich.edu";
-	 	 $subject= "COPY- Vancouver CFP Demo- $last";
-	 	 $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	 	 $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-	 	 $mailheaders .="Reply-To: $email";
+// This is a better set of mail headers -AZ
+ini_set(SMTP, $MAIL_SERVER);
+$headers  = 'From: ' . $HELP_EMAIL . "\n";
+$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
+$headers .= 'Reply-To: ' . $email . "\n";
+$headers .= 'MIME-Version: 1.0' ."\n";
+$headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
-	 	 //send the mail to susan
-	 mail($recipient, $subject, $msg, $mailheaders);
-	 	 
-	 	 
-	 	 	 
-	 	 //set up mail for registrant
-	$recipient = "$email";
-	  $subject= "Sakai- Call for Proposal - Demo submission";
-	 	 $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	 	 $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-	 	 $mailheaders .="Reply-To: shardin@umich.edu";
+//set up mail for Susan
+$recipient = "shardin@umich.edu";
+$subject= "COPY-Vancouver CFP Demo- $lastname";
+//send the mail to susan
+mail($recipient, $subject, $msg, $headers);
 
-	 	 //send the mail to registrant
-	  mail($recipient, $subject, $msg, $mailheaders);
-	 	 
-	 	 
 
-	 	 
+// This is a better set of mail headers -AZ
+ini_set(SMTP, $MAIL_SERVER);
+$headers  = 'From: ' . $HELP_EMAIL . "\n";
+$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
+$headers .= 'Reply-To: ' . $email . "\n";
+$headers .= 'MIME-Version: 1.0' ."\n";
+$headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
+
+//set up mail for attendee
+$recipient = "$email";
+$subject= "Sakai Call for Proposals: Demo- $lastname";
+//send the mail to attendee
+mail($recipient, $subject, $msg, $headers);
+ 	 	 
 
 }
 
