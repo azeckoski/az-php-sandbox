@@ -208,7 +208,22 @@ echo $length;
 	 	
 
 
- 	 
+// This is a better set of mail headers -AZ
+ini_set(SMTP, $MAIL_SERVER);
+$headers  = 'From: ' . $HELP_EMAIL . "\n";
+$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
+$headers .= 'Reply-To: ' . $email . "\n";
+$headers .= 'MIME-Version: 1.0' ."\n";
+$headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
+
+//set up mail for Susan
+$recipient = "shardin@umich.edu";
+$subject= "COPY-Vancouver CFP Presentation- $lastname";
+//send the mail to susan
+mail($recipient, $subject, $msg, $headers);
+
+ /*******	 	 
 	 	 //set up mail for Susan
 	 	 $recipient = "shardin@umich.edu";
 	 	 $subject= "COPY- Vancouver CFP Presentation - $lastname";
@@ -220,8 +235,25 @@ echo $length;
 	 	 mail($recipient, $subject, $msg, $mailheaders);
 	 	 
 	 	 echo "done sending susan copy<br />";
-	 	 
-	 	 	 
+*******/ 	
+
+
+// This is a better set of mail headers -AZ
+ini_set(SMTP, $MAIL_SERVER);
+$headers  = 'From: ' . $HELP_EMAIL . "\n";
+$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
+$headers .= 'Reply-To: ' . $email . "\n";
+$headers .= 'MIME-Version: 1.0' ."\n";
+$headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
+
+//set up mail for attendee
+$recipient = "email";
+$subject= "Sakai Conference Registration- $lastname";
+//send the mail to attendee
+mail($recipient, $subject, $msg, $headers);
+ 	 
+/*******	 	 	 	 
 	 	 //set up mail for registrant
 	 $recipient = "$email";
 	  $subject= "Sakai- Vancouver CFP - presentation submission";
@@ -233,7 +265,7 @@ echo $length;
 	 mail($recipient, $subject, $msg, $mailheaders);
 	 	 
 	 	 
-
+*******/	 
 	 	 
 	 	 	 //	 echo "done sending user copy<br />";
 
