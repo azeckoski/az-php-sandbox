@@ -16,7 +16,7 @@ $date=$links["date"];
 $conf=$links["confID"]; 
 $last=$USER["lastname"];
 $first=$USER["firstname"];
-$email=$USER["email1"];
+$email=$USER["email"];
 
 $product=$links["product"];
 $desc=$links["demo_desc"];
