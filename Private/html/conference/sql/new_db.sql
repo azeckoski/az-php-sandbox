@@ -20,7 +20,7 @@ CREATE TABLE conferences (
 );
 
 
-CREATE TABLE `cfp_vancouver_presentation` (
+CREATE TABLE `proposal_presentation` (
   `id` int(11) NOT NULL,
   `date` timestamp NULL default NULL,
   `confID` varchar(10) NOT NULL default '',
@@ -60,10 +60,8 @@ CREATE TABLE `cfp_vancouver_presentation` (
   PRIMARY KEY  (`id`)
 )
 
-//changes to cfp_vancouver_presentation
-ALTER TABLE `cfp_vancouver_presentation` CHANGE `p_track` `users_pk` INT( 10 ) NOT NULL DEFAULT '0';
 
-CREATE TABLE cfp_vancouver_demo (
+CREATE TABLE proposal_demo (
   id int(11) NOT NULL,
   `date` timestamp NULL,
   confID varchar(10) NOT NULL default '',
@@ -77,6 +75,3 @@ CREATE TABLE cfp_vancouver_demo (
   demo_url varchar(150) NOT NULL default '',
   PRIMARY KEY  (id)
 )
-
-//changes to cfp_vancouver_demo
-ALTER TABLE `cfp_vancouver_demo` ADD `users_pk` INT( 10 ) NOT NULL AFTER `confID` ;
