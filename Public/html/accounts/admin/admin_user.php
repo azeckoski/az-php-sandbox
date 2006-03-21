@@ -82,6 +82,8 @@ if ($_POST["save"] && $allowed) {
 	$country = mysql_real_escape_string($_POST["country"]);
 	$phone = mysql_real_escape_string($_POST["phone"]);
 	$fax = mysql_real_escape_string($_POST["fax"]);
+	$activated = mysql_real_escape_string($_POST["activated"]);
+	if (!$activated) { $activated = 0; }
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -136,7 +138,7 @@ if ($_POST["save"] && $allowed) {
 			"primaryRole='$primaryRole', secondaryRole='$secondaryRole'," .
 			"institution_pk='$institution_pk', address='$address', city='$city', " .
 			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .
-			"fax='$fax' where pk='$PK'";
+			"fax='$fax', activated='$activated' where pk='$PK'";
 
 		$result = mysql_query($sqledit) or die("Update query failed ($sqledit): " . mysql_error());
 		$Message = "<b>Updated user information</b><br/>";
@@ -144,12 +146,12 @@ if ($_POST["save"] && $allowed) {
 		// set or unset the voting rep (this has to happen before the rep set)
 		if ($_REQUEST["setrepvote"]) {
 			// set this user as the rep for the currently selected institution
-			$instrepsql = "UPDATE institution set repvote_pk='$PK' where pk='$INSTITUTION_PK'";
+			$instrepsql = "UPDATE institution set repvote_pk='$PK' where pk='$institution_pk'";
 			$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
 			$Message .= "<b>Set this user as a voting rep.</b><br/>";
 		} else {
 			// UNset this user as the rep for the currently selected institution
-			$instrepsql = "UPDATE institution set repvote_pk = null where pk='$INSTITUTION_PK' and repvote_pk='$PK'";
+			$instrepsql = "UPDATE institution set repvote_pk = null where pk='$institution_pk' and repvote_pk='$PK'";
 			$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
 			//$Message .= "<b>Unset this user as a voting rep.</b><br/>";
 		}
@@ -157,25 +159,25 @@ if ($_POST["save"] && $allowed) {
 		// set or unset the inst rep if needed
 		if ($_REQUEST["setrep"]) {
 			// set this user as the rep for the currently selected institution
-			$instrepsql = "UPDATE institution set rep_pk='$PK' where pk='$INSTITUTION_PK'";
+			$instrepsql = "UPDATE institution set rep_pk='$PK' where pk='$institution_pk'";
 			$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
 			$Message .= "<b>Set this user as an institutional rep.</b><br/>";
 			
 			// now also set the voting rep if it is not set for this inst
-			$check_rep_sql="select repvote_pk from institution where pk = '$INSTITUTION_PK'";
+			$check_rep_sql="select repvote_pk from institution where pk = '$institution_pk'";
 			$result = mysql_query($check_rep_sql) or die('Query failed: ' . mysql_error());	
 			$checkRep = mysql_fetch_row($result);
 			mysql_free_result($result);
 			
 			if (!$checkRep[0]) {
-				$instrepsql = "UPDATE institution set repvote_pk='$PK' where pk='$INSTITUTION_PK'";
+				$instrepsql = "UPDATE institution set repvote_pk='$PK' where pk='$institution_pk'";
 				$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
 				$Message .= "<b>Auto set this user as a voting rep also.</b><br/>";
 			}
 
 		} else {
 			// UNset this user as the rep for the currently selected institution
-			$instrepsql = "UPDATE institution set rep_pk = null where pk='$INSTITUTION_PK' and rep_pk='$PK'";
+			$instrepsql = "UPDATE institution set rep_pk = null where pk='$institution_pk' and rep_pk='$PK'";
 			$result = mysql_query($instrepsql) or die('Institution update query failed: ' . mysql_error());
 			//$Message .= "<b>Unset this user as an institutional rep.</b><br/>";
 		}
@@ -188,7 +190,7 @@ $result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
 $thisUser = mysql_fetch_assoc($result);
 	
 // get if this user is an institutional rep or voting rep
-$check_rep_sql="select rep_pk, repvote_pk from institution where pk = '$INSTITUTION_PK'";
+$check_rep_sql="select rep_pk, repvote_pk from institution where pk = '$institution_pk'";
 $result = mysql_query($check_rep_sql) or die('Query failed: ' . mysql_error());	
 $checkRep = mysql_fetch_assoc($result);
 mysql_free_result($result);
