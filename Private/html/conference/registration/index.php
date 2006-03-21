@@ -34,7 +34,8 @@ if($_GET['msg']) {
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['title'] = "required:focus";
+$vItems['primaryRole'] = "required:focus";
+$vItems['secondaryRole'] = "";
 $vItems['otherInst'] = "required";
 $vItems['address1'] = "required";
 $vItems['city'] = "required";
@@ -71,10 +72,11 @@ if ($_POST['save']) { // saving the form
 	$country = mysql_real_escape_string($_POST["country"]);
 	$phone = mysql_real_escape_string($_POST["phone"]);
 	$fax = mysql_real_escape_string($_POST["fax"]);
+	$otherInst = mysql_real_escape_string($_POST["otherInst"]);
+	$primaryRole = mysql_real_escape_string($_POST["primaryRole"]);
+	$secondaryRole = mysql_real_escape_string($_POST["secondaryRole"]);
 
 	// get the post variables - CONF
-	$otherInst = mysql_real_escape_string($_POST["otherInst"]);
-	$title = mysql_real_escape_string($_POST["title"]);
 	$shirt = mysql_real_escape_string($_POST["shirt"]);
 	$special = mysql_real_escape_string($_POST["special"]);
 	$confHotel = mysql_real_escape_string($_POST["confHotel"]);
@@ -93,7 +95,9 @@ if ($_POST['save']) { // saving the form
 		
 		// update the user information first
 		$usersql = "UPDATE users SET address='$address1', city='$city', state='$state', " .
-			"zipcode='$zip', country='$country', phone='$phone', fax='$fax' where pk='$USER_PK'";
+			"zipcode='$zip', country='$country', phone='$phone', fax='$fax' " .
+			"otherInst='$otherInst', primaryRole='$primaryRole', secondaryRole='$secondaryRole' " .
+			"where pk='$USER_PK'";
 		$result = mysql_query($usersql) or die('User update query failed: ('.$usersql.')' . mysql_error());
 
 		$new_req = false;
