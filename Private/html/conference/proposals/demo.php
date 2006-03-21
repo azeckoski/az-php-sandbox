@@ -67,7 +67,7 @@ if($result) {
 
 $num_demo=$_SESSION['num_demo']++;
 
-include ('includes/send_demoEmail.php');
+require ('old-includes/send_demoEmail.php');
 
 
 

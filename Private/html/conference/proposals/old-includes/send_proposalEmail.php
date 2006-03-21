@@ -1,6 +1,5 @@
 <?php
-//$user_id=$_GET['id'];
-//echo "start <br />";
+
 require "../sql/mysqlconnect.php";
 
 
@@ -8,8 +7,6 @@ $sql="Select * from `proposal_presentation` WHERE id='$presentation_id' ";
 
 $result= mysql_query($sql);
 
-
-//echo "total emails to be sent: $numrows<br /><br />";
 
 
 while($links=mysql_fetch_array($result))
