@@ -110,7 +110,6 @@ if ($_POST['save']) { // saving the form
      <br/>
     </div>
 
-<?php echo $Message; ?>
 
 <!-- start form section -->
 <form name="form1" id="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>" >
