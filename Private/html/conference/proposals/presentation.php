@@ -22,7 +22,7 @@ $AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conferenc
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // bring in inst and conf data
-require 'include/getInstConf.php';
+require 'include/registration/getInstConf.php';
 
 // get the passed message if there is one
 if($_GET['msg']) {
