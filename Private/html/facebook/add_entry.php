@@ -70,7 +70,7 @@ if ($_REQUEST["save"]) {
 			
 			$fp      = fopen($file['tmp_name'], 'r');
 			$content = fread($fp, filesize($file['tmp_name']));
-			$content = addslashes($content);
+			$content = mysql_real_escape_string($content);
 			fclose($fp);
 			
 			if(!get_magic_quotes_gpc()) { $fileName = addslashes($fileName); }
@@ -80,16 +80,18 @@ if ($_REQUEST["save"]) {
 			$maxWidth = $MAX_THUMB_WIDTH;
 			$maxHeight = $MAX_THUMB_HEIGHT;
 
+			$thumbContent = "";
+			$thumbType = "";
 			if ($width > $maxWidth || $height > $maxHeight) {
-				print "making new thumbnail";
-				$temp_dir = ini_get(upload_tmp_dir);
-			
+
 				// Get new dimensions
-				if ($maxWidth && ($width < $height)) {
-				   $maxWidth = ($maxHeight / $height) * $width;
+				if ($width/$maxWidth < $height/$maxHeight) {
+				   $maxWidth = round( ($maxHeight / $height) * $width);
 				} else {
-				   $maxHeight = ($maxWidth / $width) * $height;
+				   $maxHeight = round( ($maxWidth / $width) * $height);
 				}
+
+				print "new size: ".$maxWidth."x".$maxHeight."<br/>";
 
 				$image_input = "";
 				switch($IMAGE_MIMES[$file['type']]) {
@@ -99,27 +101,41 @@ if ($_REQUEST["save"]) {
 					case 'bmp': $image_input = imagecreatefromwbmp($file['tmp_name']); break;
 					default: die("Invalid MIME type used...."); break;
 				}
-       				
+
 				$image_p = imagecreatetruecolor($maxWidth, $maxHeight); // create empty image of thumb size
 				imagecopyresampled($image_p, $image_input, 0, 0, 0, 0, $maxWidth, $maxHeight, $width, $height);
+				$thumbType = "image/gif";
 
-				
+				ob_start(); // create buffer
+				imagegif($image_p); // generate gif from image
+				$thumbContent = mysql_real_escape_string(ob_get_contents()); // put escaped buffer into variable
+				ob_end_clean(); // purge the buffer
 
-				imagedestroy($image_input);
-				imagedestroy($image_p);
+				imagedestroy($image_input); // destroy original image
+				imagedestroy($image_p); // destroy thumb image
 			}
 
+			$thumbSql = "";
 			// updates the old image or creates a new one
 			if($PK && $image_pk) {
 				// entry exists already
-				$files_query = "UPDATE facebook_images SET name='$fileName'," .
+				if ($thumbType) {
+					$thumbSql = " thumb='$thumbContent', thumbtype='$thumbType', ";
+				}
+
+				$files_query = "UPDATE facebook_images SET name='$fileName'," . $thumbSql .
 						"size='$fileSize', type='$fileType', content='$content', " .
 						"dimensions='$fileDimensions' where pk='$image_pk'";
-				mysql_query($files_query) or die("Entry upload query failure: ".mysql_error());
+				mysql_query($files_query) or die("Entry upload query failure ($files_query) :".mysql_error() );
 			} else {
 				// new entry
-				$files_query = "INSERT INTO facebook_images (name, size, type, dimensions, content) ".
-					"VALUES ('$fileName', '$fileSize', '$fileType', '$fileDimensions', '$content')";
+				$thumbSql = " NULL, NULL ";
+				if ($thumbType) {
+					$thumbSql = " '$thumbContent', '$thumbType' ";
+				}
+
+				$files_query = "INSERT INTO facebook_images (name, size, type, dimensions, content, thumb, thumbtype) ".
+					"VALUES ('$fileName', '$fileSize', '$fileType', '$fileDimensions', '$content', $thumbSql)";
 				mysql_query($files_query) or die("Entry upload query failure: ".mysql_error());
 				$image_pk = mysql_insert_id();
 			}
@@ -189,7 +205,7 @@ $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 		<td nowrap="y" width="15%"><b>Current Image:</b></td>
 		<td nowrap="y" class="field" width="15%">
 			<img src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="spacer"/>
-			<img src="include/drawImage.php?pk=<?= $thisItem['image_pk'] ?>" alt="facebook image" />
+			<img src="include/drawThumb.php?pk=<?= $thisItem['image_pk'] ?>" alt="facebook image" />
 		</td>
 		<td nowrap="y" width="70%">
 			<b>Name:</b> <?= $thisImage['name'] ?><br/>

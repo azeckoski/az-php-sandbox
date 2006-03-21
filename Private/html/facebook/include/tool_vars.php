@@ -37,6 +37,4 @@ $IMAGE_MIMES = array(
 	'image/gif'=>"gif",
 	'image/bmp'=>"bmp");
 
-$IMAGE_EXTS  = array('.jpeg','.jpg','.png','.gif','.bmp');
-
 ?>

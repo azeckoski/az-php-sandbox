@@ -123,21 +123,20 @@ function orderBy(newOrder) {
 	Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 </div>
 
-<?php while($items=mysql_fetch_array($result)) { 
-	// TODO - make the image resize itself so that it is mot larger than 100 px on either side
-?>
+<?php while($items=mysql_fetch_array($result)) { ?>
 
 <div class="frame">
-	<img src="include/drawThumb.php?pk=<?= $items['image_pk'] ?>" alt="<?= $items['firstname']." ".$items['lastname'] ?> facebook image" />
+	<div style="width:<?= $MAX_THUMB_WIDTH ?>px;height:<?= $MAX_THUMB_HEIGHT ?>px;text-align:center;">
+		<img src="include/drawThumb.php?pk=<?= $items['image_pk'] ?>" alt="<?= $items['firstname']." ".$items['lastname'] ?> facebook image" />
+	</div>
 	<div class="about">
 		<div class="name">
 <?php if ($items['url']) { ?>
 			<a href='<?= $items['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
 <?php } ?>
-		<?= $items['firstname']." ".$items['lastname'] ?>
-		</div>
+		<?= $items['firstname']." ".$items['lastname'] ?></div>
 		<div class="institute"><?= $items['institution_name'] ?></div>
-<?php // TODO - make this to it shortens the output of interests
+<?php // TODO - make this so it shortens the output of interests
 	/**	
 		<div class=interests><?= $items['interests'] ?></div>
 	**/

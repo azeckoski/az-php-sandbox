@@ -528,24 +528,20 @@ margin:10px;
 
 }
 
-
+	
 .frame{
 float: left;
 text-align: left;
-width: 120px;
-height: 150px;
 padding: 5px;
 margin: 5px;
 font-size: 10px;
 border: 0px solid tan;
 }
 
-
-
 .frame img {
-padding: 4px;
+padding: 0px;
+vertical-align:middle;
 border: 0px solid #e3e3e3;
-
 }
 
  
