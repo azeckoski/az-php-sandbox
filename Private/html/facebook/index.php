@@ -16,17 +16,21 @@ require 'sql/mysqlconnect.php';
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
+$viewable = 1;
+if ($USER_PK) {
+	$viewable = 0;
+}
 
 // get the search
 $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " where (I1.name like '%$searchtext%' or I1.abbr like '%$searchtext%' or " .
-		"I1.type like '%$searchtext%' or U1.username like '%$searchtext%' or " .
+	$sqlsearch = " and (I1.name like '%$searchtext%' or F1.url like '%$searchtext%' or " .
+		"F1.interests like '%$searchtext%' or U1.username like '%$searchtext%' or " .
 		"U1.firstname like '%$searchtext%' or U1.lastname like '%$searchtext%' or " .
-		"U2.username like '%$searchtext%' or U2.firstname like '%$searchtext%' or " .
-		"U2.lastname like '%$searchtext%') ";
+		"U1.email like '%$searchtext%' or U1.otherInst like '%$searchtext%' or " .
+		"U1.primaryRole like '%$searchtext%' or U1.secondaryRole like '%$searchtext%') ";
 }
 
 // sorting
@@ -36,7 +40,7 @@ $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all facebook items
 $from_sql = " from facebook_entries F1 left join users U1 on U1.pk=F1.users_pk " .
-		"left join institution I1 on I1.pk=U1.institution_pk ";
+		"left join institution I1 on I1.pk=U1.institution_pk where viewable >= '$viewable' ";
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
@@ -46,7 +50,7 @@ $row = mysql_fetch_array($result);
 $total_items = $row[0];
 
 // pagination control
-$num_limit = 25;
+$num_limit = 15;
 if ($_REQUEST["num_limit"]) { $num_limit = $_REQUEST["num_limit"]; }
 
 $total_pages = ceil($total_items / $num_limit);
@@ -75,7 +79,7 @@ if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
 $users_sql = "select F1.*, U1.username, U1.email, U1.firstname, " .
-	"U1.lastname, I1.name as institution_name " .
+	"U1.lastname, I1.name " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
@@ -135,7 +139,7 @@ function orderBy(newOrder) {
 			<a href='<?= $items['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
 <?php } ?>
 		<?= $items['firstname']." ".$items['lastname'] ?></div>
-		<div class="institute"><?= $items['institution_name'] ?></div>
+		<div class="institute"><?php if($items['otherInst']) { echo $items['otherInst']; } else { echo $items['name']; } ?></div>
 <?php // TODO - make this so it shortens the output of interests
 	/**	
 		<div class=interests><?= $items['interests'] ?></div>
