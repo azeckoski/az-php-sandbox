@@ -95,7 +95,7 @@ if ($_POST['save']) { // saving the form
 		
 		// update the user information first
 		$usersql = "UPDATE users SET address='$address1', city='$city', state='$state', " .
-			"zipcode='$zip', country='$country', phone='$phone', fax='$fax' " .
+			"zipcode='$zip', country='$country', phone='$phone', fax='$fax', " .
 			"otherInst='$otherInst', primaryRole='$primaryRole', secondaryRole='$secondaryRole' " .
 			"where pk='$USER_PK'";
 		$result = mysql_query($usersql) or die('User update query failed: ('.$usersql.')' . mysql_error());
