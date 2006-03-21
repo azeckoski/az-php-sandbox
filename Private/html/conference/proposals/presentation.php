@@ -21,6 +21,9 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 $AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
+// bring in inst and conf data
+require '../registration/include/getInstConf.php';
+
 // get the passed message if there is one
 if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
