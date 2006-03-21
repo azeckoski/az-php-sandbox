@@ -18,9 +18,11 @@ $jasig=$CONF["jasig"];
 $publish=$CONF["publishInfo"];
 $fee=$CONF["fee"];
 $title=$CONF["title"];
-$institution=$CONF["institution"];
-$otherInst=$CONF["otherInst"];
 $co_registrant=$CONF["delegate"];
+
+$institution = $INST["name"];
+if ($USER["otherInst"]) { $institution = $USER["otherInst"]; }
+
 
 $today = date("F j, Y"); 
 
@@ -37,12 +39,9 @@ $today = date("F j, Y");
 	 	 $msg.="Attendee:  $firstname $lastname, $email\r\n\r\n";
 	 	 
 	 	 
-	 	if ($otherInst){
-	 	 $msg.="Organizatoin:\r\n$otherInst \r\n";
-		}
-	 	 else {
+	 	
 	 	 $msg.="Organization:\r\n$institution \r\n";
-	 	 }
+	 	 
 
 	 	 
 	 	// $msg.="Address:\r\n";
