@@ -13,7 +13,7 @@
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
 	<select name="primaryRole">
-<?php	$selectItem = $thisUser['primaryRole'];
+<?php	$selectItem = $USER['primaryRole'];
 		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
 		require $ACCOUNTS_PATH.'include/role_select.php';
 ?>
@@ -32,11 +32,11 @@
   </td>
   <td>
 	<select name="secondaryRole">
-<?php	$selectItem = $thisUser['secondaryRole'];
+<?php	$selectItem = $USER['secondaryRole'];
 		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
 		require $ACCOUNTS_PATH.'include/role_select.php';
 ?>
-		<option value="" <?php if(!$thisUser['secondaryRole']) echo " selected='y' "; ?> >None</option>
+		<option value="" <?php if(!$USER['secondaryRole']) echo " selected='y' "; ?> >None</option>
 	</select><br/>
 	<input type="hidden" id="secondaryRoleValidate" value="<?= $vItems['secondaryRole'] ?>" />
 	<span id="secondaryRoleMsg"></span>
