@@ -14,9 +14,6 @@ $country=$USER["country"];
 $phone=$USER["phone"];
 $fax=$USER["fax"];
 
-$firstname=addslashes($_SESSION['firstname']);
-$lastname=addslashes($_SESSION['lastname']);
-$email1=addslashes($_SESSION['email1']);
 $p_title=addslashes($_SESSION['p_title']);
 $p_abstract=addslashes($_SESSION['p_abstract']);
 $p_desc=addslashes($_SESSION['p_desc']);
