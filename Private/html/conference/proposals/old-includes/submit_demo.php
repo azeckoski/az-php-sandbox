@@ -3,9 +3,6 @@
 require_once('../sql/mysqlconnect.php');
 
 
-$firstname=addslashes($_SESSION['firstname']);
-$lastname=addslashes($_SESSION['lastname']);
-$email=addslashes($_SESSION['email1']);
 $product=addslashes($_SESSION['product']);
 $demo_desc=addslashes($_SESSION['demo_desc']);
 $Dspeaker=addslashes($_SESSION['Dspeaker']);

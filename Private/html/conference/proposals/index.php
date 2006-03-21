@@ -18,17 +18,30 @@ require '../sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-$AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
+$AUTH_MESSAGE = "You must login to register for the $CONF_NAME conference. If you do not have an account, please create one.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+
+// bring in the form validation code
+require $ACCOUNTS_PATH.'ajax/validators.php';
+
+// bring in inst and conf data
+require '../registration/include/getInstConf.php';
+
+		// get updated user information
+		$user_sql = "select * from users where pk='$USER_PK'";
+		$result = mysql_query($user_sql) or die('User fetch query failed: ' . mysql_error());
+		$USER = mysql_fetch_assoc($result); // first result is all we care about
+		
+
+$firstname=$USER["firstname"];
+$lastname=$USER["lastname"];
+$email=$USER["email"];
 
 // get the passed message if there is one
 if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
 
-
-// bring in the form validation code
-require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
@@ -94,7 +107,7 @@ if ($_POST['save']) { // saving the form
 <div id="cfp">
      <div>
      	<a style="color: #336699; font-weight: bold;" href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br />
-      <br />
+     <br/>
     </div>
 
 <?php echo $Message; ?>
@@ -103,6 +116,7 @@ if ($_POST['save']) { // saving the form
 <form name="form1" id="form1" method="post" action="<?php echo $_SERVER[PHP_SELF]; ?>" >
 <input type="hidden" name="save" value="1" />
     <table width="100%" cellpadding="0" cellspacing="0">
+ 
       <tr>
         <td valign="top" colspan="2" style="padding:0px;">
         	<div id="requiredMessage"></div>

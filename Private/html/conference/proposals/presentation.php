@@ -17,12 +17,31 @@ require '../sql/mysqlconnect.php';
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
+
+
 // login if not autheticated
 $AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // bring in inst and conf data
 require '../registration/include/getInstConf.php';
+
+		// get updated user information
+		$user_sql = "select * from users where pk='$USER_PK'";
+		$result = mysql_query($user_sql) or die('User fetch query failed: ' . mysql_error());
+		$USER = mysql_fetch_assoc($result); // first result is all we care about
+		
+
+$firstname=$USER["firstname"];
+$lastname=$USER["lastname"];
+$email=$USER["email"];
+$address1=$USER["address"];
+$city=$USER["city"];
+$state=$USER["state"];
+$zip=$USER["zipcode"];
+$country=$USER["country"];
+$phone=$USER["phone"];
+$fax=$USER["fax"];
 
 // get the passed message if there is one
 if($_GET['msg']) {
@@ -117,6 +136,7 @@ if (isset($_POST['submit'])) {
 <!-- <?= $Message ?> -->
     
 <div id="cfp">
+
   <form name="form1" id="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <table width="100%"  cellpadding="0" cellspacing="0">
           <?php 

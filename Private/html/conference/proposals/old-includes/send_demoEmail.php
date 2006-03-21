@@ -14,9 +14,9 @@ $row++;
 $id=$links["id"];
 $date=$links["date"];
 $conf=$links["confID"]; 
-$last=$links["lastname"];
-$first=$links["firstname"];
-$email=$links["email1"];
+$last=$USER["lastname"];
+$first=$USER["firstname"];
+$email=$USER["email1"];
 
 $product=$links["product"];
 $desc=$links["demo_desc"];
