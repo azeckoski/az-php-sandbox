@@ -18,9 +18,17 @@ while($links=mysql_fetch_array($result))
 {
 
 $date=stripslashes($links['date']);
-$firstname=stripslashes($links['firstname']);
-$lastname=stripslashes($links['lastname']);
-$email=stripslashes($links['email1']);
+$firstname=$USER["firstname"];
+$lastname=$USER["lastname"];
+$email=$USER["email"];
+$address1=$USER["address"];
+$city=$USER["city"];
+$state=$USER["state"];
+$zip=$USER["zipcode"];
+$country=$USER["country"];
+$phone=$USER["phone"];
+$fax=$USER["fax"];
+
 $p_title=stripslashes($links['p_title']);
 $p_abstract=stripslashes($links['p_abstract']);
 $p_desc=stripslashes($links['p_desc']);
