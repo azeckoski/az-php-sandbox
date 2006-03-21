@@ -94,10 +94,10 @@ if (!$isPartner){
 			<strong>email: </strong><?php echo $USER['email']; ?><br/>
 			<br />
 			<strong>institution: </strong>
-			<?php if ($CONF['otherInst']) {
-				echo $CONF['otherInst'];
+			<?php if ($USER['otherInst']) {
+				echo $USER['otherInst'];
 			} else {
-				echo $CONF['institution']; 
+				echo $USER['institution']; 
 			} ?><br/>
 			<strong>address:</strong><br/>
 			<?php echo $USER['address']; ?><br />
