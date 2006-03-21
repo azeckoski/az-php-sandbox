@@ -3,6 +3,16 @@
 
 
 require_once('../sql/mysqlconnect.php');
+$firstname=$USER["firstname"];
+$lastname=$USER["lastname"];
+$email=$USER["email"];
+$address1=$USER["address"];
+$city=$USER["city"];
+$state=$USER["state"];
+$zip=$USER["zipcode"];
+$country=$USER["country"];
+$phone=$USER["phone"];
+$fax=$USER["fax"];
 
 $firstname=addslashes($_SESSION['firstname']);
 $lastname=addslashes($_SESSION['lastname']);
