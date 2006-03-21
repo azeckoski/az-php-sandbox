@@ -136,9 +136,9 @@ if ($_POST["save"] && $allowed) {
 			"primaryRole='$primaryRole', secondaryRole='$secondaryRole'," .
 			"institution_pk='$institution_pk', address='$address', city='$city', " .
 			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .
-			"fax='$fax' where pk='$USER_PK'";
+			"fax='$fax' where pk='$PK'";
 
-		$result = mysql_query($sqledit) or die('Update query failed: ' . mysql_error());
+		$result = mysql_query($sqledit) or die("Update query failed ($sqledit): " . mysql_error());
 		$Message = "<b>Updated user information</b><br/>";
 
 		// set or unset the voting rep (this has to happen before the rep set)
