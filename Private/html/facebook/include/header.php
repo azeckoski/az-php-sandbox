@@ -28,9 +28,9 @@
 <?php } ?>
 		  <div style="text-align:left;">
 			<form class="searchform" method="post" action="index.php" style="margin:0px;">
-                    <label style="color:#ffffff;"> Search Facebook</label><br />
-                    <input type="text" name="searchtext" size="20" maxlength="40" value="<?php echo $_POST['searchtext']?>" />
-                    <input type="submit" value="go" />
+                <label style="color:#ffffff;"> Search Facebook</label><br />
+                <input type="text" name="searchtext" size="20" maxlength="40" value="<?php echo $_POST['searchtext']?>" />
+                <input type="submit" value="go" />
             </form> 
           </div>
           </td>
@@ -68,9 +68,10 @@
 			<tr> <th>View Options</th> </tr>
 			<tr><td><br/>&nbsp;&nbsp;&nbsp;<strong>Display by:</strong>
 				<ul>
-				<li><a href="javascript:orderBy('lastname');">Last Name</a></li>
 				<li><a href="javascript:orderBy('date_created');">Recent Entry</a></li>
+				<li><a href="javascript:orderBy('lastname');">Last Name</a></li>
 				<li><a href="javascript:orderBy('inst_name');">Institution</a></li>
+				<li><a href="javascript:orderBy('date_modified');">Recent Update</a></li>
 				</ul>
        		  </td></tr> 
              

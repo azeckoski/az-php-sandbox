@@ -151,15 +151,15 @@ if ($_REQUEST["save"]) {
 			}
 			// update old entry
 			$entry_sql = "UPDATE facebook_entries set " . $image_sql .
-				"url='$url', interests='$interests', viewable='$viewable' " .
-				"where pk='$PK'";
+				"url='$url', interests='$interests', viewable='$viewable', " .
+				"date_modified=NOW() where pk='$PK'";
 			mysql_query($entry_sql) or die("Entry update failed: ".mysql_error().": ".$entry_sql);
 			$Message .= "Updated existing entry<br>";
 		} else {
 			// new entry
 			$entry_sql = "insert into facebook_entries " .
-				"(users_pk, image_pk, url, interests, viewable) values " .
-				"('$USER_PK','$image_pk','$url','$interests', '$viewable')";
+				"(users_pk, image_pk, url, interests, viewable, date_modified) values " .
+				"('$USER_PK','$image_pk','$url','$interests', '$viewable', NOW())";
 			mysql_query($entry_sql) or die("Entry query failed: ".mysql_error().": ".$entry_sql);
 			$PK = mysql_insert_id();
 			$Message .= "Saved new entry<br>";
