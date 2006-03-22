@@ -133,7 +133,7 @@ function orderBy(newOrder) {
 	<div style="width:<?= $MAX_THUMB_WIDTH ?>px;height:<?= $MAX_THUMB_HEIGHT ?>px;text-align:center;">
 		<img src="include/drawThumb.php?pk=<?= $items['image_pk'] ?>" alt="<?= $items['firstname']." ".$items['lastname'] ?> facebook image" />
 	</div>
-	<div class="about">
+	<div class="about" style="width:<?= $MAX_THUMB_WIDTH ?>px;">
 		<div class="name">
 <?php if ($items['url']) { ?>
 			<a href='<?= $items['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
