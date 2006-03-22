@@ -70,7 +70,7 @@
 				<ul>
 				<li><a href="javascript:orderBy('date_created');">Recent Entry</a></li>
 				<li><a href="javascript:orderBy('lastname');">Last Name</a></li>
-				<li><a href="javascript:orderBy('inst_name');">Institution</a></li>
+				<li><a href="javascript:orderBy('name');">Institution</a></li>
 				<li><a href="javascript:orderBy('date_modified');">Recent Update</a></li>
 				</ul>
        		  </td></tr> 
