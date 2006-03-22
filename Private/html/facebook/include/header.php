@@ -27,9 +27,9 @@
 	<br/>
 <?php } ?>
 		  <div style="text-align:left;">
-			<form class="searchform" method="post" action="search.php" style="margin:0px;">
+			<form class="searchform" method="post" action="index.php" style="margin:0px;">
                     <label style="color:#ffffff;"> Search Facebook</label><br />
-                    <input type="text" name="searchword" size="20" maxlength="40" value="<?php echo $_POST['searchword']?>" />
+                    <input type="text" name="searchtext" size="20" maxlength="40" value="<?php echo $_POST['searchtext']?>" />
                     <input type="submit" value="go" />
             </form> 
           </div>
