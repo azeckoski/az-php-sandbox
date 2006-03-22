@@ -220,7 +220,7 @@ function validatePhone($val) {
 	$VALIDATE_TEXT = "";
 
 	$Num = ereg_replace("[[:space:]]","",$val); // strip all spaces out first
-	$Num = eregi_replace("(\(|\)|\-|\+)","",$Num); // strip out other chars
+	$Num = eregi_replace("(\(|\)|\-|\+|\.)","",$Num); // strip out other chars
 	if(!ctype_digit($Num)) {
 		$VALIDATE_TEXT = "Invalid phone number (e.g. (###) ###-####)";
 		return false;
@@ -269,7 +269,7 @@ function validateZip($val) {
 	global $VALIDATE_TEXT;
 	$VALIDATE_TEXT = "";
 
-	$Bad = eregi_replace("([-0-9A-Z]+)","",$val);	
+	$Bad = ereg_replace("([0-9A-Z[:space:]-]+)","",$val);
 	if(!empty($Bad)) {
 		// invalid chars in zip code
 		$VALIDATE_TEXT = "Invalid chars, use A-Z, numbers and '-' only";
