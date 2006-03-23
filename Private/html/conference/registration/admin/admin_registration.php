@@ -31,9 +31,11 @@ if (!$USER["admin_accounts"]) {
 }
 
 // set header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>Users admin - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+		"<a href='../../../accounts/admin/admin_users.php'>Users admin</a> - " .
 	"<a href='admin_ldap.php'>LDAP admin</a> - " .
-	"<a href='admin_insts.php'>Institutions admin</a></span>";
+	"<a href='admin_insts.php'>Institutions admin</a>" .
+	" Registration Admin</span>";
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
@@ -79,7 +81,8 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all users
-$from_sql = " from users U1 join conferences C1 on  U1.pk=C1.users_pk " ;
+$from_sql = " from users U1 join conferences C1 on  U1.pk=C1.users_pk " .
+		"left join institution I1 on U1.institution_pk=I1.pk " ;
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
@@ -117,7 +120,7 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
-$users_sql = "select U1.*, C1.* " .
+$users_sql = "select U1.*, C1.*, I1.name as institution " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
@@ -169,11 +172,11 @@ $items_displayed = mysql_num_rows($result);
 
 <table border="0" cellspacing="0" width="100%">
 <tr class='tableheader'>
-<td><a href="javascript:orderBy('username');">username</a></td>
+<!-- <td><a href="javascript:orderBy('username');">username</a></td> -->
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('email');">Email</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
-<td align="center">Rep</td>
+<!-- <td align="center">Rep</td> -->
 <td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
 </tr>
 
@@ -187,7 +190,7 @@ while($row=mysql_fetch_assoc($result)) {
 	}
 
 	$rowstyle = "";
-	if (!$row["activated"]) {
+	if ($row["activated"]) {
 		$rowstyle = " style = 'color:red;' ";
 	} else if ($row["admin_reqs"]) {
 		$rowstyle = " style = 'color:darkgreen;' ";
@@ -206,12 +209,14 @@ while($row=mysql_fetch_assoc($result)) {
 ?>
 
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
-	<td class="line"><?= $row["username"] ?></td>
+<!-- 	<td class="line"><?= $row["username"] ?></td> -->
 	<td class="line"><?= $row["firstname"] ?> <?= $row["lastname"] ?></td>
 	<td class="line"><?= $row["email"] ?></td>
 	<td class="line"><?= $row["institution"] ?></td>
-	<td class="line" align="center">
+<!-- 	<td class="line" align="center"> -->
 <?php 
+ /*********
+ 
 if ($row["username"] == $row["rep_username"]) { 
 	echo "<b style='color:#000066;'>Inst Rep</b>";
 } else if ($row["username"] == $row["vote_username"]) { 
@@ -226,8 +231,11 @@ if ($row["username"] == $row["rep_username"]) {
 	} else {
 		echo "<i style='color:#CC0000;'>none</i>";
 	}
-} ?>
-	</td>
+}
+
+ ******/
+  ?>
+<!-- 	</td> -->
 	<td class="line" align="center">
 		<a href="admin_user.php?pk=<?= $row['pk']?>">edit</a>
 	</td>
