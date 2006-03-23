@@ -42,9 +42,11 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 	// ATTEMPT LDAP AUTH FIRST
 	if ($USE_LDAP) {
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		//$ds=ldap_connect("ldaps://bluelaser.cc.vt.edu/") or die ("CRITICAL LDAP CONNECTION FAILURE");
 		if ($ds) {
-			$reporting_level = error_reporting(E_ERROR); // suppress warning messages
-			$anon_bind=@ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
+			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or 
+				die("Failed to set LDAP Protocol version to 3, TLS not supported."); 
+			$anon_bind=ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
 			if ($anon_bind) {
 				// Searching for (sakaiUser=username)
 			   	$sr=ldap_search($ds, "dc=sakaiproject,dc=org", "sakaiUser=$USERNAME"); // expect sr=array
@@ -54,10 +56,15 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 				
 				// annonymous call to sakai ldap will only return the dn
 				$user_dn = $info[0]["dn"];
-		
-				// now attempt to bind as the userdn and password
+
+				// set up for TLS encrypted connection
+				//ldap_start_tls($ds) or die("Ldap_start_tls failed"); 
+
+   				// now attempt to bind as the userdn and password
 				$auth_bind=@ldap_bind($ds, $user_dn, $PASSWORD);
+				//print "attempt bind: $ds, $user_dn, " . ldap_error($ds);
 				if ($auth_bind) {
+					//print "auth bind ok";
 					// valid bind, user is authentic
 					$login_success = 1;
 					writeLog($TOOL_SHORT,$USERNAME,"user logged in (ldap):" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
@@ -74,7 +81,6 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 				$Message ="ERROR: Anonymous bind to ldap failed";
 			}
 			ldap_close($ds); // close connection
-			error_reporting($reporting_level); // reset error reporting
 						
 		} else {
 		   $Message = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
