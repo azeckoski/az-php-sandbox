@@ -45,7 +45,8 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 </table>
 <div id=cfp>
 <?php
-	//include('confirmation.php');
+
+	//  include('confirmation.php');
 	
 	echo"<table width=100%><tr>
 <td colspan=2>You have successfully submitted your proposal information.   
@@ -53,7 +54,7 @@ You will receive an email confirming
 your proposal submission(s) shortly.   We look forward to seeing you in
 Vancouver!  <br /><br/><br /><strong>Thanks for being a part of Sakai!</strong><br /><br /></td></tr></table><div style=\"margin:40px;\">&nbsp;</div>";
 	
-	include('old-includes/email.php');
+	// include('old-includes/email.php');
 	
 ?>
 </div>
