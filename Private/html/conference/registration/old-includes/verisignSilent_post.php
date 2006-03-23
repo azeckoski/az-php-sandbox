@@ -26,7 +26,7 @@ if ($_POST) {
 		//include('index.php');  //error received so 
 		// kick them back to the payment if this fails, probably not a good way to handle it
 		$PAYMENT_MSG = "?msg=".urlencode("Failure during payment processing");
-		header('location:'.$TOOL_PATH.'/registration'.$PAYMENT_MSG);
+		header('location:'.$TOOL_URL.'/registration'.$PAYMENT_MSG);
 		exit;
 	}
 

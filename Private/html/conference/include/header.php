@@ -21,7 +21,7 @@
   	</span><br/>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
 <?php if ($USER["admin_conf"]) { ?>
-  	<a style="font-size:.7em;" href="<?= $TOOL_PATH ?>/admin.php">Tool Admin</a> - 
+  	<a style="font-size:.7em;" href="<?= $TOOL_URL ?>/admin.php">Tool Admin</a> - 
 <?php } ?>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>
 <?php } else { ?>
@@ -31,8 +31,8 @@
 	<?= $EXTRA_MESSAGE ?>
 	<div style="margin:6px;"></div>
 	<a style="font-size:9pt;" href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=169&amp;Itemid=518">Conference Home</a> -
-	<a style="font-size:9pt;" href="<?= $TOOL_PATH ?>/registration/">Registration</a> -
-	<a style="font-size:9pt;" href="<?= $TOOL_PATH ?>/proposals/">Proposals</a>
+	<a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a> -
+	<a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>
 	<?= $EXTRA_LINKS ?>
               </div>
             </td>

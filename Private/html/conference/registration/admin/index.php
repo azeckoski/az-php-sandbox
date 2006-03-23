@@ -24,47 +24,12 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
 if (!$USER["admin_accounts"]) {
 	$allowed = 0;
-	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
-		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
+	$Message = "Only admins with <b>admin_reg</b> may view this page.<br/>" .
+		"Try out this one instead: <a href='$TOOL_URL/'>$TOOL_NAME</a>";
 } else {
 	$allowed = 1;
 }
 
-// set header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-		"<a href='../../../accounts/admin/admin_users.php'>Users admin</a> - " .
-	"<a href='admin_ldap.php'>LDAP admin</a> - " .
-	"<a href='admin_insts.php'>Institutions admin</a>" .
-	" Registration Admin</span>";
-?>
-
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<script type="text/javascript">
-<!--
-function orderBy(newOrder) {
-	if (document.adminform.sortorder.value == newOrder) {
-		document.adminform.sortorder.value = newOrder + " desc";
-	} else {
-		document.adminform.sortorder.value = newOrder;
-	}
-	document.adminform.submit();
-	return false;
-}
-// -->
-</script>
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
-
-<?= $Message ?>
-
-<?php
-	// Put in footer and stop the rest of the page from loading if not allowed -AZ
-	if (!$allowed) {
-		include $ACCOUNTS_PATH.'include/footer.php';
-		exit;
-	}
-?>
-
-<?php
 
 // get the search
 $searchtext = "";
@@ -81,7 +46,7 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all users
-$from_sql = " from users U1 join conferences C1 on  U1.pk=C1.users_pk " .
+$from_sql = " from users U1 join conferences C1 on U1.pk=C1.users_pk " .
 		"left join institution I1 on U1.institution_pk=I1.pk " ;
 
 // counting number of items
@@ -125,17 +90,46 @@ $users_sql = "select U1.*, C1.*, I1.name as institution " .
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
 $items_displayed = mysql_num_rows($result);
+
+
+// set header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'><strong>Attendee List</strong></a>" .
+	"</span>";
 ?>
+
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<script type="text/javascript">
+<!--
+function orderBy(newOrder) {
+	if (document.adminform.sortorder.value == newOrder) {
+		document.adminform.sortorder.value = newOrder + " desc";
+	} else {
+		document.adminform.sortorder.value = newOrder;
+	}
+	document.adminform.submit();
+	return false;
+}
+// -->
+</script>
+<?php include $PARENT_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
+
+<?= $Message ?>
+
+<?php
+	// Put in footer and stop the rest of the page from loading if not allowed -AZ
+	if (!$allowed) {
+		include $PARENT_PATH.'include/footer.php';
+		exit;
+	}
+?>
+
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
 <div class="filterarea">
-	<table border=0 cellspacing=0 cellpadding=0 width="100%">
-	<tr>
-
-	<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
-	<td nowrap="y">
+	<div align="left"><strong>Paging:</strong>
 		<input type="hidden" name="page" value="<?= $page ?>"/>
 		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page"/>
 		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page"/>
@@ -144,7 +138,8 @@ $items_displayed = mysql_num_rows($result);
 		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page"/>
 		<span class="keytext">&nbsp;-&nbsp;
 		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
-		&nbsp;-&nbsp;
+	</div>
+	<div style="text-align:left;display:inline;">
 		Max of</span>
 		<select name="num_limit" title="Choose the max items to view per page">
 			<option value="<?= $num_limit ?>"><?= $num_limit ?></option>
@@ -157,17 +152,14 @@ $items_displayed = mysql_num_rows($result);
 			<option value="300">300</option>
 		</select>
 		<span class="keytext">items per page</span>
-	</td>
+	</div>
 
-	<td nowrap="y" align="right">
+	<div style="text-align:right;display:inline;">
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	size="20" title="Enter search text here"/>
         <script type="text/javascript">document.adminform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements"/>
-	</td>
-
-	</tr>
-	</table>
+	</div>
 </div>
 
 <table border="0" cellspacing="0" width="100%">
@@ -246,4 +238,6 @@ if ($row["username"] == $row["rep_username"]) {
 </table>
 </form>
 
-<?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
+<?php include $PARENT_PATH.'include/outer_right.php'; ?>
+
+<?php include $PARENT_PATH.'include/footer.php'; ?>

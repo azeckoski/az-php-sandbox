@@ -233,7 +233,7 @@ if ($_POST['save']) { // saving the form
       <em>If you are also attending the JA-SIG/uPortal conference, your fee will be $345</em><br />
       <div style="margin:6px;"></div>
       Visa, Mastercard, and American express accepted<br />
-      <img src="<?= $TOOL_PATH ?>/include/images/ccards.jpg" width="121" height="30"/>
+      <img src="<?= $TOOL_URL ?>/include/images/ccards.jpg" width="121" height="30"/>
 <?php } ?>
 	<div style="margin:10px;"></div>
 	If the above information is wrong, use 

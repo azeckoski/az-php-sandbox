@@ -23,7 +23,7 @@ if ( (!$isRegistered) || $isPartner) {
 	// if not registered yet then send them packing
 	// if they are in a partner institution then also send them packing
 	$MSG = "?msg=".urlencode("Not registered or a partner " + $_GET['msg']);
-	header('location:'.$TOOL_PATH.'/registration/index.php'.$MSG);
+	header('location:'.$TOOL_URL.'/registration/index.php'.$MSG);
 	exit;
 }
 $Message = $_GET['msg'];
