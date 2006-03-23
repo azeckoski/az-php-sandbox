@@ -6,7 +6,7 @@
 // You should change the environment variable to correspond to the environment you're using.
 
 // supported options are "dev","test", and "prod"
-$ENVIRONMENT = "dev";
+$ENVIRONMENT = "devSusan";
 
 if ($ENVIRONMENT == "dev") {
 	// Set needed system variables
@@ -53,6 +53,9 @@ $ACCOUNTS_URL = '/accounts';
 $ACCOUNTS_PAGE = "myaccount.php";
 $LOGIN_PAGE = "login.php";
 $LOGOUT_PAGE = "logout.php";
+$REGISTER_ADMIN_URL="/conference/registration/admin";
+$REGISTER_ADMIN_PAGE="admin_registration.php";
+$REGISTER_URL="/conference/registration";
 
 // Load LDAP module
 if ($USE_LDAP && !extension_loaded('ldap')) {
