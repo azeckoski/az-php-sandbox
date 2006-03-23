@@ -49,7 +49,7 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 			$anon_bind=ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
 			if ($anon_bind) {
 				// Searching for (sakaiUser=username)
-			   	$sr=ldap_search($ds, "dc=sakaiproject,dc=org", "sakaiUser=$USERNAME"); // expect sr=array
+			   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "sakaiUser=$USERNAME"); // expect sr=array
 		
 				//echo "Number of entries = " . ldap_count_entries($ds, $sr) . "<br />";
 				$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
@@ -62,9 +62,7 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 
    				// now attempt to bind as the userdn and password
 				$auth_bind=@ldap_bind($ds, $user_dn, $PASSWORD);
-				//print "attempt bind: $ds, $user_dn, " . ldap_error($ds);
 				if ($auth_bind) {
-					//print "auth bind ok";
 					// valid bind, user is authentic
 					$login_success = 1;
 					writeLog($TOOL_SHORT,$USERNAME,"user logged in (ldap):" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);

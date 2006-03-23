@@ -32,9 +32,9 @@ if (!$USER["admin_accounts"]) {
 }
 
 // set the header links
-// set header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
-	"<a href='admin_ldap.php'>LDAP admin</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='admin_users.php'>Users admin</a> - " .
+	"<a href='admin_ldap.php'><strong>LDAP admin</strong></a> - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 
@@ -74,6 +74,8 @@ $vItems['password1'] = "password";
 $vItems['password2'] = "password";
 $vItems['firstname'] = "required:focus";
 $vItems['lastname'] = "required";
+$vItems['primaryRole'] = "required";
+$vItems['secondaryRole'] = "";
 $vItems['institution_pk'] = "required";
 $vItems['address'] = "";
 $vItems['city'] = "namespaces";

@@ -31,9 +31,13 @@ if (!$USER["admin_accounts"]) {
 }
 
 // set header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>Users admin - " .
-	"<a href='admin_ldap.php'>LDAP admin</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
+if ($USE_LDAP) {
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP admin</a> - ";
+}
+$EXTRA_LINKS .= "<a href='admin_users.php'><strong>Users admin</strong></a> - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
+
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>

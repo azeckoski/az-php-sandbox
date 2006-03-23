@@ -32,10 +32,6 @@ if (!$USER["admin_accounts"]) {
 }
 
 
-// set header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
-	"Institutions admin</span>";
-
 // get the search
 $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
@@ -99,6 +95,15 @@ $users_sql = "select I1.*, U1.username as rep_username, U1.email as rep_email, "
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
 $items_displayed = mysql_num_rows($result);
+
+
+// header top links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
+if ($USE_LDAP) {
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP admin</a> - ";
+}
+$EXTRA_LINKS .= "<a href='admin_users.php'>Users admin</a> - " .
+	"<a href='admin_insts.php'><strong>Institutions admin</strong></a></span>";
 
 
 // Do the export as requested by the user

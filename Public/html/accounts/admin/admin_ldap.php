@@ -94,8 +94,10 @@ if ($USE_LDAP && $searchtext) {
 
 
 // set header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin_users.php'>Users admin</a> - " .
-	"LDAP admin - " .
+// set the header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='admin_users.php'>Users admin</a> - " .
+	"<a href='admin_ldap.php'><strong>LDAP admin</strong></a> - " .
 	"<a href='admin_insts.php'>Institutions admin</a></span>";
 ?>
 

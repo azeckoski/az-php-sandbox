@@ -40,9 +40,6 @@ if (!$USER["admin_insts"]) {
 	$allowed = 1;
 }
 
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'><a href='admin.php'>Users admin</a> - " .
-	"<a href='admin_insts.php'>Institutions admin</a></span>";
-
 // get the form variables
 $PK = $_REQUEST["pk"];
 if (!$PK) {
@@ -57,10 +54,12 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['name'] = "required";
-$vItems['abbr'] = "";
+$vItems['name'] = "required:namespaces";
 $vItems['type'] = "required";
-
+$vItems['city'] = "required:namespaces";
+$vItems['state'] = "namespaces";
+$vItems['zipcode'] = "zipcode";
+$vItems['country'] = "required:namespaces";
 
 
 // process post vars
@@ -132,6 +131,15 @@ $itemsql = "SELECT I1.*, U1.firstname,U1.lastname,U1.email," .
 $result = mysql_query($itemsql) or die('Query failed: ' . mysql_error());
 $thisItem = mysql_fetch_assoc($result);
 mysql_free_result($result);
+
+
+// header top links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
+if ($USE_LDAP) {
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP admin</a> - ";
+}
+$EXTRA_LINKS .= "<a href='admin_users.php'>Users admin</a> - " .
+	"<a href='admin_insts.php'><strong>Institutions admin</strong></a></span>";
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
@@ -154,74 +162,7 @@ mysql_free_result($result);
 <input type="hidden" name="add" value="<?= $_REQUEST["add"] ?>" />
 <input type="hidden" name="saving" value="1" />
 
-<table border="0" class="padded">
-	<tr>
-		<td class="account"><b>Name:</b></td>
-		<td>
-			<img id="nameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="name" value="<?= $thisItem['name'] ?>" size="40" maxlength="200"/>
-			<input type="hidden" id="nameValidate" value="<?= $vItems['name'] ?>" />
-			<span id="nameMsg"></span>
-		</td>
-	</tr>
-	<tr>
-		<td class="account"><b>Abbreviation:</b></td>
-		<td>
-			<img id="abbrImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="abbr" value="<?= $thisItem['abbr'] ?>" size="10" maxlength="20"/>
-			<input type="hidden" id="abbrValidate" value="<?= $vItems['abbr'] ?>" />
-			<span id="abbrMsg"></span>
-		</td>
-	</tr>
-	<tr>
-		<td class="account"><b>Type:</b></td>
-		<td>
-			<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="radio" name="type" tabindex="3" value="educational" <?php
-				if (!$thisItem["type"] || $thisItem["type"] == "educational") { echo " checked='y' "; }
-			?>/> educational
-			&nbsp;
-			<input type="radio" name="type" tabindex="3" value="commercial" <?php
-				if ($thisItem["type"] == "commercial") { echo " checked='y' "; }
-			?>/> commercial
-			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" />
-			<span id="typeMsg"></span>
-		</td>
-	</tr>
-<?php if (!$_REQUEST["add"]) { ?>
-	<tr>
-		<td class="account"><b>Inst Rep:</b></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<?php
-	if ($thisItem["rep_pk"]) {
-		echo $thisItem["firstname"]." ".$thisItem["lastname"]." (<a href='mailto:".$thisItem["email"]."'>".$thisItem["email"]."</a>)";
-	} else {
-		echo "<i style='color:red;'>none</i>";
-	}
-?>
-		</td>
-	</tr>
-	<tr>
-		<td class="account"><b>Voting Rep:</b></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<?php
-	if ($thisItem["repvote_pk"]) {
-		echo $thisItem["vfirstname"]." ".$thisItem["vlastname"]." (<a href='mailto:".$thisItem["vemail"]."'>".$thisItem["vemail"]."</a>)";
-	} else {
-		echo "<i style='color:red;'>none</i>";
-	}
-?>
-		</td>
-	</tr>
-<?php } // end add check 
-?>
-
-	<tr>
-		<td colspan="2">
-			<input type="submit" name="account" value="Save information" tabindex="4"/>
-		</td>
-	</tr>
-</table>
+<?php require $ACCOUNTS_PATH.'include/inst_form.php'; ?>
 
 </form>
 
