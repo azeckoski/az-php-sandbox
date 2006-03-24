@@ -3,8 +3,8 @@ CREATE TABLE conferences (
   id int(10) NOT NULL auto_increment,
   confID varchar(50) NOT NULL default '',
   users_pk int(10) NOT NULL default '0',
-  date_created timestamp NOT NULL default '0000-00-00 00:00:00',
-  date_modified timestamp NOT NULL,
+  date_created timestamp NULL,
+  date_modified timestamp NOT NULL default CURRENT_TIMESTAMP,
   shirt varchar(50) default NULL,
   special text,
   confHotel enum('Y','N') default 'Y',
@@ -20,6 +20,42 @@ CREATE TABLE conferences (
 )
 
 
+// new proposals table - conf_proposals
+
+
+// topics table
+CREATE TABLE topics (
+    pk                  int(10) auto_increment NOT NULL,
+    date_created        timestamp NULL,
+    date_modified       timestamp NOT NULL default CURRENT_TIMESTAMP,
+    topic_name          varchar(100) NOT NULL,
+    topic_order         int(6) NOT NULL,
+    PRIMARY KEY (pk)
+);
+
+// topics linking table
+CREATE TABLE proposals_topics (
+    pk                  int(10) auto_increment NOT NULL,
+    date_created        timestamp NULL,
+    date_modified       timestamp NOT NULL default CURRENT_TIMESTAMP,
+    proposals_pk        int(10) NOT NULL REFERENCES conf_proposals(pk),
+    topics_pk           int(10) NOT NULL REFERENCES topics(pk),
+    choice				int(2) NOT NULL,
+    PRIMARY KEY (pk)
+);
+
+// audience linking table
+CREATE TABLE proposals_audiences (
+    pk                  int(10) auto_increment NOT NULL,
+    date_created        timestamp NULL,
+    date_modified       timestamp NOT NULL default CURRENT_TIMESTAMP,
+    proposals_pk        int(10) NOT NULL REFERENCES conf_proposals(pk),
+    roles_pk            int(10) NOT NULL REFERENCES roles(pk),
+    choice              int(2) NOT NULL,
+    PRIMARY KEY (pk)
+);
+
+// old proposals tables
 CREATE TABLE `proposal_presentation` (
   `id` int(11) NOT NULL,
   `date` timestamp NULL default NULL,
