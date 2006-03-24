@@ -100,10 +100,10 @@ if ($_POST["save"]) {
 		
 		// write the new values to the DB
 		$sqledit = "INSERT INTO users (username,password,firstname,lastname,email," .
-				"primaryRole,secondaryRole,institution_pk," .
+				"primaryRole,secondaryRole,institution_pk,date_created," .
 				"address,city,state,zipcode,country,phone,fax,otherInst) values " .
 				"('$username',PASSWORD('$PASS1'),'$firstname','$lastname','$email'," .
-				"'$primaryRole','$secondaryRole','$institution_pk'," .
+				"'$primaryRole','$secondaryRole','$institution_pk',NOW()," .
 				"'$address','$city','$state','$zipcode','$country','$phone','$fax',$otherInstSql)";
 
 		$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());

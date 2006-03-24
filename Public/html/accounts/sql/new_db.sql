@@ -1,5 +1,7 @@
 CREATE TABLE users ( 
     pk          		int(10) AUTO_INCREMENT NOT NULL,
+    date_created		timestamp NULL DEFAULT NOT NULL default '0000-00-00 00:00:00',
+    date_modified	timestamp NULL DEFAULT,
     username    		varchar(100) NOT NULL UNIQUE,
     password    		varchar(255) NOT NULL,
     firstname   		varchar(100) NULL,
@@ -14,7 +16,6 @@ CREATE TABLE users (
     phone    			varchar(20) NULL,
     fax		    		varchar(20) NULL,
     otherInst			varchar(200) NULL,
-    date_created		timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     activated   		enum('0','1') NOT NULL DEFAULT '0',
     institution_pk  	int(10) NULL,
     admin_accounts	enum('0','1') NOT NULL DEFAULT '0',
@@ -35,6 +36,7 @@ alter table users add otherInst varchar(200);
 update users set otherInst='unknown' where institution_pk='1';
 alter table users add primaryRole varchar(100);
 alter table users add secondaryRole varchar(100);
+alter table users add date_modified timestamp not null;
 ****/
 
 insert into users (username, password, email,activated) values ('aaronz',PASSWORD('password1'),'aaronz@vt.edu','1');
