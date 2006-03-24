@@ -32,6 +32,7 @@ if (!$USER["admin_accounts"]) {
 
 // set header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
+$EXTRA_LINKS .= "<a href='index.php'>Admin</a> - ";
 if ($USE_LDAP) {
 	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP admin</a> - ";
 }

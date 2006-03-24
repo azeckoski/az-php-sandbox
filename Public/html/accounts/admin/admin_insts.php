@@ -99,6 +99,7 @@ $items_displayed = mysql_num_rows($result);
 
 // header top links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
+$EXTRA_LINKS .= "<a href='index.php'>Admin</a> - ";
 if ($USE_LDAP) {
 	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP admin</a> - ";
 }

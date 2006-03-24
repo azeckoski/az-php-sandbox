@@ -28,7 +28,7 @@
   	</span><br/>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
  <?php if ($USER["admin_accounts"] || $USER["admin_insts"]) { ?>
-  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/admin/admin.php">Tool Admin</a> - 
+  	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/admin/index.php">Tool Admin</a> - 
 <?php } ?>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>
 <?php } else { ?>
