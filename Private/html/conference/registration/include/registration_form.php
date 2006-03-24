@@ -13,10 +13,8 @@
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
 	<select name="primaryRole">
-<?php	$selectItem = $USER['primaryRole'];
-		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
-		require $ACCOUNTS_PATH.'include/role_select.php';
-?>
+		<option value="">-- select role --</option>
+		<?= generate_roles_dropdown($USER['primaryRole']) ?>
 	</select><br/>
 	<input type="hidden" id="primaryRoleValidate" value="<?= $vItems['primaryRole'] ?>" />
 	<span id="primaryRoleMsg"></span>
@@ -32,10 +30,8 @@
   </td>
   <td>
 	<select name="secondaryRole">
-<?php	$selectItem = $USER['secondaryRole'];
-		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
-		require $ACCOUNTS_PATH.'include/role_select.php';
-?>
+		<option value="">-- select role --</option>
+		<?= generate_roles_dropdown($USER['secondaryRole']) ?>
 		<option value="" <?php if(!$USER['secondaryRole']) echo " selected='y' "; ?> >None</option>
 	</select><br/>
 	<input type="hidden" id="secondaryRoleValidate" value="<?= $vItems['secondaryRole'] ?>" />
