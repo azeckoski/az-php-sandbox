@@ -85,9 +85,7 @@ if ($_POST['save']) { // saving the form
 	$delegate = mysql_real_escape_string($_POST["delegate"]);
 	$expectations = mysql_real_escape_string($_POST["expectations"]);
 
-	// other vars
-	$institution = $INST['name'];
-	$activated = "";
+	if (!$publishInfo) { $publishInfo = 'Y'; }
 	
 	// SAVE THE CURRENT DATA IN THE DATABASE
 	if ($errors == 0) {
@@ -104,7 +102,9 @@ if ($_POST['save']) { // saving the form
 		if (!$isRegistered) { // no conference record for this user and this conference
 			// calculate the fee
 			$fee = 0;
+			$activated = 'Y';
 			if (!$isPartner) {
+				$activated = 'N';
 				if ($jasig == 'Y') {
 					$fee = 345;
 				} else {
@@ -114,16 +114,16 @@ if ($_POST['save']) { // saving the form
 
 			// insert a new entry for the conference
 			$confsql = "INSERT INTO conferences (confID, shirt, special, confHotel, jasig, " .
-				"publishInfo, fee, delegate, expectations, activated, users_pk) VALUES " .
+				"publishInfo, date_created, fee, delegate, expectations, activated, users_pk) VALUES " .
 				"('$CONF_ID', '$shirt', '$special', '$confHotel', '$jasig', " .
-				"'$publishInfo', '$fee', '$delegate', '$expectations', '$activated', $USER_PK)";
+				"'$publishInfo', NOW(), '$fee', '$delegate', '$expectations', '$activated', $USER_PK)";
 			$result = mysql_query($confsql) or die('Conf insert query failed: ('.$confsql.')' . mysql_error());
 			$new_req = true;
 		} else {
 			// update the existing entry
 			$confsql = "UPDATE conferences SET shirt='$shirt', special='$special', " .
 				"confHotel='$confHotel', jasig='$jasig', expectations='$expectations', " .
-				"delegate='$delegate', publishInfo='$publishInfo', date_modified=NOW() WHERE " .
+				"delegate='$delegate', publishInfo='$publishInfo' WHERE " .
 				"users_pk='$USER_PK' and confID='$CONF_ID'";
 			$result = mysql_query($confsql) or die('Conf update query failed: ('.$confsql.')' . mysql_error());
 		}

@@ -1,7 +1,7 @@
 <?php
 /*
- * file: admin_users.php
- * Created on Mar 8, 2006 10:39:51 PM by @author aaronz
+ * file: index.php
+ * Created on Mar 23, 2006 10:39:51 PM by @author aaronz
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
@@ -37,11 +37,11 @@ if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
 	$sqlsearch = " where (U1.username like '%$searchtext%' or U1.firstname like '%$searchtext%' or " .
-		"U1.lastname like '%$searchtext%' or U1.email like '%$searchtext%') ";
+		"U1.lastname like '%$searchtext%' or U1.email like '%$searchtext%' or I1.name like '%$searchtext%') ";
 }
 
 // sorting
-$sortorder = "username";
+$sortorder = "date_created desc";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
@@ -85,17 +85,22 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
-$users_sql = "select U1.*, C1.*, I1.name as institution " .
+$users_sql = "select U1.firstname, U1.lastname, U1.email, C1.*, I1.name as institution " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
 $items_displayed = mysql_num_rows($result);
 
+// custom CSS file
+$CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
+$DATE_FORMAT = "M d, Y h:i A";
 
 // set header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'><strong>Attendee List</strong></a>" .
-	"</span>";
+		"<a href='index.php'>Admin</a> - " .
+		"<a href='attendees.php'><strong>Attendees</strong></a>" .
+		"</span>";
+
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
@@ -112,14 +117,14 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include $PARENT_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include $TOOL_PATH.'include/admin_header.php'; ?>
 
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include $PARENT_PATH.'include/footer.php';
+		include $TOOL_PATH.'include/admin_footer.php';
 		exit;
 	}
 ?>
@@ -129,17 +134,20 @@ function orderBy(newOrder) {
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
 <div class="filterarea">
-	<div align="left"><strong>Paging:</strong>
-		<input type="hidden" name="page" value="<?= $page ?>"/>
-		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page"/>
-		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page"/>
+	<table border=0 cellspacing=0 cellpadding=0 width="100%">
+	<tr>
+
+	<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
+	<td nowrap="y">
+		<input type="hidden" name="page" value="<?= $page ?>" />
+		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
+		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
 		<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
-		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page"/>
-		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page"/>
+		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page" />
+		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
 		<span class="keytext">&nbsp;-&nbsp;
 		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
-	</div>
-	<div style="text-align:left;display:inline;">
+		&nbsp;-&nbsp;
 		Max of</span>
 		<select name="num_limit" title="Choose the max items to view per page">
 			<option value="<?= $num_limit ?>"><?= $num_limit ?></option>
@@ -152,23 +160,25 @@ function orderBy(newOrder) {
 			<option value="300">300</option>
 		</select>
 		<span class="keytext">items per page</span>
-	</div>
+	</td>
 
-	<div style="text-align:right;display:inline;">
+	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
-        	size="20" title="Enter search text here"/>
+        	size="20" title="Enter search text here" />
         <script type="text/javascript">document.adminform.searchtext.focus();</script>
-        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements"/>
-	</div>
+        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
+	</td>
+
+	</tr>
+	</table>
 </div>
 
 <table border="0" cellspacing="0" width="100%">
 <tr class='tableheader'>
-<!-- <td><a href="javascript:orderBy('username');">username</a></td> -->
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('email');">Email</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
-<!-- <td align="center">Rep</td> -->
 <td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
 </tr>
 
@@ -182,13 +192,9 @@ while($row=mysql_fetch_assoc($result)) {
 	}
 
 	$rowstyle = "";
-	if ($row["activated"]) {
+	if ($row["activated"] == 'N') {
 		$rowstyle = " style = 'color:red;' ";
-	} else if ($row["admin_reqs"]) {
-		$rowstyle = " style = 'color:darkgreen;' ";
-	} else if ($row["admin_insts"]) {
-		$rowstyle = " style = 'color:darkblue;' ";
-	} else if ($row["admin_accounts"]) {
+	} else if ($row["transID"]) {
 		$rowstyle = " style = 'color:#330066;' ";
 	}
 	
@@ -201,36 +207,10 @@ while($row=mysql_fetch_assoc($result)) {
 ?>
 
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
-<!-- 	<td class="line"><?= $row["username"] ?></td> -->
 	<td class="line"><?= $row["firstname"] ?> <?= $row["lastname"] ?></td>
 	<td class="line"><?= $row["email"] ?></td>
 	<td class="line"><?= $row["institution"] ?></td>
-<!-- 	<td class="line" align="center"> -->
-<?php 
- /*********
- 
-if ($row["username"] == $row["rep_username"]) { 
-	echo "<b style='color:#000066;'>Inst Rep</b>";
-} else if ($row["username"] == $row["vote_username"]) { 
-	echo "<b style='color:#006600;'>Vote Rep</b>";
-} else {
-	if ($row["rep_username"]) {
-		$short_name = $row["rep_username"];
-		if (strlen($row["rep_username"]) > 12) {
-			$short_name = substr($row["rep_username"],0,9) . "...";
-		}
-		echo "<label title='".$row["rep_username"]."'>".$short_name."</label>";
-	} else {
-		echo "<i style='color:#CC0000;'>none</i>";
-	}
-}
-
- ******/
-  ?>
-<!-- 	</td> -->
-	<td class="line" align="center">
-		<a href="admin_user.php?pk=<?= $row['pk']?>">edit</a>
-	</td>
+	<td class="line" align="center"><?= date($DATE_FORMAT,strtotime($row["date_created"])) ?></td>
 </tr>
 
 <?php } ?>
@@ -238,6 +218,4 @@ if ($row["username"] == $row["rep_username"]) {
 </table>
 </form>
 
-<?php include $PARENT_PATH.'include/outer_right.php'; ?>
-
-<?php include $PARENT_PATH.'include/footer.php'; ?>
+<?php include $TOOL_PATH.'include/admin_footer.php'; ?>

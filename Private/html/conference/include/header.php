@@ -21,7 +21,7 @@
   	</span><br/>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
 <?php if ($USER["admin_conf"]) { ?>
-  	<a style="font-size:.7em;" href="<?= $TOOL_URL ?>/admin.php">Tool Admin</a> - 
+  	<a style="font-size:.7em;" href="<?= $TOOL_URL ?>/admin/index.php">Tool Admin</a> - 
 <?php } ?>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>
 <?php } else { ?>
