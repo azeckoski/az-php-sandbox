@@ -1,23 +1,23 @@
 // new conferences table
 CREATE TABLE conferences (
-    id         		int(10) AUTO_INCREMENT NOT NULL,
-    confID     		varchar(50) NOT NULL,
-    users_pk   		int(10) NOT NULL DEFAULT '0',
-    date_created	timestamp NOT NULL,
-    date_modified	timestamp NOT NULL,
-    shirt      		varchar(50) NULL,
-    special    		text NULL,
-    confHotel  		enum('Y','N') NULL DEFAULT 'Y',
-    publishInfo		enum('Y','N') NULL DEFAULT 'N',
-    jasig			enum('Y','N') NULL DEFAULT 'N',
-    fee        		decimal(7,0) NOT NULL DEFAULT '0',
-    delegate   		varchar(200) NULL,
-    expectations	text NULL,
-    activated		enum('Y','N') NULL DEFAULT 'N',
-    payeeInfo		text NULL,
-    transID			varchar(100) NULL,
-    PRIMARY KEY(id)
-);
+  id int(10) NOT NULL auto_increment,
+  confID varchar(50) NOT NULL default '',
+  users_pk int(10) NOT NULL default '0',
+  date_created timestamp NOT NULL default '0000-00-00 00:00:00',
+  date_modified timestamp NOT NULL,
+  shirt varchar(50) default NULL,
+  special text,
+  confHotel enum('Y','N') default 'Y',
+  publishInfo enum('Y','N') default 'N',
+  jasig enum('Y','N') default 'N',
+  fee decimal(7,0) NOT NULL default '0',
+  delegate varchar(200) default NULL,
+  expectations text,
+  activated enum('Y','N') default 'N',
+  payeeInfo text,
+  transID varchar(100) default NULL,
+  PRIMARY KEY  (id)
+)
 
 
 CREATE TABLE `proposal_presentation` (
