@@ -1,7 +1,7 @@
 CREATE TABLE users ( 
     pk          		int(10) AUTO_INCREMENT NOT NULL,
-    date_created		timestamp NULL DEFAULT NOT NULL default '0000-00-00 00:00:00',
-    date_modified	timestamp NULL DEFAULT,
+    date_created		timestamp NULL,
+    date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     username    		varchar(100) NOT NULL UNIQUE,
     password    		varchar(255) NOT NULL,
     firstname   		varchar(100) NULL,
@@ -16,12 +16,21 @@ CREATE TABLE users (
     phone    			varchar(20) NULL,
     fax		    		varchar(20) NULL,
     otherInst			varchar(200) NULL,
-    activated   		enum('0','1') NOT NULL DEFAULT '0',
     institution_pk  	int(10) NULL,
-    admin_accounts	enum('0','1') NOT NULL DEFAULT '0',
-    admin_reqs		enum('0','1') NOT NULL DEFAULT '0',
-    admin_insts		enum('0','1') NOT NULL DEFAULT '0',
+    activated   		enum('0','1') NOT NULL DEFAULT '0',
+    admin_accounts		enum('0','1') NOT NULL DEFAULT '0',
+    admin_reqs			enum('0','1') NOT NULL DEFAULT '0',
+    admin_insts			enum('0','1') NOT NULL DEFAULT '0',
     PRIMARY KEY(pk)
+);
+
+CREATE TABLE roles ( 
+    pk          		int(10) AUTO_INCREMENT NOT NULL,
+    date_created		timestamp NULL,
+    date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    role_name           varchar(100) NOT NULL,
+    role_order          int(6) NOT NULL,
+    PRIMARY KEY (pk)
 );
 
 /*** EXTRA info to store in users
@@ -39,15 +48,31 @@ alter table users add secondaryRole varchar(100);
 alter table users add date_modified timestamp not null;
 ****/
 
-insert into users (username, password, email,activated) values ('aaronz',PASSWORD('password1'),'aaronz@vt.edu','1');
-insert into users (username, password, email,activated) values ('shardin',PASSWORD('password2'),'shardin@umich.edu','1');
-insert into users (username, password, email,activated) values ('tblake',PASSWORD('password3'),'tblake@vt.edu','1');
-
+// the sessions table is a mirror of the users table with session
+// information, before you criticize, this is meant to reduce the
+// load on the LDAP, basically, user info is only updated when the
+// user logs in
 CREATE TABLE sessions ( 
-    pk          	int(10) AUTO_INCREMENT NOT NULL,
-    users_pk    	int(10) NOT NULL DEFAULT '0',
-    passkey     	varchar(100) NOT NULL,
-    date_created	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    pk          		int(10) AUTO_INCREMENT NOT NULL,
+    users_pk    		int(10) NOT NULL DEFAULT '0',
+    passkey     		varchar(100) NOT NULL,
+    date_created		timestamp NULL,
+    date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    username    		varchar(100) NOT NULL,
+    firstname   		varchar(100) NULL,
+    lastname    		varchar(100) NULL,
+    email       		varchar(100) NOT NULL,
+    primaryRole			varchar(100) NULL,
+    secondaryRole		varchar(100) NULL,
+    city    			varchar(100) NULL,
+    state    			varchar(100) NULL,
+    zipcode   	 		varchar(20) NULL,
+    country   	 		varchar(100) NULL,
+    phone    			varchar(20) NULL,
+    fax		    		varchar(20) NULL,
+    institution			varchar(100) NULL,
+    institution_pk  	int(10) NULL,
+    sakaiPerms			text NULL,
     PRIMARY KEY(pk)
 );
 
