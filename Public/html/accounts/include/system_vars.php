@@ -69,11 +69,11 @@ if (!extension_loaded('gd')) {
 }
 
 // GLOBAL functions
+
 // setting the institution will select the institution with that pk
 // setting short to true will truncate the institution names
 // setting an ignore value will cause the list skip that item
 function generate_partner_dropdown($institution="", $short=false, $ignore="") {
-	global $SAKAI_PARTNERS;
 	$output = "";
 
     $institution_select_statement = "select PK, NAME from institution order by NAME";
@@ -93,6 +93,31 @@ function generate_partner_dropdown($institution="", $short=false, $ignore="") {
  
  	return $output;
 }
+
+
+// generates the role selector dropdown list options
+function generate_roles_dropdown($role="") {
+	$output = "";
+	$found = false;
+
+    $sql = "select role_name from roles order by role_order";
+    $result = mysql_query($sql);
+    while ($row = mysql_fetch_array($result)) {
+    	$selected="";
+	    if ( $role && $role == $row['role_name'] ) {
+	    	$selected=" selected='y'";
+	    	$found = true;
+	    }
+	    $itemName = $row['role_name'];
+		$output .= "<option title='$itemName' value='$itemName' $selected>$itemName</option>\n";
+	}
+	if (!$found && $role) {
+		// add the role as the top item if it does not exist
+		$output = "<option title='$role' value='$role' selected='y'>$role</option>\n" . $output;
+	}
+ 	return $output;
+}
+
 
 // $UID should be a user ID, $str will be written
 function writeLog($tool,$UID, $str) {

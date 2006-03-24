@@ -81,10 +81,8 @@
 		<td nowrap="y">
 			<img id="primaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="primaryRole">
-<?php	$selectItem = $thisUser['primaryRole'];
-		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
-		require $ACCOUNTS_PATH.'include/role_select.php';
-?>
+				<option value="">-- select role --</option>
+				<?= generate_roles_dropdown($thisUser['primaryRole']) ?>
 			</select><br/>
 			<input type="hidden" id="primaryRoleValidate" value="<?= $vItems['primaryRole'] ?>" />
 			<span id="primaryRoleMsg"></span>
@@ -96,10 +94,8 @@
 		<td nowrap="y">
 			<img id="secondaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="secondaryRole">
-<?php	$selectItem = $thisUser['secondaryRole'];
-		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
-		require $ACCOUNTS_PATH.'include/role_select.php';
-?>
+				<option value="">-- select role --</option>
+				<?= generate_roles_dropdown($thisUser['secondaryRole']) ?>
 				<option value="" <?php if(!$thisUser['secondaryRole']) echo " selected='y' "; ?> >None</option>
 			</select> <em style="font-size:.8em;">(if applicable)</em><br/>
 			<input type="hidden" id="secondaryRoleValidate" value="<?= $vItems['secondaryRole'] ?>" />
