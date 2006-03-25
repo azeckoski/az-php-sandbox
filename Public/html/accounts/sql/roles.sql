@@ -1,10 +1,10 @@
 CREATE TABLE roles ( 
-	pk           	int(10) AUTO_INCREMENT NOT NULL,
-	date_created 	timestamp NULL,
-	date_modified	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-	role_name    	varchar(100) NOT NULL,
-	role_order   	int(6) NOT NULL DEFAULT '0',
-	PRIMARY KEY (pk)
+    pk          		int(10) AUTO_INCREMENT NOT NULL,
+    date_created		timestamp NULL default '0000-00-00 00:00:00',
+    date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    role_name           varchar(100) NOT NULL,
+    role_order          int(6) NOT NULL,
+    PRIMARY KEY (pk)
 );
 INSERT INTO roles(pk, date_created, date_modified, role_name, role_order)
   VALUES(1, '2006-03-24 14:25:02.0', '2006-03-24 14:25:02.0', 'Developer/Programmer', 1);

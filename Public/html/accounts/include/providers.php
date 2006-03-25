@@ -1,10 +1,44 @@
 <?php
-/* file: user_provider.php
+/* file: providers.php
  * Created on Mar 24, 2006 by @author az
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
 <?php
+/*
+ * User and Institution objects
+ * These objects are low level accessors which allow the programmer to access
+ * user information or institutional information without having to know where it
+ * comes from. The system will ALWAYS attempt to write data to the LDAP first
+ * and will only attempt to write data locally if the LDAP is inaccessible. The
+ * advantage of this is that local development can be done easily by simply
+ * changing USE_LDAP to false. There are some disadvantages though (like having to
+ * fetch the data from the ldap which is slower than the database) so there is
+ * a caching mechanism built in. The cache timer can be controlled below.
+ */
+$CACHE_EXPIRE = 30; // minutes before cache will force a refresh
+
+/*
+ * LDAP variables
+ * These are stored here since the rest of the system should not need to
+ * have any concept of LDAP, it should only understand the concept of a
+ * user or an institution
+ */
+//$LDAP_SERVER = "reynolds.cc.vt.edu"; // test server 1
+$LDAP_SERVER = "bluelaser.cc.vt.edu"; // prod server 1
+$LDAPS_SERVER = "ldaps://bluelaser.cc.vt.edu"; // SSL prod server 1
+$LDAP_PORT = "389";
+$LDAP_ADMIN_DN = "cn=Manager,dc=sakaiproject,dc=org";
+$LDAP_ADMIN_PW = "ldapadmin";
+$LDAP_READ_DN = "uid=0,ou=users,dc=sakaiproject,dc=org";
+$LDAP_READ_PW = "ironchef";
+// TODO - make the passwords more secure
+
+
+/*
+ * Provides the methods needed to create, read, update and delete users
+ * requires a caching table called users_cache (see new_db.sql)
+ */
 class User {
 
    // member declaration
@@ -153,7 +187,9 @@ class User {
 	}
 
 
-	// creation methods
+/*
+ * CREATE functions
+ */
 	public function create() {
 		global $USE_LDAP;
 		
@@ -169,28 +205,37 @@ class User {
 	}
 
 	private function createDB() {
+		// check to see if the user already exists
+		$checksql = "SELECT pk from users where pk='$this->pk' or " .
+			"username='$this->username' or email='$this->email'";
+		$checkresult = mysql_query($checksql);
+		if (mysql_num_rows($checkresult) == 0) {
+			// write the new values to the DB
+			$sql = "INSERT INTO users (username,password,firstname,lastname,email," .
+					"primaryRole,secondaryRole,institution_pk,date_created," .
+					"address,city,state,zipcode,country,phone,fax,otherInst) values " .
+					"('$this->username',PASSWORD('$this->password'),'$this->firstname'," .
+					"'$this->lastname','$this->email','$this->primaryRole','$this->secondaryRole'," .
+					"'$this->institution_pk',NOW(),'$this->address','$this->city'," .
+					"'$this->state','$this->zipcode','$this->country','$this->phone'," .
+					"'$this->fax','$this->institution')";
 
-		// write the new values to the DB
-		$sql = "INSERT INTO users (username,password,firstname,lastname,email," .
-				"primaryRole,secondaryRole,institution_pk,date_created," .
-				"address,city,state,zipcode,country,phone,fax,otherInst) values " .
-				"('$this->username',PASSWORD('$this->password'),'$this->firstname'," .
-				"'$this->lastname','$this->email','$this->primaryRole','$this->secondaryRole'," .
-				"'$this->institution_pk',NOW(),'$this->address','$this->city'," .
-				"'$this->state','$this->zipcode','$this->country','$this->phone'," .
-				"'$this->fax','$this->institution')";
-
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Insert query failed ($sql): " . mysql_error();
-			return false;
+			$result = mysql_query($sql);
+			if (!$result) {
+				$this->Message = "Insert query failed ($sql): " . mysql_error();
+				return false;
+			}
+			$this->pk = mysql_insert_id();
+			return true;
+		} else {
+			$this->pk = $checkresult['pk'];
+			return $this->saveDB();
 		}
-		$this->pk = mysql_insert_id();
-		return true;
 	}
 
 	private function createLDAP() {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+
 		// write the values to LDAP
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
 		if ($ds) {
@@ -198,6 +243,18 @@ class User {
 			// bind with appropriate dn to give update access
 			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 			if ($admin_bind) {
+
+				// first check to see if this user exists already
+				$existsSearch = "(|(uid=$this->pk)(sakaiUser=$this->username)(mail=$this->email))";
+				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $existsSearch, array("uid"));
+				$exists = ldap_get_entries($ds, $sr);
+				if($exists['count'] > 0) {
+					// entry already exists
+					$this->pk = $exists[0]['uid'][0];
+					$this->saveLDAP();
+				}
+				ldap_free_result($sr);
+
 
 				// prepare data array
 				$info = array();
@@ -261,19 +318,19 @@ class User {
 				$ldap_result=ldap_add($ds, $user_dn, $info);
 				if ($ldap_result) {
 					$Message = "Added new ldap user";
-					$PK = $uid;
+					$this->pk = $uid;
 					writeLog($TOOL_SHORT,$this->username,"user added (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
+					ldap_close($ds);
 					return true;
 				} else {
 					$this->Message = "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
-					return false;
 				}
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
-				return false;
 			}
 			ldap_close($ds);
+			return false;
 		} else {
 			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
@@ -288,12 +345,14 @@ class User {
 		}
 		$checksql = "SELECT pk from users_cache where users_pk='$this->pk'";
 		$checkresult = mysql_query($checksql);
-		if (!$checkresult) {
+		if (mysql_num_rows($checkresult) == 0) {
 			// write the new values to the Cache
-			$sql = "INSERT INTO users_cache (username,firstname,lastname,email," .
-					"primaryRole,secondaryRole,institution_pk,date_created," .
-					"address,city,state,zipcode,country,phone,fax,otherInst) values " .
-					"('$this->username','$this->firstname'," .
+			$sql = "INSERT INTO users_cache (users_pk,username,firstname," .
+					"lastname,email,primaryRole,secondaryRole," .
+					"institution_pk,date_created,address,city," .
+					"state,zipcode,country,phone," .
+					"fax,institution) values " .
+					"('$this->pk','$this->username','$this->firstname'," .
 					"'$this->lastname','$this->email','$this->primaryRole','$this->secondaryRole'," .
 					"'$this->institution_pk',NOW(),'$this->address','$this->city'," .
 					"'$this->state','$this->zipcode','$this->country','$this->phone'," .
@@ -316,39 +375,119 @@ class User {
 	// User fetchers will try to get the user data in the fastest
 	// and most reliable way possible
 
-	// getUsersByPk is the most efficient function and should be used
-	// instead of the others if at all possible
+/*
+ * get the User data by PK
+ */
 	public function getUserByPk($pk) {
 		global $USE_LDAP;
 
-		if($this->getUserFromCache($pk)) {
+		if($this->getUserFromCache("pk",$pk)) {
 			return true;
 		}
 		if ($USE_LDAP) {
-			if($this->getUserFromLDAP($pk)) {
+			if($this->getUserFromLDAP("pk",$pk)) {
 				return true;
 			}
 		}
-		return $this->getUserFromDB($pk);
+		return $this->getUserFromDB("pk",$pk);
 	}
 
-	private function getUserFromCache($pk) {
+
+/*
+ * get the User data by username
+ */
+	public function getUserByUsername($username) {
+		// this has to get the user pk from the username
+		global $USE_LDAP;
+
+		if($this->getUserFromCache("username",$username)) {
+			return true;
+		}
+		if ($USE_LDAP) {
+			if($this->getUserFromLDAP("username",$username)) {
+				return true;
+			}
+		}
+		return $this->getUserFromDB("username",$username);
+	}
+
+	
+/*
+ * get the User data by email
+ */
+	public function getUserByEmail($useremail) {
+		// this has to get the user pk from the email
+		global $USE_LDAP;
+
+		if($this->getUserFromCache("email",$useremail)) {
+			return true;
+		}
+		if ($USE_LDAP) {
+			if($this->getUserFromLDAP("email",$useremail)) {
+				return true;
+			}
+		}
+		return $this->getUserFromDB("email",$useremail);
+	}
+
+	
+/*
+ * get a set of User PKs by search params
+ */
+	public function getUsersBySearch($search) {
+		// this has to get the users based on a search
+		global $USE_LDAP;
+
+		// TODO - this does pretty much nothing right now :-)
+		return false; // <-- REMOVE
+		
+		if ($USE_LDAP) {
+			if($this->getSearchFromLDAP($search)) {
+				return true;
+			}
+		}
+		return $this->getSearchFromDB($search);
+	}
+
+
+/*
+ * Fetch the user data from varying sources based on params
+ * id is the type (e.g. pk), value is the value (e.g. 1)
+ */
+	private function getUserFromCache($id, $value) {
+		$search = "";
+		switch ($id) {
+			case "pk": $search = "users_pk = '$value'"; break;
+			case "email": $search = "email = '$value'"; break;
+			case "username": $search = "username = '$value'"; break;
+			default: $this->Message="Invalid getUserFromCache id: $id, $value"; return false;
+		}
+
 		// grab the data from cache if it is fresh enough
-		$sql = "select * from users_cache where users_pk = '$pk' and " .
-			"now() > date_modified+INTERVAL 30 MINUTE";
+		$sql = "select * from users_cache where $search and " .
+			"now() > date_modified+INTERVAL $CACHE_EXPIRE MINUTE";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "User fetch query failed ($sql): " . mysql_error();
 			return false;
 		}
 		$USER = mysql_fetch_assoc($result);
+		if (!$USER) { return false; }
 		$this->updateFromDBArray($USER);
 		return true;
 	}
 
-	private function getUserFromLDAP($pk) {
+	private function getUserFromLDAP($id, $value) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
-		// write the values to LDAP
+
+		$search = "";
+		switch ($id) {
+			case "pk": $search = "uid=$value"; break;
+			case "email": $search = "mail=$value"; break;
+			case "username": $search = "sakaiUser=$value"; break;
+			default: $this->Message="Invalid getUserFromLDAP id: $id, $value"; return false;
+		}
+
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
 		if ($ds) {
 			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
@@ -357,50 +496,54 @@ class User {
 			if ($read_bind) {
 				//the attribs will let us limit the return if we want
 				//$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","iid","o","sakaiperm");
-			   	//$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$PK", $attribs);
-				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$pk");
+			   	//$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $search, $attribs);
+				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $search);
 				$info = ldap_get_entries($ds, $sr);
+				if($info['count'] == 0) {
+					$this->Message = "No matching ldap item for $search";
+					return false;
+				}
 				$this->updateFromLDAPArray($info);
+				$this->data_source = "ldap";
+				$this->createCache();
+				return true;
 			} else {
 				$this->Message ="ERROR: Read bind to ldap failed";
 			}
 			ldap_close($ds); // close connection
-						
+			return false;
 		} else {
 		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
+		   return false;
 		}
 	}
 
-	private function getUserFromDB($pk) {
-		$sql = "select * from users where pk = '$pk'";
+	private function getUserFromDB($id, $value) {
+		$search = "";
+		switch ($id) {
+			case "pk": $search = "users_pk = '$value'"; break;
+			case "email": $search = "email = '$value'"; break;
+			case "username": $search = "username = '$value'"; break;
+			default: $this->Message="Invalid getUserFromDB id: $id, $value"; return false;
+		}
+
+		$sql = "select * from users where $search";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "User fetch query failed ($sql): " . mysql_error();
 			return false;
 		}
 		$USER = mysql_fetch_assoc($result);
+		if (!$USER) { return false; }
+		$this->updateFromDBArray($USER);
+		$this->data_source = "db";
 		return true;
 	}
 
 
-	public function getUserByUsername($username) {
-		// this has to get the user pk from the username
-		// TODO
-	}
-	
-	public function getUserByEmail($useremail) {
-		// this has to get the user pk from the email
-		// TODO
-	}
-	
-	public function getUsersBySearch($search) {
-		// this has to get the users based on a search
-		// TODO
-	}
-
-
-
-	// update/save methods
+/*
+ * UPDATE and save functions
+ */
 	public function save() {
 		global $USE_LDAP;
 		
@@ -433,7 +576,11 @@ class User {
 			$otherInstSql = " otherInst='$institution', ";
 		}
 
-		$permString = ""; // TODO
+		$permString = ""; // convert the array of perms into a string
+		foreach($this->sakaiPerm as $key=>$value) {
+			$permString .= "$key:";
+		}
+		$permString = trim($permString," :"); // trim colons and spaces
 		$sql = "UPDATE users set username='$this->username', email='$this->email', " . $passChange .
 			"firstname='$this->firstname', lastname='$this->lastname', " . $otherInstSql .
 			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
@@ -505,17 +652,17 @@ class User {
 					$this->Message = "Updated ldap user information";
 					writeLog($TOOL_SHORT,$this->username,"user modified (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
+					ldap_close($ds);
 					return true;
 				} else {
 					$this->Message = "Failed to modify user in LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
-					return false;
 				}
 				
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
-				return false;
 			}
 			ldap_close($ds);
+			return false;
 		} else {
 			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
@@ -523,14 +670,19 @@ class User {
 	}
 
 	private function saveCache() {
-		$permString = ""; // TODO
+		$permString = ""; // convert the array of perms into a string
+		foreach($this->sakaiPerm as $key=>$value) {
+			$permString .= "$key:";
+		}
+		$permString = trim($permString," :"); // trim colons and spaces
 		$sql = "UPDATE users_cache set username='$this->username', email='$this->email', " .
 			"firstname='$this->firstname', lastname='$this->lastname', " .
 			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
 			"institution='$this->institution', institution_pk='$this->institution_pk', " .
 			"address='$this->address', city='$this->city', state='$this->state', " .
 			"zipcode='$this->zipcode', country='$this->country', phone='$this->phone', " .
-			"fax='$this->fax', sakaiPerms='$permString' where users_pk='$this->pk'";
+			"fax='$this->fax', sakaiPerms='$permString', date_modified=NOW() " .
+			"where users_pk='$this->pk'";
 
 		$result = mysql_query($sql);
 		if (!$result) {
@@ -542,7 +694,9 @@ class User {
 
 
 
-	// delete methods
+/*
+ * DELETE functions
+ */
 	public function delete() {
 		global $USE_LDAP;
 		
@@ -581,6 +735,7 @@ class User {
 				$delresult = ldap_delete($ds,$user_dn);
 				if ($delresult) {
 					$this->Message = "Removed ldap user";
+					$this->deleteCache(); // also clear the cache
 					return true;
 				} else {
 					$this->Message = "Failed to remove ldap user";
@@ -597,8 +752,24 @@ class User {
 		}
 	}
 
-	// this will attempt to authorize a user based on
-	// a username and password from mutliple sources
+	private function deleteCache() {
+
+		$sql = "DELETE from users_cache where users_pk='$this->pk'";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Remove cache query failed ($sql): " . mysql_error();
+			return false;
+		}
+		return true;
+	}
+
+
+/*
+ * Will attempt to authenticate a user based on
+ * a username and password (works from multiple sources)
+ * Running an authenticate will also populate the user object
+ * if the authentication is successful
+ */
 	public function authenticateUser($username,$password) {
 		global $USE_LDAP;
 		
@@ -614,12 +785,18 @@ class User {
 		// attempt LDAP authenticate first
 		if ($USE_LDAP) {
 			if($this->authenticateUserFromLDAP($username,$password)) {
+				$this->createCache();
 				return true;
 			}
 		}
 
 		// attempt DB authentication as a fallback
-		return $this->authenticateUserFromDB($username,$password);		
+		if($this->authenticateUserFromDB($username,$password)) {
+			return true;
+		}
+
+		$this->authentic = false;
+		return false;
 	}
 
 	private function authenticateUserFromLDAP($username,$password) {
@@ -653,19 +830,22 @@ class User {
 					$sr=ldap_search($ds, $user_dn, "sakaiUser=$username");
 					$info = ldap_get_entries($ds, $sr);
 					$this->updateFromLDAPArray($info);
+					if ($this->activated) {
+						$this->authentic = true;
+					}
 					$this->Message = "Valid LDAP login: $username";
 					$this->data_source = "ldap";
+					ldap_close($ds);
 					return true;
 				} else {
 					// invalid bind, password is not good
 					$this->Message = "Invalid login: $username - password is not good";
-					return false;
 				}
 			} else {
 				$this->Message ="ERROR: Anonymous bind to ldap failed";
-				return false;
 			}
 			ldap_close($ds); // close connection
+			return false;
 		} else {
 		   $this->Message = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
 		   return false;
@@ -694,6 +874,9 @@ class User {
 			$result = mysql_query($sqlusers) or die('User query failed: ' . mysql_error());
 			$USER = mysql_fetch_assoc($result);
 			$this->updateFromDBArray($USER);
+			if ($this->activated) {
+				$this->authentic = true;
+			}
 			$this->data_source = "db";
 			return true;
 		}
@@ -701,8 +884,10 @@ class User {
 		return false;
 	}
 	
-	// These functions allow us to populate the user object from
-	// the database query results or from the LDAP query results
+/*
+ * These functions allow us to populate the object from
+ * the database query results or from the LDAP query results
+ */
 	public function updateFromArray($userArray) {
 		if (!$userArray || empty($userArray)) {
 			$this->Message = "Cannot updateFromArray, userArray empty";
@@ -722,13 +907,13 @@ class User {
 		$this->firstname = $USER['firstname'];
 		$this->lastname = $USER['lastname'];
 		$this->email = $USER['email'];
+		$this->institution_pk = $USER['institution_pk'];
 		if ($USER['otherInst']) {
 			$this->institution = $USER['otherInst'];
 		} else {
-			// TODO - fix this
-			$this->institution = "**ERROR: not fetched!**";
+			$inst = new Institution($this->institution_pk);
+			$this->institution = $inst->name;
 		}
-		$this->institution_pk = $USER['institution_pk'];
 		$this->address = $USER['address'];
 		$this->city = $USER['city'];
 		$this->state = $USER['state'];
@@ -738,12 +923,13 @@ class User {
 		$this->fax = $USER['fax'];
 		$this->primaryRole = $USER['primaryRole'];
 		$this->secondaryRole = $USER['secondaryRole'];
-		$this->sakaiPerm = $USER['sakaiPerms']; // TODO - perms
-		if ($USER['activated'] == 'Y') { $this->activated=true; }
+		// convert the string of perms to an array with perms as keys
+		$this->sakaiPerm = explode(":",$USER['sakaiPerms']);
+		$aItem = $this->sakaiPerm[0];
+		$this->sakaiPerm = array_flip($this->sakaiPerm);
+		$this->sakaiPerm[$aItem] = "Y";
 
-		if ($this->activated) {
-			$this->authentic = true;
-		}
+		if ($this->sakaiPerm['active']) { $this->activated=true; }
 		return true;
 	}
 
@@ -777,9 +963,542 @@ class User {
 		}
 		$this->sakaiPerm = $perms;
 		if ($this->sakaiPerm['active']) { $this->activated=true; }
-		if ($this->activated) {
-			$this->authentic = true;
+		return true;
+	}
+}
+
+/*
+ * Provides the methods needed to create, read, update and delete institutions
+ * requires a caching table called insts_cache (see new_db.sql)
+ */
+class Institution {
+
+	// member declaration
+	public $pk = 0;
+	public $name;
+	public $type;
+	public $city;
+	public $state;
+	public $zipcode;
+	public $country;
+	public $rep_pk;
+	public $repvote_pk;
+
+	public $Message = "";
+
+	private $data_source = "ldap";
+
+	// constructor
+	function __construct($id=-1) {
+		// constructor will create an inst based on pk if possible
+		if ($id == -1) {
+			$this->Message = "Success: Empty object created";
+			return true;
+		} // created an empty inst object
+
+		if (is_numeric($id)) {
+			// numeric so this is a pk (at least I hope it is)
+			if($this->getInstByPk($id)) {
+				return true;
+			}
 		}
+		$this->Message = "Failed: Empty object created";
+		return false;
+	}
+
+
+	function __toString() {
+		return $this->toString();
+	}
+
+	function toString() {
+		// return the entire object as a string
+		$output = 
+			"pk:". $this->pk . "," .
+			"name:". $this->name . "," .
+			"type:". $this->type . "," .
+			"city:". $this->city . "," .
+			"state:". $this->state . "," .
+			"zipcode:". $this->zipcode . "," .
+			"country:". $this->country . "," .
+			"rep_pk:". $this->rep_pk . "," .
+			"repvote_pk:". $this->repvote_pk;
+		return $output;
+	}
+
+	function toArray() {
+		// return the entire object as an assoc array
+		$output = array();
+		$output['pk'] = $this->pk;
+		$output['name'] = $this->name;
+		$output['type'] = $this->type;
+		$output['city'] = $this->city;
+		$output['state'] = $this->state;
+		$output['zipcode'] = $this->zipcode;
+		$output['country'] = $this->country;
+		$output['rep_pk'] = $this->rep_pk;
+		$output['repvote_pk'] = $this->repvote_pk;
+		return $output;
+	}
+
+
+/*
+ * CREATE functions
+ */
+	public function create() {
+		global $USE_LDAP;
+		
+		// create the user in the appropriate location
+		if ($this->data_source == "ldap" && $USE_LDAP) {
+			return $this->createLDAP();
+		} else if ($this->data_source == "db") {
+			return $this->createDB();
+		} else {
+			$this->Message = "Invalid data_source: $this->data_source, could not create";
+			return false;
+		}
+	}
+
+	private function createDB() {
+		// check to see if the inst already exists
+		$checksql = "SELECT pk from institution where pk='$this->pk'";
+		$checkresult = mysql_query($checksql);
+		if (mysql_num_rows($checkresult) == 0) {
+			// write the new values to the DB
+			$sql = "INSERT INTO institution " .
+				"(date_created,name,type,city,state,zipcode,country,rep_pk,repvote_pk) values " .
+				"(NOW(),'$this->name','$this->type','$this->city','$this->state'," .
+				"'$this->zipcode','$this->country','$this->rep_pk','$this->repvote_pk')";
+			
+			$result = mysql_query($sql);
+			if (!$result) {
+				$this->Message = "Insert query failed ($sql): " . mysql_error();
+				return false;
+			}
+			$this->pk = mysql_insert_id();
+			return true;
+		} else {
+			return $this->saveDB();
+		}
+	}
+
+	private function createLDAP() {
+		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+		// write the values to LDAP
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($ds) {
+			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+			// bind with appropriate dn to give update access
+			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			if ($admin_bind) {
+
+				// first check to see if this user exists already
+				$existsSearch = "(iid=$this->pk)";
+				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $existsSearch, array("iid"));
+				$exists = ldap_get_entries($ds, $sr);
+				if($exists['count'] > 0) {
+					// entry already exists
+					$this->pk = $exists[0]['iid'][0];
+					$this->saveLDAP();
+				}
+				ldap_free_result($sr);
+
+
+				// prepare data array
+				$info = array();
+				$info["o"]=$this->name;
+				$info["insttype"]=$this->type;
+				$info["l"]=$this->city;
+				$info["st"]=$this->state;
+				$info["postalcode"]=$this->zipcode;
+				$info["c"]=$this->country;
+				$info["repuid"]=$this->rep_pk;
+				$info["voteuid"]=$this->repvote_pk;
+					
+				// empty items must be set to a blank array
+				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+
+				//prepare inst dn, find next available iid
+				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", "iid=*", array("iid"));
+				ldap_sort($ds, $sr, 'iid');
+				$idinfo = ldap_get_entries($ds, $sr);
+				$lastnum = $idinfo["count"] - 1;
+				$id = $idinfo[$lastnum]["iid"][0] + 1;
+				ldap_free_result($sr);
+
+				// DN FORMAT: iid=#,ou=institutions,dc=sakaiproject,dc=org
+				$item_dn = "iid=$id,ou=institutions,dc=sakaiproject,dc=org";
+
+				$info["objectClass"][0]="sakaiInst";
+				$info["iid"]=$id;
+
+				// insert the item into ldap
+				$ldap_result=ldap_add($ds, $item_dn, $info);
+				if ($ldap_result) {
+					$Message = "Added new ldap institution";
+					$this->pk = $id;
+					writeLog($TOOL_SHORT,$this->username,"inst added (ldap): " .
+							"$this->name ($this->type) [$this->pk]" );
+					ldap_close($ds);
+					return true;
+				} else {
+					$this->Message = "Failed to add inst to LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
+				}
+			} else {
+				$this->Message = "Critical ERROR: Admin bind failed";
+			}
+			ldap_close($ds);
+			return false;
+		} else {
+			$this->Message = "ERROR: Unable to connect to LDAP server";
+			return false;
+		}
+	}
+
+	private function createCache() {
+		// check to see if the cache already exists for this user
+		if(!$this->pk || $this->pk < 1) {
+			$this->Message = "Cannot cache object, pk not set or invalid ($this->pk)";
+			return false;
+		}
+		$checksql = "SELECT pk from insts_cache where insts_pk='$this->pk'";
+		$checkresult = mysql_query($checksql);
+		if (mysql_num_rows($checkresult) == 0) {
+			// write the new values to the Cache
+			$sql = "INSERT INTO insts_cache " .
+				"(date_created,insts_pk,name,type,city,state,zipcode,country,rep_pk,repvote_pk) values " .
+				"(NOW(),'$this->pk','$this->name','$this->type','$this->city','$this->state'," .
+				"'$this->zipcode','$this->country','$this->rep_pk','$this->repvote_pk')";
+	
+			$result = mysql_query($sql);
+			if (!$result) {
+				$this->Message = "Insert query failed ($sql): " . mysql_error();
+				return false;
+			}
+			return true;
+		} else {
+			return $this->saveCache();
+		}
+	}
+
+
+/*
+ * get the Institution data by PK
+ */
+	public function getInstByPk($pk) {
+		global $USE_LDAP;
+
+		if($this->getInstFromCache("pk",$pk)) {
+			return true;
+		}
+		if ($USE_LDAP) {
+			if($this->getInstFromLDAP("pk",$pk)) {
+				return true;
+			}
+		}
+		return $this->getInstFromDB("pk",$pk);
+	}
+
+/*
+ * Fetch the user data from varying sources based on params
+ * id is the type (e.g. pk), value is the value (e.g. 1)
+ */
+	private function getInstFromCache($id, $value) {
+		$search = "";
+		switch ($id) {
+			case "pk": $search = "insts_pk = '$value'"; break;
+			default: $this->Message="Invalid getInstFromCache id: $id, $value"; return false;
+		}
+
+		// grab the data from cache if it is fresh enough
+		$sql = "select * from insts_cache where $search and " .
+			"now() > date_modified+INTERVAL $CACHE_EXPIRE MINUTE";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Inst fetch query failed ($sql): " . mysql_error();
+			return false;
+		}
+		$ITEM = mysql_fetch_assoc($result);
+		if (!$ITEM) { return false; }
+		$this->updateFromDBArray($ITEM);
+		return true;
+	}
+
+	private function getInstFromLDAP($id, $value) {
+		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
+
+		$search = "";
+		switch ($id) {
+			case "pk": $search = "iid=$value"; break;
+			default: $this->Message="Invalid getInstFromLDAP id: $id, $value"; return false;
+		}
+
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($ds) {
+			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+			// bind with appropriate dn to give readonly access
+			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+			if ($read_bind) {
+				//the attribs will let us limit the return if we want
+				//$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","iid","o","sakaiperm");
+			   	//$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $search, $attribs);
+				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $search);
+				$info = ldap_get_entries($ds, $sr);
+				if($info['count'] == 0) {
+					$this->Message = "No matching ldap item for $search";
+					return false;
+				}
+				$this->updateFromLDAPArray($info);
+				$this->data_source = "ldap";
+				$this->createCache();
+				return true;
+			} else {
+				$this->Message ="ERROR: Read bind to ldap failed";
+			}
+			ldap_close($ds); // close connection
+			return false;
+		} else {
+		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
+		   return false;
+		}
+	}
+
+	private function getInstFromDB($id, $value) {
+		$search = "";
+		switch ($id) {
+			case "pk": $search = "pk = '$value'"; break;
+			default: $this->Message="Invalid getInstFromDB id: $id, $value"; return false;
+		}
+
+		$sql = "select * from institution where $search";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Inst fetch query failed ($sql): " . mysql_error();
+			return false;
+		}
+		$ITEM = mysql_fetch_assoc($result);
+		if (!$ITEM) { return false; }
+		$this->updateFromDBArray($ITEM);
+		$this->data_source = "db";
+		return true;
+	}
+
+
+/*
+ * UPDATE and save functions
+ */
+	public function save() {
+		global $USE_LDAP;
+		
+		// save the user to the appropriate location
+		if ($this->data_source == "ldap" && $USE_LDAP) {
+			return $this->saveLDAP();
+		} else if ($this->data_source == "db") {
+			return $this->saveDB();
+		} else {
+			$this->Message = "Invalid data_source: $this->data_source, could not save";
+			return false;
+		}
+	}
+
+	public function update() {
+		// simple passthrough for convenience
+		return $this->save();
+	}
+
+	private function saveDB() {
+		$sql = "UPDATE institution set name='$this->name', type='$this->type', " .
+			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
+			"country='$this->country', rep_pk='$this->rep_pk', repvote_pk='$this->repvote_pk' " .
+			"where pk='$this->pk'";
+
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Update query failed ($sql): " . mysql_error();
+			return false;
+		}
+		return true;
+	}
+
+	private function saveLDAP() {
+		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+		// write the values to LDAP
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($ds) {
+			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+			// bind with appropriate dn to give update access
+			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			if ($admin_bind) {
+
+				// prepare data array
+				$info = array();
+				$info["o"]=$this->name;
+				$info["insttype"]=$this->type;
+				$info["l"]=$this->city;
+				$info["st"]=$this->state;
+				$info["postalcode"]=$this->zipcode;
+				$info["c"]=$this->country;
+				$info["repuid"]=$this->rep_pk;
+				$info["voteuid"]=$this->repvote_pk;
+
+				// empty items must be set to a blank array
+				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+
+				// DN FORMAT: iid=#,ou=institutions,dc=sakaiproject,dc=org
+				$item_dn = "iid=$this->pk,ou=institutions,dc=sakaiproject,dc=org";
+				$ldap_result=ldap_modify($ds, $item_dn, $info);
+				if ($ldap_result) {
+					$this->Message = "Updated ldap inst information";
+					writeLog($TOOL_SHORT,$this->username,"inst modified (ldap): " .
+							"$this->name ($this->type) [$this->pk]" );
+					ldap_close($ds);
+					return true;
+				} else {
+					$this->Message = "Failed to modify inst in LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
+				}
+				
+			} else {
+				$this->Message = "Critical ERROR: Admin bind failed";
+			}
+			ldap_close($ds);
+			return false;
+		} else {
+			$this->Message = "ERROR: Unable to connect to LDAP server";
+			return false;
+		}
+	}
+
+	private function saveCache() {
+		$sql = "UPDATE insts_cache set insts_pk='$this->pk', name='$this->name', type='$this->type', " .
+			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
+			"country='$this->country', rep_pk='$this->rep_pk', repvote_pk='$this->repvote_pk' " .
+			"where pk='$this->pk'";
+
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Update cache query failed ($sql): " . mysql_error();
+			return false;
+		}
+		return true;
+	}
+
+
+/*
+ * DELETE functions
+ */
+	public function delete() {
+		global $USE_LDAP;
+		
+		// delete the user from the appropriate location
+		if ($this->data_source == "ldap" && $USE_LDAP) {
+			return $this->deleteLDAP();
+		} else if ($this->data_source == "db") {
+			return $this->deleteDB();
+		} else {
+			$this->Message = "Invalid data_source: $this->data_source, could not save";
+			return false;
+		}
+	}
+
+	private function deleteDB() {
+
+		$sql = "DELETE from institution where pk='$this->pk'";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Remove query failed ($sql): " . mysql_error();
+			return false;
+		}
+		return true;
+	}
+
+	private function deleteLDAP() {
+		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+		// write the values to LDAP
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($ds) {
+			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+			// bind with appropriate dn to give update access
+			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			if ($admin_bind) {
+				$item_dn = "iid=$this->pk,ou=institutions,dc=sakaiproject,dc=org";
+				$delresult = ldap_delete($ds,$item_dn);
+				if ($delresult) {
+					$this->Message = "Removed ldap institution";
+					$this->deleteCache(); // also clear the cache
+					return true;
+				} else {
+					$this->Message = "Failed to remove ldap inst";
+					return false;
+				}
+			} else {
+				$this->Message = "Critical ERROR: Admin bind failed";
+				return false;
+			}
+			ldap_close($ds);
+		} else {
+			$this->Message = "ERROR: Unable to connect to LDAP server";
+			return false;
+		}
+	}
+
+	private function deleteCache() {
+
+		$sql = "DELETE from insts_cache where insts_pk='$this->pk'";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Remove cache query failed ($sql): " . mysql_error();
+			return false;
+		}
+		return true;
+	}
+
+
+
+/*
+ * These functions allow us to populate the object from
+ * the database query results or from the LDAP query results
+ */
+	public function updateFromArray($objArray) {
+		if (!$objArray || empty($objArray)) {
+			$this->Message = "Cannot updateFromArray (inst), objArray empty";
+			return false;
+		}
+		return updateFromDBArray($objArray);
+	}
+
+	private function updateFromDBArray($item) {
+		if (!$item || empty($item)) {
+			$this->Message = "Cannot updateFromDBArray, inst ITEM empty";
+			return false;
+		}
+
+		$this->pk = $item['pk'];
+		$this->name = $item['name'];
+		$this->type = $item['type'];
+		$this->city = $item['city'];
+		$this->state = $item['state'];
+		$this->zipcode = $item['zipcode'];
+		$this->country = $item['country'];
+		$this->rep_pk = $item['rep_pk'];
+		$this->repvote_pk = $item['repvote_pk'];
+		return true;
+	}
+
+	private function updateFromLDAPArray($info) {
+		if (!$info || empty($info)) {
+			$this->Message = "Cannot updateFromLDAPArray, inst INFO empty";
+			return false;
+		}
+
+		$this->pk = $info[0]["iid"][0];
+		$this->name = $info[0]["o"][0];
+		$this->type = $info[0]["insttype"][0];
+		$this->city = $info[0]["l"][0];
+		$this->state = $info[0]["st"][0];
+		$this->zipcode = $info[0]["postalcode"][0];
+		$this->country = $info[0]["c"][0];
+		$this->rep_pk = $info[0]["repuid"][0];
+		$this->repvote_pk = $info[0]["voteuid"][0];
 		return true;
 	}
 }

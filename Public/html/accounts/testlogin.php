@@ -63,12 +63,11 @@ if (!$errors && $USERNAME && $PASSWORD) {
 
 
 		echo "BEFORE:", $user, "<br/>";
+		echo $user->Message . "<br/>";
 
-		$newrole = "";
-		print "CHANGING primaryRole: $newrole <br>";
-		$user->primaryRole = $newrole;
-		$user->save();
-		echo "Save:" . $user->Message . "<br/>";
+		//$user->primaryRole = $newrole;
+		//$user->save();
+		//echo "Save:" . $user->Message . "<br/>";
 
 	} else {
 		// user/pass combo not found

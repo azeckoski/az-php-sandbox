@@ -15,15 +15,6 @@ $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 
 $DATE_FORMAT = "l, F dS, Y h:i A";
 
-// LDAP variables
-//$LDAP_SERVER = "reynolds.cc.vt.edu";
-$LDAP_SERVER = "bluelaser.cc.vt.edu";
-$LDAP_PORT = "389";
-$LDAP_ADMIN_DN = "cn=Manager,dc=sakaiproject,dc=org";
-$LDAP_ADMIN_PW = "ldapadmin";
-$LDAP_READ_DN = "uid=0,ou=users,dc=sakaiproject,dc=org";
-$LDAP_READ_PW = "ironchef";
-
 
 // tool functions
 
