@@ -17,6 +17,7 @@
  * a caching mechanism built in. The cache timer can be controlled below.
  */
 $CACHE_EXPIRE = 30; // minutes before cache will force a refresh
+$TOOL_SHORT = "provider";
 
 /*
  * LDAP variables
@@ -67,6 +68,7 @@ class User {
 	private $data_source = "ldap";
 	private $password;
 	private $authentic = false;
+	private $searchResults = array();
 
 	// constructor
 	function __construct($userid=-1) {
@@ -432,25 +434,6 @@ class User {
 
 	
 /*
- * get a set of User PKs by search params
- */
-	public function getUsersBySearch($search) {
-		// this has to get the users based on a search
-		global $USE_LDAP;
-
-		// TODO - this does pretty much nothing right now :-)
-		return false; // <-- REMOVE
-		
-		if ($USE_LDAP) {
-			if($this->getSearchFromLDAP($search)) {
-				return true;
-			}
-		}
-		return $this->getSearchFromDB($search);
-	}
-
-
-/*
  * Fetch the user data from varying sources based on params
  * id is the type (e.g. pk), value is the value (e.g. 1)
  */
@@ -540,6 +523,94 @@ class User {
 		return true;
 	}
 
+
+/*
+ * get a set of User PKs by search params
+ * Can limit searching to only one data_source
+ */
+	public function getUsersBySearch($search, $limit="") {
+		// this has to get the users based on a search
+		global $USE_LDAP;
+
+		$this->searchResults = array(); // reset array
+		
+		// have to search both the LDAP and the DB unless limited
+		if ($USE_LDAP && ($limit=="" || $limit=="ldap") ) {
+			$this->getSearchFromLDAP($search);
+		}
+		if ($limit=="" || $limit=="db") {
+			$this->getSearchFromDB($search);
+		}
+		
+		if (empty($this->searchResults)) {
+			return false;
+		}
+		return true;
+	}
+
+	private function getSearchFromLDAP($search) {
+		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
+
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($ds) {
+			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+			// bind with appropriate dn to give readonly access
+			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+			if ($read_bind) {
+				//the attribs will let us limit the return if we want
+				//$attribs = array("cn","uid","sakaiuser","mail","iid","o","sakaiperm");
+				$filter = "(|(sakaiUser=$this->username)(mail=$this->email)" .
+					"(cn=$this->firstname $this->lastname)(o=$this->institution))";
+				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter, array("uid"));
+				$info = ldap_get_entries($ds, $sr);
+				if($info['count'] == 0) {
+					$this->Message = "No matching ldap item for $search";
+					return false;
+				}
+				$this->data_source = "ldap";
+				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
+				// add the result PKs to the array
+				for ($line=0; $line<$info["count"]; $line++) {
+					$this->searchResults[] = $info[$line]["uid"][0];
+				}
+				return true;
+			} else {
+				$this->Message ="ERROR: Read bind to ldap failed";
+			}
+			ldap_close($ds); // close connection
+			return false;
+		} else {
+		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
+		   return false;
+		}
+	}
+
+	private function getSearchFromDB($search) {
+		$search = trim($search,"*"); // cleanup the ldap search chars
+		$sql = "select pk from users U1 where (U1.username like '%$search%' or " .
+			"U1.firstname like '%$search%' or U1.lastname like '%$search%' or " .
+			"U1.email like '%$search%' or U1.otherInst like '%$search%')";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "User search query failed ($sql): " . mysql_error();
+			return false;
+		}
+		$this->data_source = "db";
+		$this->Message = "Search results found (db): " . mysql_num_rows($result);
+		// add the result PKs to the array
+		while($row=mysql_fetch_assoc($result)) {
+			$this->searchResults[] = $row["pk"];
+		}
+		return true;
+	}
+
+/*
+ * Special helper that grabs all info for the PKs in the searchResults array
+ * and dumps it into an array of associative arrays
+ */
+	public function getInfoForSearch() {
+		// TODO - implement this helper and see if it is useful
+	}
 
 /*
  * UPDATE and save functions
@@ -987,6 +1058,7 @@ class Institution {
 	public $Message = "";
 
 	private $data_source = "ldap";
+	private $searchResults = array();
 
 	// constructor
 	function __construct($id=-1) {
@@ -1280,6 +1352,85 @@ class Institution {
 		if (!$ITEM) { return false; }
 		$this->updateFromDBArray($ITEM);
 		$this->data_source = "db";
+		return true;
+	}
+
+
+/*
+ * get a set of Inst PKs by search params
+ * Can limit searching to only one data_source
+ */
+	public function getInstsBySearch($search, $limit="") {
+		// this has to get the users based on a search
+		global $USE_LDAP;
+
+		$this->searchResults = array(); // reset array
+		
+		// have to search both the LDAP and the DB unless limited
+		if ($USE_LDAP && ($limit=="" || $limit=="ldap") ) {
+			$this->getSearchFromLDAP($search);
+		}
+		if ($limit=="" || $limit=="db") {
+			$this->getSearchFromDB($search);
+		}
+		
+		if (empty($this->searchResults)) {
+			return false;
+		}
+		return true;
+	}
+
+	private function getSearchFromLDAP($search) {
+		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
+
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($ds) {
+			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+			// bind with appropriate dn to give readonly access
+			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+			if ($read_bind) {
+				//the attribs will let us limit the return if we want
+				//$attribs = array("cn","uid","sakaiuser","mail","iid","o","sakaiperm");
+				$filter = "(|(o=$this->name)(type=$this->type))";
+				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $filter, array("iid"));
+				$info = ldap_get_entries($ds, $sr);
+				if($info['count'] == 0) {
+					$this->Message = "No matching ldap item for $search";
+					return false;
+				}
+				$this->data_source = "ldap";
+				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
+				// add the result PKs to the array
+				for ($line=0; $line<$info["count"]; $line++) {
+					$this->searchResults[] = $info[$line]["iid"][0];
+				}
+				return true;
+			} else {
+				$this->Message ="ERROR: Read bind to ldap failed";
+			}
+			ldap_close($ds); // close connection
+			return false;
+		} else {
+		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
+		   return false;
+		}
+	}
+
+	private function getSearchFromDB($search) {
+		$search = trim($search,"*"); // cleanup the ldap search chars
+		$sql = "select pk from institution I1 where " .
+			"(I1.name like '%$search%' or I1.type like '%$search%')";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Inst search query failed ($sql): " . mysql_error();
+			return false;
+		}
+		$this->data_source = "db";
+		$this->Message = "Search results found (db): " . mysql_num_rows($result);
+		// add the result PKs to the array
+		while($row=mysql_fetch_assoc($result)) {
+			$this->searchResults[] = $row["pk"];
+		}
 		return true;
 	}
 
