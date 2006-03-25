@@ -58,6 +58,14 @@ CREATE TABLE sessions (
     passkey     		varchar(100) NOT NULL,
     date_created		timestamp NULL,
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(pk)
+);
+
+CREATE TABLE users_cache (
+    pk          		int(10) AUTO_INCREMENT NOT NULL,
+    users_pk    		int(10) NOT NULL DEFAULT '0',
+    date_created		timestamp NULL,
+    date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     username    		varchar(100) NOT NULL,
     firstname   		varchar(100) NULL,
     lastname    		varchar(100) NULL,
@@ -75,6 +83,7 @@ CREATE TABLE sessions (
     sakaiPerms			text NULL,
     PRIMARY KEY(pk)
 );
+
 
 CREATE TABLE institution (
     pk				int(10) auto_increment not null,

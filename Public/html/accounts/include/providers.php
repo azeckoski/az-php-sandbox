@@ -41,10 +41,10 @@ class User {
 
 		if (is_numeric($userid)) {
 			// numeric so this is a userpk (at least I hope it is)
-			$this->pk = $userid;
+			return $this->getUserByPk($userid);
 		} else {
 			// this must be a username
-			$this->username = $userid;
+			return $this->getUserByUsername($userid);
 		}
 	}
 
@@ -280,34 +280,124 @@ class User {
 		}
 	}
 
+	private function createCache() {
+		// check to see if the cache already exists for this user
+		if(!$this->pk || $this->pk < 1) {
+			$this->Message = "Cannot cache user object, pk not set or invalid ($this->pk)";
+			return false;
+		}
+		$checksql = "SELECT pk from users_cache where users_pk='$this->pk'";
+		$checkresult = mysql_query($checksql);
+		if (!$checkresult) {
+			// write the new values to the Cache
+			$sql = "INSERT INTO users_cache (username,firstname,lastname,email," .
+					"primaryRole,secondaryRole,institution_pk,date_created," .
+					"address,city,state,zipcode,country,phone,fax,otherInst) values " .
+					"('$this->username','$this->firstname'," .
+					"'$this->lastname','$this->email','$this->primaryRole','$this->secondaryRole'," .
+					"'$this->institution_pk',NOW(),'$this->address','$this->city'," .
+					"'$this->state','$this->zipcode','$this->country','$this->phone'," .
+					"'$this->fax','$this->institution')";
+	
+			$result = mysql_query($sql);
+			if (!$result) {
+				$this->Message = "Insert query failed ($sql): " . mysql_error();
+				return false;
+			}
+			return true;
+		} else {
+			return $this->saveCache();
+		}
+	}
 
-	// read functions
-	public function getUserByPk($userpk) {
+
+
+	// READ functions
+	// User fetchers will try to get the user data in the fastest
+	// and most reliable way possible
+
+	// getUsersByPk is the most efficient function and should be used
+	// instead of the others if at all possible
+	public function getUserByPk($pk) {
+		global $USE_LDAP;
+
+		if($this->getUserFromCache($pk)) {
+			return true;
+		}
+		if ($USE_LDAP) {
+			if($this->getUserFromLDAP($pk)) {
+				return true;
+			}
+		}
+		return $this->getUserFromDB($pk);
 	}
 
-	public function getUserByUsername($username) {
-	}
-	
-	public function getUserByEmail($useremail) {
-	}
-	
-	public function getUsersBySearch($search) {
-	}
-	
-	// this is the actual user fetching function
-	// it will attempt to get the user from the most
-	// reliable and fastest sources
-	private function getUserFromPk($pk) {
-	}
-	
-	private function getUserFromDBCache($pk) {
-	}
-
-	private function getUserFromDB($pk) {
+	private function getUserFromCache($pk) {
+		// grab the data from cache if it is fresh enough
+		$sql = "select * from users_cache where users_pk = '$pk' and " .
+			"now() > date_modified+INTERVAL 30 MINUTE";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "User fetch query failed ($sql): " . mysql_error();
+			return false;
+		}
+		$USER = mysql_fetch_assoc($result);
+		$this->updateFromDBArray($USER);
+		return true;
 	}
 
 	private function getUserFromLDAP($pk) {
+		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
+		// write the values to LDAP
+		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($ds) {
+			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+			// bind with appropriate dn to give readonly access
+			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+			if ($read_bind) {
+				//the attribs will let us limit the return if we want
+				//$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","iid","o","sakaiperm");
+			   	//$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$PK", $attribs);
+				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$pk");
+				$info = ldap_get_entries($ds, $sr);
+				$this->updateFromLDAPArray($info);
+			} else {
+				$this->Message ="ERROR: Read bind to ldap failed";
+			}
+			ldap_close($ds); // close connection
+						
+		} else {
+		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
+		}
 	}
+
+	private function getUserFromDB($pk) {
+		$sql = "select * from users where pk = '$pk'";
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "User fetch query failed ($sql): " . mysql_error();
+			return false;
+		}
+		$USER = mysql_fetch_assoc($result);
+		return true;
+	}
+
+
+	public function getUserByUsername($username) {
+		// this has to get the user pk from the username
+		// TODO
+	}
+	
+	public function getUserByEmail($useremail) {
+		// this has to get the user pk from the email
+		// TODO
+	}
+	
+	public function getUsersBySearch($search) {
+		// this has to get the users based on a search
+		// TODO
+	}
+
 
 
 	// update/save methods
@@ -343,12 +433,14 @@ class User {
 			$otherInstSql = " otherInst='$institution', ";
 		}
 
-		$sql = "UPDATE users set email='$this->email', " . $passChange .
+		$permString = ""; // TODO
+		$sql = "UPDATE users set username='$this->username', email='$this->email', " . $passChange .
 			"firstname='$this->firstname', lastname='$this->lastname', " . $otherInstSql .
 			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
-			"institution_pk='$this->institution_pk', address='$this->address', city='$this->city', " .
-			"state='$this->state', zipcode='$this->zipcode', country='$this->country', phone='$this->phone', " .
-			"fax='$this->fax' where pk='$this->pk'";
+			"institution_pk='$this->institution_pk', address='$this->address', " .
+			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
+			"country='$this->country', phone='$this->phone', " .
+			"fax='$this->fax', sakaiPerms='$permString' where pk='$this->pk'";
 
 		$result = mysql_query($sql);
 		if (!$result) {
@@ -429,6 +521,25 @@ class User {
 			return false;
 		}
 	}
+
+	private function saveCache() {
+		$permString = ""; // TODO
+		$sql = "UPDATE users_cache set username='$this->username', email='$this->email', " .
+			"firstname='$this->firstname', lastname='$this->lastname', " .
+			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
+			"institution='$this->institution', institution_pk='$this->institution_pk', " .
+			"address='$this->address', city='$this->city', state='$this->state', " .
+			"zipcode='$this->zipcode', country='$this->country', phone='$this->phone', " .
+			"fax='$this->fax', sakaiPerms='$permString' where users_pk='$this->pk'";
+
+		$result = mysql_query($sql);
+		if (!$result) {
+			$this->Message = "Update cache query failed ($sql): " . mysql_error();
+			return false;
+		}
+		return true;
+	}
+
 
 
 	// delete methods
@@ -541,36 +652,8 @@ class User {
 					// get the user info for this user
 					$sr=ldap_search($ds, $user_dn, "sakaiUser=$username");
 					$info = ldap_get_entries($ds, $sr);
-					
-					$this->pk = $info[0]["uid"][0]; // uid is multivalue, we want the first only
-					$this->username = $info[0]["sakaiuser"][0];
-					$this->firstname = $info[0]["givenname"][0];
-					$this->lastname = $info[0]["sn"][0];
-					$this->email = $info[0]["mail"][0];
-					$this->institution = $info[0]["o"][0];
-					$this->institution_pk = $info[0]["iid"][0];
-					$this->primaryRole = $info[0]["primaryrole"][0];
-					$this->secondaryRole = $info[0]["secondaryrole"][0];
-					$this->address = $info[0]["postaladdress"][0];
-					$this->city = $info[0]["l"][0];
-					$this->state = $info[0]["st"][0];
-					$this->zipcode = $info[0]["postalcode"][0];
-					$this->country = $info[0]["c"][0];
-					$this->phone = $info[0]["telephonenumber"][0];
-					$this->fax = $info[0]["facsimiletelephonenumber"][0];
-					$perms = array();
-					foreach ($info[0]["sakaiperm"] as $key1=>$value1) {
-						if ($key1 !== "count") {
-							$perms[$value1] = "Y";
-						}
-					}
-					$this->sakaiPerm = $perms;
-					if ($this->sakaiPerm['active']) { $this->activated=true; }
-
+					$this->updateFromLDAPArray($info);
 					$this->Message = "Valid LDAP login: $username";
-					if ($this->activated) {
-						$this->authentic = true;
-					}
 					$this->data_source = "ldap";
 					return true;
 				} else {
@@ -610,39 +693,94 @@ class User {
 			$sqlusers = "select * from users where pk = '$USER_PK'";
 			$result = mysql_query($sqlusers) or die('User query failed: ' . mysql_error());
 			$USER = mysql_fetch_assoc($result);
-
-			$this->pk = $USER['pk'];
-			$this->username = $USER['username'];
-			$this->firstname = $USER['firstname'];
-			$this->lastname = $USER['lastname'];
-			$this->email = $USER['email'];
-			if ($USER['otherInst']) {
-				$this->institution = $USER['otherInst'];
-			} else {
-				// TODO - fix this
-				$this->institution = "fetch this information!";
-			}
-			$this->institution_pk = $USER['institution_pk'];
-			$this->address = $USER['address'];
-			$this->city = $USER['city'];
-			$this->state = $USER['state'];
-			$this->zipcode = $USER['zipcode'];
-			$this->country = $USER['country'];
-			$this->phone = $USER['phone'];
-			$this->fax = $USER['fax'];
-			$this->primaryRole = $USER['primaryRole'];
-			$this->secondaryRole = $USER['secondaryRole'];
-			$this->sakaiPerm = $USER['sakaiPerms'];
-			if ($USER['activated'] == 'Y') { $this->activated=true; }
-
-			if ($this->activated) {
-				$this->authentic = true;
-			}
+			$this->updateFromDBArray($USER);
 			$this->data_source = "db";
 			return true;
 		}
 		$this->Message = "Invalid login: $username not in DB";
 		return false;
+	}
+	
+	// These functions allow us to populate the user object from
+	// the database query results or from the LDAP query results
+	public function updateFromArray($userArray) {
+		if (!$userArray || empty($userArray)) {
+			$this->Message = "Cannot updateFromArray, userArray empty";
+			return false;
+		}
+		return updateFromDBArray($userArray);
+	}
+
+	private function updateFromDBArray($USER) {
+		if (!$USER || empty($USER)) {
+			$this->Message = "Cannot updateFromDBArray, USER empty";
+			return false;
+		}
+
+		$this->pk = $USER['pk'];
+		$this->username = $USER['username'];
+		$this->firstname = $USER['firstname'];
+		$this->lastname = $USER['lastname'];
+		$this->email = $USER['email'];
+		if ($USER['otherInst']) {
+			$this->institution = $USER['otherInst'];
+		} else {
+			// TODO - fix this
+			$this->institution = "**ERROR: not fetched!**";
+		}
+		$this->institution_pk = $USER['institution_pk'];
+		$this->address = $USER['address'];
+		$this->city = $USER['city'];
+		$this->state = $USER['state'];
+		$this->zipcode = $USER['zipcode'];
+		$this->country = $USER['country'];
+		$this->phone = $USER['phone'];
+		$this->fax = $USER['fax'];
+		$this->primaryRole = $USER['primaryRole'];
+		$this->secondaryRole = $USER['secondaryRole'];
+		$this->sakaiPerm = $USER['sakaiPerms']; // TODO - perms
+		if ($USER['activated'] == 'Y') { $this->activated=true; }
+
+		if ($this->activated) {
+			$this->authentic = true;
+		}
+		return true;
+	}
+
+	private function updateFromLDAPArray($info) {
+		if (!$info || empty($info)) {
+			$this->Message = "Cannot updateFromLDAPArray, INFO empty";
+			return false;
+		}
+
+		$this->pk = $info[0]["uid"][0]; // uid is multivalue, we want the first only
+		$this->username = $info[0]["sakaiuser"][0];
+		$this->firstname = $info[0]["givenname"][0];
+		$this->lastname = $info[0]["sn"][0];
+		$this->email = $info[0]["mail"][0];
+		$this->institution = $info[0]["o"][0];
+		$this->institution_pk = $info[0]["iid"][0];
+		$this->primaryRole = $info[0]["primaryrole"][0];
+		$this->secondaryRole = $info[0]["secondaryrole"][0];
+		$this->address = $info[0]["postaladdress"][0];
+		$this->city = $info[0]["l"][0];
+		$this->state = $info[0]["st"][0];
+		$this->zipcode = $info[0]["postalcode"][0];
+		$this->country = $info[0]["c"][0];
+		$this->phone = $info[0]["telephonenumber"][0];
+		$this->fax = $info[0]["facsimiletelephonenumber"][0];
+		$perms = array();
+		foreach ($info[0]["sakaiperm"] as $key1=>$value1) {
+			if ($key1 !== "count") {
+				$perms[$value1] = "Y";
+			}
+		}
+		$this->sakaiPerm = $perms;
+		if ($this->sakaiPerm['active']) { $this->activated=true; }
+		if ($this->activated) {
+			$this->authentic = true;
+		}
+		return true;
 	}
 }
 ?>
