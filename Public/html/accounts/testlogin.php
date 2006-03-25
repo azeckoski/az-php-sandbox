@@ -15,7 +15,7 @@ $Message = "";
 require 'sql/mysqlconnect.php';
 
 // user provider
-require 'include/user_provider.php';
+require 'include/providers.php';
 
 // Clear the current session cookie
 setcookie("SESSION_ID", "NULL", null, "/", false, 0);
@@ -64,13 +64,11 @@ if (!$errors && $USERNAME && $PASSWORD) {
 
 		echo "BEFORE:", $user, "<br/>";
 
-		$newrole = "Developer";
+		$newrole = "";
 		print "CHANGING primaryRole: $newrole <br>";
 		$user->primaryRole = $newrole;
 		$user->save();
 		echo "Save:" . $user->Message . "<br/>";
-
-		echo "AFTER:", $user, "<br/>";
 
 	} else {
 		// user/pass combo not found
