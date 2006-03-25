@@ -185,10 +185,35 @@ if ($message) {
            <br/><br/></div>
                       <div class=topic_row_header> <div class=topic_type_header>TOPIC AREAS *</div><div class=topic_vote_header>
                          <span>n/a&nbsp;&nbsp;&nbsp;&nbsp;</span><span>low&nbsp;&nbsp;&nbsp;</span><span>med&nbsp;&nbsp;&nbsp;</span> <span>high&nbsp;&nbsp;&nbsp;</span> </div></div> 
-          <?php include ('./add_lists.php'); 
+          <?php 
+          
+          //populate form with topic information
+          
+   require_once('../sql/mysqlconnect.php');
+$topic_sql="select * from topics";
+$result = mysql_query($topic_sql) or die(mysql_error());
+
+ while($topic_items=mysql_fetch_array($result)) {
+	$topic_pk=$topic_items['pk'];
+	$topic_name=$topic_items['topic_name'];
+	$topicID="topic_" . $topic_pk;
+	echo" <div class=topic_row>  <div class=topic_type>$topic_name</div><div class=topic_vote>
+             <span> <input name=$topic_pk type=\"radio\" value=\"0\" ";
+              if ($_POST[$topicID]=="0") { echo "checked"; } 
+              echo" />&nbsp;&nbsp;&nbsp;</span>
+               <span> <input name=$topicID type=\"radio\" value=\"1\" ";
+              if ($_POST[$topicID]=="1") { echo "checked"; } 
+              echo" />&nbsp;&nbsp;&nbsp;</span>
+              <span><input name=$topicID type=\"radio\" value=\"2\"  ";
+              if ($_POST[$topicID]=="2") { echo "checked"; } 
+              echo" />&nbsp;&nbsp;&nbsp;</span><span>
+              <input name=$topicID type=\"radio\" value=\"3\"  ";
+              if ($_POST[$topicID]=="3") { echo "checked"; } 
+              echo" />&nbsp;&nbsp;&nbsp;&nbsp;</span></div></div>  ";
+}
    
 
-array_walk($topic_area, 'echo_topics');
+
 ?>
     </div>
     </tr>
@@ -203,9 +228,30 @@ array_walk($topic_area, 'echo_topics');
                         <span>n/a&nbsp;&nbsp;&nbsp;&nbsp;</span><span>low &nbsp;&nbsp;&nbsp;</span><span>med &nbsp;&nbsp;&nbsp;</span> <span>high &nbsp;&nbsp;&nbsp;</span> </div></div> 
               
 <?php
-   
+   //populate form with audience information
+$audience_sql="select * from roles";
+$result = mysql_query($audience_sql) or die(mysql_error());
 
-array_walk($audience, 'echo_audience');
+ while($audience_items=mysql_fetch_array($result)) {
+ 	$audience_pk=$audience_items['pk'];
+	$audience_name=$audience_items['role_name'];
+ 	$audienceID="audience_" .$audience_pk;
+ 	echo" <div class=topic_row>  <div class=topic_type>$audience_name</div><div class=topic_vote>
+           <span> <input name=$audienceID type=\"radio\" value=\"0\" ";
+              if ($_POST[$audienceID]=="0") { echo "checked"; } 
+              echo" />&nbsp;&nbsp;&nbsp;</span>
+               <span> <input name=$audienceID type=\"radio\" value=\"1\" ";
+              if ($_POST[$audienceID]=="1") { echo "checked"; } 
+              echo" />&nbsp;&nbsp;&nbsp;</span>
+              <span><input name=$audienceID type=\"radio\" value=\"2\"  ";
+              if ($_POST[$audienceID]=="2") { echo "checked"; } 
+              echo" />&nbsp;&nbsp;&nbsp;</span><span>
+              <input name=$audienceID type=\"radio\" value=\"3\"  ";
+              if ($_POST[$audienceID]=="3") { echo "checked"; } 
+              echo" />&nbsp;&nbsp;&nbsp;&nbsp;</span></div></div>  ";
+}
+
+
 ?>
       
 
