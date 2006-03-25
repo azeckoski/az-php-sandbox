@@ -132,6 +132,14 @@ if ($message) {
         <td align="right"><strong>Demo Presenter(s) <span class="required">*</span></strong></td>
         <td><input type="text" name="speaker" size="40" maxlength="100" value="<?php echo $_POST['speaker']; ?>" /></td>
       </tr>
+        <tr>
+        <td><strong><br/>Co-Presenters</strong><br/>(if any)</td><td>
+          
+      <div id="co_presenters">  List the names of your co-presenters, one name per line. 
+       <textarea name="co_speaker" cols="60" rows="4"><?php echo $_POST['co_speaker']; ?></textarea><br/>
+          </div></td>
+      </tr>
+    
       <tr>
         <td align="right"><strong>Project URL </strong>&nbsp; &nbsp; </td>
         <td><input type="text" name="url" size="40" maxlength="100" value="<?php echo $_POST['url']; ?>" /></td>

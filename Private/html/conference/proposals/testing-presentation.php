@@ -46,33 +46,14 @@ if (isset($_POST['submit'])) {
 //	$validated=TRUE;
 	
 	if ($validated) {
-		
 	
-		//set all empty topic values to 0
-		for ($i = 0; $i <= 27; $i++) {
-			$topic="topic_" .$i;
-			if (!isset($_POST[$topic])){
-				$_POST[$topic]="0";
-			}
-			$_SESSION[$topic]=$_POST[$topic];
-		}
-		
-		//set all empty audience values to 0
-		for ($i = 0; $i <= 11; $i++) {
-			$audience="audience_" .$i;
-			if (!isset($_POST[$audience])){
-				$_POST[$audience]="0";
-			}
-			$_SESSION[$audience]=$_POST[$audience];
-		}
-		
 		require ('include/submit_presentation.php');
 		
-		if($result) {
+		
 
-			require ('include/send_proposalEmail.php');
+		//	require ('include/send_proposalEmail.php');
 			header("Location:testing-next.php");
-		}
+		
 	}
 }
 ?>

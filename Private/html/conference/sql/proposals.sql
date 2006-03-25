@@ -21,3 +21,5 @@ CREATE TABLE `conf_proposals` (
   `approved` enum('Y','N') NOT NULL default 'N',
   PRIMARY KEY  (`id`)
 )
+
+

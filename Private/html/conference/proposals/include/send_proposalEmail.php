@@ -1,6 +1,6 @@
 <?php
 
-require "../sql/mysqlconnect.php";
+require_once('../sql/mysqlconnect.php');
 
 
 $presentation_sql="Select * from `conf_proposals` WHERE id='$presentation_id' ";
@@ -32,51 +32,6 @@ $bio=stripslashes($presentation['bio']);
 $co_speaker=stripslashes($presentation['co_speaker']);
 $co_bio=stripslashes($presentation['co_bio']);
 $url=$presentation['URL'];
-/*****
- //old audience code
-  * $dev=$presentation['dev'];
-$ui_dev=$presentation['ui_dev'];
-$faculty=$presentation['faculty'];
-$faculty_dev=$presentation['faculty_dev'];
-$implementors=$presentation['implementors'];
-$instruct_dev=$presentation['instruct_dev'];
-//$librarian=$presentation['librarian'];
-
-$managers=$presentation['managers'];
-$sys_admin=$presentation['sys_admin'];
-$univ_admin=$presentation['univ_admin'];
-$support=$presentation['support'];
-$type=$presentation['type'];
-$layout=$presentation['layout'];
-$length=$presentation['length'];
-$conflict=$presentation['conflict'];
-
-
-
-
- 
-function get_level($level){
-switch ($level) {
-
-case '1':
-$interest="low";
-break;
-
-case '2':
-$interest="medium";
-break;
-
-case '3':
-$interest="high";
-break;
-
-
-}
-return $interest;
-
-}
- * 
- */
 
 
 $today = date("F j, Y"); 
@@ -109,51 +64,6 @@ $today = date("F j, Y");
 	 	 $msg.="Co-Speaker (s):  $co_speaker  \r\n\r\n";
 	 	// $msg.="Co-speaker Bio: \r\n $co_bio \r\n\r\n";
 
-	/****
-	 *    $msg.="Audience:  \r\n"; 
- 		if ($dev > 0){
- 		$interest=get_level($dev);
-	 	$msg .="  Develpers (interest level= $interest) \r\n ";
-	 	}
-	 	if ($faculty > 0){
- 		$interest=get_level($faculty);
-	 	$msg .="  Faculty (interest level= $interest) \r\n ";
-	 	}
-	    if ($faculty_dev > 0){
- 		$interest=get_level($faculty_dev);
-	 	$msg .="  Faculty (interest level= $interest) \r\n ";
-	 	}
-	 	 	if ($instruct_dev > 0){
- 		$interest=get_level($instruct_dev);
-	 	$msg .="  Instructional Designers (interest level= $interest) \r\n ";
-	 	}
-	 	if ($implementors > 0){
- 		$interest=get_level($implementors);
-	 	$msg .="  Implementors (interest level= $interest) \r\n ";
-	 	}
-	 	if ($managers > 0){
- 		$interest=get_level($managers);
-	 	$msg .="  Managers (interest level= $interest) \r\n ";
-	 	}
-	 	if ($sys_admin > 0){
- 		$interest=get_level($sys_admin);
-	 	$msg .="  System Administrators/Implementors (interest level= $interest) \r\n ";
-	 	}
-	 	if ($univ_admin > 0){
- 		$interest=get_level($univ_admin);
-	 	$msg .="  University Administration (interest level= $interest) \r\n ";
-	 	}
-	 	if ($ui_dev > 0){
- 		$interest=get_level($ui_dev);
-	 	$msg .="  UI Developers(interest level= $interest) \r\n ";
-	 	}
-	 	if ($support > 0){
- 		$interest=get_level($support);
-	 	$msg .="User Support (interest level= $interest) \r\n\r\n";
-	 	}
-	
-	 */ 
-	 
 	  	
 	 	$msg.="\r\nPresentation layout:  ";
  		if ($layout=='class')
@@ -168,33 +78,12 @@ $today = date("F j, Y");
 	 	$msg.="Availability:  ";
 	 	
 	 	if ($conflict) {
-	 		 	$msg .="unavailable" ;
+	 		 	$msg .="unavailable $conflict" ;
 	 	}
 	 	else {
 	 		 	$msg .="available all days ";
 	 	}
 	 		 	
-	/*************
-	 //old availablilty code 
-	 *  	if (($conflict_tues==0) AND ($conflict_wed==0) AND 
-	 	($conflict_thurs==0) AND ($conflict_fri==0)  ) {
-	 	
-	 	$msg .="available all days \r\n";
-	 	}
-	 	else {
-	 	$msg .="unavailable on : ";
-        if ($conflict_tues==1) 
-        	 	$msg .="(Tuesday, May 30 )  ";
-        if ($conflict_wed==1) 
-        	 	$msg .="(Wednesday, May 31) ";
-         if ($conflict_thurs==1) 
-        	 	$msg .="(Thursday, June 1) ";
-        if ($conflict_fri==1) 
-        	 	$msg .="(Friday, June 2) \r\n";
-        	 	
-        	 }
-	 */
-   
    
 		
 

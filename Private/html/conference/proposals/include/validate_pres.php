@@ -20,8 +20,8 @@
 
 	
 	
-		//get topic results
-for ($i = 0; $i <= 11; $i++) {
+		//get audience results
+for ($i = 1; $i <= 12; $i++) {
 	$audience="audience_" .$i;
 	if ($_POST[$audience] > 0){
 			$audience_complete[] =TRUE;
@@ -42,18 +42,6 @@ for ($i = 0; $i <= 11; $i++) {
 			$message[]="<li>Select audience</li>";
 
 			}
-/*Check to make sure they entered an audience
-	if ( (isset($_POST['audience_0'])) || (isset($_POST['audience_1'])) || (isset($_POST['audience_3'])) 
-	|| (isset($_POST['audience_4'])) || (isset($_POST['audience_5'])) ||  (isset($_POST['audience_6']))
-	|| (isset($_POST['audience_7'])) ||
-	(isset($_POST['audience_8']))  || (isset($_POST['audience_9'])) || (isset($_POST['audience_10'])) ){
-				$audience = TRUE;
-	} else {
-			$audience = FALSE;
-			$message[] = "<li>presentation audience</li>";
-	}
-	
-	*/
 
 	
 	
@@ -124,7 +112,7 @@ for ($i = 0; $i <= 11; $i++) {
 	
 	
 	//get topic results
-for ($i = 0; $i <= 27; $i++) {
+for ($i = 1; $i <= 28; $i++) {
 	$topic="topic_" .$i;
 	if ($_POST[$topic] >=1){
 			$topic_complete[] =TRUE;

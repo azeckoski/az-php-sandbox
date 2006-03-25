@@ -12,20 +12,7 @@ $bio=addslashes($_POST['bio']);
 $co_speaker=addslashes($_POST['co_speaker']);
 $co_bio=addslashes($_POST['co_bio']);
 $url=$_POST['url'];
-$track=$_POST['track'];
-$dev=$_POST['audience_0'];
-$ui_dev=$_POST['audience_1'];
-$support=$_POST['audience_2'];
-$faculty=$_POST['audience_3'];
-$faculty_dev=$_POST['audience_4'];
-$librarians=$_POST['audience_5'];
-$implementors=$_POST['audience_6'];
-$instruct_dev=$_POST['audience_7'];
-$instruct_tech=$_POST['audience_8'];
 
-$managers=$_POST['audience_9'];
-$sys_admin=$_POST['audience_10'];
-$univ_admin=$_POST['audience_11'];
 $type=$_POST['type'];
 $layout=$_POST['layout'];
 $length=$_POST['length'];
@@ -47,27 +34,7 @@ if ($_POST['conflict_fri']=='1'){
 	$conflict .='Fri ';
 }
 
-  
-//  for ($i = 0; $i <= 27; $i++) {
-//$topic="topic_" .$i;
-
-//$topic=$_POST[$topic];
-//}
-  //TO DO figure out how to enter topic data into new table
-  
-  $topics=$_POST['topic_0'] .$_POST['topic_1'] .$_POST['topic_2'] 
-  .$_POST['topic_3']  .$_POST['topic_4']  .$_POST['topic_5']  
-   .$_POST['topic_6']  .$_POST['topic_7']  .$_POST['topic_8'] 
-     .$_POST['topic_9']  .$_POST['topic_10']  .$_POST['topic_11'] 
-      .$_POST['topic_12']  .$_POST['topic_13']  .$_POST['topic_14'] 
-       .$_POST['topic_15']  .$_POST['topic_16']  .$_POST['topic_17'] 
-       .$_POST['topic_18']  .$_POST['topic_19']  .$_POST['topic_20'] 
-        .$_POST['topic_21']  .$_POST['topic_22']  .$_POST['topic_23'] 
-         .$_POST['topic_24']  .$_POST['topic_25']  .$_POST['topic_26'] 
-          .$_POST['topic_27'] ;
-
-
-// TO DO  add librarian entry in database then add below
+  //add presentation information into conf_proposals --all except role and topic data
 $presentation_sql="INSERT INTO `conf_proposals` ( `id` , `date_created` , `date_modified` , `confID` , `users_pk` , `type` , `new_type` , `title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` , `conflict` , `co_speaker` , `co_bio` , `approved` )
 VALUES (
 '' , NOW(), '', '$CONF_ID', '$USER_PK', '$type', '' , '$title', '$abstract', '$desc' , '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' , '$co_speaker' , '$co_bio' , 'N'
@@ -79,7 +46,45 @@ $result = mysql_query($presentation_sql) or die("Error:<br/>" . mysql_error() . 
 		"If you continue to have problems, please report the problem to the " .
 		"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
 		
-		$presentation_id=mysql_insert_id(); //this is how to query the last entered auto-id entry
+		$proposals_pk=mysql_insert_id(); //this is how to query the last entered auto-id entry
 
+
+
+//get all audience values and add to the database
+	for ($i = 1; $i <= 12; $i++) { //should be handled with an sql query in case list of roles increase
+	$audience="audience_" .$i;
+	if ($_POST[$audience] > 0){ // - only gets roles with values
+			$audience_level=$_POST[$audience];
+			$insert_audience_sql="INSERT INTO `proposals_audiences` ( `pk` , `date_created` , `date_modified` , `proposals_pk` , `roles_pk` , `choice` )
+VALUES ('', NOW(), '', '$proposals_pk', '$i', '$audience_level')";
+	
+		$audience_result = mysql_query($insert_audience_sql) or die("Error:<br/>" . mysql_error() . "problem entering role" );
+		
+		
+			}
+			
+			
+			
+		}
+	
+//get all topic values and add to the database
+	for ($i = 1; $i <= 28; $i++) { //should be handled with an sql query in case list of topics increase
+	$get_topic="topic_" .$i;
+	if ($_POST[$get_topic] > 0){ // - only gets roles with values
+			$topic_level=$_POST[$get_topic];
+	$insert_topic_sql="INSERT INTO `proposals_topics` ( `pk` , `date_created` , `date_modified` , `proposals_pk` , `topics_pk` , `choice` )
+	VALUES('', NOW(), '', '$proposals_pk', '$i', '$topic_level') " ;	
+		
+		$topic_result = mysql_query($insert_topic_sql) or die("Error:<br/>" . mysql_error() . "problem entering topic" );
+		
+		
+			}
+			
+			
+			
+		}	
+			
+		
+		
 ?>
 

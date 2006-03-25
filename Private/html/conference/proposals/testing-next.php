@@ -62,7 +62,7 @@ if ($_POST['save']) { // saving the form
 			exit;
 		} else if ($_POST['type']=="done") {
 			//if done is selected, go to contact info page 
-			header("Location: testing-contact.php");
+			header("Location: contact.php");
 			exit;
 		}
 	}
