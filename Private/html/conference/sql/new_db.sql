@@ -3,7 +3,7 @@ CREATE TABLE conferences (
   id int(10) NOT NULL auto_increment,
   confID varchar(50) NOT NULL default '',
   users_pk int(10) NOT NULL default '0',
-  date_created timestamp NULL,
+  date_created timestamp NULL default '0000-00-00 00:00:00',
   date_modified timestamp NOT NULL default CURRENT_TIMESTAMP,
   shirt varchar(50) default NULL,
   special text,

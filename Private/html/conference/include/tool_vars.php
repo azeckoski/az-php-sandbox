@@ -28,4 +28,7 @@ $CONF_NAME = "Sakai Vancouver";
 // date format for display
 $DATE_FORMAT = "l, F dS, Y h:i A";
 
+// tool functions
+
+
 ?>

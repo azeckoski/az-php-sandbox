@@ -171,7 +171,7 @@ if ($message) {
           //populate form with topic information
           
    require_once('../sql/mysqlconnect.php');
-$topic_sql="select * from topics";
+$topic_sql="select pk, topic_name from topics order by topic_order";
 $result = mysql_query($topic_sql) or die(mysql_error());
 
  while($topic_items=mysql_fetch_array($result)) {
@@ -210,7 +210,7 @@ $result = mysql_query($topic_sql) or die(mysql_error());
               
 <?php
    //populate form with audience information
-$audience_sql="select * from roles";
+$audience_sql="select pk,role_name from roles order by role_order";
 $result = mysql_query($audience_sql) or die(mysql_error());
 
  while($audience_items=mysql_fetch_array($result)) {
