@@ -8,6 +8,32 @@
 ?>
 <?php
 
+/*** XML traversal and item count
+$namesDoc = new DOMDocument();
+$namesDoc->load($TOOL_PATH.'include/skin_names.xml');
+$elements = $namesDoc->getElementsByTagName('NAME');
+print "Size:".$elements->length."<br/>";
+foreach ($elements as $node) {
+	print $node->nodeValue.'<br>';
+}
+srand((double)microtime()*1000000); // random seed
+$randomNum = rand(1,$elements->length); // bewteen 1 and number of xml elements
+$elementCount = $elements->length;
+print $elements->item($randomNum)->nodeValue.'<br>';
+
+$namesDoc = new DOMDocument();
+$namesDoc->load($TOOL_PATH.'include/skin_names.xml');
+$elements = $namesDoc->getElementsByTagName('NAME');
+$allNames = array();
+foreach ($elements as $node) { $allNames[] = $node->nodeValue; }
+$sql_names = "select title from skin_entries where round='$ROUND'";
+$result = mysql_query($sql_names) or die("Name query failed ($sql_names): " . mysql_error());
+$usedItems = array();
+while ($row = mysql_fetch_row($result)) { $usedItems[]=$row[0]; }
+mysql_free_result($result);
+$allNames = array_diff($allNames,$usedItems);
+****/
+
 require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Text XML sample";
@@ -39,8 +65,8 @@ while($row = mysql_fetch_assoc($result)) {
 } // end while
 
 // stylesheet files
-$styleSheet = $_SERVER["DOCUMENT_ROOT"].$TOOL_PATH."/sql/debug.xsl";
-if ($SHOW_XML) { $styleSheet = $_SERVER["DOCUMENT_ROOT"].$TOOL_PATH."/sql/debug.xsl"; }
+$styleSheet = $_SERVER["DOCUMENT_ROOT"].$TOOL_URL."/sql/debug.xsl";
+if ($SHOW_XML) { $styleSheet = $_SERVER["DOCUMENT_ROOT"].$TOOL_URL."/sql/debug.xsl"; }
 
 $xslt = new xsltProcessor;
 $xsl = DOMDocument::load($styleSheet);

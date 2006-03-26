@@ -10,7 +10,7 @@
 require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Skin Submit";
-$Message = "";
+$Message = "Please read the <a href='skin_contest_rules.php'>contest rules</a> before submitting a skin.";
 
 // connect to database
 require 'sql/mysqlconnect.php';
@@ -26,7 +26,9 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['skin_zip'] = "required:focus";
+$vItems['title'] = "required";
+$vItems['description'] = "focus";
+$vItems['skin_zip'] = "required";
 $vItems['image1'] = "required";
 $vItems['image2'] = "required";
 $vItems['image3'] = "required";
@@ -290,7 +292,6 @@ if ($USER["admin_skin"]) { $allowed = true; }
 	}
 ?>
 
-<div class="required" id="requiredMessage"></div>
 <?php
 	// print out a message to let people know the status of their entry
 	if ($thisItem['approved'] == "N" && $thisItem['tested']  == "N") {
@@ -308,7 +309,25 @@ if ($USER["admin_skin"]) { $allowed = true; }
 <input type="hidden" name="pk" value="<?= $PK ?>" />
 <input type="hidden" name="MAX_FILE_SIZE" value="2000000" /> <!-- 2 MB -->
 
+<fieldset><legend>Skin Contest Entry</legend>
+<div class="required" id="requiredMessage"></div>
 <table border="0" class="padded">
+	<tr>
+		<td nowrap="y">
+			<strong>Title:</strong>
+			<img id="titleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+		</td>
+		<td colspan="2">
+			<select name="title" tabindex="1">
+				<option value="">-- select title --</option>
+				<?= generate_title_dropdown($thisItem['title']) ?>
+			</select>
+			<em style="font-size:10pt;">(Select a title from among the ironchef ingredients)</em>
+			<input type="hidden" id="titleValidate" value="<?= $vItems['title'] ?>" />
+			<br/><span id="titleMsg"></span>
+		</td>
+	</tr>
+
 	<tr>
 		<td colspan="3">
 			<strong>Description:</strong>
@@ -316,7 +335,10 @@ if ($USER["admin_skin"]) { $allowed = true; }
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3"><textarea name="description" tabindex="2" rows="3" cols="80"><?= $thisItem['description'] ?></textarea></td>
+		<td colspan="3">
+			<textarea name="description" tabindex="2" rows="3" cols="80"><?= $thisItem['description'] ?></textarea>
+			<input type="hidden" id="descriptionValidate" value="<?= $vItems['description'] ?>" />
+		</td>
 	</tr>
 
 	<tr>
@@ -343,7 +365,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 
 	<tr>
 		<td nowrap="y" valign="top">
-			<strong>Portal image:</strong>
+			<strong>Portal screenshot:</strong>
 			<img id="image1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 		</td>
 		<td nowrap="y">
@@ -365,7 +387,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 
 	<tr>
 		<td nowrap="y" valign="top">
-			<strong>Workspace image:</strong>
+			<strong>Workspace screenshot:</strong>
 			<img id="image2Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 		</td>
 		<td nowrap="y">
@@ -387,7 +409,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 
 	<tr>
 		<td nowrap="y" valign="top">
-			<strong>Resources image:</strong>
+			<strong>Resources screenshot:</strong>
 			<img id="image3Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 		</td>
 		<td nowrap="y">
@@ -409,7 +431,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 
 	<tr>
 		<td nowrap="y" valign="top">
-			<strong>Gradebook image:</strong>
+			<strong>Gradebook screenshot:</strong>
 			<img id="image4Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 		</td>
 		<td nowrap="y">
@@ -433,24 +455,23 @@ if ($USER["admin_skin"]) { $allowed = true; }
 		<td nowrap="y">
 			<strong>Allow download:</strong>
 		</td>
-		<td colspan="2">&nbsp;
-			<input name="allow_download" type="radio" value="Y" 
+		<td colspan="2">
+			<input name="allow_download" type="radio" value="Y" tabindex="8"
 				<?php if (!$thisItem["allow_download"] || 
 					$thisItem["allow_download"] == "Y") { echo " checked='y' "; } ?> /> Yes
-			<input name="allow_download" type="radio" value="Y" 
+			<input name="allow_download" type="radio" value="Y" tabindex="9"
 				<?php if ($thisItem["allow_download"] == "N") { echo " checked='y' "; } ?> /> No
 			<em style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				(Allow others to download your skin zip file)</em>
 		</td>
 	</tr>
-
-	<tr>
-		<td class="field" colspan="3">
-			<input type="submit" name="account" value="Save information" tabindex="8" /><br/>
-			<em>You may modify your submission after saving until <?= date($DATE_FORMAT,strtotime($ROUND_CLOSE_DATE)) ?></em>
-		</td>
-	</tr>
 </table>
+</fieldset>
+
+<div style="margin:6px;"></div>
+<input type="submit" value="Save information" /><br/>
+<em style="font-size:10pt;">You may modify your submission after saving until <?= date($DATE_FORMAT,strtotime($ROUND_CLOSE_DATE)) ?></em>
+
 </form>
 
 
