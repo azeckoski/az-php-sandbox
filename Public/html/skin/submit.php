@@ -10,7 +10,7 @@
 require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Skin Submit";
-$Message = "Please read the <a href='skin_contest_rules.php'>contest rules</a> before submitting a skin.";
+$Message = "";
 
 // connect to database
 require 'sql/mysqlconnect.php';
@@ -43,14 +43,16 @@ $allowed = false; // assume user is NOT allowed unless otherwise shown
 // this allows us to use this page as an edit for admins or
 // to add/edit/delete for normal users
 if (!$PK) {
-	$entry_sql = "select pk, users_pk from skin_entries where users_pk='$USER_PK'";
+	$entry_sql = "select pk from skin_entries where users_pk='$USER_PK'";
 	$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
 	if (mysql_num_rows($result) > 0) {
 		$row = mysql_fetch_assoc($result);
 		$PK = $row['pk'];
+	} else {
+		$Message = "Please read the <a href='skin_contest_rules.php'>contest rules</a> before submitting a skin.";
 	}
 } else {
-	$entry_sql = "select pk from skin_entries where pk='$PK'";
+	$entry_sql = "select pk, users_pk from skin_entries where pk='$PK'";
 	$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
 	if (mysql_num_rows($result) > 0) {
 		$row = mysql_fetch_assoc($result);
@@ -59,10 +61,10 @@ if (!$PK) {
 			$errors++;
 			$Message = "You may not access someone else's skin entry " .
 				"unless you have the (admin_skin) permission.";
-		} else {
-			$errors++;
-			$Message = "Invalid skin_entry PK ($PK): Entry does not exist";
 		}
+	} else {
+		$errors++;
+		$Message = "Invalid skin_entry PK ($PK): Entry does not exist";
 	}
 }
 
@@ -70,6 +72,7 @@ if (!$PK) {
 if ($_REQUEST["save"] && $errors == 0) {
 	// save the data
 
+	$title = mysql_real_escape_string($_POST["title"]);
 	$description = mysql_real_escape_string($_POST["description"]);
 	$allow_download = mysql_real_escape_string($_POST["allow_download"]);
 
@@ -192,7 +195,7 @@ if ($_REQUEST["save"] && $errors == 0) {
 					$file_keys[$key] = mysql_insert_id();
 				}
 
-				$Message .= "<strong>$fileName uploaded:</strong> size: $fileSize, type: $fileType <br>";
+				//$Message .= "<strong>$fileName uploaded:</strong> size: $fileSize, type: $fileType <br>";
 			} else {
 				// blank file upload (this is ok)
 				continue;
@@ -212,24 +215,24 @@ if ($_REQUEST["save"] && $errors == 0) {
 
 			// update old entry
 			$entry_sql = "UPDATE skin_entries set " . $files_sql .
-				"description='$description', allow_download='$allow_download' " .
+				"title='$title', description='$description', allow_download='$allow_download' " .
 				"where pk='$PK'";
 			//print "$entry_sql<br>";
 			mysql_query($entry_sql) or die("Entry update failed: ".mysql_error().": ".$entry_sql);
-			$Message .= "<strong>Updated existing entry</strong><br>";
+			$Message = "<strong>Updated existing entry</strong><br/>";
 		} else {
 			// new entry
 			$entry_sql = "insert into skin_entries " .
-				"(users_pk, description, skin_zip, " .
+				"(users_pk, title, description, skin_zip, " .
 				"image1, image2, image3, image4," .
 				"round, allow_download, date_created) values " .
-				"('$USER_PK','$description','$file_keys[skin_zip]'," .
+				"('$USER_PK','$title','$description','$file_keys[skin_zip]'," .
 				"'$file_keys[image1]','$file_keys[image2]','$file_keys[image3]','$file_keys[image4]'," .
 				"'$ROUND','$allow_download', NOW())";
 			//print "$entry_sql<br>";
 			mysql_query($entry_sql) or die("Entry query failed: ".mysql_error().": ".$entry_sql);
 			$PK = mysql_insert_id();
-			$Message .= "<strong>Saved new entry</strong><br>";
+			$Message = "<strong>Saved new entry</strong><br/>";
 		}
 	} // end no errors
 } // end save
@@ -371,7 +374,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 		<td nowrap="y">
 <?php if ($thisItem['image1']) { ?>
 			<a href="include/drawImage.php?pk=<?= $thisItem['image1'] ?>" target="_new">
-			<img src="include/drawThumb.php?pk=<?= $thisItem['image1'] ?>" alt="portal image" />
+			<img src="include/drawThumb.php?pk=<?= $thisItem['image1'] ?>" alt="Portal image" />
 			</a>
 <?php } ?>
 		</td>
@@ -393,7 +396,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 		<td nowrap="y">
 <?php if ($thisItem['image2']) { ?>
 			<a href="include/drawImage.php?pk=<?= $thisItem['image2'] ?>" target="_new">
-			<img src="include/drawThumb.php?pk=<?= $thisItem['image2'] ?>" alt="portal image" />
+			<img src="include/drawThumb.php?pk=<?= $thisItem['image2'] ?>" alt="Workspace image" />
 			</a>
 <?php } ?>
 		</td>
@@ -415,7 +418,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 		<td nowrap="y">
 <?php if ($thisItem['image3']) { ?>
 			<a href="include/drawImage.php?pk=<?= $thisItem['image3'] ?>" target="_new">
-			<img src="include/drawThumb.php?pk=<?= $thisItem['image3'] ?>" alt="portal image" />
+			<img src="include/drawThumb.php?pk=<?= $thisItem['image3'] ?>" alt="Resources image" />
 			</a>
 <?php } ?>
 		</td>
@@ -437,7 +440,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 		<td nowrap="y">
 <?php if ($thisItem['image4']) { ?>
 			<a href="include/drawImage.php?pk=<?= $thisItem['image4'] ?>" target="_new">
-			<img src="include/drawThumb.php?pk=<?= $thisItem['image4'] ?>" alt="portal image" />
+			<img src="include/drawThumb.php?pk=<?= $thisItem['image4'] ?>" alt="Gradebook image" />
 			</a>
 <?php } ?>
 		</td>
