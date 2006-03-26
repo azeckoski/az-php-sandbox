@@ -40,20 +40,28 @@ $allowed = false; // assume user is NOT allowed unless otherwise shown
 
 // this allows us to use this page as an edit for admins or
 // to add/edit/delete for normal users
-$entry_sql = "select pk, users_pk from skin_entries where pk='$PK'";
-if (!$PK) { $entry_sql = "select pk, users_pk from skin_entries where users_pk='$USER_PK'"; }
-$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
-if (mysql_num_rows($result) > 0) {
-	$row = mysql_fetch_assoc($result);
-	$PK = $row['pk'];
-	if ( ($row['users_pk'] != $USER_PK) && !$USER["admin_skin"]) {
+if (!$PK) {
+	$entry_sql = "select pk, users_pk from skin_entries where users_pk='$USER_PK'";
+	$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
+	if (mysql_num_rows($result) > 0) {
+		$row = mysql_fetch_assoc($result);
+		$PK = $row['pk'];
+		if ( ($row['users_pk'] != $USER_PK) && !$USER["admin_skin"]) {
+			$errors++;
+			$Message = "You may not access someone else's skin entry " .
+				"unless you have the (admin_skin) permission.";
+		}
+	} else {
 		$errors++;
-		$Message = "You may not access someone else's skin entry " .
-			"unless you have the (admin_skin) permission.";
+		$Message = "Invalid skin_entry PK ($PK): Entry does not exist";
 	}
 } else {
-	$errors++;
-	$Message = "Invalid skin_entry PK ($PK): Entry does not exist";
+	$entry_sql = "select pk from skin_entries where pk='$PK'";
+	$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
+	if (mysql_num_rows($result) > 0) {
+		$row = mysql_fetch_assoc($result);
+		$PK = $row['pk'];
+	}
 }
 
 // process the form
@@ -225,10 +233,13 @@ if ($_REQUEST["save"] && $errors == 0) {
 } // end save
 
 
-// now fetch the current facebook entry
-$inst_sql = "select * from skin_entries where pk='$PK'";
-$result = mysql_query($inst_sql) or die("Entry fetch query failed: ".mysql_error().": ".$entry_sql);
-$thisItem = mysql_fetch_assoc($result); // first result is all we care about
+// now fetch the current entry
+$thisItem = array();
+if ($PK) {
+	$inst_sql = "select * from skin_entries where pk='$PK'";
+	$result = mysql_query($inst_sql) or die("Entry fetch query failed: ".mysql_error().": ".$entry_sql);
+	$thisItem = mysql_fetch_assoc($result); // first result is all we care about
+}
 
 // add in the help link
 $EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
@@ -282,11 +293,11 @@ if ($USER["admin_skin"]) { $allowed = true; }
 <div class="required" id="requiredMessage"></div>
 <?php
 	// print out a message to let people know the status of their entry
-	if ($thisItem['approved'] != "Y" && $thisItem['tested'] != "Y") {
+	if ($thisItem['approved'] == "N" && $thisItem['tested']  == "N") {
 		echo "<strong style='color:#CC6600;'>This entry has not been approved or tested yet</strong><br/>";
-	} else if ($thisItem['approved'] != "Y") {
+	} else if ($thisItem['approved']  == "N") {
 		echo "<strong style='color:#CC6600;'>This entry has not been approved yet</strong><br/>";
-	} else if ($thisItem['tested'] != "Y") {
+	} else if ($thisItem['tested']  == "N") {
 		echo "<strong style='color:#CC6600;'>This entry has not been tested yet</strong><br/>";
 	}
 	// TODO - add in admin approval and tested switches
