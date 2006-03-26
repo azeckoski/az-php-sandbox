@@ -32,28 +32,38 @@ $vItems['image2'] = "required";
 $vItems['image3'] = "required";
 $vItems['image4'] = "required";
 
+$errors = 0; // preset the error count
+$PK = $_REQUEST["pk"]; // grab the pk
+$allowed = false; // assume user is NOT allowed unless otherwise shown
 
-// item PK
-$PK = $_REQUEST["pk"];
-if (!$PK) { // one entry per person so check for an existing entry
-	$entry_sql = "select pk from skin_entries where users_pk='$USER_PK'";
-	$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
-	if (mysql_num_rows($result) > 0) {
-		$row = mysql_fetch_assoc($result);
-		$PK = $row['pk'];
+// currently one entry per person so check for an existing entry
+
+// this allows us to use this page as an edit for admins or
+// to add/edit/delete for normal users
+$entry_sql = "select pk, users_pk from skin_entries where pk='$PK'";
+if (!$PK) { $entry_sql = "select pk, users_pk from skin_entries where users_pk='$USER_PK'"; }
+$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
+if (mysql_num_rows($result) > 0) {
+	$row = mysql_fetch_assoc($result);
+	$PK = $row['pk'];
+	if ( ($row['users_pk'] != $USER_PK) && !$USER["admin_skin"]) {
+		$errors++;
+		$Message = "You may not access someone else's skin entry " .
+			"unless you have the (admin_skin) permission.";
 	}
+} else {
+	$errors++;
+	$Message = "Invalid skin_entry PK ($PK): Entry does not exist";
 }
 
-
 // process the form
-if ($_REQUEST["save"]) {
+if ($_REQUEST["save"] && $errors == 0) {
 	// save the data
 
 	$description = mysql_real_escape_string($_POST["description"]);
 	$allow_download = mysql_real_escape_string($_POST["allow_download"]);
 
 	// DO SERVER SIDE VALIDATION
-	$errors = 0;
 	$validationOutput = ServerValidate($vItems, "return");
 	if ($validationOutput) {
 		$errors++;
@@ -215,8 +225,6 @@ if ($_REQUEST["save"]) {
 } // end save
 
 
-// TODO - Fetch the entry based on the PK if it is set
-
 // now fetch the current facebook entry
 $inst_sql = "select * from skin_entries where pk='$PK'";
 $result = mysql_query($inst_sql) or die("Entry fetch query failed: ".mysql_error().": ".$entry_sql);
@@ -228,20 +236,19 @@ $EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>H
 // add in the display to let people know how long they have to submit
 $EXTRA_LINKS .= "<div class='date_message'>";
 
-$allowed = 0; // assume user is NOT allowed unless otherwise shown
 if (strtotime($ROUND_START_DATE) > time()) {
 	// No one can access until start date
-	$allowed = 0;
+	$allowed = false;
 	$Message = "Submission opens on " . date($DATE_FORMAT,strtotime($ROUND_START_DATE));
 	$EXTRA_LINKS .= "Submission opens " . date($DATE_FORMAT,strtotime($ROUND_START_DATE));
 } else if (strtotime($ROUND_CLOSE_DATE) < time()) {
 	// No submits after close date
-	$allowed = 0;
+	$allowed = false;
 	$Message = "Submission closed on " . date($DATE_FORMAT,strtotime($ROUND_CLOSE_DATE));
 	$EXTRA_LINKS .= "Submission closed " . date($DATE_FORMAT,strtotime($ROUND_CLOSE_DATE));
 } else {
 	// submit is allowed
-	$allowed = 1;
+	$allowed = true;
 	$EXTRA_LINKS .= "Submit from " . date($DATE_FORMAT,strtotime($ROUND_START_DATE)) .
 		" to " . date($DATE_FORMAT,strtotime($ROUND_CLOSE_DATE));
 	writeLog($TOOL_SHORT,$USER["username"],"access to submit");
@@ -250,7 +257,7 @@ if (strtotime($ROUND_START_DATE) > time()) {
 $EXTRA_LINKS .= "</div>";
 
 // admin access check
-if ($USER["admin_skin"]) { $allowed = 1; }
+if ($USER["admin_skin"]) { $allowed = true; }
 
 ?>
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
@@ -273,6 +280,18 @@ if ($USER["admin_skin"]) { $allowed = 1; }
 ?>
 
 <div class="required" id="requiredMessage"></div>
+<?php
+	// print out a message to let people know the status of their entry
+	if ($thisItem['approved'] != "Y" && $thisItem['tested'] != "Y") {
+		echo "<strong style='color:#CC6600;'>This entry has not been approved or tested yet</strong><br/>";
+	} else if ($thisItem['approved'] != "Y") {
+		echo "<strong style='color:#CC6600;'>This entry has not been approved yet</strong><br/>";
+	} else if ($thisItem['tested'] != "Y") {
+		echo "<strong style='color:#CC6600;'>This entry has not been tested yet</strong><br/>";
+	}
+	// TODO - add in admin approval and tested switches
+?>
+
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;" enctype="multipart/form-data">
 <input type="hidden" name="save" value="1" />
 <input type="hidden" name="pk" value="<?= $PK ?>" />
