@@ -39,53 +39,6 @@ if (ereg('[[:space:]]',$PASSWORD)) {
 if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 	$login_success = 0;
 	
-	// ATTEMPT LDAP AUTH FIRST
-	if ($USE_LDAP) {
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		//$ds=ldap_connect("ldaps://bluelaser.cc.vt.edu/") or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or 
-				die("Failed to set LDAP Protocol version to 3, TLS not supported."); 
-			$anon_bind=ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
-			if ($anon_bind) {
-				// Searching for (sakaiUser=username)
-			   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "sakaiUser=$USERNAME"); // expect sr=array
-		
-				//echo "Number of entries = " . ldap_count_entries($ds, $sr) . "<br />";
-				$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
-				
-				// annonymous call to sakai ldap will only return the dn
-				$user_dn = $info[0]["dn"];
-
-				// set up for TLS encrypted connection
-				//ldap_start_tls($ds) or die("Ldap_start_tls failed"); 
-
-   				// now attempt to bind as the userdn and password
-				$auth_bind=@ldap_bind($ds, $user_dn, $PASSWORD);
-				if ($auth_bind) {
-					// valid bind, user is authentic
-					$login_success = 1;
-					writeLog($TOOL_SHORT,$USERNAME,"user logged in (ldap):" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
-					
-					$sr=ldap_search($ds, $user_dn, "sakaiUser=$USERNAME");
-					$info = ldap_get_entries($ds, $sr);
-					$user_pk = $info[0]["uid"][0]; // uid is multivalue, we want the first only
-				} else {
-					// invalid bind, password is not good
-					$login_success = 0;
-				}
-			} else {
-				$login_success = 0;
-				$Message ="ERROR: Anonymous bind to ldap failed";
-			}
-			ldap_close($ds); // close connection
-						
-		} else {
-		   $Message = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
-		   $login_success = 0;
-		}
-	} // end use ldap check
-		
 	if (!$login_success) {
 		// ATTEMPT AUTH VIA LOCAL DB
 	
