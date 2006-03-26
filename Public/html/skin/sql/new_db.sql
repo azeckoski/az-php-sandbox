@@ -19,6 +19,7 @@ CREATE TABLE skin_entries (
 	users_pk			int(10) NOT NULL,
     date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title				varchar(100),
     description			text,
     url					varchar(200),
     skin_zip			int(10) NOT NULL REFERENCES skin_files(pk),

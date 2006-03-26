@@ -9,7 +9,7 @@
 <?php
 require_once 'include/tool_vars.php';
 
-$PAGE_NAME = "Facebook Entry";
+$PAGE_NAME = "Skin Submit";
 $Message = "";
 
 // connect to database
@@ -242,7 +242,7 @@ if ($PK) {
 }
 
 // add in the help link
-$EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
+$EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='HELP'>Help</a><br/>";
 
 // add in the display to let people know how long they have to submit
 $EXTRA_LINKS .= "<div class='date_message'>";
@@ -273,7 +273,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 ?>
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<script>
+<script type="text/javascript">
 <!--
 // -->
 </script>
@@ -332,7 +332,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 <?php } ?>
 		</td>
 		<td class="field" width="79%">
-			<input type="file" name="skin_zip" tabindex="3" size="15">
+			<input type="file" name="skin_zip" tabindex="3" size="15" />
 			<br/><em>zip file which contains the skin css files and any needed images</em>
 <?php if (!$thisItem['skin_zip']) { ?>
 			<input type="hidden" id="skin_zipValidate" value="<?= $vItems['skin_zip'] ?>" />
@@ -354,7 +354,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 <?php } ?>
 		</td>
 		<td class="field">
-			<input type="file" name="image1" tabindex="4" size="15">
+			<input type="file" name="image1" tabindex="4" size="15" />
 			<br/><em>image of the Sakai gateway page (/portal)</em>
 <?php if (!$thisItem['image1']) { ?>
 			<input type="hidden" id="image1Validate" value="<?= $vItems['image1'] ?>" />
@@ -376,7 +376,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 <?php } ?>
 		</td>
 		<td class="field">
-			<input type="file" name="image2" tabindex="5" size="15">
+			<input type="file" name="image2" tabindex="5" size="15" />
 			<br/><em>image of the My Workspace -> Home</em>
 <?php if (!$thisItem['image2']) { ?>
 			<input type="hidden" id="image2Validate" value="<?= $vItems['image2'] ?>" />
@@ -398,7 +398,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 <?php } ?>
 		</td>
 		<td class="field">
-			<input type="file" name="image3" tabindex="6" size="15">
+			<input type="file" name="image3" tabindex="6" size="15" />
 			<br/><em>image of Resources (Legacy Tool)</em>
 <?php if (!$thisItem['image3']) { ?>
 			<input type="hidden" id="image3Validate" value="<?= $vItems['image3'] ?>" />
@@ -420,7 +420,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 <?php } ?>
 		</td>
 		<td class="field">
-			<input type="file" name="image4" tabindex="7" size="15">
+			<input type="file" name="image4" tabindex="7" size="15" />
 			<br/><em>image of Gradebook (New Tool)</em>
 <?php if (!$thisItem['image4']) { ?>
 			<input type="hidden" id="image4Validate" value="<?= $vItems['image4'] ?>" />
@@ -446,7 +446,7 @@ if ($USER["admin_skin"]) { $allowed = true; }
 
 	<tr>
 		<td class="field" colspan="3">
-			<input type="submit" name="account" value="Save information" tabindex="8"><br>
+			<input type="submit" name="account" value="Save information" tabindex="8" /><br/>
 			<em>You may modify your submission after saving until <?= date($DATE_FORMAT,strtotime($ROUND_CLOSE_DATE)) ?></em>
 		</td>
 	</tr>
