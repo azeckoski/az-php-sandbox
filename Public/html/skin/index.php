@@ -30,7 +30,7 @@ $EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>H
 
 <table border=0 cellpadding=0 cellspacing=3 width="100%">
 <tr>
-<td valign="top" width="80%">
+<td valign="top" width="75%">
 <div class="info">
 The <a href="http://bugs.sakaiproject.org/confluence/x/9yc">Default Skin WG</a> is coordinating a contest to
 create the next default skin for Sakai. <a href="skin_contest_rules.php">Complete details and rules</a> 
@@ -52,7 +52,7 @@ Announce the winning skins at the <a href="http://www.sakaiproject.org/index.php
 <a href="skin_contest_rules.php">Complete details and rules for the contest are available here</a><br>
 </div>
 </td>
-<td valign="top" width="20%">
+<td valign="top" width="25%">
 	<div class="right">
 	<div class="rightheader"><?= $TOOL_NAME ?> information</div>
 	<div class="padded">
@@ -70,21 +70,24 @@ Announce the winning skins at the <a href="http://www.sakaiproject.org/index.php
 
 <?php
 	// fetch helpful information about this tool
-/**
-	$data_sql = "select count(*) from requirements_data where round='$ROUND'";
-	$result = mysql_query($data_sql) or warn('Query failed: ' . mysql_error());
-	$req_round_data = mysql_fetch_row($result);
+	$entry_sql = "select count(*) from skin_entries where round='$ROUND'";
+	$result = mysql_query($entry_sql) or die('Query failed: ' . mysql_error());
+	$entry_count = mysql_fetch_row($result);
 	mysql_free_result($result);
 
-	$vote_users_sql = "select count(distinct(users_pk)) from requirements_vote where round='$ROUND'";
-	$result = mysql_query($vote_users_sql) or warn('Query failed: ' . mysql_error());
-	$req_round_users = mysql_fetch_row($result);
+	$vote_sql = "select count(*) from skin_vote where round='$ROUND'";
+	$result = mysql_query($vote_sql) or die('Query failed: ' . mysql_error());
+	$round_votes = mysql_fetch_row($result);
 	mysql_free_result($result);
-**/
+
+	$vote_users_sql = "select count(distinct(users_pk)) from skin_vote where round='$ROUND'";
+	$result = mysql_query($vote_users_sql) or die('Query failed: ' . mysql_error());
+	$round_users = mysql_fetch_row($result);
+	mysql_free_result($result);
 ?>
 
 	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
-	<b>Submitted Skins:</b> <?= $round_skins[0]+0 ?><br/>
+	<b>Submitted Skins:</b> <?= $entry_count[0]+0 ?><br/>
 	<b>Total votes:</b> <?= $round_votes[0]+0 ?><br/>
 	<b>Users Voted:</b> <?= $round_users[0]+0 ?><br/>
 	</div>

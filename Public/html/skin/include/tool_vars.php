@@ -28,6 +28,19 @@ $VOTE_HELP = array("Does not impact our use of Sakai",
 	"Cannot use Sakai without it");
 // Weighting for sorting votes
 
+// Image handling vars
+$MAX_THUMB_WIDTH  = 160;
+$MAX_THUMB_HEIGHT = 120;
+
+$IMAGE_MIMES = array(
+	'image/pjpeg'=>"jpg",
+	'image/jpeg'=>"jpg",
+	'image/jpg'=>"jpg",
+	'image/png'=>"png",
+	'image/x-png'=>"png",
+	'image/gif'=>"gif",
+	'image/bmp'=>"bmp");
+
 // these control the round of the contest and voting
 $ROUND = 1;
 // date format for display
