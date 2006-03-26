@@ -37,7 +37,7 @@ VALUES (
 )";
 
 
-$result = mysql_query($presentation_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
+	$result = mysql_query($presentation_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 		"registration form submission. Please try to submit the registration again. " .
 		"If you continue to have problems, please report the problem to the " .
 		"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );

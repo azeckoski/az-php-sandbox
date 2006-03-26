@@ -1,30 +1,21 @@
 <?php
-require "../sql/mysqlconnect.php";
+require ('../../sql/mysqlconnect.php');
 
-$demo_sql="Select * from `conf_proposals` WHERE id='$demo_id' ";
+$email_sql="Select * from `conf_proposals` WHERE id='$demo_id' ";
+$result= mysql_query($email_sql);
 
+	while($demo_sql=mysql_fetch_array($result))
+	{
+	$lastname=$USER["lastname"];
+	$firstname=$USER["firstname"];
+	$email=$USER["email"];
 
-$result= mysql_query($demo_sql);
+	$title=$demo["title"];
+	$abstract=$demo["abstract"];
+	$speaker=$demo["speaker"];
+	$url=$demo["URL"];
 
-
-
-while($demo_sql=mysql_fetch_array($result))
-{
-
-
-//$date=$demo["date_created"];
-
-$lastname=$USER["lastname"];
-$firstname=$USER["firstname"];
-$email=$USER["email"];
-
-$title=$demo["title"];
-$abstract=$demo["abstract"];
-$speaker=$demo["speaker"];
-$url=$demo["URL"];
-
-      
-//set up mail message
+	//set up mail message
 
 
 	 $today = date("F j, Y"); 

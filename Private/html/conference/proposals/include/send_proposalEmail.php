@@ -1,11 +1,9 @@
 <?php
 
-require_once('../sql/mysqlconnect.php');
 
+$email_sql="Select * from `conf_proposals` WHERE id='$proposals_pk' ";
 
-$presentation_sql="Select * from `conf_proposals` WHERE id='$presentation_id' ";
-
-$result= mysql_query($presentation_sql);
+$result= mysql_query($email_sql);
 
 
 
