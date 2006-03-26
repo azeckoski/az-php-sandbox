@@ -85,7 +85,7 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
-$users_sql = "select U1.firstname, U1.lastname, U1.email, C1.*, I1.name as institution " .
+$users_sql = "select U1.firstname, U1.lastname, U1.email, U1.otherInst, C1.*, I1.name as institution" .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
@@ -182,20 +182,23 @@ function orderBy(newOrder) {
 <td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
 </tr>
 
-<?php 
+<?php
+//TO DO  calculations for members vs non members 
+//TO DO  report on the number of registrations each day (for Joseph's projections') 
+
 $line = 0;
 while($row=mysql_fetch_assoc($result)) {
 	$line++;
 	
 	if (strlen($row["institution"]) > 38) {
-		$row["institution"] = substr($row["institution"],0,35) . "...";
+		$row["institution"] = substr($row["institution"],0,40) . "...";
 	}
 
 	$rowstyle = "";
 	if ($row["activated"] == 'N') {
 		$rowstyle = " style = 'color:red;' ";
-	} else if ($row["transID"]) {
-		$rowstyle = " style = 'color:#330066;' ";
+	} else if ($row["otherInst"]) {
+		$rowstyle = " style = 'color:#336699;' ";
 	}
 	
 	$linestyle = "oddrow";
@@ -209,7 +212,11 @@ while($row=mysql_fetch_assoc($result)) {
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
 	<td class="line"><?= $row["firstname"] ?> <?= $row["lastname"] ?></td>
 	<td class="line"><?= $row["email"] ?></td>
+	<?php if ($row["otherInst"]){ ?>
+		<td class="line"><?= $row["otherInst"] ?></td>
+	<?php }else {  ?>
 	<td class="line"><?= $row["institution"] ?></td>
+<?php 	} ?>
 	<td class="line" align="center"><?= date($DATE_FORMAT,strtotime($row["date_created"])) ?></td>
 </tr>
 
