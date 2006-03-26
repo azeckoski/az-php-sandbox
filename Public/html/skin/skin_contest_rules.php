@@ -84,6 +84,7 @@ predefined in css files in the <a href="http://bugs.sakaiproject.org/confluence/
 
 <h3><a name="SakaiSkinContest-SkinSubmissionRules">Skin Submission Rules</a></h3>
 <ul>
+	<li>All skins must be submitted via the <a href="submit.php">Skin Submission Tool</a></li>
 	<li>Anyone submitting a skin will be referred to as a participant</li>
 	<li>The participant who submits a specific skin will be referred to as the owner of that skin</li>
 </ul>
@@ -92,8 +93,9 @@ predefined in css files in the <a href="http://bugs.sakaiproject.org/confluence/
 <h4><a name="SakaiSkinContest-Generalrules">General rules</a></h4>
 <ol>
 
-	<li>Anyone can submit a skin: individuals, organizations, institutions, etc... (i.e. skins do not have to be the official skin of a Sakai partner institution)</li>
-	<li>Participants can submit as many skins as they want - but each should be quite different (no variations on a theme, please)</li>
+	<li>Anyone can submit a skin: individuals, organizations, institutions, etc. (i.e. skins do not have to be the official skin of a Sakai partner institution)</li>
+	<li>Participants can submit one skin only.</li>
+<!--	<li>Participants can submit as many skins as they want - but each should be quite different (no variations on a theme, please)</li> -->
 	<li>The skin must be submitted as an archive file (zip or tar.gz) which includes all materials in the original default starting skin and in the same directory structure, the archive file name should include the participant email address and the name of their institution and if more than one, numbered - e.g. aaronz_at_vt.edu_virginiatech1.zip, aaronz_at_vt.edu_virginiatech2.zip, aaronz_at_vt.edu_virginiatech3.zip. The skin will be refered to by the skin name supplied in the readme detailed below to preserve anonimity.</li>
 	<li>Please use the <a href="http://www.sakaiproject.org/images/stories/conferenceLogos/logoslate160x89.jpg" target="_new">sakai logo</a> in your skin and not your institutional logo</li>
 	<li>All images should be original artwork or represent no copyright problems</li>
@@ -103,20 +105,11 @@ predefined in css files in the <a href="http://bugs.sakaiproject.org/confluence/
 <ol>
 	<li>mostly CSS1 prefered - limit CSS2 use only to the most widely supported elements</li>
 	<li>skin should work well on standards compliant browsers and Internet Explorer for Windows</li>
-	<li>css should validate</li>
+	<li>css must validate</li>
 	<li>css should be formatted to be easily readable (a line per each property:value pair for all selectors)</li>
 	<li>css should be lavishly commented</li>
 	<li>css will be examined for elegance and non-redundancy</li>
 	<li>css should be saved in a unicode text format</li>
-	<li>Participants should add a text file to the archive which includes the following information:
-<div class="code"><div class="codeHeader"><b>readme.txt</b></div><div class="codeContent">
-<pre class="code-java">Submitted by
-Name: 
-Email: 
-Affiliation: 
-
-Skin Name: (something <span class="code-object">short</span> and descriptive)</pre>
-</div></div></li>
 </ol>
 
 
