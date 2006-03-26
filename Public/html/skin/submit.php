@@ -46,14 +46,6 @@ if (!$PK) {
 	if (mysql_num_rows($result) > 0) {
 		$row = mysql_fetch_assoc($result);
 		$PK = $row['pk'];
-		if ( ($row['users_pk'] != $USER_PK) && !$USER["admin_skin"]) {
-			$errors++;
-			$Message = "You may not access someone else's skin entry " .
-				"unless you have the (admin_skin) permission.";
-		}
-	} else {
-		$errors++;
-		$Message = "Invalid skin_entry PK ($PK): Entry does not exist";
 	}
 } else {
 	$entry_sql = "select pk from skin_entries where pk='$PK'";
@@ -61,6 +53,14 @@ if (!$PK) {
 	if (mysql_num_rows($result) > 0) {
 		$row = mysql_fetch_assoc($result);
 		$PK = $row['pk'];
+		if ( ($row['users_pk'] != $USER_PK) && !$USER["admin_skin"]) {
+			$errors++;
+			$Message = "You may not access someone else's skin entry " .
+				"unless you have the (admin_skin) permission.";
+		} else {
+			$errors++;
+			$Message = "Invalid skin_entry PK ($PK): Entry does not exist";
+		}
 	}
 }
 
