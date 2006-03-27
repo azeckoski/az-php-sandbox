@@ -15,6 +15,13 @@ $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 
 $DATE_FORMAT = "l, F dS, Y h:i A";
 
+$LDAP_SERVER = "bluelaser.cc.vt.edu"; // prod server 1
+$LDAPS_SERVER = "ldaps://bluelaser.cc.vt.edu"; // SSL prod server 1
+$LDAP_PORT = "389";
+$LDAP_ADMIN_DN = "cn=Manager,dc=sakaiproject,dc=org";
+$LDAP_ADMIN_PW = "ldapadmin";
+$LDAP_READ_DN = "uid=!readonly,ou=users,dc=sakaiproject,dc=org";
+$LDAP_READ_PW = "ironchef";
 
 // tool functions
 

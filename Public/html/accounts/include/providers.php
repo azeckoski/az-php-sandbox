@@ -16,7 +16,8 @@
  * fetch the data from the ldap which is slower than the database) so there is
  * a caching mechanism built in. The cache timer can be controlled below.
  */
-$CACHE_EXPIRE = 30; // minutes before cache will force a refresh
+$CACHE_EXPIRE_USERS = 30; // minutes before cache will force a refresh
+$CACHE_EXPIRE_INSTS = 120; // minutes before cache will force a refresh
 $TOOL_SHORT = "provider";
 
 /*
@@ -31,7 +32,7 @@ $LDAPS_SERVER = "ldaps://bluelaser.cc.vt.edu"; // SSL prod server 1
 $LDAP_PORT = "389";
 $LDAP_ADMIN_DN = "cn=Manager,dc=sakaiproject,dc=org";
 $LDAP_ADMIN_PW = "ldapadmin";
-$LDAP_READ_DN = "uid=0,ou=users,dc=sakaiproject,dc=org";
+$LDAP_READ_DN = "uid=!readonly,ou=users,dc=sakaiproject,dc=org";
 $LDAP_READ_PW = "ironchef";
 // TODO - make the passwords more secure
 
@@ -210,7 +211,7 @@ class User {
 		// check to see if the user already exists
 		$checksql = "SELECT pk from users where pk='$this->pk' or " .
 			"username='$this->username' or email='$this->email'";
-		$checkresult = mysql_query($checksql);
+		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
 		if (mysql_num_rows($checkresult) == 0) {
 			// write the new values to the DB
 			$sql = "INSERT INTO users (username,password,firstname,lastname,email," .
@@ -346,7 +347,7 @@ class User {
 			return false;
 		}
 		$checksql = "SELECT pk from users_cache where users_pk='$this->pk'";
-		$checkresult = mysql_query($checksql);
+		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
 		if (mysql_num_rows($checkresult) == 0) {
 			// write the new values to the Cache
 			$sql = "INSERT INTO users_cache (users_pk,username,firstname," .
@@ -438,6 +439,8 @@ class User {
  * id is the type (e.g. pk), value is the value (e.g. 1)
  */
 	private function getUserFromCache($id, $value) {
+		global $CACHE_EXPIRE_USERS;
+		
 		$search = "";
 		switch ($id) {
 			case "pk": $search = "users_pk = '$value'"; break;
@@ -448,7 +451,7 @@ class User {
 
 		// grab the data from cache if it is fresh enough
 		$sql = "select * from users_cache where $search and " .
-			"now() > date_modified+INTERVAL $CACHE_EXPIRE MINUTE";
+			"now() > date_modified+INTERVAL $CACHE_EXPIRE_USERS MINUTE";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "User fetch query failed ($sql): " . mysql_error();
@@ -805,11 +808,11 @@ class User {
 				$user_dn = "uid=$this->pk,ou=users,dc=sakaiproject,dc=org";
 				$delresult = ldap_delete($ds,$user_dn);
 				if ($delresult) {
-					$this->Message = "Removed ldap user";
+					$this->Message = "Removed ldap user: $user_dn";
 					$this->deleteCache(); // also clear the cache
 					return true;
 				} else {
-					$this->Message = "Failed to remove ldap user";
+					$this->Message = "Failed to remove ldap user: $user_dn";
 					return false;
 				}
 			} else {
@@ -1027,9 +1030,11 @@ class User {
 		$this->phone = $info[0]["telephonenumber"][0];
 		$this->fax = $info[0]["facsimiletelephonenumber"][0];
 		$perms = array();
-		foreach ($info[0]["sakaiperm"] as $key1=>$value1) {
-			if ($key1 !== "count") {
-				$perms[$value1] = "Y";
+		if (is_array($info[0]["sakaiperm"])) {
+			foreach ($info[0]["sakaiperm"] as $key1=>$value1) {
+				if ($key1 !== "count") {
+					$perms[$value1] = "Y";
+				}
 			}
 		}
 		$this->sakaiPerm = $perms;
@@ -1134,7 +1139,7 @@ class Institution {
 	private function createDB() {
 		// check to see if the inst already exists
 		$checksql = "SELECT pk from institution where pk='$this->pk'";
-		$checkresult = mysql_query($checksql);
+		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
 		if (mysql_num_rows($checkresult) == 0) {
 			// write the new values to the DB
 			$sql = "INSERT INTO institution " .
@@ -1234,7 +1239,7 @@ class Institution {
 			return false;
 		}
 		$checksql = "SELECT pk from insts_cache where insts_pk='$this->pk'";
-		$checkresult = mysql_query($checksql);
+		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
 		if (mysql_num_rows($checkresult) == 0) {
 			// write the new values to the Cache
 			$sql = "INSERT INTO insts_cache " .
@@ -1276,6 +1281,8 @@ class Institution {
  * id is the type (e.g. pk), value is the value (e.g. 1)
  */
 	private function getInstFromCache($id, $value) {
+		global $CACHE_EXPIRE_INSTS;
+		
 		$search = "";
 		switch ($id) {
 			case "pk": $search = "insts_pk = '$value'"; break;
@@ -1284,7 +1291,7 @@ class Institution {
 
 		// grab the data from cache if it is fresh enough
 		$sql = "select * from insts_cache where $search and " .
-			"now() > date_modified+INTERVAL $CACHE_EXPIRE MINUTE";
+			"now() > date_modified+INTERVAL $CACHE_EXPIRE_INSTS MINUTE";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "Inst fetch query failed ($sql): " . mysql_error();
@@ -1574,11 +1581,11 @@ class Institution {
 				$item_dn = "iid=$this->pk,ou=institutions,dc=sakaiproject,dc=org";
 				$delresult = ldap_delete($ds,$item_dn);
 				if ($delresult) {
-					$this->Message = "Removed ldap institution";
+					$this->Message = "Removed ldap institution: $item_dn";
 					$this->deleteCache(); // also clear the cache
 					return true;
 				} else {
-					$this->Message = "Failed to remove ldap inst";
+					$this->Message = "Failed to remove ldap inst: $item_dn";
 					return false;
 				}
 			} else {

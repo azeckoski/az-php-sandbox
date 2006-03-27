@@ -164,7 +164,7 @@ if ($_POST["save"] && $allowed) {
 
 				if (!$PK) { // ADDING USER TO LDAP
 					//prepare user dn, find next available uid
-					$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
+					$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "(uid=*)", array("uid"));
 					ldap_sort($ds, $sr, 'uid');
 					$uidinfo = ldap_get_entries($ds, $sr);
 					$lastnum = $uidinfo["count"] - 1;
@@ -188,7 +188,7 @@ if ($_POST["save"] && $allowed) {
 						$PK = $uid;
 						writeLog($TOOL_SHORT,$USERNAME,"user added (ldap): $FIRSTNAME $LASTNAME ($EMAIL) [$PK]" );
 					} else {
-						print "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br/>";
+						print "Failed to add user to LDAP ($user_dn) (".ldap_error($ds).":".ldap_errno($ds).")<br/>";
 					}
 				} else {
 					// EDITING LDAP INFO

@@ -21,6 +21,9 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 // login if not autheticated
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
+// login if not autheticated
+require $ACCOUNTS_PATH.'include/providers.php';
+
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
 if (!$USER["admin_accounts"]) {
@@ -35,26 +38,11 @@ if (!$USER["admin_accounts"]) {
 // delete ldap item
 if ($_REQUEST["ldapdel"]) {
 	$LDAP_PK = $_REQUEST["ldapdel"];
-	$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);
-	if ($ds) {
-		$admin_bind=@ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
-		if ($admin_bind) {
-			// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
-			$user_dn = "uid=$LDAP_PK,ou=users,dc=sakaiproject,dc=org";
-			$delresult = ldap_delete($ds,$user_dn);
-			if ($delresult) {
-				$output = "Removed ldap user<br/>";
-			} else {
-				$output = "Failed to remove ldap user<br/>";
-			}
-			// TODO - clean up inst rep and vote rep
-		} else {
-			$output ="ERROR: Read bind to ldap failed";
-		}
-		ldap_close($ds); // close connection
-	} else {
-	   $output = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
-	}	
+	$thisUser = new User($LDAP_PK);
+	if (!$thisUser->delete()) {
+		$Message = "Error: Could not remove user: ".$thisUser->Message;
+	}
+	unset($thisUser);
 }
 
 
