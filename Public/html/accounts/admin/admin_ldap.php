@@ -15,14 +15,14 @@ $Message = "";
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 
+// Load User and Inst PROVIDERS
+require $ACCOUNTS_PATH.'include/providers.php';
+
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
-
-// login if not autheticated
-require $ACCOUNTS_PATH.'include/providers.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown

@@ -92,29 +92,29 @@ class User {
 
 	function toString() {
 		// return the entire object as a string
-		$output = "pk:". $this->pk . "," .
-			"username:". $this->username . "," .
-			"firstname:". $this->firstname . "," .
-			"lastname:". $this->lastname . "," .
-			"email:". $this->email . "," .
-			"institution:". $this->institution . "," .
-			"institution_pk:". $this->institution_pk . "," .
-			"address:". $this->address . "," .
-			"city:". $this->city . "," .
-			"state:". $this->state . "," .
-			"zipcode:". $this->zipcode . "," .
-			"country:". $this->country . "," .
-			"phone:". $this->phone . "," .
-			"fax:". $this->fax . "," .
-			"primaryRole:". $this->primaryRole . "," .
+		$output = "pk:". $this->pk . ", " .
+			"username:". $this->username . ", " .
+			"firstname:". $this->firstname . ", " .
+			"lastname:". $this->lastname . ", " .
+			"email:". $this->email . ", " .
+			"institution:". $this->institution . ", " .
+			"institution_pk:". $this->institution_pk . ", " .
+			"address:". $this->address . ", " .
+			"city:". $this->city . ", " .
+			"state:". $this->state . ", " .
+			"zipcode:". $this->zipcode . ", " .
+			"country:". $this->country . ", " .
+			"phone:". $this->phone . ", " .
+			"fax:". $this->fax . ", " .
+			"primaryRole:". $this->primaryRole . ", " .
 			"secondaryRole:". $this->secondaryRole;
 		$output .= ",activated:";
 		$output .= ($this->activated)?"Y":"N";
 		$output .= ",authentic:";
 		$output .= ($this->authentic)?"Y":"N";
 		$output .= ",sakaiperm{";
-		foreach($this->sakaiPerm as $key=>$value) {
-			$output .= "$key:";
+		foreach($this->sakaiPerm as $value) {
+			$output .= "$value:";
 		}
 		$output .= "}";
 		return $output;
@@ -141,8 +141,8 @@ class User {
 		$output['secondaryRole'] = $this->secondaryRole;
 		$output['authentic'] = $this->authentic;
 		$output['activated'] = $this->activated;
-		foreach($this->sakaiPerm as $key=>$value) {
-			$output[$key] = $value;
+		foreach($this->sakaiPerm as $value) {
+			$output[$value] = $value;
 		}
 		return $output;
 	}
@@ -189,6 +189,59 @@ class User {
 		return $this->authentic;
 	}
 
+
+/*
+ * PERMISSIONS handling
+ * works with permissions in the object, does not persist them
+ */
+
+	// add a permission to this user
+	public function addPerm($permString) {
+		if (!$permString) {
+			$this->Message = "Error: permString is empty";
+			return false;
+		}
+		$permString = strtolower($permString);
+
+		if ($this->sakaiPerm[$permString]) {
+			$this->Message = "Error: $permString already in perms";
+			return true; // no failure if perm already exists
+		}
+
+		$this->sakaiPerm[$permString] = $permString;
+		return true;
+	}
+
+	// remove a permission from this user
+	public function removePerm($permString) {
+		if (!$permString) {
+			$this->Message = "Error: permString is empty";
+			return false;
+		}
+		$permString = strtolower($permString);
+
+		if (!$this->sakaiPerm[$permString]) {
+			$this->Message = "Error: $permString already in perms";
+			return true; // no failure if perm not found
+		}
+		
+		unset($this->sakaiPerm[$permString]);
+		return true;
+	}
+
+	// check if this user has a permission
+	public function checkPerm($permString) {
+		if (!$permString) {
+			$this->Message = "Error: permString is empty";
+			return false;
+		}
+		$permString = strtolower($permString);
+
+		if ($this->sakaiPerm[$permString]) {
+			return true;
+		}
+		return false;
+	}
 
 /*
  * CREATE functions
@@ -290,8 +343,8 @@ class User {
 				}
 
 				$permissions = array();
-				foreach($this->sakaiPerm as $key=>$value) {
-					$permissions[] = $key;
+				foreach($this->sakaiPerm as $value) {
+					$permissions[] = $value;
 				}
 				$info["sakaiperm"]=$permissions;
 
@@ -650,11 +703,7 @@ class User {
 			$otherInstSql = " otherInst='$institution', ";
 		}
 
-		$permString = ""; // convert the array of perms into a string
-		foreach($this->sakaiPerm as $key=>$value) {
-			$permString .= "$key:";
-		}
-		$permString = trim($permString," :"); // trim colons and spaces
+		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
 		$sql = "UPDATE users set username='$this->username', email='$this->email', " . $passChange .
 			"firstname='$this->firstname', lastname='$this->lastname', " . $otherInstSql .
 			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
@@ -711,11 +760,7 @@ class User {
 					$info["userpassword"]=$this->password;
 				}
 
-				$permissions = array();
-				foreach($this->sakaiPerm as $key=>$value) {
-					$permissions[] = $key;
-				}
-				$info["sakaiperm"]=$permissions;
+				$info["sakaiperm"] = array_values($this->sakaiPerm);
 
 				// empty items must be set to a blank array
 				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
@@ -744,11 +789,7 @@ class User {
 	}
 
 	private function saveCache() {
-		$permString = ""; // convert the array of perms into a string
-		foreach($this->sakaiPerm as $key=>$value) {
-			$permString .= "$key:";
-		}
-		$permString = trim($permString," :"); // trim colons and spaces
+		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
 		$sql = "UPDATE users_cache set username='$this->username', email='$this->email', " .
 			"firstname='$this->firstname', lastname='$this->lastname', " .
 			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
@@ -997,13 +1038,14 @@ class User {
 		$this->fax = $USER['fax'];
 		$this->primaryRole = $USER['primaryRole'];
 		$this->secondaryRole = $USER['secondaryRole'];
-		// convert the string of perms to an array with perms as keys
-		$this->sakaiPerm = explode(":",$USER['sakaiPerms']);
-		$aItem = $this->sakaiPerm[0];
-		$this->sakaiPerm = array_flip($this->sakaiPerm);
-		$this->sakaiPerm[$aItem] = "Y";
-
-		if ($this->sakaiPerm['active']) { $this->activated=true; }
+		// convert the string of perms to an array
+		$permArray = explode(":",$USER['sakaiPerms']);
+		if (is_array($permArray)) {
+			foreach ($permArray as $value) {
+				$this->sakaiPerm[$value] = "$value";
+			}
+		} else { $this->sakaiPerm = array(); }
+		if ($this->sakaiPerm["active"]) { $this->activated=true; }
 		return true;
 	}
 
@@ -1029,16 +1071,15 @@ class User {
 		$this->country = $info[0]["c"][0];
 		$this->phone = $info[0]["telephonenumber"][0];
 		$this->fax = $info[0]["facsimiletelephonenumber"][0];
-		$perms = array();
+		$this->sakaiPerm = array();
 		if (is_array($info[0]["sakaiperm"])) {
 			foreach ($info[0]["sakaiperm"] as $key1=>$value1) {
 				if ($key1 !== "count") {
-					$perms[$value1] = "Y";
+					$this->sakaiPerm[$value1] = "$value1";
 				}
 			}
-		}
-		$this->sakaiPerm = $perms;
-		if ($this->sakaiPerm['active']) { $this->activated=true; }
+		} else { $this->sakaiPerm = array(); }
+		if ($this->sakaiPerm["active"]) { $this->activated=true; }
 		return true;
 	}
 }
@@ -1091,14 +1132,14 @@ class Institution {
 	function toString() {
 		// return the entire object as a string
 		$output = 
-			"pk:". $this->pk . "," .
-			"name:". $this->name . "," .
-			"type:". $this->type . "," .
-			"city:". $this->city . "," .
-			"state:". $this->state . "," .
-			"zipcode:". $this->zipcode . "," .
-			"country:". $this->country . "," .
-			"rep_pk:". $this->rep_pk . "," .
+			"pk:". $this->pk . ", " .
+			"name:". $this->name . ", " .
+			"type:". $this->type . ", " .
+			"city:". $this->city . ", " .
+			"state:". $this->state . ", " .
+			"zipcode:". $this->zipcode . ", " .
+			"country:". $this->country . ", " .
+			"rep_pk:". $this->rep_pk . ", " .
 			"repvote_pk:". $this->repvote_pk;
 		return $output;
 	}

@@ -15,6 +15,9 @@ $Message = "";
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 
+// Load User and Inst PROVIDERS
+require $ACCOUNTS_PATH.'include/providers.php';
+
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
@@ -61,7 +64,9 @@ $PK = $_REQUEST["pk"]; // if editing/removing this will be set
 if ($PK) {
 	$Message = "Edit the information below to adjust the account.<br/>";
 }
-
+$thisUser = new User($PK);
+print "test: $thisUser->Message : $thisUser->pk <br/>";
+echo $thisUser, "<br/>";
 
 // bring in the form validation code
 require $ACCOUNTS_PATH.'ajax/validators.php';
@@ -89,20 +94,21 @@ $vItems['fax'] = "phone";
 // this matters when the form is submitted
 if ($_POST["save"] && $allowed) {
 
-	$username = $_POST["username"];
-	$email = $_POST["email"];
+	$thisUser->username = $_POST["username"];
+	$thisUser->email = $_POST["email"];
+	$thisUser->firstname = $_POST["firstname"];
+	$thisUser->lastname = $_POST["lastname"];
+	$thisUser->institution = $_POST["otherInst"];
+	$thisUser->institution_pk = $_POST["institution_pk"];
+	$thisUser->address = $_POST["address"];
+	$thisUser->city = $_POST["city"];
+	$thisUser->state = $_POST["state"];
+	$thisUser->zipcode = $_POST["zipcode"];
+	$thisUser->country = $_POST["country"];
+	$thisUser->phone = $_POST["phone"];
+	$thisUser->fax = $_POST["fax"];
 	$PASS1 = $_POST["password1"];
 	$PASS2 = $_POST["password2"];
-	$firstname = $_POST["firstname"];
-	$lastname = $_POST["lastname"];
-	$institution_pk = $_POST["institution_pk"];
-	$address = $_POST["address"];
-	$city = $_POST["city"];
-	$state = $_POST["state"];
-	$zipcode = $_POST["zipcode"];
-	$country = $_POST["country"];
-	$phone = $_POST["phone"];
-	$fax = $_POST["fax"];
 
 	$ACTIVATED = $_POST["activated"];
 	if (!$ACTIVATED) { $ACTIVATED = 0; }
