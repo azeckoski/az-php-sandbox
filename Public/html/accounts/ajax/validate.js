@@ -371,7 +371,7 @@ function createRequestObject(){
 //var http = createRequestObject();
 
 // simple passthroughs to the validateObject call
-// allows a validate to be called from it's Img
+// allows a validate to be called from its Img
 function validateImg(objInput) {
 	var mainObject=document.getElementById(objInput.id.replace("Img",""));
 	if (mainObject != null) {
@@ -380,7 +380,7 @@ function validateImg(objInput) {
 	return false;
 }
 
-// allows a validate to be called from it's Msg
+// allows a validate to be called from its Msg
 function validateMsg(objInput) {
 	var mainObject=document.getElementById(objInput.id.replace("Msg",""));
 	if (mainObject != null) {
