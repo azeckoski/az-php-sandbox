@@ -153,6 +153,11 @@ if ($_POST["save"] && $allowed) {
 	}
 }
 
+// get the list of permissions
+$perms_sql="select * from permissions";
+$perm_result = mysql_query($perms_sql) or die("Query failed ($perms_sql): " . mysql_error());	
+
+
 echo $ldapUser, "<br/>";
 
 $thisUser = $ldapUser->toArray();
@@ -212,40 +217,22 @@ $thisUser = $ldapUser->toArray();
 			<i> - user is the voting rep for the listed institution</i>
 		</td>
 	</tr>
-	
-	<tr>
-		<td colspan="2" class="account"><br/><b>Admin Permissions:</b></td>
-	</tr>
 
 	<tr>
-		<td class="account"><b>Accounts:</b></td>
-		<td class="checkbox">
-			<input type="checkbox" name="admin_accounts" tabindex="12" value="1" <?php
-				if ($ldapUser->checkPerm("admin_accounts")) { echo " checked='y' "; }
-			?>/>
-			<i> - user has admin access to accounts</i>
-		</td>
+		<td colspan="2" class="account"><br/><b>Permissions:</b></td>
 	</tr>
 
+<?php while($row = mysql_fetch_assoc($perm_result)) { ?>
 	<tr>
-		<td class="account"><b>Institutions:</b></td>
+ 		<td class="account"><strong><?= $row['perm_name'] ?>:</strong></td>
 		<td class="checkbox">
-			<input type="checkbox" name="admin_insts" tabindex="13" value="1" <?php
-				if ($ldapUser->checkPerm("admin_insts")) { echo " checked='y' "; }
+			<input type="checkbox" name="<?= $row['perm_name'] ?>" tabindex="12" value="1" <?php
+				if ($ldapUser->checkPerm($row['perm_name'])) { echo " checked='y' "; }
 			?>/>
-			<i> - user has admin access to institutions</i>
+			<i>- <?= $row['perm_description'] ?></i>
 		</td>
 	</tr>
-
-	<tr>
-		<td class="account"><b>Requirements:</b></td>
-		<td class="checkbox">
-			<input type="checkbox" name="admin_reqs" tabindex="14" value="1" <?php
-				if ($ldapUser->checkPerm("admin_reqs")) { echo " checked='y' "; }
-			?>/>
-			<i> - user has admin access to req voting</i>
-		</td>
-	</tr>
+<?php } ?>
 
 </table>
 </fieldset>
