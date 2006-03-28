@@ -1,7 +1,7 @@
 <?php
 /*
- * file: admin_insts.php
- * Created on Mar 5, 2006 8:26:54 PM by @author aaronz
+ * file: admin_perms.php
+ * Created on Mar 28, 2006 8:26:54 PM by @author aaronz
  * 
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
@@ -9,7 +9,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Admin Institutions";
+$PAGE_NAME = "Admin Permissions";
 $Message = "";
 
 // connect to database
@@ -25,7 +25,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
 if (!$USER["admin_accounts"]) {
 	$allowed = 0;
-	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
+	$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
 	$allowed = 1;
@@ -37,21 +37,16 @@ $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " where (I1.name like '%$searchtext%' or I1.abbr like '%$searchtext%' or " .
-		"I1.type like '%$searchtext%' or U1.username like '%$searchtext%' or " .
-		"U1.firstname like '%$searchtext%' or U1.lastname like '%$searchtext%' or " .
-		"U2.username like '%$searchtext%' or U2.firstname like '%$searchtext%' or " .
-		"U2.lastname like '%$searchtext%') ";
+	$sqlsearch = " where (P1.perm_name like '%$searchtext%' or P1.description like '%$searchtext%') ";
 }
 
 // sorting
-$sortorder = "name";
+$sortorder = "perm_name";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all users
-$from_sql = " from institution I1 left join users U1 on U1.pk=I1.rep_pk " .
-	"left join users U2 on U2.pk=I1.repvote_pk ";
+$from_sql = " from permissions P1 ";
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
@@ -88,9 +83,8 @@ $start_item = $limitvalue + 1;
 $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
-// the main user fetching query
-$users_sql = "select I1.*, U1.username as rep_username, U1.email as rep_email, " . 
-	"U2.username as repvote_username, U2.email as repvote_email " .
+// the main fetching query
+$users_sql = "select * " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
@@ -104,24 +98,13 @@ if ($USE_LDAP) {
 	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
 }
 $EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
-	"<a href='admin_perms.php'>Permissions</a>" .
+	"<a href='admin_insts.php'>Institutions</a> - " .
+	"<a href='admin_perms.php'><strong>Permissions</strong></a>" .
 	"</span>";
 
-
-// Do the export as requested by the user
-if ($_REQUEST["export"] && $allowed) {
-	$date = date("Ymd-Hi",time());
-	$filename = "institutions-" . $date . ".csv";
-	header("Content-type: text/x-csv");
-	header("Content-disposition: inline; filename=$filename\n\n");
-	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-	header("Expires: 0"); 
-} else {
-	// display the page normally
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -135,7 +118,7 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include $ACCOUNTS_PATH.'include/header.php'; ?>
 
 <?= $Message ?>
 
@@ -181,7 +164,6 @@ function orderBy(newOrder) {
 	</td>
 
 	<td nowrap="y" align="right">
-		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	size="20" title="Enter search text here" />
         <script type="text/javascript">document.adminform.searchtext.focus();</script>
@@ -194,92 +176,38 @@ function orderBy(newOrder) {
 
 <table border="0" cellspacing="0" width="100%">
 <tr class='tableheader'>
-<td><a href="javascript:orderBy('name');">Name</a></td>
-<td><a href="javascript:orderBy('abbr');">Abbr</a></td>
-<td><a href="javascript:orderBy('type');">Type</a></td>
-<td>InstRep</td>
-<td>VoteRep</td>
-<td align="center"><a title="Add a new institution" href="admin_inst.php?pk=-1&amp;add=1">add</a></td>
+<td><a href="javascript:orderBy('perm_name');">Name</a></td>
+<td><a href="javascript:orderBy('perm_description');">Description</a></td>
+<td align="center"><a title="Add a new institution" href="admin_perm.php?pk=-1&amp;add=1">add</a></td>
 </tr>
 
-<?php } // end export else 
+<?php 
 $line = 0;
 while($itemrow=mysql_fetch_assoc($result)) {
 	$line++;
 
-	if ($_REQUEST["export"]) {
-		// print out EXPORT format instead of display
-		if ($line == 1) {
-			$output = "\"Institutions Export:\",\n";
-			print join(',', array_keys($itemrow)) . "\n"; // add header line
-		}
-		
-		foreach ($itemrow as $name=>$value) {
-			$value = str_replace("\"", "\"\"", $value); // fix for double quotes
-			$itemrow[$name] = '"' . $value . '"'; // put quotes around each item
-		}
-		print join(',', $itemrow) . "\n";
-		
+	// display normally
+	$rowstyle = "";
+	
+	$linestyle = "oddrow";
+	if ($line % 2 == 0) {
+		$linestyle = "evenrow";
 	} else {
-		// display normally
-		$rowstyle = "";
-		if (!$itemrow["rep_pk"]) {
-			$rowstyle = " style = 'color:red;' ";
-		}
-		
 		$linestyle = "oddrow";
-		if ($line % 2 == 0) {
-			$linestyle = "evenrow";
-		} else {
-			$linestyle = "oddrow";
-		}
+	}
 ?>
 
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
-	<td class="line"><?= $itemrow["name"] ?></td>
-	<td class="line"><?= $itemrow["abbr"] ?>&nbsp;</td>
-	<td class="line"><?= $itemrow["type"] ?></td>
-	<td class="line" align="left">
-<?php 
-if ($itemrow["rep_pk"]) {
-	$short_name = $itemrow["rep_username"];
-	if (strlen($itemrow["rep_username"]) > 12) {
-		$short_name = substr($itemrow["rep_username"],0,9) . "...";
-	}
-	echo "<label title='".$itemrow["rep_username"]."'>".$short_name."</label>";
-} else {
-	echo "<i>none</i>";
-} ?>
-	</td>
-	<td class="line" align="left">
-<?php 
-if ($itemrow["repvote_pk"]) {
-	$short_name = $itemrow["repvote_username"];
-	if (strlen($itemrow["repvote_username"]) > 12) {
-		$short_name = substr($itemrow["repvote_username"],0,9) . "...";
-	}
-	echo "<label title='".$itemrow["repvote_username"]."'>".$short_name."</label>";
-} else {
-	echo "<i>none</i>";
-} ?>
-	</td>
+	<td class="line"><?= $itemrow["perm_name"] ?></td>
+	<td class="line"><?= $itemrow["perm_description"] ?>&nbsp;</td>
 	<td class="line" align="center">
-		<a href="admin_inst.php?pk=<?= $itemrow['pk']?>">edit</a>
+		<a href="admin_perm.php?pk=<?= $itemrow['pk']?>">edit</a>
 	</td>
 </tr>
 
-<?php 
-	} // end display else
-} // end while
-
-if ($_REQUEST["export"]) {
-	print "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
-} else { // display only
-?>
+<?php } ?>
 
 </table>
 </form>
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
-
-<?php } // end display ?>

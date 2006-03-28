@@ -16,7 +16,7 @@
  * fetch the data from the ldap which is slower than the database) so there is
  * a caching mechanism built in. The cache timer can be controlled below.
  */
-$CACHE_EXPIRE_USERS = 30; // minutes before cache will force a refresh
+$CACHE_EXPIRE_USERS = 0; // minutes before cache will force a refresh
 $CACHE_EXPIRE_INSTS = 120; // minutes before cache will force a refresh
 $TOOL_SHORT = "provider";
 
@@ -62,8 +62,10 @@ class User {
 	public $primaryRole;
 	public $secondaryRole;
 	public $sakaiPerm = array();
+	public $isRep = false;
+	public $isVoteRep = false;
 
-	public $activated = false;
+	public $active = false;
 	public $Message = "";
 
 	private $data_source = "ldap";
@@ -109,14 +111,10 @@ class User {
 			"primaryRole:". $this->primaryRole . ", " .
 			"secondaryRole:". $this->secondaryRole;
 		$output .= ",activated:";
-		$output .= ($this->activated)?"Y":"N";
+		$output .= ($this->active)?"Y":"N";
 		$output .= ",authentic:";
 		$output .= ($this->authentic)?"Y":"N";
-		$output .= ",sakaiperm{";
-		foreach($this->sakaiPerm as $value) {
-			$output .= "$value:";
-		}
-		$output .= "}";
+		$output .= ",sakaiperm{".implode($this->sakaiPerm)."}";
 		return $output;
 	}
 
@@ -140,45 +138,26 @@ class User {
 		$output['primaryRole'] = $this->primaryRole;
 		$output['secondaryRole'] = $this->secondaryRole;
 		$output['authentic'] = $this->authentic;
-		$output['activated'] = $this->activated;
+		$output['activated'] = $this->active;
 		foreach($this->sakaiPerm as $value) {
 			$output[$value] = $value;
 		}
 		return $output;
 	}
 
-	// SETTERS
+	// SETTERS for private vars
 	// password setter (no getter, password should not be retrieveable)
 	public function setPassword($password) {
 		$this->password = $password;
 	}
 
-	// set all method
-	function setAll($pk, $username, $firstname, $lastname, $email, 
-			$institution, $institution_pk, $address, $city, $state,
-			$zipcode, $country, $phone, $fax, $primaryRole,
-			$secondaryRole, $sakaiPerm) {
-		// full contructor
-		$this->pk = $pk;
-		$this->username = $username;
-		$this->firstname = $firstname;
-		$this->lastname = $lastname;
-		$this->email = $email;
-		$this->institution = $institution;
-		$this->institution_pk = $institution_pk;
-		$this->address = $address;
-		$this->city = $city;
-		$this->state = $state;
-		$this->zipcode = $zipcode;
-		$this->country = $country;
-		$this->phone = $phone;
-		$this->fax = $fax;
-		$this->primaryRole = $primaryRole;
-		$this->secondaryRole = $secondaryRole;
-		$this->sakaiPerm = $sakaiPerm;
+	// let's us clear the password
+	public function removePassword() {
+		$this->password = "";
 	}
 
-	// GETTERS
+
+	// GETTERS for private vars
 	// simple getter for the data_source
 	public function getDataSource() {
 		return $this->data_source;
@@ -209,6 +188,7 @@ class User {
 		}
 
 		$this->sakaiPerm[$permString] = $permString;
+		ksort($this->sakaiPerm[$permString]); // keep perms in alpha order
 		return true;
 	}
 
@@ -241,6 +221,43 @@ class User {
 			return true;
 		}
 		return false;
+	}
+
+
+/*
+ * Special setters
+ * These are designed to allow the some of the special properties of the user to be set
+ */
+	public function setActive($active) {
+		if ($active) {
+			if (!$this->sakaiPerm["active"]) {
+				$this->sakaiPerm["active"] = "active";
+			}
+			return true;
+		} else {
+			if ($this->sakaiPerm["active"]) {
+				unset($this->sakaiPerm["active"]);
+			}
+			return true;
+		}
+	}
+
+	public function setRep($setting) {
+		// TODO - make this do something
+		return false;
+	}
+
+	public function setVoteRep($setting) {
+		// TODO - make this do something
+		return false;
+	}
+
+
+/*
+ * Convenience save function (will insert or update as needed)
+ */
+ 	public function save() {
+		return $this->create();
 	}
 
 /*
@@ -285,7 +302,7 @@ class User {
 			return true;
 		} else {
 			$this->pk = $checkresult['pk'];
-			return $this->saveDB();
+			return $this->updateDB();
 		}
 	}
 
@@ -307,7 +324,7 @@ class User {
 				if($exists['count'] > 0) {
 					// entry already exists
 					$this->pk = $exists[0]['uid'][0];
-					$this->saveLDAP();
+					return $this->updateLDAP();
 				}
 				ldap_free_result($sr);
 
@@ -421,7 +438,7 @@ class User {
 			}
 			return true;
 		} else {
-			return $this->saveCache();
+			return $this->updateCache();
 		}
 	}
 
@@ -504,7 +521,7 @@ class User {
 
 		// grab the data from cache if it is fresh enough
 		$sql = "select * from users_cache where $search and " .
-			"now() > date_modified+INTERVAL $CACHE_EXPIRE_USERS MINUTE";
+			"now() < date_modified+INTERVAL $CACHE_EXPIRE_USERS MINUTE";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "User fetch query failed ($sql): " . mysql_error();
@@ -671,26 +688,21 @@ class User {
 /*
  * UPDATE and save functions
  */
-	public function save() {
+	public function update() {
 		global $USE_LDAP;
 		
 		// save the user to the appropriate location
 		if ($this->data_source == "ldap" && $USE_LDAP) {
-			return $this->saveLDAP();
+			return $this->updateLDAP();
 		} else if ($this->data_source == "db") {
-			return $this->saveDB();
+			return $this->updateDB();
 		} else {
 			$this->Message = "Invalid data_source: $this->data_source, could not save";
 			return false;
 		}
 	}
 
-	public function update() {
-		// simple passthrough for convenience
-		return $this->save();
-	}
-
-	private function saveDB() {
+	private function updateDB() {
 		$passChange = "";
 		if ($this->password) {
 			$passChange = " password=PASSWORD('$this->password'), ";
@@ -720,7 +732,7 @@ class User {
 		return true;
 	}
 
-	private function saveLDAP() {
+	private function updateLDAP() {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
@@ -760,7 +772,9 @@ class User {
 					$info["userpassword"]=$this->password;
 				}
 
-				$info["sakaiperm"] = array_values($this->sakaiPerm);
+				if (isset($this->sakaiPerm)) {
+					$info["sakaiperm"] = array_values($this->sakaiPerm);
+				}
 
 				// empty items must be set to a blank array
 				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
@@ -788,7 +802,7 @@ class User {
 		}
 	}
 
-	private function saveCache() {
+	private function updateCache() {
 		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
 		$sql = "UPDATE users_cache set username='$this->username', email='$this->email', " .
 			"firstname='$this->firstname', lastname='$this->lastname', " .
@@ -945,7 +959,7 @@ class User {
 					$sr=ldap_search($ds, $user_dn, "sakaiUser=$username");
 					$info = ldap_get_entries($ds, $sr);
 					$this->updateFromLDAPArray($info);
-					if ($this->activated) {
+					if ($this->active) {
 						$this->authentic = true;
 					}
 					$this->Message = "Valid LDAP login: $username";
@@ -989,7 +1003,7 @@ class User {
 			$result = mysql_query($sqlusers) or die('User query failed: ' . mysql_error());
 			$USER = mysql_fetch_assoc($result);
 			$this->updateFromDBArray($USER);
-			if ($this->activated) {
+			if ($this->active) {
 				$this->authentic = true;
 			}
 			$this->data_source = "db";
@@ -1045,7 +1059,7 @@ class User {
 				$this->sakaiPerm[$value] = "$value";
 			}
 		} else { $this->sakaiPerm = array(); }
-		if ($this->sakaiPerm["active"]) { $this->activated=true; }
+		if ($this->sakaiPerm["active"]) { $this->active=true; }
 		return true;
 	}
 
@@ -1054,7 +1068,7 @@ class User {
 			$this->Message = "Cannot updateFromLDAPArray, INFO empty";
 			return false;
 		}
-
+		
 		$this->pk = $info[0]["uid"][0]; // uid is multivalue, we want the first only
 		$this->username = $info[0]["sakaiuser"][0];
 		$this->firstname = $info[0]["givenname"][0];
@@ -1078,8 +1092,8 @@ class User {
 					$this->sakaiPerm[$value1] = "$value1";
 				}
 			}
-		} else { $this->sakaiPerm = array(); }
-		if ($this->sakaiPerm["active"]) { $this->activated=true; }
+		}
+		if ($this->sakaiPerm["active"]) { $this->active=true; }
 		return true;
 	}
 }
@@ -1161,6 +1175,14 @@ class Institution {
 
 
 /*
+ * Convenience save function (will insert or update as needed)
+ */
+ 	public function save() {
+		return $this->create();
+	}
+
+
+/*
  * CREATE functions
  */
 	public function create() {
@@ -1196,7 +1218,7 @@ class Institution {
 			$this->pk = mysql_insert_id();
 			return true;
 		} else {
-			return $this->saveDB();
+			return $this->updateDB();
 		}
 	}
 
@@ -1217,7 +1239,7 @@ class Institution {
 				if($exists['count'] > 0) {
 					// entry already exists
 					$this->pk = $exists[0]['iid'][0];
-					$this->saveLDAP();
+					$this->updateLDAP();
 				}
 				ldap_free_result($sr);
 
@@ -1295,7 +1317,7 @@ class Institution {
 			}
 			return true;
 		} else {
-			return $this->saveCache();
+			return $this->updateCache();
 		}
 	}
 
@@ -1332,7 +1354,7 @@ class Institution {
 
 		// grab the data from cache if it is fresh enough
 		$sql = "select * from insts_cache where $search and " .
-			"now() > date_modified+INTERVAL $CACHE_EXPIRE_INSTS MINUTE";
+			"now() < date_modified+INTERVAL $CACHE_EXPIRE_INSTS MINUTE";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "Inst fetch query failed ($sql): " . mysql_error();
@@ -1486,26 +1508,21 @@ class Institution {
 /*
  * UPDATE and save functions
  */
-	public function save() {
+	public function update() {
 		global $USE_LDAP;
 		
 		// save the user to the appropriate location
 		if ($this->data_source == "ldap" && $USE_LDAP) {
-			return $this->saveLDAP();
+			return $this->updateLDAP();
 		} else if ($this->data_source == "db") {
-			return $this->saveDB();
+			return $this->updateDB();
 		} else {
 			$this->Message = "Invalid data_source: $this->data_source, could not save";
 			return false;
 		}
 	}
 
-	public function update() {
-		// simple passthrough for convenience
-		return $this->save();
-	}
-
-	private function saveDB() {
+	private function updateDB() {
 		$sql = "UPDATE institution set name='$this->name', type='$this->type', " .
 			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
 			"country='$this->country', rep_pk='$this->rep_pk', repvote_pk='$this->repvote_pk' " .
@@ -1519,7 +1536,7 @@ class Institution {
 		return true;
 	}
 
-	private function saveLDAP() {
+	private function updateLDAP() {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
@@ -1567,7 +1584,7 @@ class Institution {
 		}
 	}
 
-	private function saveCache() {
+	private function updateCache() {
 		$sql = "UPDATE insts_cache set insts_pk='$this->pk', name='$this->name', type='$this->type', " .
 			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
 			"country='$this->country', rep_pk='$this->rep_pk', repvote_pk='$this->repvote_pk' " .

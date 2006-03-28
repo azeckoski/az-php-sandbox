@@ -18,7 +18,7 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 // Load User and Inst PROVIDERS
 require $ACCOUNTS_PATH.'include/providers.php';
 
-// check authentication
+// check authentication (populates curUser object is authed)
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
@@ -34,11 +34,17 @@ if (!$USER["admin_accounts"]) {
 	$allowed = 1;
 }
 
-// set the header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='admin_users.php'>Users admin</a> - " .
-	"<a href='admin_ldap.php'><strong>LDAP admin</strong></a> - " .
-	"<a href='admin_insts.php'>Institutions admin</a></span>";
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
+$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
+if ($USE_LDAP) {
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'><strong>LDAP</strong></a> - ";
+}
+$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
+	"<a href='admin_insts.php'>Institutions</a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"</span>";
+
 ?>
 
 <!-- // INCLUDE THE HTML HEAD -->
@@ -64,9 +70,9 @@ $PK = $_REQUEST["pk"]; // if editing/removing this will be set
 if ($PK) {
 	$Message = "Edit the information below to adjust the account.<br/>";
 }
-$thisUser = new User($PK);
-print "test: $thisUser->Message : $thisUser->pk <br/>";
-echo $thisUser, "<br/>";
+
+// create the user object from provider
+$ldapUser = new User($PK);
 
 // bring in the form validation code
 require $ACCOUNTS_PATH.'ajax/validators.php';
@@ -94,25 +100,26 @@ $vItems['fax'] = "phone";
 // this matters when the form is submitted
 if ($_POST["save"] && $allowed) {
 
-	$thisUser->username = $_POST["username"];
-	$thisUser->email = $_POST["email"];
-	$thisUser->firstname = $_POST["firstname"];
-	$thisUser->lastname = $_POST["lastname"];
-	$thisUser->institution = $_POST["otherInst"];
-	$thisUser->institution_pk = $_POST["institution_pk"];
-	$thisUser->address = $_POST["address"];
-	$thisUser->city = $_POST["city"];
-	$thisUser->state = $_POST["state"];
-	$thisUser->zipcode = $_POST["zipcode"];
-	$thisUser->country = $_POST["country"];
-	$thisUser->phone = $_POST["phone"];
-	$thisUser->fax = $_POST["fax"];
+	$ldapUser->username = $_POST["username"];
+	$ldapUser->email = $_POST["email"];
+	$ldapUser->firstname = $_POST["firstname"];
+	$ldapUser->lastname = $_POST["lastname"];
+	$ldapUser->institution = $_POST["otherInst"];
+	$ldapUser->institution_pk = $_POST["institution_pk"];
+	$ldapUser->primaryRole = $_POST["primaryRole"];
+	$ldapUser->secondaryRole = $_POST["secondaryRole"];
+	$ldapUser->address = $_POST["address"];
+	$ldapUser->city = $_POST["city"];
+	$ldapUser->state = $_POST["state"];
+	$ldapUser->zipcode = $_POST["zipcode"];
+	$ldapUser->country = $_POST["country"];
+	$ldapUser->phone = $_POST["phone"];
+	$ldapUser->fax = $_POST["fax"];
+
 	$PASS1 = $_POST["password1"];
 	$PASS2 = $_POST["password2"];
 
-	$ACTIVATED = $_POST["activated"];
-	if (!$ACTIVATED) { $ACTIVATED = 0; }
-
+	if ($_POST["active"]) { $ldapUser->addPerm("active"); }
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -123,7 +130,7 @@ if ($_POST["save"] && $allowed) {
 			"<span style='color:red;'>Please fix the following errors:</span><br/>".
 			$validationOutput."</fieldset>";
 	}
-	
+
 	// Check for password match
 	if ((strlen($PASS1) > 0 || strlen($PASS2) > 0) && ($PASS1 != $PASS2)) {
 		$Message .= "<span class='error'>Error: Passwords do not match</span><br/>";
@@ -131,200 +138,25 @@ if ($_POST["save"] && $allowed) {
 	}
 
 	if ($errors == 0) {
-		// write the values to LDAP
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);
-		if ($ds) {
-			// bind with appropriate dn to give update access
-			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
-			if ($admin_bind) {
-
-				// prepare data array
-				$info = array();
-				$info["cn"]="$firstname $lastname";
-				$info["givenname"]=$firstname;
-				$info["sn"]=$lastname;
-				$info["sakaiUser"]=$username;
-				$info["mail"]=$email;
-				$info["iid"]="$institution_pk";
-
-				// get the institution name for this $INSTITUTION_PK
-				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", "iid=$institution_pk", array("o"));
-				$item = ldap_get_entries($ds, $sr);
-				if ($item["count"]) {
-					$info["o"]=$item[0]["o"][0];
-				}
-
-				// only set password if it is not blank
-				if (strlen($PASS1) > 0) {
-					$info["userPassword"]=$PASS1;
-				}
-
-				$permissions = array();
-				if ($_REQUEST["active"]) { $permissions[] = "active"; }
-				if ($_REQUEST["admin_accounts"]) { $permissions[] = "admin_accounts"; }
-				if ($_REQUEST["admin_insts"]) { $permissions[] = "admin_insts"; }
-				if ($_REQUEST["admin_reqs"]) { $permissions[] = "admin_reqs"; }
-				if ($PK or !empty($permissions)) {
-					$info["sakaiperm"]=$permissions;
-				}
-
-				if (!$PK) { // ADDING USER TO LDAP
-					//prepare user dn, find next available uid
-					$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "(uid=*)", array("uid"));
-					ldap_sort($ds, $sr, 'uid');
-					$uidinfo = ldap_get_entries($ds, $sr);
-					$lastnum = $uidinfo["count"] - 1;
-					$uid = $uidinfo[$lastnum]["uid"][0] + 1;
-					ldap_free_result($sr);
-
-					// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
-					$user_dn = "uid=$uid,ou=users,dc=sakaiproject,dc=org";
-					//print "uid: $uid; user_dn='$user_dn'<br/>";
-	
-					$info["objectClass"][0]="top";
-					$info["objectClass"][1]="person";
-					$info["objectClass"][2]="organizationalPerson";
-					$info["objectClass"][3]="inetOrgPerson";
-					$info["objectClass"][4]="sakaiAccount";
-					$info["uid"]=$uid;
-                                    
-					$ldap_result=ldap_add($ds, $user_dn, $info);
-					if ($ldap_result) {
-						$Message = "<b>Added new user</b><br/>";
-						$PK = $uid;
-						writeLog($TOOL_SHORT,$USERNAME,"user added (ldap): $FIRSTNAME $LASTNAME ($EMAIL) [$PK]" );
-					} else {
-						print "Failed to add user to LDAP ($user_dn) (".ldap_error($ds).":".ldap_errno($ds).")<br/>";
-					}
-				} else {
-					// EDITING LDAP INFO
-					$user_dn = "uid=$PK,ou=users,dc=sakaiproject,dc=org";
-					$ldap_result=ldap_modify($ds, $user_dn, $info);
-					if ($ldap_result) {
-						$Message = "<b>Updated user information</b><br/>";
-						writeLog($TOOL_SHORT,$USERNAME,"user modified (ldap): $FIRSTNAME $LASTNAME ($EMAIL) [$PK]" );
-					} else {
-						print "Failed to modify user in LDAP (".ldap_error($ds).":".ldap_errno($ds).")<br/>";
-					}
-				}
-				
-			} else {
-				$Message = "Critical ERROR: Admin bind failed<br/>";
-			}
-			ldap_close($ds);
-		} else {
-			$Message = "ERROR: Unable to connect to LDAP server";
-		}
-
-
-
+		$ldapUser->setPassword($_POST["password1"]);
 
 		// TODO - REP STUFF
-		// set or unset the voting rep (this has to happen before the rep set)
-		if ($_REQUEST["setrepvote"]) {
-			// set this user as the rep for the currently selected institution
-			$Message .= "<b>Set this user as a voting rep.</b><br/>";
-		} else {
-			// UNset this user as the rep for the currently selected institution
-			//$Message .= "<b>Unset this user as a voting rep.</b><br/>";
-		}
+		if($_POST["instrep"]) { }
+		if($_POST["voterep"]) { }
 
-		// set or unset the inst rep if needed
-		if ($_REQUEST["setrep"]) {
-			// set this user as the rep for the currently selected institution
-			$Message .= "<b>Set this user as an institutional rep.</b><br/>";
-			
-			// now also set the voting rep if it is not set for this inst
-			
-			if (!$checkRep[0]) {
-				$Message .= "<b>Auto set this user as a voting rep also.</b><br/>";
-			}
+		// write the values to LDAP
+		if (!$ldapUser->save()) {
+			$Message = "Error: Could not save: ".$ldapUser->Message;
 		} else {
-			// UNset this user as the rep for the currently selected institution
-			//$Message .= "<b>Unset this user as an institutional rep.</b><br/>";
+			$Message = "<strong>Saved user information</strong>";
 		}
-
-// TODO - do I need this?
-/**
-			// clear all values
-			$USERNAME = "";
-			$EMAIL = "";
-			$FIRSTNAME = "";
-			$LASTNAME = "";
-			$INSTITUTION_PK = "";
-**/
-	} else {
-		$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";
 	}
 }
 
+echo $ldapUser, "<br/>";
 
-// get the user information from LDAP if $PK is set
-$output = "";
-$result = array();
-if ($USE_LDAP && $PK) {
-	$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);  // must be a valid LDAP server!
-	if ($ds) {
-		$reporting_level = error_reporting(E_ERROR); // suppress warning messages
-		$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
-		if ($read_bind) {
-			$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","iid","o","sakaiperm");
-		   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$PK", $attribs);
-			$result = ldap_get_entries($ds, $sr);
-			
-/**** TESTING ***/
-// TODO - comment this out
-			$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=$PK");
-			$output = "<table>";
-			$output .= "<tr><td colspan='2'>Number of ldap entries returned: " . 
-				ldap_count_entries($ds, $sr) . "</td></tr>";
-			$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
-			for ($i=0; $i<$info["count"]; $i++) {
-				$output .= "<tr><td colspan='2'><b>LDAP user ".($i+1)." (" . $info[$i]["count"] . " data fields):</b></td></tr>";
-				foreach ($info[$i] as $key=>$value) {
-					$outvalue = $value;
-					if (is_numeric($key) || $key === "count") {
-						// skip it
-						continue;
-					} else if (is_array($value)) {
-						$outvalue = "";
-						foreach ($value as $key1=>$value1) {
-							if ($key1 !== "count") {
-								$outvalue .= "$value1 ";
-							}
-						}
-					}
-					$output .= "<tr><td align='right'>" . $key . ":</td><td>" . $outvalue . "</td></tr>";
-				}
-			}
-			$output .= "</table>";
-/*******/
-		} else {
-			$Message ="<h4>ERROR: Read bind to ldap failed</h4>";
-		}
-		ldap_close($ds); // close connection
-		error_reporting($reporting_level); // reset error reporting
-					
-	} else {
-	   $Message = "<h3>CRITICAL Error: Unable to connect to LDAP server</h3>";
-	}
-}
+$thisUser = $ldapUser->toArray();
 
-$thisUser = array();
-$thisUser['username'] = $result[0]["sakaiuser"][0];
-$thisUser['firstname'] = $result[0]["givenname"][0];
-$thisUser['lastname'] = $result[0]["sn"][0];
-$thisUser['email'] = $result[0]["mail"][0];
-$thisUser['institution_pk'] = $result[0]["iid"][0];
-$thisUser['address'] = $result[0][""][0];
-$thisUser['city'] = $result[0][""][0];
-$thisUser['state'] = $result[0][""][0];
-$thisUser['zipcode'] = $result[0][""][0];
-$thisUser['country'] = $result[0][""][0];
-$thisUser['phone'] = $result[0][""][0];
-$thisUser['fax'] = $result[0][""][0];
-
-// TODO - get if this user is an institutional rep or voting rep
 ?>
 
 <?= $Message ?>
@@ -345,7 +177,7 @@ $thisUser['fax'] = $result[0][""][0];
 </span>
 
 
-<table width="100%">
+<table width="60%">
 <tr>
 <td valign="top">
 
@@ -355,7 +187,7 @@ $thisUser['fax'] = $result[0][""][0];
 		<td class="account"><b>Activated:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="active" tabindex="9" value="1" <?php
-				if (in_array("active",$result[0]["sakaiperm"])) { echo " checked='y' "; }
+				if ($ldapUser->active) { echo " checked='y' "; }
 			?>/>
 			<i> - account is active (inactive accounts cannot login)</i>
 		</td>
@@ -365,7 +197,7 @@ $thisUser['fax'] = $result[0][""][0];
 		<td class="account"><b>Inst Rep:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="instrep" tabindex="10" value="1" <?php
-				if (in_array("instrep",$result[0]["sakaiperm"])) { echo " checked='y' "; }
+				if ($ldapUser->isRep) { echo " checked='y' "; }
 			?>/>
 			<i> - user is the representative for the listed institution</i>
 		</td>
@@ -375,7 +207,7 @@ $thisUser['fax'] = $result[0][""][0];
 		<td class="account"><b>Vote Rep:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="voterep" tabindex="11" value="1" <?php
-				if (in_array("voterep",$result[0]["sakaiperm"])) { echo " checked='y' "; }
+				if ($ldapUser->isVoteRep) { echo " checked='y' "; }
 			?>/>
 			<i> - user is the voting rep for the listed institution</i>
 		</td>
@@ -389,7 +221,7 @@ $thisUser['fax'] = $result[0][""][0];
 		<td class="account"><b>Accounts:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_accounts" tabindex="12" value="1" <?php
-				if (in_array("admin_accounts",$result[0]["sakaiperm"])) { echo " checked='y' "; }
+				if ($ldapUser->checkPerm("admin_accounts")) { echo " checked='y' "; }
 			?>/>
 			<i> - user has admin access to accounts</i>
 		</td>
@@ -399,7 +231,7 @@ $thisUser['fax'] = $result[0][""][0];
 		<td class="account"><b>Institutions:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_insts" tabindex="13" value="1" <?php
-				if (in_array("admin_insts",$result[0]["sakaiperm"])) { echo " checked='y' "; }
+				if ($ldapUser->checkPerm("admin_insts")) { echo " checked='y' "; }
 			?>/>
 			<i> - user has admin access to institutions</i>
 		</td>
@@ -409,22 +241,13 @@ $thisUser['fax'] = $result[0][""][0];
 		<td class="account"><b>Requirements:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="admin_reqs" tabindex="14" value="1" <?php
-				if (in_array("admin_reqs",$result[0]["sakaiperm"])) { echo " checked='y' "; }
+				if ($ldapUser->checkPerm("admin_reqs")) { echo " checked='y' "; }
 			?>/>
 			<i> - user has admin access to req voting</i>
 		</td>
 	</tr>
 
 </table>
-</fieldset>
-
-</td>
-<td valign="top">
-
-<fieldset><legend>Output</legend>
-<div style="font-size:.8em;">
-<?= $output ?>
-</div>
 </fieldset>
 
 </td>

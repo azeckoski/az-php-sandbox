@@ -30,14 +30,17 @@ if (!$USER["admin_accounts"]) {
 	$allowed = 1;
 }
 
-// set header links
+// top header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'><strong>Admin</strong></a> - ";
+$EXTRA_LINKS .= "<a href='index.php'><strong>Admin</strong></a>: ";
 if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP admin</a> - ";
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
 }
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users admin</a> - " .
-	"<a href='admin_insts.php'>Institutions admin</a></span>";
+$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
+	"<a href='admin_insts.php'>Institutions</a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"</span>";
+
 ?>
 
 
@@ -87,6 +90,12 @@ function orderBy(newOrder) {
       <td valign="top"><a href="admin_insts.php">Institutional Control</a></td>
       <td>This allows control of instituions<br/>
       Edit the institution to change the name, abbreviation, or type
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><a href="admin_perms.php">Permissions Control</a></td>
+      <td>This allows control of permissions<br/>
+      Add new permissions or edit the descriptions of existing permissions
       </td>
     </tr>
 </table>  

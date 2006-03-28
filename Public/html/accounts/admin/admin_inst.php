@@ -135,11 +135,15 @@ mysql_free_result($result);
 
 // header top links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
+$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
 if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP admin</a> - ";
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
 }
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users admin</a> - " .
-	"<a href='admin_insts.php'><strong>Institutions admin</strong></a></span>";
+$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
+	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"</span>";
+
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>

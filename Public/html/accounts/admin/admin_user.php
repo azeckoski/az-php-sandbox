@@ -196,12 +196,16 @@ $checkRep = mysql_fetch_assoc($result);
 mysql_free_result($result);
 
 
+// top header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
+$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
 if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP admin</a> - ";
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
 }
-$EXTRA_LINKS .= "<a href='admin_users.php'><strong>Users admin</strong></a> - " .
-	"<a href='admin_insts.php'>Institutions admin</a></span>";
+$EXTRA_LINKS .= "<a href='admin_users.php'><strong>Users</strong></a> - " .
+	"<a href='admin_insts.php'>Institutions</a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"</span>";
 
 ?>
 
