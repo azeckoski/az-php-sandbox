@@ -310,6 +310,19 @@ function attachFormHandlers()
 							otherItem.onchange = function(){return validateObject(this);}
 						}
 					}
+					
+					// attach handlers to images or text
+					if(vUseImages) {
+						var imgObject=document.getElementById(thisElement.name + "Img");
+						if (imgObject != null) {
+							imgObject.onclick = function(){return validateImg(this);}
+						}
+					} else if(gUseText) {
+						var msgObject=document.getElementById(thisElement.name + "Msg");
+						if (msgObject != null) {
+							msgObject.onclick = function(){return validateMsg(this);}
+						}
+					}
 				}
 			}
 		}
@@ -356,6 +369,25 @@ function createRequestObject(){
 
 // This is the way to create the new XMLHttpRequest object (must use () at end of function)
 //var http = createRequestObject();
+
+// simple passthroughs to the validateObject call
+// allows a validate to be called from it's Img
+function validateImg(objInput) {
+	var mainObject=document.getElementById(objInput.id.replace("Img",""));
+	if (mainObject != null) {
+		return validateObject(mainObject);
+	}
+	return false;
+}
+
+// allows a validate to be called from it's Msg
+function validateMsg(objInput) {
+	var mainObject=document.getElementById(objInput.id.replace("Msg",""));
+	if (mainObject != null) {
+		return validateObject(mainObject);
+	}
+	return false;
+}
 
 
 //Called with event triggers, this does the basic required validation and 
