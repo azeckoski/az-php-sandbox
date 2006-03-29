@@ -45,7 +45,7 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['perm_name'] = "required:focus:uniquesql;perm_name;permissions;pk;$PK";
+$vItems['perm_name'] = "required:focus:name:uniquesql;perm_name;permissions;pk;$PK";
 $vItems['perm_description'] = "required";
 
 // this matters when the form is submitted
@@ -131,7 +131,7 @@ $EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
 		<td>
 <?php if($_REQUEST["add"]) { ?>
 			<img id="perm_nameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="perm_name" value="<?= $thisItem['perm_name'] ?>" size="30" maxlength="50" />
+			<input type="text" name="perm_name" value="<?= $thisItem['perm_name'] ?>" size="25" maxlength="30" />
 			<input type="hidden" id="perm_nameValidate" value="<?= $vItems['perm_name'] ?>" />
 			<span id="perm_nameMsg"></span>
 <?php } else { ?>

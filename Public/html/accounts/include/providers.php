@@ -110,11 +110,11 @@ class User {
 			"fax:". $this->fax . ", " .
 			"primaryRole:". $this->primaryRole . ", " .
 			"secondaryRole:". $this->secondaryRole;
-		$output .= ",activated:";
+		$output .= ", activated:";
 		$output .= ($this->active)?"Y":"N";
-		$output .= ",authentic:";
+		$output .= ", authentic:";
 		$output .= ($this->authentic)?"Y":"N";
-		$output .= ",sakaiperm{".implode($this->sakaiPerm)."}";
+		$output .= ", sakaiPerm{".implode(":",$this->sakaiPerm)."}";
 		return $output;
 	}
 

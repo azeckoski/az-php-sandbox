@@ -119,6 +119,22 @@ if ($_POST["save"] && $allowed) {
 	$PASS1 = $_POST["password1"];
 	$PASS2 = $_POST["password2"];
 
+	// set permissions without removing existing ones 
+	// (this way perms added from other systems are preserved)
+	$ldapUser->sakaiPerm = array(); // clear first
+	if (is_array($_POST["perms"])) {
+		$perms_sql="select perm_name from permissions";
+		$perm_result = mysql_query($perms_sql) or die("Query failed ($perms_sql): " . mysql_error());	
+		while($row = mysql_fetch_assoc($perm_result)) {
+			$perm = $row['perm_name'];
+			if (in_array($perm,$_POST["perms"])) {
+				$ldapUser->addPerm($perm);
+			} else {
+				$ldapUser->removePerm($perm);
+			}
+		}
+	}
+
 	if ($_POST["active"]) { $ldapUser->addPerm("active"); }
 
 	// DO SERVER SIDE VALIDATION
@@ -226,7 +242,7 @@ $thisUser = $ldapUser->toArray();
 	<tr>
  		<td class="account"><strong><?= $row['perm_name'] ?>:</strong></td>
 		<td class="checkbox">
-			<input type="checkbox" name="<?= $row['perm_name'] ?>" tabindex="12" value="1" <?php
+			<input type="checkbox" name="perms[]" value="<?= $row['perm_name'] ?>" <?php
 				if ($ldapUser->checkPerm($row['perm_name'])) { echo " checked='y' "; }
 			?>/>
 			<i>- <?= $row['perm_description'] ?></i>

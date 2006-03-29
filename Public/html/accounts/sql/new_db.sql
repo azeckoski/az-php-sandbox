@@ -97,7 +97,7 @@ CREATE TABLE permissions (
     pk          		int(10) AUTO_INCREMENT NOT NULL,
     date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    perm_name           varchar(30) NOT NULL UNIQUE,
+    perm_name           varchar(50) NOT NULL UNIQUE,
     perm_description    varchar(250) NOT NULL,
     PRIMARY KEY (pk)
 );
