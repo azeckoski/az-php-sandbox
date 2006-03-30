@@ -9,7 +9,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Admin LDAP user control";
+$PAGE_NAME = "LDAP user control";
 $Message = "";
 
 // connect to database

@@ -78,6 +78,10 @@ class User {
 		// constructor will create a user based on username or userpk if possible
 		if ($userid == -1) { return true; } // created an empty user object
 
+		if ($userid=="session") {
+			$this->checkSession(); // create a user from the session (if exists)
+		}
+
 		if (is_numeric($userid)) {
 			// numeric so this is a userpk (at least I hope it is)
 			return $this->getUserByPk($userid);
@@ -530,6 +534,7 @@ class User {
 		$USER = mysql_fetch_assoc($result);
 		if (!$USER) { return false; }
 		$this->updateFromDBArray($USER);
+		mysql_free_result($result);
 		return true;
 	}
 
@@ -593,6 +598,7 @@ class User {
 		if (!$USER) { return false; }
 		$this->updateFromDBArray($USER);
 		$this->data_source = "db";
+		mysql_free_result($result);
 		return true;
 	}
 
@@ -674,6 +680,7 @@ class User {
 		while($row=mysql_fetch_assoc($result)) {
 			$this->searchResults[] = $row["pk"];
 		}
+		mysql_free_result($result);
 		return true;
 	}
 
@@ -1012,7 +1019,77 @@ class User {
 		$this->Message = "Invalid login: $username not in DB";
 		return false;
 	}
-	
+
+/*
+ * SESSION handling functions
+ * These sessions will handle the user session so that users do not have to login
+ * on every page
+ */
+
+	// creates a session for an authenticated user
+	public function createSession() {
+		// only create a session if the user is authenticated
+		if (!$this->pk) {
+			$this->Message = "Cannot create session for unidentified user ($this->pk)";
+			return false;
+		}
+
+		if (!$this->authentic) {
+			$this->Message = "Cannot create session for unauthenticated user";
+			return false;
+		}
+		
+		$cookie_val = md5($row["pk"] . time() . mt_rand() );
+		// create session cookie, this should last until the user closes the browser
+		setcookie("SESSION_ID", $cookie_val, null, "/", false, 0);
+
+		// delete all sessions related to this user first
+		$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
+		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());
+
+		// add user to sessions table
+		$sql3 = "insert into sessions (users_pk, passkey) values ('$user_pk', '$cookie_val')";
+		$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
+	}
+
+	// gets the user from the current session if there is one
+	private function checkSession() {
+		$PASSKEY = $_COOKIE["SESSION_ID"];
+
+		// check the passkey
+		$USER_PK = 0;
+		if (isset($PASSKEY)) {
+			$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
+			$result = mysql_query($sql1) or die("Session query failed ($sql1): " . mysql_error());
+			$row = mysql_fetch_assoc($result);
+			mysql_free_result($result);
+
+			if( !$result ) { // TODO - not sure about this test
+				// no valid key exists, user not authenticated
+				$this->pk = 0;
+				return false;
+			} else {
+				// authenticated user
+				$this->pk = $row["users_pk"];
+				return true;
+			}
+		} else {
+			return false;
+		}
+	}
+
+	public function removeSessions() {
+		if (!$this->pk) {
+			$this->Message = "Cannot create session for unidentified user ($this->pk)";
+			return false;
+		}
+		
+		// delete all sessions related to this user first
+		$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
+		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());		
+	}
+
+
 /*
  * These functions allow us to populate the object from
  * the database query results or from the LDAP query results

@@ -9,7 +9,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Admin LDAP Control";
+$PAGE_NAME = "Admin LDAP Users";
 $Message = "";
 
 // connect to database
@@ -94,7 +94,7 @@ $EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
 
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -117,7 +117,7 @@ function ldapdel(itempk) {
 }
 // -->
 </script>
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include $ACCOUNTS_PATH.'include/header.php'; ?>
 
 <?= $Message ?>
 
