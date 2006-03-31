@@ -79,7 +79,12 @@ class User {
 		if ($userid == -1) { return true; } // created an empty user object
 
 		if ($userid=="session") {
-			$this->checkSession(); // create a user from the session (if exists)
+			// create a user from the session (if exists)
+			if($this->checkSession()) {
+				return $this->getUserByPk($this->pk);
+			} else {
+				return false;
+			}
 		}
 
 		if (is_numeric($userid)) {
@@ -1026,6 +1031,46 @@ class User {
  * on every page
  */
 
+	// this is a convenience function for login which handles the entire
+	// login process including authenticting the user, creating a session,
+	// and populating the user object
+	public function login($username, $password) {
+		$username = strtolower($username);
+		
+		if (!isset($username) || !isset($password)) {
+			$this->Message = "Blank username or password";
+			return false;
+		}
+		
+		if (!$this->authenticateUser($username, $password)) {
+			$this->Message = "Invalid username or password";
+			return false;
+		}
+
+		if (!$this->createSession()) {
+			$this->Message = "Cannot create session for $this->username";
+			return false;
+		}
+		return true;
+	}
+
+
+	// convenience function to logout a user (the user does not have to be known for this
+	// function to work, in other words, user object can be empty)
+	public function logout() {
+		if (!$this->pk) {
+			if ($this->destroySession()) {
+				return true;
+			}
+		}
+
+		if ($this->destroySessions()) {
+			return true;
+		}
+		return false;
+	}
+
+
 	// creates a session for an authenticated user
 	public function createSession() {
 		// only create a session if the user is authenticated
@@ -1038,26 +1083,25 @@ class User {
 			$this->Message = "Cannot create session for unauthenticated user";
 			return false;
 		}
-		
-		$cookie_val = md5($row["pk"] . time() . mt_rand() );
-		// create session cookie, this should last until the user closes the browser
-		setcookie("SESSION_ID", $cookie_val, null, "/", false, 0);
+
+		$cookie_val = md5($this->pk . time() . mt_rand() );
+		// create session cookie, this should last until the user closes their browser
+		setcookie("SAKAIWEB", $cookie_val, null, "/", false, 0);
 
 		// delete all sessions related to this user first
-		$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
-		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());
+		$this->destroySessions();
 
-		// add user to sessions table
-		$sql3 = "insert into sessions (users_pk, passkey) values ('$user_pk', '$cookie_val')";
+		// add to sessions table
+		$sql3 = "insert into sessions (users_pk, passkey) values ('$this->pk', '$cookie_val')";
 		$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
+		return true;
 	}
 
-	// gets the user from the current session if there is one
+	// gets the user pk from the current session if there is one
 	private function checkSession() {
-		$PASSKEY = $_COOKIE["SESSION_ID"];
+		$PASSKEY = $_COOKIE["SAKAIWEB"];
 
 		// check the passkey
-		$USER_PK = 0;
 		if (isset($PASSKEY)) {
 			$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
 			$result = mysql_query($sql1) or die("Session query failed ($sql1): " . mysql_error());
@@ -1078,15 +1122,41 @@ class User {
 		}
 	}
 
-	public function removeSessions() {
+	// destroy the session for the current browser (not necessarily tied to user)
+	public function destroySession() {
+		// delete the current session based on the cookie
+		$PASSKEY = $_COOKIE["SAKAIWEB"];
+		$sql = "DELETE FROM sessions WHERE passkey = '$PASSKEY'";
+		$result = mysql_query($sql) or die('Query failed: ' . mysql_error());
+
+		// Clear the current session cookie
+		setcookie("SAKAIWEB", "NULL", null, "/", false, 0);
+
+		if (mysql_affected_rows()) {
+			$this->Message = "Removed current session";
+			return true;
+		}
+		return false;
+	}
+
+	// destroy all sessions for the current user (use on logout)
+	public function destroySessions() {
 		if (!$this->pk) {
-			$this->Message = "Cannot create session for unidentified user ($this->pk)";
+			$this->Message = "Cannot remove all sessions for unidentified user ($this->pk)";
 			return false;
 		}
-		
-		// delete all sessions related to this user first
+
+		// Clear the current session cookie
+		setcookie("SAKAIWEB", "NULL", null, "/", false, 0);
+
+		// delete all sessions related to this user
 		$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
-		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());		
+		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());
+		if (mysql_affected_rows()) {
+			$this->Message = "Removed all sessions for $this->username ($this->pk)";
+			return true;
+		}
+		return false;
 	}
 
 
