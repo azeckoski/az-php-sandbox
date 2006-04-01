@@ -29,7 +29,7 @@ if ($searchtext) {
 	$sqlsearch = " and (I1.name like '%$searchtext%' or F1.url like '%$searchtext%' or " .
 		"F1.interests like '%$searchtext%' or U1.username like '%$searchtext%' or " .
 		"U1.firstname like '%$searchtext%' or U1.lastname like '%$searchtext%' or " .
-		"U1.email like '%$searchtext%' or U1.otherInst like '%$searchtext%' or " .
+		"U1.email like '%$searchtext%' or U1.institution like '%$searchtext%' or " .
 		"U1.primaryRole like '%$searchtext%' or U1.secondaryRole like '%$searchtext%') ";
 }
 
@@ -139,7 +139,7 @@ function orderBy(newOrder) {
 			<a href='<?= $items['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
 <?php } ?>
 		<?= $items['firstname']." ".$items['lastname'] ?></div>
-		<div class="institute"><?php if($items['otherInst']) { echo $items['otherInst']; } else { echo $items['name']; } ?></div>
+		<div class="institute"><?php if($items['institution']) { echo $items['institution']; } else { echo $items['name']; } ?></div>
 <?php // TODO - make this so it shortens the output of interests
 	/**	
 		<div class=interests><?= $items['interests'] ?></div>
