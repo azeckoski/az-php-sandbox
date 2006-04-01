@@ -6,7 +6,7 @@
  */
 ?>
 <?php
-if( $USER_PK <= 0 ) {
+if( $User->pk <= 0 ) {
 	// no user_pk, user not authenticated
 	// redirect to the login page
 	if ($AUTH_MESSAGE) {

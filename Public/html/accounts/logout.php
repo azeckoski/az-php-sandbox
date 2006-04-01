@@ -1,14 +1,18 @@
 <?php
-	require_once 'include/tool_vars.php';
+require_once 'include/tool_vars.php';
 
-	// Clear the current session cookie
-	setcookie("SESSION_ID", "NULL", null, "/", false, 0);
+// connect to database
+require 'sql/mysqlconnect.php';
 
-	// Handle the login process or display a login page
-	$PAGE_NAME = "Logout";
+// Clear the current session cookie
+$User = new User();
+$User->destroySession();
 
-	// redirect to the main page
-	header('location:index.php');
+// Handle the login process or display a login page
+$PAGE_NAME = "Logout";
+
+// redirect to the main page
+header('location:index.php');
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

@@ -18,8 +18,8 @@ require 'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-//$vItems['username'] = "required:nospaces:uniquesql;username;users;pk;$USER_PK";
-$vItems['email'] = "required:email:uniquesql;email;users;pk;$USER_PK";
+//$vItems['username'] = "required:nospaces:uniquesql;username;users;pk;$User->pk";
+$vItems['email'] = "required:email:uniquesql;email;users;pk;$User->pk";
 $vItems['password1'] = "password";
 $vItems['password2'] = "password";
 $vItems['firstname'] = "required:focus";
@@ -92,13 +92,13 @@ if ($_POST["save"]) {
 			"primaryRole='$primaryRole', secondaryRole='$secondaryRole'," .
 			"institution_pk='$institution_pk', address='$address', city='$city', " .
 			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .
-			"fax='$fax' where pk='$USER_PK'";
+			"fax='$fax' where pk='$User->pk'";
 
 		$result = mysql_query($sqledit) or die('Update query failed: ' . mysql_error());
 		$Message = "<b>Updated user information</b><br/>";
 
 		// get new values from the USERS table
-		$sqlusers = "select * from users where pk = '$USER_PK'";
+		$sqlusers = "select * from users where pk = '$User->pk'";
 		$result = mysql_query($sqlusers) or die('User query failed: ' . mysql_error());
 		$USER = mysql_fetch_assoc($result);
 	}

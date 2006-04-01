@@ -9,14 +9,11 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Admin LDAP Users";
+$PAGE_NAME = "Users Control";
 $Message = "";
 
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
-
-// Load User and Inst PROVIDERS
-require $ACCOUNTS_PATH.'include/providers.php';
 
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
@@ -26,7 +23,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
-if (!$USER["admin_accounts"]) {
+if (!$User->checkPerm("admin_accounts")) {
 	$allowed = 0;
 	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
@@ -50,33 +47,19 @@ if ($_REQUEST["ldapdel"]) {
 $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 
-$output = "Enter search text to the right";
-if ($USE_LDAP && $searchtext) {
-	$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT);  // must be a valid LDAP server!
-	if ($ds) {
-		$reporting_level = error_reporting(E_ERROR); // suppress warning messages
-		$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
-		if ($read_bind) {
-			// Searching for (sakaiUser=username)
-			$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","o","sakaiperm");
-		   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "sakaiUser=$searchtext", $attribs); // expect sr=array
-	
-			$output = "Number of ldap entries returned: " . ldap_count_entries($ds, $sr);
-			$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
+// sorting
+$sortorder = "username";
+if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 
-		} else {
-			$output ="ERROR: Read bind to ldap failed";
-		}
-		ldap_close($ds); // close connection
-		error_reporting($reporting_level); // reset error reporting
-					
-	} else {
-	   $output = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
-	}
+$output = "Enter search text to the right";
+$items = array();
+if ($searchtext) {
+	$items = $User->getUsersBySearch($searchtext,$sortorder);
+	$output = "Number of entries returned: " . count($items);
 } else { // end use ldap check
 	$output = "No search text entered...";
 	if (!$USE_LDAP) {
-		$output = "<b>LDAP is disabled!</b>";
+		$output .= "(<b>LDAP is disabled!</b>)";
 	}
 }
 
@@ -85,9 +68,9 @@ if ($USE_LDAP && $searchtext) {
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
 $EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
 if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'><strong>LDAP</strong></a> - ";
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'><strong>Users</strong></a> - ";
 }
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
+$EXTRA_LINKS .= 
 	"<a href='admin_insts.php'>Institutions</a> - " .
 	"<a href='admin_perms.php'>Permissions</a>" .
 	"</span>";
@@ -143,7 +126,7 @@ function ldapdel(itempk) {
 	</td>
 
 	<td nowrap="y" align="left">
-		<a href="admin_ldap_add.php">Add user to ldap</a>
+		<a href="admin_ldap_add.php">Create New User</a>
 	</td>
 
 	<td nowrap="y" align="right">
@@ -159,18 +142,21 @@ function ldapdel(itempk) {
 
 <table border="0" cellspacing="0" width="100%">
 <tr class='tableheader'>
+<td></td>
 <td><a href="javascript:orderBy('username');">username</a></td>
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('email');">Email</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
-<td align="center">Rep</td>
 <td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
 </tr>
 
-<?php 
-for ($line=0; $line<$info["count"]; $line++) { 
-	if (strlen($row["institution"]) > 38) {
-		$row["institution"] = substr($row["institution"],0,35) . "...";
+<?php
+$line = 0;
+foreach ($items as $item) {
+	$line++;
+	$printInst = $item['institution'];
+	if (strlen($printInst) > 38) {
+		$printInst = substr($printInst,0,35) . "...";
 	}
 
 	$rowstyle = "";
@@ -192,14 +178,14 @@ for ($line=0; $line<$info["count"]; $line++) {
 	}
 ?>
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
-	<td class="line"><?= $info[$line]["sakaiuser"][0] ?></td>
-	<td class="line"><?= $info[$line]["givenname"][0] ?> <?= $info[$line]["sn"][0] ?></td>
-	<td class="line"><?= $info[$line]["mail"][0] ?></td>
-	<td class="line"><?= $info[$line]["o"][0] ?></td>
-	<td class="line" align="center"></td>
+	<td class="line" align="center"><em><?= $line ?>&nbsp;</em></td>
+	<td class="line"><?= $item['username'] ?></td>
+	<td class="line"><?= $item['name'] ?></td>
+	<td class="line"><?= $item['email'] ?></td>
+	<td class="line"><?= $printInst ?></td>
 	<td class="line" align="center">
-		<a href="admin_ldap_add.php?pk=<?= $info[$line]["uid"][0] ?>">edit</a> |
-		<a href="javascript:ldapdel('<?= $info[$line]["uid"][0] ?>')">del</a>
+		<a href="admin_ldap_add.php?pk=<?= $item['pk'] ?>">edit</a> |
+		<a href="javascript:ldapdel('<?= $item['pk'] ?>')">del</a>
 	</td>
 </tr>
 <?php } // end for loop ?>

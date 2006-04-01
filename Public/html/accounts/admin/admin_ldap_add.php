@@ -9,14 +9,11 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "LDAP user control";
+$PAGE_NAME = "User control";
 $Message = "";
 
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
-
-// Load User and Inst PROVIDERS
-require $ACCOUNTS_PATH.'include/providers.php';
 
 // check authentication (populates curUser object is authed)
 require $ACCOUNTS_PATH.'include/check_authentic.php';
@@ -26,7 +23,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
-if (!$USER["admin_accounts"]) {
+if (!$User->checkPerm("admin_accounts")) {
 	$allowed = 0;
 	$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
@@ -38,16 +35,13 @@ if (!$USER["admin_accounts"]) {
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
 $EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
 if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'><strong>LDAP</strong></a> - ";
+	$EXTRA_LINKS .=	"<a href='admin_ldap.php'><strong>Users</strong></a> - ";
 }
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'>Institutions</a> - " .
+$EXTRA_LINKS .= "<a href='admin_insts.php'>Institutions</a> - " .
 	"<a href='admin_perms.php'>Permissions</a>" .
 	"</span>";
 
 ?>
-
-<!-- // INCLUDE THE HTML HEAD -->
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
@@ -169,14 +163,9 @@ if ($_POST["save"] && $allowed) {
 	}
 }
 
-// get the list of permissions
-$perms_sql="select * from permissions";
-$perm_result = mysql_query($perms_sql) or die("Query failed ($perms_sql): " . mysql_error());	
+echo $ldapUser, "<br/>"; // for testing
 
-
-echo $ldapUser, "<br/>";
-
-$thisUser = $ldapUser->toArray();
+$thisUser = $ldapUser->toArray(); // put the user data into an array for easy access
 
 ?>
 
@@ -238,7 +227,11 @@ $thisUser = $ldapUser->toArray();
 		<td colspan="2" class="account"><br/><b>Permissions:</b></td>
 	</tr>
 
-<?php while($row = mysql_fetch_assoc($perm_result)) { ?>
+<?php 
+	// get the list of permissions
+	$perms_sql="select * from permissions";
+	$perm_result = mysql_query($perms_sql) or die("Query failed ($perms_sql): " . mysql_error());	
+	while($row = mysql_fetch_assoc($perm_result)) { ?>
 	<tr>
  		<td class="account"><strong><?= $row['perm_name'] ?>:</strong></td>
 		<td class="checkbox">

@@ -14,67 +14,31 @@ $Message = "";
 // connect to database
 require 'sql/mysqlconnect.php';
 
-// Clear the current session cookie
-setcookie("SESSION_ID", "NULL", null, "/", false, 0);
+// construct empty user object
+$User = new User();
 
 // Pass along the referrer
 $REF = $_REQUEST["ref"]; // This is the refering page
 
 // Get the username and password (force username to lowercase)
-$USERNAME = strtolower($_POST["username"]);
-$PASSWORD = mysql_real_escape_string($_POST["password"]);
+$username = $_POST["username"];
+$password = $_POST["password"];
 
 $errors = 0;
-if (ereg('[[:space:]]',$USERNAME)) {
+if (ereg('[[:space:]]',$username)) {
 	$errors++;
 	$Message .= "<span style='color:red;'>Username cannot contain spaces</span><br/>";
 }
 
-if (ereg('[[:space:]]',$PASSWORD)) {
+if (ereg('[[:space:]]',$password)) {
 	$errors++;
 	$Message .= "<span style='color:red;'>Password cannot contain spaces</span><br/>";
 }
 
 // check the username/password to auth if present
-if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
-	$login_success = 0;
-	
-	if (!$login_success) {
-		// ATTEMPT AUTH VIA LOCAL DB
-	
-		// check the username and password
-		$sql1 = "SELECT pk FROM users WHERE username = '$USERNAME' and " .
-			"password = PASSWORD('$PASSWORD') and activated = '1'";
-		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
-		$count = mysql_num_rows($result);
-		$row = mysql_fetch_assoc($result);
-	
-		if( !empty($result) && ($count == 1)) {
-			// valid login
-			$Message = "Valid login: $USERNAME <br/>";
-			$user_pk = $row["pk"];
+if (!$errors && strlen($username) && strlen($password)) {
 
-			//print ("Internal Auth Suceeded");
-			writeLog($TOOL_SHORT,$USERNAME,"user logged in (internal):" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
-			$login_success = 1;
-		}
-	}
-
-	if ($login_success && $user_pk) {
-		// login suceeded so create the session in the database
-		
-		$cookie_val = md5($row["pk"] . time() . mt_rand() );
-		// create session cookie, this should last until the user closes the browser
-		setcookie("SESSION_ID", $cookie_val, null, "/", false, 0);
-
-		// delete all sessions related to this user
-		$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
-		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());
-
-		// add user to sessions table
-		$sql3 = "insert into sessions (users_pk, passkey) values ('$user_pk', '$cookie_val')";
-		$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
-
+	if ($User->login($username, $password)) {
 		// redirect after login -AZ
 		//print "ref = $REF<br/>";
 
@@ -86,25 +50,18 @@ if (!$errors && strlen($USERNAME) && strlen($PASSWORD)) {
 		exit;
 
 	} else {
-		// user/pass combo not found
-		$Message .= "<span class='error'>Invalid login: $USERNAME </span><br/>" .
+		// user login failed
+		$Message .= "<span class='error'>Invalid login: $username </span><br/>" .
 			"Please check your username and password and make sure your account is activated.";
 
 		// Clear the current session cookie
-		setcookie("SESSION_ID", "NULL", null, "/", false, 0);
+		$User->destroySession();
 	}
 }
 ?>
-
-<!-- // INCLUDE THE HTML HEAD -->
 <?php include 'include/top_header.php';  ?>
 <script type="text/javascript">
 <!--
-window.onload = doFocus;
-
-function doFocus() {
-	document.adminform.username.focus();
-}
 // -->
 </script>
 <!-- // INCLUDE THE HEADER -->
@@ -125,11 +82,11 @@ function doFocus() {
 	<table border="0" class="padded">
 		<tr>
 			<td><b style="font-size:11pt;">Username:</b></td>
-			<td><input type="text" name="username" tabindex="1" value="<?= $USERNAME ?>" /></td>
+			<td><input type="text" name="username" tabindex="1" value="<?= $username ?>" size="20" /></td>
 		</tr>
 		<tr>
 			<td><b style="font-size:11pt;">Password:</b></td>
-			<td><input type="password" name="password" tabindex="2" value="<?= $PASSWORD ?>" /></td>
+			<td><input type="password" name="password" tabindex="2" value="<?= $password ?>" size="20" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" name="login" value="Login" tabindex="3" /></td>
@@ -173,7 +130,7 @@ function doFocus() {
 
 <script type="text/javascript">
 <!--
-	//document.adminform.username.focus();
+	document.adminform.username.focus();
 // -->
 </script>
 

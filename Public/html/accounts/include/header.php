@@ -21,13 +21,13 @@
 	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/forgot_password.php">Forgot Password</a>
   	<?= $EXTRA_LINKS ?>
 	</td>
-	<td width="10%" align="right" valign="top">
-<?php if ($USER_PK > 0) { ?>
+	<td width="10%" align="right" valign="top" nowrap="y">
+<?php if ($User->pk > 0) { ?>
 	<span style="font-size:.9em;">
-  	Welcome,&nbsp;<?= $USER["firstname"] ?>&nbsp;<?= $USER["lastname"] ?>
+  	Welcome, <?= $User->firstname." ".$User->lastname ?>
   	</span><br/>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
- <?php if ($USER["admin_accounts"] || $USER["admin_insts"]) { ?>
+ <?php if ($User->checkPerm("admin_accounts") || $User->checkPerm("admin_insts")) { ?>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/admin/index.php">Tool Admin</a> - 
 <?php } ?>
   	<a style="font-size:.8em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>

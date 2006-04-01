@@ -18,7 +18,7 @@ require 'sql/mysqlconnect.php';
 require 'include/check_authentic.php';
 
 // if logged in, kick over to my account instead
-if ($USER_PK) {
+if ($User->pk) {
 	header('location:'.$ACCOUNTS_URL.'/myaccount.php');
 	exit;
 }

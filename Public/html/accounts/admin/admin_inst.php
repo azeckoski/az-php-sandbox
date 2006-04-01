@@ -32,7 +32,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
 $Message = "";
-if (!$USER["admin_insts"]) {
+if (!$User->checkPerm("admin_insts")) {
 	$allowed = 0;
 	$Message = "Only admins with <b>admin_insts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";

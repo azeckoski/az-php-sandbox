@@ -16,7 +16,7 @@
  * fetch the data from the ldap which is slower than the database) so there is
  * a caching mechanism built in. The cache timer can be controlled below.
  */
-$CACHE_EXPIRE_USERS = 0; // minutes before cache will force a refresh
+$CACHE_EXPIRE_USERS = 30; // minutes before cache will force a refresh
 $CACHE_EXPIRE_INSTS = 120; // minutes before cache will force a refresh
 $TOOL_SHORT = "provider";
 
@@ -43,21 +43,21 @@ $LDAP_READ_PW = "ironchef";
  */
 class User {
 
-   // member declaration
-   public $pk = 0;
-   public $username;
-   public $firstname;
-   public $lastname;
-   public $email;
-   public $institution;
-   public $institution_pk;
-   public $address;
-   public $city;
-   public $state;
-   public $zipcode;
-   public $country;
-   public $phone;
-   public $fax;
+	// member declaration
+	public $pk = 0;
+	public $username;
+	public $firstname;
+	public $lastname;
+	public $email;
+	public $institution;
+	public $institution_pk;
+	public $address;
+	public $city;
+	public $state;
+	public $zipcode;
+	public $country;
+	public $phone;
+	public $fax;
 
 	public $primaryRole;
 	public $secondaryRole;
@@ -72,6 +72,12 @@ class User {
 	private $password;
 	private $authentic = false;
 	private $searchResults = array();
+
+	// LDAP variables:
+	// uid, cn, givenname, sn, sakaiUser, mail, userPassword, o, iid, 
+	// primaryRole, secondaryRole, sakaiPerm[], postalAddress, l, st, 
+	// postalCode, c, telephoneNumber, facsimileTelephoneNumber
+
 
 	// constructor
 	function __construct($userid=-1) {
@@ -124,6 +130,7 @@ class User {
 		$output .= ", authentic:";
 		$output .= ($this->authentic)?"Y":"N";
 		$output .= ", sakaiPerm{".implode(":",$this->sakaiPerm)."}";
+		$output .= ", data_source: $this->data_source";
 		return $output;
 	}
 
@@ -197,7 +204,7 @@ class User {
 		}
 
 		$this->sakaiPerm[$permString] = $permString;
-		ksort($this->sakaiPerm[$permString]); // keep perms in alpha order
+		ksort($this->sakaiPerm); // keep perms in alpha order
 		return true;
 	}
 
@@ -274,9 +281,10 @@ class User {
  */
 	public function create() {
 		global $USE_LDAP;
+		$this->username = strtolower($this->username);
 		
 		// create the user in the appropriate location
-		if ($this->data_source == "ldap" && $USE_LDAP) {
+		if (($this->data_source == "ldap" || $this->data_source == "cache") && $USE_LDAP) {
 			return $this->createLDAP();
 		} else if ($this->data_source == "db") {
 			return $this->createDB();
@@ -333,6 +341,7 @@ class User {
 				if($exists['count'] > 0) {
 					// entry already exists
 					$this->pk = $exists[0]['uid'][0];
+					ldap_close($ds); // close connection
 					return $this->updateLDAP();
 				}
 				ldap_free_result($sr);
@@ -403,7 +412,8 @@ class User {
 					$this->pk = $uid;
 					writeLog($TOOL_SHORT,$this->username,"user added (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
-					ldap_close($ds);
+					ldap_close($ds); // close connection
+					$this->createCache(); // create the cache entry
 					return true;
 				} else {
 					$this->Message = "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
@@ -471,7 +481,10 @@ class User {
 				return true;
 			}
 		}
-		return $this->getUserFromDB("pk",$pk);
+		if($this->getUserFromDB("pk",$pk)) {
+			return true;
+		}
+		return false;
 	}
 
 
@@ -490,7 +503,10 @@ class User {
 				return true;
 			}
 		}
-		return $this->getUserFromDB("username",$username);
+		if($this->getUserFromDB("username",$username)) {
+			return true;
+		}
+		return false;
 	}
 
 	
@@ -509,7 +525,10 @@ class User {
 				return true;
 			}
 		}
-		return $this->getUserFromDB("email",$useremail);
+		if($this->getUserFromDB("email",$useremail)) {
+			return true;
+		}
+		return false;
 	}
 
 	
@@ -540,6 +559,7 @@ class User {
 		if (!$USER) { return false; }
 		$this->updateFromDBArray($USER);
 		mysql_free_result($result);
+		$this->data_source = "cache";
 		return true;
 	}
 
@@ -567,11 +587,13 @@ class User {
 				$info = ldap_get_entries($ds, $sr);
 				if($info['count'] == 0) {
 					$this->Message = "No matching ldap item for $search";
+					ldap_close($ds); // close connection
 					return false;
 				}
 				$this->updateFromLDAPArray($info);
 				$this->data_source = "ldap";
 				$this->createCache();
+				ldap_close($ds); // close connection
 				return true;
 			} else {
 				$this->Message ="ERROR: Read bind to ldap failed";
@@ -587,7 +609,7 @@ class User {
 	private function getUserFromDB($id, $value) {
 		$search = "";
 		switch ($id) {
-			case "pk": $search = "users_pk = '$value'"; break;
+			case "pk": $search = "pk = '$value'"; break;
 			case "email": $search = "email = '$value'"; break;
 			case "username": $search = "username = '$value'"; break;
 			default: $this->Message="Invalid getUserFromDB id: $id, $value"; return false;
@@ -602,8 +624,8 @@ class User {
 		$USER = mysql_fetch_assoc($result);
 		if (!$USER) { return false; }
 		$this->updateFromDBArray($USER);
-		$this->data_source = "db";
 		mysql_free_result($result);
+		$this->data_source = "db";
 		return true;
 	}
 
@@ -612,27 +634,24 @@ class User {
  * get a set of User PKs by search params
  * Can limit searching to only one data_source
  */
-	public function getUsersBySearch($search, $limit="") {
+	public function getUsersBySearch($search="*", $order="", $limit="") {
 		// this has to get the users based on a search
 		global $USE_LDAP;
 
 		$this->searchResults = array(); // reset array
-		
+
 		// have to search both the LDAP and the DB unless limited
 		if ($USE_LDAP && ($limit=="" || $limit=="ldap") ) {
-			$this->getSearchFromLDAP($search);
+			$this->getSearchFromLDAP($search,$order);
 		}
 		if ($limit=="" || $limit=="db") {
-			$this->getSearchFromDB($search);
+			$this->getSearchFromDB($search,$order);
 		}
-		
-		if (empty($this->searchResults)) {
-			return false;
-		}
-		return true;
+
+		return $this->searchResults;
 	}
 
-	private function getSearchFromLDAP($search) {
+	private function getSearchFromLDAP($search, $order) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
 
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
@@ -641,22 +660,49 @@ class User {
 			// bind with appropriate dn to give readonly access
 			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
 			if ($read_bind) {
-				//the attribs will let us limit the return if we want
-				//$attribs = array("cn","uid","sakaiuser","mail","iid","o","sakaiperm");
-				$filter = "(|(sakaiUser=$this->username)(mail=$this->email)" .
-					"(cn=$this->firstname $this->lastname)(o=$this->institution))";
-				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter, array("uid"));
+				// set up the search filter
+				$filter = "(|(sakaiUser=$search)(mail=$search)(cn=$search)(o=$search))";
+				$returnItems = array("uid","sakaiuser","cn","givenname","sn","mail","o");
+
+				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter, $returnItems);
+				// set up the ordering
+				$reverse = false;
+				if ($order) {
+					list($o1,$o2) = explode(' ', $order);
+					switch ($o1) {
+						case "username": $order="sakaiUser"; break;
+						case "lastname": $order="sn"; break;
+						case "email": $order="mail"; break;
+						case "institution": $order="o"; break;
+						default: $order="sakaiUser";
+					}
+					@ldap_sort($ds, $sr, $order);
+					if ($o2 == "desc") {
+						$reverse = true;
+					}
+				}
 				$info = ldap_get_entries($ds, $sr);
+				$info = array_reverse($info);
 				if($info['count'] == 0) {
 					$this->Message = "No matching ldap item for $search";
+					ldap_close($ds); // close connection
 					return false;
 				}
+
 				$this->data_source = "ldap";
 				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
-				// add the result PKs to the array
+				// add the results to the array with the data_source
 				for ($line=0; $line<$info["count"]; $line++) {
-					$this->searchResults[] = $info[$line]["uid"][0];
+					$newItem = array();
+					$newItem["pk"] = $info[$line]["uid"][0];
+					$newItem["username"] = $info[$line]["sakaiuser"][0];
+					$newItem["name"] = $info[$line]["cn"][0];
+					$newItem["email"] = $info[$line]["mail"][0];
+					$newItem["institution"] = $info[$line]["o"][0];
+					$newItem["data_source"] = $this->data_source;
+					$this->searchResults[] = $newItem;
 				}
+				ldap_close($ds); // close connection
 				return true;
 			} else {
 				$this->Message ="ERROR: Read bind to ldap failed";
@@ -669,11 +715,16 @@ class User {
 		}
 	}
 
-	private function getSearchFromDB($search) {
-		$search = trim($search,"*"); // cleanup the ldap search chars
-		$sql = "select pk from users U1 where (U1.username like '%$search%' or " .
-			"U1.firstname like '%$search%' or U1.lastname like '%$search%' or " .
-			"U1.email like '%$search%' or U1.otherInst like '%$search%')";
+	private function getSearchFromDB($search, $order) {
+		$search = str_replace("*", "%", $search); // cleanup the ldap search chars
+		if ($order) {
+			$order = " order by $order ";
+		}
+
+		$sql = "select pk, username, firstname, lastname, email, institution " .
+			"from users U1 where (U1.username like '$search' or " .
+			"U1.firstname like '$search' or U1.lastname like '$search' or " .
+			"U1.email like '$search' or U1.institution like '$search') $order";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "User search query failed ($sql): " . mysql_error();
@@ -683,7 +734,14 @@ class User {
 		$this->Message = "Search results found (db): " . mysql_num_rows($result);
 		// add the result PKs to the array
 		while($row=mysql_fetch_assoc($result)) {
-			$this->searchResults[] = $row["pk"];
+			$newItem = array();
+			$newItem["pk"] = $row["pk"];
+			$newItem["username"] = $row["username"];
+			$newItem["name"] = $row["firstname"]." ".$row["lastname"];
+			$newItem["email"] = $row["email"];
+			$newItem["institution"] = $row["institution"];
+			$newItem["data_source"] = $this->data_source;
+			$this->searchResults[] = $newItem;
 		}
 		mysql_free_result($result);
 		return true;
@@ -702,9 +760,10 @@ class User {
  */
 	public function update() {
 		global $USE_LDAP;
+		$this->username = strtolower($this->username);
 		
 		// save the user to the appropriate location
-		if ($this->data_source == "ldap" && $USE_LDAP) {
+		if (($this->data_source == "ldap" || $this->data_source == "cache") && $USE_LDAP) {
 			return $this->updateLDAP();
 		} else if ($this->data_source == "db") {
 			return $this->updateDB();
@@ -797,7 +856,8 @@ class User {
 					$this->Message = "Updated ldap user information";
 					writeLog($TOOL_SHORT,$this->username,"user modified (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
-					ldap_close($ds);
+					ldap_close($ds); // close connection
+					$this->createCache(); // update the cache
 					return true;
 				} else {
 					$this->Message = "Failed to modify user in LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
@@ -876,17 +936,17 @@ class User {
 				$delresult = ldap_delete($ds,$user_dn);
 				if ($delresult) {
 					$this->Message = "Removed ldap user: $user_dn";
+					ldap_close($ds); // close connection
 					$this->deleteCache(); // also clear the cache
 					return true;
 				} else {
 					$this->Message = "Failed to remove ldap user: $user_dn";
-					return false;
 				}
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
-				return false;
 			}
-			ldap_close($ds);
+			ldap_close($ds); // close connection
+			return false;
 		} else {
 			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
@@ -920,6 +980,7 @@ class User {
 			return false;
 		}
 		
+		$username = strtolower($username);
 		$this->username = $username;
 		$this->password = $password;
 		
@@ -950,7 +1011,8 @@ class User {
 			$anon_bind=ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
 			if ($anon_bind) {
 				// Searching for (sakaiUser=username)
-			   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "sakaiUser=$username"); // expect sr=array
+			   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", 
+					"(&(sakaiUser=$username)(sakaiPerm=active))"); // expect sr=array
 		
 				//echo "Number of entries = " . ldap_count_entries($ds, $sr) . "<br />";
 				$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
@@ -995,23 +1057,26 @@ class User {
 	
 	private function authenticateUserFromDB($username,$password) {
 		global $TOOL_SHORT;
-		
+
+		$username = mysql_real_escape_string($username);
+		$password = mysql_real_escape_string($password);
 		// check the username and password
-		$sql1 = "SELECT pk FROM users WHERE username = '$username' and " .
-			"password = PASSWORD('$password') and activated = '1'";
-		$result = mysql_query($sql1) or die('Query failed: ' . mysql_error());
+		$sql = "SELECT pk FROM users WHERE " .
+			"username = '$username' and password = PASSWORD('$password') " .
+			"and sakaiPerms like '%active%'";
+		$result = mysql_query($sql) or die("Auth query failed ($sql):" . mysql_error());
 		$count = mysql_num_rows($result);
 		$row = mysql_fetch_assoc($result);
 	
 		if( !empty($result) && ($count == 1)) {
 			// valid login
 			$this->Message = "Valid login: $username";
-			$USER_PK = $row["pk"];
+			$userPK = $row["pk"];
 
 			//print ("Internal Auth Suceeded");
 			writeLog($TOOL_SHORT,$username,"user logged in (internal):" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
 
-			$sqlusers = "select * from users where pk = '$USER_PK'";
+			$sqlusers = "select * from users where pk = '$userPK'";
 			$result = mysql_query($sqlusers) or die('User query failed: ' . mysql_error());
 			$USER = mysql_fetch_assoc($result);
 			$this->updateFromDBArray($USER);
@@ -1084,15 +1149,16 @@ class User {
 			return false;
 		}
 
+		// delete all sessions related to this user first
+		$this->destroySessions();
+
 		$cookie_val = md5($this->pk . time() . mt_rand() );
 		// create session cookie, this should last until the user closes their browser
 		setcookie("SAKAIWEB", $cookie_val, null, "/", false, 0);
 
-		// delete all sessions related to this user first
-		$this->destroySessions();
-
 		// add to sessions table
-		$sql3 = "insert into sessions (users_pk, passkey) values ('$this->pk', '$cookie_val')";
+		$sql3 = "insert into sessions (users_pk, passkey, date_created) " .
+			"values ('$this->pk', '$cookie_val', NOW())";
 		$result = mysql_query($sql3) or die('Query failed: ' . mysql_error());
 		return true;
 	}
@@ -1103,12 +1169,15 @@ class User {
 
 		// check the passkey
 		if (isset($PASSKEY)) {
-			$sql1 = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
-			$result = mysql_query($sql1) or die("Session query failed ($sql1): " . mysql_error());
+			$sql = "SELECT users_pk FROM sessions WHERE passkey = '$PASSKEY'";
+			$result = mysql_query($sql) or die("Session query failed ($sql): " . mysql_error());
+			if (!$result) {
+				$this->Message = "Session query failed ($sql): " . mysql_error();
+				return false;
+			}
 			$row = mysql_fetch_assoc($result);
 			mysql_free_result($result);
-
-			if( !$result ) { // TODO - not sure about this test
+			if (!$row) {
 				// no valid key exists, user not authenticated
 				$this->pk = 0;
 				return false;
@@ -1150,8 +1219,8 @@ class User {
 		setcookie("SAKAIWEB", "NULL", null, "/", false, 0);
 
 		// delete all sessions related to this user
-		$sql2 = "DELETE FROM sessions WHERE users_pk = '$user_pk'";
-		$result = mysql_query($sql2) or die('Query failed: ' . mysql_error());
+		$sql = "DELETE FROM sessions WHERE users_pk = '$this->pk'";
+		$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 		if (mysql_affected_rows()) {
 			$this->Message = "Removed all sessions for $this->username ($this->pk)";
 			return true;
@@ -1266,6 +1335,9 @@ class Institution {
 
 	private $data_source = "ldap";
 	private $searchResults = array();
+
+	// LDAP variables:
+	// iid, o, instType, repUid, voteUid, l, st, postalCode, c
 
 	// constructor
 	function __construct($id=-1) {
@@ -1386,6 +1458,7 @@ class Institution {
 				if($exists['count'] > 0) {
 					// entry already exists
 					$this->pk = $exists[0]['iid'][0];
+					ldap_close($ds); // close connection
 					$this->updateLDAP();
 				}
 				ldap_free_result($sr);
@@ -1426,7 +1499,8 @@ class Institution {
 					$this->pk = $id;
 					writeLog($TOOL_SHORT,$this->username,"inst added (ldap): " .
 							"$this->name ($this->type) [$this->pk]" );
-					ldap_close($ds);
+					ldap_close($ds); // close connection
+					$this->createCache(); // create the cache entry
 					return true;
 				} else {
 					$this->Message = "Failed to add inst to LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
@@ -1483,7 +1557,10 @@ class Institution {
 				return true;
 			}
 		}
-		return $this->getInstFromDB("pk",$pk);
+		if($this->getInstFromDB("pk",$pk)) {
+			return true;
+		}
+		return false;
 	}
 
 /*
@@ -1535,11 +1612,13 @@ class Institution {
 				$info = ldap_get_entries($ds, $sr);
 				if($info['count'] == 0) {
 					$this->Message = "No matching ldap item for $search";
+					ldap_close($ds); // close connection
 					return false;
 				}
 				$this->updateFromLDAPArray($info);
 				$this->data_source = "ldap";
 				$this->createCache();
+				ldap_close($ds); // close connection
 				return true;
 			} else {
 				$this->Message ="ERROR: Read bind to ldap failed";
@@ -1582,7 +1661,7 @@ class Institution {
 		global $USE_LDAP;
 
 		$this->searchResults = array(); // reset array
-		
+
 		// have to search both the LDAP and the DB unless limited
 		if ($USE_LDAP && ($limit=="" || $limit=="ldap") ) {
 			$this->getSearchFromLDAP($search);
@@ -1590,11 +1669,8 @@ class Institution {
 		if ($limit=="" || $limit=="db") {
 			$this->getSearchFromDB($search);
 		}
-		
-		if (empty($this->searchResults)) {
-			return false;
-		}
-		return true;
+
+		return $this->searchResults;
 	}
 
 	private function getSearchFromLDAP($search) {
@@ -1606,13 +1682,15 @@ class Institution {
 			// bind with appropriate dn to give readonly access
 			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
 			if ($read_bind) {
-				//the attribs will let us limit the return if we want
-				//$attribs = array("cn","uid","sakaiuser","mail","iid","o","sakaiperm");
-				$filter = "(|(o=$this->name)(type=$this->type))";
+				// set up the search filter
+				$filter = "(|(o=$search)(insttype=$search))";
+				$filter = "(&(iid>=1)$filter)"; // filter out the OTHER inst always
+
 				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $filter, array("iid"));
 				$info = ldap_get_entries($ds, $sr);
 				if($info['count'] == 0) {
 					$this->Message = "No matching ldap item for $search";
+					ldap_close($ds); // close connection
 					return false;
 				}
 				$this->data_source = "ldap";
@@ -1621,6 +1699,7 @@ class Institution {
 				for ($line=0; $line<$info["count"]; $line++) {
 					$this->searchResults[] = $info[$line]["iid"][0];
 				}
+				ldap_close($ds); // close connection
 				return true;
 			} else {
 				$this->Message ="ERROR: Read bind to ldap failed";
@@ -1634,9 +1713,10 @@ class Institution {
 	}
 
 	private function getSearchFromDB($search) {
-		$search = trim($search,"*"); // cleanup the ldap search chars
+		$search = str_replace("*", "%", $search); // cleanup the ldap search chars
 		$sql = "select pk from institution I1 where " .
-			"(I1.name like '%$search%' or I1.type like '%$search%')";
+			"(I1.name like '$search' or I1.type like '%$search%') and " .
+			"I1.pk > 1"; // ignore the OTHER inst
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "Inst search query failed ($sql): " . mysql_error();
@@ -1714,7 +1794,8 @@ class Institution {
 					$this->Message = "Updated ldap inst information";
 					writeLog($TOOL_SHORT,$this->username,"inst modified (ldap): " .
 							"$this->name ($this->type) [$this->pk]" );
-					ldap_close($ds);
+					ldap_close($ds); // close connection
+					$this->createCache(); // update the cache
 					return true;
 				} else {
 					$this->Message = "Failed to modify inst in LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
@@ -1788,16 +1869,16 @@ class Institution {
 				if ($delresult) {
 					$this->Message = "Removed ldap institution: $item_dn";
 					$this->deleteCache(); // also clear the cache
+					ldap_close($ds);
 					return true;
 				} else {
 					$this->Message = "Failed to remove ldap inst: $item_dn";
-					return false;
 				}
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
-				return false;
 			}
 			ldap_close($ds);
+			return false;
 		} else {
 			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;

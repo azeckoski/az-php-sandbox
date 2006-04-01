@@ -6,31 +6,32 @@
  */
 ?>
 <?php
-	require_once 'include/tool_vars.php';
+require_once 'include/tool_vars.php';
 
-	// Introduction or main page
-	$PAGE_NAME = "Main";
+// Introduction or main page
+$PAGE_NAME = "Main";
+$Message = "";
 
-	// connect to database
-	require 'sql/mysqlconnect.php';
+// connect to database
+require 'sql/mysqlconnect.php';
 
-	// check authentication
-	require 'include/check_authentic.php';
+// check authentication
+require $ACCOUNTS_PATH.'include/check_authentic.php';
 ?>
 
-<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include 'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 // -->
 </script>
-<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; ?>
 
 <table border=0 cellpadding=0 cellspacing=3 width="100%">
 <tr>
 <td valign="top" width="80%">
 
 <div class="info">
-<?php if($USER_PK) { ?>
+<?php if($User->pk) { ?>
 You may access the following tools:<br/>
 <?php } else { ?>
 This page allows you to create an account to access the following tools:<br/>
@@ -40,7 +41,7 @@ This page allows you to create an account to access the following tools:<br/>
 <a href="/requirements/">Requirements Voting</a><br/>
 <a href="/skin/">Default Skin Submission and Voting</a><br/>
 <br/>
-<?php if($USER_PK) { ?>
+<?php if($User->pk) { ?>
 You can <a href="<?= $ACCOUNTS_PAGE ?>">manage your account settings</a> and change your password if you would like.<br/>
 <br/>
 <?php } else { ?>
@@ -59,9 +60,20 @@ You can even <a href="forgot_password.php">reset your password</a> if you forgot
 	<div class="rightheader"><?= $TOOL_NAME ?> information</div>
 	<div class="padded">
 
+<?php
+$user_count = count($User->getUsersBySearch("*"));
+$ldap_count = count($User->getUsersBySearch("*","ldap"));
+$Inst = new Institution();
+$partner_count = count($Inst->getInstsBySearch("*"));
+?>
+
 	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
-	<b>Accounts:</b> <?= get_table_rows("users") ?><br/>
-	<b>Partners:</b> <?= get_table_rows("institution")-2 ?><br/>
+	<b>Accounts:</b> <?= $user_count ?><br/>
+<?php if ($USE_LDAP) { ?>
+	&nbsp;&nbsp;- LDAP: <?= $ldap_count ?><br/>
+<?php } ?>
+	&nbsp;&nbsp;- internal: <?= get_table_rows("users") ?><br/>
+	<b>Partners:</b> <?= $partner_count ?><br/>
 	<br/>
 
 	</div>

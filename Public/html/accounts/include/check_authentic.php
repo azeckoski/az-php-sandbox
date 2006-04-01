@@ -7,6 +7,12 @@
  */
 ?>
 <?php
+// NEW WAY
+// create user from session if possible
+$User = new User("session");
+
+// OLD WAY
+/***
 // get the passkey from the cookie if it exists
 $PASSKEY = $_COOKIE["SESSION_ID"];
 
@@ -35,4 +41,5 @@ if ($USER_PK) {
 	$result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
 	$USER = mysql_fetch_assoc($result);
 }
+******/
 ?>

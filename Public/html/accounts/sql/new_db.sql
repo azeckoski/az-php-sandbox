@@ -16,26 +16,24 @@ CREATE TABLE users (
     country   	 		varchar(100) NULL,
     phone    			varchar(20) NULL,
     fax		    		varchar(20) NULL,
-    otherInst			varchar(200) NULL,
+    institution			varchar(200) NULL,
     institution_pk  	int(10) NULL,
     sakaiPerms			text NULL,
     PRIMARY KEY(pk)
 );
 
-/*** EXTRA info to store in users
-alter table users add address varchar(200);
-alter table users add city varchar(100);
-alter table users add state varchar(50);
-alter table users add zipcode varchar(20);
-alter table users add country varchar(100);
-alter table users add phone varchar(20);
-alter table users add fax varchar(20);
-alter table users add otherInst varchar(200);
-update users set otherInst='unknown' where institution_pk='1';
-alter table users add primaryRole varchar(100);
-alter table users add secondaryRole varchar(100);
+/*** Changes to the user table
 alter table users add date_modified timestamp not null default CURRENT_TIMESTAMP;
 alter table users add sakaiPerms text;
+alter table users add institution varchar(200) not null;
+update users set institution = otherInst where institution_pk = 1;
+update users join institution on institution.pk = users.institution_pk set users.institution = institution.name where institution_pk > 1
+alter table users drop column otherInst;
+alter table users drop admin_accounts;
+alter table users drop admin_reqs;
+alter table users drop admin_insts;
+update users set sakaiPerms='active' where activated='1' and sakaiPerms='';
+alter table users drop activated;
 ****/
 
 /*** DO NOT ADD THIS TO YOUR USERS TABLE
