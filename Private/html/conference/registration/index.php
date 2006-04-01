@@ -36,7 +36,7 @@ if($_GET['msg']) {
 $vItems = array();
 $vItems['primaryRole'] = "required:focus";
 $vItems['secondaryRole'] = "";
-$vItems['otherInst'] = "required";
+$vItems['institution'] = "required";
 $vItems['address1'] = "required";
 $vItems['city'] = "required";
 $vItems['state'] = "required:namespaces";
@@ -72,7 +72,7 @@ if ($_POST['save']) { // saving the form
 	$country = mysql_real_escape_string($_POST["country"]);
 	$phone = mysql_real_escape_string($_POST["phone"]);
 	$fax = mysql_real_escape_string($_POST["fax"]);
-	$otherInst = mysql_real_escape_string($_POST["otherInst"]);
+	$institution = mysql_real_escape_string($_POST["institution"]);
 	$primaryRole = mysql_real_escape_string($_POST["primaryRole"]);
 	$secondaryRole = mysql_real_escape_string($_POST["secondaryRole"]);
 
@@ -94,7 +94,7 @@ if ($_POST['save']) { // saving the form
 		// update the user information first
 		$usersql = "UPDATE users SET address='$address1', city='$city', state='$state', " .
 			"zipcode='$zip', country='$country', phone='$phone', fax='$fax', " .
-			"otherInst='$otherInst', primaryRole='$primaryRole', secondaryRole='$secondaryRole' " .
+			"institution='$institution', primaryRole='$primaryRole', secondaryRole='$secondaryRole' " .
 			"where pk='$USER_PK'";
 		$result = mysql_query($usersql) or die('User update query failed: ('.$usersql.')' . mysql_error());
 
@@ -225,7 +225,7 @@ if ($_POST['save']) { // saving the form
 	<input type="hidden" name="memberType" value="1" />
 	<input type="hidden" name="institution" value="<?= $INST['name'] ?>" />
 <?php } else { // this is a member institution ?>
-	<strong><?= $USER['otherInst'] ?> is not a Sakai Partner Organization</strong>&nbsp;
+	<strong><?= $USER['institution'] ?> is not a Sakai Partner Organization</strong>&nbsp;
 	<input type="hidden" name="memberType" value="2" />
 	<br/>
       <div style="margin:10px;"></div>

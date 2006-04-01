@@ -10,7 +10,7 @@ if ($_POST['title']){
 	
 	
 		 		 
-  if ((isset($_POST['institution'])) || (isset($_POST['otherInst'])) ) {
+  if ((isset($_POST['institution'])) || (isset($_POST['institution'])) ) {
     
 	$inst = TRUE;
 	} else {

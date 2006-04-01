@@ -68,7 +68,7 @@ if (isset($_POST['submit_attendee'])) {
 	}
 	
 	// Check to make sure they entered an institution
-	if (isset($_POST['otherInst'])){
+	if (isset($_POST['institution'])){
 			 	$inst = TRUE;
 
 	}  else {

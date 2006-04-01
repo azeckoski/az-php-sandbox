@@ -31,7 +31,7 @@ $lastname=addslashes($_SESSION['lastname']);
 $badge=addslashes($_SESSION['badge']);
 $email=addslashes($_SESSION['email1']);
 $title=addslashes($_SESSION['title']);
-$institution=addslashes($_SESSION['otherInst']);
+$institution=addslashes($_SESSION['institution']);
 $address1=addslashes($_SESSION['address1']);
 $city=addslashes($_SESSION['city']);
 

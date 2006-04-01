@@ -94,8 +94,8 @@ if (!$isPartner){
 			<strong>email: </strong><?php echo $USER['email']; ?><br/>
 			<br />
 			<strong>institution: </strong>
-			<?php if ($USER['otherInst']) {
-				echo $USER['otherInst'];
+			<?php if ($USER['institution']) {
+				echo $USER['institution'];
 			} else {
 				echo $USER['institution']; 
 			} ?><br/>

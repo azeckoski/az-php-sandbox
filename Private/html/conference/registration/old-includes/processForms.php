@@ -89,7 +89,7 @@ if (isset($_POST['submit_start'])) {
 			$_SESSION['badge']=$_POST['badge'];
 			$_SESSION['email1']=$_POST['email1'];
 			$_SESSION['address1']=$_POST['address1'];
-			$_SESSION['otherInst']=$_POST['otherInst'];
+			$_SESSION['institution']=$_POST['institution'];
 			$_SESSION['city']=$_POST['city'];
 			$_SESSION['state']=$_POST['state'];
 			$_SESSION['otherState']=$_POST['otherState'];

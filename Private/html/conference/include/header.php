@@ -15,12 +15,12 @@
         <tr>
           <td> 
               <div align="right" style="width:18em;padding:10px;background:#eee;font-size:12pt;color:#000;">
-<?php if ($USER_PK > 0) { ?>
+<?php if ($User->pk > 0) { ?>
 	<span style="font-size:.8em;">
-  	Welcome,&nbsp;<?= $USER["firstname"] ?>&nbsp;<?= $USER["lastname"] ?>
+  	Welcome,&nbsp;<?= $User->firstname."&nbsp".$User->lastname ?>
   	</span><br/>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
-<?php if ($USER["admin_accounts"]) { ?>
+<?php if ($User->checkPerm("admin_conference")) { ?>
   	<a style="font-size:.7em;" href="<?= $TOOL_URL ?>/admin/index.php">Tool Admin</a> - 
 <?php } ?>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>

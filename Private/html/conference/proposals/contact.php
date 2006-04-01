@@ -38,7 +38,7 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 $vItems = array();
 $vItems['title'] = "required:focus";
 if (!$isPartner) {
-	$vItems['otherInst'] = "required";
+	$vItems['institution'] = "required";
 }
 $vItems['address1'] = "required";
 $vItems['city'] = "required";
@@ -186,14 +186,14 @@ header("Location: confirmpage.php");
   <tr>
   <td>
       <div align="right">
-      	<img id="otherInstImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+      	<img id="institutionImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       	<strong><span class="formLable">Organization:</span></strong>
       </div>
   </td>
   <td>
-  	<input type="text" name="otherInst" size="30" maxlength="30" value="<?php echo $USER['otherInst'];?>" />
-  	<input type="hidden" id="otherInstValidate" value="<?= $vItems['otherInst'] ?>"/>
-    <span id="otherInstMsg"></span>
+  	<input type="text" name="institution" size="30" maxlength="30" value="<?php echo $USER['institution'];?>" />
+  	<input type="hidden" id="institutionValidate" value="<?= $vItems['institution'] ?>"/>
+    <span id="institutionMsg"></span>
   </td>
 </tr>
 <?php } ?>

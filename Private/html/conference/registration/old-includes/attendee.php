@@ -41,7 +41,7 @@
       	</div>
       </td>
       <td>
-      	<input type="text" name="otherInst" size="30" maxlength="40" value="<?php echo $CONF['otherInst']; ?>" />
+      	<input type="text" name="institution" size="30" maxlength="40" value="<?php echo $CONF['institution']; ?>" />
       </td>
     </tr>
 <?php } ?>

@@ -22,9 +22,9 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
-if (!$USER["admin_accounts"]) {
+if (!$User->checkPerm("admin_conference")) {
 	$allowed = 0;
-	$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
+	$Message = "Only admins with <b>admin_conference</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
 	$allowed = 1;
@@ -35,7 +35,7 @@ $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 
 // set header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-		"<a href='index.php'><strong>Admin</strong></a> - " .
+		"<a href='index.php'><strong>Admin:</strong></a> " .
 		"<a href='attendees.php'>Attendees</a>" .
 		"</span>";
 

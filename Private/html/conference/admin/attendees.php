@@ -22,9 +22,9 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
-if (!$USER["admin_accounts"]) {
+if (!$User->checkPerm("admin_conference")) {
 	$allowed = 0;
-	$Message = "Only admins with <b>admin_reg</b> may view this page.<br/>" .
+	$Message = "Only admins with <b>admin_conference</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_URL/'>$TOOL_NAME</a>";
 } else {
 	$allowed = 1;
@@ -45,7 +45,7 @@ $sortorder = "date_created desc";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
-// main SQL to fetch all users
+// main SQL to fetch all items
 $from_sql = " from users U1 join conferences C1 on U1.pk=C1.users_pk " .
 		"left join institution I1 on U1.institution_pk=I1.pk " ;
 
@@ -59,7 +59,9 @@ $total_items = $row[0];
 // pagination control
 $num_limit = 25;
 if ($_REQUEST["num_limit"]) { $num_limit = $_REQUEST["num_limit"]; }
+if ($_REQUEST["show_all"]) { $num_limit = $total_items; }
 
+if ($num_limit <= 0) { $num_limit = 1; } // for division by zero
 $total_pages = ceil($total_items / $num_limit);
 
 $page = 1;
@@ -85,7 +87,7 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main user fetching query
-$users_sql = "select U1.firstname, U1.lastname, U1.email, U1.otherInst, C1.*, I1.name as institution" .
+$users_sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, C1.*, I1.name as institution" .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
 $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
@@ -97,7 +99,7 @@ $DATE_FORMAT = "M d, Y h:i A";
 
 // set header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-		"<a href='index.php'>Admin</a> - " .
+		"<a href='index.php'>Admin:</a> " .
 		"<a href='attendees.php'><strong>Attendees</strong></a>" .
 		"</span>";
 
@@ -147,19 +149,8 @@ function orderBy(newOrder) {
 		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
 		<span class="keytext">&nbsp;-&nbsp;
 		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
-		&nbsp;-&nbsp;
-		Max of</span>
-		<select name="num_limit" title="Choose the max items to view per page">
-			<option value="<?= $num_limit ?>"><?= $num_limit ?></option>
-			<option value="10">10</option>
-			<option value="25">25</option>
-			<option value="50">50</option>
-			<option value="100">100</option>
-			<option value="150">150</option>
-			<option value="200">200</option>
-			<option value="300">300</option>
-		</select>
-		<span class="keytext">items per page</span>
+		</span>&nbsp;&nbsp;
+		<input class="filter" type="submit" name="show_all" value="Show All" />
 	</td>
 
 	<td nowrap="y" align="right">
@@ -197,7 +188,7 @@ while($row=mysql_fetch_assoc($result)) {
 	$rowstyle = "";
 	if ($row["activated"] == 'N') {
 		$rowstyle = " style = 'color:red;' ";
-	} else if ($row["otherInst"]) {
+	} else if ($row["institution"]) {
 		$rowstyle = " style = 'color:#336699;' ";
 	}
 	
@@ -212,8 +203,8 @@ while($row=mysql_fetch_assoc($result)) {
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
 	<td class="line"><?= $row["firstname"] ?> <?= $row["lastname"] ?></td>
 	<td class="line"><?= $row["email"] ?></td>
-	<?php if ($row["otherInst"]){ ?>
-		<td class="line"><?= $row["otherInst"] ?></td>
+	<?php if ($row["institution"]){ ?>
+		<td class="line"><?= $row["institution"] ?></td>
 	<?php }else {  ?>
 	<td class="line"><?= $row["institution"] ?></td>
 <?php 	} ?>

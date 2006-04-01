@@ -21,7 +21,7 @@ $title=$CONF["title"];
 $co_registrant=$CONF["delegate"];
 
 $institution = $INST["name"];
-if ($USER["otherInst"]) { $institution = $USER["otherInst"]; }
+if ($USER["institution"]) { $institution = $USER["institution"]; }
 
 
 $today = date("F j, Y"); 

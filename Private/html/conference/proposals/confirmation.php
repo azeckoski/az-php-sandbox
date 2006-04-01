@@ -23,7 +23,7 @@ Vancouver!  <br />Thanks for being a part of Sakai!<br /><br /></td><tr>";
 			
 			if ($_SESSION['institution']=="")
 			echo"<tr><td><div align=\"right\"><strong><span>Organization</span>: &nbsp;&nbsp;&nbsp;</strong> </div></td>
-			<td>$_SESSION[otherInst]<br></td></tr>";
+			<td>$_SESSION[institution]<br></td></tr>";
 
 			else
 			echo"<tr><td><div align=\"right\"><strong><span>Organization</span>: &nbsp;&nbsp;&nbsp;</strong> </div></td><td>$_SESSION[institution]<br></td></tr>";

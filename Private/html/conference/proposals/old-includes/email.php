@@ -4,7 +4,7 @@ $firstname = $_SESSION['firstname'];
 	 	 $badge = $_SESSION['badge'];
 	 	 $email = $_SESSION['email1'];
 	 	 $institution = $_SESSION['institution'];
-	 	 $otherInst = $_SESSION['otherInst'];
+	 	 $institution = $_SESSION['institution'];
 	 	 $dept = $_SESSION['dept'];
 	 	 $address1 = $_SESSION['address1'];
 	 	 $address2 = $_SESSION['address2'];
@@ -38,7 +38,7 @@ $firstname = $_SESSION['firstname'];
 	 	 $msg.="Email:$email\r\n\r\n";
 	 	 
 	 	 if ($_POST['institution']=="Other")
-	 	 $msg.="Institution:  $otherInst \r\n\r\n";
+	 	 $msg.="Institution:  $institution \r\n\r\n";
 
 	 	 else
 	 	 $msg.="Organization:  $institution \r\n\r\n";

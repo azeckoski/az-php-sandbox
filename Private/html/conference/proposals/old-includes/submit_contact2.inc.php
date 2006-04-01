@@ -7,7 +7,7 @@ require_once('../sql/mysqlconnect.php');
 
 $u_title=addslashes($_SESSION['title']);
 $u_inst=addslashes($_SESSION['institution']);
-$u_otherIns=addslashes($_SESSION['otherInst']);
+$u_otherIns=addslashes($_SESSION['institution']);
 $u_dept=addslashes($_SESSION['dept']);
 $u_address1=addslashes($_SESSION['address1']);
 $u_address2=addslashes($_SESSION['address2']);
@@ -24,7 +24,7 @@ $u_fax=addslashes($_SESSION['fax']);
  $sql = "UPDATE `cfp_vancouver_contact` SET 
  `title`='$u_title',
  `institution`='$u_inst',
- `otherInst`='$u_otherInst',
+ `institution`='$u_institution',
  `dept`='$u_dept',
  `address1`='$u_address1',
  `address2`='$u_address2',
