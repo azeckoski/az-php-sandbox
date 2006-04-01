@@ -91,20 +91,20 @@ if ($_POST["save"]) {
 	if ($errors == 0) {
 		
 		// handle the other institution stuff in a special way
-		$otherInstSql = "NULL";
+		$institutionSql = "NULL";
 		if (!is_numeric($institution_pk)) {
 			// assume someone is using the other institution, Other MUST be pk=1
-			$otherInstSql = "'$institution_pk'";
+			$institutionSql = "'$institution_pk'";
 			$institution_pk = 1;
 		}
 		
 		// write the new values to the DB
 		$sqledit = "INSERT INTO users (username,password,firstname,lastname,email," .
 				"primaryRole,secondaryRole,institution_pk,date_created," .
-				"address,city,state,zipcode,country,phone,fax,otherInst) values " .
+				"address,city,state,zipcode,country,phone,fax,institution) values " .
 				"('$username',PASSWORD('$PASS1'),'$firstname','$lastname','$email'," .
 				"'$primaryRole','$secondaryRole','$institution_pk',NOW()," .
-				"'$address','$city','$state','$zipcode','$country','$phone','$fax',$otherInstSql)";
+				"'$address','$city','$state','$zipcode','$country','$phone','$fax',$institutionSql)";
 
 		$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());
 		$userPk = mysql_insert_id();

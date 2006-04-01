@@ -8,6 +8,9 @@
 ?>
 <?php
 // NEW WAY
+// Load User and Inst PROVIDERS
+require $ACCOUNTS_PATH.'include/providers.php';
+
 // create user from session if possible
 $User = new User("session");
 

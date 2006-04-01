@@ -13,11 +13,11 @@
  * and will only attempt to write data locally if the LDAP is inaccessible. The
  * advantage of this is that local development can be done easily by simply
  * changing USE_LDAP to false. There are some disadvantages though (like having to
- * fetch the data from the ldap which is slower than the database) so there is
- * a caching mechanism built in. The cache timer can be controlled below.
+ * fetch the data from the ldap which is slower than the database). General system
+ * functions use the user database entries only. The provider tries to keep those
+ * entries as up to date as possible. 100% database accuracy is guaranteed if the 
+ * all updates come from this system.
  */
-$CACHE_EXPIRE_USERS = 30; // minutes before cache will force a refresh
-$CACHE_EXPIRE_INSTS = 120; // minutes before cache will force a refresh
 $TOOL_SHORT = "provider";
 
 /*
@@ -283,44 +283,13 @@ class User {
 		global $USE_LDAP;
 		$this->username = strtolower($this->username);
 		
-		// create the user in the appropriate location
-		if (($this->data_source == "ldap" || $this->data_source == "cache") && $USE_LDAP) {
-			return $this->createLDAP();
-		} else if ($this->data_source == "db") {
-			return $this->createDB();
-		} else {
-			$this->Message = "Invalid data_source: $this->data_source, could not create";
-			return false;
-		}
-	}
-
-	private function createDB() {
-		// check to see if the user already exists
-		$checksql = "SELECT pk from users where pk='$this->pk' or " .
-			"username='$this->username' or email='$this->email'";
-		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
-		if (mysql_num_rows($checkresult) == 0) {
-			// write the new values to the DB
-			$sql = "INSERT INTO users (username,password,firstname,lastname,email," .
-					"primaryRole,secondaryRole,institution_pk,date_created," .
-					"address,city,state,zipcode,country,phone,fax,otherInst) values " .
-					"('$this->username',PASSWORD('$this->password'),'$this->firstname'," .
-					"'$this->lastname','$this->email','$this->primaryRole','$this->secondaryRole'," .
-					"'$this->institution_pk',NOW(),'$this->address','$this->city'," .
-					"'$this->state','$this->zipcode','$this->country','$this->phone'," .
-					"'$this->fax','$this->institution')";
-
-			$result = mysql_query($sql);
-			if (!$result) {
-				$this->Message = "Insert query failed ($sql): " . mysql_error();
+		// create the user in the ldap first and then in the DB also
+		if ($USE_LDAP) {
+			if (!$this->createLDAP()) {
 				return false;
 			}
-			$this->pk = mysql_insert_id();
-			return true;
-		} else {
-			$this->pk = $checkresult['pk'];
-			return $this->updateDB();
 		}
+		return $this->createDB();
 	}
 
 	private function createLDAP() {
@@ -413,7 +382,6 @@ class User {
 					writeLog($TOOL_SHORT,$this->username,"user added (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
 					ldap_close($ds); // close connection
-					$this->createCache(); // create the cache entry
 					return true;
 				} else {
 					$this->Message = "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
@@ -429,43 +397,40 @@ class User {
 		}
 	}
 
-	private function createCache() {
-		// check to see if the cache already exists for this user
-		if(!$this->pk || $this->pk < 1) {
-			$this->Message = "Cannot cache user object, pk not set or invalid ($this->pk)";
-			return false;
-		}
-		$checksql = "SELECT pk from users_cache where users_pk='$this->pk'";
+	private function createDB() {
+		// check to see if the user already exists
+		$checksql = "SELECT pk from users where pk='$this->pk' or " .
+			"username='$this->username' or email='$this->email'";
 		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
 		if (mysql_num_rows($checkresult) == 0) {
-			// write the new values to the Cache
-			$sql = "INSERT INTO users_cache (users_pk,username,firstname," .
-					"lastname,email,primaryRole,secondaryRole," .
-					"institution_pk,date_created,address,city," .
-					"state,zipcode,country,phone," .
-					"fax,institution) values " .
-					"('$this->pk','$this->username','$this->firstname'," .
+			// write the new values to the DB
+			$sql = "INSERT INTO users (username,password,firstname,lastname,email," .
+					"primaryRole,secondaryRole,institution_pk,date_created," .
+					"address,city,state,zipcode,country,phone,fax,institution) values " .
+					"('$this->username',PASSWORD('$this->password'),'$this->firstname'," .
 					"'$this->lastname','$this->email','$this->primaryRole','$this->secondaryRole'," .
 					"'$this->institution_pk',NOW(),'$this->address','$this->city'," .
 					"'$this->state','$this->zipcode','$this->country','$this->phone'," .
 					"'$this->fax','$this->institution')";
-	
+
 			$result = mysql_query($sql);
 			if (!$result) {
 				$this->Message = "Insert query failed ($sql): " . mysql_error();
 				return false;
 			}
+			$this->pk = mysql_insert_id();
 			return true;
 		} else {
-			return $this->updateCache();
+			$this->pk = $checkresult['pk'];
+			return $this->updateDB();
 		}
 	}
 
 
 
-	// READ functions
-	// User fetchers will try to get the user data in the fastest
-	// and most reliable way possible
+// READ functions
+// User fetchers will try to get the user data in the fastest
+// and most reliable way possible
 
 /*
  * get the User data by PK
@@ -473,9 +438,6 @@ class User {
 	public function getUserByPk($pk) {
 		global $USE_LDAP;
 
-		if($this->getUserFromCache("pk",$pk)) {
-			return true;
-		}
 		if ($USE_LDAP) {
 			if($this->getUserFromLDAP("pk",$pk)) {
 				return true;
@@ -495,9 +457,6 @@ class User {
 		// this has to get the user pk from the username
 		global $USE_LDAP;
 
-		if($this->getUserFromCache("username",$username)) {
-			return true;
-		}
 		if ($USE_LDAP) {
 			if($this->getUserFromLDAP("username",$username)) {
 				return true;
@@ -517,9 +476,6 @@ class User {
 		// this has to get the user pk from the email
 		global $USE_LDAP;
 
-		if($this->getUserFromCache("email",$useremail)) {
-			return true;
-		}
 		if ($USE_LDAP) {
 			if($this->getUserFromLDAP("email",$useremail)) {
 				return true;
@@ -536,32 +492,6 @@ class User {
  * Fetch the user data from varying sources based on params
  * id is the type (e.g. pk), value is the value (e.g. 1)
  */
-	private function getUserFromCache($id, $value) {
-		global $CACHE_EXPIRE_USERS;
-		
-		$search = "";
-		switch ($id) {
-			case "pk": $search = "users_pk = '$value'"; break;
-			case "email": $search = "email = '$value'"; break;
-			case "username": $search = "username = '$value'"; break;
-			default: $this->Message="Invalid getUserFromCache id: $id, $value"; return false;
-		}
-
-		// grab the data from cache if it is fresh enough
-		$sql = "select * from users_cache where $search and " .
-			"now() < date_modified+INTERVAL $CACHE_EXPIRE_USERS MINUTE";
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "User fetch query failed ($sql): " . mysql_error();
-			return false;
-		}
-		$USER = mysql_fetch_assoc($result);
-		if (!$USER) { return false; }
-		$this->updateFromDBArray($USER);
-		mysql_free_result($result);
-		$this->data_source = "cache";
-		return true;
-	}
 
 	private function getUserFromLDAP($id, $value) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
@@ -592,7 +522,6 @@ class User {
 				}
 				$this->updateFromLDAPArray($info);
 				$this->data_source = "ldap";
-				$this->createCache();
 				ldap_close($ds); // close connection
 				return true;
 			} else {
@@ -780,15 +709,15 @@ class User {
 		}
 
 		// handle the other institution stuff in a special way
-		$otherInstSql = " otherInst=NULL, ";
+		$institutionSql = " institution=NULL, ";
 		if ($this->institution_pk == 1) {
 			// assume someone is using the other institution, Other MUST be pk=1
-			$otherInstSql = " otherInst='$institution', ";
+			$institutionSql = " institution='$institution', ";
 		}
 
 		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
 		$sql = "UPDATE users set username='$this->username', email='$this->email', " . $passChange .
-			"firstname='$this->firstname', lastname='$this->lastname', " . $otherInstSql .
+			"firstname='$this->firstname', lastname='$this->lastname', " . $institutionSql .
 			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
 			"institution_pk='$this->institution_pk', address='$this->address', " .
 			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
@@ -857,7 +786,6 @@ class User {
 					writeLog($TOOL_SHORT,$this->username,"user modified (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
 					ldap_close($ds); // close connection
-					$this->createCache(); // update the cache
 					return true;
 				} else {
 					$this->Message = "Failed to modify user in LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
@@ -873,26 +801,6 @@ class User {
 			return false;
 		}
 	}
-
-	private function updateCache() {
-		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
-		$sql = "UPDATE users_cache set username='$this->username', email='$this->email', " .
-			"firstname='$this->firstname', lastname='$this->lastname', " .
-			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
-			"institution='$this->institution', institution_pk='$this->institution_pk', " .
-			"address='$this->address', city='$this->city', state='$this->state', " .
-			"zipcode='$this->zipcode', country='$this->country', phone='$this->phone', " .
-			"fax='$this->fax', sakaiPerms='$permString', date_modified=NOW() " .
-			"where users_pk='$this->pk'";
-
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Update cache query failed ($sql): " . mysql_error();
-			return false;
-		}
-		return true;
-	}
-
 
 
 /*
@@ -937,7 +845,6 @@ class User {
 				if ($delresult) {
 					$this->Message = "Removed ldap user: $user_dn";
 					ldap_close($ds); // close connection
-					$this->deleteCache(); // also clear the cache
 					return true;
 				} else {
 					$this->Message = "Failed to remove ldap user: $user_dn";
@@ -952,18 +859,6 @@ class User {
 			return false;
 		}
 	}
-
-	private function deleteCache() {
-
-		$sql = "DELETE from users_cache where users_pk='$this->pk'";
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Remove cache query failed ($sql): " . mysql_error();
-			return false;
-		}
-		return true;
-	}
-
 
 /*
  * Will attempt to authenticate a user based on
@@ -1253,8 +1148,8 @@ class User {
 		$this->lastname = $USER['lastname'];
 		$this->email = $USER['email'];
 		$this->institution_pk = $USER['institution_pk'];
-		if ($USER['otherInst']) {
-			$this->institution = $USER['otherInst'];
+		if ($USER['institution']) {
+			$this->institution = $USER['institution'];
 		} else {
 			$inst = new Institution($this->institution_pk);
 			$this->institution = $inst->name;
@@ -1500,7 +1395,6 @@ class Institution {
 					writeLog($TOOL_SHORT,$this->username,"inst added (ldap): " .
 							"$this->name ($this->type) [$this->pk]" );
 					ldap_close($ds); // close connection
-					$this->createCache(); // create the cache entry
 					return true;
 				} else {
 					$this->Message = "Failed to add inst to LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
@@ -1513,32 +1407,6 @@ class Institution {
 		} else {
 			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
-		}
-	}
-
-	private function createCache() {
-		// check to see if the cache already exists for this user
-		if(!$this->pk || $this->pk < 1) {
-			$this->Message = "Cannot cache object, pk not set or invalid ($this->pk)";
-			return false;
-		}
-		$checksql = "SELECT pk from insts_cache where insts_pk='$this->pk'";
-		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
-		if (mysql_num_rows($checkresult) == 0) {
-			// write the new values to the Cache
-			$sql = "INSERT INTO insts_cache " .
-				"(date_created,insts_pk,name,type,city,state,zipcode,country,rep_pk,repvote_pk) values " .
-				"(NOW(),'$this->pk','$this->name','$this->type','$this->city','$this->state'," .
-				"'$this->zipcode','$this->country','$this->rep_pk','$this->repvote_pk')";
-	
-			$result = mysql_query($sql);
-			if (!$result) {
-				$this->Message = "Insert query failed ($sql): " . mysql_error();
-				return false;
-			}
-			return true;
-		} else {
-			return $this->updateCache();
 		}
 	}
 
@@ -1567,29 +1435,6 @@ class Institution {
  * Fetch the user data from varying sources based on params
  * id is the type (e.g. pk), value is the value (e.g. 1)
  */
-	private function getInstFromCache($id, $value) {
-		global $CACHE_EXPIRE_INSTS;
-		
-		$search = "";
-		switch ($id) {
-			case "pk": $search = "insts_pk = '$value'"; break;
-			default: $this->Message="Invalid getInstFromCache id: $id, $value"; return false;
-		}
-
-		// grab the data from cache if it is fresh enough
-		$sql = "select * from insts_cache where $search and " .
-			"now() < date_modified+INTERVAL $CACHE_EXPIRE_INSTS MINUTE";
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Inst fetch query failed ($sql): " . mysql_error();
-			return false;
-		}
-		$ITEM = mysql_fetch_assoc($result);
-		if (!$ITEM) { return false; }
-		$this->updateFromDBArray($ITEM);
-		return true;
-	}
-
 	private function getInstFromLDAP($id, $value) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
 
@@ -1617,7 +1462,6 @@ class Institution {
 				}
 				$this->updateFromLDAPArray($info);
 				$this->data_source = "ldap";
-				$this->createCache();
 				ldap_close($ds); // close connection
 				return true;
 			} else {
@@ -1795,7 +1639,6 @@ class Institution {
 					writeLog($TOOL_SHORT,$this->username,"inst modified (ldap): " .
 							"$this->name ($this->type) [$this->pk]" );
 					ldap_close($ds); // close connection
-					$this->createCache(); // update the cache
 					return true;
 				} else {
 					$this->Message = "Failed to modify inst in LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
@@ -1811,21 +1654,6 @@ class Institution {
 			return false;
 		}
 	}
-
-	private function updateCache() {
-		$sql = "UPDATE insts_cache set insts_pk='$this->pk', name='$this->name', type='$this->type', " .
-			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
-			"country='$this->country', rep_pk='$this->rep_pk', repvote_pk='$this->repvote_pk' " .
-			"where pk='$this->pk'";
-
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Update cache query failed ($sql): " . mysql_error();
-			return false;
-		}
-		return true;
-	}
-
 
 /*
  * DELETE functions
@@ -1868,7 +1696,6 @@ class Institution {
 				$delresult = ldap_delete($ds,$item_dn);
 				if ($delresult) {
 					$this->Message = "Removed ldap institution: $item_dn";
-					$this->deleteCache(); // also clear the cache
 					ldap_close($ds);
 					return true;
 				} else {
@@ -1883,17 +1710,6 @@ class Institution {
 			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
 		}
-	}
-
-	private function deleteCache() {
-
-		$sql = "DELETE from insts_cache where insts_pk='$this->pk'";
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Remove cache query failed ($sql): " . mysql_error();
-			return false;
-		}
-		return true;
 	}
 
 

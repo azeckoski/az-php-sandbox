@@ -98,7 +98,7 @@ if ($_POST["save"] && $allowed) {
 	$ldapUser->email = $_POST["email"];
 	$ldapUser->firstname = $_POST["firstname"];
 	$ldapUser->lastname = $_POST["lastname"];
-	$ldapUser->institution = $_POST["otherInst"];
+	$ldapUser->institution = $_POST["institution"];
 	$ldapUser->institution_pk = $_POST["institution_pk"];
 	$ldapUser->primaryRole = $_POST["primaryRole"];
 	$ldapUser->secondaryRole = $_POST["secondaryRole"];

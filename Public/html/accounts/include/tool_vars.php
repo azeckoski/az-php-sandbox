@@ -6,9 +6,6 @@
 $ACCOUNTS_PATH = $_SERVER["DOCUMENT_ROOT"].'/accounts/';
 require ($ACCOUNTS_PATH.'include/system_vars.php');
 
-// Load User and Inst PROVIDERS
-require $ACCOUNTS_PATH.'include/providers.php';
-
 // Tool variables
 $TOOL_PATH = $ACCOUNTS_URL;
 $TOOL_NAME = "Account Management";
