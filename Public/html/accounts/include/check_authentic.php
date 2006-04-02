@@ -28,19 +28,19 @@ if (isset($PASSKEY)) {
 
 	if( !$result ) {
 		// no valid key exists, user not authenticated
-		$USER_PK = -1;
+		$User->pk = -1;
 	} else {
 		// authenticated user
-		$USER_PK = $row["users_pk"];
+		$User->pk = $row["users_pk"];
 	}
 	mysql_free_result($result);
 }
 
 // get the authenticated user information
 $USER = array();
-if ($USER_PK) {
+if ($User->pk) {
 	// get the authenticated user information
-	$authsql = "SELECT * FROM users WHERE pk = '$USER_PK'";
+	$authsql = "SELECT * FROM users WHERE pk = '$User->pk'";
 	$result = mysql_query($authsql) or die('Query failed: ' . mysql_error());
 	$USER = mysql_fetch_assoc($result);
 }

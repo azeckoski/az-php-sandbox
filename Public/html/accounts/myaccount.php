@@ -38,22 +38,23 @@ $vItems['fax'] = "phone";
 // this matters when the form is submitted
 if ($_POST["save"]) {
 
-	//$username = mysql_real_escape_string($_POST["username"]);
-	$email = mysql_real_escape_string($_POST["email"]);
+	//$user->username = $_POST["username"];
+	$User->email = $_POST["email"];
+	$User->firstname = $_POST["firstname"];
+	$User->lastname = $_POST["lastname"];
+	$User->primaryRole = $_POST["primaryRole"];
+	$User->secondaryRole = $_POST["secondaryRole"];
+	$User->institution_pk = $_POST["institution_pk"];
+	$User->address = $_POST["address"];
+	$User->city = $_POST["city"];
+	$User->state = $_POST["state"];
+	$User->zipcode = $_POST["zipcode"];
+	$User->country = $_POST["country"];
+	$User->phone = $_POST["phone"];
+	$User->fax = $_POST["fax"];
+
 	$PASS1 = mysql_real_escape_string($_POST["password1"]);
 	$PASS2 = mysql_real_escape_string($_POST["password2"]);
-	$firstname = mysql_real_escape_string($_POST["firstname"]);
-	$lastname = mysql_real_escape_string($_POST["lastname"]);
-	$primaryRole = mysql_real_escape_string($_POST["primaryRole"]);
-	$secondaryRole = mysql_real_escape_string($_POST["secondaryRole"]);
-	$institution_pk = mysql_real_escape_string($_POST["institution_pk"]);
-	$address = mysql_real_escape_string($_POST["address"]);
-	$city = mysql_real_escape_string($_POST["city"]);
-	$state = mysql_real_escape_string($_POST["state"]);
-	$zipcode = mysql_real_escape_string($_POST["zipcode"]);
-	$country = mysql_real_escape_string($_POST["country"]);
-	$phone = mysql_real_escape_string($_POST["phone"]);
-	$fax = mysql_real_escape_string($_POST["fax"]);
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -72,35 +73,19 @@ if ($_POST["save"]) {
 	}
 
 	if ($errors == 0) {
-		// write the new values to the DB
-		$Message = "Edit the information below to adjust your account.<br/>";
-		$passChange = "";
 		if (strlen($PASS1) > 0) {
-			$passChange = " password=PASSWORD('$PASS1'), ";
+			$User->password = $PASS1;
 		}
 
 		// handle the other institution stuff in a special way
-		$institutionSql = " institution=NULL, ";
-		if (!is_numeric($institution_pk)) {
+		if (!is_numeric($User->institution_pk)) {
 			// assume someone is using the other institution, Other MUST be pk=1
-			$institutionSql = " institution='$institution_pk', ";
-			$institution_pk = 1;
+			$User->institution = $User->institution_pk;
+			$User->institution_pk = 1;
 		}
 
-		$sqledit = "UPDATE users set email='$email', " . $passChange .
-			"firstname='$firstname', lastname='$lastname', " . $institutionSql .
-			"primaryRole='$primaryRole', secondaryRole='$secondaryRole'," .
-			"institution_pk='$institution_pk', address='$address', city='$city', " .
-			"state='$state', zipcode='$zipcode', country='$country', phone='$phone', " .
-			"fax='$fax' where pk='$User->pk'";
-
-		$result = mysql_query($sqledit) or die('Update query failed: ' . mysql_error());
+		$User->save(); // save the new values
 		$Message = "<b>Updated user information</b><br/>";
-
-		// get new values from the USERS table
-		$sqlusers = "select * from users where pk = '$User->pk'";
-		$result = mysql_query($sqlusers) or die('User query failed: ' . mysql_error());
-		$USER = mysql_fetch_assoc($result);
 	}
 }
 ?>
@@ -115,7 +100,7 @@ if ($_POST["save"]) {
 <input type="hidden" name="save" value="1" />
 
 <?php
-	$thisUser = $USER;
+	$thisUser = $User->toArray();
 	$disableUsername = true;
 	$submitButtonName = "Save Information";
 	require $ACCOUNTS_PATH.'include/user_form.php';

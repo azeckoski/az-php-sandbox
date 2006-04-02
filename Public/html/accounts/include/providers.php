@@ -96,6 +96,9 @@ class User {
 		if (is_numeric($userid)) {
 			// numeric so this is a userpk (at least I hope it is)
 			return $this->getUserByPk($userid);
+		} else if (eregi('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$', $userid)) {
+			// this must be an email
+			return $this->getUserByEmail($userid);
 		} else {
 			// this must be a username
 			return $this->getUserByUsername($userid);
@@ -282,7 +285,14 @@ class User {
 	public function create() {
 		global $USE_LDAP;
 		$this->username = strtolower($this->username);
-		
+
+		// make sure the institution is always set correctly
+		if ($this->institution_pk && !$this->institution) {
+			$Inst = new Institution($this->institution_pk);
+			$this->institution = $Inst->name;
+			unset($Inst);
+		}
+
 		// create the user in the ldap first and then in the DB also
 		if ($USE_LDAP) {
 			if (!$this->createLDAP()) {
@@ -404,14 +414,30 @@ class User {
 		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
 		if (mysql_num_rows($checkresult) == 0) {
 			// write the new values to the DB
-			$sql = "INSERT INTO users (username,password,firstname,lastname,email," .
+			$sql = sprintf("INSERT INTO users (username,password,firstname,lastname,email," .
 					"primaryRole,secondaryRole,institution_pk,date_created," .
-					"address,city,state,zipcode,country,phone,fax,institution) values " .
-					"('$this->username',PASSWORD('$this->password'),'$this->firstname'," .
-					"'$this->lastname','$this->email','$this->primaryRole','$this->secondaryRole'," .
-					"'$this->institution_pk',NOW(),'$this->address','$this->city'," .
-					"'$this->state','$this->zipcode','$this->country','$this->phone'," .
-					"'$this->fax','$this->institution')";
+					"address,city,state,zipcode,country," .
+					"phone,fax,institution) values " .
+					"('%s',PASSWORD('%s'),'%s','%s','%s'," .
+					"'%s','%s','%s', NOW()," .
+					"'%s','%s','%s','%s','%s'," .
+					"'%s','%s','%s')",
+					mysql_real_escape_string($this->username),
+					mysql_real_escape_string($this->password),
+					mysql_real_escape_string($this->firstname),
+					mysql_real_escape_string($this->lastname),
+					mysql_real_escape_string($this->email),
+					mysql_real_escape_string($this->primaryRole),
+					mysql_real_escape_string($this->secondaryRole),
+					mysql_real_escape_string($this->institution_pk),
+					mysql_real_escape_string($this->address),
+					mysql_real_escape_string($this->city),
+					mysql_real_escape_string($this->state),
+					mysql_real_escape_string($this->zipcode),
+					mysql_real_escape_string($this->country),
+					mysql_real_escape_string($this->phone),
+					mysql_real_escape_string($this->fax),
+					mysql_real_escape_string($this->institution) );
 
 			$result = mysql_query($sql);
 			if (!$result) {
@@ -421,7 +447,6 @@ class User {
 			$this->pk = mysql_insert_id();
 			return true;
 		} else {
-			$this->pk = $checkresult['pk'];
 			return $this->updateDB();
 		}
 	}
@@ -443,7 +468,7 @@ class User {
 				return true;
 			}
 		}
-		if($this->getUserFromDB("pk",$pk)) {
+		if($this->getUserFromDB("pk",mysql_real_escape_string($pk))) {
 			return true;
 		}
 		return false;
@@ -462,7 +487,7 @@ class User {
 				return true;
 			}
 		}
-		if($this->getUserFromDB("username",$username)) {
+		if($this->getUserFromDB("username",mysql_real_escape_string($username))) {
 			return true;
 		}
 		return false;
@@ -481,7 +506,7 @@ class User {
 				return true;
 			}
 		}
-		if($this->getUserFromDB("email",$useremail)) {
+		if($this->getUserFromDB("email",mysql_real_escape_string($useremail))) {
 			return true;
 		}
 		return false;
@@ -537,6 +562,7 @@ class User {
 
 	private function getUserFromDB($id, $value) {
 		$search = "";
+		$value = mysql_real_escape_string($value);
 		switch ($id) {
 			case "pk": $search = "pk = '$value'"; break;
 			case "email": $search = "email = '$value'"; break;
@@ -645,6 +671,9 @@ class User {
 	}
 
 	private function getSearchFromDB($search, $order) {
+		$search = mysql_real_escape_string($search);
+		$order = mysql_real_escape_string($order);
+		
 		$search = str_replace("*", "%", $search); // cleanup the ldap search chars
 		if ($order) {
 			$order = " order by $order ";
@@ -690,7 +719,14 @@ class User {
 	public function update() {
 		global $USE_LDAP;
 		$this->username = strtolower($this->username);
-		
+
+		// make sure the institution is always set correctly
+		if ($this->institution_pk && !$this->institution) {
+			$Inst = new Institution($this->institution_pk);
+			$this->institution = $Inst->name;
+			unset($Inst);
+		}
+
 		// save the user to the appropriate location
 		if (($this->data_source == "ldap" || $this->data_source == "cache") && $USE_LDAP) {
 			return $this->updateLDAP();
@@ -705,25 +741,37 @@ class User {
 	private function updateDB() {
 		$passChange = "";
 		if ($this->password) {
-			$passChange = " password=PASSWORD('$this->password'), ";
+			$passChange = " password=PASSWORD('".mysql_real_escape_string($this->password)."'), ";
 		}
 
 		// handle the other institution stuff in a special way
 		$institutionSql = " institution=NULL, ";
 		if ($this->institution_pk == 1) {
 			// assume someone is using the other institution, Other MUST be pk=1
-			$institutionSql = " institution='$institution', ";
+			$institutionSql = " institution='".mysql_real_escape_string($this->institution)."', ";
 		}
 
 		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
-		$sql = "UPDATE users set username='$this->username', email='$this->email', " . $passChange .
-			"firstname='$this->firstname', lastname='$this->lastname', " . $institutionSql .
-			"primaryRole='$this->primaryRole', secondaryRole='$this->secondaryRole'," .
-			"institution_pk='$this->institution_pk', address='$this->address', " .
-			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
-			"country='$this->country', phone='$this->phone', " .
-			"fax='$this->fax', sakaiPerms='$permString' where pk='$this->pk'";
-
+		$sql = sprintf("UPDATE users set username='%s', email='%s', " . $passChange .
+			"firstname='%s', lastname='%s', " . $institutionSql .
+			"primaryRole='%s', secondaryRole='%s', institution_pk='%s', address='%s', " .
+			"city='%s', state='%s', zipcode='%s', country='%s', phone='%s', " .
+			"fax='%s', sakaiPerms='$permString' where pk='$this->pk'",
+				mysql_real_escape_string($this->username),
+				mysql_real_escape_string($this->email),
+				mysql_real_escape_string($this->firstname),
+				mysql_real_escape_string($this->lastname),
+				mysql_real_escape_string($this->primaryRole),
+				mysql_real_escape_string($this->secondaryRole),
+				mysql_real_escape_string($this->institution_pk),
+				mysql_real_escape_string($this->address),
+				mysql_real_escape_string($this->city),
+				mysql_real_escape_string($this->state),
+				mysql_real_escape_string($this->zipcode),
+				mysql_real_escape_string($this->country),
+				mysql_real_escape_string($this->phone),
+				mysql_real_escape_string($this->fax),
+				mysql_real_escape_string($this->pk) );
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "Update query failed ($sql): " . mysql_error();
@@ -1289,6 +1337,19 @@ class Institution {
 
 
 /*
+ * Function to return whether this institution is a partner or not
+ */
+ 	public function isPartner() {
+ 		if ($this->pk <= 1) { return false; } // Other is never a partner
+
+ 		if ($this->type == "educational" || $this->type == "commercial") {
+ 			return true;
+ 		}
+ 		return false;
+	}
+
+
+/*
  * Convenience save function (will insert or update as needed)
  */
  	public function save() {
@@ -1319,10 +1380,19 @@ class Institution {
 		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
 		if (mysql_num_rows($checkresult) == 0) {
 			// write the new values to the DB
-			$sql = "INSERT INTO institution " .
-				"(date_created,name,type,city,state,zipcode,country,rep_pk,repvote_pk) values " .
-				"(NOW(),'$this->name','$this->type','$this->city','$this->state'," .
-				"'$this->zipcode','$this->country','$this->rep_pk','$this->repvote_pk')";
+			$sql = sprintf("INSERT INTO institution " .
+				"(date_created, name, type, city, state, zipcode, " .
+				"country, rep_pk, repvote_pk) values " .
+				"(NOW(),'%s','%s','%s','%s','%s'," .
+				"'%s','%s','%s')",
+					mysql_real_escape_string($this->name),
+					mysql_real_escape_string($this->type),
+					mysql_real_escape_string($this->city),
+					mysql_real_escape_string($this->state),
+					mysql_real_escape_string($this->zipcode),
+					mysql_real_escape_string($this->country),
+					mysql_real_escape_string($this->rep_pk),
+					mysql_real_escape_string($this->repvote_pk) );
 			
 			$result = mysql_query($sql);
 			if (!$result) {
@@ -1417,9 +1487,6 @@ class Institution {
 	public function getInstByPk($pk) {
 		global $USE_LDAP;
 
-		if($this->getInstFromCache("pk",$pk)) {
-			return true;
-		}
 		if ($USE_LDAP) {
 			if($this->getInstFromLDAP("pk",$pk)) {
 				return true;
@@ -1477,6 +1544,7 @@ class Institution {
 
 	private function getInstFromDB($id, $value) {
 		$search = "";
+		$value = mysql_real_escape_string($value);
 		switch ($id) {
 			case "pk": $search = "pk = '$value'"; break;
 			default: $this->Message="Invalid getInstFromDB id: $id, $value"; return false;
@@ -1557,9 +1625,11 @@ class Institution {
 	}
 
 	private function getSearchFromDB($search) {
+		$search = mysql_real_escape_string($search);
+		
 		$search = str_replace("*", "%", $search); // cleanup the ldap search chars
 		$sql = "select pk from institution I1 where " .
-			"(I1.name like '$search' or I1.type like '%$search%') and " .
+			"(I1.name like '$search' or I1.type like '$search') and " .
 			"I1.pk > 1"; // ignore the OTHER inst
 		$result = mysql_query($sql);
 		if (!$result) {
@@ -1594,10 +1664,18 @@ class Institution {
 	}
 
 	private function updateDB() {
-		$sql = "UPDATE institution set name='$this->name', type='$this->type', " .
-			"city='$this->city', state='$this->state', zipcode='$this->zipcode', " .
-			"country='$this->country', rep_pk='$this->rep_pk', repvote_pk='$this->repvote_pk' " .
-			"where pk='$this->pk'";
+		$sql = sprintf("UPDATE institution set name='%s', type='%s', city='%s', " .
+			"state='%s', zipcode='%s', country='%s', rep_pk='%s', repvote_pk='%s' " .
+			"where pk='%s'",
+				mysql_real_escape_string($this->name),
+				mysql_real_escape_string($this->type),
+				mysql_real_escape_string($this->city),
+				mysql_real_escape_string($this->state),
+				mysql_real_escape_string($this->zipcode),
+				mysql_real_escape_string($this->country),
+				mysql_real_escape_string($this->rep_pk),
+				mysql_real_escape_string($this->repvote_pk),
+				mysql_real_escape_string($this->pk) );
 
 		$result = mysql_query($sql);
 		if (!$result) {
