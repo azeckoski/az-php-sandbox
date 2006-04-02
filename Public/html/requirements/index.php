@@ -132,7 +132,7 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 </tr>
 </table>
 
-<?php if (!$USER_PK) { ?>
+<?php if (!$User->pk) { ?>
 <div class="help">
 	<b>Help:</b>
 	<a class="pwhelp" href="<?= $ACCOUNTS_URL ?>/createaccount.php">I need to create an account</a> -
