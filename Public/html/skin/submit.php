@@ -43,7 +43,7 @@ $allowed = false; // assume user is NOT allowed unless otherwise shown
 // this allows us to use this page as an edit for admins or
 // to add/edit/delete for normal users
 if (!$PK) {
-	$entry_sql = "select pk from skin_entries where users_pk='$USER_PK'";
+	$entry_sql = "select pk from skin_entries where users_pk='$User->pk'";
 	$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
 	if (mysql_num_rows($result) > 0) {
 		$row = mysql_fetch_assoc($result);
@@ -57,7 +57,7 @@ if (!$PK) {
 	if (mysql_num_rows($result) > 0) {
 		$row = mysql_fetch_assoc($result);
 		$PK = $row['pk'];
-		if ( ($row['users_pk'] != $USER_PK) && !$USER["admin_skin"]) {
+		if ( ($row['users_pk'] != $User->pk) && !$User->checkPerm("admin_skin")) {
 			$errors++;
 			$Message = "You may not access someone else's skin entry " .
 				"unless you have the (admin_skin) permission.";
@@ -226,7 +226,7 @@ if ($_REQUEST["save"] && $errors == 0) {
 				"(users_pk, title, description, skin_zip, " .
 				"image1, image2, image3, image4," .
 				"round, allow_download, date_created) values " .
-				"('$USER_PK','$title','$description','$file_keys[skin_zip]'," .
+				"('$User->pk','$title','$description','$file_keys[skin_zip]'," .
 				"'$file_keys[image1]','$file_keys[image2]','$file_keys[image3]','$file_keys[image4]'," .
 				"'$ROUND','$allow_download', NOW())";
 			//print "$entry_sql<br>";
@@ -267,13 +267,12 @@ if (strtotime($ROUND_START_DATE) > time()) {
 	$allowed = true;
 	$EXTRA_LINKS .= "Submit from " . date($DATE_FORMAT,strtotime($ROUND_START_DATE)) .
 		" to " . date($DATE_FORMAT,strtotime($ROUND_CLOSE_DATE));
-	writeLog($TOOL_SHORT,$USER["username"],"access to submit");
 }
 
 $EXTRA_LINKS .= "</div>";
 
 // admin access check
-if ($USER["admin_skin"]) { $allowed = true; }
+if ($User->checkPerm("admin_skin")) { $allowed = true; }
 
 ?>
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>

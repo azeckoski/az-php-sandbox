@@ -95,7 +95,7 @@ Announce the winning skins at the <a href="http://www.sakaiproject.org/index.php
 </tr>
 </table>
 
-<?php if (!$USER_PK) { ?>
+<?php if (!$User->pk) { ?>
 <div class="help">
 	<b>Help:</b>
 	<a class="pwhelp" href="<?= $ACCOUNTS_URL ?>/createaccount.php">I need to create an account</a> -
