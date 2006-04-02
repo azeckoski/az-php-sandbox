@@ -90,22 +90,25 @@ if (!$isPartner){
 			</div>
 		</td>
 		<td>
-			<strong>name:</strong><?php echo $USER['firstname'] . " " . $USER['firstname']; ?><br /> 
-			<strong>email: </strong><?php echo $USER['email']; ?><br/>
-			<br />
-			<strong>institution: </strong>
-			<?php if ($USER['institution']) {
-				echo $USER['institution'];
-			} else {
-				echo $USER['institution']; 
-			} ?><br/>
+			<strong>name:</strong> <?= $User->firstname."&nbsp;".$User->lastname ?><br/> 
+			<strong>email: </strong> <?= $User->email ?><br/>
+			<strong>institution: </strong> <?= $User->institution ?><br/>
 			<strong>address:</strong><br/>
-			<?php echo $USER['address']; ?><br />
-			<?php echo $USER['city'] ." ". $USER['state'] .", ". $USER['zipcode']; ?><br/>
-			<?php echo $USER['country']; ?><br />
+			<?= nl2br($User->address) ?><br/>
+			<?= $User->city ." ". $User->state .", ". $User->zipcode ?><br/>
+			<?= $User->country ?><br/>
 			<br />
-			<strong>phone:</strong> <?php echo $USER['phone']; ?><br />
-			<strong>fax:</strong <?php echo $USER['fax']; ?><br/>
+			<strong>phone:</strong> <?= $User->phone ?><br/>
+			<?php if ($User->fax) { ?>
+			<strong>fax:</strong> <?= $User->fax ?><br/>
+			<?php } ?>
+			<br/>
+			<strong>shirt size:</strong> <?= $CONF['shirt'] ?><br/>
+			<strong>attending jasig:</strong> <?= $CONF['jasig'] ?><br/>
+			<strong>staying at conference hotel:</strong> <?= $CONF['confHotel'] ?><br/>
+			<strong>publish name on attendee list:</strong> <?= $CONF['publishInfo'] ?><br/>
+			<?php if ($CONF['special']) { echo "Special needs: $CONF[special]<br/>"; } ?>
+			<?php if ($CONF['expectations']) { echo "Expectations: $CONF[expectations]<br/>"; } ?>
 		</td>
 	</tr>
 
@@ -137,7 +140,7 @@ if (!$isPartner){
 	<tr>
 	    <td>&nbsp;</td>
 	    <td><br />
-			<input type="hidden" name="USER1" value="<?php echo $USER_PK ?>"/>
+			<input type="hidden" name="USER1" value="<?php echo $User->pk ?>"/>
 			<input type="hidden" name="USER2" value="<?php echo $registrant ?>"/>
 			<input type="hidden" name="USER3" value="<?php echo $CONF['delegate'] ?>"/>
 			<!--  

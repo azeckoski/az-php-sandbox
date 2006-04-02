@@ -27,15 +27,10 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 // bring in inst and conf data
 require '../registration/include/getInstConf.php';
 
-		// get updated user information
-		$user_sql = "select * from users where pk='$USER_PK'";
-		$result = mysql_query($user_sql) or die('User fetch query failed: ' . mysql_error());
-		$USER = mysql_fetch_assoc($result); // first result is all we care about
-		
-
-$firstname=$USER["firstname"];
-$lastname=$USER["lastname"];
-$email=$USER["email"];
+// TODO - why are these variables set? -AZ
+$firstname=$User->firstname;
+$lastname=$User->lastname;
+$email=$User->email;
 
 // get the passed message if there is one
 if($_GET['msg']) {

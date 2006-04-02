@@ -17,8 +17,6 @@ require '../sql/mysqlconnect.php';
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
-
-
 // login if not autheticated
 $AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
@@ -26,15 +24,10 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 // bring in inst and conf data
 require '../registration/include/getInstConf.php';
 
-		// get updated user information
-		$user_sql = "select * from users where pk='$USER_PK'";
-		$result = mysql_query($user_sql) or die('User fetch query failed: ' . mysql_error());
-		$USER = mysql_fetch_assoc($result); // first result is all we care about
-		
-
-$firstname=$USER["firstname"];
-$lastname=$USER["lastname"];
-$email=$USER["email"];
+// TODO - why are these variables set? -AZ
+$firstname=$User->firstname;
+$lastname=$User->lastname;
+$email=$User->email;
 
 
 // get the passed message if there is one

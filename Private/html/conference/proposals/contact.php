@@ -82,7 +82,7 @@ if ($_POST['save']) { // saving the form
 		
 		// update the user information first
 		$usersql = "UPDATE users SET address='$address1', city='$city', state='$state', " .
-			"zipcode='$zip', country='$country', phone='$phone', fax='$fax' where pk='$USER_PK'";
+			"zipcode='$zip', country='$country', phone='$phone', fax='$fax' where pk='$User->pk'";
 		$result = mysql_query($usersql) or die('User update query failed: ('.$usersql.')' . mysql_error());
 header("Location: confirmpage.php");
 }
@@ -138,9 +138,9 @@ header("Location: confirmpage.php");
 		<div style="padding-left: 40px;">
 <?php
 	// get info for verification
-	echo "<strong>Name:</strong> " . $USER['firstname'] . " " . $USER['lastname'] . "<br />";
-	echo "<strong>Email:</strong> " . $USER['email'] . "<br />";
-	echo "<strong>Institution:</strong> " . $INST['name'] . "<br />";
+	echo "<strong>Name:</strong> $User->firstname $User->lastname <br />";
+	echo "<strong>Email:</strong> $User->email <br />";
+	echo "<strong>Institution:</strong> $User->institution <br />";
 ?>
 	<div style="margin:10px;"></div>
 	If the above information is wrong, use 
@@ -191,7 +191,7 @@ header("Location: confirmpage.php");
       </div>
   </td>
   <td>
-  	<input type="text" name="institution" size="30" maxlength="30" value="<?php echo $USER['institution'];?>" />
+  	<input type="text" name="institution" size="30" maxlength="30" value="<?= $User->institution ?>" />
   	<input type="hidden" id="institutionValidate" value="<?= $vItems['institution'] ?>"/>
     <span id="institutionMsg"></span>
   </td>
@@ -206,7 +206,7 @@ header("Location: confirmpage.php");
   	</div>
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">(Department, Street address, PO Box, etc.) <br />
-    <textarea name="address1" cols='40' rows='3'><?php echo $USER['address'];?></textarea>
+    <textarea name="address1" cols='40' rows='3'><?= $User->address ?></textarea>
   	<input type="hidden" id="address1Validate" value="<?= $vItems['address1'] ?>"/>
     <span id="address1Msg"></span>
   </td>
@@ -221,7 +221,7 @@ header("Location: confirmpage.php");
       </div>
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-  	<input type="text" name="city" size="30" maxlength="30" value="<?php echo $USER['city'];?>" />
+  	<input type="text" name="city" size="30" maxlength="30" value="<?= $User->city ?>" />
   	<input type="hidden" id="cityValidate" value="<?= $vItems['city'] ?>"/>
     <span id="cityMsg"></span>
   </td>
@@ -237,8 +237,8 @@ header("Location: confirmpage.php");
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
     <select name="state">
-<?php if ($USER['state']) {
-	echo "<option value='".$USER['state']."'>".$USER['state']."</option>";
+<?php if ($User->state) {
+	echo "<option value='$User->state'>$User->state</option>";
 	}
 ?>
       <option value="">State/Province</option>
@@ -321,7 +321,7 @@ header("Location: confirmpage.php");
       <option value="">&nbsp;</option>
       <option value="-other-">Other (Not Listed)</option>
     </select>
-    <input style="display:none;" type="text" id="stateOther"  size="25" maxlength="50" value="<?= $USER['state'] ?>" />
+    <input style="display:none;" type="text" id="stateOther"  size="25" maxlength="50" value="<?= $User->state ?>" />
   	<input type="hidden" id="stateValidate" value="<?= $vItems['state'] ?>"/>
     <span id="stateMsg"></span>
   </td>
@@ -336,7 +336,7 @@ header("Location: confirmpage.php");
   	</div>
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-  	<input type="text" name="zip" size="10" maxlength="10"  value="<?php echo $USER['zipcode'];?>" />
+  	<input type="text" name="zip" size="10" maxlength="10"  value="<?= $User->zipcode ?>" />
   	<input type="hidden" id="zipValidate" value="<?= $vItems['zip'] ?>"/><br />
     <span id="zipMsg"></span>
   </td>
@@ -350,8 +350,8 @@ header("Location: confirmpage.php");
   </div></td>
   <td>
       <select name="country">
-<?php if ($USER['country']) {
-	echo "<option value='".$USER['country']."'>".$USER['country']."</option>";
+<?php if ($User->country) {
+	echo "<option value='$User->country'>$User->country</option>";
 	}
 ?>
         <option value="">Country</option>
@@ -459,7 +459,7 @@ header("Location: confirmpage.php");
 		<option value="">&nbsp;</option>
 		<option value="-other-">Other (Not Listed)</option>
     </select>
-    <input style="display:none;" type="text" id="countryOther"  size="25" maxlength="100" value="<?= $USER['country'] ?>" />
+    <input style="display:none;" type="text" id="countryOther"  size="25" maxlength="100" value="<?= $User->country ?>" />
   	<input type="hidden" id="countryValidate" value="<?= $vItems['country'] ?>"/>
     <span id="countryMsg"></span>
   </td>
@@ -473,7 +473,7 @@ header("Location: confirmpage.php");
   	</div>
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-  	<input type="text" name="phone" size="18" maxlength="18"  value="<?php echo $USER['phone']; ?>" />
+  	<input type="text" name="phone" size="18" maxlength="18"  value="<?= $User->phone ?>" />
   	<input type="hidden" id="phoneValidate" value="<?= $vItems['phone'] ?>"/><br />
     <span id="phoneMsg"></span>
   </td>

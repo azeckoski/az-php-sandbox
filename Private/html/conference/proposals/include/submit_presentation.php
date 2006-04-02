@@ -33,7 +33,7 @@ if ($_POST['conflict_fri']=='1'){
   //add presentation information into conf_proposals --all data except role and topic data
 $presentation_sql="INSERT INTO `conf_proposals` ( `id` , `date_created` , `date_modified` , `confID` , `users_pk` , `type` , `new_type` , `title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` , `conflict` , `co_speaker` , `co_bio` , `approved` )
 VALUES (
-'' , NOW(), '', '$CONF_ID', '$USER_PK', '$type', '' , '$title', '$abstract', '$desc' , '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' , '$co_speaker' , '$co_bio' , 'N'
+'' , NOW(), '', '$CONF_ID', '$User->pk', '$type', '' , '$title', '$abstract', '$desc' , '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' , '$co_speaker' , '$co_bio' , 'N'
 )";
 
 

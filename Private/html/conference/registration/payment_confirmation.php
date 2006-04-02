@@ -36,7 +36,7 @@ $Message = $_GET['msg'];
 
 // Gather Silent Post data from Verisign for payment for non-member.
 
-$USER_PK=$_POST['USER1'];
+$userPK = $_POST['USER1'];
 $transID=$_POST['PNREF'];
 $transAmount=$_POST['AMOUNT'];
 $payee=$_POST['NAME'];
@@ -52,7 +52,7 @@ if ($ResultCode== '0') {
 	require_once('../sql/mysqlconnect.php');
 	$sql = "UPDATE conferences SET date_modified = NOW(), fee='$transAmount', " .
 	 	"transID = '$transID', payeeInfo='$payeeInfo', activated='1' " .
-	 	"WHERE users_pk='$USER_PK' and confID='$CONF_ID'";
+	 	"WHERE users_pk='$userPK' and confID='$CONF_ID'";
 	$result = mysql_query($sql);
 } else {
 	$Message = "Failure: An error occurred with the credit card processing";

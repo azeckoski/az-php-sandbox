@@ -59,7 +59,7 @@ $demo="INSERT INTO proposal_presentation VALUES (
 '', 
 NOW( ) ,
 '$CONF_ID', 
-'$USER_PK', 
+'$User->pk', 
 '$topics',
 '$p_format',
 '$p_title',

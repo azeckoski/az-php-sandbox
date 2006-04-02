@@ -1,16 +1,12 @@
 <?php
+/*
+ * Modified on April 01, 2006 by @author aaronz
+ * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
+ * Created by Susan Hardin (shardin@umich.edu)
+ */
+?>
+<?php
 // get all the information that is needed into the correct variables for the email confirmation
-$firstname=$USER["firstname"];
-$lastname=$USER["lastname"];
-$email=$USER["email"];
-$address1=$USER["address"];
-$city=$USER["city"];
-$state=$USER["state"];
-$zip=$USER["zipcode"];
-$country=$USER["country"];
-$phone=$USER["phone"];
-$fax=$USER["fax"];
-
 $shirt=$CONF["shirt"];
 $special=$CONF["special"];
 $hotel=$CONF["confHotel"];
@@ -20,63 +16,46 @@ $fee=$CONF["fee"];
 $title=$CONF["title"];
 $co_registrant=$CONF["delegate"];
 
-$institution = $INST["name"];
-if ($USER["institution"]) { $institution = $USER["institution"]; }
-
-
 $today = date("F j, Y"); 
 
 //set up mail message
-
-	 $msg ="Thank you for your registration to the Sakai Vancouver Conference, scheduled for May 30 to June 2, 2006 in Vancouver B.C.
-	 \r\n";
-	 	 $msg.=" If you have any questions about your registration information please contact kreister@umich.edu. \r\n \r\nThank You\r\n      Sakai Staff\r";
-	 	 
-	 	 $msg.="-------------------------------------------- \r\n\r\n";
-	 	 $msg.="Date Submitted: $today \r\n\r\n";
-	 	
-	 	
-	 	 $msg.="Attendee:  $firstname $lastname, $email\r\n\r\n";
-	 	 
-	 	 
-	 	
-	 	 $msg.="Organization:\r\n$institution \r\n";
-	 	 
-
-	 	 
-	 	// $msg.="Address:\r\n";
-	 	 $msg.="$address1 \r\n";
-	 		 	 
-	 	 $msg.="$city, $state, $zip,    $country \r\n\r\n";
-	 	 
-
-	 	 $msg.="Phone:  $phone  \r\n\r\n";
-	 	 if ($fax) {
-	 	 	$msg.="Fax:   $fax \r\n\r\n";
-	 	 }
-	 	 $msg.="TShirt size: $shirt \r\n\r\n";
-	 	 
-	 	 if ($special) {
-	 	 	$msg.="Special needs:   $special \r\n\r\n";
-	 	 }
-	 	 else {
-	 	 	 	 $msg.="Special needs:  none \r\n\r\n";
-	 	 }
-	 	
-	 	 $msg.="Attending JA-SIG:   $jasig \r\n\r\n";
-	 	
-	 	 $msg.="Staying at Conf. Hotel:   $confHotel \r\n\r\n";
-	 	 
-	 	if ($publish){
-	 	 $msg.="Publish name on Attendee list:  $publish ";
-	 	 }
-	 
-	 	   if ($co_registrant){
-	 	 $msg.="\r\n----------------------------------------------------------\r\nYour Registration was submitted by: \r\n\r\n$co_registrant \r\n----------------------------------------------------------";
-	 	 }
-	 	   if ($fee > 0){
-	 	 $msg.="\r\n----------------------------------------------------------\r\nPayment Information: \r\n\r\n Paid by:\r\n$payeeInfo \r\n\r\n Transaction ID: $transID\r\n\r\n Amount Paid: $transAmount \r\n----------------------------------------------------------";
-	 	 }
+$msg ="Thank you for your registration to the Sakai Vancouver Conference, scheduled for May 30 to June 2, 2006 in Vancouver B.C.\r\n";
+$msg.=" If you have any questions about your registration information please contact kreister@umich.edu. \r\n \r\nThank You\r\n      Sakai Staff\r";
+$msg.="-------------------------------------------- \r\n\r\n";
+$msg.="Date Submitted: $today \r\n\r\n";
+$msg.="Attendee:  $User->firstname $User->lastname ($User->email)\r\n\r\n";
+$msg.="Organization:\r\n$User->institution \r\n";
+// $msg.="Address:\r\n";
+$msg.="$User->address \r\n";
+$msg.="$User->city, $User->state, $User->zip,    $User->country \r\n\r\n";
+$msg.="Phone:  $User->phone  \r\n\r\n";
+if ($User->fax) {
+	$msg.="Fax:   $User->fax \r\n\r\n";
+}
+$msg.="TShirt size: $shirt \r\n\r\n";
+if ($special) {
+	$msg.="Special needs:   $special \r\n\r\n";
+} else {
+	$msg.="Special needs:  none \r\n\r\n";
+}
+$msg.="Attending JA-SIG:   $jasig \r\n\r\n";
+$msg.="Staying at Conf. Hotel:   $confHotel \r\n\r\n";
+if ($publish){
+	$msg.="Publish name on Attendee list:  $publish ";
+}
+if ($co_registrant){
+	$msg.="\r\n----------------------------------------------------------\r\n" .
+			"Your Registration was submitted by: \r\n\r\n$co_registrant \r\n" .
+			"----------------------------------------------------------";
+}
+if ($fee > 0){
+	$msg.="\r\n----------------------------------------------------------\r\n" .
+			"Payment Information: \r\n\r\n " .
+			"Paid by:\r\n$payeeInfo \r\n\r\n " .
+			"Transaction ID: $transID\r\n\r\n " .
+			"Amount Paid: $transAmount \r\n" .
+			"----------------------------------------------------------";
+}
 
 // This is a better set of mail headers -AZ
 ini_set(SMTP, $MAIL_SERVER);
@@ -112,9 +91,8 @@ $headers .= 'MIME-Version: 1.0' ."\n";
 $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
-$recipient = "$email";
+$recipient = $User->email;
 $subject= "Sakai Conference Registration";
- //send the mail to registrant
- mail($recipient, $subject, $msg, $headers);
-
+//send the mail to registrant
+mail($recipient, $subject, $msg, $headers);
 ?>

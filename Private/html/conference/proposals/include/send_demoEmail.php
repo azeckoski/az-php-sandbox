@@ -6,9 +6,10 @@ $result= mysql_query($email_sql);
 
 	while($demo_sql=mysql_fetch_array($result))
 	{
-	$lastname=$USER["lastname"];
-	$firstname=$USER["firstname"];
-	$email=$USER["email"];
+	// TODO - why are these variables set? -AZ
+	$firstname=$User->firstname;
+	$lastname=$User->lastname;
+	$email=$User->email;
 
 	$title=$demo["title"];
 	$abstract=$demo["abstract"];

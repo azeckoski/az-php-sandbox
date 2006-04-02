@@ -14,7 +14,7 @@
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
 	<select name="primaryRole">
 		<option value="">-- select role --</option>
-		<?= generate_roles_dropdown($USER['primaryRole']) ?>
+		<?= generate_roles_dropdown($User->primaryRole) ?>
 	</select><br/>
 	<input type="hidden" id="primaryRoleValidate" value="<?= $vItems['primaryRole'] ?>" />
 	<span id="primaryRoleMsg"></span>
@@ -31,8 +31,8 @@
   <td>
 	<select name="secondaryRole">
 		<option value="">-- select role --</option>
-		<?= generate_roles_dropdown($USER['secondaryRole']) ?>
-		<option value="" <?php if(!$USER['secondaryRole']) echo " selected='y' "; ?> >None</option>
+		<?= generate_roles_dropdown($User->secondaryRole) ?>
+		<option value="" <?php if(!$User->secondaryRole) echo " selected='y' "; ?> >None</option>
 	</select><br/>
 	<input type="hidden" id="secondaryRoleValidate" value="<?= $vItems['secondaryRole'] ?>" />
 	<span id="secondaryRoleMsg"></span>
@@ -49,7 +49,7 @@
       </div>
   </td>
   <td>
-  	<input type="text" name="institution" size="30" maxlength="30" value="<?php echo $USER['institution'];?>" />
+  	<input type="text" name="institution" size="30" maxlength="30" value="<?= $User->institution ?>" />
   	<input type="hidden" id="institutionValidate" value="<?= $vItems['institution'] ?>"/>
     <span id="institutionMsg"></span>
   </td>
@@ -59,14 +59,14 @@
 <tr>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<div align="right">
-  		<img id="address1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+  		<img id="addressImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">Address</span>: </strong>
   	</div>
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">(Department, Street address, PO Box, etc.) <br />
-    <textarea name="address1" cols='40' rows='3'><?php echo $USER['address'];?></textarea>
-  	<input type="hidden" id="address1Validate" value="<?= $vItems['address1'] ?>"/>
-    <span id="address1Msg"></span>
+    <textarea name="address" cols='40' rows='3'><?= $User->address ?></textarea>
+  	<input type="hidden" id="addressValidate" value="<?= $vItems['address'] ?>"/>
+    <span id="addressMsg"></span>
   </td>
 </tr>
 
@@ -79,7 +79,7 @@
       </div>
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-  	<input type="text" name="city" size="30" maxlength="30" value="<?php echo $USER['city'];?>" />
+  	<input type="text" name="city" size="30" maxlength="30" value="<?= $User->city ?>" />
   	<input type="hidden" id="cityValidate" value="<?= $vItems['city'] ?>"/>
     <span id="cityMsg"></span>
   </td>
@@ -95,14 +95,14 @@
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
     <select name="state">
-<?php	$selectItem = $USER['state'];
+<?php	$selectItem = $User->state;
 		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
 		require $ACCOUNTS_PATH.'include/state_select.php';
 ?>
 		<option value="">&nbsp;</option>
 		<option value="-other-">Other (Not Listed)</option>
     </select>
-    <input style="display:none;" type="text" id="stateOther"  size="25" maxlength="50" value="<?= $USER['state'] ?>" />
+    <input style="display:none;" type="text" id="stateOther"  size="25" maxlength="50" value="<?= $User->state ?>" />
   	<input type="hidden" id="stateValidate" value="<?= $vItems['state'] ?>"/>
     <span id="stateMsg"></span>
   </td>
@@ -112,14 +112,14 @@
 <tr>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<div align="right">
-        <img id="zipImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+        <img id="zipcodeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">Zip/Postal Code:</span></strong>
   	</div>
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-  	<input type="text" name="zip" size="10" maxlength="10"  value="<?php echo $USER['zipcode'];?>" />
-  	<input type="hidden" id="zipValidate" value="<?= $vItems['zip'] ?>"/><br />
-    <span id="zipMsg"></span>
+  	<input type="text" name="zipcode" size="10" maxlength="10"  value="<?= $User->zipcode ?>" />
+  	<input type="hidden" id="zipcodeValidate" value="<?= $vItems['zipcode'] ?>"/><br />
+    <span id="zipcodeMsg"></span>
   </td>
 </tr>
 
@@ -131,14 +131,14 @@
   </div></td>
   <td>
       <select name="country">
-<?php	$selectItem = $USER['country'];
+<?php	$selectItem = $User->country;
 		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
 		require $ACCOUNTS_PATH.'include/country_select.php';
 ?>
 		<option value="">&nbsp;</option>
 		<option value="-other-">Other (Not Listed)</option>
     </select>
-    <input style="display:none;" type="text" id="countryOther"  size="25" maxlength="100" value="<?= $USER['country'] ?>" />
+    <input style="display:none;" type="text" id="countryOther"  size="25" maxlength="100" value="<?= $User->country ?>" />
   	<input type="hidden" id="countryValidate" value="<?= $vItems['country'] ?>"/>
     <span id="countryMsg"></span>
   </td>
@@ -152,7 +152,7 @@
   	</div>
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-  	<input type="text" name="phone" size="18" maxlength="18"  value="<?php echo $USER['phone']; ?>" />
+  	<input type="text" name="phone" size="18" maxlength="18"  value="<?= $User->phone ?>" />
   	<input type="hidden" id="phoneValidate" value="<?= $vItems['phone'] ?>"/><br />
     <span id="phoneMsg"></span>
   </td>
@@ -166,7 +166,7 @@
   	</div>
   </td>
   <td>
-  	<input type="text" name="fax" size="18" maxlength="18"  value="<?php echo $USER['fax']; ?>" />
+  	<input type="text" name="fax" size="18" maxlength="18"  value="<?= $User->fax ?>" />
   	<input type="hidden" id="faxValidate" value="<?= $vItems['fax'] ?>"/><br />
     <span id="faxMsg"></span>
   </td>

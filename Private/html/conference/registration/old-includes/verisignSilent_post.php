@@ -22,7 +22,7 @@ if ($_POST) {
 //set variables for updating the registration data
 
 	// TODO - What was this supposed to do?
-	if ($ResultCode > 0 || !$USER_PK){
+	if ($ResultCode > 0 || !$User->pk){
 		//include('index.php');  //error received so 
 		// kick them back to the payment if this fails, probably not a good way to handle it
 		$PAYMENT_MSG = "?msg=".urlencode("Failure during payment processing");
@@ -43,7 +43,7 @@ if ($_POST) {
 		//no errors so update the conf table and activate this registration
 		$sql = "UPDATE conferences SET date_modified = NOW(), " .
 			"fee='$transAmount', transID = '$transID', activated='1' " .
-			"WHERE users_pk='$USER_PK' and confID='$CONF_ID'"; 
+			"WHERE users_pk='$User->pk' and confID='$CONF_ID'"; 
 		$result = mysql_query($sql); 
 	}
 }

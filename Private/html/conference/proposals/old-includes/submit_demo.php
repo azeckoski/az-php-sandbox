@@ -13,7 +13,7 @@ $demo="INSERT INTO proposal_demo VALUES (
 '',
 NOW( ) ,
 '$CONF_ID', 
-'$USER_PK',
+'$User->pk',
 '$firstname',
 '$lastname',
 '$email',

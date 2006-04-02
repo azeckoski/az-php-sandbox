@@ -9,10 +9,8 @@ $speaker=addslashes($_POST['speaker']);
 $url=addslashes($_POST['url']);
 $co_speaker=addslashes($_POST['co_speaker']);
 
-$demo_sql="INSERT INTO `conf_proposals` ( `id` , `date_created` , `date_modified` , `confID` , `users_pk` , `type` , `new_type` , `title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` , `conflict` , `co_speaker` , `co_bio` , `approved` )
-VALUES (
-'' , NOW(), '', '$CONF_ID', '$USER_PK', 'demo', '' , '$title', '$abstract', '' , '$speaker', '$url', '' , '' , '', '' , '$co_speaker' , '' , 'N'
-)";
+$demo_sql="INSERT INTO `conf_proposals` (`date_created` , `confID` , `users_pk` , `type` , `new_type` , `title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` , `conflict` , `co_speaker` , `co_bio` , `approved` )
+VALUES (NOW(), '$CONF_ID', '$User->pk', 'demo', '' , '$title', '$abstract', '' , '$speaker', '$url', '' , '' , '', '' , '$co_speaker' , '' , 'N')";
 
 
 

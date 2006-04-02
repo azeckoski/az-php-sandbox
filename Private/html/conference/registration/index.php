@@ -40,7 +40,7 @@ $vItems['institution'] = "required";
 $vItems['address1'] = "required";
 $vItems['city'] = "required";
 $vItems['state'] = "required:namespaces";
-$vItems['zip'] = "zipcode";
+$vItems['zipcode'] = "zipcode";
 $vItems['country'] = "required:namespaces";
 $vItems['phone'] = "required:phone";
 $vItems['fax'] = "phone";
@@ -52,6 +52,7 @@ $vItems['delegate'] = "email";
 
 // writing data and other good things happen here
 $completed = false;
+$thisUser = $User;
 if ($_POST['save']) { // saving the form
 
 	// DO SERVER SIDE VALIDATION
@@ -65,16 +66,20 @@ if ($_POST['save']) { // saving the form
 	}
 
 	// get the post variables - USER
-	$address1 = mysql_real_escape_string($_POST["address1"]);
-	$city = mysql_real_escape_string($_POST["city"]);
-	$state = mysql_real_escape_string($_POST["state"]);
-	$zip = mysql_real_escape_string($_POST["zip"]);
-	$country = mysql_real_escape_string($_POST["country"]);
-	$phone = mysql_real_escape_string($_POST["phone"]);
-	$fax = mysql_real_escape_string($_POST["fax"]);
-	$institution = mysql_real_escape_string($_POST["institution"]);
-	$primaryRole = mysql_real_escape_string($_POST["primaryRole"]);
-	$secondaryRole = mysql_real_escape_string($_POST["secondaryRole"]);
+	$thisUser->primaryRole = $_POST["primaryRole"];
+	$thisUser->secondaryRole = $_POST["secondaryRole"];
+	$thisUser->address = $_POST["address"];
+	$thisUser->city = $_POST["city"];
+	$thisUser->state = $_POST["state"];
+	$thisUser->zipcode = $_POST["zipcode"];
+	$thisUser->country = $_POST["country"];
+	$thisUser->phone = $_POST["phone"];
+	$thisUser->fax = $_POST["fax"];
+
+	if (!$isPartner && $_POST["institution"]) {
+		$thisUser->institution = $_POST["institution"];
+		$thisUser->institution_pk = 1;
+	}
 
 	// get the post variables - CONF
 	$shirt = mysql_real_escape_string($_POST["shirt"]);
@@ -89,15 +94,10 @@ if ($_POST['save']) { // saving the form
 	
 	// SAVE THE CURRENT DATA IN THE DATABASE
 	if ($errors == 0) {
-		// write the data to the database
-		
 		// update the user information first
-		$usersql = "UPDATE users SET address='$address1', city='$city', state='$state', " .
-			"zipcode='$zip', country='$country', phone='$phone', fax='$fax', " .
-			"institution='$institution', primaryRole='$primaryRole', secondaryRole='$secondaryRole' " .
-			"where pk='$USER_PK'";
-		$result = mysql_query($usersql) or die('User update query failed: ('.$usersql.')' . mysql_error());
+		$thisUser->save();
 
+		// write the data to the database
 		$new_req = false;
 		if (!$isRegistered) { // no conference record for this user and this conference
 			// calculate the fee
@@ -114,9 +114,11 @@ if ($_POST['save']) { // saving the form
 
 			// insert a new entry for the conference
 			$confsql = "INSERT INTO conferences (confID, shirt, special, confHotel, jasig, " .
-				"publishInfo, date_created, fee, delegate, expectations, activated, users_pk) VALUES " .
+				"publishInfo, date_created, fee, delegate, expectations, activated, " .
+				"users_pk) VALUES " .
 				"('$CONF_ID', '$shirt', '$special', '$confHotel', '$jasig', " .
-				"'$publishInfo', NOW(), '$fee', '$delegate', '$expectations', '$activated', $USER_PK)";
+				"'$publishInfo', NOW(), '$fee', '$delegate', '$expectations', '$activated', " .
+				"'$thisUser->pk')";
 			$result = mysql_query($confsql) or die('Conf insert query failed: ('.$confsql.')' . mysql_error());
 			$new_req = true;
 		} else {
@@ -124,20 +126,15 @@ if ($_POST['save']) { // saving the form
 			$confsql = "UPDATE conferences SET shirt='$shirt', special='$special', " .
 				"confHotel='$confHotel', jasig='$jasig', expectations='$expectations', " .
 				"delegate='$delegate', publishInfo='$publishInfo' WHERE " .
-				"users_pk='$USER_PK' and confID='$CONF_ID'";
+				"users_pk='$thisUser->pk' and confID='$CONF_ID'";
 			$result = mysql_query($confsql) or die('Conf update query failed: ('.$confsql.')' . mysql_error());
 		}
 		
 		// refresh the USER and CONF arrays in case anything changed and to get the new conf data
 		// for the newly created registration
 
-		// get updated user information
-		$user_sql = "select * from users where pk='$USER_PK'";
-		$result = mysql_query($user_sql) or die('User fetch query failed: ' . mysql_error());
-		$USER = mysql_fetch_assoc($result); // first result is all we care about
-		
 		// get the new conf info for this user
-		$conf_sql = "select * from conferences where users_pk='$USER_PK' and confID='$CONF_ID'";
+		$conf_sql = "select * from conferences where users_pk='$thisUser->pk' and confID='$CONF_ID'";
 		$result = mysql_query($conf_sql) or die('Conf fetch query failed: ' . mysql_error());
 		$CONF = mysql_fetch_assoc($result); // first result is all we care about
 
@@ -146,7 +143,7 @@ if ($_POST['save']) { // saving the form
 
 		// to payment page IF they have not already paid (no transID)
 		if (!$isPartner && !$CONF['transID']) {
-			header("Location:payment.php");  //begin VerisignPayment process
+			//header("Location:payment.php");  //begin VerisignPayment process
 			exit();
 		}
 	}
@@ -172,7 +169,7 @@ if ($_POST['save']) { // saving the form
 
 <?php
 	// this should never happen but just in case
-	if (!$USER['institution_pk']) {
+	if (!$User->institution_pk) {
 		print "<b style='color:red;'>Fatal Error: You must use the My Account link to set " .
 			"your institution before you can fill out your conference registration.</strong>";
 	} else if ($completed) {
@@ -213,19 +210,18 @@ if ($_POST['save']) { // saving the form
 		<div style="padding-left: 40px;">
 <?php
 	// get info for verification
-	echo "<strong>Name:</strong> " . $USER['firstname'] . " " . $USER['lastname'] . "<br />";
-	echo "<strong>Email:</strong> " . $USER['email'] . "<br />";
-	echo "<strong>Institution:</strong> " . $INST['name'] . "<br />";
+	echo "<strong>Name:</strong> $thisUser->firstname $thisUser->lastname <br />";
+	echo "<strong>Email:</strong> $thisUser->email <br />";
+	echo "<strong>Institution:</strong> $thisUser->institution <br />";
 ?>
 		<div style="margin:10px;"></div>
 <?php
 	if ($isPartner) {  // this means the user is in a partner inst 
 ?>
-	<strong><?= $INST['name'] ?> is a Sakai Partner Organization</strong> (registration fee is waived)
+	<strong><?= $Inst->name ?> is a Sakai Partner Organization</strong> (registration fee is waived)
 	<input type="hidden" name="memberType" value="1" />
-	<input type="hidden" name="institution" value="<?= $INST['name'] ?>" />
 <?php } else { // this is a member institution ?>
-	<strong><?= $USER['institution'] ?> is not a Sakai Partner Organization</strong>&nbsp;
+	<strong><?= $User->institution ?> is not a Sakai Partner Organization</strong>&nbsp;
 	<input type="hidden" name="memberType" value="2" />
 	<br/>
       <div style="margin:10px;"></div>
