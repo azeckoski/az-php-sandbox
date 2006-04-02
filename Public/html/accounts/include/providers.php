@@ -39,7 +39,6 @@ $LDAP_READ_PW = "ironchef";
 
 /*
  * Provides the methods needed to create, read, update and delete users
- * requires a caching table called users_cache (see new_db.sql)
  */
 class User {
 
@@ -728,7 +727,7 @@ class User {
 		}
 
 		// save the user to the appropriate location
-		if (($this->data_source == "ldap" || $this->data_source == "cache") && $USE_LDAP) {
+		if (($this->data_source == "ldap") && $USE_LDAP) {
 			return $this->updateLDAP();
 		} else if ($this->data_source == "db") {
 			return $this->updateDB();
@@ -930,7 +929,6 @@ class User {
 		// attempt LDAP authenticate first
 		if ($USE_LDAP) {
 			if($this->authenticateUserFromLDAP($username,$password)) {
-				$this->createCache();
 				return true;
 			}
 		}
@@ -1259,7 +1257,6 @@ class User {
 
 /*
  * Provides the methods needed to create, read, update and delete institutions
- * requires a caching table called insts_cache (see new_db.sql)
  */
 class Institution {
 

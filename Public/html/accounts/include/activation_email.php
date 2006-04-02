@@ -28,7 +28,7 @@
 	// For testing only -AZ
 	//print ("Subject: $subject<br><pre>$message</pre><br>");
 	ini_set(SMTP, $MAIL_SERVER);
-    	$headers  = 'From: ' . $HELP_EMAIL . "\n";
+    $headers  = 'From: ' . $HELP_EMAIL . "\n";
 	$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
 	$headers .= 'MIME-Version: 1.0' ."\n";
 	$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";

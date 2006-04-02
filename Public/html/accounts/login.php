@@ -14,6 +14,9 @@ $Message = "";
 // connect to database
 require 'sql/mysqlconnect.php';
 
+// Load User and Inst PROVIDERS
+require $ACCOUNTS_PATH.'include/providers.php';
+
 // construct empty user object
 $User = new User();
 
