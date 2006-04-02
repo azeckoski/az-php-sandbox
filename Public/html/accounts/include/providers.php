@@ -13,10 +13,10 @@
  * and will only attempt to write data locally if the LDAP is inaccessible. The
  * advantage of this is that local development can be done easily by simply
  * changing USE_LDAP to false. There are some disadvantages though (like having to
- * fetch the data from the ldap which is slower than the database). General system
- * functions use the user database entries only. The provider tries to keep those
- * entries as up to date as possible. 100% database accuracy is guaranteed if the 
- * all updates come from this system.
+ * fetch the data from the ldap which is slower than the database).
+ * 
+ * Note that using the users table in queries will eventually stop working. The
+ * user provider will become the only way to get user or institution data.
  */
 $TOOL_SHORT = "provider";
 
@@ -38,6 +38,26 @@ $LDAP_READ_PW = "ironchef";
 
 
 /*
+ * Shared functions
+ */
+
+// alpha sort an array by a value in the nested array and return the sorted version
+function nestedArraySort($a1, $key){
+	$compare = create_function('$a,$b','return strcasecmp( $a["'.$key.'"], $b["'.$key.'"] );');
+	usort($a1, $compare);
+	unset($compare);
+	return $a1;
+}
+
+// reverse sort an array by a value in the nested array and return the sorted version
+function nestedArraySortReverse($a1, $key){
+	$compare = create_function('$a,$b','return strcasecmp( $b["'.$key.'"], $a["'.$key.'"] );');
+	usort($a1, $compare);
+	unset($compare);
+	return $a1;
+}
+
+/*
  * Provides the methods needed to create, read, update and delete users
  */
 class User {
@@ -45,6 +65,7 @@ class User {
 	// member declaration
 	public $pk = 0;
 	public $username;
+	public $fullname;
 	public $firstname;
 	public $lastname;
 	public $email;
@@ -57,20 +78,39 @@ class User {
 	public $country;
 	public $phone;
 	public $fax;
-
 	public $primaryRole;
 	public $secondaryRole;
+
 	public $sakaiPerm = array();
+	public $active = false;
 	public $isRep = false;
 	public $isVoteRep = false;
-
-	public $active = false;
 	public $Message = "";
 
 	private $data_source = "ldap";
 	private $password;
 	private $authentic = false;
 	private $searchResults = array();
+
+	// maps the object items to the database
+	private $dbItems = 
+		array("pk"=>"pk", "username"=>"username", "password"=>"password", "fullname"=>"",
+		"firstname"=>"firstname", "lastname"=>"lastname", "email"=>"email", 
+		"primaryRole"=>"primaryRole", "secondaryRole"=>"secondaryRole", 
+		"institution_pk"=>"institution_pk", "institution"=>"institution", 
+		"address"=>"address", "city"=>"city", "state"=>"state", "zipcode"=>"zipcode", 
+		"country"=>"country", "phone"=>"phone", "fax"=>"fax", 
+		"sakaiPerm"=>"sakaiPerms");
+
+	// map object items to the ldap
+	private $ldapItems = 
+		array("pk"=>"uid", "username"=>"sakaiuser", "password"=>"userpassword", "fullname"=>"cn",
+		"firstname"=>"givenname", "lastname"=>"sn", "email"=>"mail", 
+		"primaryRole"=>"primaryrole", "secondaryRole"=>"secondaryrole", 
+		"institution_pk"=>"iid", "institution"=>"o", 
+		"address"=>"postaladdress", "city"=>"l", "state"=>"st", "zipcode"=>"postalcode", 
+		"country"=>"c", "phone"=>"telephonenumber", "fax"=>"facsimiletelephonenumber", 
+		"sakaiPerm"=>"sakaiperm");
 
 	// LDAP variables:
 	// uid, cn, givenname, sn, sakaiUser, mail, userPassword, o, iid, 
@@ -113,6 +153,7 @@ class User {
 		// return the entire object as a string
 		$output = "pk:". $this->pk . ", " .
 			"username:". $this->username . ", " .
+			"fullname:". $this->fullname . ", " .
 			"firstname:". $this->firstname . ", " .
 			"lastname:". $this->lastname . ", " .
 			"email:". $this->email . ", " .
@@ -141,6 +182,7 @@ class User {
 		$output = array();
 		$output['pk'] = $this->pk;
 		$output['username'] = $this->username;
+		$output['fullname'] = $this->fullname;
 		$output['firstname'] = $this->firstname;
 		$output['lastname'] = $this->lastname;
 		$output['email'] = $this->email;
@@ -206,6 +248,7 @@ class User {
 		}
 
 		$this->sakaiPerm[$permString] = $permString;
+		if ($permString == "active") { $this->active = true; }
 		ksort($this->sakaiPerm); // keep perms in alpha order
 		return true;
 	}
@@ -224,6 +267,7 @@ class User {
 		}
 		
 		unset($this->sakaiPerm[$permString]);
+		if ($permString == "active") { $this->active = false; }
 		return true;
 	}
 
@@ -292,10 +336,10 @@ class User {
 			unset($Inst);
 		}
 
-		// create the user in the ldap first and then in the DB also
+		// try to create the user in the LDAP first
 		if ($USE_LDAP) {
-			if (!$this->createLDAP()) {
-				return false;
+			if ($this->createLDAP()) {
+				return true;
 			}
 		}
 		return $this->createDB();
@@ -342,12 +386,14 @@ class User {
 				$info["c"]=$this->country;
 				$info["telephonenumber"]=$this->phone;
 				$info["facsimiletelephonenumber"]=$this->fax;
-					
+
 				// get the institution name for this $INSTITUTION_PK
-				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", "iid=$institution_pk", array("o"));
-				$item = ldap_get_entries($ds, $sr);
-				if ($item["count"]) {
-					$info["o"]=$item[0]["o"][0];
+				if ($this->institution) {
+					$info["o"] = $this->institution;
+				} else {
+					$inst = new Institution($this->institution_pk);
+					$info["o"] = $inst->name;
+					unset($inst);
 				}
 
 				// only set password if it is not blank
@@ -361,8 +407,9 @@ class User {
 				}
 				$info["sakaiperm"]=$permissions;
 
-				// empty items must be set to a blank array
-				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+				// empty items must be removed
+				// Note: you cannot pass an empty array for any values or the add will fail!
+				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare user dn, find next available uid
 				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
@@ -384,6 +431,7 @@ class User {
 				$info["uid"]=$uid;
 
 				// insert the user into ldap
+				// Note: you cannot pass an empty array for any values or the add will fail!
 				$ldap_result=ldap_add($ds, $user_dn, $info);
 				if ($ldap_result) {
 					$Message = "Added new ldap user";
@@ -457,155 +505,114 @@ class User {
 // and most reliable way possible
 
 /*
- * get the User data by PK
+ * get the User data by PK (convenience function)
+ * WARNING: DO NOT user this function repeatedly to grab multiple users,
+ * it will run VERY slow, use getUsersByPkList to grab a group of users
+ * when you cannot use a search based on the user data only (i.e. get all
+ * users who registered for the conference)
  */
 	public function getUserByPk($pk) {
-		global $USE_LDAP;
+		if (!$pk) {
+			$this->Message = "User PK is empty";
+			return false;
+		}
 
-		if ($USE_LDAP) {
-			if($this->getUserFromLDAP("pk",$pk)) {
-				return true;
-			}
+		// first use the search to get the user data
+		if(!$this->getUsersBySearch("pk=$pk", "", "*")) {
+			$this->Message = "Could not find user by pk: $pk";
+			return false;
 		}
-		if($this->getUserFromDB("pk",mysql_real_escape_string($pk))) {
-			return true;
-		}
-		return false;
+
+		// now put the user data into the object
+		return $this->updateFromArray($this->searchResults[$this->pk]);
 	}
 
 
 /*
- * get the User data by username
+ * get the User data by username (convenience function)
+ * WARNING: DO NOT user this function repeatedly to grab multiple users (see getUserByPk comment)
  */
 	public function getUserByUsername($username) {
-		// this has to get the user pk from the username
-		global $USE_LDAP;
+		if (!$username) {
+			$this->Message = "Username is empty";
+			return false;
+		}
 
-		if ($USE_LDAP) {
-			if($this->getUserFromLDAP("username",$username)) {
-				return true;
-			}
+		// first use the search to get the user data
+		if(!$this->getUsersBySearch("username=$username", "", "*")) {
+			$this->Message = "Could not find user by username: $username";
+			return false;
 		}
-		if($this->getUserFromDB("username",mysql_real_escape_string($username))) {
-			return true;
-		}
-		return false;
+
+		// now put the user data into the object
+		return $this->updateFromArray($this->searchResults[$this->pk]);
 	}
 
 	
 /*
- * get the User data by email
+ * get the User data by email (convenience function)
+ * WARNING: DO NOT user this function repeatedly to grab multiple users (see getUserByPk comment)
  */
 	public function getUserByEmail($useremail) {
-		// this has to get the user pk from the email
-		global $USE_LDAP;
-
-		if ($USE_LDAP) {
-			if($this->getUserFromLDAP("email",$useremail)) {
-				return true;
-			}
-		}
-		if($this->getUserFromDB("email",mysql_real_escape_string($useremail))) {
-			return true;
-		}
-		return false;
-	}
-
-	
-/*
- * Fetch the user data from varying sources based on params
- * id is the type (e.g. pk), value is the value (e.g. 1)
- */
-
-	private function getUserFromLDAP($id, $value) {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
-
-		$search = "";
-		switch ($id) {
-			case "pk": $search = "uid=$value"; break;
-			case "email": $search = "mail=$value"; break;
-			case "username": $search = "sakaiUser=$value"; break;
-			default: $this->Message="Invalid getUserFromLDAP id: $id, $value"; return false;
-		}
-
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
-			// bind with appropriate dn to give readonly access
-			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
-			if ($read_bind) {
-				//the attribs will let us limit the return if we want
-				//$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","iid","o","sakaiperm");
-			   	//$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $search, $attribs);
-				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $search);
-				$info = ldap_get_entries($ds, $sr);
-				if($info['count'] == 0) {
-					$this->Message = "No matching ldap item for $search";
-					ldap_close($ds); // close connection
-					return false;
-				}
-				$this->updateFromLDAPArray($info);
-				$this->data_source = "ldap";
-				ldap_close($ds); // close connection
-				return true;
-			} else {
-				$this->Message ="ERROR: Read bind to ldap failed";
-			}
-			ldap_close($ds); // close connection
-			return false;
-		} else {
-		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
-		   return false;
-		}
-	}
-
-	private function getUserFromDB($id, $value) {
-		$search = "";
-		$value = mysql_real_escape_string($value);
-		switch ($id) {
-			case "pk": $search = "pk = '$value'"; break;
-			case "email": $search = "email = '$value'"; break;
-			case "username": $search = "username = '$value'"; break;
-			default: $this->Message="Invalid getUserFromDB id: $id, $value"; return false;
-		}
-
-		$sql = "select * from users where $search";
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "User fetch query failed ($sql): " . mysql_error();
+		if (!$useremail) {
+			$this->Message = "User email is empty";
 			return false;
 		}
-		$USER = mysql_fetch_assoc($result);
-		if (!$USER) { return false; }
-		$this->updateFromDBArray($USER);
-		mysql_free_result($result);
-		$this->data_source = "db";
-		return true;
+
+		// first use the search to get the user data
+		if(!$this->getUsersBySearch("email=$useremail", "", "*")) {
+			$this->Message = "Could not find user by email: $useremail";
+			return false;
+		}
+
+		// now put the user data into the object
+		return $this->updateFromArray($this->searchResults[$this->pk]);
 	}
+
 
 
 /*
- * get a set of User PKs by search params
- * Can limit searching to only one data_source
+ * get a set of User data by search params (* means return everything)
+ * Returns an array of arrays which contain the user data
+ * Search params should be "type=value" (e.g. "username=a*")
+ * Multiple search params are supported (e.g. "username=a*, institution=v*")
+ * Can specify the items to be returned (e.g. "pk,username" (default pk)
+ * Can specify the sort order (e.g. "username desc") (default pk asc)
+ * Can limit searching to only one data_source (e.g. "db")
+ * 
+ * Duplicate PKs will default to the existing data in the order they were
+ * fetched (i.e. if there is already a user with PK=4 then another user with 
+ * PK=4 will be ignored if found)
  */
-	public function getUsersBySearch($search="*", $order="", $limit="") {
+	public function getUsersBySearch($search="*", $order="", $items="pk,username", $data_source="") {
 		// this has to get the users based on a search
+		// TODO - allow "and" based searches instead of just "or" based
 		global $USE_LDAP;
-
-		$this->searchResults = array(); // reset array
 
 		// have to search both the LDAP and the DB unless limited
-		if ($USE_LDAP && ($limit=="" || $limit=="ldap") ) {
-			$this->getSearchFromLDAP($search,$order);
+		if ($USE_LDAP && ($data_source=="" || $data_source=="ldap") ) {
+			$this->getSearchFromLDAP($search, $items);
 		}
-		if ($limit=="" || $limit=="db") {
-			$this->getSearchFromDB($search,$order);
+		if ($data_source=="" || $data_source=="db") {
+			$this->getSearchFromDB($search, $items);
+		}
+
+		// now do the ordering
+		if ($order) {
+			list($o1,$o2) = explode(' ', $order);
+			if ($o2 == "desc") {
+				// reverse sort
+				$this->searchResults = nestedArraySortReverse($this->searchResults, $o1);
+			} else {
+				// forward sort
+				$this->searchResults = nestedArraySort($this->searchResults, $o1);
+			}
 		}
 
 		return $this->searchResults;
 	}
 
-	private function getSearchFromLDAP($search, $order) {
+	private function getSearchFromLDAP($search, $items) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
 
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
@@ -615,28 +622,47 @@ class User {
 			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
 			if ($read_bind) {
 				// set up the search filter
-				$filter = "(|(sakaiUser=$search)(mail=$search)(cn=$search)(o=$search))";
-				$returnItems = array("uid","sakaiuser","cn","givenname","sn","mail","o");
-
-				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter, $returnItems);
-				// set up the ordering
-				$reverse = false;
-				if ($order) {
-					list($o1,$o2) = explode(' ', $order);
-					switch ($o1) {
-						case "username": $order="sakaiUser"; break;
-						case "lastname": $order="sn"; break;
-						case "email": $order="mail"; break;
-						case "institution": $order="o"; break;
-						default: $order="sakaiUser";
+				$filter = "";
+				if(strpos("PKLIST",$search) === true) {
+					// do the special pklist search
+					list($i,$pklist) = split("=",$search);
+					foreach (explode(",", $pklist) as $pkitem) {
+						$filter .= "(uid=$pkitem)";
 					}
-					@ldap_sort($ds, $sr, $order);
-					if ($o2 == "desc") {
-						$reverse = true;
+					$filter = "(|$filter)";
+				} else {
+					foreach (explode(",", $search) as $search_item) {
+						list($item,$value) = split("=",$search_item);
+						if($item && $value && $this->ldapItems[$item]) {
+							$filter .= "(".$this->ldapItems[$item]."=$value)";
+						}
+					}
+					$filter = "(|$filter)";
+				}
+				if (!$filter) {
+					$this->Message = "Warning: Could not set filter based on search";
+					$filter = "(uid=0)"; // filter is not set so return nothing
+				}
+
+				// change the return items into something that ldap understands
+				$returnItems = array("uid"); // always return the uid
+				if ($items != "*") {
+					foreach (explode(",", $items) as $item) {
+						if ($this->ldapItems[$item] && $item != "uid") {
+							$returnItems[] = $this->ldapItems[$item];
+						}
 					}
 				}
+
+				$sr = 0;
+				if ($items == "*") {
+					// return all items
+					$sr = ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter);
+				} else {
+					// return requested items only (much faster)
+					$sr = ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter, $returnItems);
+				}
 				$info = ldap_get_entries($ds, $sr);
-				$info = array_reverse($info);
 				if($info['count'] == 0) {
 					$this->Message = "No matching ldap item for $search";
 					ldap_close($ds); // close connection
@@ -646,15 +672,12 @@ class User {
 				$this->data_source = "ldap";
 				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
 				// add the results to the array with the data_source
+				$translator = array_flip($this->ldapItems);
 				for ($line=0; $line<$info["count"]; $line++) {
-					$newItem = array();
-					$newItem["pk"] = $info[$line]["uid"][0];
-					$newItem["username"] = $info[$line]["sakaiuser"][0];
-					$newItem["name"] = $info[$line]["cn"][0];
-					$newItem["email"] = $info[$line]["mail"][0];
-					$newItem["institution"] = $info[$line]["o"][0];
-					$newItem["data_source"] = $this->data_source;
-					$this->searchResults[] = $newItem;
+					$this->pk = $info[$line]["uid"][0];
+					if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
+					$this->searchResults[$this->pk] = $this->arrayFromLDAP($info[$line], $translator);
+					$this->searchResults[$this->pk]["data_source"] = $this->data_source;
 				}
 				ldap_close($ds); // close connection
 				return true;
@@ -669,19 +692,68 @@ class User {
 		}
 	}
 
-	private function getSearchFromDB($search, $order) {
+	// this will create and return an array based on a single ldap return array
+	private function arrayFromLDAP($a, $aTranslator=array(), $thisArray=array()) {
+		if (empty($aTranslator)) { $aTranslator = array_flip($this->ldapItems); }
+		if (empty($a)) { return $thisArray; }
+
+		foreach ($a as $key=>$value) {
+			if($aTranslator[$key]) {
+				if ($key == "sakaiperm") {
+					unset($value["count"]); // remove the count
+					$thisArray[$aTranslator[$key]] = implode(":",$value);
+				} else {
+					$thisArray[$aTranslator[$key]] = $value[0];
+				}
+			}
+		}
+		return $thisArray;
+	}
+
+
+	private function getSearchFromDB($search, $items) {
 		$search = mysql_real_escape_string($search);
-		$order = mysql_real_escape_string($order);
-		
-		$search = str_replace("*", "%", $search); // cleanup the ldap search chars
-		if ($order) {
-			$order = " order by $order ";
+
+		// set up the search filter
+		$filter = "";
+		if(strpos("PKLIST",$search) === true) {
+			// do the special pklist search
+			list($i,$pklist) = split("=",$search);
+			$filter = " pk in ($pklist) ";
+		} else {
+			foreach (explode(",", $search) as $search_item) {
+				list($item,$value) = split("=",$search_item);
+				if($item && $value) {
+					$value = str_replace("*","%",$value); // cleanup the ldap search chars
+					if ($filter) { $filter .= " or "; }
+					$filter .= "$item like '$value'";
+				}
+			}
+			$filter= trim($filter, " ,"); // trim spaces and commas
+		}
+		if (!$filter) {
+			$this->Message = "Warning: Could not set filter based on search";
+			$filter = "pk like '0'"; // filter is not set so return nothing
 		}
 
-		$sql = "select pk, username, firstname, lastname, email, institution " .
-			"from users U1 where (U1.username like '$search' or " .
-			"U1.firstname like '$search' or U1.lastname like '$search' or " .
-			"U1.email like '$search' or U1.institution like '$search') $order";
+		// change the return items into something that DB understands
+		$returnItems = "pk"; // always return the pk
+		if ($items == "*") {
+			// return all items
+			$returnItems = "*";
+		} else {
+			foreach (explode(",", $items) as $item) {
+				if ($this->dbItems[$item] && $item != "pk") {
+					$returnItems .= "," . $this->dbItems[$item];
+				} else if ($item == "fullname") {
+					// special handling for fullname in DB
+					$returnItems .= ",firstname,lastname";
+				}
+			}
+			$returnItems = trim($returnItems, " ,"); // trim spaces and commas
+		}
+
+		$sql = "select $returnItems from users where ($filter)";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "User search query failed ($sql): " . mysql_error();
@@ -690,26 +762,69 @@ class User {
 		$this->data_source = "db";
 		$this->Message = "Search results found (db): " . mysql_num_rows($result);
 		// add the result PKs to the array
+		$translator = array_flip($this->dbItems);
 		while($row=mysql_fetch_assoc($result)) {
-			$newItem = array();
-			$newItem["pk"] = $row["pk"];
-			$newItem["username"] = $row["username"];
-			$newItem["name"] = $row["firstname"]." ".$row["lastname"];
-			$newItem["email"] = $row["email"];
-			$newItem["institution"] = $row["institution"];
-			$newItem["data_source"] = $this->data_source;
-			$this->searchResults[] = $newItem;
+			$this->pk = $row["pk"];
+			if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
+			if (strpos($items,"fullname") !== false) {
+				$this->searchResults[$this->pk]["fullname"] = $row["firstname"]." ".$row["lastname"];
+			}
+			foreach ($row as $key=>$value) {
+				$this->searchResults[$this->pk][$key] = $value;
+			}
+			$this->searchResults[$this->pk]["data_source"] = $this->data_source;
 		}
 		mysql_free_result($result);
 		return true;
 	}
 
+	// this will create and return an array based on a single DB return array
+	private function arrayFromDB($a, $aTranslator=array(), $thisArray=array()) {
+		if (empty($aTranslator)) { $aTranslator = array_flip($this->dbItems); }
+		if (empty($a)) { return $thisArray; }
+
+		if ($a["firstname"] && $a["lastname"]) {
+			$thisArray["fullname"] = $a["firstname"]." ".$a["lastname"];
+		}
+		foreach ($a as $key=>$value) {
+			if($aTranslator[$key]) {
+				$thisArray[$aTranslator[$key]] = $value;
+			}
+		}
+		return $thisArray;
+	}
+
+
 /*
- * Special helper that grabs all info for the PKs in the searchResults array
- * and dumps it into an array of associative arrays
+ * Special helper fucntion that grabs all info for the PKs in the list and 
+ * returns an array (similar to a search but fetches based on a
+ * big list of PKs instead of search params)
+ * Returns an array of arrays which contain the user data
+ * Can specify the items to be returned (e.g. "pk,username" (default pk)
+ * Can limit the fetch to only one data_source (e.g. "db")
  */
-	public function getInfoForSearch() {
-		// TODO - implement this helper and see if it is useful
+	public function getUsersByPkList($pkList=array(), $items="pk,username", $data_source="") {
+		// TODO - test this helper and see if it is useful
+		if (empty($pkList)) { return false; }
+		$this->searchResults = array(); // reset array
+		$max = 500;
+
+		if (count($pkList) > $max) {
+			// split the list into chunks of max size
+			$totalItems = array();
+			$splitArray = array_chunk($pkList, $max);
+			foreach ($splitArray as $partList) {
+				$pkSearch = "PKLIST=" . implode(",",$partList);
+				$partItems = $this->getUsersBySearch($pkSearch, "", $items, $data_source);
+				$totalItems = array_combine($totalItems, $partItems);
+			}
+			$this->searchResults = $totalItems; // store the return in the searchresult for convenience
+			return $totalItems;
+		} else {
+			// do the search
+			$pkSearch = "PKLIST=" . implode(",",$pkList);
+			return $this->getUsersBySearch($pkSearch, "", $items, $data_source);
+		}
 	}
 
 /*
@@ -973,7 +1088,11 @@ class User {
 					// get the user info for this user
 					$sr=ldap_search($ds, $user_dn, "sakaiUser=$username");
 					$info = ldap_get_entries($ds, $sr);
-					$this->updateFromLDAPArray($info);
+
+					// put the data into the user object
+					$this->pk = $info[0]["uid"][0];
+					$this->updateFromArray($this->arrayFromLDAP($info[0]));
+
 					if ($this->active) {
 						$this->authentic = true;
 					}
@@ -1019,8 +1138,11 @@ class User {
 
 			$sqlusers = "select * from users where pk = '$userPK'";
 			$result = mysql_query($sqlusers) or die('User query failed: ' . mysql_error());
-			$USER = mysql_fetch_assoc($result);
-			$this->updateFromDBArray($USER);
+			$user_row = mysql_fetch_assoc($result);
+
+			$this->pk = $user_row["pk"];
+			$this->updateFromArray($this->arrayFromDB($user_row));
+
 			if ($this->active) {
 				$this->authentic = true;
 			}
@@ -1172,45 +1294,38 @@ class User {
 
 /*
  * These functions allow us to populate the object from
- * the database query results or from the LDAP query results
+ * the database query results or from the LDAP query results or
+ * a user supplied array of values (also standardizes the fields)
  */
 	public function updateFromArray($userArray) {
 		if (!$userArray || empty($userArray)) {
 			$this->Message = "Cannot updateFromArray, userArray empty";
 			return false;
 		}
-		return updateFromDBArray($userArray);
-	}
 
-	private function updateFromDBArray($USER) {
-		if (!$USER || empty($USER)) {
-			$this->Message = "Cannot updateFromDBArray, USER empty";
-			return false;
-		}
-
-		$this->pk = $USER['pk'];
-		$this->username = $USER['username'];
-		$this->firstname = $USER['firstname'];
-		$this->lastname = $USER['lastname'];
-		$this->email = $USER['email'];
-		$this->institution_pk = $USER['institution_pk'];
-		if ($USER['institution']) {
-			$this->institution = $USER['institution'];
+		$this->pk = $userArray['pk'];
+		$this->username = $userArray['username'];
+		if ($userArray['fullname']) {
+			$this->fullname = $userArray['fullname'];
 		} else {
-			$inst = new Institution($this->institution_pk);
-			$this->institution = $inst->name;
+			$this->fullname = $userArray['firstname'] ." ". $userArray['lastname'];
 		}
-		$this->address = $USER['address'];
-		$this->city = $USER['city'];
-		$this->state = $USER['state'];
-		$this->zipcode = $USER['zipcode'];
-		$this->country = $USER['country'];
-		$this->phone = $USER['phone'];
-		$this->fax = $USER['fax'];
-		$this->primaryRole = $USER['primaryRole'];
-		$this->secondaryRole = $USER['secondaryRole'];
+		$this->firstname = $userArray['firstname'];
+		$this->lastname = $userArray['lastname'];
+		$this->email = $userArray['email'];
+		$this->institution_pk = $userArray['institution_pk'];
+		$this->institution = $userArray['institution'];
+		$this->address = $userArray['address'];
+		$this->city = $userArray['city'];
+		$this->state = $userArray['state'];
+		$this->zipcode = $userArray['zipcode'];
+		$this->country = $userArray['country'];
+		$this->phone = $userArray['phone'];
+		$this->fax = $userArray['fax'];
+		$this->primaryRole = $userArray['primaryRole'];
+		$this->secondaryRole = $userArray['secondaryRole'];
 		// convert the string of perms to an array
-		$permArray = explode(":",$USER['sakaiPerms']);
+		$permArray = explode(":",$userArray['sakaiPerm']);
 		if (is_array($permArray)) {
 			foreach ($permArray as $value) {
 				$this->sakaiPerm[$value] = "$value";
@@ -1219,41 +1334,9 @@ class User {
 		if ($this->sakaiPerm["active"]) { $this->active=true; }
 		return true;
 	}
-
-	private function updateFromLDAPArray($info) {
-		if (!$info || empty($info)) {
-			$this->Message = "Cannot updateFromLDAPArray, INFO empty";
-			return false;
-		}
-		
-		$this->pk = $info[0]["uid"][0]; // uid is multivalue, we want the first only
-		$this->username = $info[0]["sakaiuser"][0];
-		$this->firstname = $info[0]["givenname"][0];
-		$this->lastname = $info[0]["sn"][0];
-		$this->email = $info[0]["mail"][0];
-		$this->institution = $info[0]["o"][0];
-		$this->institution_pk = $info[0]["iid"][0];
-		$this->primaryRole = $info[0]["primaryrole"][0];
-		$this->secondaryRole = $info[0]["secondaryrole"][0];
-		$this->address = $info[0]["postaladdress"][0];
-		$this->city = $info[0]["l"][0];
-		$this->state = $info[0]["st"][0];
-		$this->zipcode = $info[0]["postalcode"][0];
-		$this->country = $info[0]["c"][0];
-		$this->phone = $info[0]["telephonenumber"][0];
-		$this->fax = $info[0]["facsimiletelephonenumber"][0];
-		$this->sakaiPerm = array();
-		if (is_array($info[0]["sakaiperm"])) {
-			foreach ($info[0]["sakaiperm"] as $key1=>$value1) {
-				if ($key1 !== "count") {
-					$this->sakaiPerm[$value1] = "$value1";
-				}
-			}
-		}
-		if ($this->sakaiPerm["active"]) { $this->active=true; }
-		return true;
-	}
 }
+
+
 
 /*
  * Provides the methods needed to create, read, update and delete institutions
@@ -1436,9 +1519,10 @@ class Institution {
 				$info["c"]=$this->country;
 				$info["repuid"]=$this->rep_pk;
 				$info["voteuid"]=$this->repvote_pk;
-					
-				// empty items must be set to a blank array
-				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+
+				// empty items must be removed
+				// Note: you cannot pass an empty array for any values or the add will fail!
+				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare inst dn, find next available iid
 				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", "iid=*", array("iid"));
@@ -1479,20 +1563,26 @@ class Institution {
 
 
 /*
- * get the Institution data by PK
+ * get the Institution data by PK (convenience function)
+ * WARNING: DO NOT use this function repeatedly to grab multiple items,
+ * it will run VERY slow, use getInstsByPkList to grab a group of insts
+ * when you cannot use a search based on the inst data only (i.e. get all
+ * institutions for users who registered for the conference)
  */
 	public function getInstByPk($pk) {
-		global $USE_LDAP;
+		if (!$pk) {
+			$this->Message = "Inst PK is empty";
+			return false;
+		}
 
-		if ($USE_LDAP) {
-			if($this->getInstFromLDAP("pk",$pk)) {
-				return true;
-			}
+		// first use the search to get the user data
+		if(!$this->getInstsBySearch("pk=$pk", "", "*")) {
+			$this->Message = "Could not find inst by pk: $pk";
+			return false;
 		}
-		if($this->getInstFromDB("pk",$pk)) {
-			return true;
-		}
-		return false;
+
+		// now put the user data into the object
+		return $this->updateFromArray($this->searchResults[$this->pk]);
 	}
 
 /*
@@ -1562,27 +1652,47 @@ class Institution {
 
 
 /*
- * get a set of Inst PKs by search params
- * Can limit searching to only one data_source
+ * get a set of Inst data by search params (* means return everything)
+ * Returns an array of arrays which contain the data
+ * Search params should be "type=value" (e.g. "name=a*")
+ * Multiple search params are supported (e.g. "name=a*, type=educational")
+ * Can specify the items to be returned (e.g. "pk,name" (default pk)
+ * Can specify the sort order (e.g. "name desc") (default pk asc)
+ * Can limit searching to only one data_source (e.g. "db")
+ * 
+ * Duplicate PKs will default to the existing data in the order they were
+ * fetched (i.e. if there is already an inst with PK=5 then another inst with 
+ * PK=5 will be ignored if found)
  */
-	public function getInstsBySearch($search, $limit="") {
-		// this has to get the users based on a search
+	public function getInstsBySearch($search="*", $order="", $items="pk,name", $data_source="") {
+		// this has to get the insts based on a search
+		// TODO - allow "and" based searches instead of just "or" based
 		global $USE_LDAP;
 
-		$this->searchResults = array(); // reset array
-
 		// have to search both the LDAP and the DB unless limited
-		if ($USE_LDAP && ($limit=="" || $limit=="ldap") ) {
-			$this->getSearchFromLDAP($search);
+		if ($USE_LDAP && ($data_source=="" || $data_source=="ldap") ) {
+			$this->getSearchFromLDAP($search, $items);
 		}
-		if ($limit=="" || $limit=="db") {
-			$this->getSearchFromDB($search);
+		if ($data_source=="" || $data_source=="db") {
+			$this->getSearchFromDB($search, $items);
+		}
+
+		// now do the ordering
+		if ($order) {
+			list($o1,$o2) = explode(' ', $order);
+			if ($o2 == "desc") {
+				// reverse sort
+				$this->searchResults = nestedArraySortReverse($this->searchResults, $o1);
+			} else {
+				// forward sort
+				$this->searchResults = nestedArraySort($this->searchResults, $o1);
+			}
 		}
 
 		return $this->searchResults;
 	}
 
-	private function getSearchFromLDAP($search) {
+	private function getSearchFromLDAP($search, $items) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
 
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
@@ -1592,21 +1702,62 @@ class Institution {
 			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
 			if ($read_bind) {
 				// set up the search filter
-				$filter = "(|(o=$search)(insttype=$search))";
-				$filter = "(&(iid>=1)$filter)"; // filter out the OTHER inst always
+				$filter = "";
+				if(strpos("PKLIST",$search) === true) {
+					// do the special pklist search
+					list($i,$pklist) = split("=",$search);
+					foreach (explode(",", $pklist) as $pkitem) {
+						$filter .= "(iid=$pkitem)";
+					}
+					$filter = "(|$filter)";
+				} else {
+					foreach (explode(",", $search) as $search_item) {
+						list($item,$value) = split("=",$search_item);
+						if($item && $value && $this->ldapItems[$item]) {
+							$filter .= "(".$this->ldapItems[$item]."=$value)";
+						}
+					}
+					$filter = "(|$filter)";
+				}
+				if (!$filter) {
+					$this->Message = "Warning: Could not set filter based on search";
+					$filter = "(iid=0)"; // filter is not set so return nothing
+				}
 
-				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $filter, array("iid"));
+				// change the return items into something that ldap understands
+				$returnItems = array("iid"); // always return the iid
+				if ($items != "*") {
+					foreach (explode(",", $items) as $item) {
+						if ($this->ldapItems[$item] && $item != "uid") {
+							$returnItems[] = $this->ldapItems[$item];
+						}
+					}
+				}
+
+				$sr = 0;
+				if ($items == "*") {
+					// return all items
+					$sr = ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $filter);
+				} else {
+					// return requested items only (much faster)
+					$sr = ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $filter, $returnItems);
+				}
 				$info = ldap_get_entries($ds, $sr);
 				if($info['count'] == 0) {
 					$this->Message = "No matching ldap item for $search";
 					ldap_close($ds); // close connection
 					return false;
 				}
+
 				$this->data_source = "ldap";
 				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
-				// add the result PKs to the array
+				// add the results to the array with the data_source
+				$translator = array_flip($this->ldapItems);
 				for ($line=0; $line<$info["count"]; $line++) {
-					$this->searchResults[] = $info[$line]["iid"][0];
+					$this->pk = $info[$line]["uid"][0];
+					if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
+					$this->searchResults[$this->pk] = $this->arrayFromLDAP($info[$line], $translator);
+					$this->searchResults[$this->pk]["data_source"] = $this->data_source;
 				}
 				ldap_close($ds); // close connection
 				return true;
@@ -1621,13 +1772,60 @@ class Institution {
 		}
 	}
 
-	private function getSearchFromDB($search) {
+	// this will create and return an array based on a single ldap return array
+	private function arrayFromLDAP($a, $aTranslator=array(), $thisArray=array()) {
+		if (empty($aTranslator)) { $aTranslator = array_flip($this->ldapItems); }
+		if (empty($a)) { return $thisArray; }
+
+		foreach ($a as $key=>$value) {
+			if($aTranslator[$key]) {
+				$thisArray[$aTranslator[$key]] = $value[0];
+			}
+		}
+		return $thisArray;
+	}
+
+
+	private function getSearchFromDB($search, $items) {
 		$search = mysql_real_escape_string($search);
-		
-		$search = str_replace("*", "%", $search); // cleanup the ldap search chars
-		$sql = "select pk from institution I1 where " .
-			"(I1.name like '$search' or I1.type like '$search') and " .
-			"I1.pk > 1"; // ignore the OTHER inst
+
+		// set up the search filter
+		$filter = "";
+		if(strpos("PKLIST",$search) === true) {
+			// do the special pklist search
+			list($i,$pklist) = split("=",$search);
+			$filter = " pk in ($pklist) ";
+		} else {
+			foreach (explode(",", $search) as $search_item) {
+				list($item,$value) = split("=",$search_item);
+				if($item && $value) {
+					$value = str_replace("*","%",$value); // cleanup the ldap search chars
+					if ($filter) { $filter .= " or "; }
+					$filter .= "$item like '$value'";
+				}
+			}
+			$filter= trim($filter, " ,"); // trim spaces and commas
+		}
+		if (!$filter) {
+			$this->Message = "Warning: Could not set filter based on search";
+			$filter = "pk like '0'"; // filter is not set so return nothing
+		}
+
+		// change the return items into something that DB understands
+		$returnItems = "pk"; // always return the pk
+		if ($items == "*") {
+			// return all items
+			$returnItems = "*";
+		} else {
+			foreach (explode(",", $items) as $item) {
+				if ($this->dbItems[$item] && $item != "pk") {
+					$returnItems .= "," . $this->dbItems[$item];
+				}
+			}
+			$returnItems = trim($returnItems, " ,"); // trim spaces and commas
+		}
+
+		$sql = "select $returnItems from institution where ($filter) and pk > 1"; // skip the other Inst
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "Inst search query failed ($sql): " . mysql_error();
@@ -1636,11 +1834,64 @@ class Institution {
 		$this->data_source = "db";
 		$this->Message = "Search results found (db): " . mysql_num_rows($result);
 		// add the result PKs to the array
+		$translator = array_flip($this->dbItems);
 		while($row=mysql_fetch_assoc($result)) {
-			$this->searchResults[] = $row["pk"];
+			$this->pk = $row["pk"];
+			if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
+			foreach ($row as $key=>$value) {
+				$this->searchResults[$this->pk][$key] = $value;
+			}
+			$this->searchResults[$this->pk]["data_source"] = $this->data_source;
 		}
+		mysql_free_result($result);
 		return true;
 	}
+
+	// this will create and return an array based on a single DB return array
+	private function arrayFromDB($a, $aTranslator=array(), $thisArray=array()) {
+		if (empty($aTranslator)) { $aTranslator = array_flip($this->dbItems); }
+		if (empty($a)) { return $thisArray; }
+
+		foreach ($a as $key=>$value) {
+			if($aTranslator[$key]) {
+				$thisArray[$aTranslator[$key]] = $value;
+			}
+		}
+		return $thisArray;
+	}
+
+/*
+ * Special helper fucntion that grabs all info for the PKs in the list and 
+ * returns an array (similar to a search but fetches based on a
+ * big list of PKs instead of search params)
+ * Returns an array of arrays which contain the user data
+ * Can specify the items to be returned (e.g. "pk,username" (default pk)
+ * Can limit the fetch to only one data_source (e.g. "db")
+ */
+	public function getInstsByPkList($pkList=array(), $items="pk,username", $data_source="") {
+		// TODO - test this helper and see if it is useful
+		if (empty($pkList)) { return false; }
+		$this->searchResults = array(); // reset array
+		$max = 500;
+
+		if (count($pkList) > $max) {
+			// split the list into chunks of max size
+			$totalItems = array();
+			$splitArray = array_chunk($pkList, $max);
+			foreach ($splitArray as $partList) {
+				$pkSearch = "PKLIST=" . implode(",",$partList);
+				$partItems = $this->getInstsBySearch($pkSearch, "", $items, $data_source);
+				$totalItems = array_combine($totalItems, $partItems);
+			}
+			$this->searchResults = $totalItems; // store the return in the searchresult for convenience
+			return $totalItems;
+		} else {
+			// do the search
+			$pkSearch = "PKLIST=" . implode(",",$pkList);
+			return $this->getInstsBySearch($pkSearch, "", $items, $data_source);
+		}
+	}
+
 
 
 /*
@@ -1801,40 +2052,40 @@ class Institution {
 		return updateFromDBArray($objArray);
 	}
 
-	private function updateFromDBArray($item) {
-		if (!$item || empty($item)) {
-			$this->Message = "Cannot updateFromDBArray, inst ITEM empty";
-			return false;
-		}
-
-		$this->pk = $item['pk'];
-		$this->name = $item['name'];
-		$this->type = $item['type'];
-		$this->city = $item['city'];
-		$this->state = $item['state'];
-		$this->zipcode = $item['zipcode'];
-		$this->country = $item['country'];
-		$this->rep_pk = $item['rep_pk'];
-		$this->repvote_pk = $item['repvote_pk'];
-		return true;
-	}
-
-	private function updateFromLDAPArray($info) {
-		if (!$info || empty($info)) {
-			$this->Message = "Cannot updateFromLDAPArray, inst INFO empty";
-			return false;
-		}
-
-		$this->pk = $info[0]["iid"][0];
-		$this->name = $info[0]["o"][0];
-		$this->type = $info[0]["insttype"][0];
-		$this->city = $info[0]["l"][0];
-		$this->state = $info[0]["st"][0];
-		$this->zipcode = $info[0]["postalcode"][0];
-		$this->country = $info[0]["c"][0];
-		$this->rep_pk = $info[0]["repuid"][0];
-		$this->repvote_pk = $info[0]["voteuid"][0];
-		return true;
-	}
+//	private function updateFromDBArray($item) {
+//		if (!$item || empty($item)) {
+//			$this->Message = "Cannot updateFromDBArray, inst ITEM empty";
+//			return false;
+//		}
+//
+//		$this->pk = $item['pk'];
+//		$this->name = $item['name'];
+//		$this->type = $item['type'];
+//		$this->city = $item['city'];
+//		$this->state = $item['state'];
+//		$this->zipcode = $item['zipcode'];
+//		$this->country = $item['country'];
+//		$this->rep_pk = $item['rep_pk'];
+//		$this->repvote_pk = $item['repvote_pk'];
+//		return true;
+//	}
+//
+//	private function updateFromLDAPArray($info) {
+//		if (!$info || empty($info)) {
+//			$this->Message = "Cannot updateFromLDAPArray, inst INFO empty";
+//			return false;
+//		}
+//
+//		$this->pk = $info[0]["iid"][0];
+//		$this->name = $info[0]["o"][0];
+//		$this->type = $info[0]["insttype"][0];
+//		$this->city = $info[0]["l"][0];
+//		$this->state = $info[0]["st"][0];
+//		$this->zipcode = $info[0]["postalcode"][0];
+//		$this->country = $info[0]["c"][0];
+//		$this->rep_pk = $info[0]["repuid"][0];
+//		$this->repvote_pk = $info[0]["voteuid"][0];
+//		return true;
+//	}
 }
 ?>

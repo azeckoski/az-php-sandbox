@@ -66,7 +66,7 @@ if ($PK) {
 }
 
 // create the user object from provider
-$ldapUser = new User($PK);
+$opUser = new User($PK);
 
 // bring in the form validation code
 require $ACCOUNTS_PATH.'ajax/validators.php';
@@ -94,42 +94,46 @@ $vItems['fax'] = "phone";
 // this matters when the form is submitted
 if ($_POST["save"] && $allowed) {
 
-	$ldapUser->username = $_POST["username"];
-	$ldapUser->email = $_POST["email"];
-	$ldapUser->firstname = $_POST["firstname"];
-	$ldapUser->lastname = $_POST["lastname"];
-	$ldapUser->institution = $_POST["institution"];
-	$ldapUser->institution_pk = $_POST["institution_pk"];
-	$ldapUser->primaryRole = $_POST["primaryRole"];
-	$ldapUser->secondaryRole = $_POST["secondaryRole"];
-	$ldapUser->address = $_POST["address"];
-	$ldapUser->city = $_POST["city"];
-	$ldapUser->state = $_POST["state"];
-	$ldapUser->zipcode = $_POST["zipcode"];
-	$ldapUser->country = $_POST["country"];
-	$ldapUser->phone = $_POST["phone"];
-	$ldapUser->fax = $_POST["fax"];
+	$opUser->username = $_POST["username"];
+	$opUser->email = $_POST["email"];
+	$opUser->firstname = $_POST["firstname"];
+	$opUser->lastname = $_POST["lastname"];
+	$opUser->institution = $_POST["institution"];
+	$opUser->institution_pk = $_POST["institution_pk"];
+	$opUser->primaryRole = $_POST["primaryRole"];
+	$opUser->secondaryRole = $_POST["secondaryRole"];
+	$opUser->address = $_POST["address"];
+	$opUser->city = $_POST["city"];
+	$opUser->state = $_POST["state"];
+	$opUser->zipcode = $_POST["zipcode"];
+	$opUser->country = $_POST["country"];
+	$opUser->phone = $_POST["phone"];
+	$opUser->fax = $_POST["fax"];
 
 	$PASS1 = $_POST["password1"];
 	$PASS2 = $_POST["password2"];
 
 	// set permissions without removing existing ones 
 	// (this way perms added from other systems are preserved)
-	$ldapUser->sakaiPerm = array(); // clear first
+	$opUser->sakaiPerm = array(); // clear first
 	if (is_array($_POST["perms"])) {
 		$perms_sql="select perm_name from permissions";
 		$perm_result = mysql_query($perms_sql) or die("Query failed ($perms_sql): " . mysql_error());	
 		while($row = mysql_fetch_assoc($perm_result)) {
 			$perm = $row['perm_name'];
 			if (in_array($perm,$_POST["perms"])) {
-				$ldapUser->addPerm($perm);
+				$opUser->addPerm($perm);
 			} else {
-				$ldapUser->removePerm($perm);
+				$opUser->removePerm($perm);
 			}
 		}
 	}
 
-	if ($_POST["active"]) { $ldapUser->addPerm("active"); }
+	if ($_POST["active"]) {
+		$opUser->addPerm("active");
+	} else {
+		$opUser->removePerm("active");
+	}
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -148,24 +152,24 @@ if ($_POST["save"] && $allowed) {
 	}
 
 	if ($errors == 0) {
-		$ldapUser->setPassword($_POST["password1"]);
+		$opUser->setPassword($_POST["password1"]);
 
 		// TODO - REP STUFF
 		if($_POST["instrep"]) { }
 		if($_POST["voterep"]) { }
 
 		// write the values to LDAP
-		if (!$ldapUser->save()) {
-			$Message = "Error: Could not save: ".$ldapUser->Message;
+		if (!$opUser->save()) {
+			$Message = "Error: Could not save: ".$opUser->Message;
 		} else {
 			$Message = "<strong>Saved user information</strong>";
 		}
 	}
 }
 
-echo $ldapUser, "<br/>"; // for testing
+//echo $opUser, "<br/>"; // for testing
 
-$thisUser = $ldapUser->toArray(); // put the user data into an array for easy access
+$thisUser = $opUser->toArray(); // put the user data into an array for easy access
 
 ?>
 
@@ -197,7 +201,7 @@ $thisUser = $ldapUser->toArray(); // put the user data into an array for easy ac
 		<td class="account"><b>Activated:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="active" tabindex="9" value="1" <?php
-				if ($ldapUser->active) { echo " checked='y' "; }
+				if ($opUser->active) { echo " checked='y' "; }
 			?>/>
 			<i> - account is active (inactive accounts cannot login)</i>
 		</td>
@@ -207,7 +211,7 @@ $thisUser = $ldapUser->toArray(); // put the user data into an array for easy ac
 		<td class="account"><b>Inst Rep:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="instrep" tabindex="10" value="1" <?php
-				if ($ldapUser->isRep) { echo " checked='y' "; }
+				if ($opUser->isRep) { echo " checked='y' "; }
 			?>/>
 			<i> - user is the representative for the listed institution</i>
 		</td>
@@ -217,7 +221,7 @@ $thisUser = $ldapUser->toArray(); // put the user data into an array for easy ac
 		<td class="account"><b>Vote Rep:</b></td>
 		<td class="checkbox">
 			<input type="checkbox" name="voterep" tabindex="11" value="1" <?php
-				if ($ldapUser->isVoteRep) { echo " checked='y' "; }
+				if ($opUser->isVoteRep) { echo " checked='y' "; }
 			?>/>
 			<i> - user is the voting rep for the listed institution</i>
 		</td>
@@ -236,7 +240,7 @@ $thisUser = $ldapUser->toArray(); // put the user data into an array for easy ac
  		<td class="account"><strong><?= $row['perm_name'] ?>:</strong></td>
 		<td class="checkbox">
 			<input type="checkbox" name="perms[]" value="<?= $row['perm_name'] ?>" <?php
-				if ($ldapUser->checkPerm($row['perm_name'])) { echo " checked='y' "; }
+				if ($opUser->checkPerm($row['perm_name'])) { echo " checked='y' "; }
 			?>/>
 			<i>- <?= $row['perm_description'] ?></i>
 		</td>

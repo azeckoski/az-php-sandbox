@@ -2,7 +2,6 @@
 /*
  * file: admin_ldap.php
  * Created on Mar 8, 2006 10:52:28 PM by @author aaronz
- * 
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
@@ -53,8 +52,13 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 
 $output = "Enter search text to the right";
 $items = array();
-if ($searchtext) {
-	$items = $User->getUsersBySearch($searchtext,$sortorder);
+if ($searchtext) { // no results without doing a search
+	$returnItems = "pk,username,fullname,email,institution,institution_pk";
+	$search = $searchtext;
+	if (strpos($searchtext,"=") === false) { // there is not a specific search
+		$search = "username=$searchtext,lastname=$searchtext,email=$searchtext,institution=$searchtext";
+	}
+	$items = $User->getUsersBySearch($search,$sortorder,$returnItems);
 	$output = "Number of entries returned: " . count($items);
 } else { // end use ldap check
 	$output = "No search text entered...";
@@ -180,7 +184,7 @@ foreach ($items as $item) {
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
 	<td class="line" align="center"><em><?= $line ?>&nbsp;</em></td>
 	<td class="line"><?= $item['username'] ?></td>
-	<td class="line"><?= $item['name'] ?></td>
+	<td class="line"><?= $item['fullname'] ?></td>
 	<td class="line"><?= $item['email'] ?></td>
 	<td class="line"><?= $printInst ?></td>
 	<td class="line" align="center">
