@@ -13,12 +13,12 @@
       <table cellpadding="0" cellspacing="0" class="moduletable" width="90%">
         <tr>
           <td align="right" style="color:white;">
-<?php if ($USER_PK > 0) { ?>
+<?php if ($User->pk > 0) { ?>
 	<span style="font-size:10pt;">
-  	Welcome,&nbsp;<?= $USER["firstname"] ?>&nbsp;<?= $USER["lastname"] ?>
+  	Welcome,&nbsp;<?= $User->firstname."&nbsp;".$User->lastname ?>
   	</span><br/>
   	<a style="font-size:9pt;color:white;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
-<?php if ($USER["admin_conf"]) { ?>
+<?php if ($User->checkPerm("admin_facebook")) { ?>
   	<a style="font-size:9pt;color:white;" href="<?= $TOOL_PATH ?>/admin.php">Tool Admin</a> - 
 <?php } ?>
   	<a style="font-size:9pt;color:white;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a><br/>

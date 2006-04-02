@@ -54,7 +54,7 @@ if ($_REQUEST["save"]) {
 	if ($errors == 0) {
 		// process the file uploads
 
-		$facebook_sql = "select pk, image_pk from facebook_entries where users_pk='$USER_PK'";
+		$facebook_sql = "select pk, image_pk from facebook_entries where users_pk='$User->pk'";
 		$result = mysql_query($facebook_sql) or die("facebook pk query failed: ".mysql_error().": ".$facebook_sql);
 		$row = mysql_fetch_assoc($result); // first result is all we care about
 
@@ -159,7 +159,7 @@ if ($_REQUEST["save"]) {
 			// new entry
 			$entry_sql = "insert into facebook_entries " .
 				"(users_pk, image_pk, url, interests, viewable, date_modified) values " .
-				"('$USER_PK','$image_pk','$url','$interests', '$viewable', NOW())";
+				"('$User->pk','$image_pk','$url','$interests', '$viewable', NOW())";
 			mysql_query($entry_sql) or die("Entry query failed: ".mysql_error().": ".$entry_sql);
 			$PK = mysql_insert_id();
 			$Message .= "Saved new entry<br>";
@@ -168,7 +168,7 @@ if ($_REQUEST["save"]) {
 } // end save
 
 // now fetch the current facebook entry
-$inst_sql = "select * from facebook_entries where users_pk='$USER_PK'";
+$inst_sql = "select * from facebook_entries where users_pk='$User->pk'";
 $result = mysql_query($inst_sql) or die("Entry fetch query failed: ".mysql_error().": ".$entry_sql);
 $thisItem = mysql_fetch_assoc($result); // first result is all we care about
 $PK = $thisItem['pk'];

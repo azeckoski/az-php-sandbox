@@ -17,7 +17,7 @@ require 'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 $viewable = 1;
-if ($USER_PK) {
+if ($User->pk) {
 	$viewable = 0;
 }
 
