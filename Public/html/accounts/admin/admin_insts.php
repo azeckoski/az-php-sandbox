@@ -112,7 +112,7 @@ $EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
 if ($_REQUEST["ldif"] && $allowed) {
 	$date = date("Ymd-Hi",time());
 	$filename = "institutions-" . $date . ".ldif";
-	header("Content-type: text/x-csv");
+	header("Content-type: text/plain; charset=utf-8");
 	header("Content-disposition: inline; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	header("Expires: 0");

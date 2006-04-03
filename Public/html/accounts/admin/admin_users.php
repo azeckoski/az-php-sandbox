@@ -35,7 +35,7 @@ if (!$User->checkPerm("admin_accounts")) {
 if ($_REQUEST["ldif"] && $allowed) {
 	$date = date("Ymd-Hi",time());
 	$filename = "users-" . $date . ".ldif";
-	header("Content-type: text/x-csv");
+	header("Content-type: text/plain; charset=utf-8");
 	header("Content-disposition: inline; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	header("Expires: 0");
@@ -68,10 +68,12 @@ if ($_REQUEST["ldif"] && $allowed) {
 		echo "sn: $itemrow[lastname]\n";
 		echo "sakaiUser: $itemrow[username]\n";
 		// convert the string of perms to mutiple lines
-		$permArray = explode(":",$itemrow['sakaiPerms']);
+		$permArray = explode(":",trim($itemrow['sakaiPerms']));
 		if (is_array($permArray)) {
 			foreach ($permArray as $value) {
-				echo "sakaiPerm: $value\n";
+				if ($value) {
+					echo "sakaiPerm: $value\n";
+				}
 			}
 		}
 		echo "mail: $itemrow[email]\n";
@@ -81,7 +83,7 @@ if ($_REQUEST["ldif"] && $allowed) {
 		if ($itemrow['secondaryRole']) { echo "secondaryRole: $itemrow[secondaryRole]\n"; }
 		if ($itemrow['phone']) { echo "telephoneNumber: $itemrow[phone]\n"; }
 		if ($itemrow['fax']) { echo "facsimileTelephoneNumber: $itemrow[fax]\n"; }
-		if ($itemrow['address']) { echo "postalAddress: $itemrow[address]\n"; }
+		if ($itemrow['address']) { echo "postalAddress: ".preg_replace("[\r\n]","\\n",trim($itemrow['address']))."\n"; }
 		if ($itemrow['city']) { echo "l: $itemrow[city]\n"; }
 		if ($itemrow['state']) { echo "st: $itemrow[state]\n"; }
 		if ($itemrow['zipcode']) { echo "postalCode: $itemrow[zipcode]\n"; }
