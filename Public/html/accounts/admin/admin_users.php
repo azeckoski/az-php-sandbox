@@ -30,6 +30,68 @@ if (!$User->checkPerm("admin_accounts")) {
 	$allowed = 1;
 }
 
+
+// Do an LDIF export
+if ($_REQUEST["ldif"] && $allowed) {
+	$date = date("Ymd-Hi",time());
+	$filename = "users-" . $date . ".ldif";
+	header("Content-type: text/x-csv");
+	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0");
+
+	// get everything except the "other" inst
+	$sql = "select * from users order by pk";
+	//print "SQL=$sql<br/>";
+	$result = mysql_query($sql) or die("User ldif query failed ($sql): " . mysql_error());
+	$items_count = mysql_num_rows($result);
+
+	echo "# LDIF export of users on $date - includes $items_count items\n";
+	echo "# Note that password CAN NOT transfer so users will have to reset them\n";
+	echo "# Use the following command to insert this export into ldap:\n";
+	echo "# ldapadd -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
+	echo "# Use the following command to modify ldap using this export:\n";
+	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
+	echo "\n";
+	while($itemrow=mysql_fetch_assoc($result)) {
+		echo "# User: $itemrow[firstname] $itemrow[lastname]\n";
+		echo "dn: uid=$itemrow[pk],ou=users,dc=sakaiproject,dc=org\n";
+		echo "objectClass: top\n";
+		echo "objectClass: person\n";
+		echo "objectClass: organizationalPerson\n";
+		echo "objectClass: inetOrgPerson\n";
+		echo "objectClass: sakaiAccount\n";
+		echo "uid: $itemrow[pk]\n";
+		echo "userPassword: {MD5}wEzZhXMc+aSKrvl2hq+S2g==\n";
+		echo "cn: $itemrow[firstname] $itemrow[lastname]\n";
+		echo "givenname: $itemrow[firstname]\n";
+		echo "sn: $itemrow[lastname]\n";
+		echo "sakaiUser: $itemrow[username]\n";
+		// convert the string of perms to mutiple lines
+		$permArray = explode(":",$itemrow['sakaiPerms']);
+		if (is_array($permArray)) {
+			foreach ($permArray as $value) {
+				echo "sakaiPerm: $value\n";
+			}
+		}
+		echo "mail: $itemrow[email]\n";
+		echo "iid: $itemrow[institution_pk]\n";
+		if ($itemrow['institution']) { echo "o: $itemrow[institution]\n"; }
+		if ($itemrow['primaryRole']) { echo "primaryRole: $itemrow[primaryRole]\n"; }
+		if ($itemrow['secondaryRole']) { echo "secondaryRole: $itemrow[secondaryRole]\n"; }
+		if ($itemrow['phone']) { echo "telephoneNumber: $itemrow[phone]\n"; }
+		if ($itemrow['fax']) { echo "facsimileTelephoneNumber: $itemrow[fax]\n"; }
+		if ($itemrow['address']) { echo "postalAddress: $itemrow[address]\n"; }
+		if ($itemrow['city']) { echo "l: $itemrow[city]\n"; }
+		if ($itemrow['state']) { echo "st: $itemrow[state]\n"; }
+		if ($itemrow['zipcode']) { echo "postalCode: $itemrow[zipcode]\n"; }
+		if ($itemrow['country']) { echo "c: $itemrow[country]\n"; }
+		echo "\n"; // blank line to separate entries
+	}
+	exit();
+}
+
+
 // top header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
 $EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
@@ -166,6 +228,7 @@ $items_displayed = mysql_num_rows($result);
 	</td>
 
 	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="ldif" value="LDIF" title="Export an LDIF (ldap) file of all users" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	size="20" title="Enter search text here"/>
         <script type="text/javascript">document.adminform.searchtext.focus();</script>
@@ -196,13 +259,13 @@ while($row=mysql_fetch_assoc($result)) {
 	}
 
 	$rowstyle = "";
-	if (!$row["activated"]) {
+	if (strpos($row["sakaiPerms"],"active") === false) {
 		$rowstyle = " style = 'color:red;' ";
-	} else if ($row["admin_reqs"]) {
+	} else if (strpos($row["sakaiPerms"],"admin_reqs") !== false) {
 		$rowstyle = " style = 'color:darkgreen;' ";
-	} else if ($row["admin_insts"]) {
+	} else if (strpos($row["sakaiPerms"],"admin_insts") !== false) {
 		$rowstyle = " style = 'color:darkblue;' ";
-	} else if ($row["admin_accounts"]) {
+	} else if (strpos($row["sakaiPerms"],"admin_accounts") !== false) {
 		$rowstyle = " style = 'color:#330066;' ";
 	}
 	

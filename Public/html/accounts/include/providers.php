@@ -1359,6 +1359,18 @@ class Institution {
 	private $data_source = "ldap";
 	private $searchResults = array();
 
+	// maps the object items to the database
+	private $dbItems = 
+		array("pk"=>"pk", "name"=>"name", "type"=>"type",
+		"city"=>"city", "state"=>"state", "zipcode"=>"zipcode", 
+		"country"=>"country", "rep_pk"=>"rep_pk", "repvote_pk"=>"repvote_pk");
+
+	// map object items to the ldap
+	private $ldapItems = 
+		array("pk"=>"iid", "name"=>"o", "type"=>"insttype",
+		"city"=>"l", "state"=>"st", "zipcode"=>"postalcode", 
+		"country"=>"c", "rep_pk"=>"repuid", "repvote_pk"=>"voteuid");
+
 	// LDAP variables:
 	// iid, o, instType, repUid, voteUid, l, st, postalCode, c
 
@@ -1422,10 +1434,10 @@ class Institution {
  	public function isPartner() {
  		if ($this->pk <= 1) { return false; } // Other is never a partner
 
- 		if ($this->type == "educational" || $this->type == "commercial") {
- 			return true;
+ 		if ($this->type == "non-member" || $this->type == "") {
+ 			return false;
  		}
- 		return false;
+ 		return true;
 	}
 
 

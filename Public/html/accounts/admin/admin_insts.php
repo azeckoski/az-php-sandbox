@@ -88,12 +88,12 @@ $start_item = $limitvalue + 1;
 $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
-// the main user fetching query
-$users_sql = "select I1.*, U1.username as rep_username, U1.email as rep_email, " . 
+// the main insr fetching query
+$sql = "select I1.*, U1.username as rep_username, U1.email as rep_email, " . 
 	"U2.username as repvote_username, U2.email as repvote_email " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$users_sql<br/>";
-$result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
+$result = mysql_query($sql) or die('User query failed: ' . mysql_error());
 $items_displayed = mysql_num_rows($result);
 
 
@@ -108,6 +108,44 @@ $EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_perms.php'>Permissions</a>" .
 	"</span>";
 
+// Do an LDIF export
+if ($_REQUEST["ldif"] && $allowed) {
+	$date = date("Ymd-Hi",time());
+	$filename = "institutions-" . $date . ".ldif";
+	header("Content-type: text/x-csv");
+	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0");
+
+	// get everything except the "other" inst
+	$sql = "select * from institution where pk > 1 order by pk";
+	//print "SQL=$sql<br/>";
+	$result = mysql_query($sql) or die("Inst ldif query failed ($sql): " . mysql_error());
+	$items_count = mysql_num_rows($result);
+
+	echo "# LDIF export of institutions on $date - includes $items_count items\n";
+	echo "# Use the following command to insert this export into ldap:\n";
+	echo "# ldapadd -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
+	echo "# Use the following command to modify ldap using this export:\n";
+	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
+	echo "\n";
+	while($itemrow=mysql_fetch_assoc($result)) {
+		echo "# Institution: $itemrow[name]\n";
+		echo "dn: iid=$itemrow[pk],ou=institutions,dc=sakaiproject,dc=org\n";
+		echo "objectClass: sakaiInst\n";
+		echo "iid: $itemrow[pk]\n";
+		echo "o: $itemrow[name]\n";
+		echo "instType: $itemrow[type]\n";
+		if ($itemrow['city']) { echo "l: $itemrow[city]\n"; }
+		if ($itemrow['state']) { echo "st: $itemrow[state]\n"; }
+		if ($itemrow['zipcode']) { echo "postalCode: $itemrow[zipcode]\n"; }
+		if ($itemrow['country']) { echo "c: $itemrow[country]\n"; }
+		if ($itemrow['rep_pk']) { echo "repUid: $itemrow[rep_pk]\n"; }
+		if ($itemrow['repvote_pk']) { echo "voteUid: $itemrow[repvote_pk]\n"; }
+		echo "\n"; // blank line to separate entries
+	}
+	exit();
+}
 
 // Do the export as requested by the user
 if ($_REQUEST["export"] && $allowed) {
@@ -181,6 +219,7 @@ function orderBy(newOrder) {
 	</td>
 
 	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="ldif" value="LDIF" title="Export an LDIF (ldap) file of all institutions" />
 		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	size="20" title="Enter search text here" />
