@@ -596,6 +596,7 @@ class User {
 		// TODO - allow "and" based searches instead of just "or" based
 		// TODO - allow search counts (to return the matching number only)
 		global $USE_LDAP;
+		$this->searchResults = array(); // must reset array first
 
 		// have to search both the LDAP and the DB unless limited
 		if ($USE_LDAP && ($data_source=="" || $data_source=="ldap") ) {
@@ -987,7 +988,6 @@ class User {
 	public function delete() {
 		global $USE_LDAP;
 
-print "Here we are: $this->data_source";
 		// delete the user from the appropriate location
 		if ($this->data_source == "ldap" && $USE_LDAP) {
 			return $this->deleteLDAP();
@@ -1637,6 +1637,8 @@ class Institution {
 		// this has to get the insts based on a search
 		// TODO - allow "and" based searches instead of just "or" based
 		global $USE_LDAP;
+		$this->searchResults = array(); // must reset array first
+		
 
 		// have to search both the LDAP and the DB unless limited
 		if ($USE_LDAP && ($data_source=="" || $data_source=="ldap") ) {

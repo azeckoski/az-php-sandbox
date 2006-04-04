@@ -54,19 +54,8 @@ if ($_REQUEST["ldif"] && $allowed) {
 	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f -c $filename\n";
 	echo "\n";
 	while($itemrow=mysql_fetch_assoc($result)) {
-		// fix address
-		if ($itemrow['address']) {
-			$itemrow['address'] = preg_replace("[\r\n]","\\n",trim($itemrow['address']));
-			if (is_utf8($itemrow['address'])) {
-				$itemrow['address'] = base64_encode($itemrow['address']);
-			}
-		}
-
-		// do utf-8 encoding as needed
-		if (is_utf8($itemrow['firstname'])) { $itemrow['firstname'] = base64_encode($itemrow['firstname']); }
-		if (is_utf8($itemrow['lastname'])) { $itemrow['lastname'] = base64_encode($itemrow['lastname']); }
-
-		echo "# User: $itemrow[firstname] $itemrow[lastname]\n";
+		// generate LDIF export, do UTF-8 encoding as needed
+		echo "# User: $itemrow[pk] - $itemrow[username]\n";
 		echo "dn: uid=$itemrow[pk],ou=users,dc=sakaiproject,dc=org\n";
 		echo "objectClass: top\n";
 		echo "objectClass: person\n";
@@ -75,10 +64,16 @@ if ($_REQUEST["ldif"] && $allowed) {
 		echo "objectClass: sakaiAccount\n";
 		echo "uid: $itemrow[pk]\n";
 		echo "userPassword: {MD5}wEzZhXMc+aSKrvl2hq+S2g==\n";
-		echo "cn: $itemrow[firstname] $itemrow[lastname]\n";
-		echo "givenname: $itemrow[firstname]\n";
-		echo "sn: $itemrow[lastname]\n";
+
+		// had to encrypt all of these entries
+		$itemrow['firstname'] = mb_convert_encoding($itemrow['firstname'],"UTF-8","auto");
+		$itemrow['lastname'] = mb_convert_encoding($itemrow['lastname'],"UTF-8","auto");
+		$fullname = mb_convert_encoding($itemrow['firstname']." ".$itemrow['lastname'],"UTF-8","auto");
+		echo "cn:: ".base64_encode($fullname)."\n";
+		echo "givenname:: ".base64_encode($itemrow['firstname'])."\n";
+		echo "sn:: ".base64_encode($itemrow['lastname'])."\n";
 		echo "sakaiUser: $itemrow[username]\n";
+
 		// convert the string of perms to mutiple lines
 		$permArray = explode(":",trim($itemrow['sakaiPerms']));
 		if (is_array($permArray)) {
@@ -91,34 +86,40 @@ if ($_REQUEST["ldif"] && $allowed) {
 		echo "mail: $itemrow[email]\n";
 		echo "iid: $itemrow[institution_pk]\n";
 		if ($itemrow['institution']) {
-			if (is_utf8($itemrow['institution'])) {
-				$itemrow['institution'] = base64_encode($itemrow['institution']);
-			}
-			echo "o: $itemrow[institution]\n";
+			if (is_utf8($itemrow['institution']))
+				echo "o:: ".base64_encode($itemrow['institution'])."\n";
+			else
+				echo "o: $itemrow[institution]\n";
 		}
 		if ($itemrow['primaryRole']) { echo "primaryRole: $itemrow[primaryRole]\n"; }
 		if ($itemrow['secondaryRole']) { echo "secondaryRole: $itemrow[secondaryRole]\n"; }
 		if ($itemrow['phone']) { echo "telephoneNumber: $itemrow[phone]\n"; }
 		if ($itemrow['fax']) { echo "facsimileTelephoneNumber: $itemrow[fax]\n"; }
-		if ($itemrow['address']) { echo "postalAddress: $itemrow[address]\n"; }
+		if ($itemrow['address']) {
+			$itemrow['address'] = preg_replace("[\r\n]","\\n",trim($itemrow['address']));
+			if (is_utf8($itemrow['address']))
+				echo "postalAddress: ".base64_encode($itemrow['address'])."\n";
+			else
+				echo "postalAddress: $itemrow[address]\n";
+		}
 		if ($itemrow['city']) {
-			if (is_utf8($itemrow['city'])) {
-				$itemrow['city'] = base64_encode($itemrow['city']);
-			}
-			echo "l: $itemrow[city]\n";
+			if (is_utf8($itemrow['city']))
+				echo "l:: ".base64_encode($itemrow['city'])."\n";
+			else
+				echo "l: $itemrow[city]\n";
 		}
 		if ($itemrow['state']) {
-			if (is_utf8($itemrow['state'])) {
-				$itemrow['state'] = base64_encode($itemrow['state']);
-			}
-			echo "st: $itemrow[state]\n";
+			if (is_utf8($itemrow['state']))
+				echo "st:: ".base64_encode($itemrow['state'])."\n";
+			else
+				echo "st: $itemrow[state]\n";
 		}
 		if ($itemrow['zipcode']) { echo "postalCode: $itemrow[zipcode]\n"; }
 		if ($itemrow['country']) {
-			if (is_utf8($itemrow['country'])) {
-				$itemrow['country'] = base64_encode($itemrow['country']);
-			}
-			echo "c: $itemrow[country]\n";
+			if (is_utf8($itemrow['country']))
+				echo "c:: ".base64_encode($itemrow['country'])."\n";
+			else
+				echo "c: $itemrow[country]\n";
 		}
 		echo "\n"; // blank line to separate entries
 	}
