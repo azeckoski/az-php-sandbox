@@ -38,4 +38,10 @@ function makeRandomPassword() {
       }
       return $pass;
 }
+
+function is_utf8($string) {
+	if (mb_detect_encoding($string) == "UTF-8") { return true; }
+	return false;
+}
+
 ?>

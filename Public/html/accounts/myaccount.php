@@ -38,7 +38,7 @@ $vItems['fax'] = "phone";
 // this matters when the form is submitted
 if ($_POST["save"]) {
 
-	//$user->username = $_POST["username"];
+	//$User->username = $_POST["username"];
 	$User->email = $_POST["email"];
 	$User->firstname = $_POST["firstname"];
 	$User->lastname = $_POST["lastname"];

@@ -4,6 +4,9 @@ require_once 'include/tool_vars.php';
 // connect to database
 require 'sql/mysqlconnect.php';
 
+// Load User and Inst PROVIDERS
+require $ACCOUNTS_PATH.'include/providers.php';
+
 // Clear the current session cookie
 $User = new User();
 $User->destroySession();

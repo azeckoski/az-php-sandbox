@@ -57,6 +57,21 @@ function nestedArraySortReverse($a1, $key){
 	return $a1;
 }
 
+function nestedArrayNumSort($a1, $key){
+	$compare = create_function('$a,$b','return ($a["'.$key.'"] < $b["'.$key.'"]) ? -1 : 1;');
+	usort($a1, $compare);
+	unset($compare);
+	return $a1;
+}
+
+// reverse sort an array by a value in the nested array and return the sorted version
+function nestedArrayNumSortReverse($a1, $key){
+	$compare = create_function('$a,$b','return ($b["'.$key.'"] < $a["'.$key.'"]) ? -1 : 1;');
+	usort($a1, $compare);
+	unset($compare);
+	return $a1;
+}
+
 /*
  * Provides the methods needed to create, read, update and delete users
  */
@@ -377,6 +392,7 @@ class User {
 				$info["sakaiuser"]=$this->username;
 				$info["mail"]=$this->email;
 				$info["iid"]="$this->institution_pk";
+				$info["o"] = $this->institution;
 				$info["primaryrole"]=$this->primaryRole;
 				$info["secondaryrole"]=$this->secondaryRole;
 				$info["postaladdress"]=$this->address;
@@ -386,15 +402,6 @@ class User {
 				$info["c"]=$this->country;
 				$info["telephonenumber"]=$this->phone;
 				$info["facsimiletelephonenumber"]=$this->fax;
-
-				// get the institution name for this $INSTITUTION_PK
-				if ($this->institution) {
-					$info["o"] = $this->institution;
-				} else {
-					$inst = new Institution($this->institution_pk);
-					$info["o"] = $inst->name;
-					unset($inst);
-				}
 
 				// only set password if it is not blank
 				if (strlen($this->password) > 0) {
@@ -413,16 +420,15 @@ class User {
 
 				//prepare user dn, find next available uid
 				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
-				ldap_sort($ds, $sr, 'uid');
 				$uidinfo = ldap_get_entries($ds, $sr);
-				$lastnum = $uidinfo["count"] - 1;
-				$uid = $uidinfo[$lastnum]["uid"][0] + 1;
+				$uidinfo = nestedArrayNumSortReverse($uidinfo,"uid");
+				$uid = $uidinfo[0]['uid'][0] + 1;
 				ldap_free_result($sr);
 
 				// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
 				$user_dn = "uid=$uid,ou=users,dc=sakaiproject,dc=org";
-				//print "uid: $uid; user_dn='$user_dn'<br/>";
-
+				//print "uid: $uid; user_dn='$user_dn'; $uidinfo[count]; ".$uidinfo[0]['uid'][0]."<br/>";
+				
 				$info["objectClass"][0]="top";
 				$info["objectClass"][1]="person";
 				$info["objectClass"][2]="organizationalPerson";
@@ -460,6 +466,7 @@ class User {
 			"username='$this->username' or email='$this->email'";
 		$checkresult = mysql_query($checksql) or die("Check query failed ($checksql): " . mysql_error());
 		if (mysql_num_rows($checkresult) == 0) {
+
 			// write the new values to the DB
 			$sql = sprintf("INSERT INTO users (username,password,firstname,lastname,email," .
 					"primaryRole,secondaryRole,institution_pk,date_created," .
@@ -587,6 +594,7 @@ class User {
 	public function getUsersBySearch($search="*", $order="", $items="pk,username", $data_source="") {
 		// this has to get the users based on a search
 		// TODO - allow "and" based searches instead of just "or" based
+		// TODO - allow search counts (to return the matching number only)
 		global $USE_LDAP;
 
 		// have to search both the LDAP and the DB unless limited
@@ -623,7 +631,10 @@ class User {
 			if ($read_bind) {
 				// set up the search filter
 				$filter = "";
-				if(strpos("PKLIST",$search) === true) {
+				if($search == "*") {
+					// get all items
+					$filter = "(uid=*)";
+				} else if (strpos("PKLIST",$search) === true) {
 					// do the special pklist search
 					list($i,$pklist) = split("=",$search);
 					foreach (explode(",", $pklist) as $pkitem) {
@@ -669,15 +680,15 @@ class User {
 					return false;
 				}
 
-				$this->data_source = "ldap";
-				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
+				$data_source = "ldap";
+				$this->Message = "Search results found (ldap): " . $info['count'];
 				// add the results to the array with the data_source
 				$translator = array_flip($this->ldapItems);
 				for ($line=0; $line<$info["count"]; $line++) {
 					$this->pk = $info[$line]["uid"][0];
 					if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
 					$this->searchResults[$this->pk] = $this->arrayFromLDAP($info[$line], $translator);
-					$this->searchResults[$this->pk]["data_source"] = $this->data_source;
+					$this->searchResults[$this->pk]["data_source"] = $data_source;
 				}
 				ldap_close($ds); // close connection
 				return true;
@@ -759,7 +770,12 @@ class User {
 			$this->Message = "User search query failed ($sql): " . mysql_error();
 			return false;
 		}
-		$this->data_source = "db";
+		if (mysql_num_rows($result) <= 0) {
+			$this->Message = "No items found for this search: $search";
+			return false;
+		}
+		
+		$data_source = "db";
 		$this->Message = "Search results found (db): " . mysql_num_rows($result);
 		// add the result PKs to the array
 		$translator = array_flip($this->dbItems);
@@ -772,7 +788,7 @@ class User {
 			foreach ($row as $key=>$value) {
 				$this->searchResults[$this->pk][$key] = $value;
 			}
-			$this->searchResults[$this->pk]["data_source"] = $this->data_source;
+			$this->searchResults[$this->pk]["data_source"] = $data_source;
 		}
 		mysql_free_result($result);
 		return true;
@@ -970,7 +986,8 @@ class User {
  */
 	public function delete() {
 		global $USE_LDAP;
-		
+
+print "Here we are: $this->data_source";
 		// delete the user from the appropriate location
 		if ($this->data_source == "ldap" && $USE_LDAP) {
 			return $this->deleteLDAP();
@@ -1303,6 +1320,11 @@ class User {
 			return false;
 		}
 
+		if (!$userArray['data_source']) {
+			$this->data_source = "unknown";
+		} else {
+			$this->data_source = $userArray['data_source'];
+		}
 		$this->pk = $userArray['pk'];
 		$this->username = $userArray['username'];
 		if ($userArray['fullname']) {
@@ -1597,71 +1619,6 @@ class Institution {
 		return $this->updateFromArray($this->searchResults[$this->pk]);
 	}
 
-/*
- * Fetch the user data from varying sources based on params
- * id is the type (e.g. pk), value is the value (e.g. 1)
- */
-	private function getInstFromLDAP($id, $value) {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
-
-		$search = "";
-		switch ($id) {
-			case "pk": $search = "iid=$value"; break;
-			default: $this->Message="Invalid getInstFromLDAP id: $id, $value"; return false;
-		}
-
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
-			// bind with appropriate dn to give readonly access
-			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
-			if ($read_bind) {
-				//the attribs will let us limit the return if we want
-				//$attribs = array("cn","givenname","sn","uid","sakaiuser","mail","dn","iid","o","sakaiperm");
-			   	//$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $search, $attribs);
-				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $search);
-				$info = ldap_get_entries($ds, $sr);
-				if($info['count'] == 0) {
-					$this->Message = "No matching ldap item for $search";
-					ldap_close($ds); // close connection
-					return false;
-				}
-				$this->updateFromLDAPArray($info);
-				$this->data_source = "ldap";
-				ldap_close($ds); // close connection
-				return true;
-			} else {
-				$this->Message ="ERROR: Read bind to ldap failed";
-			}
-			ldap_close($ds); // close connection
-			return false;
-		} else {
-		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
-		   return false;
-		}
-	}
-
-	private function getInstFromDB($id, $value) {
-		$search = "";
-		$value = mysql_real_escape_string($value);
-		switch ($id) {
-			case "pk": $search = "pk = '$value'"; break;
-			default: $this->Message="Invalid getInstFromDB id: $id, $value"; return false;
-		}
-
-		$sql = "select * from institution where $search";
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Inst fetch query failed ($sql): " . mysql_error();
-			return false;
-		}
-		$ITEM = mysql_fetch_assoc($result);
-		if (!$ITEM) { return false; }
-		$this->updateFromDBArray($ITEM);
-		$this->data_source = "db";
-		return true;
-	}
-
 
 /*
  * get a set of Inst data by search params (* means return everything)
@@ -1715,7 +1672,10 @@ class Institution {
 			if ($read_bind) {
 				// set up the search filter
 				$filter = "";
-				if(strpos("PKLIST",$search) === true) {
+				if($search == "*") {
+					// get all items
+					$filter = "(iid=*)";
+				} else if (strpos("PKLIST",$search) === true) {
 					// do the special pklist search
 					list($i,$pklist) = split("=",$search);
 					foreach (explode(",", $pklist) as $pkitem) {
@@ -1761,15 +1721,15 @@ class Institution {
 					return false;
 				}
 
-				$this->data_source = "ldap";
+				$data_source = "ldap";
 				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
 				// add the results to the array with the data_source
 				$translator = array_flip($this->ldapItems);
 				for ($line=0; $line<$info["count"]; $line++) {
-					$this->pk = $info[$line]["uid"][0];
+					$this->pk = $info[$line]["iid"][0];
 					if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
 					$this->searchResults[$this->pk] = $this->arrayFromLDAP($info[$line], $translator);
-					$this->searchResults[$this->pk]["data_source"] = $this->data_source;
+					$this->searchResults[$this->pk]["data_source"] = $data_source;
 				}
 				ldap_close($ds); // close connection
 				return true;
@@ -1843,7 +1803,7 @@ class Institution {
 			$this->Message = "Inst search query failed ($sql): " . mysql_error();
 			return false;
 		}
-		$this->data_source = "db";
+		$data_source = "db";
 		$this->Message = "Search results found (db): " . mysql_num_rows($result);
 		// add the result PKs to the array
 		$translator = array_flip($this->dbItems);
@@ -1853,7 +1813,7 @@ class Institution {
 			foreach ($row as $key=>$value) {
 				$this->searchResults[$this->pk][$key] = $value;
 			}
-			$this->searchResults[$this->pk]["data_source"] = $this->data_source;
+			$this->searchResults[$this->pk]["data_source"] = $data_source;
 		}
 		mysql_free_result($result);
 		return true;
@@ -2061,7 +2021,22 @@ class Institution {
 			$this->Message = "Cannot updateFromArray (inst), objArray empty";
 			return false;
 		}
-		return updateFromDBArray($objArray);
+
+		if (!$objArray['data_source']) {
+			$this->data_source = "unknown";
+		} else {
+			$this->data_source = $objArray['data_source'];
+		}
+		$this->pk = $objArray['pk'];
+		$this->name = $objArray['name'];
+		$this->type = $objArray['type'];
+		$this->city = $objArray['city'];
+		$this->state = $objArray['state'];
+		$this->zipcode = $objArray['zipcode'];
+		$this->country = $objArray['country'];
+		$this->rep_pk = $objArray['rep_pk'];
+		$this->repvote_pk = $objArray['repvote_pk'];
+		return true;
 	}
 
 //	private function updateFromDBArray($item) {

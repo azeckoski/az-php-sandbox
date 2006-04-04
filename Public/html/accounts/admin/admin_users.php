@@ -49,11 +49,23 @@ if ($_REQUEST["ldif"] && $allowed) {
 	echo "# LDIF export of users on $date - includes $items_count items\n";
 	echo "# Note that password CAN NOT transfer so users will have to reset them\n";
 	echo "# Use the following command to insert this export into ldap:\n";
-	echo "# ldapadd -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
+	echo "# ldapadd -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f -c $filename\n";
 	echo "# Use the following command to modify ldap using this export:\n";
-	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
+	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f -c $filename\n";
 	echo "\n";
 	while($itemrow=mysql_fetch_assoc($result)) {
+		// fix address
+		if ($itemrow['address']) {
+			$itemrow['address'] = preg_replace("[\r\n]","\\n",trim($itemrow['address']));
+			if (is_utf8($itemrow['address'])) {
+				$itemrow['address'] = base64_encode($itemrow['address']);
+			}
+		}
+
+		// do utf-8 encoding as needed
+		if (is_utf8($itemrow['firstname'])) { $itemrow['firstname'] = base64_encode($itemrow['firstname']); }
+		if (is_utf8($itemrow['lastname'])) { $itemrow['lastname'] = base64_encode($itemrow['lastname']); }
+
 		echo "# User: $itemrow[firstname] $itemrow[lastname]\n";
 		echo "dn: uid=$itemrow[pk],ou=users,dc=sakaiproject,dc=org\n";
 		echo "objectClass: top\n";
@@ -78,16 +90,36 @@ if ($_REQUEST["ldif"] && $allowed) {
 		}
 		echo "mail: $itemrow[email]\n";
 		echo "iid: $itemrow[institution_pk]\n";
-		if ($itemrow['institution']) { echo "o: $itemrow[institution]\n"; }
+		if ($itemrow['institution']) {
+			if (is_utf8($itemrow['institution'])) {
+				$itemrow['institution'] = base64_encode($itemrow['institution']);
+			}
+			echo "o: $itemrow[institution]\n";
+		}
 		if ($itemrow['primaryRole']) { echo "primaryRole: $itemrow[primaryRole]\n"; }
 		if ($itemrow['secondaryRole']) { echo "secondaryRole: $itemrow[secondaryRole]\n"; }
 		if ($itemrow['phone']) { echo "telephoneNumber: $itemrow[phone]\n"; }
 		if ($itemrow['fax']) { echo "facsimileTelephoneNumber: $itemrow[fax]\n"; }
-		if ($itemrow['address']) { echo "postalAddress: ".preg_replace("[\r\n]","\\n",trim($itemrow['address']))."\n"; }
-		if ($itemrow['city']) { echo "l: $itemrow[city]\n"; }
-		if ($itemrow['state']) { echo "st: $itemrow[state]\n"; }
+		if ($itemrow['address']) { echo "postalAddress: $itemrow[address]\n"; }
+		if ($itemrow['city']) {
+			if (is_utf8($itemrow['city'])) {
+				$itemrow['city'] = base64_encode($itemrow['city']);
+			}
+			echo "l: $itemrow[city]\n";
+		}
+		if ($itemrow['state']) {
+			if (is_utf8($itemrow['state'])) {
+				$itemrow['state'] = base64_encode($itemrow['state']);
+			}
+			echo "st: $itemrow[state]\n";
+		}
 		if ($itemrow['zipcode']) { echo "postalCode: $itemrow[zipcode]\n"; }
-		if ($itemrow['country']) { echo "c: $itemrow[country]\n"; }
+		if ($itemrow['country']) {
+			if (is_utf8($itemrow['country'])) {
+				$itemrow['country'] = base64_encode($itemrow['country']);
+			}
+			echo "c: $itemrow[country]\n";
+		}
 		echo "\n"; // blank line to separate entries
 	}
 	exit();

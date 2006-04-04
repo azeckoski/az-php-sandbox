@@ -62,9 +62,9 @@ You can even <a href="forgot_password.php">reset your password</a> if you forgot
 
 <?php
 $user_count = count($User->getUsersBySearch("*"));
-$ldap_count = count($User->getUsersBySearch("*","ldap"));
+$ldap_count = count($User->getUsersBySearch("*","","pk","ldap"));
 $Inst = new Institution();
-$partner_count = count($Inst->getInstsBySearch("*"));
+$inst_count = count($Inst->getInstsBySearch("*"));
 ?>
 
 	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
@@ -73,7 +73,7 @@ $partner_count = count($Inst->getInstsBySearch("*"));
 	&nbsp;&nbsp;- LDAP: <?= $ldap_count ?><br/>
 <?php } ?>
 	&nbsp;&nbsp;- internal: <?= get_table_rows("users") ?><br/>
-	<b>Partners:</b> <?= $partner_count ?><br/>
+	<b>Institutions:</b> <?= $inst_count ?><br/>
 	<br/>
 
 	</div>

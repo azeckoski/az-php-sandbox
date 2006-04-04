@@ -53,22 +53,23 @@ $vItems['fax'] = "phone";
 $created = false;
 if ($_POST["save"]) {
 
-	$username = mysql_real_escape_string($_POST["username"]);
-	$email = mysql_real_escape_string($_POST["email"]);
+	$newUser->username = $_POST["username"];
+	$newUser->email = $_POST["email"];
+	$newUser->firstname = $_POST["firstname"];
+	$newUser->lastname = $_POST["lastname"];
+	$newUser->primaryRole = $_POST["primaryRole"];
+	$newUser->secondaryRole = $_POST["secondaryRole"];
+	$newUser->institution_pk = $_POST["institution_pk"];
+	$newUser->address = $_POST["address"];
+	$newUser->city = $_POST["city"];
+	$newUser->state = $_POST["state"];
+	$newUser->zipcode = $_POST["zipcode"];
+	$newUser->country = $_POST["country"];
+	$newUser->phone = $_POST["phone"];
+	$newUser->fax = $_POST["fax"];
+
 	$PASS1 = mysql_real_escape_string($_POST["password1"]);
 	$PASS2 = mysql_real_escape_string($_POST["password2"]);
-	$firstname = mysql_real_escape_string($_POST["firstname"]);
-	$lastname = mysql_real_escape_string($_POST["lastname"]);
-	$primaryRole = mysql_real_escape_string($_POST["primaryRole"]);
-	$secondaryRole = mysql_real_escape_string($_POST["secondaryRole"]);
-	$institution_pk = mysql_real_escape_string($_POST["institution_pk"]);
-	$address = mysql_real_escape_string($_POST["address"]);
-	$city = mysql_real_escape_string($_POST["city"]);
-	$state = mysql_real_escape_string($_POST["state"]);
-	$zipcode = mysql_real_escape_string($_POST["zipcode"]);
-	$country = mysql_real_escape_string($_POST["country"]);
-	$phone = mysql_real_escape_string($_POST["phone"]);
-	$fax = mysql_real_escape_string($_POST["fax"]);
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -86,37 +87,25 @@ if ($_POST["save"]) {
 		$errors++;
 	}
 
-	$username = strtolower($username); // lowercase the username
-
 	if ($errors == 0) {
 		
 		// handle the other institution stuff in a special way
-		$institutionSql = "NULL";
-		if (!is_numeric($institution_pk)) {
+		if (!is_numeric($newUser->institution_pk)) {
 			// assume someone is using the other institution, Other MUST be pk=1
-			$institutionSql = "'$institution_pk'";
-			$institution_pk = 1;
+			$newUser->institution = $newUser->institution_pk;
+			$newUser->institution_pk = 1;
 		}
 		
-		// write the new values to the DB
-		$sqledit = "INSERT INTO users (username,password,firstname,lastname,email," .
-				"primaryRole,secondaryRole,institution_pk,date_created," .
-				"address,city,state,zipcode,country,phone,fax,institution) values " .
-				"('$username',PASSWORD('$PASS1'),'$firstname','$lastname','$email'," .
-				"'$primaryRole','$secondaryRole','$institution_pk',NOW()," .
-				"'$address','$city','$state','$zipcode','$country','$phone','$fax',$institutionSql)";
-
-		$result = mysql_query($sqledit) or die('User creation failed: ' . mysql_error());
-		$userPk = mysql_insert_id();
+		$newUser->save(); // save the new values
 
 		$Message = "<b>New user account created</b><br/>" .
-			"An email has been sent to $email.<br/>" .
+			"An email has been sent to $newUser->email.<br/>" .
 			"Use the link in the email to activate your account.<br/>";
 		$created = true;
 
 		// log account creation
-		writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"created account: $username ($email) " .
-				"$lastname,$firstname inst=$institution_pk");
+		writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"created account: $newUser->username ($newUser->email) " .
+				"$newUser->lastname,$newUser->firstname: inst=$newUser->institution_pk");
 		
 		// bring in the activation email sending form
 		require 'include/activation_email.php';
