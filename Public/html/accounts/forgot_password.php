@@ -57,7 +57,7 @@ This is an automated response, please do not reply!";
 	$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
 	$headers .= 'MIME-Version: 1.0' ."\n";
 	$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
-	mail($email, $subject, $mail_message, $headers);
+	@mail($email, $subject, $mail_message, $headers);
 
 	$Message = "Your username and new password have been sent to $email! Please check your email!<br />" .
 		"You can change your password in My Account after you login.<br/>";

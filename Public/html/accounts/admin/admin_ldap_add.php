@@ -130,9 +130,9 @@ if ($_POST["save"] && $allowed) {
 	}
 
 	if ($_POST["active"]) {
-		$opUser->addPerm("active");
+		$opUser->addStatus("active");
 	} else {
-		$opUser->removePerm("active");
+		$opUser->removeStatus("active");
 	}
 
 	// DO SERVER SIDE VALIDATION

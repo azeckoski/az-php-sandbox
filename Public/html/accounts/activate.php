@@ -7,22 +7,32 @@ $Message = "";
 // connect to database
 require 'sql/mysqlconnect.php';
 
+// Load User and Inst PROVIDERS
+require $ACCOUNTS_PATH.'include/providers.php';
+
+
 // process GET vars
-$ID = $_REQUEST['id'];
-$CODE = $_REQUEST['code'];
+$id = $_REQUEST['id'];
+$code = $_REQUEST['code'];
 
-$sql = mysql_query("UPDATE users SET activated='1' WHERE pk='$ID'") or
-	die('User activation failed: ' . mysql_error());
+$error = false;
+if (!$id || !$code) { $error = true; }
 
-$sql_doublecheck = mysql_query("SELECT * FROM users WHERE pk='$ID' AND activated='1'");
-$doublecheck = mysql_num_rows($sql_doublecheck);
+$thisUser = new User($id);
+if($thisUser->pk <= 0) { $error = true; }
 
-// check to see if the activation code corresponds to a valid user
-$sql_activationcheck = mysql_query("SELECT username from users where pk='$ID'");
-$activationRow = mysql_fetch_array($sql_activationcheck);
-$myActivationCode = substr(md5($activationRow[0]),0,10);
+if (!$error) {
+	// check to see if the activation code corresponds to a valid user
+	$myActivationCode = substr(md5($thisUser->username),0,10);
 
-if($doublecheck == 1 && ($CODE == $myActivationCode)){
+	if ($code == $myActivationCode) {
+		$thisUser->addStatus("active");
+	} else {
+		$error = true;
+	}
+}
+
+if(!$error){
 	$Message = "<strong>Your account has been activated!</strong><br/>" .
 		"Please <a href='login.php'>log in</a> to continue.";
 } else {
@@ -31,14 +41,13 @@ if($doublecheck == 1 && ($CODE == $myActivationCode)){
 }
 ?>
 
-<?php include 'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include 'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
-function focus(){document.adminform.searchtext.focus();}
 // -->
 </script>
-<?php include 'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include 'include/header.php'; ?>
 
 <?= $Message ?>
 
-<?php include 'include/footer.php'; // Include the FOOTER ?>
+<?php include 'include/footer.php'; ?>

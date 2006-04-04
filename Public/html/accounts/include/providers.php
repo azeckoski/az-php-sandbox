@@ -97,6 +97,7 @@ class User {
 	public $secondaryRole;
 
 	public $sakaiPerm = array();
+	public $userStatus = array();
 	public $active = false;
 	public $isRep = false;
 	public $isVoteRep = false;
@@ -115,7 +116,7 @@ class User {
 		"institution_pk"=>"institution_pk", "institution"=>"institution", 
 		"address"=>"address", "city"=>"city", "state"=>"state", "zipcode"=>"zipcode", 
 		"country"=>"country", "phone"=>"phone", "fax"=>"fax", 
-		"sakaiPerm"=>"sakaiPerms");
+		"sakaiPerm"=>"sakaiPerms", "userStatus"=>"userStatus");
 
 	// map object items to the ldap
 	private $ldapItems = 
@@ -125,12 +126,12 @@ class User {
 		"institution_pk"=>"iid", "institution"=>"o", 
 		"address"=>"postaladdress", "city"=>"l", "state"=>"st", "zipcode"=>"postalcode", 
 		"country"=>"c", "phone"=>"telephonenumber", "fax"=>"facsimiletelephonenumber", 
-		"sakaiPerm"=>"sakaiperm");
+		"sakaiPerm"=>"sakaiperm", "userStatus"=>"userstatus");
 
 	// LDAP variables:
 	// uid, cn, givenname, sn, sakaiUser, mail, userPassword, o, iid, 
 	// primaryRole, secondaryRole, sakaiPerm[], postalAddress, l, st, 
-	// postalCode, c, telephoneNumber, facsimileTelephoneNumber
+	// postalCode, c, telephoneNumber, facsimileTelephoneNumber, userstatus[]
 
 
 	// constructor
@@ -188,6 +189,7 @@ class User {
 		$output .= ", authentic:";
 		$output .= ($this->authentic)?"Y":"N";
 		$output .= ", sakaiPerm{".implode(":",$this->sakaiPerm)."}";
+		$output .= ", userStatus{".implode(":",$this->userStatus)."}";
 		$output .= ", data_source: $this->data_source";
 		return $output;
 	}
@@ -212,11 +214,11 @@ class User {
 		$output['fax'] = $this->fax;
 		$output['primaryRole'] = $this->primaryRole;
 		$output['secondaryRole'] = $this->secondaryRole;
-		$output['authentic'] = $this->authentic;
-		$output['activated'] = $this->active;
-		foreach($this->sakaiPerm as $value) {
-			$output[$value] = $value;
-		}
+		$output['authentic'] = ($this->authentic)?"Y":"N";
+		$output['active'] = ($this->active)?"Y":"N";
+		$output['sakaiPerm'] = implode(":",$this->sakaiPerm);
+		$output['userStatus'] = implode(":",$this->userStatus);
+		$output['data_source'] = $this->data_source;
 		return $output;
 	}
 
@@ -247,6 +249,7 @@ class User {
 /*
  * PERMISSIONS handling
  * works with permissions in the object, does not persist them
+ * Perms would be things like: admin_accounts, admin_insts, admin_reqs
  */
 
 	// add a permission to this user
@@ -299,6 +302,65 @@ class User {
 		}
 		return false;
 	}
+
+
+/*
+ * STATUS handling
+ * works with status in the object, does not persist it
+ * Status would be things like: active, board_member, sakai_fellow
+ */
+
+	// add a status to this user
+	public function addStatus($statusString) {
+		if (!$statusString) {
+			$this->Message = "Error: statusString is empty";
+			return false;
+		}
+		$statusString = strtolower($statusString);
+
+		if ($this->userStatus[$statusString]) {
+			$this->Message = "Error: $statusString already in status";
+			return true; // no failure if status already exists
+		}
+
+		$this->userStatus[$statusString] = $statusString;
+		if ($statusString == "active") { $this->active = true; }
+		ksort($this->userStatus); // keep status in alpha order
+		return true;
+	}
+
+	// remove a status from this user
+	public function removeStatus($statusString) {
+		if (!$statusString) {
+			$this->Message = "Error: statusString is empty";
+			return false;
+		}
+		$statusString = strtolower($statusString);
+
+		if (!$this->userStatus[$statusString]) {
+			$this->Message = "Error: $statusString already in status";
+			return true; // no failure if status not found
+		}
+		
+		unset($this->userStatus[$statusString]);
+		if ($statusString == "active") { $this->active = false; }
+		return true;
+	}
+
+	// check if this user has a status
+	public function checkStatus($statusString) {
+		if (!$statusString) {
+			$this->Message = "Error: statusString is empty";
+			return false;
+		}
+		$statusString = strtolower($statusString);
+
+		if ($this->userStatus[$statusString]) {
+			return true;
+		}
+		return false;
+	}
+
 
 
 /*
@@ -711,7 +773,7 @@ class User {
 
 		foreach ($a as $key=>$value) {
 			if($aTranslator[$key]) {
-				if ($key == "sakaiperm") {
+				if ($key == "sakaiperm" || $key == "userstatus") {
 					unset($value["count"]); // remove the count
 					$thisArray[$aTranslator[$key]] = implode(":",$value);
 				} else {
@@ -736,6 +798,7 @@ class User {
 			foreach (explode(",", $search) as $search_item) {
 				list($item,$value) = split("=",$search_item);
 				if($item && $value) {
+					// TODO - make the search work for perms and status
 					$value = str_replace("*","%",$value); // cleanup the ldap search chars
 					if ($filter) { $filter .= " or "; }
 					$filter .= "$item like '$value'";
@@ -1085,7 +1148,7 @@ class User {
 			if ($anon_bind) {
 				// Searching for (sakaiUser=username)
 			   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", 
-					"(&(sakaiUser=$username)(sakaiPerm=active))"); // expect sr=array
+					"(&(sakaiUser=$username)(userStatus=active))"); // expect sr=array
 		
 				//echo "Number of entries = " . ldap_count_entries($ds, $sr) . "<br />";
 				$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
@@ -1140,7 +1203,7 @@ class User {
 		// check the username and password
 		$sql = "SELECT pk FROM users WHERE " .
 			"username = '$username' and password = PASSWORD('$password') " .
-			"and sakaiPerms like '%active%'";
+			"and userStatus like '%active%'";
 		$result = mysql_query($sql) or die("Auth query failed ($sql):" . mysql_error());
 		$count = mysql_num_rows($result);
 		$row = mysql_fetch_assoc($result);
@@ -1353,7 +1416,14 @@ class User {
 				$this->sakaiPerm[$value] = "$value";
 			}
 		} else { $this->sakaiPerm = array(); }
-		if ($this->sakaiPerm["active"]) { $this->active=true; }
+		// convert the string of status to an array
+		$permArray = explode(":",$userArray['userStatus']);
+		if (is_array($permArray)) {
+			foreach ($permArray as $value) {
+				$this->userStatus[$value] = "$value";
+			}
+		} else { $this->userStatus = array(); }
+		if ($this->userStatus["active"]) { $this->active=true; }
 		return true;
 	}
 }

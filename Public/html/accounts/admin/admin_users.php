@@ -83,6 +83,15 @@ if ($_REQUEST["ldif"] && $allowed) {
 				}
 			}
 		}
+		// convert the string of status to mutiple lines
+		$permArray = explode(":",trim($itemrow['userStatus']));
+		if (is_array($permArray)) {
+			foreach ($permArray as $value) {
+				if ($value) {
+					echo "userStatus: $value\n";
+				}
+			}
+		}
 		echo "mail: $itemrow[email]\n";
 		echo "iid: $itemrow[institution_pk]\n";
 		if ($itemrow['institution']) {
@@ -294,7 +303,7 @@ while($row=mysql_fetch_assoc($result)) {
 	}
 
 	$rowstyle = "";
-	if (strpos($row["sakaiPerms"],"active") === false) {
+	if (strpos($row["userStatus"],"active") === false) {
 		$rowstyle = " style = 'color:red;' ";
 	} else if (strpos($row["sakaiPerms"],"admin_reqs") !== false) {
 		$rowstyle = " style = 'color:darkgreen;' ";

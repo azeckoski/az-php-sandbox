@@ -88,7 +88,8 @@ if ($_POST["save"]) {
 	}
 
 	if ($errors == 0) {
-		
+		$newUser->password = $PASS1;
+
 		// handle the other institution stuff in a special way
 		if (!is_numeric($newUser->institution_pk)) {
 			// assume someone is using the other institution, Other MUST be pk=1

@@ -8,7 +8,7 @@
 ?>
 <?php
     // generate a unique identifier based on the user_pk
-    $myActivationCode = substr(md5($username),0,10);
+    $myActivationCode = substr(md5($newUser->username),0,10);
 
 	// send an email to the new user with a confirmation URL
 	$subject = "$TOOL_NAME account";
@@ -32,5 +32,5 @@
 	$headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
 	$headers .= 'MIME-Version: 1.0' ."\n";
 	$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
-	@mail($email, $subject, $mail_message, $headers);
+	@mail($newUser->email, $subject, $mail_message, $headers);
 ?>

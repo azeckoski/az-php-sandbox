@@ -19,6 +19,7 @@ CREATE TABLE users (
     institution			varchar(200) NULL,
     institution_pk  	int(10) NULL,
     sakaiPerms			text NULL,
+    userStatus			text NULL,
     PRIMARY KEY(pk)
 );
 
@@ -26,11 +27,12 @@ CREATE TABLE users (
 alter table users modify date_modified timestamp not null default CURRENT_TIMESTAMP;
 update users set date_modified = NOW();
 alter table users add sakaiPerms text;
+alter table users add userStatus text;
 alter table users add institution varchar(200) not null;
 update users set institution = otherInst where institution_pk = 1;
 update users join institution on institution.pk = users.institution_pk set users.institution = institution.name where institution_pk > 1;
-update users set sakaiPerms='active' where activated='1';
-update users set sakaiPerms=concat(sakaiPerms,':admin_accounts') where admin_accounts='1';
+update users set userStatus='active' where activated='1';
+update users set sakaiPerms='admin_accounts' where admin_accounts='1';
 update users set secondaryRole = NULL where primaryRole = secondaryRole;
 
 // this has to wait until the provider code is working
