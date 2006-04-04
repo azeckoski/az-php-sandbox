@@ -653,13 +653,14 @@ class User {
  * Multiple search params are supported (e.g. "username=a*, institution=v*")
  * Can specify the items to be returned (e.g. "pk,username" (default pk)
  * Can specify the sort order (e.g. "username desc") (default pk asc)
+ * Can only return the count (in an array as $array['count'])
  * Can limit searching to only one data_source (e.g. "db")
  * 
  * Duplicate PKs will default to the existing data in the order they were
  * fetched (i.e. if there is already a user with PK=4 then another user with 
  * PK=4 will be ignored if found)
  */
-	public function getUsersBySearch($search="*", $order="", $items="pk,username", $data_source="") {
+	public function getUsersBySearch($search="*", $order="", $items="pk,username", $count=false, $data_source="") {
 		// this has to get the users based on a search
 		// TODO - allow "and" based searches instead of just "or" based
 		// TODO - allow search counts (to return the matching number only)
@@ -668,14 +669,14 @@ class User {
 
 		// have to search both the LDAP and the DB unless limited
 		if ($USE_LDAP && ($data_source=="" || $data_source=="ldap") ) {
-			$this->getSearchFromLDAP($search, $items);
+			$this->getSearchFromLDAP($search, $items, $count);
 		}
 		if ($data_source=="" || $data_source=="db") {
-			$this->getSearchFromDB($search, $items);
+			$this->getSearchFromDB($search, $items, $count);
 		}
 
-		// now do the ordering
-		if ($order) {
+		// now do the ordering (only if count is off)
+		if ($order && !$count) {
 			list($o1,$o2) = explode(' ', $order);
 			if ($o2 == "desc") {
 				// reverse sort
@@ -689,7 +690,7 @@ class User {
 		return $this->searchResults;
 	}
 
-	private function getSearchFromLDAP($search, $items) {
+	private function getSearchFromLDAP($search, $items, $count) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
 
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
@@ -725,8 +726,8 @@ class User {
 				}
 
 				// change the return items into something that ldap understands
-				$returnItems = array("uid"); // always return the uid
-				if ($items != "*") {
+				$returnItems = array("uid"); // always return the uid, if counting then only return the uid
+				if ($items != "*" && !$count) {
 					foreach (explode(",", $items) as $item) {
 						if ($this->ldapItems[$item] && $item != "uid") {
 							$returnItems[] = $this->ldapItems[$item];
@@ -742,12 +743,24 @@ class User {
 					// return requested items only (much faster)
 					$sr = ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter, $returnItems);
 				}
-				$info = ldap_get_entries($ds, $sr);
-				if($info['count'] == 0) {
-					$this->Message = "No matching ldap item for $search";
+
+				$itemCount = ldap_count_entries($ds, $sr);
+				if ($count) {
+					// only return the count
+					$this->searchResults['count'] += $itemCount;
+					$this->searchResults['ldap'] = $itemCount;
+					ldap_close($ds); // close connection
+					return true;
+				}
+
+				if($itemCount <= 0) {
+					$this->Message = "No matching ldap items for $search";
 					ldap_close($ds); // close connection
 					return false;
 				}
+
+				// get items based on search
+				$info = ldap_get_entries($ds, $sr);
 
 				$data_source = "ldap";
 				$this->Message = "Search results found (ldap): " . $info['count'];
@@ -791,7 +804,7 @@ class User {
 	}
 
 
-	private function getSearchFromDB($search, $items) {
+	private function getSearchFromDB($search, $items, $count) {
 		$search = mysql_real_escape_string($search);
 
 		// set up the search filter
@@ -812,14 +825,12 @@ class User {
 			}
 			$filter= trim($filter, " ,"); // trim spaces and commas
 		}
-		if (!$filter) {
-			$this->Message = "Warning: Could not set filter based on search";
-			$filter = "pk like '0'"; // filter is not set so return nothing
-		}
-
+		if ($filter) { $filter = "where ($filter)"; }
 		// change the return items into something that DB understands
 		$returnItems = "pk"; // always return the pk
-		if ($items == "*") {
+		if ($count) {
+			// return only pk (this is blank on purpose)
+		} else if ($items == "*") {
 			// return all items
 			$returnItems = "*";
 		} else {
@@ -834,13 +845,22 @@ class User {
 			$returnItems = trim($returnItems, " ,"); // trim spaces and commas
 		}
 
-		$sql = "select $returnItems from users where ($filter)";
+		$sql = "select $returnItems from users $filter";
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "User search query failed ($sql): " . mysql_error();
 			return false;
 		}
-		if (mysql_num_rows($result) <= 0) {
+
+		$itemCount = mysql_num_rows($result);
+		if ($count) {
+			// only return the count
+			$this->searchResults['count'] += $itemCount;
+			$this->searchResults['db'] = $itemCount;
+			return true;
+		}
+
+		if ($itemCount <= 0) {
 			$this->Message = "No items found for this search: $search";
 			return false;
 		}
@@ -901,7 +921,7 @@ class User {
 			$splitArray = array_chunk($pkList, $max);
 			foreach ($splitArray as $partList) {
 				$pkSearch = "PKLIST=" . implode(",",$partList);
-				$partItems = $this->getUsersBySearch($pkSearch, "", $items, $data_source);
+				$partItems = $this->getUsersBySearch($pkSearch, "", $items, false, $data_source);
 				$totalItems = array_combine($totalItems, $partItems);
 			}
 			$this->searchResults = $totalItems; // store the return in the searchresult for convenience
@@ -909,7 +929,7 @@ class User {
 		} else {
 			// do the search
 			$pkSearch = "PKLIST=" . implode(",",$pkList);
-			return $this->getUsersBySearch($pkSearch, "", $items, $data_source);
+			return $this->getUsersBySearch($pkSearch, "", $items, false, $data_source);
 		}
 	}
 
@@ -1709,7 +1729,7 @@ class Institution {
  * fetched (i.e. if there is already an inst with PK=5 then another inst with 
  * PK=5 will be ignored if found)
  */
-	public function getInstsBySearch($search="*", $order="", $items="pk,name", $data_source="") {
+	public function getInstsBySearch($search="*", $order="", $items="pk,name", $count=false, $data_source="") {
 		// this has to get the insts based on a search
 		// TODO - allow "and" based searches instead of just "or" based
 		global $USE_LDAP;
@@ -1718,14 +1738,14 @@ class Institution {
 
 		// have to search both the LDAP and the DB unless limited
 		if ($USE_LDAP && ($data_source=="" || $data_source=="ldap") ) {
-			$this->getSearchFromLDAP($search, $items);
+			$this->getSearchFromLDAP($search, $items, $count);
 		}
 		if ($data_source=="" || $data_source=="db") {
-			$this->getSearchFromDB($search, $items);
+			$this->getSearchFromDB($search, $items, $count);
 		}
 
-		// now do the ordering
-		if ($order) {
+		// now do the ordering (only if not counting)
+		if ($order && !$count) {
 			list($o1,$o2) = explode(' ', $order);
 			if ($o2 == "desc") {
 				// reverse sort
@@ -1739,7 +1759,7 @@ class Institution {
 		return $this->searchResults;
 	}
 
-	private function getSearchFromLDAP($search, $items) {
+	private function getSearchFromLDAP($search, $items, $count) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
 
 		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
@@ -1792,12 +1812,24 @@ class Institution {
 					// return requested items only (much faster)
 					$sr = ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $filter, $returnItems);
 				}
-				$info = ldap_get_entries($ds, $sr);
-				if($info['count'] == 0) {
-					$this->Message = "No matching ldap item for $search";
+
+				$itemCount = ldap_count_entries($ds, $sr);
+				if ($count) {
+					// only return the count
+					$this->searchResults['count'] += $itemCount;
+					$this->searchResults['ldap'] = $itemCount;
+					ldap_close($ds); // close connection
+					return true;
+				}
+
+				if($itemCount <= 0) {
+					$this->Message = "No matching ldap items for $search";
 					ldap_close($ds); // close connection
 					return false;
 				}
+
+				// get items based on search
+				$info = ldap_get_entries($ds, $sr);
 
 				$data_source = "ldap";
 				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
@@ -1836,7 +1868,7 @@ class Institution {
 	}
 
 
-	private function getSearchFromDB($search, $items) {
+	private function getSearchFromDB($search, $items, $count) {
 		$search = mysql_real_escape_string($search);
 
 		// set up the search filter
@@ -1856,10 +1888,7 @@ class Institution {
 			}
 			$filter= trim($filter, " ,"); // trim spaces and commas
 		}
-		if (!$filter) {
-			$this->Message = "Warning: Could not set filter based on search";
-			$filter = "pk like '0'"; // filter is not set so return nothing
-		}
+		if ($filter) { $filter = "where ($filter)"; }
 
 		// change the return items into something that DB understands
 		$returnItems = "pk"; // always return the pk
@@ -1881,10 +1910,25 @@ class Institution {
 			$this->Message = "Inst search query failed ($sql): " . mysql_error();
 			return false;
 		}
+
+		$itemCount = mysql_num_rows($result);
+		if ($count) {
+			// only return the count
+			$this->searchResults['count'] += $itemCount;
+			$this->searchResults['db'] = $itemCount;
+			return true;
+		}
+
+		if ($itemCount <= 0) {
+			$this->Message = "No items found for this search: $search";
+			return false;
+		}
+
 		$data_source = "db";
 		$this->Message = "Search results found (db): " . mysql_num_rows($result);
 		// add the result PKs to the array
 		$translator = array_flip($this->dbItems);
+		// fetch the items
 		while($row=mysql_fetch_assoc($result)) {
 			$this->pk = $row["pk"];
 			if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
@@ -1930,7 +1974,7 @@ class Institution {
 			$splitArray = array_chunk($pkList, $max);
 			foreach ($splitArray as $partList) {
 				$pkSearch = "PKLIST=" . implode(",",$partList);
-				$partItems = $this->getInstsBySearch($pkSearch, "", $items, $data_source);
+				$partItems = $this->getInstsBySearch($pkSearch, "", $items, false, $data_source);
 				$totalItems = array_combine($totalItems, $partItems);
 			}
 			$this->searchResults = $totalItems; // store the return in the searchresult for convenience
@@ -1938,7 +1982,7 @@ class Institution {
 		} else {
 			// do the search
 			$pkSearch = "PKLIST=" . implode(",",$pkList);
-			return $this->getInstsBySearch($pkSearch, "", $items, $data_source);
+			return $this->getInstsBySearch($pkSearch, "", $items, false, $data_source);
 		}
 	}
 
