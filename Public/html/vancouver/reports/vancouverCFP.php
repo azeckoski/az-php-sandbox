@@ -234,7 +234,7 @@ if ($line == 1) {
 	<td class=nowrap>$last, $first
 	</td><td>$emailadd</td>
 
-	<td>$inst</td>
+	<td>$inst $otherInst</td>
 <td class=nowrap>$city, $state<br />
 $country</td>
 <td class=nowrap>$phone</td>
@@ -489,7 +489,7 @@ if ($line == 1) {
 	$line='1';
 }
 	echo"
-	<td class=line_no>$id</td>";
+	<td class=line_no>$row</td>";
 	?>
 	
 	
