@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.banners.html.php,v 1.10 2005/02/15 14:49:39 kochp Exp $
+* @version $Id: admin.banners.html.php,v 1.3 2005/10/21 17:33:55 lang3 Exp $
 * @package Mambo
 * @subpackage Banners
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.typedcontent.php,v 1.6 2005/01/09 12:53:18 stingrey Exp $
+* @version $Id: toolbar.typedcontent.php,v 1.1 2005/07/22 01:53:37 eddieajau Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

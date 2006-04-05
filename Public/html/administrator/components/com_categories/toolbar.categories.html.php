@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.categories.html.php,v 1.10 2005/02/16 13:08:46 stingrey Exp $
+* @version $Id: toolbar.categories.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Categories
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -34,7 +34,7 @@ class TOOLBAR_categories {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.categories.edit' );
+		mosMenuBar::help( '453.screen.categories.edit' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -46,6 +46,8 @@ class TOOLBAR_categories {
 		mosMenuBar::save( 'movesave' );
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
+		mosMenuBar::spacer();
+		mosMenuBar::help( '453.screen.categories.copymove' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -57,6 +59,8 @@ class TOOLBAR_categories {
 		mosMenuBar::save( 'copysave' );
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
+		mosMenuBar::spacer();
+		mosMenuBar::help( '453.screen.categories.copymove' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -82,7 +86,7 @@ class TOOLBAR_categories {
 		mosMenuBar::spacer();
 		mosMenuBar::deleteList();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.categories' );
+		mosMenuBar::help( '453.screen.categories.main' );
 		mosMenuBar::endTable();
 	}
 }

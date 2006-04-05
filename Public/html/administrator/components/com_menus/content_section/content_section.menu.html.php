@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: content_section.menu.html.php,v 1.8 2005/02/15 12:21:08 kochp Exp $
+* @version $Id: content_section.menu.html.php,v 1.2 2005/11/14 21:56:04 eliasan Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -65,7 +65,7 @@ class content_section_menu_html {
 		<table class="adminheading">
 		<tr>
 			<th>
-			<?php echo $menu->id ? 'Edit' : 'Add';?> Menu Item :: List - Content Section
+			<?php echo $menu->id ? 'Edit' : 'Add';?> Menu Item :: Table - Content Section
 			</th>
 		</tr>
 		</table>

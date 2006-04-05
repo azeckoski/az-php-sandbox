@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.weblinks.html.php,v 1.8 2005/02/15 14:49:43 kochp Exp $
+* @version $Id: admin.weblinks.html.php,v 1.3 2005/10/21 17:33:55 lang3 Exp $
 * @package Mambo
 * @subpackage Weblinks
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

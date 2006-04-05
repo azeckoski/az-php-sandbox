@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.admin.html.php,v 1.16 2005/02/15 21:53:39 eddieajau Exp $
+* @version $Id: admin.admin.html.php,v 1.3 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Admin
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -26,8 +26,20 @@ class HTML_admin_misc {
 		<table class="adminheading" border="0">
 		<tr>
 			<th class="cpanel">
-			Control Panel
+			Home
 			</th>
+		</tr>
+		</table>
+		<table width="100%" class="adminheading">
+		<tr>
+		<?php if($_SESSION['simple_editing'] == 'on' || ($_SESSION['simple_editing'] == ''))
+		{
+			$_SESSION['simple_editing'] = 'on';
+		?>
+		<td align="left" width="20%">&nbsp;</td><td align="left" ><a class="selected" href="index2.php?option=simple_mode" title="Simple Mode (selected)">Simple Mode</a> / <a class="unselected" href="index2.php?option=advanced_mode" title="Advanced Mode (unselected)">Advanced Mode</a></td>
+		<?php }else{?>
+		<td align="left" width="20%">&nbsp;</td><td align="left" ><a class="unselected"href="index2.php?option=simple_mode" title="Simple Mode (unselected)" >Simple Mode</a> / <a class="selected" href="index2.php?option=advanced_mode" title="Advanced Mode (selected)">Advanced Mode</a></td>
+		<?php }?>
 		</tr>
 		</table>
 		<?php
@@ -387,7 +399,7 @@ mosHTML::writableCell( 'templates' );
 		$fullhelpurl = $helpurl . '/index2.php?option=com_content&amp;task=findkey&pop=1&keyref=';
 		
 		$helpsearch = mosGetParam( $_REQUEST, 'helpsearch', '' );
-		$page 		= mosGetParam( $_REQUEST, 'page', 'mambo.whatsnew452.html' );
+		$page 		= mosGetParam( $_REQUEST, 'page', '453.mambo.whatsnew.html' );
 		$toc 		= getHelpToc( $helpsearch );
 		if (!eregi( '\.html$', $page )) {
 			$page .= '.xml';
@@ -433,24 +445,24 @@ mosHTML::writableCell( 'templates' );
 					<?php
 					if ($helpurl) {
 					?>
-					<a href="<?php echo $fullhelpurl;?>mambo.glossary" target="helpFrame">
+					<a href="<?php echo $fullhelpurl;?>453.mambo.glossary" target="helpFrame">
 						Glossary</a>
 					|
-					<a href="<?php echo $fullhelpurl;?>mambo.credits" target="helpFrame">
+					<a href="<?php echo $fullhelpurl;?>453.mambo.credits" target="helpFrame">
 						Credits</a>
 					|
-					<a href="<?php echo $fullhelpurl;?>mambo.support" target="helpFrame">
+					<a href="<?php echo $fullhelpurl;?>453.mambo.support" target="helpFrame">
 						Support</a>
 					<?php
 					} else {
 					?>
-					<a href="<?php echo $mosConfig_live_site;?>/help/mambo.glossary.html" target="helpFrame">
+					<a href="<?php echo $mosConfig_live_site;?>/help/453.mambo.glossary.html" target="helpFrame">
 						Glossary</a>
 					|
-					<a href="<?php echo $mosConfig_live_site;?>/help/mambo.credits.html" target="helpFrame">
+					<a href="<?php echo $mosConfig_live_site;?>/help/453.mambo.credits.html" target="helpFrame">
 						Credits</a>
 					|
-					<a href="<?php echo $mosConfig_live_site;?>/help/mambo.support.html" target="helpFrame">
+					<a href="<?php echo $mosConfig_live_site;?>/help/453.mambo.support.html" target="helpFrame">
 						Support</a>
 					<?php
 					}

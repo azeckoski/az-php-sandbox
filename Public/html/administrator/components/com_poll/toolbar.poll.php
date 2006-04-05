@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.poll.php,v 1.5 2005/02/11 11:10:48 stingrey Exp $
+* @version $Id: toolbar.poll.php,v 1.1 2005/07/22 01:53:21 eddieajau Exp $
 * @package Mambo
 * @subpackage Polls
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

@@ -80,18 +80,6 @@
 			<option value="0">Hide</option>
 			<option value="1">Show</option>
 		</param>
-		<param name="@spacer" type="spacer" default="" label="" description="" />
 		<param name="keyref" type="text" size="25" default="" label="Key Reference" description="A text key that an item may be referenced by (like a help reference)" />
-		<param name="docbook_type" type="list" default="" label="DocBook Type" description="Associates a type of DocBook document with this content item (Note: experimental, not for production).">
-			<option value=""></option>
-			<option value="appendix">Appendix</option>
-			<option value="article">Article</option>
-			<option value="book">Book</option>
-			<option value="chapter">Chapter</option>
-			<option value="glossary">Glossary</option>
-			<option value="part">Part</option>
-			<option value="refentry">Refentry</option>
-			<option value="section">Section</option>
-		</param>
 	</params>
 </mosinstall>

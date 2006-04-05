@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: newsfeed_link.class.php,v 1.5 2005/01/17 06:33:17 stingrey Exp $
+* @version $Id: newsfeed_link.class.php,v 1.1 2005/07/22 01:53:09 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

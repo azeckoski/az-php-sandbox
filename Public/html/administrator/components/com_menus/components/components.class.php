@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: components.class.php,v 1.5 2005/01/06 01:13:19 eddieajau Exp $
+* @version $Id: components.class.php,v 1.1 2005/07/22 01:52:50 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

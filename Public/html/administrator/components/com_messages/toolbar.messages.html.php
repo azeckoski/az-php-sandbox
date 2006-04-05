@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.messages.html.php,v 1.7 2005/02/16 05:14:54 kochp Exp $
+* @version $Id: toolbar.messages.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Messages
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -32,7 +32,7 @@ class TOOLBAR_messages {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.messages.edit' );
+		mosMenuBar::help( '453.screen.messages.new' );
 		mosMenuBar::endTable();
 	}
 
@@ -42,7 +42,7 @@ class TOOLBAR_messages {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel( 'cancelconfig' );
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.messages.conf' );
+		mosMenuBar::help( '453.screen.messages.conf' );
 		mosMenuBar::endTable();
 	}
 
@@ -52,7 +52,7 @@ class TOOLBAR_messages {
 		mosMenuBar::spacer();
 		mosMenuBar::deleteList();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.messages.inbox' );
+		mosMenuBar::help( '453.screen.messages.inbox' );
 		mosMenuBar::endTable();
 	}
 }

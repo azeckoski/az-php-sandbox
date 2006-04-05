@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.languages.php,v 1.7 2005/02/16 14:31:26 kochp Exp $
+* @version $Id: admin.languages.php,v 1.1 2005/07/22 01:52:34 eddieajau Exp $
 * @package Mambo
 * @subpackage Languages
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

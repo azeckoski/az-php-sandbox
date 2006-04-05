@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.frontpage.php,v 1.4 2005/01/06 01:13:17 eddieajau Exp $
+* @version $Id: toolbar.frontpage.php,v 1.1 2005/07/22 01:52:17 eddieajau Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

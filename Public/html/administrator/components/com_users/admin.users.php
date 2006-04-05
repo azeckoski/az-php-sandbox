@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.users.php,v 1.14 2005/02/16 14:21:00 stingrey Exp $
+* @version $Id: admin.users.php,v 1.2 2005/08/07 23:23:03 eddieajau Exp $
 * @package Mambo
 * @subpackage Users
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -112,10 +112,14 @@ function showUsers( $option ) {
 		$where[] = "(a.gid NOT IN (" . implode( ',', $pgids ) . "))";
 	}
 
-	$query = "SELECT COUNT(*)"
-	. "\n FROM #__users AS a"
-	. "\n LEFT JOIN #__session AS s ON s.userid = a.id"
-	. ( count( $where ) ? "\n WHERE " . implode( ' AND ', $where ) : '' )
+	$query = "SELECT COUNT(a.id)"
+	. "\n FROM #__users AS a";
+
+	if ($filter_logged == 1 || $filter_logged == 2) {
+		$query .= "\n INNER JOIN #__session AS s ON s.userid = a.id";
+	}
+
+	$query .= ( count( $where ) ? "\n WHERE " . implode( ' AND ', $where ) : '' )
 	;
 	$database->setQuery( $query );
 	$total = $database->loadResult();
@@ -123,13 +127,17 @@ function showUsers( $option ) {
 	require_once( $GLOBALS['mosConfig_absolute_path'] . '/administrator/includes/pageNavigation.php' );
 	$pageNav = new mosPageNav( $total, $limitstart, $limit  );
 
-	$query = "SELECT a.*, g.name AS groupname, s.userid AS loggedin"
+	$query = "SELECT a.*, g.name AS groupname"
 	. "\n FROM #__users AS a"
 	. "\n INNER JOIN #__core_acl_aro AS aro ON aro.value = a.id"	// map user to aro
 	. "\n INNER JOIN #__core_acl_groups_aro_map AS gm ON gm.aro_id = aro.aro_id"	// map aro to group
-	. "\n INNER JOIN #__core_acl_aro_groups AS g ON g.group_id = gm.group_id"
-	. "\n LEFT JOIN #__session AS s ON s.userid = a.id"
-	. (count( $where ) ? "\n WHERE " . implode( ' AND ', $where ) : "")
+	. "\n INNER JOIN #__core_acl_aro_groups AS g ON g.group_id = gm.group_id";
+
+	if ($filter_logged == 1 || $filter_logged == 2) {
+		$query .= "\n INNER JOIN #__session AS s ON s.userid = a.id";
+	}
+
+	$query .= (count( $where ) ? "\n WHERE " . implode( ' AND ', $where ) : "")
 	. "\n GROUP BY a.id"
 	. "\n LIMIT $pageNav->limitstart, $pageNav->limit"
 	;
@@ -139,6 +147,15 @@ function showUsers( $option ) {
 	if ($database->getErrorNum()) {
 		echo $database->stderr();
 		return false;
+	}
+
+	$template = 'SELECT COUNT(s.userid) FROM #__session AS s WHERE s.userid = %d';
+	$n = count( $rows );
+	for ($i = 0; $i < $n; $i++) {
+		$row = &$rows[$i];
+		$query = sprintf( $template, intval( $row->id ) );
+		$database->setQuery( $query );
+		$row->loggedin = $database->loadResult();
 	}
 
 	// get list of Groups for dropdown filter
@@ -155,7 +172,6 @@ function showUsers( $option ) {
 	// get list of Log Status for dropdown filter
 	$logged[] = mosHTML::makeOption( 0, '- Select Log Status - ');
 	$logged[] = mosHTML::makeOption( 1, 'Logged In');
-	$logged[] = mosHTML::makeOption( 2, 'Not Logged In');
 	$lists['logged'] = mosHTML::selectList( $logged, 'filter_logged', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'value', 'text', "$filter_logged" );
 
 	HTML_users::showUsers( $rows, $pageNav, $search, $option, $lists );
@@ -409,10 +425,10 @@ function logoutUser( $cid=null, $option, $task ) {
 	$database->query();
 
 	switch ( $task ) {
-		case 'flogout':			
+		case 'flogout':
 			mosRedirect( 'index2.php', $database->getErrorMsg() );
 			break;
-	
+
 		default:
 			mosRedirect( 'index2.php?option='. $option, $database->getErrorMsg() );
 			break;

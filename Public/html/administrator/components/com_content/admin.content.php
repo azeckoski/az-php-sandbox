@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.content.php,v 1.24 2005/02/15 14:09:21 kochp Exp $
+* @version $Id: admin.content.php,v 1.24 2005/12/31 14:09:21 cauld Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -469,7 +469,9 @@ function editContent( $uid=0, $sectionid=0, $option ) {
 		$sections = array_merge( $sections, $database->loadObjectList() );
 		$lists['sectionid'] = mosHTML::selectList( $sections, 'sectionid', 'class="inputbox" size="1" '. $javascript, 'value', 'text' );
 	} else {
-		$lists['sectionid'] = mosHTML::selectList( $database->loadObjectList(), 'sectionid', 'class="inputbox" size="1" '. $javascript, 'value', 'text', intval( $row->sectionid) );
+	    $intval = intval( $row->sectionid);
+      $dbLoadObjectList = $database->loadObjectList();
+			$lists['sectionid'] = mosHTML::selectList( $dbLoadObjectList, 'sectionid', 'class="inputbox" size="1" '. $javascript, 'value', 'text', $intval );
 	}
 
 	$sections = $database->loadObjectList();

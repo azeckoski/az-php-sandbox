@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.mambots.php,v 1.15 2005/02/15 15:58:12 kochp Exp $
+* @version $Id: admin.mambots.php,v 1.1 2005/07/22 01:52:34 eddieajau Exp $
 * @package Mambo
 * @subpackage Mambots
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

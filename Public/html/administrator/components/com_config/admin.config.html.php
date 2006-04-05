@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.config.html.php,v 1.15 2005/02/15 23:45:30 eddieajau Exp $
+* @version $Id: admin.config.html.php,v 1.5 2005/11/27 16:33:25 csouza Exp $
 * @package Mambo
 * @subpackage Config
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -420,6 +420,17 @@ class HTML_config {
 		<tr>
 			<td>Error Reporting:</td>
 			<td><?php echo $lists['error_reporting']; ?></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Register Globals Emulation:</td>
+			<td>
+			<?php echo $lists['register_globals']; ?>
+			<?php 
+			$rg = ini_get('register_globals') == 1 ? 'On' : 'Off';
+			echo mosToolTip(sprintf("Register globals emulation. Some components may stop working if this option is set to Off.")); 
+			?>
+			</td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.modules.html.php,v 1.10 2005/02/16 13:08:53 stingrey Exp $
+* @version $Id: toolbar.modules.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Modules
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -26,7 +26,7 @@ class TOOLBAR_modules {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.modules.new' );
+		mosMenuBar::help( '453.screen.modules.new' );
 		mosMenuBar::endTable();
 	}
 
@@ -52,7 +52,7 @@ class TOOLBAR_modules {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.modules.edit' );
+		mosMenuBar::help( '453.screen.modules.edit' );
 		mosMenuBar::endTable();
 	}
 	function _DEFAULT() {
@@ -69,7 +69,7 @@ class TOOLBAR_modules {
 		mosMenuBar::spacer();
 		mosMenuBar::deleteList();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.modules' );
+		mosMenuBar::help( '453.screen.modules.main' );
 		mosMenuBar::endTable();
 	}
 }

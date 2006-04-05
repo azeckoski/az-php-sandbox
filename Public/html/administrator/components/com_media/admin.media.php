@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.media.php,v 1.8 2005/01/27 11:56:29 troozers Exp $
+* @version $Id: admin.media.php,v 1.1 2005/07/22 01:52:35 eddieajau Exp $
 * @package Mambo
 * @subpackage Massmail
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

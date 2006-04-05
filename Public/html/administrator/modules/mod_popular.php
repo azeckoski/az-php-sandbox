@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: mod_popular.php,v 1.8 2005/02/16 03:51:48 kochp Exp $
+* @version $Id: mod_popular.php,v 1.1 2005/07/22 01:53:59 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL

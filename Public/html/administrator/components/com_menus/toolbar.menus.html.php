@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.menus.html.php,v 1.12 2005/02/16 18:22:16 troozers Exp $
+* @version $Id: toolbar.menus.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -25,7 +25,7 @@ class TOOLBAR_menus {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.menus.new' );
+		mosMenuBar::help( '453.screen.menus.new' );
 		mosMenuBar::endTable();
 	}
 
@@ -38,7 +38,7 @@ class TOOLBAR_menus {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel( 'cancelmovemenu' );
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.menus.move' );
+		mosMenuBar::help( '453.screen.menus.move' );
 		mosMenuBar::endTable();
 	}
 
@@ -51,15 +51,16 @@ class TOOLBAR_menus {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel( 'cancelcopymenu' );
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.menus.copy' );
+		mosMenuBar::help( '453.screen.menus.copy' );
 		mosMenuBar::endTable();
 	}
 
 	/**
 	* Draws the menu to edit a menu item
 	*/
-	function _EDIT() {
+	function _EDIT($type) {
 		global $id;
+		$hs='';
 
 		if ( !$id ) {
 			$cid = mosGetParam( $_POST, 'cid', array(0) );
@@ -84,7 +85,87 @@ class TOOLBAR_menus {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.menus.edit' );
+		//Displays the right help screen based on the
+		//$type parameter
+    switch ($type){
+		  case 'content_blog_category': //Blog - Content Category 
+		    $hs='453.screen.menus.content_blog_category';
+		    break;
+		    
+		  case 'content_archive_category': //Blog - Content Category Archive 
+		    $hs='453.screen.menus.content_archive_category';
+		    break;
+		    
+		  case 'content_blog_section': //Blog - Content Section 
+		    $hs='453.screen.menus.content_blog_section';
+		    break;
+		    
+		  case 'content_archive_section': //Blog - Content Section Archive 
+		    $hs='453.screen.menus.content_archive_section';
+		    break;
+		    
+		  case 'content_item_link': //Link - Content Item 
+		    $hs='453.screen.menus.content_item_link';
+		    break;
+		    
+		  case 'content_typed': //Link - Static Content 
+		    $hs='453.screen.menus.content_typed';
+		    break;
+		    
+		  case 'content_category': //Table - Content Category 
+		    $hs='453.screen.menus.content_category';
+		    break;
+		    
+		  case 'content_section': //Table - Content Section 
+		    $hs='453.screen.menus.content_section';
+		    break;
+		    
+		  case 'components': //Component
+		    $hs='453.screen.menus.components';
+		    break;
+		    
+		  case 'component_item_link': //Link - Component Item 
+		    $hs='453.screen.menus.component_item_link';
+		    break;
+		    
+		  case 'contact_item_link': //Link - Contact Item
+		    $hs='453.screen.menus.contact_item_link';
+		    break;
+		    
+		  case 'newsfeed_link': //Link - Newsfeed
+		    $hs='453.screen.menus.newsfeed_link';
+		    break;
+		    
+		  case 'contact_category_table': //Table - Contact Category
+		    $hs='453.screen.menus.contact_category_table';
+		    break;
+		    
+		  case 'newsfeed_category_table': //Table - Newsfeed Category
+		    $hs='453.screen.menus.newsfeed_category_table';
+		    break;
+		    
+		  case 'weblink_category_table': //Table - Weblink Category
+		    $hs='453.screen.menus.weblink_category_table';
+		    break;
+		    
+		  case 'url': //Link - URL
+		    $hs='453.screen.menus.url';
+		    break;
+		    
+		  case 'separator': //Separator / Placeholder
+		    $hs='453.screen.menus.separator';
+		    break;
+		    
+		  case 'wrapper': //Wrapper
+		    $hs='453.screen.menus.wrapper';
+		    break;
+		    
+		  default:
+		    $hs='default';
+		    break;
+		}
+		mosMenuBar::help( $hs );  
+    //mosMenuBar::help( '453.screen.menus.edit' );
 		mosMenuBar::endTable();
 	}
 
@@ -104,7 +185,7 @@ class TOOLBAR_menus {
 		mosMenuBar::spacer();
 		mosMenuBar::trash();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.menus' );
+		mosMenuBar::help( '453.screen.menus.main' );
 		mosMenuBar::endTable();
 	}
 }

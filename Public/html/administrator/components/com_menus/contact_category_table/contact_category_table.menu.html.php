@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: contact_category_table.menu.html.php,v 1.9 2005/02/15 12:21:07 kochp Exp $
+* @version $Id: contact_category_table.menu.html.php,v 1.1 2005/07/22 01:52:50 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.installer.html.php,v 1.8 2005/02/16 08:48:36 stingrey Exp $
+* @version $Id: toolbar.installer.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Installer
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -16,7 +16,7 @@ class TOOLBAR_installer
 {
 	function _DEFAULT()	{
 		mosMenuBar::startTable();
-		mosMenuBar::help( 'screen.installer' );
+		mosMenuBar::help( '453.screen.installer.lang' );
 		mosMenuBar::endTable();
 	}
 
@@ -24,7 +24,7 @@ class TOOLBAR_installer
 		mosMenuBar::startTable();
 		mosMenuBar::deleteList( '', 'remove', 'Uninstall' );
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.installer2' );
+		mosMenuBar::help( '453.screen.installer.cmm' );
 		mosMenuBar::endTable();
 	}
 

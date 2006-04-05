@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.config.php,v 1.16 2005/02/16 14:31:26 kochp Exp $
+* @version $Id: admin.config.php,v 1.4 2005/11/25 23:30:20 csouza Exp $
 * @package Mambo
 * @subpackage Config
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -97,6 +97,8 @@ class mosConfig extends mosDBTable {
 	/** @var int */
 	var $config_error_reporting=0;
 	/** @var int */
+	var $config_register_globals=0;
+	/** @var int */
 	var $config_link_titles=0;
 	/** @var int */
 	var $config_list_limit=0;
@@ -190,6 +192,7 @@ class mosConfig extends mosDBTable {
 		'config_allowUserRegistration'	=>'mosConfig_allowUserRegistration',
 		'config_link_titles'			=>'mosConfig_link_titles',
 		'config_error_reporting'		=>'mosConfig_error_reporting',
+		'config_register_globals'		=>'mosConfig_register_globals',
 		'config_list_limit'				=>'mosConfig_list_limit',
 		'config_caching'				=>'mosConfig_caching',
 		'config_cachepath'				=>'mosConfig_cachepath',
@@ -340,6 +343,11 @@ function showconfig($confightml, &$database, $option) {
 		mosHTML::makeOption( E_ALL , 'Maximum' )
 	);
 
+	$register_globals = array(
+		mosHTML::makeOption( 1, 'On' ),
+		mosHTML::makeOption( 0, 'Off' ),
+	);
+
 	$mailer = array(
 		mosHTML::makeOption( 'mail', 'PHP mail function', true ),
 		mosHTML::makeOption( 'sendmail', 'Sendmail', true ),
@@ -399,6 +407,8 @@ function showconfig($confightml, &$database, $option) {
 
 	$lists['error_reporting'] 		= mosHTML::selectList( $errors, 'config_error_reporting', 'class="inputbox" size="1"', 'value', 'text', $row->config_error_reporting );
 
+	$lists['register_globals'] 		= mosHTML::RadioList( $register_globals, 'config_register_globals', 'class="inputbox" size="1"', $row->config_register_globals, 'value', 'text' );
+
 	$lists['link_titles'] 			= mosHTML::yesnoRadioList( 'config_link_titles', 'class="inputbox"', $row->config_link_titles );
 
 	$lists['caching'] 				= mosHTML::yesnoRadioList( 'config_caching', 'class="inputbox"', $row->config_caching );
@@ -433,7 +443,7 @@ function saveconfig( $task ) {
 	if (!$row->bind( $_POST )) {
 		mosRedirect( "index2.php", $row->getError() );
 	}
-
+	
 	$editor = intval( mosGetParam( $_POST, 'editor', 0 ) );
 	if ($editor > 0) {
 		$query = "UPDATE #__mambots"

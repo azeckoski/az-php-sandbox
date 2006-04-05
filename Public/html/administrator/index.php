@@ -1,26 +1,26 @@
 <?php
 /**
-* @version $Id: index.php,v 1.6 2005/02/13 02:41:39 stingrey Exp $
+* @version $Id: index.php,v 1.6 2005/11/21 11:57:50 csouza Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
 * Mambo is Free Software
 */
 
+// fix to address the globals overwrite problem in php versions < 4.4.1
+$protect_globals = array('_REQUEST', '_GET', '_POST', '_COOKIE', '_FILES', '_SERVER', '_ENV', 'GLOBALS', '_SESSION');
+foreach ($protect_globals as $global) {
+    if ( in_array($global , array_keys($_REQUEST)) ||
+         in_array($global , array_keys($_GET))     ||
+         in_array($global , array_keys($_POST))    ||
+         in_array($global , array_keys($_COOKIE))  ||
+         in_array($global , array_keys($_FILES))) {
+        die("Invalid Request.");
+    }
+}
+
 /** Set flag that this is a parent file */
 define( "_VALID_MOS", 1 );
-
-$protects = array('_REQUEST', '_GET', '_POST', '_COOKIE', '_FILES', '_SERVER', '_ENV', 'GLOBALS', '_SESSION');
-
-foreach ($protects as $protect) {
-	if ( in_array($protect , array_keys($_REQUEST)) ||
-	     in_array($protect , array_keys($_GET)) ||
-	     in_array($protect , array_keys($_POST)) ||
-	     in_array($protect , array_keys($_COOKIE)) ||
-	     in_array($protect , array_keys($_FILES))) {
-	    die("Invalid Request.");
-	}
-}
 
 if (!file_exists( '../configuration.php' )) {
 	header( 'Location: ../installation/index.php' );
@@ -52,7 +52,7 @@ if (isset( $_POST['submit'] )) {
 
 	$query = "SELECT COUNT(*)"
 	. "\n FROM #__users"
-	. "\n WHERE ( LOWER( usertype ) = 'administrator'" 
+	. "\n WHERE ( LOWER( usertype ) = 'administrator'"
 	. "\n OR LOWER( usertype ) = 'superadministrator'"
 	. "\n OR LOWER( usertype ) = 'super administrator' )"
 	;
@@ -62,25 +62,25 @@ if (isset( $_POST['submit'] )) {
 		echo "<script>alert(\""._LOGIN_NOADMINS."\"); window.history.go(-1); </script>\n";
 		exit();
 	}
-	
+
 	$query = "SELECT * FROM #__users WHERE username='$usrname' AND block='0'";
 	$database->setQuery( $query );
 	$my = null;
 	$database->loadObject( $my );
 
 	/** find the user group (or groups in the future) */
-	$grp 			= $acl->getAroGroup( $my->id );
-	$my->gid 		= $grp->group_id;
-	$my->usertype 	= $grp->name;
+	if (@$my->id) {
+		$grp 			= $acl->getAroGroup( $my->id );
+		$my->gid 		= $grp->group_id;
+		$my->usertype 	= $grp->name;
 
-	if ($my->id) {
 		if (strcmp( $my->password, $pass )
 		|| !$acl->acl_check( 'administration', 'login', 'users', $my->usertype )) {
 			echo "<script>alert('Incorrect Username, Password, or Access Level.  Please try again'); document.location.href='index.php';</script>\n";
 			exit();
 		}
 
-		session_name( 'mosadmin' );
+		session_name( md5( $mosConfig_live_site ) );
 		session_start();
 
 		$logintime 	= time();

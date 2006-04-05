@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.menus.php,v 1.6 2005/01/23 08:28:14 stingrey Exp $
+* @version $Id: toolbar.menus.php,v 1.3 2005/11/11 10:07:35 eliasan Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -44,7 +44,7 @@ switch ($task) {
 				if ( file_exists( $item_path  ) ) {
 					require_once( $item_path  );
 				} else {
-					TOOLBAR_menus::_EDIT();
+					TOOLBAR_menus::_EDIT($type);
 				}
 			} else {
 				echo $database->stderr();
@@ -57,10 +57,10 @@ switch ($task) {
 				if ( file_exists( $item_path ) ) {
 					require_once( $item_path  );
 				} else {
-					TOOLBAR_menus::_EDIT();
+					TOOLBAR_menus::_EDIT($type);
 				}
 			} else {
-				TOOLBAR_menus::_EDIT();
+				TOOLBAR_menus::_EDIT($type);
 			}
 		}
 		break;

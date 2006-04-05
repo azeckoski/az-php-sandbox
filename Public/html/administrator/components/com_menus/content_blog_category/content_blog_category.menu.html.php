@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: content_blog_category.menu.html.php,v 1.8 2005/02/15 12:21:07 kochp Exp $
+* @version $Id: content_blog_category.menu.html.php,v 1.1 2005/07/22 01:52:51 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

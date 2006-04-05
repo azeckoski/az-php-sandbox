@@ -1,26 +1,26 @@
 <?php
 /**
-* @version $Id: index2.php,v 1.4 2005/01/06 01:13:25 eddieajau Exp $
+* @version $Id: index2.php,v 1.8 2005/11/24 23:44:14 cauld Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
 * Mambo is Free Software
 */
 
+// fix to address the globals overwrite problem in php versions < 4.4.1
+$protect_globals = array('_REQUEST', '_GET', '_POST', '_COOKIE', '_FILES', '_SERVER', '_ENV', 'GLOBALS', '_SESSION');
+foreach ($protect_globals as $global) {
+    if ( in_array($global , array_keys($_REQUEST)) ||
+         in_array($global , array_keys($_GET))     ||
+         in_array($global , array_keys($_POST))    ||
+         in_array($global , array_keys($_COOKIE))  ||
+         in_array($global , array_keys($_FILES))) {
+        die("Invalid Request.");
+    }
+}
+
 /** Set flag that this is a parent file */
 define( "_VALID_MOS", 1 );
-
-$protects = array('_REQUEST', '_GET', '_POST', '_COOKIE', '_FILES', '_SERVER', '_ENV', 'GLOBALS', '_SESSION');
-
-foreach ($protects as $protect) {
-	if ( in_array($protect , array_keys($_REQUEST)) ||
-	     in_array($protect , array_keys($_GET)) ||
-	     in_array($protect , array_keys($_POST)) ||
-	     in_array($protect , array_keys($_COOKIE)) ||
-	     in_array($protect , array_keys($_FILES))) {
-	    die("Invalid Request.");
-	}
-}
 
 if (!file_exists( "../configuration.php" )) {
 	header( "Location: ../installation/index.php" );
@@ -42,8 +42,17 @@ if ($option == '') {
 	$option = 'com_admin';
 }
 // must start the session before we create the mainframe object
-session_name( 'mosadmin' );
+session_name( md5( $mosConfig_live_site ) );
 session_start();
+
+if ($option == 'simple_mode') {
+	
+	$_SESSION['simple_editing'] = 'on';
+}
+if ($option == 'advanced_mode') {
+
+	$_SESSION['simple_editing'] = 'off';
+}
 
 // mainframe is an API workhorse, lots of 'core' interaction routines
 $mainframe = new mosMainFrame( $database, $option, '..', true );
@@ -68,6 +77,16 @@ $my->gid = mosGetParam( $_SESSION, 'session_gid', '' );
 
 $session_id = mosGetParam( $_SESSION, 'session_id', '' );
 $logintime = mosGetParam( $_SESSION, 'session_logintime', '' );
+
+
+if(!isset($_SESSION['simple_editing'])){
+	$_SESSION['simple_editing'] ='off';
+}
+
+if(isset($_POST['simple_editing']) && ($_POST['simple_editing'] != ''))
+{
+	$_SESSION['simple_editing'] = $_POST['simple_editing'];
+}
 
 // check against db record of session
 if ($session_id == md5( $my->id.$my->username.$my->usertype.$logintime )) {

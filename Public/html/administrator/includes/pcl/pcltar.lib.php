@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: pcltar.lib.php,v 1.3 2004/12/24 03:26:24 eddieajau Exp $
+* @version $Id: pcltar.lib.php,v 1.1 2005/07/22 01:53:54 eddieajau Exp $
 * @package Mambo
 */
 

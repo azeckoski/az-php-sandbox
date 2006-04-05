@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.categories.php,v 1.21 2005/02/16 03:32:44 kochp Exp $
+* @version $Id: admin.categories.php,v 1.1 2005/07/22 01:52:06 eddieajau Exp $
 * @package Mambo
 * @subpackage Categories
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.typedcontent.html.php,v 1.24 2005/02/16 16:27:11 saka Exp $
+* @version $Id: admin.typedcontent.html.php,v 1.4 2005/10/21 17:33:55 lang3 Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -92,7 +92,7 @@ class HTML_typedcontent {
 		for ($i=0, $n=count( $rows ); $i < $n; $i++) {
 			$row = &$rows[$i];
 
-			$now = date( "Y-m-d h:i:s" );
+			$now = date( "Y-m-d H:i:s" );
 			if ( $now <= $row->publish_up && $row->state == "1" ) {
 				$img = 'publish_y.png';
 				$alt = 'Published';
@@ -309,8 +309,44 @@ class HTML_typedcontent {
 				submitform( pressbutton );
 			}
 		}
+		
+			// show / hide publishing information
+			function displayParameterInfo()
+			{
+				
+				if(document.getElementById('simpleediting').style.display == 'block')
+				{
+					document.getElementById('simpleediting').style.display = 'none';	
+					document.getElementById('show').style.display = 'block';	
+					document.getElementById('hide').style.display = 'none';
+					document.adminForm.simple_editing.value ='on';
+				}
+				else
+				{
+					document.getElementById('simpleediting').style.display = 'block';
+					document.getElementById('show').style.display = 'none';	
+					document.getElementById('hide').style.display = 'block';
+					document.adminForm.simple_editing.value ='off';
+				}
+				
+			}
 		</script>
-
+		<?php
+		if($_SESSION['simple_editing'] == 'on')
+		{
+			
+			$simpleediting ='none';
+			$simple = 'block';
+			$advanced = 'none';
+		}
+		else
+		{
+			$advanced = 'block';
+			$simple = 'none';
+			$simpleediting ='block';
+		}
+		
+		?>
 		<table class="adminheading">
 		<tr>
 			<th class="edit">
@@ -321,12 +357,24 @@ class HTML_typedcontent {
 			</th>
 		</tr>
 		</table>
-
+		<table width="100%">
+			<tr>
+				<td valign="top" align="right">
+				<div id = "show" style="display:<?php echo $simple;?>">
+				<a href="javascript:displayParameterInfo();">Show Advanced Details</a>
+				</div>
+				<div id = "hide" style="display:<?php echo $advanced;?>">
+				<a href="javascript:displayParameterInfo();">Hide Advanced Details</a>
+				</div>
+				</td>
+			</tr>
+		</table>
 		<form action="index2.php" method="post" name="adminForm">
-
+		<input type ="hidden" name="simple_editing" value=''>
+		
 		<table cellspacing="0" cellpadding="0" border="0" width="100%">
 		<tr>
-			<td width="60%" valign="top">
+			<td valign="top">
 				<table class="adminform">
 				<tr>
 					<th colspan="3">
@@ -360,7 +408,16 @@ class HTML_typedcontent {
 				</tr>
 				</table>
 			</td>
-			<td width="40%" valign="top">
+			
+			<td valign="top" align="right">
+			<div id="simpleediting" style="display:<?php echo $simpleediting;?>">
+			<table width="100%" >
+				<tr>
+					<td width="200">
+			
+						<table width="400">
+						<tr>
+							<td >
 				<?php
 				$tabs->startPane("content-pane");
 				$tabs->startTab("Publishing","publish-page");
@@ -730,10 +787,22 @@ class HTML_typedcontent {
 				$tabs->endTab();
 				$tabs->endPane();
 				?>
-		    </td>
-		</tr>
-		</table>
-
+		    	</td>
+						</tr>
+						
+						</table>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</td>
+					
+				</tr>
+			</table>
+			
+		</td>
+	</tr>
+</table>
 		<input type="hidden" name="images" value="" />
 		<input type="hidden" name="option" value="<?php echo $option; ?>" />
 		<input type="hidden" name="id" value="<?php echo $row->id; ?>" />

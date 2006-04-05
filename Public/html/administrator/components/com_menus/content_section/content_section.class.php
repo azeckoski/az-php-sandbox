@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: content_section.class.php,v 1.5 2005/01/17 06:33:16 stingrey Exp $
+* @version $Id: content_section.class.php,v 1.1 2005/07/22 01:53:05 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

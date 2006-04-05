@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.templates.class.php,v 1.4 2005/01/06 01:13:24 eddieajau Exp $
+* @version $Id: admin.templates.class.php,v 1.1 2005/07/22 01:53:29 eddieajau Exp $
 * @package Mambo
 * @subpackage Templates
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: cpanel.php,v 1.5 2005/02/13 02:41:39 stingrey Exp $
+* @version $Id: cpanel.php,v 1.1 2005/07/22 01:54:00 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL

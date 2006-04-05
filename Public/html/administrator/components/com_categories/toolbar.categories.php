@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.categories.php,v 1.6 2005/01/09 12:53:15 stingrey Exp $
+* @version $Id: toolbar.categories.php,v 1.1 2005/07/22 01:52:06 eddieajau Exp $
 * @package Mambo
 * @subpackage Categories
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

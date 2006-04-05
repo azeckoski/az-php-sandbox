@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: mod_logged.php,v 1.3 2005/02/16 08:48:39 stingrey Exp $
+* @version $Id: mod_logged.php,v 1.2 2005/07/22 03:30:09 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
@@ -10,19 +10,21 @@
 /** ensure this file is being included by a parent file */
 defined( '_VALID_MOS' ) or die( 'Direct Access to this location is not allowed.' );
 
+global $mosConfig_list_limit;
+
 require_once( $mosConfig_absolute_path .'/administrator/includes/pageNavigation.php' );
 
-$limit 			= $mainframe->getUserStateFromRequest( "viewlistlimit", 'limit', 10 );
+$limit 			= $mainframe->getUserStateFromRequest( "viewlistlimit", 'limit', $mosConfig_list_limit );
 $limitstart 	= $mainframe->getUserStateFromRequest( "view{$option}", 'limitstart', 0 );
 
 // hides Administrator or Super Administrator from list depending on usertype
 $and = '';
-if ( $my->usertype == 'Administrator' ) {
-	$and = "\n AND usertype != 'Super Administrator'";
+if ( $my->gid == 24 ) {
+	$and = "\n AND userid != '25'";
 }
-if ( $my->usertype == 'Manager' ) {
-	$and = "\n AND usertype != 'Super Administrator'";
-	$and .= "\n AND usertype != 'Administrator'";
+if ( $my->gid == 23 ) {
+	$and = "\n AND userid != '25'";
+	$and .= "\n AND userid != '24'";
 }
 
 // get the total number of records

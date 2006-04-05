@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.mambots.php,v 1.5 2005/01/12 07:57:46 stingrey Exp $
+* @version $Id: toolbar.mambots.php,v 1.1 2005/07/22 01:52:34 eddieajau Exp $
 * @package Mambo
 * @subpackage Mambots
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

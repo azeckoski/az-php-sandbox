@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.syndicate.php,v 1.4 2005/01/06 01:13:23 eddieajau Exp $
+* @version $Id: toolbar.syndicate.php,v 1.1 2005/07/22 01:53:28 eddieajau Exp $
 * @package Mambo
 * @subpackage Syndicate
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

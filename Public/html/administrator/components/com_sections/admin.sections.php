@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.sections.php,v 1.11 2005/02/15 14:09:22 kochp Exp $
+* @version $Id: admin.sections.php,v 1.1 2005/07/22 01:53:21 eddieajau Exp $
 * @package Mambo
 * @subpackage Sections
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -267,11 +267,11 @@ function saveSection( $option, $scope, $task ) {
 
 	$row = new mosSection( $database );
 	if (!$row->bind( $_POST )) {
-		echo "<script> alert('".$row->getErrorMsg()."'); window.history.go(-1); </script>\n";
+		echo "<script> alert('".$row->getError()."'); window.history.go(-1); </script>\n";
 		exit();
 	}
 	if (!$row->check()) {
-		echo "<script> alert('".$row->getErrorMsg()."'); window.history.go(-1); </script>\n";
+		echo "<script> alert('".$row->getError()."'); window.history.go(-1); </script>\n";
 		exit();
 	}
 	if ( $oldtitle ) {
@@ -282,7 +282,7 @@ function saveSection( $option, $scope, $task ) {
 	}
 
 	if (!$row->store()) {
-		echo "<script> alert('".$row->getErrorMsg()."'); window.history.go(-1); </script>\n";
+		echo "<script> alert('".$row->getError()."'); window.history.go(-1); </script>\n";
 		exit();
 	}
 	$row->checkin();

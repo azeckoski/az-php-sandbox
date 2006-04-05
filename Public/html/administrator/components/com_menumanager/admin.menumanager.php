@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.menumanager.php,v 1.11 2005/01/07 16:25:40 stingrey Exp $
+* @version $Id: admin.menumanager.php,v 1.1 2005/07/22 01:52:39 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.trash.php,v 1.4 2005/01/06 01:13:24 eddieajau Exp $
+* @version $Id: admin.trash.php,v 1.1 2005/07/22 01:53:32 eddieajau Exp $
 * @package Mambo
 * @subpackage Trash
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -106,10 +106,10 @@ function viewTrash( $option ) {
 	$database->setQuery( $query );
 	$menus = $database->loadObjectList();
 
-	for ( $i = 0; $i < $total_content; $i++ ) {
-		if ( ( $contents[$i]->sectionid == 0 ) && ( $contents[$i]->catid == 0 ) ) {
-			$contents[$i]->sectname = 'Typed Content';
-		}
+	foreach ( $contents as $i=>$content) {
+	    if ( ( $content->sectionid == 0 ) AND ( $content->catid == 0 ) ) {
+	        $contents[$i]->sectname = 'Typed Content';
+	    }
 	}
 
 	HTML_trash::showList( $option, $contents, $menus, $pageNav_content, $pageNav_menu );

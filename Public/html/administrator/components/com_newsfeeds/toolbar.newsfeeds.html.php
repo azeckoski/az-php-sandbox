@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.newsfeeds.html.php,v 1.9 2005/02/16 13:55:33 stingrey Exp $
+* @version $Id: toolbar.newsfeeds.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Newsfeeds
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -28,7 +28,7 @@ class TOOLBAR_newsfeeds  {
 		mosMenuBar::spacer();
 		mosMenuBar::deleteList();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.newsfeeds' );
+		mosMenuBar::help( '453.screen.newsfeeds.main' );
 		mosMenuBar::endTable();
 	}
 
@@ -38,7 +38,7 @@ class TOOLBAR_newsfeeds  {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.newsfeeds.edit' );
+		mosMenuBar::help( '453.screen.newsfeeds.edit' );
 		mosMenuBar::endTable();
 	}
 
@@ -55,7 +55,7 @@ class TOOLBAR_newsfeeds  {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.newsfeeds.edit' );
+		mosMenuBar::help( '453.screen.newsfeeds.edit' );
 		mosMenuBar::endTable();
 	}
 }

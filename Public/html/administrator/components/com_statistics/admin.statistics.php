@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.statistics.php,v 1.4 2005/01/06 01:13:23 eddieajau Exp $
+* @version $Id: admin.statistics.php,v 1.1 2005/07/22 01:53:22 eddieajau Exp $
 * @package Mambo
 * @subpackage Statistics
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

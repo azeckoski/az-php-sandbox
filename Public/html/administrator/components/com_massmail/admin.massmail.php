@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.massmail.php,v 1.5 2005/01/11 06:42:28 stingrey Exp $
+* @version $Id: admin.massmail.php,v 1.1 2005/07/22 01:52:35 eddieajau Exp $
 * @package Mambo
 * @subpackage Massmail
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

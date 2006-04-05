@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: template.class.php,v 1.6 2005/01/23 03:24:15 kochp Exp $
+* @version $Id: template.class.php,v 1.1 2005/07/22 01:52:34 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @subpackage Installer

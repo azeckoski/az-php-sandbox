@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.frontpage.html.php,v 1.15 2005/02/16 16:27:10 saka Exp $
+* @version $Id: admin.frontpage.html.php,v 1.3 2005/10/21 17:33:55 lang3 Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -97,7 +97,7 @@ class HTML_content {
 			$row->sect_link = 'index2.php?option=com_sections&task=editA&hidemainmenu=1&id='. $row->sectionid;
 			$row->cat_link 	= 'index2.php?option=com_categories&task=editA&hidemainmenu=1&id='. $row->catid;
 
-			$now = date( "Y-m-d h:i:s" );
+			$now = date( "Y-m-d H:i:s" );
 			if ( $now <= $row->publish_up && $row->state == "1" ) {
 				$img = 'publish_y.png';
 				$alt = 'Published';

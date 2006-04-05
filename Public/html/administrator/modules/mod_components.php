@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: mod_components.php,v 1.6 2005/01/24 15:31:55 kochp Exp $
+* @version $Id: mod_components.php,v 1.1 2005/07/22 01:53:55 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL

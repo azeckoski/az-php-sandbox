@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.users.html.php,v 1.10 2005/02/16 13:55:35 stingrey Exp $
+* @version $Id: toolbar.users.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Users
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -34,7 +34,7 @@ class TOOLBAR_users {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.users.edit' );
+		mosMenuBar::help( '453.screen.users.edit' );
 		mosMenuBar::endTable();
 	}
 
@@ -48,7 +48,7 @@ class TOOLBAR_users {
 		mosMenuBar::spacer();
 		mosMenuBar::custom( 'logout', 'cancel.png', 'cancel_f2.png', '&nbsp;Force Logout' );
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.users' );
+		mosMenuBar::help( '453.screen.users.main' );
 		mosMenuBar::endTable();
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.content.html.php,v 1.11 2005/02/16 13:08:47 stingrey Exp $
+* @version $Id: toolbar.content.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -32,7 +32,7 @@ class TOOLBAR_content {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.content.edit' );
+		mosMenuBar::help( '453.screen.content.edit' );
 		mosMenuBar::endTable();
 	}
 
@@ -42,7 +42,7 @@ class TOOLBAR_content {
 		mosMenuBar::spacer();
 		mosMenuBar::custom( 'remove', 'delete.png', 'delete_f2.png', 'Trash', false );
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.content.archive' );
+		mosMenuBar::help( '453.screen.content.archive' );
 		mosMenuBar::endTable();
 	}
 
@@ -51,6 +51,8 @@ class TOOLBAR_content {
 		mosMenuBar::custom( 'movesectsave', 'save.png', 'save_f2.png', 'Save', false );
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
+		mosMenuBar::spacer();
+		mosMenuBar::help( '453.screen.content.copymove' );
 		mosMenuBar::endTable();
 	}
 
@@ -59,6 +61,8 @@ class TOOLBAR_content {
 		mosMenuBar::custom( 'copysave', 'save.png', 'save_f2.png', 'Save', false );
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
+		mosMenuBar::spacer();
+		mosMenuBar::help( '453.screen.content.copymove' );
 		mosMenuBar::endTable();
 	}
 
@@ -80,7 +84,7 @@ class TOOLBAR_content {
 		mosMenuBar::spacer();
 		mosMenuBar::trash();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.content' );
+		mosMenuBar::help( '453.screen.content.main' );
 		mosMenuBar::endTable();
 	}
 }

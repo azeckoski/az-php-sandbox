@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: component_item_link.menu.php,v 1.6 2005/01/14 08:03:43 stingrey Exp $
+* @version $Id: component_item_link.menu.php,v 1.1 2005/07/22 01:52:45 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

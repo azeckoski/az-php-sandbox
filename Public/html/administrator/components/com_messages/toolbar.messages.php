@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.messages.php,v 1.5 2005/02/15 15:58:13 kochp Exp $
+* @version $Id: toolbar.messages.php,v 1.1 2005/07/22 01:53:17 eddieajau Exp $
 * @package Mambo
 * @subpackage Messages
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

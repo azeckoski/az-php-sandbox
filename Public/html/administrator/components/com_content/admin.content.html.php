@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.content.html.php,v 1.36 2005/02/16 16:27:09 saka Exp $
+* @version $Id: admin.content.html.php,v 1.6 2005/11/23 23:46:48 counterpoint Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -130,7 +130,7 @@ class HTML_content {
 			$row->sect_link = 'index2.php?option=com_sections&task=editA&hidemainmenu=1&id='. $row->sectionid;
 			$row->cat_link 	= 'index2.php?option=com_categories&task=editA&hidemainmenu=1&id='. $row->catid;
 
-			$now = date( "Y-m-d h:i:s" );
+			$now = date( "Y-m-d H:i:s" );
 			if ( $now <= $row->publish_up && $row->state == "1" ) {
 				$img = 'publish_y.png';
 				$alt = 'Published';
@@ -489,6 +489,7 @@ class HTML_content {
 				echo "folderimages[".$i++."] = new Array( '$k','".addslashes( $v->value )."','".addslashes( $v->text )."' );\n\t\t";
 			}
 		}
+		
 		?>
 
 		function submitbutton(pressbutton) {
@@ -530,9 +531,48 @@ class HTML_content {
 				submitform( pressbutton );
 			}
 		}
+		
+			// show / hide publishing information
+			function displayParameterInfo()
+			{
+				
+				if(document.getElementById('simpleediting').style.display == 'block')
+				{
+					document.getElementById('simpleediting').style.display = 'none';	
+					document.getElementById('show').style.display = 'block';	
+					document.getElementById('hide').style.display = 'none';
+					document.adminForm.simple_editing.value ='on';
+				}
+				else
+				{
+					document.getElementById('simpleediting').style.display = 'block';
+					document.getElementById('show').style.display = 'none';	
+					document.getElementById('hide').style.display = 'block';
+					document.adminForm.simple_editing.value ='off';
+				}
+				
+			}
 		//-->
 		</script>
+		
+		<?php
+		if($_SESSION['simple_editing'] == 'on')
+		{
+			$simpleediting ='none';
+			$simple = 'block';
+			$advanced = 'none';
+		}
+		else
+		{
+			
+			$advanced = 'block';
+			$simple = 'none';
+			$simpleediting ='block';
+		}
+		
+		?>
 		<form action="index2.php" method="post" name="adminForm">
+		<input type ="hidden" name="simple_editing" value=''>
 		<table class="adminheading" border="1">
 		<tr>
 			<th class="edit">
@@ -549,18 +589,31 @@ class HTML_content {
 				<?php
 			}
 			?>
+			
 			</th>
 		</tr>
 		</table>
-
-		<table cellspacing="0" cellpadding="0" width="100%">
+		<table width="100%">
+			<tr>
+				<td valign="top" align="right">
+				<div id = "show" style="display:<?php echo $simple;?>">
+				<a href="javascript:displayParameterInfo();">Show Advanced Details</a>
+				</div>
+				<div id = "hide" style="display:<?php echo $advanced;?>">
+				<a href="javascript:displayParameterInfo();">Hide Advanced Details</a>
+				</div>
+				</td>
+			</tr>
+		</table>
+		<table cellspacing="0" cellpadding="0" width="100%" >
 		<tr>
-			<td width="60%" valign="top">
+			<td valign="top">
+			
 				<table width="100%" class="adminform">
 				<tr>
-					<td width="100%">
+					<td width="500">
 						<table cellspacing="0" cellpadding="0" border="0" width="100%">
-						<tr>
+						<tr >
 							<th colspan="4">
 							Item Details
 							</th>
@@ -596,6 +649,7 @@ class HTML_content {
 						</table>
 					</td>
 				</tr>
+			
 				<tr>
 					<td width="100%">
 					Intro Text: (required)
@@ -614,406 +668,421 @@ class HTML_content {
 				</tr>
 				</table>
 			</td>
-			<td valign="top" width="40%">
-				<table>
+			<td valign="top" align="right">
+			<div id="simpleediting" style="display:<?php echo $simpleediting;?>">
+			<table width="100%" >
 				<tr>
-					<td>
-					<?php
-					$tabs->startPane("content-pane");
-					$tabs->startTab("Publishing","publish-page");
-					?>
-					<table class="adminform">
-					<tr>
-						<th colspan="2">
-						Publishing Info
-						</th>
-					<tr>
-					<tr>
-						<td valign="top" align="right">
-						Show on Frontpage:
-						</td>
-						<td>
-						<input type="checkbox" name="frontpage" value="1" <?php echo $row->frontpage ? 'checked="checked"' : ''; ?> />
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						Published:
-						</td>
-						<td>
-						<input type="checkbox" name="published" value="1" <?php echo $row->state ? 'checked="checked"' : ''; ?> />
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						Access Level:
-						</td>
-						<td>
-						<?php echo $lists['access']; ?> </td>
-						</tr>
-					<tr>
-						<td valign="top" align="right">
-						Author Alias:
-						</td>
-						<td>
-						<input type="text" name="created_by_alias" size="30" maxlength="100" value="<?php echo $row->created_by_alias; ?>" class="text_area" />
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						Change Creator:
-						</td>
-						<td>
-						<?php echo $lists['created_by']; ?> </td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">Ordering:</td>
-						<td>
-						<?php echo $lists['ordering']; ?> </td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						Override Created Date
-						</td>
-						<td>
-						<input class="text_area" type="text" name="created" id="created" size="25" maxlength="19" value="<?php echo $row->created; ?>" />
-						<input name="reset" type="reset" class="button" onClick="return showCalendar('created', 'y-mm-dd');" value="...">
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						Start Publishing:
-						</td>
-						<td>
-						<input class="text_area" type="text" name="publish_up" id="publish_up" size="25" maxlength="19" value="<?php echo $row->publish_up; ?>" />
-						<input type="reset" class="button" value="..." onClick="return showCalendar('publish_up', 'y-mm-dd');">
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						Finish Publishing:
-						</td>
-						<td>
-						<input class="text_area" type="text" name="publish_down" id="publish_down" size="25" maxlength="19" value="<?php echo $row->publish_down; ?>" />
-						<input type="reset" class="button" value="..." onClick="return showCalendar('publish_down', 'y-mm-dd');">
-						</td>
-					</tr>
-					</table>
-					<br />
-					<table class="adminform">
-					<?php
-					if ( $row->id ) {
-						?>
+					<td width="200">
+			
+						<table width="400">
 						<tr>
-							<td>
-							<strong>Content ID:</strong>
-							</td>
-							<td>
-							<?php echo $row->id; ?>
-							</td>
-						</tr>
-						<?php
-					}
-					?>
-					<tr>
-						<td width="90px" valign="top" align="right">
-						<strong>State:</strong>
-						</td>
-						<td>
-						<?php echo $row->state > 0 ? 'Published' : ($row->state < 0 ? 'Archived' : 'Draft Unpublished');?>
-						</td>
-					</tr>
-					<tr >
-						<td valign="top" align="right">
-						<strong>
-						Hits
-						</strong>:
-						</td>
-						<td>
-						<?php echo $row->hits;?>
-						<div <?php echo $visibility; ?>>
-						<input name="reset_hits" type="button" class="button" value="Reset Hit Count" onClick="submitbutton('resethits');">
-						</div>
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						<strong>
-						Revised
-						</strong>:
-						</td>
-						<td>
-						<?php echo $row->version;?> times
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						<strong>
-						Created
-						</strong>
-						</td>
-						<td>
-						<?php echo $row->created ? "$create_date</td></tr><tr><td valign='top' align='right'><strong>By</strong></td><td>$row->creator" : "New document"; ?>
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" align="right">
-						<strong>
-						Last Modified
-						</strong>
-						</td>
-						<td>
-						<?php echo $row->modified ? "$mod_date</td></tr><tr><td valign='top' align='right'><strong>By</strong></td><td>$row->modifier" : "Not modified";?>
-						</td>
-					</tr>
-					</table>
-					<?php
-					$tabs->endTab();
-					$tabs->startTab("Images","images-page");
-					?>
-					<table class="adminform" width="100%">
-					<tr>
-						<th colspan="2">
-						MOSImage Control
-						</th>
-					<tr>
-					<tr>
-						<td colspan="6">Sub-folder: <?php echo $lists['folders'];?></td>
-					</tr>
-					<tr>
-						<td>
-						Gallery Images:
-						<br />
-						<?php echo $lists['imagefiles'];?>
-						</td>
-						<td valign="top">
-						<img name="view_imagefiles" src="../images/M_images/blank.png" width="100" />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<input class="button" type="button" value="Add" onClick="addSelectedToList('adminForm','imagefiles','imagelist')" />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						Content Images:
-						<br />
-						<?php echo $lists['imagelist'];?>
-						</td>
-						<td valign="top">
-						<img name="view_imagelist" src="../images/M_images/blank.png" width="100" />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<input class="button" type="button" value="up" onClick="moveInList('adminForm','imagelist',adminForm.imagelist.selectedIndex,-1)" />
-						<input class="button" type="button" value="down" onClick="moveInList('adminForm','imagelist',adminForm.imagelist.selectedIndex,+1)" />
-						<input class="button" type="button" value="remove" onClick="delSelectedFromList('adminForm','imagelist')" />
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							Edit the image selected:
-							<table>
+							<td >
+							<?php
+							$tabs->startPane("content-pane");
+							$tabs->startTab("Publishing","publish-page");
+							?>
+							<table class="adminform">
 							<tr>
-								<td align="right">
-								Source:
+								<th colspan="2">
+								Publishing Info
+								</th>
+							<tr>
+							<tr>
+								<td valign="top" align="right">
+								Show on Frontpage:
 								</td>
 								<td>
-								<input class="text_area" type="text" name= "_source" value="" />
+								<input type="checkbox" name="frontpage" value="1" <?php echo $row->frontpage ? 'checked="checked"' : ''; ?> />
 								</td>
 							</tr>
 							<tr>
-								<td align="right">
-								Image Align:
+								<td valign="top" align="right">
+								Published:
 								</td>
 								<td>
-								<?php echo $lists['_align']; ?>
+								<input type="checkbox" name="published" value="1" <?php echo $row->state ? 'checked="checked"' : ''; ?> />
 								</td>
 							</tr>
 							<tr>
-								<td align="right">
-								Alt Text:
+								<td valign="top" align="right">
+								Access Level:
 								</td>
 								<td>
-								<input class="text_area" type="text" name="_alt" value="" />
+								<?php echo $lists['access']; ?> </td>
+								</tr>
+							<tr>
+								<td valign="top" align="right">
+								Author Alias:
+								</td>
+								<td>
+								<input type="text" name="created_by_alias" size="30" maxlength="100" value="<?php echo $row->created_by_alias; ?>" class="text_area" />
 								</td>
 							</tr>
 							<tr>
-								<td align="right">
-								Border:
+								<td valign="top" align="right">
+								Change Creator:
 								</td>
 								<td>
-								<input class="text_area" type="text" name="_border" value="" size="3" maxlength="1" />
+								<?php echo $lists['created_by']; ?> </td>
+							</tr>
+							<tr>
+								<td valign="top" align="right">Ordering:</td>
+								<td>
+								<?php echo $lists['ordering']; ?> </td>
+							</tr>
+							<tr>
+								<td valign="top" align="right">
+								Override Created Date
+								</td>
+								<td>
+								<input class="text_area" type="text" name="created" id="created" size="25" maxlength="19" value="<?php echo $row->created; ?>" />
+								<input name="reset" type="reset" class="button" onClick="return showCalendar('created', 'y-mm-dd');" value="...">
 								</td>
 							</tr>
 							<tr>
-								<td align="right">
-								Caption:
+								<td valign="top" align="right">
+								Start Publishing:
 								</td>
 								<td>
-								<input class="text_area" type="text" name="_caption" value="" size="30" />
+								<input class="text_area" type="text" name="publish_up" id="publish_up" size="25" maxlength="19" value="<?php echo $row->publish_up; ?>" />
+								<input type="reset" class="button" value="..." onClick="return showCalendar('publish_up', 'y-mm-dd');">
 								</td>
 							</tr>
 							<tr>
-								<td align="right">
-								Caption Position:
+								<td valign="top" align="right">
+								Finish Publishing:
 								</td>
 								<td>
-								<?php echo $lists['_caption_position']; ?>
+								<input class="text_area" type="text" name="publish_down" id="publish_down" size="25" maxlength="19" value="<?php echo $row->publish_down; ?>" />
+								<input type="reset" class="button" value="..." onClick="return showCalendar('publish_down', 'y-mm-dd');">
+								</td>
+							</tr>
+							</table>
+							<br />
+							<table class="adminform">
+							<?php
+							if ( $row->id ) {
+								?>
+								<tr>
+									<td>
+									<strong>Content ID:</strong>
+									</td>
+									<td>
+									<?php echo $row->id; ?>
+									</td>
+								</tr>
+								<?php
+							}
+							?>
+							<tr>
+								<td width="90px" valign="top" align="right">
+								<strong>State:</strong>
+								</td>
+								<td>
+								<?php echo $row->state > 0 ? 'Published' : ($row->state < 0 ? 'Archived' : 'Draft Unpublished');?>
+								</td>
+							</tr>
+							<tr >
+								<td valign="top" align="right">
+								<strong>
+								Hits
+								</strong>:
+								</td>
+								<td>
+								<?php echo $row->hits;?>
+								<div <?php echo $visibility; ?>>
+								<input name="reset_hits" type="button" class="button" value="Reset Hit Count" onClick="submitbutton('resethits');">
+								</div>
 								</td>
 							</tr>
 							<tr>
-								<td align="right">
-								Caption Align:
+								<td valign="top" align="right">
+								<strong>
+								Revised
+								</strong>:
 								</td>
 								<td>
-								<?php echo $lists['_caption_align']; ?>
+								<?php echo $row->version;?> times
 								</td>
 							</tr>
 							<tr>
-								<td align="right">
-								Width:
+								<td valign="top" align="right">
+								<strong>
+								Created
+								</strong>
 								</td>
 								<td>
-								<input class="text_area" type="text" name="_width" value="" size="5" maxlength="5" />
+								<?php echo $row->created ? "$create_date</td></tr><tr><td valign='top' align='right'><strong>By</strong></td><td>$row->creator" : "New document"; ?>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" align="right">
+								<strong>
+								Last Modified
+								</strong>
+								</td>
+								<td>
+								<?php echo $row->modified ? "$mod_date</td></tr><tr><td valign='top' align='right'><strong>By</strong></td><td>$row->modifier" : "Not modified";?>
+								</td>
+							</tr>
+							</table>
+							<?php
+							$tabs->endTab();
+							$tabs->startTab("Images","images-page");
+							?>
+							<table class="adminform" width="100%">
+							<tr>
+								<th colspan="2">
+								MOSImage Control
+								</th>
+							</tr>
+							<tr>
+								<td colspan="6">Sub-folder: <?php echo $lists['folders'];?></td>
+							</tr>
+							<tr>
+								<td>
+								Gallery Images:
+								<br />
+								<?php echo $lists['imagefiles'];?>
+								</td>
+								<td valign="top">
+								<img name="view_imagefiles" src="../images/M_images/blank.png" width="100" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+								<input class="button" type="button" value="Add" onClick="addSelectedToList('adminForm','imagefiles','imagelist')" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+								Content Images:
+								<br />
+								<?php echo $lists['imagelist'];?>
+								</td>
+								<td valign="top">
+								<img name="view_imagelist" src="../images/M_images/blank.png" width="100" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+								<input class="button" type="button" value="up" onClick="moveInList('adminForm','imagelist',adminForm.imagelist.selectedIndex,-1)" />
+								<input class="button" type="button" value="down" onClick="moveInList('adminForm','imagelist',adminForm.imagelist.selectedIndex,+1)" />
+								<input class="button" type="button" value="remove" onClick="delSelectedFromList('adminForm','imagelist')" />
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2">
-								<input class="button" type="button" value="Apply" onClick="applyImageProps()" />
+									Edit the image selected:
+									<table>
+									<tr>
+										<td align="right">
+										Source:
+										</td>
+										<td>
+										<input class="text_area" type="text" name= "_source" value="" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right">
+										Image Align:
+										</td>
+										<td>
+										<?php echo $lists['_align']; ?>
+										</td>
+									</tr>
+									<tr>
+										<td align="right">
+										Alt Text:
+										</td>
+										<td>
+										<input class="text_area" type="text" name="_alt" value="" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right">
+										Border:
+										</td>
+										<td>
+										<input class="text_area" type="text" name="_border" value="" size="3" maxlength="1" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right">
+										Caption:
+										</td>
+										<td>
+										<input class="text_area" type="text" name="_caption" value="" size="30" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right">
+										Caption Position:
+										</td>
+										<td>
+										<?php echo $lists['_caption_position']; ?>
+										</td>
+									</tr>
+									<tr>
+										<td align="right">
+										Caption Align:
+										</td>
+										<td>
+										<?php echo $lists['_caption_align']; ?>
+										</td>
+									</tr>
+									<tr>
+										<td align="right">
+										Width:
+										</td>
+										<td>
+										<input class="text_area" type="text" name="_width" value="" size="5" maxlength="5" />
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+										<input class="button" type="button" value="Apply" onClick="applyImageProps()" />
+										</td>
+									</tr>
+									</table>
 								</td>
 							</tr>
 							</table>
-						</td>
-					</tr>
-					</table>
-					<?php
-					$tabs->endTab();
-					$tabs->startTab("Parameters","params-page");
-					?>
-					<table class="adminform">
-					<tr>
-						<th colspan="2">
-						Parameter Control
-						</th>
-					<tr>
-					<tr>
-						<td>
-						* These Parameters only control what you see when you click to view an item fully *
-						<br /><br />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<?php echo $params->render();?>
-						</td>
-					</tr>
-					</table>
-					<?php
-					$tabs->endTab();
-					$tabs->startTab("Meta Info","metadata-page");
-					?>
-					<table class="adminform">
-					<tr>
-						<th colspan="2">
-						Meta Data
-						</th>
-					<tr>
-					<tr>
-						<td>
-						Description:
-						<br />
-						<textarea class="text_area" cols="30" rows="3" style="width:300px; height:50px" name="metadesc" width="500"><?php echo str_replace('&','&amp;',$row->metadesc); ?></textarea>
-						</td>
-					</tr>
-						<tr>
-						<td>
-						Keywords:
-						<br />
-						<textarea class="text_area" cols="30" rows="3" style="width:300px; height:50px" name="metakey" width="500"><?php echo str_replace('&','&amp;',$row->metakey); ?></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<input type="button" class="button" value="Add Sect/Cat/Title" onClick="f=document.adminForm;f.metakey.value=document.adminForm.sectionid.options[document.adminForm.sectionid.selectedIndex].text+', '+getSelectedText('adminForm','catid')+', '+f.title.value+f.metakey.value;" />
-						</td>
-					</tr>
-					</table>
-					<?php
-					$tabs->endTab();
-					$tabs->startTab("Link to Menu","link-page");
-					?>
-					<table class="adminform">
-					<tr>
-						<th colspan="2">
-						Link to Menu
-						</th>
-					<tr>
-					<tr>
-						<td colspan="2">
-						This will create a 'Link - Content Item' in the menu you select
-						<br /><br />
-						</td>
-					<tr>
-					<tr>
-						<td valign="top" width="90px">
-						Select a Menu
-						</td>
-						<td>
-						<?php echo $lists['menuselect']; ?>
-						</td>
-					<tr>
-					<tr>
-						<td valign="top" width="90px">
-						Menu Item Name
-						</td>
-						<td>
-						<input type="text" name="link_name" class="inputbox" value="" size="30" />
-						</td>
-					<tr>
-					<tr>
-						<td>
-						</td>
-						<td>
-						<input name="menu_link" type="button" class="button" value="Link to Menu" onClick="submitbutton('menulink');" />
-						</td>
-					<tr>
-					<tr>
-						<th colspan="2">
-						Existing Menu Links
-						</th>
-					</tr>
-					<?php
-					if ( $menus == NULL ) {
-						?>
-						<tr>
-							<td colspan="2">
-							None
+							<?php
+							$tabs->endTab();
+							$tabs->startTab("Parameters","params-page");
+							?>
+							<table class="adminform">
+							<tr>
+								<th colspan="2">
+								Parameter Control
+								</th>
+							<tr>
+							<tr>
+								<td>
+								* These Parameters only control what you see when you click to view an item fully *
+								<br /><br />
+								</td>
+							</tr>
+							<tr>
+								<td>
+								<?php echo $params->render();?>
+								</td>
+							</tr>
+							</table>
+							<?php
+							$tabs->endTab();
+							$tabs->startTab("Meta Info","metadata-page");
+							?>
+							<table class="adminform">
+							<tr>
+								<th colspan="2">
+								Meta Data
+								</th>
+							</tr>
+							<tr>
+								<td>
+								Description:
+								<br />
+								<textarea class="text_area" cols="30" rows="3" style="width:300px; height:50px" name="metadesc" width="500"><?php echo str_replace('&','&amp;',$row->metadesc); ?></textarea>
+								</td>
+							</tr>
+								<tr>
+								<td>
+								Keywords:
+								<br />
+								<textarea class="text_area" cols="30" rows="3" style="width:300px; height:50px" name="metakey" width="500"><?php echo str_replace('&','&amp;',$row->metakey); ?></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td>
+								<input type="button" class="button" value="Add Sect/Cat/Title" onClick="f=document.adminForm;f.metakey.value=document.adminForm.sectionid.options[document.adminForm.sectionid.selectedIndex].text+', '+getSelectedText('adminForm','catid')+', '+f.title.value+f.metakey.value;" />
+								</td>
+							</tr>
+							</table>
+							<?php
+							$tabs->endTab();
+							$tabs->startTab("Link to Menu","link-page");
+							?>
+							<table class="adminform">
+							<tr>
+								<th colspan="2">
+								Link to Menu
+								</th>
+							</tr>
+							<tr>
+								<td colspan="2">
+								This will create a 'Link - Content Item' in the menu you select
+								<br /><br />
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" width="90px">
+								Select a Menu
+								</td>
+								<td>
+								<?php echo $lists['menuselect']; ?>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" width="90px">
+								Menu Item Name
+								</td>
+								<td>
+								<input type="text" name="link_name" class="inputbox" value="" size="30" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+								</td>
+								<td>
+								<input name="menu_link" type="button" class="button" value="Link to Menu" onClick="submitbutton('menulink');" />
+								</td>
+							</tr>
+							<tr>
+								<th colspan="2">
+								Existing Menu Links
+								</th>
+							</tr>
+							<?php
+							if ( $menus == NULL ) {
+								?>
+								<tr>
+									<td colspan="2">
+									None
+									</td>
+								</tr>
+								<?php
+							} else {
+								mosCommonHTML::menuLinksContent( $menus );
+							}
+							?>
+							<tr>
+								<td colspan="2">
+								</td>
+							</tr>
+							</table>
+							<?php
+							$tabs->endTab();
+							$tabs->endPane();
+							?>
 							</td>
 						</tr>
-						<?php
-					} else {
-						mosCommonHTML::menuLinksContent( $menus );
-					}
-					?>
-					<tr>
-						<td colspan="2">
-						</td>
+						
+						</table>
+					</td>
 					</tr>
 					</table>
-					<?php
-					$tabs->endTab();
-					$tabs->endPane();
-					?>
+					</div>
 					</td>
+					
 				</tr>
-				</table>
-			</td>
-		</tr>
-		</table>
-
+			</table>
+			
+		</td>
+	</tr>
+</table>
+		
 		<input type="hidden" name="id" value="<?php echo $row->id; ?>" />
 		<input type="hidden" name="version" value="<?php echo $row->version; ?>" />
 		<input type="hidden" name="mask" value="0" />

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.trash.html.php,v 1.6 2005/02/16 05:14:55 kochp Exp $
+* @version $Id: toolbar.trash.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Trash
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -22,7 +22,7 @@ class TOOLBAR_Trash {
 		mosMenuBar::spacer();
 		mosMenuBar::custom('deleteconfirm','delete.png','delete_f2.png','Delete', true);
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.trashmanager' );
+		mosMenuBar::help( '453.screen.trashmanager' );
 		mosMenuBar::endTable();
 	}
 

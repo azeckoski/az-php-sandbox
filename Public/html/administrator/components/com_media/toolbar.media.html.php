@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.media.html.php,v 1.6 2005/02/16 05:14:52 kochp Exp $
+* @version $Id: toolbar.media.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Massmail
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -26,7 +26,7 @@ class TOOLBAR_media {
 		mosMenuBar::spacer();
 		mosMenuBar::custom('newdir','new.png','new_f2.png','Create' ,false);
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.mediamanager' );
+		mosMenuBar::help( '453.screen.mediamanager' );
 		mosMenuBar::endTable();
 	}
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.menumanager.php,v 1.4 2005/01/06 01:13:19 eddieajau Exp $
+* @version $Id: toolbar.menumanager.php,v 1.1 2005/07/22 01:52:39 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

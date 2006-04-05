@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.checkin.html.php,v 1.5 2005/02/11 01:20:41 levis Exp $
+* @version $Id: toolbar.checkin.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Checkin
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -18,7 +18,7 @@ class TOOLBAR_checkin {
 	*/
 	function _DEFAULT() {
 		mosMenuBar::startTable();
-		mosMenuBar::help( 'screen.checkin' );
+		mosMenuBar::help( '453.screen.checkin' );
 		mosMenuBar::endTable();
 	}
 }

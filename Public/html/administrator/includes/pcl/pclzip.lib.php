@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: pclzip.lib.php,v 1.3 2004/12/24 03:26:24 eddieajau Exp $
+* @version $Id: pclzip.lib.php,v 1.1 2005/07/22 01:53:54 eddieajau Exp $
 * @package Mambo
 */
 
@@ -30,7 +30,7 @@ defined( '_VALID_MOS' ) or die( 'Direct Access to this location is not allowed.'
 //   The use of this software is at the risk of the user.
 //
 // --------------------------------------------------------------------------------
-// $Id: pclzip.lib.php,v 1.3 2004/12/24 03:26:24 eddieajau Exp $
+// $Id: pclzip.lib.php,v 1.1 2005/07/22 01:53:54 eddieajau Exp $
 // --------------------------------------------------------------------------------
 
   // ----- Constants

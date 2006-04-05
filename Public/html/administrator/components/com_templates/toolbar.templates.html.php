@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.templates.html.php,v 1.10 2005/02/16 05:14:55 kochp Exp $
+* @version $Id: toolbar.templates.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Templates
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -35,7 +35,7 @@ class TOOLBAR_templates {
 		mosMenuBar::spacer();
 		mosMenuBar::deleteList();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.templates' );
+		mosMenuBar::help( '453.screen.templates.main' );
 		mosMenuBar::endTable();
 	}
  	function _VIEW(){
@@ -49,6 +49,8 @@ class TOOLBAR_templates {
 		mosMenuBar::save( 'save_source' );
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
+		mosMenuBar::spacer();
+		mosMenuBar::help( '453.screen.templates.edithtml' );
 		mosMenuBar::endTable();
 	}
 
@@ -57,6 +59,8 @@ class TOOLBAR_templates {
 		mosMenuBar::save( 'save_css' );
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
+		mosMenuBar::spacer();
+		mosMenuBar::help( '453.screen.templates.editcss' );
 		mosMenuBar::endTable();
 	}
 
@@ -66,7 +70,7 @@ class TOOLBAR_templates {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.templates.assign' );
+		mosMenuBar::help( '453.screen.templates.assign' );
 		mosMenuBar::endTable();
 	}
 
@@ -76,7 +80,7 @@ class TOOLBAR_templates {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.templates.modules' );
+		mosMenuBar::help( '453.screen.templates.modules' );
 		mosMenuBar::endTable();
 	}
 }

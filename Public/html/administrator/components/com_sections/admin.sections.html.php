@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.sections.html.php,v 1.17 2005/02/16 16:27:11 saka Exp $
+* @version $Id: admin.sections.html.php,v 1.4 2005/10/21 17:33:55 lang3 Exp $
 * @package Mambo
 * @subpackage Sections
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -208,9 +208,45 @@ class sections_html {
 				submitform(pressbutton);
 			}
 		}
+		// show / hide publishing information
+			function displayParameterInfo()
+			{
+				
+				if(document.getElementById('simpleediting').style.display == 'block')
+				{
+					document.getElementById('simpleediting').style.display = 'none';	
+					document.getElementById('show').style.display = 'block';	
+					document.getElementById('hide').style.display = 'none';
+					document.adminForm.simple_editing.value ='on';
+				}
+				else
+				{
+					document.getElementById('simpleediting').style.display = 'block';
+					document.getElementById('show').style.display = 'none';	
+					document.getElementById('hide').style.display = 'block';
+					document.adminForm.simple_editing.value ='off';
+				}
+				
+			}
 		</script>
-
+		<?php
+		if($_SESSION['simple_editing'] == 'on')
+		{
+			$simpleediting ='none';
+			$simple = 'block';
+			$advanced = 'none';
+		}
+		else
+		{
+			
+			$advanced = 'block';
+			$simple = 'none';
+			$simpleediting ='block';
+		}
+		
+		?>
 		<form action="index2.php" method="post" name="adminForm">
+		<input type ="hidden" name="simple_editing" value=''>
 		<table class="adminheading">
 		<tr>
 			<th class="sections">
@@ -224,10 +260,21 @@ class sections_html {
 			</th>
 		</tr>
 		</table>
-
+		<table width="100%">
+			<tr>
+				<td valign="top" align="right">
+				<div id = "show" style="display:<?php echo $simple;?>">
+				<a href="javascript:displayParameterInfo();">Show Advanced Details</a>
+				</div>
+				<div id = "hide" style="display:<?php echo $advanced;?>">
+				<a href="javascript:displayParameterInfo();">Hide Advanced Details</a>
+				</div>
+				</td>
+			</tr>
+		</table>
 		<table width="100%">
 		<tr>
-			<td valign="top" width="60%">
+			<td valign="top" >
 				<table class="adminform">
 				<tr>
 					<th colspan="3">
@@ -321,7 +368,11 @@ class sections_html {
 				</tr>
 				</table>
 			</td>
-			<td valign="top">
+			<td valign="top" align="right">
+			<div id="simpleediting" style="display:<?php echo $simpleediting;?>">
+			<table cellspacing="0" cellpadding="0" border="0" width="100%" >
+				<tr>
+					<td width="40%">
 			<?php
 			if ( $row->id > 0 ) {
     				?>
@@ -394,6 +445,7 @@ class sections_html {
 			<?php
 			} else {
 			?>
+			
 			<table class="adminform" width="40%">
 				<tr><th>&nbsp;</th></tr>
 				<tr><td>Menu links available when saved</td></tr>
@@ -404,6 +456,14 @@ class sections_html {
 			</td>
 		</tr>
 		</table>
+			</td>
+					</tr>
+					</table>
+					</div>
+					</td>
+					
+				</tr>
+			</table>
 
 		<input type="hidden" name="option" value="<?php echo $option;?>" />
 		<input type="hidden" name="scope" value="<?php echo $row->scope; ?>" />

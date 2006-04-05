@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.syndicate.php,v 1.6 2005/01/09 13:47:57 stingrey Exp $
+* @version $Id: admin.syndicate.php,v 1.1 2005/07/22 01:53:28 eddieajau Exp $
 * @package Mambo
 * @subpackage Syndicate
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

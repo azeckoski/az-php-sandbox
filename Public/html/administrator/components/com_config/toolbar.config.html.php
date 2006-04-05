@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.config.html.php,v 1.8 2005/02/16 05:14:51 kochp Exp $
+* @version $Id: toolbar.config.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Config
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -24,7 +24,7 @@ class TOOLBAR_config {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.config' );
+		mosMenuBar::help( '453.screen.config' );
 		mosMenuBar::endTable();
 	}
 }

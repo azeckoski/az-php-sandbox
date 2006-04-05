@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.frontpage.php,v 1.7 2005/01/16 13:51:49 stingrey Exp $
+* @version $Id: admin.frontpage.php,v 1.1 2005/07/22 01:52:17 eddieajau Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

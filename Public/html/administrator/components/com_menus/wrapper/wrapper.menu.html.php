@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: wrapper.menu.html.php,v 1.8 2005/02/15 12:21:09 kochp Exp $
+* @version $Id: wrapper.menu.html.php,v 1.1 2005/07/22 01:53:16 eddieajau Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

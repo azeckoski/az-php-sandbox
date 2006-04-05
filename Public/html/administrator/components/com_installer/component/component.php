@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: component.php,v 1.7 2005/02/16 08:48:36 stingrey Exp $
+* @version $Id: component.php,v 1.1 2005/07/22 01:52:30 eddieajau Exp $
 * @package Mambo
 * @subpackage Installer
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

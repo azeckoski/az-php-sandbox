@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.admin.html.php,v 1.5 2005/02/11 01:19:32 levis Exp $
+* @version $Id: toolbar.admin.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Admin
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -15,7 +15,7 @@
 class TOOLBAR_admin {
 	function _SYSINFO() {
 		mosMenuBar::startTable();
-		mosMenuBar::help( 'screen.system.info' );
+		mosMenuBar::help( '453.screen.system.info' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -23,7 +23,7 @@ class TOOLBAR_admin {
 	*/
 	function _CPANEL() {
 		mosMenuBar::startTable();
-		mosMenuBar::help( 'screen.cpanel' );
+		mosMenuBar::help( '453.screen.cpanel' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -31,7 +31,7 @@ class TOOLBAR_admin {
 	*/
 	function _DEFAULT() {
 		mosMenuBar::startTable();
-		//mosMenuBar::help( 'screen.cpanel' );
+		//mosMenuBar::help( '453.screen.system.info' );
 		mosMenuBar::endTable();
 	}
 }

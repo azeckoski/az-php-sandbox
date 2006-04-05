@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: mod_fullmenu.php,v 1.21 2005/02/16 16:10:46 kochp Exp $
+* @version $Id: mod_fullmenu.php,v 1.1 2005/07/22 01:53:57 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
@@ -301,6 +301,7 @@ class mosFullAdminMenu {
 <?php
   		if ($canConfig) {
 ?>				['<img src="../includes/js/ThemeOffice/checkin.png" />', 'Global Checkin', 'index2.php?option=com_checkin', null,'Check-in all checked-out items'],
+				['<img src="../includes/js/ThemeOffice/sysinfo.png" />', 'System Information', 'index2.php?option=com_admin&task=sysinfo', null, 'View System Information'],
 <?php
 			if ($mosConfig_caching) {
 ?>				['<img src="../includes/js/ThemeOffice/config.png" />','Clean Cache','index2.php?option=com_content&task=clean_cache',null,'Clean the content items cache'],

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.sections.html.php,v 1.10 2005/02/16 13:08:53 stingrey Exp $
+* @version $Id: toolbar.sections.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Sections
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -36,7 +36,7 @@ class TOOLBAR_sections {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.sections.edit' );
+		mosMenuBar::help( '453.screen.sections.edit' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -48,6 +48,8 @@ class TOOLBAR_sections {
 		mosMenuBar::save( 'copysave' );
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
+		mosMenuBar::spacer();
+		mosMenuBar::help( '453.screen.sections.copy' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -67,7 +69,7 @@ class TOOLBAR_sections {
 		mosMenuBar::spacer();
 		mosMenuBar::deleteList();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.sections' );
+		mosMenuBar::help( '453.screen.sections.main' );
 		mosMenuBar::endTable();
 	}
 }

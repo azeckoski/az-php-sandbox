@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.banners.html.php,v 1.9 2005/02/16 13:55:32 stingrey Exp $
+* @version $Id: toolbar.banners.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Banners
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -34,7 +34,7 @@ class TOOLBAR_banners {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.banners.edit' );
+		mosMenuBar::help( '453.screen.banners.edit' );
 		mosMenuBar::endTable();
 	}
 	function _DEFAULT() {
@@ -45,7 +45,7 @@ class TOOLBAR_banners {
 		mosMenuBar::addNewX();
 		mosMenuBar::editListX();
 		mosMenuBar::deleteList();
-		mosMenuBar::help( 'screen.banners' );
+		mosMenuBar::help( '453.screen.banners.main' );
 		mosMenuBar::endTable();
 	}
 }
@@ -70,7 +70,7 @@ class TOOLBAR_bannerClient {
 			mosMenuBar::cancel( 'cancelclient' );
 		}
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.banners.client.edit' );
+		mosMenuBar::help( '453.screen.banners.client.edit' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -84,7 +84,7 @@ class TOOLBAR_bannerClient {
 		mosMenuBar::spacer();
 		mosMenuBar::deleteList( '', 'removeclients' );
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.banners.client' );
+		mosMenuBar::help( '453.screen.banners.client.main' );
 		mosMenuBar::endTable();
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.typedcontent.php,v 1.15 2005/02/16 07:48:36 kochp Exp $
+* @version $Id: admin.typedcontent.php,v 1.2 2005/07/22 03:30:09 eddieajau Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -264,12 +264,18 @@ function edit( $uid, $option ) {
 	// build list of users
 	$active = ( intval( $row->created_by ) ? intval( $row->created_by ) : $my->id );
 	$lists['created_by'] 	= mosAdminMenus::UserSelect( 'created_by', $active );
-	// build the select list for the image positions
-	$lists['_align'] 		= mosAdminMenus::Positions( '_align' );
 	// build the html select list for the group access
 	$lists['access'] 		= mosAdminMenus::Access( $row );
 	// build the html select list for menu selection
 	$lists['menuselect']	= mosAdminMenus::MenuSelect( );
+	// build the select list for the image positions
+	$lists['_align'] 		= mosAdminMenus::Positions( '_align' );
+	// build the select list for the image caption alignment
+	$lists['_caption_align'] 	= mosAdminMenus::Positions( '_caption_align' );
+	// build the select list for the image caption position
+	$pos[] = mosHTML::makeOption( 'bottom', _CMN_BOTTOM );
+	$pos[] = mosHTML::makeOption( 'top', _CMN_TOP );
+	$lists['_caption_position'] = mosHTML::selectList( $pos, '_caption_position', 'class="inputbox" size="1"', 'value', 'text' );
 
 	// get params definitions
 	$params =& new mosParameters( $row->attribs, $mainframe->getPath( 'com_xml', 'com_typedcontent' ), 'component' );

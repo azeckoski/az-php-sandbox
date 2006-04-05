@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: installer.class.php,v 1.11 2005/02/14 19:00:48 eddieajau Exp $
+* @version $Id: installer.class.php,v 1.1 2005/07/22 01:52:29 eddieajau Exp $
 * @package Mambo
 * @subpackage Installer
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

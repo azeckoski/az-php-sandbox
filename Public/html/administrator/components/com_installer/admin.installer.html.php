@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: admin.installer.html.php,v 1.6 2005/02/16 08:48:36 stingrey Exp $
+* @version $Id: admin.installer.html.php,v 1.1 2005/07/22 01:52:21 eddieajau Exp $
 * @package Mambo
 * @subpackage Installer
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd

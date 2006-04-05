@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.typedcontent.html.php,v 1.11 2005/02/16 07:48:36 kochp Exp $
+* @version $Id: toolbar.typedcontent.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Content
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -25,7 +25,7 @@ class TOOLBAR_typedcontent {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.staticcontent.edit' );
+		mosMenuBar::help( '453.screen.staticcontent.edit' );
 		mosMenuBar::endTable();
 	}
 
@@ -41,7 +41,7 @@ class TOOLBAR_typedcontent {
 		mosMenuBar::spacer();
 		mosMenuBar::trash();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.staticcontent' );
+		mosMenuBar::help( '453.screen.staticcontent.main' );
 		mosMenuBar::endTable();
 	}
 }

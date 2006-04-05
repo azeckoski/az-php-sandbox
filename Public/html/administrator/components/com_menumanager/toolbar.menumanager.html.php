@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.menumanager.html.php,v 1.7 2005/02/16 05:14:53 kochp Exp $
+* @version $Id: toolbar.menumanager.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Menus
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -29,7 +29,7 @@ class TOOLBAR_menumanager {
 		mosMenuBar::spacer();
 		mosMenuBar::customX( 'deleteconfirm', 'delete.png', 'delete_f2.png', 'Delete', true );
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.menumanager' );
+		mosMenuBar::help( '453.screen.menumanager.main' );
 		mosMenuBar::endTable();
 	}
 
@@ -51,7 +51,7 @@ class TOOLBAR_menumanager {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.menumanager.new' );
+		mosMenuBar::help( '453.screen.menumanager.new' );
 		mosMenuBar::endTable();
 	}
 
@@ -64,7 +64,7 @@ class TOOLBAR_menumanager {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.menumanager.copy' );
+		mosMenuBar::help( '453.screen.menumanager.copy' );
 		mosMenuBar::endTable();
 	}
 

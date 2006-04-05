@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: toolbar.poll.html.php,v 1.8 2005/02/16 13:55:35 stingrey Exp $
+* @version $Id: toolbar.poll.html.php,v 1.2 2005/11/08 10:26:19 eliasan Exp $
 * @package Mambo
 * @subpackage Polls
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
@@ -25,7 +25,7 @@ class TOOLBAR_poll {
 		mosMenuBar::spacer();
 		mosMenuBar::cancel();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.polls.edit' );
+		mosMenuBar::help( '453.screen.polls.edit' );
 		mosMenuBar::endTable();
 	}
 	/**
@@ -53,7 +53,7 @@ class TOOLBAR_poll {
 			mosMenuBar::cancel();
 		}
 		mosMenuBar::spacer();
-	    mosMenuBar::help( 'screen.polls.edit' );
+	    mosMenuBar::help( '453.screen.polls.edit' );
 	    mosMenuBar::endTable();
 	}
 	function _DEFAULT() {
@@ -68,7 +68,7 @@ class TOOLBAR_poll {
 		mosMenuBar::spacer();
 		mosMenuBar::deleteList();
 		mosMenuBar::spacer();
-		mosMenuBar::help( 'screen.polls' );
+		mosMenuBar::help( '453.screen.polls.main' );
 		mosMenuBar::endTable();
 	}
 }
