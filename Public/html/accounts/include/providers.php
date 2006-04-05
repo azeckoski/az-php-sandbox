@@ -42,10 +42,54 @@ $LDAP_READ_DN = "uid=!readonly,ou=users,dc=sakaiproject,dc=org";
 $LDAP_READ_PW = "ironchef";
 // TODO - make the passwords more secure
 
+/*
+ * GLOBAL VARS
+ */
+$LDAP_DS = null; // This is the LDAP connection
+
 
 /*
  * Shared functions
  */
+
+function ldapConnect() {
+	// this is an easy connection script to make a connection to the LDAP server for us
+	// and not reconnect if we are already connected - faster in theory
+	global $LDAP_DS, $LDAP_SERVER, $LDAP_PORT;
+
+	if (!isset($LDAP_DS)) {
+		// $LDAP_DS = ldap_connect($LDAPS_SERVER) or die ("CRITICAL SSL LDAP CONNECTION FAILURE"); // ssl connection
+		$LDAP_DS = ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($LDAP_DS) {
+			ldap_set_option($LDAP_DS, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3");
+			return true;
+		} else {
+			$LDAP_DS = null;
+			$this->Message = "CRITICAL Error: Unable to connect to LDAP server";
+			return false;
+		}
+	}
+	return true;
+}
+
+function getDS() {
+	// simple getter
+	global $LDAP_DS;
+
+	return $LDAP_DS;
+}
+
+function ldapDisconnect() {
+	// this is a simple disconnect script
+	global $LDAP_DS;
+
+	if (isset($LDAP_DS)) {
+		ldap_close($LDAP_DS); // close connection
+		$LDAP_DS = null;
+	}
+	return true;
+}
+
 
 // alpha sort an array by a value in the nested array and return the sorted version
 function nestedArraySort($a1, $key){
@@ -114,16 +158,6 @@ class User {
 	private $authentic = false;
 	private $searchResults = array();
 
-	// maps the object items to the database
-	private $dbItems = 
-		array("pk"=>"pk", "username"=>"username", "password"=>"password", "fullname"=>"",
-		"firstname"=>"firstname", "lastname"=>"lastname", "email"=>"email", 
-		"primaryRole"=>"primaryRole", "secondaryRole"=>"secondaryRole", 
-		"institution_pk"=>"institution_pk", "institution"=>"institution", 
-		"address"=>"address", "city"=>"city", "state"=>"state", "zipcode"=>"zipcode", 
-		"country"=>"country", "phone"=>"phone", "fax"=>"fax", 
-		"sakaiPerm"=>"sakaiPerms", "userStatus"=>"userStatus");
-
 	// map object items to the ldap
 	private $ldapItems = 
 		array("pk"=>"uid", "username"=>"sakaiuser", "password"=>"userpassword", "fullname"=>"cn",
@@ -138,6 +172,33 @@ class User {
 	// uid, cn, givenname, sn, sakaiUser, mail, userPassword, o, iid, 
 	// primaryRole, secondaryRole, sakaiPerm[], postalAddress, l, st, 
 	// postalCode, c, telephoneNumber, facsimileTelephoneNumber, userstatus[]
+
+	// maps the object items to the database
+	private $dbItems = 
+		array("pk"=>"pk", "username"=>"username", "password"=>"password", "fullname"=>"",
+		"firstname"=>"firstname", "lastname"=>"lastname", "email"=>"email", 
+		"primaryRole"=>"primaryRole", "secondaryRole"=>"secondaryRole", 
+		"institution_pk"=>"institution_pk", "institution"=>"institution", 
+		"address"=>"address", "city"=>"city", "state"=>"state", "zipcode"=>"zipcode", 
+		"country"=>"country", "phone"=>"phone", "fax"=>"fax", 
+		"sakaiPerm"=>"sakaiPerms", "userStatus"=>"userStatus");
+
+
+/*
+ * This is a simple set of getters to allow us to know the fields for this
+ * object in a nice array
+ */
+	public function getFields() {
+		return array_keys($this->ldapItems);
+	}
+
+	public function getLdapFields() {
+		return array_values($this->ldapItems);
+	}
+
+	public function getDbFields() {
+		return array_values($this->dbItems);
+	}
 
 
 	// constructor
@@ -166,6 +227,11 @@ class User {
 		}
 	}
 
+
+	// destructor for this class
+	function __destruct() {
+		ldapDisconnect(); // disconnects from LDAP
+	}
 
 	function __toString() {
 		return $this->toString();
@@ -429,27 +495,23 @@ class User {
 	}
 
 	private function createLDAP() {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+		global $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 
 		// write the values to LDAP
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+		if (ldapConnect()) {
 			// bind with appropriate dn to give update access
-			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			$admin_bind=ldap_bind(getDS(), $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 			if ($admin_bind) {
-
 				// first check to see if this user exists already
 				$existsSearch = "(|(uid=$this->pk)(sakaiUser=$this->username)(mail=$this->email))";
-				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $existsSearch, array("uid"));
-				$exists = ldap_get_entries($ds, $sr);
+				$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", $existsSearch, array("uid"));
+				$exists = ldap_get_entries(getDS(), $sr);
+				ldap_free_result($sr);
 				if($exists['count'] > 0) {
 					// entry already exists
 					$this->pk = $exists[0]['uid'][0];
-					ldap_close($ds); // close connection
 					return $this->updateLDAP();
 				}
-				ldap_free_result($sr);
 
 
 				// prepare data array
@@ -487,8 +549,8 @@ class User {
 				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare user dn, find next available uid
-				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
-				$uidinfo = ldap_get_entries($ds, $sr);
+				$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
+				$uidinfo = ldap_get_entries(getDS(), $sr);
 				$uidinfo = nestedArrayNumSortReverse($uidinfo,"uid");
 				$uid = $uidinfo[0]['uid'][0] + 1;
 				ldap_free_result($sr);
@@ -506,26 +568,23 @@ class User {
 
 				// insert the user into ldap
 				// Note: you cannot pass an empty array for any values or the add will fail!
-				$ldap_result=ldap_add($ds, $user_dn, $info);
+				$ldap_result=ldap_add(getDS(), $user_dn, $info);
 				if ($ldap_result) {
 					$Message = "Added new ldap user";
 					$this->pk = $uid;
 					writeLog($TOOL_SHORT,$this->username,"user added (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
-					ldap_close($ds); // close connection
 					return true;
 				} else {
-					$this->Message = "Failed to add user to LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
+					$this->Message = "Failed to add user to LDAP (".ldap_error(getDS()).":".ldap_errno(getDS()).")";
+					return false;
 				}
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
 			}
-			ldap_close($ds);
-			return false;
-		} else {
-			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
 		}
+		return false;
 	}
 
 	private function createDB() {
@@ -691,20 +750,18 @@ class User {
 	}
 
 	private function getSearchFromLDAP($search, $items, $count) {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
+		global $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
 
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+		if (ldapConnect()) {
 			// bind with appropriate dn to give readonly access
-			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+			$read_bind=ldap_bind(getDS(), $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
 			if ($read_bind) {
 				// set up the search filter
 				$filter = "";
 				if($search == "*") {
 					// get all items
 					$filter = "(uid=*)";
-				} else if (strpos("PKLIST",$search) === true) {
+				} else if (strpos($search,"PKLIST") !== false) {
 					// do the special pklist search
 					list($i,$pklist) = split("=",$search);
 					foreach (explode(",", $pklist) as $pkitem) {
@@ -729,7 +786,7 @@ class User {
 				$returnItems = array("uid"); // always return the uid, if counting then only return the uid
 				if ($items != "*" && !$count) {
 					foreach (explode(",", $items) as $item) {
-						if ($this->ldapItems[$item] && $item != "uid") {
+						if ($this->ldapItems[$item] && $item != "pk") {
 							$returnItems[] = $this->ldapItems[$item];
 						}
 					}
@@ -738,29 +795,27 @@ class User {
 				$sr = 0;
 				if ($items == "*") {
 					// return all items
-					$sr = ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter);
+					$sr = ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", $filter);
 				} else {
 					// return requested items only (much faster)
-					$sr = ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $filter, $returnItems);
+					$sr = ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", $filter, $returnItems);
 				}
 
-				$itemCount = ldap_count_entries($ds, $sr);
+				$itemCount = ldap_count_entries(getDS(), $sr);
 				if ($count) {
 					// only return the count
 					$this->searchResults['count'] += $itemCount;
 					$this->searchResults['ldap'] = $itemCount;
-					ldap_close($ds); // close connection
 					return true;
 				}
 
 				if($itemCount <= 0) {
 					$this->Message = "No matching ldap items for $search";
-					ldap_close($ds); // close connection
 					return false;
 				}
 
 				// get items based on search
-				$info = ldap_get_entries($ds, $sr);
+				$info = ldap_get_entries(getDS(), $sr);
 
 				$data_source = "ldap";
 				$this->Message = "Search results found (ldap): " . $info['count'];
@@ -772,17 +827,13 @@ class User {
 					$this->searchResults[$this->pk] = $this->arrayFromLDAP($info[$line], $translator);
 					$this->searchResults[$this->pk]["data_source"] = $data_source;
 				}
-				ldap_close($ds); // close connection
 				return true;
 			} else {
 				$this->Message ="ERROR: Read bind to ldap failed";
 			}
-			ldap_close($ds); // close connection
 			return false;
-		} else {
-		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
-		   return false;
 		}
+		return false;
 	}
 
 	// this will create and return an array based on a single ldap return array
@@ -809,7 +860,7 @@ class User {
 
 		// set up the search filter
 		$filter = "";
-		if(strpos("PKLIST",$search) === true) {
+		if(strpos($search,"PKLIST") !== false) {
 			// do the special pklist search
 			list($i,$pklist) = split("=",$search);
 			$filter = " pk in ($pklist) ";
@@ -1001,13 +1052,11 @@ class User {
 	}
 
 	private function updateLDAP() {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+		global $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+		if (ldapConnect()) {
 			// bind with appropriate dn to give update access
-			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			$admin_bind=ldap_bind(getDS(), $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 			if ($admin_bind) {
 
 				// prepare data array
@@ -1029,8 +1078,8 @@ class User {
 				$info["facsimiletelephonenumber"]=$this->fax;
 					
 				// get the institution name for this $INSTITUTION_PK
-				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", "iid=$institution_pk", array("o"));
-				$item = ldap_get_entries($ds, $sr);
+				$sr=ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", "iid=$institution_pk", array("o"));
+				$item = ldap_get_entries(getDS(), $sr);
 				if ($item["count"]) {
 					$info["o"]=$item[0]["o"][0];
 				}
@@ -1048,26 +1097,22 @@ class User {
 				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
 
 				$user_dn = "uid=$this->pk,ou=users,dc=sakaiproject,dc=org";
-				$ldap_result=ldap_modify($ds, $user_dn, $info);
+				$ldap_result=ldap_modify(getDS(), $user_dn, $info);
 				if ($ldap_result) {
 					$this->Message = "Updated ldap user information";
 					writeLog($TOOL_SHORT,$this->username,"user modified (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
-					ldap_close($ds); // close connection
 					return true;
 				} else {
-					$this->Message = "Failed to modify user in LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
+					$this->Message = "Failed to modify user in LDAP (".ldap_error(getDS()).":".ldap_errno(getDS()).")";
 				}
 				
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
 			}
-			ldap_close($ds);
-			return false;
-		} else {
-			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
 		}
+		return false;
 	}
 
 
@@ -1100,19 +1145,16 @@ class User {
 	}
 
 	private function deleteLDAP() {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+		global $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+		if (ldapConnect()) {
 			// bind with appropriate dn to give update access
-			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			$admin_bind=ldap_bind(getDS(), $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 			if ($admin_bind) {
 				$user_dn = "uid=$this->pk,ou=users,dc=sakaiproject,dc=org";
-				$delresult = ldap_delete($ds,$user_dn);
+				$delresult = ldap_delete(getDS(),$user_dn);
 				if ($delresult) {
 					$this->Message = "Removed ldap user: $user_dn";
-					ldap_close($ds); // close connection
 					return true;
 				} else {
 					$this->Message = "Failed to remove ldap user: $user_dn";
@@ -1120,12 +1162,9 @@ class User {
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
 			}
-			ldap_close($ds); // close connection
-			return false;
-		} else {
-			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
 		}
+		return false;
 	}
 
 /*
@@ -1166,34 +1205,31 @@ class User {
 	private function authenticateUserFromLDAP($username,$password) {
 		global $LDAP_SERVER, $LDAP_PORT, $TOOL_SHORT;
 		
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		//$ds=ldap_connect("ldaps://bluelaser.cc.vt.edu/") or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
-			$anon_bind=ldap_bind($ds); // do an anonymous ldap bind, expect ranon=1
+		if (ldapConnect()) {
+			$anon_bind=ldap_bind(getDS()); // do an anonymous ldap bind, expect ranon=1
 			if ($anon_bind) {
 				// Searching for (sakaiUser=username)
-			   	$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", 
+			   	$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", 
 					"(&(sakaiUser=$username)(userStatus=active))"); // expect sr=array
 		
-				//echo "Number of entries = " . ldap_count_entries($ds, $sr) . "<br />";
-				$info = ldap_get_entries($ds, $sr); // $info["count"] = items returned
+				//echo "Number of entries = " . ldap_count_entries(getDS(), $sr) . "<br />";
+				$info = ldap_get_entries(getDS(), $sr); // $info["count"] = items returned
 				
 				// annonymous call to sakai ldap will only return the dn
 				$user_dn = $info[0]["dn"];
 
 				// set up for TLS encrypted connection
-				//ldap_start_tls($ds) or die("Ldap_start_tls failed"); 
+				//ldap_start_tls(getDS()) or die("Ldap_start_tls failed"); 
 
    				// now attempt to bind as the userdn and password
-				$auth_bind=@ldap_bind($ds, $user_dn, $password);
+				$auth_bind=@ldap_bind(getDS(), $user_dn, $password);
 				if ($auth_bind) {
 					// valid bind, user is authentic
 					writeLog($TOOL_SHORT,$username,"user logged in (ldap):" . $_SERVER["REMOTE_ADDR"].":".$_SERVER["HTTP_REFERER"]);
 
 					// get the user info for this user
-					$sr=ldap_search($ds, $user_dn, "sakaiUser=$username");
-					$info = ldap_get_entries($ds, $sr);
+					$sr=ldap_search(getDS(), $user_dn, "sakaiUser=$username");
+					$info = ldap_get_entries(getDS(), $sr);
 
 					// put the data into the user object
 					$this->pk = $info[0]["uid"][0];
@@ -1204,7 +1240,6 @@ class User {
 					}
 					$this->Message = "Valid LDAP login: $username";
 					$this->data_source = "ldap";
-					ldap_close($ds);
 					return true;
 				} else {
 					// invalid bind, password is not good
@@ -1213,12 +1248,9 @@ class User {
 			} else {
 				$this->Message ="ERROR: Anonymous bind to ldap failed";
 			}
-			ldap_close($ds); // close connection
 			return false;
-		} else {
-		   $this->Message = "<h4>CRITICAL Error: Unable to connect to LDAP server</h4>";
-		   return false;
 		}
+		return false;
 	}
 	
 	private function authenticateUserFromDB($username,$password) {
@@ -1477,12 +1509,6 @@ class Institution {
 	private $data_source = "ldap";
 	private $searchResults = array();
 
-	// maps the object items to the database
-	private $dbItems = 
-		array("pk"=>"pk", "name"=>"name", "type"=>"type",
-		"city"=>"city", "state"=>"state", "zipcode"=>"zipcode", 
-		"country"=>"country", "rep_pk"=>"rep_pk", "repvote_pk"=>"repvote_pk");
-
 	// map object items to the ldap
 	private $ldapItems = 
 		array("pk"=>"iid", "name"=>"o", "type"=>"insttype",
@@ -1491,6 +1517,29 @@ class Institution {
 
 	// LDAP variables:
 	// iid, o, instType, repUid, voteUid, l, st, postalCode, c
+
+	// maps the object items to the database
+	private $dbItems = 
+		array("pk"=>"pk", "name"=>"name", "type"=>"type",
+		"city"=>"city", "state"=>"state", "zipcode"=>"zipcode", 
+		"country"=>"country", "rep_pk"=>"rep_pk", "repvote_pk"=>"repvote_pk");
+
+/*
+ * This is a simple set of getters to allow us to know the fields for this
+ * object in a nice array
+ */
+	public function getFields() {
+		return array_keys($this->ldapItems);
+	}
+
+	public function getLdapFields() {
+		return array_values($this->ldapItems);
+	}
+
+	public function getDbFields() {
+		return array_values($this->dbItems);
+	}
+
 
 	// constructor
 	function __construct($id=-1) {
@@ -1510,12 +1559,16 @@ class Institution {
 		return false;
 	}
 
+	// destructor for this class
+	function __destruct() {
+		ldapDisconnect(); // disconnects from LDAP
+	}
 
 	function __toString() {
 		return $this->toString();
 	}
 
-	function toString() {
+	public function toString() {
 		// return the entire object as a string
 		$output = 
 			"pk:". $this->pk . ", " .
@@ -1530,7 +1583,7 @@ class Institution {
 		return $output;
 	}
 
-	function toArray() {
+	public function toArray() {
 		// return the entire object as an assoc array
 		$output = array();
 		$output['pk'] = $this->pk;
@@ -1617,26 +1670,23 @@ class Institution {
 	}
 
 	private function createLDAP() {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+		global $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+		if (ldapConnect()) {
 			// bind with appropriate dn to give update access
-			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			$admin_bind=ldap_bind(getDS(), $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 			if ($admin_bind) {
 
 				// first check to see if this user exists already
 				$existsSearch = "(iid=$this->pk)";
-				$sr=ldap_search($ds, "ou=users,dc=sakaiproject,dc=org", $existsSearch, array("iid"));
-				$exists = ldap_get_entries($ds, $sr);
+				$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", $existsSearch, array("iid"));
+				$exists = ldap_get_entries(getDS(), $sr);
+				ldap_free_result($sr);
 				if($exists['count'] > 0) {
 					// entry already exists
 					$this->pk = $exists[0]['iid'][0];
-					ldap_close($ds); // close connection
 					$this->updateLDAP();
 				}
-				ldap_free_result($sr);
 
 
 				// prepare data array
@@ -1655,9 +1705,9 @@ class Institution {
 				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare inst dn, find next available iid
-				$sr=ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", "iid=*", array("iid"));
-				ldap_sort($ds, $sr, 'iid');
-				$idinfo = ldap_get_entries($ds, $sr);
+				$sr=ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", "iid=*", array("iid"));
+				ldap_sort(getDS(), $sr, 'iid');
+				$idinfo = ldap_get_entries(getDS(), $sr);
 				$lastnum = $idinfo["count"] - 1;
 				$id = $idinfo[$lastnum]["iid"][0] + 1;
 				ldap_free_result($sr);
@@ -1669,26 +1719,22 @@ class Institution {
 				$info["iid"]=$id;
 
 				// insert the item into ldap
-				$ldap_result=ldap_add($ds, $item_dn, $info);
+				$ldap_result=ldap_add(getDS(), $item_dn, $info);
 				if ($ldap_result) {
 					$Message = "Added new ldap institution";
 					$this->pk = $id;
 					writeLog($TOOL_SHORT,$this->username,"inst added (ldap): " .
 							"$this->name ($this->type) [$this->pk]" );
-					ldap_close($ds); // close connection
 					return true;
 				} else {
-					$this->Message = "Failed to add inst to LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
+					$this->Message = "Failed to add inst to LDAP (".ldap_error(getDS()).":".ldap_errno(getDS()).")";
 				}
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
 			}
-			ldap_close($ds);
-			return false;
-		} else {
-			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
 		}
+		return false;
 	}
 
 
@@ -1749,10 +1795,18 @@ class Institution {
 			list($o1,$o2) = explode(' ', $order);
 			if ($o2 == "desc") {
 				// reverse sort
-				$this->searchResults = nestedArraySortReverse($this->searchResults, $o1);
+				if ($o1 == "pk") {
+					$this->searchResults = nestedArrayNumSortReverse($this->searchResults, $o1);
+				} else {
+					$this->searchResults = nestedArraySortReverse($this->searchResults, $o1);
+				}
 			} else {
 				// forward sort
-				$this->searchResults = nestedArraySort($this->searchResults, $o1);
+				if ($o1 == "pk") {
+					$this->searchResults = nestedArrayNumSort($this->searchResults, $o1);
+				} else {
+					$this->searchResults = nestedArraySort($this->searchResults, $o1);
+				}
 			}
 		}
 
@@ -1760,20 +1814,18 @@ class Institution {
 	}
 
 	private function getSearchFromLDAP($search, $items, $count) {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
+		global $LDAP_READ_DN, $LDAP_READ_PW, $TOOL_SHORT;
 
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+		if (ldapConnect()) {
 			// bind with appropriate dn to give readonly access
-			$read_bind=ldap_bind($ds, $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+			$read_bind=ldap_bind(getDS(), $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
 			if ($read_bind) {
 				// set up the search filter
 				$filter = "";
 				if($search == "*") {
 					// get all items
 					$filter = "(iid=*)";
-				} else if (strpos("PKLIST",$search) === true) {
+				} else if (strpos($search,"PKLIST") !== false) {
 					// do the special pklist search
 					list($i,$pklist) = split("=",$search);
 					foreach (explode(",", $pklist) as $pkitem) {
@@ -1798,7 +1850,7 @@ class Institution {
 				$returnItems = array("iid"); // always return the iid
 				if ($items != "*") {
 					foreach (explode(",", $items) as $item) {
-						if ($this->ldapItems[$item] && $item != "uid") {
+						if ($this->ldapItems[$item] && $item != "pk") {
 							$returnItems[] = $this->ldapItems[$item];
 						}
 					}
@@ -1807,32 +1859,30 @@ class Institution {
 				$sr = 0;
 				if ($items == "*") {
 					// return all items
-					$sr = ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $filter);
+					$sr = ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", $filter);
 				} else {
 					// return requested items only (much faster)
-					$sr = ldap_search($ds, "ou=institutions,dc=sakaiproject,dc=org", $filter, $returnItems);
+					$sr = ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", $filter, $returnItems);
 				}
 
-				$itemCount = ldap_count_entries($ds, $sr);
+				$itemCount = ldap_count_entries(getDS(), $sr);
 				if ($count) {
 					// only return the count
 					$this->searchResults['count'] += $itemCount;
 					$this->searchResults['ldap'] = $itemCount;
-					ldap_close($ds); // close connection
 					return true;
 				}
 
 				if($itemCount <= 0) {
 					$this->Message = "No matching ldap items for $search";
-					ldap_close($ds); // close connection
 					return false;
 				}
 
 				// get items based on search
-				$info = ldap_get_entries($ds, $sr);
+				$info = ldap_get_entries(getDS(), $sr);
 
 				$data_source = "ldap";
-				$this->Message = "Search results found (ldap): " . ldap_count_entries($ds, $sr);
+				$this->Message = "Search results found (ldap): " . ldap_count_entries(getDS(), $sr);
 				// add the results to the array with the data_source
 				$translator = array_flip($this->ldapItems);
 				for ($line=0; $line<$info["count"]; $line++) {
@@ -1841,17 +1891,13 @@ class Institution {
 					$this->searchResults[$this->pk] = $this->arrayFromLDAP($info[$line], $translator);
 					$this->searchResults[$this->pk]["data_source"] = $data_source;
 				}
-				ldap_close($ds); // close connection
 				return true;
 			} else {
 				$this->Message ="ERROR: Read bind to ldap failed";
 			}
-			ldap_close($ds); // close connection
 			return false;
-		} else {
-		   $this->Message = "CRITICAL Error: Unable to connect to LDAP server";
-		   return false;
 		}
+		return false;
 	}
 
 	// this will create and return an array based on a single ldap return array
@@ -1873,7 +1919,7 @@ class Institution {
 
 		// set up the search filter
 		$filter = "";
-		if(strpos("PKLIST",$search) === true) {
+		if(strpos($search,"PKLIST") !== false) {
 			// do the special pklist search
 			list($i,$pklist) = split("=",$search);
 			$filter = " pk in ($pklist) ";
@@ -2030,11 +2076,9 @@ class Institution {
 	private function updateLDAP() {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+		if (ldapConnect()) {
 			// bind with appropriate dn to give update access
-			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			$admin_bind=ldap_bind(getDS(), $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 			if ($admin_bind) {
 
 				// prepare data array
@@ -2053,26 +2097,23 @@ class Institution {
 
 				// DN FORMAT: iid=#,ou=institutions,dc=sakaiproject,dc=org
 				$item_dn = "iid=$this->pk,ou=institutions,dc=sakaiproject,dc=org";
-				$ldap_result=ldap_modify($ds, $item_dn, $info);
+				$ldap_result=ldap_modify(getDS(), $item_dn, $info);
 				if ($ldap_result) {
 					$this->Message = "Updated ldap inst information";
 					writeLog($TOOL_SHORT,$this->username,"inst modified (ldap): " .
 							"$this->name ($this->type) [$this->pk]" );
-					ldap_close($ds); // close connection
 					return true;
 				} else {
-					$this->Message = "Failed to modify inst in LDAP (".ldap_error($ds).":".ldap_errno($ds).")";
+					$this->Message = "Failed to modify inst in LDAP (".ldap_error(getDS()).":".ldap_errno(getDS()).")";
 				}
 				
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
 			}
-			ldap_close($ds);
-			return false;
-		} else {
-			$this->Message = "ERROR: Unable to connect to LDAP server";
+			
 			return false;
 		}
+		return false;
 	}
 
 /*
@@ -2104,19 +2145,16 @@ class Institution {
 	}
 
 	private function deleteLDAP() {
-		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
+		global $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
-		$ds=ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
-		if ($ds) {
-			ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3"); 
+		if (ldapConnect()) {
 			// bind with appropriate dn to give update access
-			$admin_bind=ldap_bind($ds, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
+			$admin_bind=ldap_bind(getDS(), $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 			if ($admin_bind) {
 				$item_dn = "iid=$this->pk,ou=institutions,dc=sakaiproject,dc=org";
-				$delresult = ldap_delete($ds,$item_dn);
+				$delresult = ldap_delete(getDS(),$item_dn);
 				if ($delresult) {
 					$this->Message = "Removed ldap institution: $item_dn";
-					ldap_close($ds);
 					return true;
 				} else {
 					$this->Message = "Failed to remove ldap inst: $item_dn";
@@ -2124,12 +2162,9 @@ class Institution {
 			} else {
 				$this->Message = "Critical ERROR: Admin bind failed";
 			}
-			ldap_close($ds);
-			return false;
-		} else {
-			$this->Message = "ERROR: Unable to connect to LDAP server";
 			return false;
 		}
+		return false;
 	}
 
 
@@ -2161,40 +2196,30 @@ class Institution {
 		return true;
 	}
 
-//	private function updateFromDBArray($item) {
-//		if (!$item || empty($item)) {
-//			$this->Message = "Cannot updateFromDBArray, inst ITEM empty";
-//			return false;
-//		}
-//
-//		$this->pk = $item['pk'];
-//		$this->name = $item['name'];
-//		$this->type = $item['type'];
-//		$this->city = $item['city'];
-//		$this->state = $item['state'];
-//		$this->zipcode = $item['zipcode'];
-//		$this->country = $item['country'];
-//		$this->rep_pk = $item['rep_pk'];
-//		$this->repvote_pk = $item['repvote_pk'];
-//		return true;
-//	}
-//
-//	private function updateFromLDAPArray($info) {
-//		if (!$info || empty($info)) {
-//			$this->Message = "Cannot updateFromLDAPArray, inst INFO empty";
-//			return false;
-//		}
-//
-//		$this->pk = $info[0]["iid"][0];
-//		$this->name = $info[0]["o"][0];
-//		$this->type = $info[0]["insttype"][0];
-//		$this->city = $info[0]["l"][0];
-//		$this->state = $info[0]["st"][0];
-//		$this->zipcode = $info[0]["postalcode"][0];
-//		$this->country = $info[0]["c"][0];
-//		$this->rep_pk = $info[0]["repuid"][0];
-//		$this->repvote_pk = $info[0]["voteuid"][0];
-//		return true;
-//	}
+
+/*
+ * Generate the options for a pulldown list of institutions
+ * setting the institution will select the institution with that pk
+ * setting short to true will truncate the institution names
+ * setting an ignore value will cause the list skip that item
+ */
+	public function generate_partner_dropdown($institution="", $short=false, $ignore="") {
+		$output = "";
+
+		$items = $this->getInstsBySearch("*", "name", "pk,name");
+	    foreach ($items as $item) {
+	    	$selected="";
+			if ($ignore == $item['pk']) { continue; } // skip the ignore item
+		    if ( $institution && $institution == $item['pk'] ) {
+		    	$selected=" selected='y'";
+		    }
+		    $instName = $item['name'];
+		    if ($short && (strlen($instName) > 38) ) {
+				$instName = substr($instName,0,35) . "...";
+		    }
+			$output .= "<option title='$item[name]' value='$item[pk]' $selected>$instName</option>\n";
+		}
+	 	return $output;
+	}
 }
 ?>

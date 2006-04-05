@@ -31,28 +31,33 @@ if (!$User->checkPerm("admin_accounts")) {
 	$allowed = 1;
 }
 
+// create an empty institution object for searching
+$opInst = new Institution();
 
 // get the search
 $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 
 // sorting
-$sortorder = "username";
+$sortorder = "name";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 
-$totalItems = $User->getUsersBySearch("*","","pk",true); // get count of users
+// show all
+if ($_REQUEST["showall"]) { $searchtext = "*"; }
+
+$totalItems = $opInst->getInstsBySearch("*","","pk",true); // get count of items
 $output = "";
 $items = array();
 if ($searchtext) { // no results without doing a search
-	$returnItems = "pk,username,fullname,email,institution,institution_pk";
+	$returnItems = "pk,name,type,rep_pk,repvote_pk";
 	$search = $searchtext;
 	if (strpos($searchtext,"=") === false) { // there is not a specific search
-		$search = "username=$searchtext,lastname=$searchtext,email=$searchtext,institution=$searchtext";
+		$search = "name=$searchtext,type=$searchtext";
 	}
-	$items = $User->getUsersBySearch($search,$sortorder,$returnItems);
-	$output = "Number of entries returned: " . count($items);
+	$items = $opInst->getInstsBySearch($search,$sortorder,$returnItems);
+	$output = "Returned ". count($items)." items out of " . $totalItems['count'];
 } else { // end use ldap check
-	$output = "Total users: $totalItems[count] - No search text entered...";
+	$output = "Total insts: $totalItems[count] - No search text entered...";
 	if (!$USE_LDAP) {
 		$output .= "(<b>LDAP is disabled!</b>)";
 	}
@@ -69,10 +74,8 @@ if ($_REQUEST["ldif"] && $allowed) {
 	header("Expires: 0");
 
 	// get everything except the "other" inst
-	$sql = "select * from institution where pk > 1 order by pk";
-	//print "SQL=$sql<br/>";
-	$result = mysql_query($sql) or die("Inst ldif query failed ($sql): " . mysql_error());
-	$items_count = mysql_num_rows($result);
+	$allItems = $opInst->getInstsBySearch("*","pk","*");
+	$items_count = count($allItems);
 
 	echo "# LDIF export of institutions on $date - includes $items_count items\n";
 	echo "# Use the following command to insert this export into ldap:\n";
@@ -80,7 +83,7 @@ if ($_REQUEST["ldif"] && $allowed) {
 	echo "# Use the following command to modify ldap using this export:\n";
 	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
 	echo "\n";
-	while($itemrow=mysql_fetch_assoc($result)) {
+	foreach ($allItems as $itemrow) {
 		echo "# Institution: $itemrow[name]\n";
 		echo "dn: iid=$itemrow[pk],ou=institutions,dc=sakaiproject,dc=org\n";
 		echo "objectClass: sakaiInst\n";
@@ -96,15 +99,8 @@ if ($_REQUEST["ldif"] && $allowed) {
 		echo "\n"; // blank line to separate entries
 	}
 	exit();
-}
+} // END LDIF
 
-// top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
-	"<a href='admin_perms.php'>Permissions</a>" .
-	"</span>";
 
 // Do the export as requested by the user
 if ($_REQUEST["export"] && $allowed) {
@@ -114,24 +110,51 @@ if ($_REQUEST["export"] && $allowed) {
 	header("Content-disposition: inline; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	header("Expires: 0");
-	// TODO - make this work
 
-	// print out EXPORT format instead of display
-	if ($line == 1) {
-		$output = "\"Institutions Export:\",\n";
-		print join(',', array_keys($itemrow)) . "\n"; // add header line
-	}
-	
-	foreach ($itemrow as $name=>$value) {
-		$value = str_replace("\"", "\"\"", $value); // fix for double quotes
-		$itemrow[$name] = '"' . $value . '"'; // put quotes around each item
-	}
-	print join(',', $itemrow) . "\n";
+	$exportItems = $opInst->getInstsBySearch($search,$sortorder,"*");
+	$fields = $opInst->getFields();
 
-	print "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
+	$line = 0;
+	foreach ($exportItems as $item) {
+		$line++;
+		if ($line == 1) {
+			echo "\"Institutions Export:\",\n";
+			echo join(',', $fields) . "\n"; // add header line
+		}
+
+		$exportRow = array();
+		foreach ($fields as $name) {
+			$value = str_replace("\"", "\"\"", $item[$name]); // fix for double quotes
+			$exportRow[] = '"' . $value . '"'; // put quotes around each item
+		}
+		echo join(',', $exportRow) . "\n";
+	}
+	echo "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
 
 	exit;
+} // END EXPORT
+
+
+// Use the user pks to get the user info for these users
+$userPks = array();
+foreach ($items as $item) {
+	// this should produce a nice unique list of user pks
+	$userPks[$item['rep_pk']] = $item['rep_pk'];
+	$userPks[$item['repvote_pk']] = $item['repvote_pk'];
 }
+unset($userPks['']); // get rid of the empty one
+$userInfo = $User->getUsersByPkList($userPks, "pk,username");
+
+//echo "<pre>",print_r($userInfo),"</pre><br/>";
+
+
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
+	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"</span>";
 
 ?>
 
@@ -178,32 +201,16 @@ function itemdel(itempk) {
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
 
-	<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
-	<td nowrap="y">
-		<input type="hidden" name="page" value="<?= $page ?>" />
-		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
-		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
-		<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
-		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page" />
-		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
-		<span class="keytext">&nbsp;-&nbsp;
-		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
-		&nbsp;-&nbsp;
-		Max of</span>
-		<select name="num_limit" title="Choose the max items to view per page">
-			<option value="<?= $num_limit ?>"><?= $num_limit ?></option>
-			<option value="10">10</option>
-			<option value="25">25</option>
-			<option value="50">50</option>
-			<option value="100">100</option>
-			<option value="150">150</option>
-			<option value="200">200</option>
-			<option value="300">300</option>
-		</select>
-		<span class="keytext">items per page</span>
+	<td nowrap="y" width="5%"><b style="font-size:1.1em;">Search:&nbsp;</b></td>
+	<td nowrap="y" align="left">
+		<?= $output ?>
+	</td>
+
+	<td nowrap="y" align="left">
 	</td>
 
 	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="showall" value="Show All" title="Display all items" />
 		<input class="filter" type="submit" name="ldif" value="LDIF" title="Export an LDIF (ldap) file of all institutions" />
 		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
@@ -218,8 +225,8 @@ function itemdel(itempk) {
 
 <table border="0" cellspacing="0" width="100%">
 <tr class='tableheader'>
+<td>&nbsp;</td>
 <td><a href="javascript:orderBy('name');">Name</a></td>
-<td><a href="javascript:orderBy('abbr');">Abbr</a></td>
 <td><a href="javascript:orderBy('type');">Type</a></td>
 <td>InstRep</td>
 <td>VoteRep</td>
@@ -233,10 +240,12 @@ foreach ($items as $item) {
 
 	// display normally
 	$rowstyle = "";
-	if (!$itemrow["rep_pk"]) {
+	if ($item["type"] == "non-member") {
 		$rowstyle = " style = 'color:red;' ";
+	} else if (!$item["rep_pk"]) {
+		$rowstyle = " style = 'color:#FF8000;' ";
 	}
-	
+
 	$linestyle = "oddrow";
 	if ($line % 2 == 0) {
 		$linestyle = "evenrow";
@@ -246,35 +255,38 @@ foreach ($items as $item) {
 ?>
 
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
-	<td class="line"><?= $itemrow["name"] ?></td>
-	<td class="line"><?= $itemrow["abbr"] ?>&nbsp;</td>
-	<td class="line"><?= $itemrow["type"] ?></td>
+	<td class="line" align="center"><?= $line ?>&nbsp;</td>
+	<td class="line"><?= $item["name"] ?></td>
+	<td class="line"><?= $item["type"] ?></td>
 	<td class="line" align="left">
 <?php 
-if ($itemrow["rep_pk"]) {
-	$short_name = $itemrow["rep_username"];
-	if (strlen($itemrow["rep_username"]) > 12) {
-		$short_name = substr($itemrow["rep_username"],0,9) . "...";
+if ($item["rep_pk"]) {
+	$username = $userInfo[$item["rep_pk"]]['username'];
+	$short_name = $username;
+	if (strlen($username) > 12) {
+		$short_name = substr($username,0,9) . "...";
 	}
-	echo "<label title='".$itemrow["rep_username"]."'>".$short_name."</label>";
+	echo "<label title='$username ($item[rep_pk])'>$short_name</label>";
 } else {
 	echo "<i>none</i>";
 } ?>
 	</td>
 	<td class="line" align="left">
 <?php 
-if ($itemrow["repvote_pk"]) {
-	$short_name = $itemrow["repvote_username"];
-	if (strlen($itemrow["repvote_username"]) > 12) {
-		$short_name = substr($itemrow["repvote_username"],0,9) . "...";
+if ($item["repvote_pk"]) {
+	$username = $userInfo[$item["repvote_pk"]]['username'];
+	$short_name = $username;
+	if (strlen($username) > 12) {
+		$short_name = substr($username,0,9) . "...";
 	}
-	echo "<label title='".$itemrow["repvote_username"]."'>".$short_name."</label>";
+	echo "<label title='$username ($item[repvote_pk])'>$short_name</label>";
 } else {
 	echo "<i>none</i>";
 } ?>
 	</td>
-	<td class="line" align="center">
-		<a href="admin_inst.php?pk=<?= $itemrow['pk']?>">edit</a>
+	<td class="line" align="center" style="color:black;">
+		<a title="Modify this institution" href="admin_inst.php?pk=<?= $item['pk']?>">edit</a> | 
+		<a title="Delete this institution" href="javascript:itemdel('<?= $item['pk'] ?>')">del</a>
 	</td>
 </tr>
 

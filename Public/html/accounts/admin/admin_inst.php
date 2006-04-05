@@ -31,15 +31,6 @@ if (!$User->checkPerm("admin_insts")) {
 	$allowed = 1;
 }
 
-// get the form variables
-$PK = $_REQUEST["pk"];
-if (!$PK) {
-	$Message = "You cannot come here without an institution pk set!<br/>";
-	$Message .= "<a href='admin_insts.php'>Go back</a>";
-	$allowed = 0;
-}
-
-
 // bring in the form validation code
 require $ACCOUNTS_PATH.'ajax/validators.php';
 
@@ -51,6 +42,15 @@ $vItems['city'] = "required:namespaces";
 $vItems['state'] = "namespaces";
 $vItems['zipcode'] = "zipcode";
 $vItems['country'] = "required:namespaces";
+
+
+$PK = $_REQUEST["pk"]; // if editing/removing this will be set
+if ($PK) {
+	$Message = "Edit the information below to adjust the institution.<br/>";
+}
+
+// create the user object from provider
+$opInst = new Institution($PK);
 
 
 // this matters when the form is submitted

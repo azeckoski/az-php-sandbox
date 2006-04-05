@@ -105,11 +105,8 @@ if ($_REQUEST["ldif"] && $allowed) {
 		if ($itemrow['phone']) { echo "telephoneNumber: $itemrow[phone]\n"; }
 		if ($itemrow['fax']) { echo "facsimileTelephoneNumber: $itemrow[fax]\n"; }
 		if ($itemrow['address']) {
-			$itemrow['address'] = preg_replace("[\r\n]","\\n",trim($itemrow['address']));
-			if (is_utf8($itemrow['address']))
-				echo "postalAddress: ".base64_encode($itemrow['address'])."\n";
-			else
-				echo "postalAddress: $itemrow[address]\n";
+			$itemrow['address'] = preg_replace("[\r\n]","\n",trim($itemrow['address']));
+			echo "postalAddress: ".base64_encode($itemrow['address'])."\n";
 		}
 		if ($itemrow['city']) {
 			if (is_utf8($itemrow['city']))
