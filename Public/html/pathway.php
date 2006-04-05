@@ -1,6 +1,6 @@
 <?
 /**
-* @version $Id: pathway.php,v 1.4 2005/01/06 01:13:28 eddieajau Exp $
+* @version $Id: pathway.php,v 1.1 2005/07/22 01:57:42 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
