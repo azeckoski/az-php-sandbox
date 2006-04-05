@@ -98,11 +98,13 @@ CREATE TABLE institution (
     primary key(pk)
 );
 
-
-// alter table institution add type enum('educational','commerical') NOT NULL DEFAULT 'educational';
-// alter table institution add repvote_pk int(10) null;
-// update institution set repvote_pk = rep_pk where rep_pk is not null;
-// alter table institution modify column type enum('educational','commercial','non-member') NOT NULL DEFAULT 'educational';
+/**
+alter table institution modify column type enum('educational','commercial','non-member') NOT NULL DEFAULT 'educational';
+alter table institution add city varchar(100) NULL;
+alter table institution add state varchar(100) NULL;
+alter table institution add zipcode varchar(50) NULL;
+alter table institution add country varchar(100) NULL;
+**/
 
 /**** This is the base OTHER institution ****
 INSERT INTO `institution` ( `pk` , `abbr` , `name` , `rep_pk` , `type` , `repvote_pk` ) 

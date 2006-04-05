@@ -455,6 +455,11 @@ class User {
 
 	public function setRep($setting) {
 		// TODO - make this do something
+		
+		// first clear all reps
+		
+		// then set this person as the rep
+		
 		return false;
 	}
 
@@ -1677,7 +1682,7 @@ class Institution {
 			$admin_bind=ldap_bind(getDS(), $LDAP_ADMIN_DN, $LDAP_ADMIN_PW);
 			if ($admin_bind) {
 
-				// first check to see if this user exists already
+				// first check to see if this exists already
 				$existsSearch = "(iid=$this->pk)";
 				$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", $existsSearch, array("iid"));
 				$exists = ldap_get_entries(getDS(), $sr);
@@ -1685,7 +1690,7 @@ class Institution {
 				if($exists['count'] > 0) {
 					// entry already exists
 					$this->pk = $exists[0]['iid'][0];
-					$this->updateLDAP();
+					return $this->updateLDAP();
 				}
 
 
@@ -2137,6 +2142,11 @@ class Institution {
  */
 	public function delete() {
 		global $USE_LDAP;
+
+		if ($this->pk == 1) {
+			$this->Message = "Invalid pk ($this->pk): The Other inst cannot be deleted";
+			return false;
+		}
 		
 		// delete the user from the appropriate location
 		if ($this->data_source == "ldap" && $USE_LDAP) {

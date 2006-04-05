@@ -22,14 +22,25 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
-$allowed = 0; // assume user is NOT allowed unless otherwise shown
+$allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("admin_accounts")) {
-	$allowed = 0;
+	$allowed = false;
 	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
-	$allowed = 1;
+	$allowed = true;
 }
+
+
+// delete an item
+if ($_REQUEST["itemdel"] && $allowed) {
+	$itemPK = $_REQUEST["itemdel"];
+	$delItem = new Institution($itemPK);
+	if (!$delItem->delete()) {
+		$Message = "Error: Could not remove item: ".$delItem->Message;
+	}
+}
+
 
 // create an empty institution object for searching
 $opInst = new Institution();
@@ -196,6 +207,7 @@ function itemdel(itempk) {
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
+<input type="hidden" name="itemdel" value="" />
 
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">

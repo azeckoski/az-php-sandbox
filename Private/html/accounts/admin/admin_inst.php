@@ -21,14 +21,14 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
-$allowed = 0; // assume user is NOT allowed unless otherwise shown
+$allowed = false; // assume user is NOT allowed unless otherwise shown
 $Message = "";
 if (!$User->checkPerm("admin_insts")) {
-	$allowed = 0;
+	$allowed = false;
 	$Message = "Only admins with <b>admin_insts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
-	$allowed = 1;
+	$allowed = true;
 }
 
 
@@ -54,9 +54,8 @@ $vItems['country'] = "namespaces";
 // create the user object from provider
 $opInst = new Institution($PK);
 
-
 // this matters when the form is submitted
-if ($_POST["save"]) {
+if ($_POST["save"] && $allowed) {
 
 	$opInst->name = $_POST["name"];
 	$opInst->type = $_POST["type"];
@@ -90,6 +89,24 @@ if ($_POST["save"]) {
 //echo $opUser, "<br/>"; // for testing
 $thisItem = $opInst->toArray(); // put the user data into an array for easy access
 
+// Use the user pks to get the user info for reps
+$userPks = array();
+$userPks[$opInst->rep_pk] = $opInst->rep_pk;
+$userPks[$opInst->repvote_pk] = $opInst->repvote_pk;
+
+$userInfo = $User->getUsersByPkList($userPks, "firstname,lastname,email");
+
+//echo "<pre>",print_r($userInfo),"</pre><br/>";
+
+// put the userInfo into the item
+$thisItem['firstname'] = $userInfo[$opInst->rep_pk]['firstname'];
+$thisItem['lastname'] = $userInfo[$opInst->rep_pk]['lastname'];
+$thisItem['email'] = $userInfo[$opInst->rep_pk]['email'];
+
+$thisItem['vfirstname'] = $userInfo[$opInst->repvote_pk]['firstname'];
+$thisItem['vlastname'] = $userInfo[$opInst->repvote_pk]['lastname'];
+$thisItem['vemail'] = $userInfo[$opInst->repvote_pk]['email'];
+
 
 // top header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
@@ -118,7 +135,6 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 <div class="required" id="requiredMessage"></div>
 <form action="<?=$_SERVER['PHP_SELF']; ?>" method="post" name="adminform" style="margin:0px;">
 <input type="hidden" name="pk" value="<?= $PK ?>" />
-<input type="hidden" name="add" value="<?= $_REQUEST["add"] ?>" />
 <input type="hidden" name="save" value="1" />
 
 <?php require $ACCOUNTS_PATH.'include/inst_form.php'; ?>

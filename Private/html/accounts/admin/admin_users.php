@@ -21,18 +21,18 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
-$allowed = 0; // assume user is NOT allowed unless otherwise shown
+$allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("admin_accounts")) {
-	$allowed = 0;
+	$allowed = false;
 	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
-	$allowed = 1;
+	$allowed = true;
 }
 
 
-// delete ldap item
-if ($_REQUEST["itemdel"]) {
+// delete an item
+if ($_REQUEST["itemdel"] && $allowed) {
 	$itemPK = $_REQUEST["itemdel"];
 	$delUser = new User($itemPK);
 	if (!$delUser->delete()) {
