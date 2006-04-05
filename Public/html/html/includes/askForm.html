@@ -1,0 +1,108 @@
+<html>
+<head>
+</head>
+<body>
+<!--
+<form action="http://bugs.sakaiproject.org/jira/secure/CreateIssueDetails.jspa" method="post" name="jiraform" enctype="multipart/form-data">-->
+
+<form action="ask_sakai.php" method="post" name="jiraform" enctype="multipart/form-data">
+
+  <table width="95%" class="jiraform">
+   <tbody>
+
+    <tr>
+     <td colspan="1" width="200px" class="jiraformheader">* Required <br />
+     </td>
+    </tr>
+
+  	
+	    
+    <tr>
+	  <td valign="top" bgcolor="fffff0" align="right" class="fieldLabelArea"><em><span title="Fields in italics are required"><sup>*</sup> Name</span></em> 
+	  </td>
+	  <td nowrap="nowrap" bgcolor="ffffff" class="fieldValueArea">
+	    <input type="text" name="Name" size="40" maxlength="150" />
+	  </td>
+    </tr>
+    
+      <tr>
+     <td valign="top" bgcolor="#fffff0" align="right">
+        <span class="label"> <em><span title="Fields in italics are required"><sup>*</sup> E-mail Address: </span></em></span> 
+     </td>
+     <td nowrap="nowrap" bgcolor="#ffffff">
+
+	  <input type="text" name="customfield_10021" maxlength="150" value="" /> <br />
+	</td>
+	</tr>
+
+
+    
+<tr>
+	  <td valign="top" bgcolor="fffff0" align="right" class="fieldLabelArea">
+	  <em><span title="Fields in italics are required"><sup>*</sup> Institution/Organization</span></em> 
+	  </td>
+	  <td nowrap="nowrap" bgcolor="ffffff" class="fieldValueArea">
+	    <input type="text" name="Institute" size="40" maxlength="150" />
+	  </td>
+    </tr>
+    
+
+    <tr>
+	  <td valign="top" bgcolor="fffff0" align="right" class="fieldLabelArea"><em><span title="Fields in italics are required"><sup>*</sup> Phone</span></em> 
+	  </td>
+	  <td nowrap="nowrap" bgcolor="ffffff" class="fieldValueArea">
+	    <input type="text" name="Phone" size="20" maxlength="20" />
+	  </td>
+    </tr>
+    
+    <tr>
+	  <td valign="top" bgcolor="fffff0" align="right" class="fieldLabelArea"><em><span title="Fields in italics are required"><sup>*</sup> Subject</span></em> 
+	  </td>
+	  <td nowrap="nowrap" bgcolor="ffffff" class="fieldValueArea">
+	    <input type="text" name="summary" size="60" maxlength="200" />
+	  </td>
+    </tr>
+
+	<tr>
+	  <td valign="top" bgcolor="fffff0" align="right" class="fieldLabelArea"><em><span title="Fields in italics are required"><sup>*</sup>Select a category</span></em>: 
+	  </td>
+	<td nowrap="nowrap" bgcolor="ffffff" class="fieldValueArea"><select name="components">
+	  <option value="-1">---Select---</option>
+	  <option value="10104"> SEPP Conference </option>
+  
+	  <option value="10105"> SEPP Program </option>
+	  <option value="10106"> Sakai Project- general </option>
+	  <option value="10107"> Technical-User Support </option>
+	  <option value="10108"> WebSite </option>
+	  <option value="-1">Other</option></select></td></tr><tr><td valign="top" bgcolor="fffff0" align="right" class="fieldLabelArea"><em>
+	
+	<span title="Fields in italics are required"><sup>*</sup> Question or Comment</span></em>: </td><td nowrap="nowrap" bgcolor="ffffff" class="fieldValueArea">
+	  <textarea style="width: 90%;" name="description" cols="50" rows="10" wrap="virtual"></textarea></td>
+	  
+	 </tr>
+	  
+	<!--  <tr class="hidden"><td>
+	  <input type="hidden" name="pid" value="10040" /><br />
+	</td>
+   </tr>-->
+   
+   <tr class="hidden">
+   <td>
+	<input type="hidden" name="issuetype" value="6" /><br />
+    </td>
+   </tr>
+  <tr>
+  <td colspan="1" class="jiraformfooter">
+	<input type="submit" name="Create" value="Submit" />
+	<input type="button" id="cancelButton" value="Cancel" />
+  </td>
+   
+   </tr>
+  </tbody>
+ </table>
+</form>
+
+</body>
+</html>
+
+

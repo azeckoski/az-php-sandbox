@@ -1,0 +1,630 @@
+                       350884229a:2:{s:6:"output";s:30144:"<div class="componentheading">News and Announcements</div><table class="blog" cellpadding="0" cellspacing="0"><tr><td valign="top"><table width="100%"  cellpadding="0" cellspacing="0"><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				The Word from Walla Walla: Sakai and Smaller Institutions								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				News - 				</span>
+						<span>
+			Project News			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2006-Feb-22				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<p>"Given the recent discussion involving Sakai, I thought I'd share Whitman College's experience with Sakai. <br />
+<br />
+Whitman is a small liberal arts college in rural Walla Walla, WA, with 1400 student FTE and an IT department with just 20 staff. Yet, we are in the middle of a successful Sakai pilot. In fact, it looks like we will have a full implementation in fall 2006. <br />
+<br />
+We had been using Blackboard for the past six years-just the Basic version. When faced with the need to either move to the Enterprise version or to pursue another option about 1-1/2 yr ago, we decided to pursue Sakai. Although we could have experimented/piloted with Sakai for free, we joined Sakai Educational Partners Program (SEPP) for $5,000/yr in November 2004 to show our serious commitment to the project. The membership was not a requirement---in fact, there are many institutions that are using/piloting Sakai without joining SEPP or the Sakai Foundation. Just about every process happens transparently in the public forums.&nbsp; <br />
+<br />
+Although Whitman College seems to be doing fine with one staff member (with good Java knowledge) supporting this project, there are consultants available who assists smaller institutions with Sakai implementation. I know of one consulting firm that currently supports about 50 institutions throughout the US - all small colleges (2,000-6,000 students). Also,consortia of small colleges are finding Sakai to be a strong platform sinceit is not simply a course management system, but rather a framework that supports all levels of collaboration, including inter-institutional.<br />
+<br />
+While it's too early to discuss TCO for Sakai, I am certain that a fully supported instance of Sakai will be quite a bit below the cost for Blackboard Enterprise.&nbsp; So far, assessments of faculty and students atWhitman are uniformly positive.&nbsp; The Sakai tools are agnostic to size of school and the array of tool choices is growing based on the pedagogical models that we in higher ed need.<br />
+<br />
+And for that shameless plug---my Sakai staffer, Mike Osterman, and I will be presenting/sharing our experience at the EDUCAUSE Western RegionalConference on April 24-26 in San Francisco. Our presentation is titled "Can Sakai be implemented at a small liberal arts school?" Do join us."<br />
+<br />
+Keiko Pitter<br />
+Chief Technology Officer<br />
+Whitman College<br />
+Walla Walla, WA <br />
+</p>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=357&amp;Itemid=312" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				NOW OPEN:  Sakai Conference Call for Proposals								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				News - 				</span>
+						<span>
+			Project News			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2006-Feb-16				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<div style="border: 1px solid rgb(255, 204, 51); padding: 10px;"><strong><br />
+<font color="#990000">Call for Proposals Now Open</font></strong><font color="#990000">!&nbsp; </font><a href="https://sakaiproject.org/secure/vancouver/proposals/">Submit your proposal.</a> &nbsp; <br />
+As the Sakai community continues to grow, our bi-annual conferences
+provide vital information and networking opportunities for developers,
+instructional designers, implementers, faculty, and administrators.&nbsp;
+Start developing your proposals and plan to join us for our 5th Sakai
+conference!&nbsp;<strong><br />
+Deadline for Submissions:</strong>&nbsp; March 31, 2006&nbsp; [<a href="http://sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519">more details</a>]
+<p> </p><br />
+</div>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=356&amp;Itemid=312" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				The Sakai 2.1.1 release is now available.								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				Software & Resources - 				</span>
+						<span>
+			Release Info			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2006-Feb-14				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<p>The Sakai 2.1.1 release is now available.&nbsp; The spirit behind the 2.1.1 release is to make fixes to the 2.1.0 code base that has been proven in a production environment available to the community. This release offers a total of 71 bug fixes to the software. Of these fixes, 55 were issues unearthed in 2.1.0 since the release was cut and most notably 45% of all fixes applied to the Tests and Quizzes tool. <br />
+<br />
+ Sites moving from the 2.1.0 to 2.1.1 release will need to perform a small database conversion operation.&nbsp; The details of the steps necessary
+to upgrade are specified in the release notes.
+<br />
+<br />
+The release is provided in demo, source, and binary distributions, and can be downloaded from <a href="http://www.sakaiproject.org/release/">www.sakaiproject.org/release</a><br />
+</p>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=355&amp;Itemid=258" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				Sakai Newsletter: February 9, 2006								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				News - 				</span>
+						<span>
+			Sakai Newsletter			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2006-Feb-09				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<ul>
+<li>Over 350 requirements now in Jira!<br />
+</li>
+<li> Sakai 2.12 and OSP 2.1 Integration Week&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li>Call for Proposals for 5th Sakai Conference<br />
+</li>
+<li>New Lead for the Migration DG<br />
+</li>
+<li>Unicon Offers Faculty Low-Cost Service for Piloting Sakai<br />
+</li></ul>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=353&amp;Itemid=533" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				University of South Africas' myUnisa: 23750 course sites and growing								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				News - 				</span>
+						<span>
+			Project News			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2006-Feb-09				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<p><font color="#003399"><strong>Unisa has Successfully Implemented Sakai 2.0.1:&nbsp; myUnisa</strong></font><br />
+<br />
+After much hard work over December, Unisa successfully implemented<br />
+Sakai 2.0.1, called myUnisa, on 9 January 2006. We extend our sincere<br />
+thanks to the Sakai community who answered many questions and assisted<br />
+us with information. Below is a summary of how we put myUnisa together,<br />
+as well as some statistics.<br />
+<br />
+As a distance learning institution, students are invited to join<br />
+myUnisa, and it is an ongoing process. To date, 16679 students have<br />
+joined (registered) and 23750 course sites have been created.<br />
+<br />
+At peak times the cluster handled 1200 concurrent connections with no<br />
+strain on the machines.&nbsp; The average number of connections is between<br />
+200 and 300. [<a href="index.php?option=com_content&amp;task=view&amp;id=351&amp;Itemid=312">read the full article</a>]<br />
+</p>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=351&amp;Itemid=312" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				OSP called "one of the best-designed content management systems for education"								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				News - 				</span>
+						<span>
+			Project News			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2006-Feb-09				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<p>In a recent NewsForge article, author Bruce Byfield offers a review of the <a href="http://www.osportfolio.org/%20target=blank">Open Source Portfolio Iniative</a> and calls it<font size="-1"> "one of the best-designed content management system for education
+that I have seen. Its attention to the user interface means both
+convenience and high scalability for end users, and the integration
+with SAKAI connects portfolios to other aspects of online learning.
+These advantages place OSP far ahead of its competitors, including
+commercial proprietary software such as WebCT. Although some might disagree, I recommend it strongly to educators, as long as they have some
+computer competence already and technical help to assist them in
+setting up the system."&nbsp; [ <a href="http://internet.newsforge.com/internet/06/02/01/1527252.shtml?tid=13">read the article</a> ]<br />
+</font></p>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=350&amp;Itemid=312" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				Sakai Vancouver '06 Conference Announcements								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				News - 				</span>
+						<span>
+			Project News			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2006-Jan-26				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<div style="border: 2px solid rgb(51, 102, 153); padding: 10px; background: rgb(227, 227, 227) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+<div><a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=319&amp;Itemid=527"><em><font face="Verdana"><strong>Sakai Conference - May 30 - June 2, 2006<br />
+</strong></font></em></a><em><font face="Verdana">- during <strong><a href="http://www.sakaiproject.org/csw2006.html">Community Source Week 2006</a><br />
+</strong></font></em></div><a href="index.php?option=com_content&amp;task=blogcategory&amp;id=169&amp;Itemid=518"><img style="margin: 0px 5px;" width="125" height="105" border="0" align="left" title="" alt="" src="/images/stories/backwardswhale_e3e3.jpg" /></a>
+<p><strong>Call for Proposals Opens in February</strong><br />
+&nbsp;The Call for Proposals for the Sakai (with OSP) conference in Vancouver (May 30-June 2, 2006) will open in February. <br />
+</p>
+<p> As the Sakai community continues to grow, our bi-annual conferences
+provide vital information and networking opportunities for developers,
+instructional designers, implementers, faculty, and administrators.&nbsp;
+Start developing your proposals and plan to join us for our 5th Sakai
+conference!&nbsp; [<a href="index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519">more details</a>]
+</p>
+<p> </p>
+<p><strong>Hotel Reservations: </strong>Book your room today.&nbsp; A block of hotel rooms has been reserved for the Sakai conference, so make your reservations early.&nbsp; [ <a href="index.php?option=com_content&amp;task=blogcategory&amp;id=175&amp;Itemid=525">hotel info</a> ]<br />
+</p>
+<p><strong> Conference Registration:</strong>&nbsp;&nbsp; opens in late February. &nbsp;&nbsp;&nbsp;</p><br />
+</div>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=348&amp;Itemid=312" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				Unicon Announces ''Sakai v2.1 Test Drive'' Open Source Learning Environment for Educators								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				News - 				</span>
+						<span>
+			Project News			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2005-Dec-17				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<p><strong>Colleges and Universities Can Experience the Latest Sakai Tools -- Risk Free<br>
+&nbsp;</strong>PHOENIX--(BUSINESS WIRE)--Dec. 15, 2005--Unicon, Inc., the leading
+independent provider of enterprise portal, collaboration, learning, and
+integration technology for higher education institutions, today
+announced a new, hosted "Sakai Test Drive" program done in partnership
+with Optimized Learning, Inc., a leading ASP company specializing in
+open-source technologies. The "Sakai Test Drive" program is designed to
+provide educational instructors and IT personnel with a risk-free,
+zero-cost program to evaluate the latest Sakai v2.1 Collaborative
+Learning Environment and Course Management System without incurring
+licensing fees, development/maintenance time and resources, or hardware
+purchases. Designed for use by administrators, individual faculty and
+teachers at universities, colleges, K-12 and most private and public
+educational institutions, the "Sakai Test Drive" can be experienced at <a target="_blank" href="http://www.sakaitestdrive.com/">www.sakaitestdrive.com</a>.&nbsp; <br>
+</p>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=318&amp;Itemid=312" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				Michigan, Indiana, MIT, Stanford Contribute Sakai Software to the Sakai Foundation, Sakai 2.1 ...								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				News - 				</span>
+						<span>
+			Project News			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2005-Dec-06				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<div style="margin-left: 8px;">
+<p><font color="#666666"><strong>PRESS RELEASE</strong></font><br />
+<strong>Austin, Texas, USA</strong> --&nbsp; <strong>6 December 2005&nbsp; --
+Michigan, Indiana, MIT, and Stanford Contribute Sakai Software to the
+Sakai Foundation, Sakai 2.1 Released to the Public, 500+ Gather in
+Austin for 7-9 December Conference </strong></p>
+<div align="left">&nbsp;&nbsp; <img style="margin: 0px;" width="90" height="89" src="http://sakaiproject.org/austin/austinLogos/sakaiAustin_metalSm_wht.jpg" alt="" title=""><img style="margin: 0px;" width="90" height="50" src="http://www.sakaiproject.org/images/stories/conferenceLogos/logoslate160x89.jpg" alt="" title="">&nbsp; <a href="http://www.osportfolio.org"><img style="margin: 0px;" width="115" height="50" border="0" src="/images/stories/austin/ospi_logo.gif" alt="" title=""></a><br />
+</div>
+<p>The new Sakai Foundation
+is pleased to make a series of announcements as the first phase of the
+project ends, and over 500 gather in Austin for the fourth Sakai
+Conference with the Open Source Portfolio (OSP):</p>
+<ul>
+<li> The four founding institutions of the Sakai Project
+are granting a copyright license to the Sakai Foundation.</li>
+<li> The global community of Sakai Partners has elected three new directors to the Sakai Foundation Board.</li>
+<li>Sakai 2.1 is released with many new capabilities and new contributors.</li>
+<li>Apple Computer, Inc. and Pearson Education are added as Sakai Commercial Affiliates.</li></ul><br />
+<strong>
+Sakai Conference with OSP</strong><br />
+The Austin Conference marks Sakai’s largest gathering yet with over 500
+attendees from 144 institutions with 93 member-led sessions.&nbsp; The
+conference includes sessions for Sakai implementation, faculty
+training, support, development, e-science/e-research, digital
+repository integration, and many more topics surrounding developing and
+deploying the Sakai software.&nbsp; The Open Source Portfolio joins the
+conference with sessions in portfolio thinking, large scale
+implementation, development for the 2.1 version of OSP, and much
+more.&nbsp; Ira Fuchs of the Andrew W. Mellon Foundation will present a
+keynote address on a “Vision for the Future” from a project sponsor’s
+perspective.&nbsp; The conference is at the Austin Hilton Hotel from
+7-9 December.<br />
+<br />
+<br />
+<strong>
+Sakai Founders Grant Copyright License</strong><br />
+The University of Michigan, Indiana University, the Massachusetts
+Institute of Technology, and Stanford University have each agreed to
+grant copyright license to the Sakai Foundation.&nbsp; The Foundation
+provides a permanent home for the software and an independent
+coordinating organization for the Sakai Community.&nbsp; “This grant
+from the four Sakai Project founders gives the Sakai Foundation a clear
+lineage of copyright for the Sakai software code,” said Joseph Hardin,
+Sakai Project Chairman of the Board.&nbsp; “Like the Apache Foundation,
+the Sakai Foundation will use a contributor agreement for all
+contributions, and we thought the founding universities should lead by
+example in being the first to freely contribute their code.”&nbsp; <br />
+<br />
+Other Sakai contributors, such as the University of California -
+Berkeley, Foothill College, Cambridge University, and many others will
+also execute contributor agreements so that the Sakai Software
+distribution can have a simple notice of “Copyright the Sakai
+Foundation.”<br />
+<br />
+In addition, Indiana University and the rSmart Group have also granted
+copyright licenses for the Open Source Portfolio software code to the
+Sakai Foundation.&nbsp; The Open Source Portfolio remains a distinct
+community and software project, and it has chosen to work through the
+Sakai Foundation for organizational and legal matters. <br />
+<br />
+<br />
+<strong>
+Community Elects New Board Members</strong><br />
+Christopher Coppola (rSmart Group), John Norman (University of
+Cambridge, UK), and Charles Severance (University of Michigan) were
+elected by the Sakai community in the first election from a field of 16
+candidates.&nbsp; These new members replace outgoing Board members Carl
+Jacobson (uPortal), Amitava Babi Mitra (MIT) and Jeff Merriman (OKI),
+all of whom have made valuable contributions during their tenure. The
+bylaws of the Foundation allow all members of the community to run for
+the Foundaion board. “This election demonstrates the wisdom of a
+diverse Sakai Community,” noted Carl Jacobson, an outgoing board member
+who oversaw the election.&nbsp; “The community is over 85% colleges and
+universities with the largest representation from North America, yet
+this group elected leaders from a company, from England, and the Sakai
+Chief Architect (Severance) to the foundation board.&nbsp; Sakai is an
+ecosystem of contributors who give with enlightened self interest for a
+common good.” <br />
+<br />
+Lois Brooks (Stanford University), Ian Dolphin (University of Hull,
+UK), Mara Hancock (Berkeley), Joseph Hardin (University of Michigan),
+Vivian Sinou (Foothill College), Jutta Treviranus (University of
+Toronto), and Brad Wheeler (Indiana University) will continue from the
+Sakai Project Board to the Sakai Foundation Board.&nbsp; “As the Sakai
+founders complete the work of the initial grant, the Sakai community
+has sent two clear messages: they want a more open project for
+contributions by many and they want continuity.&nbsp; This initial set
+of board members for the foundation delivers on both,” said John
+Norman, who helped facilitate a governance discussion at the June Sakai
+Summer Conference in Baltimore, Maryland.<br />
+<br />
+<br />
+<strong>
+Sakai 2.1 Software Released 1 December 2005</strong><br />
+The 2.1 release of the software marks the fourth release for the
+two-year project.&nbsp; It adds the ability to manage multiple sections
+of a course, a new API for groups/teams, a Wiki, a pictorial Roster,
+and many performance and interface enhancements.&nbsp; Clay Fenlason
+(Boston University), who has been piloting Sakai 2.0 this Fall and
+worked closely on the 2.1 release, stated that “current users of
+release 2.0 will see substantial differences and many refinements
+throughout.&nbsp; The Resources Tool has been enhanced, with major
+contributions from the OSP community, giving users access to files
+across all of their courses and projects from inside any course.”&nbsp;
+Many of the tools and new features have already been available and in
+full production use at some institutions for months before being
+assembled in the 2.1 release package.<br />
+<br />
+The 2.1 release also marks Sakai’s first release with entire new tools
+contributed from non-board member institutions.&nbsp; The growing
+maturity of the Sakai Framework is ripe for developers to create and
+port quality tools to work with Sakai.&nbsp; “This has been our
+smoothest and best release yet,” said Charles Severance. “The community
+has learned how to rapidly design, develop, test, and release in the
+finest sense of a large open source project.”<br />
+<br />
+<br />
+<strong>
+Sakai Partner Membership Hits 100 Institutions and Companies</strong><br />
+One hundred institutions and companies have become Sakai Partners in
+the first two years of the Sakai Project.&nbsp; The Sakai software is
+free to use, modify, and redistribute under the Educational Community
+License, but this formal participation in the community provides great
+value in rapidly sharing knowledge, support, and leveraged development.
+<p><br />
+Charles Sturt University, Australia’s largest distance learning
+provider, recently joined the Sakai Foundation and announced support
+and deployment for the Sakai Collaboration and Learning Environment
+software.&nbsp; The University’s Vice Chancellor, Professor Ian
+Goulter, said “Sakai is an important initiative because it recognises
+the need for a scholarly collaboration environment that is capable of
+allowing members of the university community to blur the boundaries
+between their various teaching, learning, research and administrative
+activities.”<br />
+<br />
+<br />
+<strong>
+Apple Computer, Inc. and Pearson Education Are Newest Sakai Commercial Affiliates</strong><br />
+Apple Computer and Pearson Education round out a dozen Sakai Commercial
+Affiliates that provide for-fee support, services, or otherwise aid the
+Sakai Community and its software.&nbsp; David O'Connor, Pearson Higher
+Education's Vice President of Product Development, said "We welcome the
+opportunity to join the growing Sakai community by becoming a Sakai
+Affiliate.&nbsp; Pearson is dedicated to ensuring that our vast library
+of digital courses, in use today by tens of thousands of instructors,
+is accessible to the increasing number of institutions that adopt the
+Sakai platform."<br />
+<br />
+<br />
+<strong>
+Sakai as a Model for Community Source Projects</strong><br />
+In just two years since the Sakai Project was first proposed at
+EDUCAUSE 2003, the project has created production-quality software, is
+in full deployment and large-scale pilot at dozens of colleges and
+universities, and has given higher education a way to meet its software
+needs.&nbsp; The Sakai Project and the Open Source Portfolio are both
+Community Source projects that were launched with university
+investments and generous gifts from the Andrew W. Mellon Foundation and
+the William and Flora Hewlett Foundation.&nbsp; Community Source is
+"community investments for community outcomes in the open source
+tradition," said Brad Wheeler, Dean of IT at Indiana University
+Bloomington.&nbsp; Many of the investments in community source are
+institutional investments from higher ed, and this model fits well with
+their needs.&nbsp; <br />
+<br />
+<br />
+CONTACT INFORMATION:<br />
+<br />
+General Information: <br />
+Mary Miles<br />
+<a href="mailto:mmiles@umich.edu">
+mmiles@umich.edu</a><br />
++1-734-764-3614<br />
+<br />
+Margaret Wagner<br />
+<a href="mwagner@umich.edu">
+mwagner@umich.edu</a><br />
++1-734-764-3199<br />
+<br />
+<br />
+The Sakai Project (<a href="http://www.sakaiproject.org%20">www.sakaiproject.org</a>) <br />
+The Sakai Project provides open source Collaboration and Learning Environment software for educational institutions.&nbsp; <br />
+<a http://sakaiproject.org/index.php?option="com_content&amp;task=blogcategory&amp;id=161&amp;Itemid=497" href="/a%3E%3Cbr%3E%0AThe%20Sakai%20Project%20provides%20open%20source%20Collaboration%20and%20Learning%0AEnvironment%20software%20for%20educational%20institutions.%C2%A0%20%3Ca%20href=">Sakai
+Conference site</a>. <br />
+<br />
+Joseph Hardin, hardin@umich.edu <br />
+Chairman, Sakai Project Board <br />
+Director of the Collaborative Technologies Lab, University of Michigan<br />
++1-734-647-9706<br />
+<br />
+<a href="http://www.osportfolio.org">
+The Open Source Portfolio (www.osportfolio.org) </a><br />
+The Open Source Portfolio (OSP) initiative is a community of
+individuals and organizations collaborating on the development of the
+leading non-proprietary, open source electronic portfolio software
+available.<br />
+<br />
+Brad Wheeler, bwheeler@indiana.edu<br />
+Chairman, OSP Board and Sakai Project Board Vice-Chairman<br />
+Assoc VP &amp; Dean of IT, Indiana University<br />
++1-812-855-3478<br />
+<br />
+The October 2005 Sakai Foundation Creation Announcement is at
+<a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=297&amp;Itemid=222">http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=297&amp;Itemid=222</a><br />
+<br />
+<strong>&nbsp;</strong></p></div>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=317&amp;Itemid=312" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr><tr><td valign="top" width="100%">			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				Sakai 2.1.0 released								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				Software & Resources - 				</span>
+						<span>
+			Release Info			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2005-Dec-01				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<p>The Sakai 2.1.0 release is now available.&nbsp; This release adds the<br />
+ability to manage sub-sections within course sites, and it has<br />
+redesigned several of the Sakai tools to take advantage of such<br />
+sections.&nbsp; This sectioning facility represents the first stage of<br />
+employing a new API for managing groups of all sorts within Sakai<br />
+sites.<br />
+<br />
+Sakai 2.1.0 is also the first release to include tools developed<br />
+within the broader community.&nbsp; Five such tools have already reached<br />
+sufficient maturity to be included in the release on a provisional<br />
+basis - ranging from a wiki tool to web service endpoints that<br />
+leverage the web service capability introduced in Sakai 2.0 - and more<br />
+are on track to be considered for future releases.<br />
+<br />
+The release also includes performance enhancements, UI improvements,<br />
+and many other fixes to issues reported for the 2.0 releases.<br />
+<br />
+The release is provided in demo, source, and binary distributions, and<br />
+can be downloaded from <a href="http://www.sakaiproject.org/release">www.sakaiproject.org/release</a><br />
+&nbsp;</p>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=313&amp;Itemid=258" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		</td></tr></table></td></tr></table>";s:6:"result";N;}

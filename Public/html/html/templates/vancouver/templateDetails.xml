@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template" version="4.5.3">
+	<name>Vancouver Conference-waterandstone</name>
+	<creationDate>26/11/05</creationDate>
+	<author>waterandstone</author>
+	<copyright>GNU/GPL</copyright>
+	<authorEmail>info@waterandstone.com</authorEmail>
+	<authorUrl>http://www.waterandstone.com</authorUrl>
+	<version>1.1</version>
+	<description>The Water and Stone Grey Template optimized for 1024px width resolution for use with any type of website with easy customization</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>template_thumbnail.png</filename>
+	</files>
+	<images>
+		<filename>images/bg_body.jpg</filename>
+		<filename>images/bg_header.jpg</filename>
+		<filename>images/bg_inside.jpg</filename>
+		<filename>images/bg_leftcol.jpg</filename>
+		<filename>images/bg_mainlevel.gif</filename>
+		<filename>images/bg_mainlevel_right.gif</filename>
+		<filename>images/bg_module.jpg</filename>
+		<filename>images/bg_module_contenttop.jpg</filename>
+		<filename>images/bg_pagenav.jpg</filename>
+		<filename>images/bg_spacer.gif</filename>
+		<filename>images/bg_topright.jpg</filename>
+		<filename>images/img_header.jpg</filename>
+		<filename>images/indent1.png</filename>
+		<filename>images/indent2.png</filename>
+		<filename>images/indent3.png</filename>
+		<filename>images/indent4.png</filename>
+		<filename>images/indent5.png</filename>
+		<filename>images/indent6.png</filename>
+		<filename>images/logo.gif</filename>
+		</images>
+	<css>
+		<filename>css/template_css.css</filename>
+	</css>
+</mosinstall>

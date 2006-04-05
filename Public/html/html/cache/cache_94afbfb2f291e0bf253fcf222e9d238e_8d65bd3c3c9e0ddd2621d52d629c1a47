@@ -1,0 +1,39 @@
+                      1709690641a:2:{s:6:"output";s:1545:"			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				The Sakai 2.1.1 release is now available.								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				Software & Resources - 				</span>
+						<span>
+			Release Info			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2006-Feb-14				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<p>The Sakai 2.1.1 release is now available.&nbsp; The spirit behind the 2.1.1 release is to make fixes to the 2.1.0 code base that has been proven in a production environment available to the community. This release offers a total of 71 bug fixes to the software. Of these fixes, 55 were issues unearthed in 2.1.0 since the release was cut and most notably 45% of all fixes applied to the Tests and Quizzes tool. <br />
+<br />
+ Sites moving from the 2.1.0 to 2.1.1 release will need to perform a small database conversion operation.&nbsp; The details of the steps necessary
+to upgrade are specified in the release notes.
+<br />
+<br />
+The release is provided in demo, source, and binary distributions, and can be downloaded from <a href="http://www.sakaiproject.org/release/">www.sakaiproject.org/release</a><br />
+</p>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=355&amp;Itemid=258" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		";s:6:"result";N;}

@@ -1,0 +1,40 @@
+                     -1120429386a:2:{s:6:"output";s:1528:"			<table cellpadding="0" cellspacing="0" class="moduletable">
+							<tr>
+					<th valign="top">
+										Syndicate					</th>
+				</tr>
+							<tr>
+				<td>
+				
+<div class="syndicate">
+	<div align="center" class="syndicate_text">
+	Sakai News	</div>
+	
+	<div align="center">
+	<a href="http://sakaiproject.org/index2.php?option=com_rss&amp;feed=RSS0.91&amp;no_html=1">
+	<img src="http://sakaiproject.org/images/M_images/rss091.gif" alt="RSS 0.91" align="middle" name="image" border="0" />	</a>
+	</div>
+	
+	<div align="center">
+	<a href="http://sakaiproject.org/index2.php?option=com_rss&amp;feed=RSS1.0&amp;no_html=1">
+	<img src="http://sakaiproject.org/images/M_images/rss10.gif" alt="RSS 1.0" align="middle" name="image" border="0" />	</a>
+	</div>
+	
+	<div align="center">
+	<a href="http://sakaiproject.org/index2.php?option=com_rss&amp;feed=RSS2.0&amp;no_html=1">
+	<img src="http://sakaiproject.org/images/M_images/rss20.gif" alt="RSS 2.0" align="middle" name="image" border="0" />	</a>
+	</div>
+	
+	<div align="center">
+	<a href="http://sakaiproject.org/index2.php?option=com_rss&amp;feed=ATOM0.3&amp;no_html=1">
+	<img src="http://sakaiproject.org/images/M_images/atom03.gif" alt="ATOM 0.3" align="middle" name="image" border="0" />	</a>
+	</div>
+	
+	<div align="center">
+	<a href="http://sakaiproject.org/index2.php?option=com_rss&amp;feed=OPML&amp;no_html=1">
+	<img src="http://sakaiproject.org/images/M_images/opml.png" alt="OPML" align="middle" name="image" border="0" />	</a>
+	</div>
+	</div>				</td>
+			</tr>
+			</table>
+			";s:6:"result";N;}

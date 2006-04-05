@@ -1,0 +1,244 @@
+                     -1433814590<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="0.92">
+
+<channel>
+	<title>Space: DG: Development (DEV) (SAKDEV)</title>
+	<description>The home space for members of the SakaiDev Discussion Group.</description>
+    <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV</link>
+
+            <item>
+                            <title>Page Added : SAKDEV:How to write Internationalized Tools in Sakai</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/How+to+write+Internationalized+Tools+in+Sakai</link>
+            <description><![CDATA[
+                <p>(Coming soon...)</p>
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Internationalization</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Internationalization</link>
+            <description><![CDATA[
+                <p>Documentation (requirements, etc) for the internationalization of Sakai</p>
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Partial sakai builds</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Partial+sakai+builds</link>
+            <description><![CDATA[
+                
+<p>In order to enable partial builds of sakai using maven, you need to run the following command. The version at the end should match the current version you are building:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-xml">maven plugin:download -DgroupId=sakaiproject -DartifactId=sakai -Dversion=2.0.1</pre>
+</div></div>
+
+<p>To do a full build "maven sakai", or "maven cln bld" from the source root.<br/>
+For a quick full build, do "maven bld". Not doing "cln" makes it run faster.</p>
+
+<p>With the partial build plugin (after you have done at least ONE complete full build) you can then cd to a module within Sakai and build there (maven bld).</p>
+
+<p>The deploy stage (maven dpl) relies on the maven project information, so if you do that from a module, only that module will deploy.</p>
+
+<p>Read about Sakai and maven from the official Sakai documentation on Sakai Collab in the Sakai Development site:<br/>
+<span class="nobr"><a href="http://collab.sakaiproject.org/access/content/group/1097928811887-22636/Architecture%20Docs/Sakai%202/sakai_maven.pdf" title="Visit page outside Confluence" rel="nofollow">http://collab.sakaiproject.org/access/content/group/1097928811887-22636/Architecture%20Docs/Sakai%202/sakai_maven.pdf<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Adding permissions to Sakai</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Adding+permissions+to+Sakai</link>
+            <description><![CDATA[
+                
+<p>To add a permission to the list of possible permissions in sakai, simply add it to the end of legacy/component/src/config/registration.xml</p>
+
+<p>For example, for melete we add the following two:</p>
+<div class="code"><div class="codeContent">
+<pre class="code-xml"><span class="code-tag">&lt;function name=<span class="code-quote">"melete.author"</span> /&gt;</span>
+<span class="code-tag">&lt;function name=<span class="code-quote">"melete.student"</span> /&gt;</span></pre>
+</div></div>
+
+<p>You can find the default list of Sakai permissions here:<br/>
+<a href="/confluence/display/ENC/Permissions+list" title="Permissions list">Sakai Permissions List</a></p>
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Virginia Tech Sakai Quick Deployment Notes</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Virginia+Tech+Sakai+Quick+Deployment+Notes</link>
+            <description><![CDATA[
+                
+<p>The quick deployment notes from Virginia Tech:<br/>
+(Sakai 2.0.1 rc2, Hardware load balancer, Custom LDAP, Oracle, Melete)</p>
+<ol>
+	<li>Deploy a JDK installation (1.4.2)</li>
+	<li>Install maven, edit ~/build.properties in the home directory of the user that compiles sakai like so:<br/>
+	<b>Note: Trailing slash on maven.tomcat.home is CRITICAL</b>
+<div class="code"><div class="codeContent">
+<pre class="code-xml">maven.tomcat.home = /apps/tomcat/sakai/
+maven.repo.remote = http://www.ibiblio.org/maven/,http://cvs.sakaiproject.org/maven/</pre>
+</div></div></li>
+	<li>Create or symlink /var/melete, /var/meleteDocs, and /var/uploads for Melete</li>
+	<li>Install subversion, put SUBVERSION_HOME/bin in your path</li>
+	<li>Get sakai source (<span class="nobr"><a href="https://source.sakaiproject.org/svn/" title="Visit page outside Confluence" rel="nofollow">https://source.sakaiproject.org/svn/<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span>)</li>
+	<li>Optional: Apply any patches required by your site (<span class="nobr"><a href="https://source.sakaiproject.org/contrib/" title="Visit page outside Confluence" rel="nofollow">https://source.sakaiproject.org/contrib/<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span>)</li>
+	<li>Make any edits required by packages like melete (check the docs included with Melete)</li>
+	<li>Add/Setup site user provider (<a href="/confluence/display/ENTR/UserDirectoryProvider" title="UserDirectoryProvider">ENTR:UserDirectoryProvider</a>)</li>
+	<li>Run "maven sakai" in sakai directory</li>
+	<li>Edit sakai.properties and placeholder.properties in TOMCAT_HOME/sakai/</li>
+	<li>Start server (TOMCAT_HOME/bin/startup.sh)</li>
+</ol>
+
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:UofM Comments Page</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/UofM+Comments+Page</link>
+            <description><![CDATA[
+                
+<p>Please add comments below relative to how useful you found this week's meeting.  Feel free to be frank or as brutal as need be.  The goal for us is to improve these gatherings and your comments will be appreciated.</p>
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Code</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Code</link>
+            <description><![CDATA[
+                
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Presentations</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Presentations</link>
+            <description><![CDATA[
+                
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Sakai Implementor Call-in, Aug-Sep 2005, Monday's 2 PM EDT</title>
+                        <link>http://bugs.sakaiproject.org/confluence/pages/viewpage.action?pageId=6373</link>
+            <description><![CDATA[
+                
+<p>As a supplement to the Sakai-Dev developer meetings and our daily email exchanges I've scheduled a series of call-in conference calls intended to support developers et al who have upcoming production/pilot releases this fall.  Jon Anderson, Zhen Qian, myself and others will be available to field questions and help support those preparing to deploy Sakai. Others who would like to join the conversation and help field questions are welcome to do so (send me an email and let me know that you are interested in helping out).</p>
+
+<p>We'll start with an informal call-in format.  Future calls could focus on specific topics if people deem it helpful.  Feel free to suggest topics or areas worth discussing (I can then work to line up experts who could join in the calls to answer targeted questions).</p>
+
+<p>The call-ins are scheduled for Mondays at 2 PM - 3:30 PM EDT for the next several weeks.</p>
+
+<p>Schedule<br/>
+Mon., 8 Aug. 2:00 PM EDT<br/>
+Mon., 15 Aug. 2:00 PM EDT<br/>
+Mon., 22 Aug. 2:00 PM EDT<br/>
+Mon., 29 Aug. 2:00 PM EDT<br/>
+Wed. 7 Sep. (Monday is a holiday in these parts)<br/>
+Mon., 12 Sep. 2:00 PM EDT<br/>
+Mon., 19. Sep. 2:00 PM EDT</p>
+
+<p>(11 AM in Berkeley, 1 PM at IU, 7 PM in Cambridge, England, 8 PM in Copenhagen, Denmark and Cape Town, South Africa)<br/>
+ <br/>
+Dial in number <br/>
+734-615-6802</p>
+
+<p>Pass code  <br/>
+6710</p>
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Conferance Calls</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Conferance+Calls</link>
+            <description><![CDATA[
+                
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Hosts</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Hosts</link>
+            <description><![CDATA[
+                
+<p>This page lists the hosts for development versions of Sakai along with the release they are running.    The purpose of these installation is to allow developers/QA to evaluate committed changes in different environments.  They are not suitable for demonstrations.</p>
+
+<p>nightly maintenance branch build:</p>
+
+<p><span class="nobr"><a href="http://nightly2-maint.sakaiproject.org/portal" title="Visit page outside Confluence" rel="nofollow">http://nightly2-maint.sakaiproject.org/portal<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+
+<p>sakai-2.0.1-rc2<br/>
+1/  hsql   <span class="nobr"><a href="http://sakai-stable.mit.edu:2003/portal" title="Visit page outside Confluence" rel="nofollow">http://sakai-stable.mit.edu:2003/portal<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+     log files <span class="nobr"><a href="http://sakai-stable.mit.edu:2003/sakailogs/logs" title="Visit page outside Confluence" rel="nofollow">http://sakai-stable.mit.edu:2003/sakailogs/logs<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+<p>2/  mysql <span class="nobr"><a href="http://sakai-stable.mit.edu:8030/portal" title="Visit page outside Confluence" rel="nofollow">http://sakai-stable.mit.edu:8030/portal<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+     log files <span class="nobr"><a href="http://sakai-stable.mit.edu:8030/sakailogs/logs" title="Visit page outside Confluence" rel="nofollow">http://sakai-stable.mit.edu:8030/sakailogs/logs<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+<p>3/ oracle <span class="nobr"><a href="http://sakai-stable.mit.edu:8120/portal" title="Visit page outside Confluence" rel="nofollow">http://sakai-stable.mit.edu:8120/portal<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+    log files <span class="nobr"><a href="http://sakai-stable.mit.edu:8120/sakailogs/logs" title="Visit page outside Confluence" rel="nofollow">http://sakai-stable.mit.edu:8120/sakailogs/logs<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+    email is enabled in this oracle version.</p>
+
+
+<p>sakai-2.0.0.RC3:<br/>
+ 1/ oracle <span class="nobr"><a href="http://sakai-stable.mit.edu:8020/portal" title="Visit page outside Confluence" rel="nofollow">http://sakai-stable.mit.edu:8020/portal<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+      log files <span class="nobr"><a href="http://sakai-stable.mit.edu:8020/sakailogs/logs" title="Visit page outside Confluence" rel="nofollow">http://sakai-stable.mit.edu:8020/sakailogs/logs<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+      email is NOT enabled in this oracle version.</p>
+
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:UofM Location and Parking</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/UofM+Location+and+Parking</link>
+            <description><![CDATA[
+                
+<h4><a name="UofMLocationandParking-DuderstadtCenter">Duderstadt Center</a></h4>
+
+<p><span class="nobr"><a href="http://www.dc.umich.edu/" title="Visit page outside Confluence" rel="nofollow">http://www.dc.umich.edu/<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+<p>Duderstadt Center<br/>
+2281 Bonisteel Blvd.<br/>
+Ann Arbor, Michigan 48109-2094<br/>
+reception desk: 734-763-3266<br/>
+fax: 734-936-3107</p>
+
+<h4><a name="UofMLocationandParking-DirectionstotheDuderstadtCenter">Directions to the Duderstadt Center</a></h4>
+
+<p>From the East, West and North, the Duderstadt Center is accessible from the Plymouth Road exit of US 23, the first exit on 23 south of M-14. Making a left onto Murfin Avenue from Plymouth Road will take you to the Visitor's Parking lot next to the Pierpoint Commons.</p>
+
+<p>From the South, the Duderstadt Center is accessible from Bonisteel Boulevard, off of Fuller Road and Glazier Way.</p>
+
+<h4><a name="UofMLocationandParking-Parking">Parking</a></h4>
+
+<p>Please note that the parking area located directly north of Pierpont Commons and immediately to the northwest of the Duderstadt Center is now a building construction site.  This parking lot is reduced to 81 visitor parking spaces, 3 Staff (Blue) Handicap spaces, and 4 U-M Business spaces. Bonisteel Boulevard is now reduced to one lane of traffic in each direction in order to accommodate the addition of 70 parallel parking spaces. All these space are designated Blue permit parking M-F until 5:00 p.m. After 5:00 p.m., parking along Bonisteel Boulevard is available to the public.</p>
+
+<p><img src="/confluence/download/attachments/5973/north_campus.gif" align="absmiddle" border="0" /></p>
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:UofM Food and Drink</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/UofM+Food+and+Drink</link>
+            <description><![CDATA[
+                
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:UofM Content</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/UofM+Content</link>
+            <description><![CDATA[
+                
+            ]]></description>
+        </item>
+            <item>
+                            <title>Page Added : SAKDEV:Suggested Accomodations</title>
+                        <link>http://bugs.sakaiproject.org/confluence/display/SAKDEV/Suggested+Accomodations</link>
+            <description><![CDATA[
+                
+<h4><a name="SuggestedAccomodations-CourtyardbyMarriottatYale">Courtyard by Marriott at Yale</a></h4>
+
+<p>A block of rooms have been reserved from July 17th through the 20th.  The room rate is $99.00 per night plus taxes. Check in time is 3:00PM and checkout is 11:00AM.  Parking is available on site for $10.00 per day if needed.  Anyone calling in should mention "Sakai Developers Gathering".  Reservations will be made on an individual basis.  An advance deposit for the first night's room and tax will be taken at the time the reservation is made.</p>
+
+<p><span class="nobr"><a href="http://marriott.com/property/propertypage/HVNDT" title="Visit page outside Confluence" rel="nofollow">http://marriott.com/property/propertypage/HVNDT<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+<h4><a name="SuggestedAccomodations-BedandBreakfastsnearbyincaseyouprefertheeclectic%3A">Bed and Breakfasts nearby in case you prefer the eclectic:</a></h4>
+
+<p><span class="nobr"><a href="http://www.touchofirelandguesthouse.com/" title="Visit page outside Confluence" rel="nofollow">http://www.touchofirelandguesthouse.com/<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+This one is close to Yale and has wireless!</p>
+
+<p><span class="nobr"><a href="http://swancove.com/directions.htm" title="Visit page outside Confluence" rel="nofollow">http://swancove.com/directions.htm<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+This one is on the water.</p>
+
+<p><span class="nobr"><a href="http://farnamguesthouse.com/" title="Visit page outside Confluence" rel="nofollow">http://farnamguesthouse.com/<sup><img class="rendericon" src="/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+This one has wireless too.</p>
+            ]]></description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,27 @@
+#evenrow{background: #eee; border-top:1px solid #ccc; }
+#evenrow td, #oddrow td{padding:2px 2px;}
+#oddrow{background: #FAF6EB;  border-top:1px solid #ccc; }
+.header {  border:none; font-style: Arial, Helvetica, san serif; color: #330033;}
+.number {text-align: left; font-style: Arial, Helvetica, san serif; color:#000}
+.center {text-align: center;}
+.nowrap {white-space: nowrap;}
+.line_no{color:#FFA333;}
+.tableheader{ background:#ccc; font-weight: bold; border:0px solid #eee; color: #fff; }
+.error {color: #330033;  margin: 30px 40px;}
+.error {color: #330033; border:none;}
+form input, form select{font-size:90%;}
+.legend {
+font-family: Arial;
+ border: 0px solid #ffcc33;
+ padding: 0px;
+ }
+td .cat{background:#FFEFBF;}
+
+td .who {background: #FAF6EB;}
+ 
+.cat {
+color: #000;
+font-weight: bold;}
+
+#data {font-size: 80%;}
+.report {font-size: 12px; color:#666;}

@@ -1,0 +1,51 @@
+                     -1704766949a:2:{s:6:"output";s:1881:"			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				Sakai 2.1.0 released								</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+					<tr>
+				<td>
+							<span>
+				Software & Resources - 				</span>
+						<span>
+			Release Info			</span>
+							</td>
+			</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2005-Dec-01				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			<p>The Sakai 2.1.0 release is now available.&nbsp; This release adds the<br />
+ability to manage sub-sections within course sites, and it has<br />
+redesigned several of the Sakai tools to take advantage of such<br />
+sections.&nbsp; This sectioning facility represents the first stage of<br />
+employing a new API for managing groups of all sorts within Sakai<br />
+sites.<br />
+<br />
+Sakai 2.1.0 is also the first release to include tools developed<br />
+within the broader community.&nbsp; Five such tools have already reached<br />
+sufficient maturity to be included in the release on a provisional<br />
+basis - ranging from a wiki tool to web service endpoints that<br />
+leverage the web service capability introduced in Sakai 2.0 - and more<br />
+are on track to be considered for future releases.<br />
+<br />
+The release also includes performance enhancements, UI improvements,<br />
+and many other fixes to issues reported for the 2.0 releases.<br />
+<br />
+The release is provided in demo, source, and binary distributions, and<br />
+can be downloaded from <a href="http://www.sakaiproject.org/release">www.sakaiproject.org/release</a><br />
+&nbsp;</p>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+					<a href="index.php?option=com_content&amp;task=view&amp;id=313&amp;Itemid=258" class="readon">
+					Read more...					</a>
+					</td>
+				</tr>
+						</table>
+		";s:6:"result";N;}

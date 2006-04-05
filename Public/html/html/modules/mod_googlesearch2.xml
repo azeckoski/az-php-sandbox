@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+  <mosinstall type="module">
+    <name>Google Search</name>
+    <creationDate>15/06/2004</creationDate>
+    <author>MamboPT</author>
+    <copyright>This module its released under GPL/GNU License</copyright>	  
+    <authorEmail>admin@mambopt.com</authorEmail>
+    <authorUrl>http://www.mambopt.com</authorUrl>
+    <version>2.0</version>
+    <description>This module shows a box to search in google.</description>
+    <files>
+      <filename module="mod_googlesearch2">mod_googlesearch2.php</filename>
+    </files>
+  <images>
+      <filename>images/google.png</filename>
+ </images>
+  </mosinstall>
