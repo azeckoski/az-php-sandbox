@@ -32,8 +32,8 @@ require 'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['username'] = "required:nospaces:focus:uniquesql;username;users";
-$vItems['email'] = "required:email:uniquesql;email;users";
+$vItems['username'] = "required:nospaces:focus:uniqueuserp;username";
+$vItems['email'] = "required:email:uniqueuserp;email";
 $vItems['password1'] = "required:password";
 $vItems['password2'] = "required:password";
 $vItems['firstname'] = "required";

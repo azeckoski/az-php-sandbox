@@ -14,6 +14,10 @@ require $_SERVER["DOCUMENT_ROOT"].'/accounts/include/tool_vars.php';
 // connect to database
 require $_SERVER["DOCUMENT_ROOT"].$TOOL_PATH.'/sql/mysqlconnect.php';
 
+// Load User and Inst PROVIDERS
+require $ACCOUNTS_PATH.'include/providers.php';
+
+// bring the validator functions
 require 'validators.php';
 
 // run the ajax stuff if the ajax var is set

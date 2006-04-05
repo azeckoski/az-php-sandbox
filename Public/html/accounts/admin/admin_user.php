@@ -1,8 +1,7 @@
 <?php
 /*
- * file: admin_ldap_add.php
- * Created on Mar 8, 2006 11:00:45 PM by @author aaronz
- * 
+ * file: admin_user.php
+ * Created on Apr 5, 2006 11:00:45 PM by @author aaronz
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
@@ -45,8 +44,8 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['username'] = "required:nospaces:uniquesql;username;users;pk;$PK";
-$vItems['email'] = "required:email:uniquesql;email;users;pk;$PK";
+$vItems['username'] = "required:nospaces:uniqueuserp;username;$PK";
+$vItems['email'] = "required:email:uniqueuserp;email;$PK";
 $vItems['password1'] = "password";
 $vItems['password2'] = "password";
 $vItems['firstname'] = "required:focus";
@@ -130,7 +129,7 @@ if ($_POST["save"] && $allowed) {
 		if($_POST["instrep"]) { }
 		if($_POST["voterep"]) { }
 
-		// write the values to LDAP
+		// save the current user
 		if (!$opUser->save()) {
 			$Message = "Error: Could not save: ".$opUser->Message;
 		} else {

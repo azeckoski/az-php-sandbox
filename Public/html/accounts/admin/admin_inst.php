@@ -31,23 +31,25 @@ if (!$User->checkPerm("admin_insts")) {
 	$allowed = 1;
 }
 
-// bring in the form validation code
-require $ACCOUNTS_PATH.'ajax/validators.php';
-
-// Define the array of items to validate and the validation strings
-$vItems = array();
-$vItems['name'] = "required:namespaces:uniquesql;institution;name;pk;$PK";
-$vItems['type'] = "required";
-$vItems['city'] = "required:namespaces";
-$vItems['state'] = "namespaces";
-$vItems['zipcode'] = "zipcode";
-$vItems['country'] = "required:namespaces";
-
 
 $PK = $_REQUEST["pk"]; // if editing/removing this will be set
 if ($PK) {
 	$Message = "Edit the information below to adjust the institution.<br/>";
 }
+
+
+// bring in the form validation code
+require $ACCOUNTS_PATH.'ajax/validators.php';
+
+// Define the array of items to validate and the validation strings
+$vItems = array();
+$vItems['name'] = "required:namespaces:uniqueinstp;name;$PK";
+$vItems['type'] = "required";
+$vItems['city'] = "namespaces";
+$vItems['state'] = "namespaces";
+$vItems['zipcode'] = "zipcode";
+$vItems['country'] = "namespaces";
+
 
 // create the user object from provider
 $opInst = new Institution($PK);
@@ -56,58 +58,37 @@ $opInst = new Institution($PK);
 // this matters when the form is submitted
 if ($_POST["save"]) {
 
-	$NAME = $_POST["name"];
-	$ABBR = $_POST["abbr"];
-	$TYPE = $_POST["type"];
+	$opInst->name = $_POST["name"];
+	$opInst->type = $_POST["type"];
+	$opInst->city = $_POST["city"];
+	$opInst->state = $_POST["state"];
+	$opInst->zipcode = $_POST["zipcode"];
+	$opInst->country = $_POST["country"];
 
-	// check if the name is unique
-	$sql_name_check = mysql_query("SELECT pk FROM institution WHERE name='$NAME'");
-	$row = mysql_fetch_row($sql_name_check);
-	if ($row[0] > 0 && $row[0] != $PK) {
-		$Message .= "<span class='error'>Error: This name ($NAME) is already in use.</span><br/>";
+	// DO SERVER SIDE VALIDATION
+	$errors = 0;
+	$validationOutput = ServerValidate($vItems, "return");
+	if ($validationOutput) {
 		$errors++;
+		$Message = "<fieldset><legend>Validation Errors</legend>".
+			"<span style='color:red;'>Please fix the following errors:</span><br/>".
+			$validationOutput."</fieldset>";
 	}
-	mysql_free_result($sql_name_check);
 
 	if ($errors == 0) {
-		if ($_REQUEST["add"]) {
-			// insert new institution
-			$sqlinsert = "INSERT into institution (name,abbr,type) values ('$NAME','$ABBR','$TYPE')";
-			$result = mysql_query($sqlinsert) or die('Inst insert query failed: ' . mysql_error());
-			$PK = mysql_insert_id();
-			$Message = "<b>Added new institution</b><br/>";
-			$_REQUEST["add"] = "";
-		} else if ($_REQUEST["remove"]) {
-			// remove this institution if no users are in it
-			$sqlremove = "DELETE from institution where pk='$PK' and rep_pk is null and repvote_pk is null";
-			$result = mysql_query($sqlremove) or die('Inst remove query failed: ' . mysql_error());
-			$Message = "<b>Remove institution $NAME</b><br/>";
+		// save the current inst
+		if (!$opInst->save()) {
+			$Message = "Error: Could not save: ".$opInst->Message;
 		} else {
-			// write the new values to the DB
-			$sqledit = "UPDATE institution set name='$NAME', abbr='$ABBR', " .
-					"type='$TYPE' where pk='$PK'";
-			$result = mysql_query($sqledit) or die('Inst update query failed: ' . mysql_error());
-			$Message = "<b>Updated institution information</b><br/>";
-
-			// clear all values
-			$NAME = "";
-			$ABBR = "";
-			$TYPE = "";
+			$Message = "<strong>Saved institution information</strong>";
 		}
 	} else {
 		$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";
 	}
 }
 
-
-// get the item information from the DB
-$itemsql = "SELECT I1.*, U1.firstname,U1.lastname,U1.email," .
-	"U2.firstname as vfirstname,U2.lastname as vlastname,U2.email as vemail " .
-	"from institution I1 left join users U1 on U1.pk=I1.rep_pk " .
-	"left join users U2 on U2.pk=I1.repvote_pk WHERE I1.pk = '$PK'";
-$result = mysql_query($itemsql) or die('Query failed: ' . mysql_error());
-$thisItem = mysql_fetch_assoc($result);
-mysql_free_result($result);
+//echo $opUser, "<br/>"; // for testing
+$thisItem = $opInst->toArray(); // put the user data into an array for easy access
 
 
 // top header links

@@ -153,7 +153,23 @@ function ProcessItem($formid,$fvalue,$params,$output_type) {
 		else if ($type == "uniquesql") {
 			// should be uniquesql;(columnname);(tablename);(tableid);(userid)
 			$parts = split(';',$value);
-			if(!validateUnique($parts[1],$parts[2],$fvalue,$parts[3],$parts[4])) {
+			if(!validateUniqueSQL($parts[1],$parts[2],$fvalue,$parts[3],$parts[4])) {
+				$VALIDATE_TEXT = $formid." already used";
+				$failed = true;
+			}
+		}
+		else if ($type == "uniqueinstp") {
+			// should be uniqueinstp;(value);($field);(idval)
+			$parts = split(';',$value);
+			if(!validateUniqueInst($fvalue,$parts[1],$parts[2])) {
+				$VALIDATE_TEXT = $formid." already used";
+				$failed = true;
+			}
+		}
+		else if ($type == "uniqueuserp") {
+			// should be uniqueuserp;(value);($field);(idval)
+			$parts = split(';',$value);
+			if(!validateUniqueUser($fvalue,$parts[1],$parts[2])) {
 				$VALIDATE_TEXT = $formid." already used";
 				$failed = true;
 			}
@@ -371,7 +387,7 @@ function validateAlphaNameSpaces($val) {
 
 // checks if an item is unique in the database or in use
 // params = (columnname),(tablename),(value),(id),(idvalue)
-function validateUnique($columname,$tablename,$val,$id,$idval) {
+function validateUniqueSQL($columname,$tablename,$val,$id,$idval) {
 	global $VALIDATE_TEXT;
 	$VALIDATE_TEXT = "";
 
@@ -398,6 +414,51 @@ function validateUnique($columname,$tablename,$val,$id,$idval) {
 	$result = mysql_query($sql) or die('Query failed: ('.$sql.'): ' . mysql_error());
 	$count = mysql_num_rows($result);
 	if ($count == 0) {
+		$VALIDATE_TEXT = "";
+		return true;
+	}
+	$VALIDATE_TEXT = "Item is not unique, enter another";
+	return false;
+}
+
+// checks if a user is unique in the provider
+// params = (value),(idvalue)
+function validateUniqueUser($value,$field,$idval=-1) {
+	global $VALIDATE_TEXT;
+	$VALIDATE_TEXT = "";
+
+	// do the provider check
+	$checkItem = new User();
+	switch ($field) {
+		case "username": $checkItem->getUserByUsername($value); break;
+		case "email": $checkItem->getUserByEmail($value); break;
+		default: echo "Invalid field type ($field) for validateUniqueUser"; return false;
+	}
+
+	if ($checkItem->pk == 0 || $checkItem->pk == $idval) {
+		// no item by this field or current item is using it which is ok
+		$VALIDATE_TEXT = "";
+		return true;
+	}
+	$VALIDATE_TEXT = "Item is not unique, enter another";
+	return false;
+}
+
+// checks if an item is unique in the provider
+// params = (value),(idvalue)
+function validateUniqueInst($value,$field,$idval=-1) {
+	global $VALIDATE_TEXT;
+	$VALIDATE_TEXT = "";
+
+	// do the provider check
+	$checkItem = new Institution();
+	switch ($field) {
+		case "name": $checkItem->getInstByName($value); break;
+		default: echo "Invalid field type ($field) for validateUniqueInst"; return false;
+	}
+
+	if ($checkItem->pk == 0 || $checkItem->pk == $idval) {
+		// no item by this field or current item is using it which is ok
 		$VALIDATE_TEXT = "";
 		return true;
 	}

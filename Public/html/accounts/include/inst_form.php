@@ -16,7 +16,7 @@
 		<td>
 			<img id="nameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="text" name="name" value="<?= $thisItem['name'] ?>" size="40" maxlength="200"/>
-			<input type="hidden" id="nameValidate" value="<?= $vItems['name'] ?>" />
+			<input type="hidden" id="nameValidate" value="<?= $vItems['name'] ?>" /><br/>
 			<span id="nameMsg"></span>
 		</td>
 	</tr>
@@ -36,7 +36,7 @@
 			<input type="radio" name="type" tabindex="3" value="" <?php
 				if ($thisItem["type"] == "") { echo " checked='y' "; }
 			?>/> non-member
-			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" />
+			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" /><br/>
 			<span id="typeMsg"></span>
 		</td>
 	</tr>
@@ -92,7 +92,7 @@ if ($_REQUEST["add"]) {
 		<td class="account"><b>City:</b></td>
 		<td nowrap="y">
 			<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="city" value="<?= $thisUser['city'] ?>" size="30" maxlength="50"/>
+			<input type="text" name="city" value="<?= $thisItem['city'] ?>" size="30" maxlength="50"/>
 			<input type="hidden" id="cityValidate" value="<?= $vItems['city'] ?>"/>
 			<span id="cityMsg"></span>
 		</td>
@@ -103,14 +103,14 @@ if ($_REQUEST["add"]) {
 		<td nowrap="y">
 			<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="state">
-<?php	$selectItem = $thisUser['state'];
+<?php	$selectItem = $thisItem['state'];
 		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
 		require $ACCOUNTS_PATH.'include/state_select.php';
 ?>
 				<option value="">&nbsp;</option>
 				<option value="-other-">Other (Not Listed)</option>
 			</select>
-			<input style="display:none;" type="text" id="stateOther" value="<?= $thisUser['state'] ?>" size="20" maxlength="50" />
+			<input style="display:none;" type="text" id="stateOther" value="<?= $thisItem['state'] ?>" size="20" maxlength="50" />
 			<input type="hidden" id="stateValidate" value="<?= $vItems['state'] ?>" />
 			<span id="stateMsg"></span>
 		</td>
@@ -120,7 +120,7 @@ if ($_REQUEST["add"]) {
 		<td class="account"><b>Zipcode:</b></td>
 		<td nowrap="y">
 			<img id="zipcodeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="zipcode" value="<?= $thisUser['zipcode'] ?>" size="10" maxlength="10"/>
+			<input type="text" name="zipcode" value="<?= $thisItem['zipcode'] ?>" size="10" maxlength="10"/>
 			<input type="hidden" id="zipcodeValidate" value="<?= $vItems['zipcode'] ?>" />
 			<span id="zipcodeMsg"></span>
 		</td>
@@ -131,14 +131,14 @@ if ($_REQUEST["add"]) {
 		<td nowrap="y">
 			<img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="country">
-<?php	$selectItem = $thisUser['country'];
+<?php	$selectItem = $thisItem['country'];
 		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
 		require $ACCOUNTS_PATH.'include/country_select.php';
 ?>
 				<option value="">&nbsp;</option>
 				<option value="-other-">Other (Not Listed)</option>
 			</select>
-			<input style="display:none;" type="text" id="countryOther" value="<?= $thisUser['country'] ?>" size="20" maxlength="50" />
+			<input style="display:none;" type="text" id="countryOther" value="<?= $thisItem['country'] ?>" size="20" maxlength="50" />
 			<input type="hidden" id="countryValidate" value="<?= $vItems['country'] ?>" />
 			<span id="countryMsg"></span>
 		</td>

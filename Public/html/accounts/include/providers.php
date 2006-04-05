@@ -1757,7 +1757,23 @@ class Institution {
 			return false;
 		}
 
-		// now put the user data into the object
+		// now put the data into the object
+		return $this->updateFromArray($this->searchResults[$this->pk]);
+	}
+
+	public function getInstByName($name) {
+		if (!$name) {
+			$this->Message = "Inst Name is empty";
+			return false;
+		}
+
+		// first use the search to get the user data
+		if(!$this->getInstsBySearch("name=$name", "", "*")) {
+			$this->Message = "Could not find inst by name: $name";
+			return false;
+		}
+
+		// now put the data into the object
 		return $this->updateFromArray($this->searchResults[$this->pk]);
 	}
 

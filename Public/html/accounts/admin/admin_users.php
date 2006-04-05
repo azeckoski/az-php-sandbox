@@ -1,7 +1,7 @@
 <?php
 /*
- * file: admin_ldap.php
- * Created on Mar 8, 2006 10:52:28 PM by @author aaronz
+ * file: admin_users.php
+ * Created on Apr 3, 2006 10:52:28 PM by @author aaronz
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
