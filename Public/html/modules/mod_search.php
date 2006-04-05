@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: mod_search.php,v 1.5 2005/01/15 07:47:12 stingrey Exp $
+* @version $Id: mod_search.php,v 1.1 2005/07/22 01:58:30 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
@@ -45,11 +45,11 @@ switch ( $button_pos ) {
 }
 ?>
 
+<form action="<?php echo sefRelToAbs("index.php"); ?>" method="post">
 
-<FORM method=GET action="http://www.google.com/u/sakaiproject" target="_blank">
-        <tr><td align="center">
-   		<INPUT TYPE="text\" name=\"q\" size=\"15\" maxlength=\"255\" value=\"\"><br>
-   		 <INPUT type="submit\" name=\"sa\" value=\"go\">
-
-</form>
+<div align="left" class="search<?php echo $moduleclass_sfx; ?>">	
+<?php echo $output; ?>
 </div>
+
+<input type="hidden" name="option" value="search" />
+</form>

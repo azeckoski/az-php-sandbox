@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: mod_wrapper.php,v 1.1 2005/01/11 15:54:25 stingrey Exp $
+* @version $Id: mod_wrapper.php,v 1.1 2005/07/22 01:58:30 eddieajau Exp $
 * @package Mambo_4.5.2
 * @copyright (C) 2000 - 2004 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL

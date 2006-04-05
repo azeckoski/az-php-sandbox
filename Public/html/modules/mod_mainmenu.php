@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: mod_mainmenu.php,v 1.7 2005/01/06 01:13:31 eddieajau Exp $
+* @version $Id: mod_mainmenu.php,v 1.2 2005/08/02 08:21:53 akede Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
@@ -43,7 +43,7 @@ if (!defined( '_MOS_MAINMENU_MODULE' )) {
 		}
 
 		// Active Menu highlighting
-		$current_itemid = trim( mosGetParam( $_REQUEST, 'Itemid', 0 ) );
+		$current_itemid = $Itemid;
 		if ( !$current_itemid ) {
 			$id = '';
 		} else if ( $current_itemid == $mitem->id ) {

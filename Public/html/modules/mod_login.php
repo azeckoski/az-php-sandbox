@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id: mod_login.php,v 1.5 2005/01/15 06:49:01 stingrey Exp $
+* @version $Id: mod_login.php,v 1.1 2005/07/22 01:58:29 eddieajau Exp $
 * @package Mambo
 * @copyright (C) 2000 - 2005 Miro International Pty Ltd
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
