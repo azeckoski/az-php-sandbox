@@ -137,14 +137,12 @@ if ($_REQUEST["ldif"] && $allowed) {
 
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
-}
-$EXTRA_LINKS .= "<a href='admin_users.php'><strong>Users</strong></a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
 	"<a href='admin_perms.php'>Permissions</a>" .
+	" <strong>** WARNING: This tool is deprecated! **</strong>" .
 	"</span>";
 
 ?>
@@ -345,7 +343,7 @@ if ($row["username"] == $row["rep_username"]) {
 } ?>
 	</td>
 	<td class="line" align="center">
-		<a href="admin_user.php?pk=<?= $row['pk']?>">edit</a>
+		<?= $row['date_created']?>
 	</td>
 </tr>
 

@@ -91,13 +91,10 @@ $result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
 $items_displayed = mysql_num_rows($result);
 
 
-// header top links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
-}
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
 	"<a href='admin_perms.php'><strong>Permissions</strong></a>" .
 	"</span>";

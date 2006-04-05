@@ -93,16 +93,14 @@ $thisItem = mysql_fetch_assoc($result);
 mysql_free_result($result);
 
 
-// header top links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
-}
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
 	"<a href='admin_perms.php'><strong>Permissions</strong></a>" .
 	"</span>";
+
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>

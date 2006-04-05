@@ -31,12 +31,9 @@ if (!$User->checkPerm("admin_accounts")) {
 }
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'><strong>Admin</strong></a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
-}
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'><strong>Admin</strong></a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
 	"<a href='admin_perms.php'>Permissions</a>" .
 	"</span>";
@@ -71,33 +68,51 @@ function orderBy(newOrder) {
 ?>
 
 <table>
-<?php if ($USE_LDAP) { ?>
-    <tr>
-      <td valign="top"><a href="admin_ldap.php">LDAP Control</a></td>
-      <td>This allows control of LDAP user accounts and related properties<br/>
-      Edit the user to set them as an institutional rep or voting rep and to control admin privileges<br/>
-      LDAP accounts should be used instead of internal accounts
-      </td>
-    </tr>
-<?php } ?>
     <tr>
       <td valign="top"><a href="admin_users.php">Users Control</a></td>
-      <td>This allows control of internal user accounts and related properties<br/>
-      Edit the user to set them as an institutional rep or voting rep and to control admin privileges
+      <td>This allows control of LDAP/DB user accounts and related properties<br/>
+      Edit the user to set them as an institutional rep or voting rep and to control admin privileges<br/>
+      LDAP accounts should be used instead of internal accounts when possible
       </td>
     </tr>
+
     <tr>
       <td valign="top"><a href="admin_insts.php">Institutional Control</a></td>
-      <td>This allows control of instituions<br/>
+      <td>This allows control of institutions<br/>
       Edit the institution to change the name, abbreviation, or type
       </td>
     </tr>
+
     <tr>
       <td valign="top"><a href="admin_perms.php">Permissions Control</a></td>
       <td>This allows control of permissions<br/>
       Add new permissions or edit the descriptions of existing permissions
       </td>
     </tr>
+
+    <tr>
+      <td valign="top" colspan="2">&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td valign="top"><strong>Deprecated Functions</strong></td>
+      <td valign="top"><em>Do not use these unless you know what you are doing</em></td>
+    </tr>
+
+    <tr>
+      <td valign="top"><a href="admin_users_db.php">Users Control (old)</a></td>
+      <td>This allows control of internal user accounts and related properties and
+      allows for LDIF file generation for old style accounts
+      </td>
+    </tr>
+
+    <tr>
+      <td valign="top"><a href="admin_insts_db.php">Insts Control (old)</a></td>
+      <td>This allows control of internal institutions and related properties and
+      allows for LDIF file generation for old style institution listings
+      </td>
+    </tr>
+
 </table>  
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

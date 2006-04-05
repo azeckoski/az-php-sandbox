@@ -32,12 +32,10 @@ if (!$User->checkPerm("admin_accounts")) {
 }
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'><strong>Users</strong></a> - ";
-}
-$EXTRA_LINKS .= "<a href='admin_insts.php'>Institutions</a> - " .
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'><strong>Users</strong></a> - " .
+	"<a href='admin_insts.php'>Institutions</a> - " .
 	"<a href='admin_perms.php'>Permissions</a>" .
 	"</span>";
 

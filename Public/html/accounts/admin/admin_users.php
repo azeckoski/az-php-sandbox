@@ -32,9 +32,9 @@ if (!$User->checkPerm("admin_accounts")) {
 
 
 // delete ldap item
-if ($_REQUEST["ldapdel"]) {
-	$LDAP_PK = $_REQUEST["ldapdel"];
-	$thisUser = new User($LDAP_PK);
+if ($_REQUEST["itemdel"]) {
+	$itemPK = $_REQUEST["itemdel"];
+	$thisUser = new User($itemPK);
 	if (!$thisUser->delete()) {
 		$Message = "Error: Could not remove user: ".$thisUser->Message;
 	}
@@ -50,7 +50,8 @@ if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sortorder = "username";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 
-$output = "Enter search text to the right";
+$totalItems = $User->getUsersBySearch("*","","pk",true); // get count of users
+$output = "";
 $items = array();
 if ($searchtext) { // no results without doing a search
 	$returnItems = "pk,username,fullname,email,institution,institution_pk";
@@ -61,20 +62,29 @@ if ($searchtext) { // no results without doing a search
 	$items = $User->getUsersBySearch($search,$sortorder,$returnItems);
 	$output = "Number of entries returned: " . count($items);
 } else { // end use ldap check
-	$output = "No search text entered...";
+	$output = "Total users: $totalItems[count] - No search text entered...";
 	if (!$USE_LDAP) {
 		$output .= "(<b>LDAP is disabled!</b>)";
 	}
 }
 
+// Do the export as requested by the user
+if ($_REQUEST["export"] && $allowed) {
+	$date = date("Ymd-Hi",time());
+	$filename = "institutions-" . $date . ".csv";
+	header("Content-type: text/x-csv");
+	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0");
+	// TODO - make this work
+	exit;
+}
+
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'><strong>Users</strong></a> - ";
-}
-$EXTRA_LINKS .= 
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'><strong>Users</strong></a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
 	"<a href='admin_perms.php'>Permissions</a>" .
 	"</span>";
@@ -94,10 +104,10 @@ function orderBy(newOrder) {
 	return false;
 }
 
-function ldapdel(itempk) {
-	var response = window.confirm("Are you sure you want to remove this user (id="+itempk+") from ldap?");
+function itemdel(itempk) {
+	var response = window.confirm("Are you sure you want to remove this user (id="+itempk+")?");
 	if (response) {
-		document.adminform.ldapdel.value = itempk;
+		document.adminform.itemdel.value = itempk;
 		document.adminform.submit();
 		return false;
 	}
@@ -118,7 +128,7 @@ function ldapdel(itempk) {
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
-<input type="hidden" name="ldapdel" value="" />
+<input type="hidden" name="itemdel" value="" />
 
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -130,10 +140,11 @@ function ldapdel(itempk) {
 	</td>
 
 	<td nowrap="y" align="left">
-		<a href="admin_ldap_add.php">Create New User</a>
+		<a href="admin_users_add.php">Create New User</a>
 	</td>
 
 	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current search" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	size="20" title="Enter search text here" />
         <script type="text/javascript">document.adminform.searchtext.focus();</script>
@@ -151,7 +162,7 @@ function ldapdel(itempk) {
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('email');">Email</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
-<td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
+<td align="center"><a title="Add a new user" href="admin_users_add.php">add</a></td>
 </tr>
 
 <?php
@@ -188,8 +199,8 @@ foreach ($items as $item) {
 	<td class="line"><?= $item['email'] ?></td>
 	<td class="line"><?= $printInst ?></td>
 	<td class="line" align="center">
-		<a href="admin_ldap_add.php?pk=<?= $item['pk'] ?>">edit</a> |
-		<a href="javascript:ldapdel('<?= $item['pk'] ?>')">del</a>
+		<a title="Edit this user" href="admin_ldap_add.php?pk=<?= $item['pk'] ?>">edit</a> |
+		<a title="Delete this user" href="javascript:itemdel('<?= $item['pk'] ?>')">del</a>
 	</td>
 </tr>
 <?php } // end for loop ?>

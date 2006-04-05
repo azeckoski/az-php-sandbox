@@ -4,15 +4,6 @@
  * Created on Mar 6, 2006 8:59:17 AM by @author aaronz
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
- /***** LDAP
-  * objectClass (
-    1.3.6.1.4.1.6760.6.2.9
-    NAME 'sakaiInst'
-    DESC 'An institution in sakai'
-    SUP top
-    AUXILIARY
-    MAY ( iid $ o $ repUid $ voteUid ))
-  */
 ?>
 <?php
 require_once '../include/tool_vars.php';
@@ -54,7 +45,7 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['name'] = "required:namespaces";
+$vItems['name'] = "required:namespaces:uniquesql;institution;name;pk;$PK";
 $vItems['type'] = "required";
 $vItems['city'] = "required:namespaces";
 $vItems['state'] = "namespaces";
@@ -62,26 +53,12 @@ $vItems['zipcode'] = "zipcode";
 $vItems['country'] = "required:namespaces";
 
 
-// process post vars
-$SAVE = $_POST["saving"]; // this indicates we are saving values
-
-$NAME = $_POST["name"];
-$ABBR = $_POST["abbr"];
-$TYPE = $_POST["type"];
-
-
 // this matters when the form is submitted
-if ($SAVE) {
-	// Check for form completeness
-	$errors = 0;
-	if (!strlen($NAME)) {
-		$Message .= "<span class='error'>Error: Name cannot be blank</span><br/>";
-		$errors++;
-	}
-	if (!strlen($TYPE)) {
-		$Message .= "<span class='error'>Error: Type cannot be blank</span><br/>";
-		$errors++;
-	}
+if ($_POST["save"]) {
+
+	$NAME = $_POST["name"];
+	$ABBR = $_POST["abbr"];
+	$TYPE = $_POST["type"];
 
 	// check if the name is unique
 	$sql_name_check = mysql_query("SELECT pk FROM institution WHERE name='$NAME'");
@@ -133,13 +110,10 @@ $thisItem = mysql_fetch_assoc($result);
 mysql_free_result($result);
 
 
-// header top links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
-}
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
 	"<a href='admin_perms.php'>Permissions</a>" .
 	"</span>";
@@ -164,7 +138,7 @@ $EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
 <form action="<?=$_SERVER['PHP_SELF']; ?>" method="post" name="adminform" style="margin:0px;">
 <input type="hidden" name="pk" value="<?= $PK ?>" />
 <input type="hidden" name="add" value="<?= $_REQUEST["add"] ?>" />
-<input type="hidden" name="saving" value="1" />
+<input type="hidden" name="save" value="1" />
 
 <?php require $ACCOUNTS_PATH.'include/inst_form.php'; ?>
 

@@ -35,78 +35,29 @@ if (!$User->checkPerm("admin_accounts")) {
 // get the search
 $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
-$sqlsearch = "";
-if ($searchtext) {
-	$sqlsearch = " where (I1.name like '%$searchtext%' or I1.abbr like '%$searchtext%' or " .
-		"I1.type like '%$searchtext%' or U1.username like '%$searchtext%' or " .
-		"U1.firstname like '%$searchtext%' or U1.lastname like '%$searchtext%' or " .
-		"U2.username like '%$searchtext%' or U2.firstname like '%$searchtext%' or " .
-		"U2.lastname like '%$searchtext%') ";
-}
 
 // sorting
-$sortorder = "name";
+$sortorder = "username";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
-$sqlsorting = " order by $sortorder ";
 
-// main SQL to fetch all users
-$from_sql = " from institution I1 left join users U1 on U1.pk=I1.rep_pk " .
-	"left join users U2 on U2.pk=I1.repvote_pk ";
-
-// counting number of items
-// **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
-$count_sql = "select count(*) " . $from_sql . $sqlsearch;
-$result = mysql_query($count_sql) or die('Count query failed: ' . mysql_error());
-$row = mysql_fetch_array($result);
-$total_items = $row[0];
-
-// pagination control
-$num_limit = 25;
-if ($_REQUEST["num_limit"]) { $num_limit = $_REQUEST["num_limit"]; }
-
-$total_pages = ceil($total_items / $num_limit);
-
-$page = 1;
-$PAGE = $_REQUEST["page"];
-if ($PAGE) { $page = $PAGE; }
-
-$PAGING = $_REQUEST["paging"];
-if ($PAGING) {
-	if ($PAGING == 'first') { $page = 1; }
-	else if ($PAGING == 'prev') { $page--; }
-	else if ($PAGING == 'next') { $page++; }
-	else if ($PAGING == 'last') { $page = $total_pages; }
+$totalItems = $User->getUsersBySearch("*","","pk",true); // get count of users
+$output = "";
+$items = array();
+if ($searchtext) { // no results without doing a search
+	$returnItems = "pk,username,fullname,email,institution,institution_pk";
+	$search = $searchtext;
+	if (strpos($searchtext,"=") === false) { // there is not a specific search
+		$search = "username=$searchtext,lastname=$searchtext,email=$searchtext,institution=$searchtext";
+	}
+	$items = $User->getUsersBySearch($search,$sortorder,$returnItems);
+	$output = "Number of entries returned: " . count($items);
+} else { // end use ldap check
+	$output = "Total users: $totalItems[count] - No search text entered...";
+	if (!$USE_LDAP) {
+		$output .= "(<b>LDAP is disabled!</b>)";
+	}
 }
 
-if ($page > $total_pages) { $page = $total_pages; }
-if ($page <= 0) { $page = 1; }
-
-$limitvalue = $page * $num_limit - ($num_limit);
-$mysql_limit = " LIMIT $limitvalue, $num_limit";
-
-$start_item = $limitvalue + 1;
-$end_item = $limitvalue + $num_limit;
-if ($end_item > $total_items) { $end_item = $total_items; }
-
-// the main insr fetching query
-$sql = "select I1.*, U1.username as rep_username, U1.email as rep_email, " . 
-	"U2.username as repvote_username, U2.email as repvote_email " .
-	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
-//print "SQL=$users_sql<br/>";
-$result = mysql_query($sql) or die('User query failed: ' . mysql_error());
-$items_displayed = mysql_num_rows($result);
-
-
-// header top links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
-}
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
-	"<a href='admin_perms.php'>Permissions</a>" .
-	"</span>";
 
 // Do an LDIF export
 if ($_REQUEST["ldif"] && $allowed) {
@@ -147,6 +98,14 @@ if ($_REQUEST["ldif"] && $allowed) {
 	exit();
 }
 
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
+	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"</span>";
+
 // Do the export as requested by the user
 if ($_REQUEST["export"] && $allowed) {
 	$date = date("Ymd-Hi",time());
@@ -154,12 +113,29 @@ if ($_REQUEST["export"] && $allowed) {
 	header("Content-type: text/x-csv");
 	header("Content-disposition: inline; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-	header("Expires: 0"); 
-} else {
-	// display the page normally
+	header("Expires: 0");
+	// TODO - make this work
+
+	// print out EXPORT format instead of display
+	if ($line == 1) {
+		$output = "\"Institutions Export:\",\n";
+		print join(',', array_keys($itemrow)) . "\n"; // add header line
+	}
+	
+	foreach ($itemrow as $name=>$value) {
+		$value = str_replace("\"", "\"\"", $value); // fix for double quotes
+		$itemrow[$name] = '"' . $value . '"'; // put quotes around each item
+	}
+	print join(',', $itemrow) . "\n";
+
+	print "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
+
+	exit;
+}
+
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -171,9 +147,18 @@ function orderBy(newOrder) {
 	document.adminform.submit();
 	return false;
 }
+
+function itemdel(itempk) {
+	var response = window.confirm("Are you sure you want to remove this institution (id="+itempk+")?");
+	if (response) {
+		document.adminform.itemdel.value = itempk;
+		document.adminform.submit();
+		return false;
+	}
+}
 // -->
 </script>
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include $ACCOUNTS_PATH.'include/header.php'; ?>
 
 <?= $Message ?>
 
@@ -241,37 +226,23 @@ function orderBy(newOrder) {
 <td align="center"><a title="Add a new institution" href="admin_inst.php?pk=-1&amp;add=1">add</a></td>
 </tr>
 
-<?php } // end export else 
+<?php
 $line = 0;
-while($itemrow=mysql_fetch_assoc($result)) {
+foreach ($items as $item) {
 	$line++;
 
-	if ($_REQUEST["export"]) {
-		// print out EXPORT format instead of display
-		if ($line == 1) {
-			$output = "\"Institutions Export:\",\n";
-			print join(',', array_keys($itemrow)) . "\n"; // add header line
-		}
-		
-		foreach ($itemrow as $name=>$value) {
-			$value = str_replace("\"", "\"\"", $value); // fix for double quotes
-			$itemrow[$name] = '"' . $value . '"'; // put quotes around each item
-		}
-		print join(',', $itemrow) . "\n";
-		
+	// display normally
+	$rowstyle = "";
+	if (!$itemrow["rep_pk"]) {
+		$rowstyle = " style = 'color:red;' ";
+	}
+	
+	$linestyle = "oddrow";
+	if ($line % 2 == 0) {
+		$linestyle = "evenrow";
 	} else {
-		// display normally
-		$rowstyle = "";
-		if (!$itemrow["rep_pk"]) {
-			$rowstyle = " style = 'color:red;' ";
-		}
-		
 		$linestyle = "oddrow";
-		if ($line % 2 == 0) {
-			$linestyle = "evenrow";
-		} else {
-			$linestyle = "oddrow";
-		}
+	}
 ?>
 
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
@@ -307,18 +278,9 @@ if ($itemrow["repvote_pk"]) {
 	</td>
 </tr>
 
-<?php 
-	} // end display else
-} // end while
-
-if ($_REQUEST["export"]) {
-	print "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
-} else { // display only
-?>
+<?php } ?>
 
 </table>
 </form>
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
-
-<?php } // end display ?>

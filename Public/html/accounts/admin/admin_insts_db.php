@@ -97,17 +97,6 @@ $result = mysql_query($sql) or die('User query failed: ' . mysql_error());
 $items_displayed = mysql_num_rows($result);
 
 
-// header top links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>";
-$EXTRA_LINKS .= "<a href='index.php'>Admin</a>: ";
-if ($USE_LDAP) {
-	$EXTRA_LINKS .=	"<a href='admin_ldap.php'>LDAP</a> - ";
-}
-$EXTRA_LINKS .= "<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
-	"<a href='admin_perms.php'>Permissions</a>" .
-	"</span>";
-
 // Do an LDIF export
 if ($_REQUEST["ldif"] && $allowed) {
 	$date = date("Ymd-Hi",time());
@@ -146,6 +135,16 @@ if ($_REQUEST["ldif"] && $allowed) {
 	}
 	exit();
 }
+
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
+	"<a href='admin_insts.php'>Institutions</a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	" <strong>** WARNING: This tool is deprecated! **</strong>" .
+	"</span>";
+
 
 // Do the export as requested by the user
 if ($_REQUEST["export"] && $allowed) {
@@ -238,7 +237,6 @@ function orderBy(newOrder) {
 <td><a href="javascript:orderBy('type');">Type</a></td>
 <td>InstRep</td>
 <td>VoteRep</td>
-<td align="center"><a title="Add a new institution" href="admin_inst.php?pk=-1&amp;add=1">add</a></td>
 </tr>
 
 <?php } // end export else 
@@ -301,9 +299,6 @@ if ($itemrow["repvote_pk"]) {
 } else {
 	echo "<i>none</i>";
 } ?>
-	</td>
-	<td class="line" align="center">
-		<a href="admin_inst.php?pk=<?= $itemrow['pk']?>">edit</a>
 	</td>
 </tr>
 
