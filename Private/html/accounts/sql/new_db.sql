@@ -23,6 +23,9 @@ CREATE TABLE users (
     PRIMARY KEY(pk)
 );
 
+// Password reset command:
+// update users set password=PASSWORD('new_pass') where username='shardin';
+
 /*** Changes to the user table
 alter table users modify date_modified timestamp not null default CURRENT_TIMESTAMP;
 update users set date_modified = NOW();

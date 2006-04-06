@@ -27,6 +27,7 @@ if (!$error) {
 
 	if ($code == $myActivationCode) {
 		$thisUser->addStatus("active");
+		$thisUser->save();
 	} else {
 		$error = true;
 	}

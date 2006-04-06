@@ -1801,8 +1801,6 @@ class Institution {
 		// TODO - allow "and" based searches instead of just "or" based
 		global $USE_LDAP;
 		$this->searchResults = array(); // must reset array first
-		
-
 		// have to search both the LDAP and the DB unless limited
 		if ($USE_LDAP && ($data_source=="" || $data_source=="ldap") ) {
 			$this->getSearchFromLDAP($search, $items, $count);
@@ -1971,7 +1969,8 @@ class Institution {
 			$returnItems = trim($returnItems, " ,"); // trim spaces and commas
 		}
 
-		$sql = "select $returnItems from institution where ($filter) and pk > 1"; // skip the other Inst
+		if ($filter) { $filter = "($filter) and "; }
+		$sql = "select $returnItems from institution where $filter pk > 1"; // skip the other Inst
 		$result = mysql_query($sql);
 		if (!$result) {
 			$this->Message = "Inst search query failed ($sql): " . mysql_error();

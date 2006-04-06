@@ -53,6 +53,9 @@ $vItems['fax'] = "phone";
 $created = false;
 if ($_POST["save"]) {
 
+	// create new user object
+	$newUser = new User();
+
 	$newUser->username = $_POST["username"];
 	$newUser->email = $_POST["email"];
 	$newUser->firstname = $_POST["firstname"];
@@ -88,7 +91,7 @@ if ($_POST["save"]) {
 	}
 
 	if ($errors == 0) {
-		$newUser->password = $PASS1;
+		$newUser->setPassword($PASS1);
 
 		// handle the other institution stuff in a special way
 		if (!is_numeric($newUser->institution_pk)) {

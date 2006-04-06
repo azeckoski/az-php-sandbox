@@ -74,7 +74,7 @@ if ($_POST["save"]) {
 
 	if ($errors == 0) {
 		if (strlen($PASS1) > 0) {
-			$User->password = $PASS1;
+			$User->setPassword($PASS1);
 		}
 
 		// handle the other institution stuff in a special way
