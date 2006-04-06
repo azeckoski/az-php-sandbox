@@ -69,7 +69,7 @@ $row="0";
 if ($_POST['type']=="demo")
 {
 echo"</tr></table>
-<table cellpadding=0 cellspacing=0 width=800px bgcolor:#fff  align=center border=0>
+<table cellpadding=0 cellspacing=0 width=100% bgcolor:#fff  align=center border=0>
 <tr>
 		
 		<td border=0><br /><br /><strong>Vancouver CFP:</strong>-- $reportName</td>
@@ -77,7 +77,7 @@ echo"</tr></table>
 </table>
 
 
- <table cellspacing=0 width=800px> 
+ <table cellspacing=0 width=100%> 
 <tr class=tableheader>
 	<td>NO</td>
 	<td>Date</td>
@@ -194,8 +194,8 @@ $conf=$links["confID"];
 $inst=$links["institution"];
 $otherInst=$links["otherInst"];
 $dept=$links["dept"];
-$last=$links["lastname"];
-$first=$links["firstname"];
+$last=stripslashes($links["lastname"]);
+$first=stripslashes($links["firstname"]);
 
 
 $emailadd=$links["email"];
@@ -403,7 +403,7 @@ echo"
 	";
 	*/
 	echo"
-<table  width=900px>
+<table  width=100%>
 <tr>		
 	<td border=0 valign=top><br /><div style=\"font-size:12px; font-weight:bold; color:#333;\">$reportName<br /> </div></td>
 </tr>
@@ -411,17 +411,15 @@ echo"
 	
  <table cellspacing=0 cellpadding=0 class=main> 
 <tr class=tableheader>
-	<td>NO</td>
-	<td>Date</td>
-<td>Name/Email</td>
+	<td> </td>
+
 <td>Title</td>
 
 <td>Format</td>
-<td>Abstract</td>
-<td>Description</td>
-<td>Bio</td>
-<td>Co-presenters</td>
-<td>Length</td>
+<td>Abstract/Description</td>
+
+<td>Presenter Info</td>
+
 </tr>
 ";
 
@@ -435,19 +433,19 @@ $row++;
 $id=$links["id"];
 $date=$links["date"];
 $conf=$links["confID"]; 
-$last=$links["lastname"];
-$first=$links["firstname"];
+$last=stripslashes($links["lastname"]);
+$first=stripslashes($links["firstname"]);
 $emailadd=$links["email1"];
 $p_track=$links["p_track"];
 $p_format=$links["p_format"];
 $p_title=$links["p_title"];
-$p_abstract=$links["p_abstract"];
-$p_desc=$links["p_desc"];
+$p_abstract=stripslashes($links["p_abstract"]);
+$p_desc=stripslashes($links["p_desc"]);
 $p_URL=$links["p_URL"];
 $sp_URL=$links["sp_URL"];
-$bio=$links["bio"];
+$bio=stripslashes($links["bio"]);
 $co_bio=$links["co_bio"];
-$co_speaker=$links["co_speaker"];
+$co_speaker=stripslashes($links["co_speaker"]);
 $dev=$links["dev"];
 $faculty=$links["faculty"];
 $mgr=$links["mgr"];
@@ -503,27 +501,27 @@ if ($line == 1) {
 	  
 	  
 echo"
-	<td>$date</td>
-	<td class=nowrap>";
+	<td>";
 	if ($sp_URL)
-echo"<a href=\"$sp_URL\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=15px height=15px><br />Speaker</a>";
+echo"<a href=\"$sp_URL\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a>";
 
-echo"<a href=\"mailto:$emailadd\">$first $last</a></td>
-<td ><strong>$p_title</strong></td>
-";
+echo"<strong>$p_title</strong><br/><br/><a href=\"mailto:$emailadd\">$first $last</a></td>
+<td ><strong>Format: </strong><br/>$p_format<br /><br/><strong>Length:</strong><br/>$length min.<br /><br/><strong>Date Submitted: </strong>$date</td>
+<td><strong>Abstract: <br/></strong>";
 
-echo"
-<td>$p_format</td>
-<td width=300px>$p_abstract</td>
-<td width=300px>";
+
+echo"$p_abstract<br /><br />
+<strong>Description: </strong><br />$p_desc";
 
 if ($p_URL)
-echo"<a href=\"$p_URL\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=15px height=15px><br />Project</a>";
-echo"$p_desc</td>
-<td width=200px>$bio</td>
-<td><strong>$co_speaker</strong><br />$co_bio</td>
+echo"<br/><br/><strong>Project site: </strong><a href=\"$p_URL\">
+<img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/>
+&nbsp; &nbsp;";
 
-<td>$length min.</td>
+echo"</td>
+<td width=200px><strong>Presenter Bio: </strong><br/>$bio<br /><br />
+<strong>Co-Presenters:<br/></strong></td>
+
 
 
 </tr>
