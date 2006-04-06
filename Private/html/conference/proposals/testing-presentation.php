@@ -24,10 +24,6 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 // bring in inst and conf data
 require '../registration/include/getInstConf.php';
 
-// TODO - why are these variables set? -AZ
-$firstname=$User->firstname;
-$lastname=$User->lastname;
-$email=$User->email;
 
 // get the passed message if there is one
 if($_GET['msg']) {
@@ -176,7 +172,7 @@ $result = mysql_query($topic_sql) or die(mysql_error());
 	$topic_name=$topic_items['topic_name'];
 	$topicID="topic_" . $topic_pk;
 	echo" <div class=topic_row>  <div class=topic_type>$topic_name</div><div class=topic_vote>
-             <span> <input name=$topic_pk type=\"radio\" value=\"0\" ";
+             <span> <input name=$topic_pk type=\"radio\" value=\"\" ";
               if ($_POST[$topicID]=="0") { echo "checked"; } 
               echo" />&nbsp;&nbsp;&nbsp;</span>
                <span> <input name=$topicID type=\"radio\" value=\"1\" ";
@@ -215,7 +211,7 @@ $result = mysql_query($audience_sql) or die(mysql_error());
 	$audience_name=$audience_items['role_name'];
  	$audienceID="audience_" .$audience_pk;
  	echo" <div class=topic_row>  <div class=topic_type>$audience_name</div><div class=topic_vote>
-           <span> <input name=$audienceID type=\"radio\" value=\"0\" ";
+           <span> <input name=$audienceID type=\"radio\" value=\"\" ";
               if ($_POST[$audienceID]=="0") { echo "checked"; } 
               echo" />&nbsp;&nbsp;&nbsp;</span>
                <span> <input name=$audienceID type=\"radio\" value=\"1\" ";
@@ -286,10 +282,10 @@ $result = mysql_query($audience_sql) or die(mysql_error());
 presenter(s)<br/>CANNOT present due to a travel conflict</div>
           <br/>
           <strong> I am NOT available:</strong><br/>
-          <input name="conflict_tues" type="checkbox" value="1" <?php if ($_POST['conflict_tues']=="1") { echo "checked"; } ?> /> Tuesday, May 30 <br/>
-          <input name="conflict_wed" type="checkbox" value="1" <?php if ($_POST['conflict_wed']=="1")  { echo "checked"; } ?> /> Wednesday, May 31 <br/>
-          <input name="conflict_thurs" type="checkbox" value="1" <?php if ($_POST['conflict_thurs']=="1")  { echo "checked"; } ?> /> Thursday, May 1 <br/>
-          <input name="conflict_fri" type="checkbox" value="1" <?php if ($_POST['conflict_fri']=="1") { echo "checked"; } ?> /> Friday, May 2 <br/>
+          <input name="conflict_tue" type="checkbox" value="Tue" <?php if ($_POST['conflict_tue']=="Tue") { echo "checked"; } ?> /> Tuesday, May 30 <br/>
+          <input name="conflict_wed" type="checkbox" value="Wed" <?php if ($_POST['conflict_wed']=="Wed")  { echo "checked"; } ?> /> Wednesday, May 31 <br/>
+          <input name="conflict_thu" type="checkbox" value="Thu" <?php if ($_POST['conflict_thu']=="Thu")  { echo "checked"; } ?> /> Thursday, May 1 <br/>
+          <input name="conflict_fri" type="checkbox" value="Fri" <?php if ($_POST['conflict_fri']=="Fri") { echo "checked"; } ?> /> Friday, May 2 <br/>
           <br/>
         </td>
       </tr>
