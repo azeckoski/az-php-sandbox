@@ -487,7 +487,6 @@ class User {
 		if ($this->institution_pk && !$this->institution) {
 			$Inst = new Institution($this->institution_pk);
 			$this->institution = $Inst->name;
-			unset($Inst);
 		}
 
 		// try to create the user in the LDAP first
@@ -928,12 +927,7 @@ class User {
 		while($row=mysql_fetch_assoc($result)) {
 			$this->pk = $row["pk"];
 			if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
-			if (strpos($items,"fullname") !== false) {
-				$this->searchResults[$this->pk]["fullname"] = $row["firstname"]." ".$row["lastname"];
-			}
-			foreach ($row as $key=>$value) {
-				$this->searchResults[$this->pk][$key] = $value;
-			}
+			$this->searchResults[$this->pk] = $this->arrayFromDB($row, $translator);
 			$this->searchResults[$this->pk]["data_source"] = $data_source;
 		}
 		mysql_free_result($result);
@@ -1000,7 +994,6 @@ class User {
 		if ($this->institution_pk && !$this->institution) {
 			$Inst = new Institution($this->institution_pk);
 			$this->institution = $Inst->name;
-			unset($Inst);
 		}
 
 		// save the user to the appropriate location
@@ -1020,16 +1013,9 @@ class User {
 			$passChange = " password=PASSWORD('".mysql_real_escape_string($this->password)."'), ";
 		}
 
-		// handle the other institution stuff in a special way
-		$institutionSql = " institution=NULL, ";
-		if ($this->institution_pk == 1) {
-			// assume someone is using the other institution, Other MUST be pk=1
-			$institutionSql = " institution='".mysql_real_escape_string($this->institution)."', ";
-		}
-
 		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
 		$sql = sprintf("UPDATE users set username='%s', email='%s', " . $passChange .
-			"firstname='%s', lastname='%s', " . $institutionSql .
+			"firstname='%s', lastname='%s', institution='%s', " .
 			"primaryRole='%s', secondaryRole='%s', institution_pk='%s', address='%s', " .
 			"city='%s', state='%s', zipcode='%s', country='%s', phone='%s', " .
 			"fax='%s', sakaiPerms='$permString' where pk='$this->pk'",
@@ -1037,6 +1023,7 @@ class User {
 				mysql_real_escape_string($this->email),
 				mysql_real_escape_string($this->firstname),
 				mysql_real_escape_string($this->lastname),
+				mysql_real_escape_string($this->institution),
 				mysql_real_escape_string($this->primaryRole),
 				mysql_real_escape_string($this->secondaryRole),
 				mysql_real_escape_string($this->institution_pk),
@@ -1761,7 +1748,6 @@ class Institution {
 			$this->Message = "Could not find inst by pk: $pk";
 			return false;
 		}
-
 		// now put the data into the object
 		return $this->updateFromArray($this->searchResults[$this->pk]);
 	}
@@ -1801,6 +1787,7 @@ class Institution {
 		// TODO - allow "and" based searches instead of just "or" based
 		global $USE_LDAP;
 		$this->searchResults = array(); // must reset array first
+
 		// have to search both the LDAP and the DB unless limited
 		if ($USE_LDAP && ($data_source=="" || $data_source=="ldap") ) {
 			$this->getSearchFromLDAP($search, $items, $count);
@@ -1953,7 +1940,7 @@ class Institution {
 			}
 			$filter= trim($filter, " ,"); // trim spaces and commas
 		}
-		if ($filter) { $filter = "where ($filter)"; }
+		if ($filter) { $filter = "($filter) and "; }
 
 		// change the return items into something that DB understands
 		$returnItems = "pk"; // always return the pk
@@ -1969,7 +1956,6 @@ class Institution {
 			$returnItems = trim($returnItems, " ,"); // trim spaces and commas
 		}
 
-		if ($filter) { $filter = "($filter) and "; }
 		$sql = "select $returnItems from institution where $filter pk > 1"; // skip the other Inst
 		$result = mysql_query($sql);
 		if (!$result) {
@@ -1998,9 +1984,7 @@ class Institution {
 		while($row=mysql_fetch_assoc($result)) {
 			$this->pk = $row["pk"];
 			if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
-			foreach ($row as $key=>$value) {
-				$this->searchResults[$this->pk][$key] = $value;
-			}
+			$this->searchResults[$this->pk] = $this->arrayFromDB($row, $translator);
 			$this->searchResults[$this->pk]["data_source"] = $data_source;
 		}
 		mysql_free_result($result);
