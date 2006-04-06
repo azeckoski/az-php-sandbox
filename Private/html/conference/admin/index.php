@@ -34,10 +34,12 @@ if (!$User->checkPerm("admin_conference")) {
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 
 // set header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-		"<a href='index.php'><strong>Admin:</strong></a> " .
-		"<a href='attendees.php'>Attendees</a>" .
-		"</span>";
+$EXTRA_LINKS = 
+	"<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'><strong>Admin:</strong></a> " .
+	"<a href='attendees.php'>Attendees</a> - " .
+	"<a href='proposals.php'>Proposals</a> " .
+	"</span>";
 
 ?>
 
@@ -55,7 +57,7 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include $TOOL_PATH.'include/admin_header.php'; // INCLUDE THE HEADER ?>
+<?php include $TOOL_PATH.'include/admin_header.php'; ?>
 
 <?= $Message ?>
 
@@ -72,6 +74,11 @@ function orderBy(newOrder) {
     <tr>
       <td valign="top"><a href="attendees.php">Attendees</a></td>
       <td>This allows an admin to view the current list of conference attendees for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
+    </tr>
+
+    <tr>
+      <td valign="top"><a href="proposals.php">Proposals</a></td>
+      <td>This allows an admin to view and vote on the current list of conference proposals for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
     </tr>
 
 </table>  
