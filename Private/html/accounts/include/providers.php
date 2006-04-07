@@ -2114,15 +2114,11 @@ class Institution {
 	public function update() {
 		global $USE_LDAP;
 		
-		// save the user to the appropriate location
-		if ($this->data_source == "ldap" && $USE_LDAP) {
-			return $this->updateLDAP();
-		} else if ($this->data_source == "db") {
-			return $this->updateDB();
-		} else {
-			$this->Message = "Invalid data_source: $this->data_source, could not save";
-			return false;
+		// create the instituion
+		if ($USE_LDAP) {
+			$this->updateLDAP(); // update the LDAP entry first if possible
 		}
+		return $this->updateDB(); // update the DB entry always
 	}
 
 	private function updateDB() {
@@ -2201,15 +2197,11 @@ class Institution {
 			return false;
 		}
 		
-		// delete the user from the appropriate location
-		if ($this->data_source == "ldap" && $USE_LDAP) {
-			return $this->deleteLDAP();
-		} else if ($this->data_source == "db") {
-			return $this->deleteDB();
-		} else {
-			$this->Message = "Invalid data_source: $this->data_source, could not save";
-			return false;
+		// create the instituion
+		if ($USE_LDAP) {
+			$this->deleteLDAP(); // delete the LDAP entry first if possible
 		}
+		return $this->deleteDB(); // delete the DB entry always
 	}
 
 	private function deleteDB() {
