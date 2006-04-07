@@ -38,6 +38,12 @@ if ($PK) {
 
 // create the user object from provider
 $opUser = new User($PK);
+if (!$opUser->pk) {
+	$allowed = false;
+	$Message = "ERROR: User cannot be obtained from pk = $PK";
+} else {
+	$opUser->repCheck();
+}
 
 // bring in the form validation code
 require $ACCOUNTS_PATH.'ajax/validators.php';
@@ -126,8 +132,17 @@ if ($_POST["save"] && $allowed) {
 		$opUser->setPassword($_POST["password1"]);
 
 		// TODO - REP STUFF
-		if($_POST["instrep"]) { }
-		if($_POST["voterep"]) { }
+		if($_POST["instrep"]) {
+			$opUser->setRep(true);
+		} else {
+			$opUser->setRep(false);
+		}
+
+		if($_POST["voterep"]) {
+			$opUser->setVoteRep(true);
+		} else {
+			$opUser->setVoteRep(false);
+		}
 
 		// save the current user
 		if (!$opUser->save()) {

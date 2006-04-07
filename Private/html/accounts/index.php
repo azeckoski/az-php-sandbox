@@ -67,12 +67,14 @@ $inst_count = $Inst->getInstsBySearch("*","","pk",true);
 ?>
 
 	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
-	<b>Accounts:</b> <?= $user_count['count'] ?><br/>
+	<b>Accounts:</b> <?= $user_count['db'] ?><br/>
 <?php if ($USE_LDAP) { ?>
 	&nbsp;&nbsp;- LDAP: <?= $user_count['ldap'] ?><br/>
 <?php } ?>
-	&nbsp;&nbsp;- internal: <?= $user_count['db'] ?><br/>
-	<b>Institutions:</b> <?= $inst_count['count'] ?><br/>
+	<b>Institutions:</b> <?= $inst_count['db'] ?><br/>
+<?php if ($USE_LDAP) { ?>
+	&nbsp;&nbsp;- LDAP: <?= $inst_count['ldap'] ?><br/>
+<?php } ?>
 	<br/>
 
 	</div>

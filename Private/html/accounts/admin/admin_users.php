@@ -268,13 +268,12 @@ function itemdel(itempk) {
 	</td>
 
 	<td nowrap="y" align="right">
-		<input class="filter" type="submit" name="showall" value="Show All" title="Display all items" />
-		<input class="filter" type="submit" name="ldif" value="LDIF" title="Export an LDIF (ldap) file of all users" />
-		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current search" />
+		<input class="filter" type="submit" name="showall" value="Show All" title="Display all items" tabindex="3" />
+		<input class="filter" type="submit" name="ldif" value="LDIF" title="Export an LDIF (ldap) file of all users" tabindex="4" />
+		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current search" tabindex="5" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
-        	size="20" title="Enter search text here" />
-        <script type="text/javascript">document.adminform.searchtext.focus();</script>
-        <input class="filter" type="submit" name="search" value="Search" title="Search the users" />
+        	size="20" title="Enter search text here"  tabindex="1" />
+        <input class="filter" type="submit" name="search" value="Search" title="Search the users" tabindex="2" />
 	</td>
 
 	</tr>
@@ -327,10 +326,16 @@ foreach ($items as $item) {
 		<a title="Delete this user" href="javascript:itemdel('<?= $item['pk'] ?>')">del</a>
 	</td>
 </tr>
-<?php } // end for loop ?>
+<?php } /* end for loop */ ?>
 
 </table>
 
 </form>
+
+<script type="text/javascript">
+<!--
+	document.adminform.searchtext.focus();
+// -->
+</script>
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

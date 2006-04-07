@@ -127,7 +127,6 @@ class User {
 
 	private $data_source = "ldap";
 	private $password;
-	private $authentic = false;
 	private $searchResults = array();
 
 	// map object items to the ldap
@@ -228,12 +227,14 @@ class User {
 			"fax:". $this->fax . ", " .
 			"primaryRole:". $this->primaryRole . ", " .
 			"secondaryRole:". $this->secondaryRole;
-		$output .= ", activated:";
+		$output .= ", active:";
 		$output .= ($this->active)?"Y":"N";
-		$output .= ", authentic:";
-		$output .= ($this->authentic)?"Y":"N";
 		$output .= ", sakaiPerm{".implode(":",$this->sakaiPerm)."}";
 		$output .= ", userStatus{".implode(":",$this->userStatus)."}";
+		$output .= ", isRep:";
+		$output .= ($this->isRep)?"Y":"N";
+		$output .= ", isVoteRep:";
+		$output .= ($this->isVoteRep)?"Y":"N";
 		$output .= ", data_source: $this->data_source";
 		return $output;
 	}
@@ -258,10 +259,11 @@ class User {
 		$output['fax'] = $this->fax;
 		$output['primaryRole'] = $this->primaryRole;
 		$output['secondaryRole'] = $this->secondaryRole;
-		$output['authentic'] = ($this->authentic)?"Y":"N";
 		$output['active'] = ($this->active)?"Y":"N";
 		$output['sakaiPerm'] = implode(":",$this->sakaiPerm);
 		$output['userStatus'] = implode(":",$this->userStatus);
+		$output['isRep'] = ($this->isRep)?"Y":"N";
+		$output['isVoteRep'] = ($this->isVoteRep)?"Y":"N";
 		$output['data_source'] = $this->data_source;
 		return $output;
 	}
@@ -282,11 +284,6 @@ class User {
 	// simple getter for the data_source
 	public function getDataSource() {
 		return $this->data_source;
-	}
-
-	// simple getter for authentic check
-	public function getAuthentic() {
-		return $this->authentic;
 	}
 
 
@@ -425,18 +422,113 @@ class User {
 		}
 	}
 
-	public function setRep($setting) {
-		// TODO - make this do something
-		
-		// first clear all reps
-		
+
+	/*
+	 * Check if this user is an inst or voting rep
+	 */
+	public function repCheck() {
+		if (!$this->institution_pk) {
+			$this->Message = "Invalid institution_pk ($this->institution_pk)";
+			return false;
+		}
+
+		// first get the Institution for this user
+		$Inst = new Institution($this->institution_pk);
+		if ($Inst->pk <= 0) {
+			$this->Message = "Invalid institution object ($this->institution_pk)";
+			return false;
+		}
+
+		// now set the vars
+		if ($Inst->rep_pk == $this->pk) {
+			$this->isRep = true;
+		} else {
+			$this->isRep = false;
+		}			
+
+		if ($Inst->repvote_pk == $this->pk) {
+			$this->isVoteRep = true;
+		} else {
+			$this->isVoteRep = false;
+		}
+		return true;
+	}
+
+	/*
+	 * Set current user as the institutional rep (true or false)
+	 */
+	public function setRep($set=true) {
+		// TODO - make sure this works
+		if (!$this->institution_pk) {
+			$this->Message = "Invalid institution_pk ($this->institution_pk)";
+			return false;
+		}
+
+		// first get the Institution for this user
+		$Inst = new Institution($this->institution_pk);
+		if ($Inst->pk <= 0) {
+			$this->Message = "Invalid institution object ($this->institution_pk)";
+			return false;
+		}
+
+		// clear the rep
+		if (!$set) {
+			$Inst->rep_pk = "";
+			$this->isRep = false;
+			return $Inst->save();
+		}
+
 		// then set this person as the rep
-		
+		$Inst->rep_pk = $this->pk;
+print "$this->pk:$Inst->rep_pk:$Inst->repvote_pk <br/>";
+		if (!$Inst->repvote_pk) { // if no voting rep (set to the inst rep by default)
+print "Here I am";
+			$Inst->repvote_pk = $this->pk;
+			$this->isVoteRep = true;
+		}
+
+		// save the new rep(s)
+		if ($Inst->save()) {
+print "pass: $this->Message<br>";
+			$this->isRep = true;
+			return true;
+		}
+print "fail: $this->Message<br>";
 		return false;
 	}
 
-	public function setVoteRep($setting) {
-		// TODO - make this do something
+	/*
+	 * Set current user as the institutional voting rep (true or false)
+	 */
+	public function setVoteRep($set=true) {
+		// TODO - make sure this works
+		if (!$this->institution_pk) {
+			$this->Message = "Invalid institution_pk ($this->institution_pk)";
+			return false;
+		}
+
+		// first get the Institution for this user
+		$Inst = new Institution($this->institution_pk);
+		if ($Inst->pk <= 0) {
+			$this->Message = "Invalid institution object ($this->institution_pk)";
+			return false;
+		}
+
+		// clear the rep (set to the inst rep by default)
+		if (!$set) {
+			$Inst->repvote_pk = $Inst->rep_pk;
+			$this->isVoteRep = false;
+			return $Inst->save();
+		}
+
+		// then set this person as the rep
+		$Inst->repvote_pk = $this->pk;
+
+		// save the new vote rep
+		if ($Inst->save()) {
+			$this->isVoteRep = true;
+			return true;
+		}
 		return false;
 	}
 
@@ -578,11 +670,11 @@ class User {
 
 			// write the new values to the DB
 			$sql = sprintf("INSERT INTO users (username,password,firstname,lastname,email," .
-					"primaryRole,secondaryRole,institution_pk,date_created," .
+					"primaryRole,secondaryRole,institution_pk,date_created,date_modified," .
 					"address,city,state,zipcode,country," .
 					"phone,fax,institution) values " .
 					"('%s',PASSWORD('%s'),'%s','%s','%s'," .
-					"'%s','%s','%s', NOW()," .
+					"'%s','%s','%s', NOW(), NOW()," .
 					"'%s','%s','%s','%s','%s'," .
 					"'%s','%s','%s')",
 					mysql_real_escape_string($this->username),
@@ -640,7 +732,7 @@ class User {
 		}
 
 		// now put the user data into the object
-		return $this->updateFromArray($this->searchResults[$this->pk]);
+		return $this->updateFromArray(reset($this->searchResults)); // first element only
 	}
 
 
@@ -661,7 +753,7 @@ class User {
 		}
 
 		// now put the user data into the object
-		return $this->updateFromArray($this->searchResults[$this->pk]);
+		return $this->updateFromArray(reset($this->searchResults)); // first element only
 	}
 
 	
@@ -682,7 +774,7 @@ class User {
 		}
 
 		// now put the user data into the object
-		return $this->updateFromArray($this->searchResults[$this->pk]);
+		return $this->updateFromArray(reset($this->searchResults)); // first element only
 	}
 
 
@@ -704,7 +796,6 @@ class User {
 	public function getUsersBySearch($search="*", $order="", $items="pk,username", $count=false, $data_source="") {
 		// this has to get the users based on a search
 		// TODO - allow "and" based searches instead of just "or" based
-		// TODO - allow search counts (to return the matching number only)
 		global $USE_LDAP;
 		$this->searchResults = array(); // must reset array first
 
@@ -795,7 +886,6 @@ class User {
 					$this->Message = "No matching ldap items for $search";
 					return false;
 				}
-
 				// get items based on search
 				$info = ldap_get_entries(getDS(), $sr);
 
@@ -833,6 +923,7 @@ class User {
 				}
 			}
 		}
+		//echo "<pre>",print_r($thisArray),"</pre>";
 		return $thisArray;
 	}
 
@@ -897,7 +988,7 @@ class User {
 			$this->Message = "No items found for this search: $search";
 			return false;
 		}
-		
+
 		$data_source = "db";
 		$this->Message = "Search results found (db): " . mysql_num_rows($result);
 		// add the result PKs to the array
@@ -938,7 +1029,6 @@ class User {
  * Can limit the fetch to only one data_source (e.g. "db")
  */
 	public function getUsersByPkList($pkList=array(), $items="pk,username", $data_source="") {
-		// TODO - test this helper and see if it is useful
 		if (empty($pkList)) { return false; }
 		$this->searchResults = array(); // reset array
 		$max = 500;
@@ -988,11 +1078,13 @@ class User {
 		}
 
 		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
+		$statusString = implode(":",$this->userStatus); // convert the array of status into a string
 		$sql = sprintf("UPDATE users set username='%s', email='%s', " . $passChange .
 			"firstname='%s', lastname='%s', institution='%s', " .
 			"primaryRole='%s', secondaryRole='%s', institution_pk='%s', address='%s', " .
 			"city='%s', state='%s', zipcode='%s', country='%s', phone='%s', " .
-			"fax='%s', sakaiPerms='$permString' where pk='$this->pk'",
+			"fax='%s', sakaiPerms='$permString', userStatus='$statusString', " .
+			"date_modified=NOW() where pk='$this->pk'",
 				mysql_real_escape_string($this->username),
 				mysql_real_escape_string($this->email),
 				mysql_real_escape_string($this->firstname),
@@ -1151,18 +1243,17 @@ class User {
 		// attempt LDAP authenticate first
 		if ($USE_LDAP) {
 			if($this->authenticateUserFromLDAP($username,$password)) {
-				$this->updateDB(); // update the DB from the LDAP
+				$this->updateDB(); // update the DB from the LDAP (sync)
 				return true;
 			}
 		}
 
 		// attempt DB authentication as a fallback
 		if($this->authenticateUserFromDB($username,$password)) {
-			$this->updateLDAP(); // update the DB from the LDAP
+			$this->updateLDAP(); // update the LDAP from the DB (sync)
 			return true;
 		}
 
-		$this->authentic = false;
 		return false;
 	}
 
@@ -1199,12 +1290,14 @@ class User {
 					$this->pk = $info[0]["uid"][0];
 					$this->updateFromArray($this->arrayFromLDAP($info[0]));
 
-					if ($this->active) {
-						$this->authentic = true;
-					}
 					$this->Message = "Valid LDAP login: $username";
 					$this->data_source = "ldap";
-					return true;
+					if ($this->active) {
+						return true;
+					} else {
+						$this->Message = "Cannot login; user is not active: $username";
+						return false;
+					}
 				} else {
 					// invalid bind, password is not good
 					$this->Message = "Invalid login: $username - password is not good";
@@ -1229,7 +1322,7 @@ class User {
 		$result = mysql_query($sql) or die("Auth query failed ($sql):" . mysql_error());
 		$count = mysql_num_rows($result);
 		$row = mysql_fetch_assoc($result);
-	
+
 		if( !empty($result) && ($count == 1)) {
 			// valid login
 			$this->Message = "Valid login: $username";
@@ -1245,11 +1338,13 @@ class User {
 			$this->pk = $user_row["pk"];
 			$this->updateFromArray($this->arrayFromDB($user_row));
 
-			if ($this->active) {
-				$this->authentic = true;
-			}
 			$this->data_source = "db";
-			return true;
+			if ($this->active) {
+				return true;
+			} else {
+				$this->Message = "Cannot login; user is not active: $username";
+				return false;
+			}
 		}
 		$this->Message = "Invalid login: $username not in DB";
 		return false;
@@ -1725,7 +1820,7 @@ class Institution {
 			return false;
 		}
 		// now put the data into the object
-		return $this->updateFromArray($this->searchResults[$this->pk]);
+		return $this->updateFromArray(reset($this->searchResults)); // first element only
 	}
 
 	public function getInstByName($name) {
@@ -1741,7 +1836,7 @@ class Institution {
 		}
 
 		// now put the data into the object
-		return $this->updateFromArray($this->searchResults[$this->pk]);
+		return $this->updateFromArray(reset($this->searchResults)); // first element only
 	}
 
 
@@ -1989,7 +2084,6 @@ class Institution {
  * Can limit the fetch to only one data_source (e.g. "db")
  */
 	public function getInstsByPkList($pkList=array(), $items="pk,username", $data_source="") {
-		// TODO - test this helper and see if it is useful
 		if (empty($pkList)) { return false; }
 		$this->searchResults = array(); // reset array
 		$max = 500;
