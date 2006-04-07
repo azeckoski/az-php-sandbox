@@ -90,37 +90,8 @@ function ldapDisconnect() {
 	return true;
 }
 
-
-// alpha sort an array by a value in the nested array and return the sorted version
-function nestedArraySort($a1, $key){
-	$compare = create_function('$a,$b','return strcasecmp( $a["'.$key.'"], $b["'.$key.'"] );');
-	usort($a1, $compare);
-	unset($compare);
-	return $a1;
-}
-
-// reverse sort an array by a value in the nested array and return the sorted version
-function nestedArraySortReverse($a1, $key){
-	$compare = create_function('$a,$b','return strcasecmp( $b["'.$key.'"], $a["'.$key.'"] );');
-	usort($a1, $compare);
-	unset($compare);
-	return $a1;
-}
-
-function nestedArrayNumSort($a1, $key){
-	$compare = create_function('$a,$b','return ($a["'.$key.'"] < $b["'.$key.'"]) ? -1 : 1;');
-	usort($a1, $compare);
-	unset($compare);
-	return $a1;
-}
-
-// reverse sort an array by a value in the nested array and return the sorted version
-function nestedArrayNumSortReverse($a1, $key){
-	$compare = create_function('$a,$b','return ($b["'.$key.'"] < $a["'.$key.'"]) ? -1 : 1;');
-	usort($a1, $compare);
-	unset($compare);
-	return $a1;
-}
+// bring the specialized sort functions
+require 'nested_sorting.php';
 
 /*
  * Provides the methods needed to create, read, update and delete users
@@ -826,10 +797,10 @@ class User {
 				// add the results to the array with the data_source
 				$translator = array_flip($this->ldapItems);
 				for ($line=0; $line<$info["count"]; $line++) {
-					$this->pk = $info[$line]["uid"][0];
-					if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
-					$this->searchResults[$this->pk] = $this->arrayFromLDAP($info[$line], $translator);
-					$this->searchResults[$this->pk]["data_source"] = $data_source;
+					$pk = $info[$line]["uid"][0];
+					if ($this->searchResults[$pk]) { continue; } // if already exists then skip
+					$this->searchResults[$pk] = $this->arrayFromLDAP($info[$line], $translator);
+					$this->searchResults[$pk]["data_source"] = $data_source;
 				}
 				return true;
 			} else {
@@ -925,10 +896,10 @@ class User {
 		// add the result PKs to the array
 		$translator = array_flip($this->dbItems);
 		while($row=mysql_fetch_assoc($result)) {
-			$this->pk = $row["pk"];
-			if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
-			$this->searchResults[$this->pk] = $this->arrayFromDB($row, $translator);
-			$this->searchResults[$this->pk]["data_source"] = $data_source;
+			$pk = $row["pk"];
+			if ($this->searchResults[$pk]) { continue; } // if already exists then skip
+			$this->searchResults[$pk] = $this->arrayFromDB($row, $translator);
+			$this->searchResults[$pk]["data_source"] = $data_source;
 		}
 		mysql_free_result($result);
 		return true;
@@ -1892,10 +1863,10 @@ class Institution {
 				// add the results to the array with the data_source
 				$translator = array_flip($this->ldapItems);
 				for ($line=0; $line<$info["count"]; $line++) {
-					$this->pk = $info[$line]["iid"][0];
-					if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
-					$this->searchResults[$this->pk] = $this->arrayFromLDAP($info[$line], $translator);
-					$this->searchResults[$this->pk]["data_source"] = $data_source;
+					$pk = $info[$line]["iid"][0];
+					if ($this->searchResults[$pk]) { continue; } // if already exists then skip
+					$this->searchResults[$pk] = $this->arrayFromLDAP($info[$line], $translator);
+					$this->searchResults[$pk]["data_source"] = $data_source;
 				}
 				return true;
 			} else {
@@ -1982,10 +1953,10 @@ class Institution {
 		$translator = array_flip($this->dbItems);
 		// fetch the items
 		while($row=mysql_fetch_assoc($result)) {
-			$this->pk = $row["pk"];
-			if ($this->searchResults[$this->pk]) { continue; } // if already exists then skip
-			$this->searchResults[$this->pk] = $this->arrayFromDB($row, $translator);
-			$this->searchResults[$this->pk]["data_source"] = $data_source;
+			$pk = $row["pk"];
+			if ($this->searchResults[$pk]) { continue; } // if already exists then skip
+			$this->searchResults[$pk] = $this->arrayFromDB($row, $translator);
+			$this->searchResults[$pk]["data_source"] = $data_source;
 		}
 		mysql_free_result($result);
 		return true;

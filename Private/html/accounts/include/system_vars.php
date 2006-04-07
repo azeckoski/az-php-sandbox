@@ -12,7 +12,7 @@ if ($ENVIRONMENT == "dev") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai WebDev";
 	$SERVER_NAME = "http://localhost";
-	$USE_LDAP = 0; // 0=no ldap
+	$USE_LDAP = 1; // 0=no ldap
 
 	$HELP_EMAIL = "aaronz@vt.edu";
 	$MAIL_SERVER = "mail.vt.edu";
