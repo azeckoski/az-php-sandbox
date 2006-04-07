@@ -480,20 +480,16 @@ class User {
 
 		// then set this person as the rep
 		$Inst->rep_pk = $this->pk;
-print "$this->pk:$Inst->rep_pk:$Inst->repvote_pk <br/>";
 		if (!$Inst->repvote_pk) { // if no voting rep (set to the inst rep by default)
-print "Here I am";
 			$Inst->repvote_pk = $this->pk;
 			$this->isVoteRep = true;
 		}
 
 		// save the new rep(s)
 		if ($Inst->save()) {
-print "pass: $this->Message<br>";
 			$this->isRep = true;
 			return true;
 		}
-print "fail: $this->Message<br>";
 		return false;
 	}
 

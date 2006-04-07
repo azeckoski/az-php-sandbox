@@ -131,17 +131,18 @@ if ($_POST["save"] && $allowed) {
 	if ($errors == 0) {
 		$opUser->setPassword($_POST["password1"]);
 
-		// TODO - REP STUFF
-		if($_POST["instrep"]) {
-			$opUser->setRep(true);
-		} else {
-			$opUser->setRep(false);
-		}
-
+		// Set vote rep if checked - have to set the vote rep first
 		if($_POST["voterep"]) {
 			$opUser->setVoteRep(true);
 		} else {
 			$opUser->setVoteRep(false);
+		}
+
+		// Set the inst rep if checked
+		if($_POST["instrep"]) {
+			$opUser->setRep(true);
+		} else {
+			$opUser->setRep(false);
 		}
 
 		// save the current user
