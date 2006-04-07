@@ -91,14 +91,36 @@ foreach ($items as $item) {
 $userInfo = $User->getUsersByPkList($userPks, "fullname,email,institution");
 //echo "<pre>",print_r($userInfo),"</pre><br/>";
 
+// TODO - add in the audiences and topics of that nature (should require 2 more queries)
+$sql = "select PA.pk, PA.proposals_pk, R.role_name, PA.choice from proposals_audiences PA " .
+	"join conf_proposals CP on CP.pk = PA.proposals_pk and confID='$CONF_ID' " .
+	"join roles R on R.pk = PA.roles_pk";
+$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+$audience_items = array();
+while($row=mysql_fetch_assoc($result)) {
+	$audience_items[$row['proposals_pk']][$row['pk']] = $row;
+}
+
+$sql = "select PT.pk, PT.proposals_pk, T.topic_name, PT.choice from proposals_topics PT " .
+	"join conf_proposals CP on CP.pk = PT.proposals_pk and confID='$CONF_ID' " .
+	"join topics T on T.pk = PT.topics_pk";
+$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+$topics_items = array();
+while($row=mysql_fetch_assoc($result)) {
+	$topics_items[$row['proposals_pk']][$row['pk']] = $row;
+}
+
 // put the userInfo into the items array
 foreach ($items as $item) {
 	$items[$item['pk']]['fullname'] = $userInfo[$item['users_pk']]['fullname'];
 	$items[$item['pk']]['email'] = $userInfo[$item['users_pk']]['email'];
 	$items[$item['pk']]['institution'] = $userInfo[$item['users_pk']]['institution'];
+	// these add an array to each proposal item which contains the relevant topics/audiences
+	$items[$item['pk']]['topics'] = $topics_items[$item['pk']];
+	$items[$item['pk']]['audiences'] = $audience_items[$item['pk']];
 }
 
-// TODO - add in the audiences and topics of that nature (should require 2 more queries)
+//echo "<pre>",print_r($items),"</pre><br/>";
 
 ?>
 
@@ -122,7 +144,15 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 <tr class="<?= $linestyle ?>">
 <?php // write out the values quick style
-	foreach($item as $key=>$value) { echo "<td>$value</td>"; }
+	foreach($item as $key=>$value) {
+		if (is_array($value)) {
+			echo "<td>";
+			foreach($value as $v) { echo $v['topic_name'],$v['role_name'],":",$v['choice'],"<br/>"; }
+			echo "</td>";
+		} else {
+			echo "<td>$value</td>";
+		}
+	}
 ?>
 </tr>
 
