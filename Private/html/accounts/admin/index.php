@@ -70,9 +70,8 @@ function orderBy(newOrder) {
 <table>
     <tr>
       <td valign="top"><a href="admin_users.php">Users Control</a></td>
-      <td>This allows control of LDAP/DB user accounts and related properties<br/>
-      Edit the user to set them as an institutional rep or voting rep and to control admin privileges<br/>
-      LDAP accounts should be used instead of internal accounts when possible
+      <td>This allows control of user accounts and related properties<br/>
+      Edit the user to set them as an institutional rep or voting rep and to control admin privileges
       </td>
     </tr>
 
@@ -87,6 +86,13 @@ function orderBy(newOrder) {
       <td valign="top"><a href="admin_perms.php">Permissions Control</a></td>
       <td>This allows control of permissions<br/>
       Add new permissions or edit the descriptions of existing permissions
+      </td>
+    </tr>
+
+    <tr>
+      <td valign="top"><a href="admin_ldap.php">LDAP Control</a></td>
+      <td>This allows control of the LDAP<br/>
+      Refresh DB from LDAP, send data to LDAP, edit LDAP data directly
       </td>
     </tr>
 

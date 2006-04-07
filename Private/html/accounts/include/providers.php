@@ -10,13 +10,14 @@
  * These objects are low level accessors which allow the programmer to access
  * user information or institutional information without having to know where it
  * comes from. The system will ALWAYS attempt to write data to the LDAP first
- * and will only attempt to write data locally if the LDAP is inaccessible. The
- * advantage of this is that local development can be done easily by simply
- * changing USE_LDAP to false. There are some disadvantages though (like having to
- * fetch the data from the ldap which is slower than the database).
+ * and will only attempt to write data locally as well.
  * 
- * Note that using the users table in queries will eventually stop working. The
- * user provider will become the only way to get user or institution data.
+ * The provider was written to use the LDAP over the database originally.
+ * Because of performance concerns the system will now use the LDAP as the
+ * authoritative data source but will store user information locally in the DB.
+ * General queries should use the database. DB user info is refreshed each time
+ * the user logs in and if any changes are made to the user. Institution
+ * information is refreshed when updated.
  */
 $TOOL_SHORT = "provider";
 
@@ -524,11 +525,19 @@ class User {
 				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare user dn, find next available uid
-				$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
-				$uidinfo = ldap_get_entries(getDS(), $sr);
-				$uidinfo = nestedArrayNumSortReverse($uidinfo,"uid");
-				$uid = $uidinfo[0]['uid'][0] + 1;
-				ldap_free_result($sr);
+				$sql = "SELECT MAX(pk) as uid FROM users FOR UPDATE";
+				$result = mysql_query($sql) or die("Next uid query failed ($sql): " . mysql_error());
+				$row = mysql_fetch_assoc($result);
+				$uid = $row['uid'] + 1;
+				if ($uid <= 1) {
+					$this->Message = "Could not get a valid user uid for new user ($uid)";
+					return false;
+				}
+//				$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
+//				$uidinfo = ldap_get_entries(getDS(), $sr);
+//				$uidinfo = nestedArrayNumSortReverse($uidinfo,"uid");
+//				$uid = $uidinfo[0]['uid'][0] + 1;
+//				ldap_free_result($sr);
 
 				// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
 				$user_dn = "uid=$uid,ou=users,dc=sakaiproject,dc=org";
@@ -545,7 +554,7 @@ class User {
 				// Note: you cannot pass an empty array for any values or the add will fail!
 				$ldap_result=ldap_add(getDS(), $user_dn, $info);
 				if ($ldap_result) {
-					$Message = "Added new ldap user";
+					$this->Message = "Added new ldap user";
 					$this->pk = $uid;
 					writeLog($TOOL_SHORT,$this->username,"user added (ldap): " .
 							"$this->firstname $this->lastname ($this->email) [$this->pk]" );
@@ -1668,12 +1677,20 @@ class Institution {
 				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare inst dn, find next available iid
-				$sr=ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", "iid=*", array("iid"));
-				ldap_sort(getDS(), $sr, 'iid');
-				$idinfo = ldap_get_entries(getDS(), $sr);
-				$lastnum = $idinfo["count"] - 1;
-				$id = $idinfo[$lastnum]["iid"][0] + 1;
-				ldap_free_result($sr);
+				$sql = "SELECT MAX(pk) as id FROM institution FOR UPDATE";
+				$result = mysql_query($sql) or die("Next iid query failed ($sql): " . mysql_error());
+				$row = mysql_fetch_assoc($result);
+				$id = $row['id'] + 1;
+				if ($id <= 1) {
+					$this->Message = "Could not get a valid uid for new item ($id)";
+					return false;
+				}
+//				$sr=ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", "iid=*", array("iid"));
+//				ldap_sort(getDS(), $sr, 'iid');
+//				$idinfo = ldap_get_entries(getDS(), $sr);
+//				$lastnum = $idinfo["count"] - 1;
+//				$id = $idinfo[$lastnum]["iid"][0] + 1;
+//				ldap_free_result($sr);
 
 				// DN FORMAT: iid=#,ou=institutions,dc=sakaiproject,dc=org
 				$item_dn = "iid=$id,ou=institutions,dc=sakaiproject,dc=org";
