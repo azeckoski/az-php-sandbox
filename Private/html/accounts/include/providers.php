@@ -461,13 +461,11 @@ class User {
 			$this->institution = $Inst->name;
 		}
 
-		// try to create the user in the LDAP first
+		// try to create the user
 		if ($USE_LDAP) {
-			if ($this->createLDAP()) {
-				return true;
-			}
+			$this->createLDAP(); // create the LDAP entry first if possible
 		}
-		return $this->createDB();
+		return $this->createDB(); // create the DB entry always
 	}
 
 	private function createLDAP() {
@@ -977,14 +975,10 @@ class User {
 		}
 
 		// save the user to the appropriate location
-		if (($this->data_source == "ldap") && $USE_LDAP) {
-			return $this->updateLDAP();
-		} else if ($this->data_source == "db") {
-			return $this->updateDB();
-		} else {
-			$this->Message = "Invalid data_source: $this->data_source, could not save";
-			return false;
+		if ($USE_LDAP) {
+			$this->updateLDAP(); // update the LDAP entry first if possible
 		}
+		return $this->updateDB(); // update the DB entry always
 	}
 
 	private function updateDB() {
@@ -1095,14 +1089,10 @@ class User {
 		global $USE_LDAP;
 
 		// delete the user from the appropriate location
-		if ($this->data_source == "ldap" && $USE_LDAP) {
-			return $this->deleteLDAP();
-		} else if ($this->data_source == "db") {
-			return $this->deleteDB();
-		} else {
-			$this->Message = "Invalid data_source: $this->data_source, could not save";
-			return false;
+		if ($USE_LDAP) {
+			$this->deleteLDAP(); // remove the LDAP entry first if possible
 		}
+		return $this->deleteDB(); // remove the DB entry always
 	}
 
 	private function deleteDB() {
@@ -1147,26 +1137,28 @@ class User {
  */
 	public function authenticateUser($username,$password) {
 		global $USE_LDAP;
-		
+
 		// returns true if the authetication succeeds, false otherwise
 		if (!$username || !$password) {
 			$this->Message = "Empty username or password.";
 			return false;
 		}
-		
+
 		$username = strtolower($username);
 		$this->username = $username;
 		$this->password = $password;
-		
+
 		// attempt LDAP authenticate first
 		if ($USE_LDAP) {
 			if($this->authenticateUserFromLDAP($username,$password)) {
+				$this->updateDB(); // update the DB from the LDAP
 				return true;
 			}
 		}
 
 		// attempt DB authentication as a fallback
 		if($this->authenticateUserFromDB($username,$password)) {
+			$this->updateLDAP(); // update the DB from the LDAP
 			return true;
 		}
 
@@ -1598,15 +1590,11 @@ class Institution {
 	public function create() {
 		global $USE_LDAP;
 		
-		// create the user in the appropriate location
-		if ($this->data_source == "ldap" && $USE_LDAP) {
-			return $this->createLDAP();
-		} else if ($this->data_source == "db") {
-			return $this->createDB();
-		} else {
-			$this->Message = "Invalid data_source: $this->data_source, could not create";
-			return false;
+		// create the instituion
+		if ($USE_LDAP) {
+			$this->createLDAP(); // create the LDAP entry first if possible
 		}
+		return $this->createDB(); // create the DB entry always
 	}
 
 	private function createDB() {
