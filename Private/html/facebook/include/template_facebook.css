@@ -63,7 +63,7 @@ template layout
 
 /** wrapper to make the page center **/
 #container {
-	width:900px;
+	width:940px;
 	margin: 10px auto;
 	padding:0;
 	
@@ -76,7 +76,7 @@ that's way we can not put it in #container
 **/
 #containerbg {
 	position:relative;
-	width: 900px;
+	width: 940px;
 	background:transparent url(images/bg_insideG_full.jpg) repeat-y left top;
 	float:left;
 	top:0;
@@ -91,7 +91,7 @@ that's way we can not put it in #container
 	position:relative;
 	float:left;
 	clear:both;
-	width:900px;
+	width:940px;
 	padding:0px;
 	height: 135px;
 
@@ -107,7 +107,7 @@ that's way we can not put it in #container
 	position:relative;
 	float:left;
 	clear:left;
-	width:900px;
+	width:940px;
 	
 	
 }
@@ -127,7 +127,7 @@ that's way we can not put it in #container
 	position:relative;
 		float:left;
 clear: right;
-	width:900px;
+	width:940px;
 	padding:0px;
 	height:127px;
 
@@ -218,7 +218,7 @@ color: #ffffff;
 #container_inner {
 	position:relative;
 	float:left;
-	width:900px;
+	width:940px;
 
 }
 
@@ -246,7 +246,7 @@ color: #ffffff;
 	position:relative;
 	clear:left;
 	float:left;
-	width:900px;
+	width:940px;
 	height:10px;
 	min-height:10px;
 	background-color: #000000;
@@ -258,7 +258,7 @@ color: #ffffff;
 
 #copyright {
 	position:relative;
-	width:900px;
+	width:940px;
 	display:block;
 	clear:both;
 	float:left;
@@ -272,7 +272,7 @@ color: #ffffff;
 	font-size:10px;
 	font-weight:bold;
 	display:block!important;
-	width:900px;
+	width:940px;
 	float:left;
 	clear:left;
 	margin:10px 0 0 0;
@@ -492,14 +492,14 @@ background:#F8F8EC;
 
 #bottompadding	{
 	position:relative;
-	width:900px;
+	width:940px;
 	display:block;
 	height:0px;
 	
 }
 
 #photos {
-width: 700px;
+width: 740px;
 padding:10px;
 margin-top: 0px;
 margin-left: 0px;

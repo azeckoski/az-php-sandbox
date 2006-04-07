@@ -23,31 +23,24 @@ if ($User->pk) {
 
 // get the search
 $searchtext = "";
-if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
+$providerSearch = "";
+if ($_REQUEST["searchtext"]) {
+	$searchtext = $_REQUEST["searchtext"];
+	$providerSearch = "username=$searchtext,firstname=$searchtext,lastname=$searchtext,email=$searchtext,institution=$searchtext";
+}
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " and (I1.name like '%$searchtext%' or F1.url like '%$searchtext%' or " .
-		"F1.interests like '%$searchtext%' or U1.username like '%$searchtext%' or " .
-		"U1.firstname like '%$searchtext%' or U1.lastname like '%$searchtext%' or " .
-		"U1.email like '%$searchtext%' or U1.institution like '%$searchtext%' or " .
-		"U1.primaryRole like '%$searchtext%' or U1.secondaryRole like '%$searchtext%') ";
+	$sqlsearch = " and (F1.url like '%$searchtext%' or F1.interests like '%$searchtext%') ";
 }
 
-// sorting
-$sortorder = "date_created";
-if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
-$sqlsorting = " order by $sortorder ";
+// the main fetching query (must fetch all items for sort and search to work)
+$sql = "select * from facebook_entries F1 where viewable >= '$viewable' " . $sqlsearch;
+//print "SQL=$sql<br/>";
+$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+$total_items = mysql_num_rows($result);
 
-// main SQL to fetch all facebook items
-$from_sql = " from facebook_entries F1 left join users U1 on U1.pk=F1.users_pk " .
-		"left join institution I1 on I1.pk=U1.institution_pk where viewable >= '$viewable' ";
-
-// counting number of items
-// **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
-$count_sql = "select count(*) " . $from_sql . $sqlsearch;
-$result = mysql_query($count_sql) or die('Count query failed: ' . mysql_error());
-$row = mysql_fetch_array($result);
-$total_items = $row[0];
+// put all of the query results into an array first
+while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
 
 // pagination control
 $num_limit = 15;
@@ -71,19 +64,34 @@ if ($page > $total_pages) { $page = $total_pages; }
 if ($page <= 0) { $page = 1; }
 
 $limitvalue = $page * $num_limit - ($num_limit);
-$mysql_limit = " LIMIT $limitvalue, $num_limit";
-
 $start_item = $limitvalue + 1;
 $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
+$items_displayed = $end_item - $start_item + 1;
 
-// the main user fetching query
-$users_sql = "select F1.*, U1.username, U1.email, U1.firstname, " .
-	"U1.lastname, I1.name " .
-	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
-//print "SQL=$users_sql<br/>";
-$result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
-$items_displayed = mysql_num_rows($result);
+// Use the user pks to get the user info for these proposal users
+$userPks = array();
+foreach ($items as $item) {
+	// this should produce a nice unique list of user pks
+	$userPks[$item['users_pk']] = $item['users_pk'];
+}
+
+// use the current User object to get the userinfo
+$userInfo = $User->getUsersByPkList($userPks, "lastname,fullname,email,institution");
+//echo "<pre>",print_r($userInfo),"</pre><br/>";
+
+// put the userInfo into the items array
+foreach ($items as $item) {
+	$items[$item['pk']]['lastname'] = $userInfo[$item['users_pk']]['lastname'];
+	$items[$item['pk']]['fullname'] = $userInfo[$item['users_pk']]['fullname'];
+	$items[$item['pk']]['email'] = $userInfo[$item['users_pk']]['email'];
+	$items[$item['pk']]['institution'] = $userInfo[$item['users_pk']]['institution'];
+}
+
+// SORTING now happens on the output array
+$sortorder = "date_created";
+if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
+$items = nestedArraySort($items, $sortorder);
 
 ?>
 
@@ -127,22 +135,35 @@ function orderBy(newOrder) {
 	Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 </div>
 
-<?php while($items=mysql_fetch_array($result)) { ?>
+<?php 
+$line = 0;
+foreach ($items as $item) { // loop through all of the proposal items
+	$line++;
+	
+	// only show items for this page
+	if ($line < $start_item || $line > $end_item) { continue; }
+	
+	// shorten the long items
+	$short_inst_name = $item['institution'];
+	if (strlen($short_inst_name) > 25) {
+		$short_inst_name = substr($short_inst_name,0,22) . "...";
+	}
+?>
 
 <div class="frame">
 	<div style="width:<?= $MAX_THUMB_WIDTH ?>px;height:<?= $MAX_THUMB_HEIGHT ?>px;text-align:center;">
-		<img src="include/drawThumb.php?pk=<?= $items['image_pk'] ?>" alt="<?= $items['firstname']." ".$items['lastname'] ?> facebook image" />
+		<img src="include/drawThumb.php?pk=<?= $item['image_pk'] ?>" alt="<?= $item['fullname'] ?> facebook image" />
 	</div>
 	<div class="about" style="width:<?= $MAX_THUMB_WIDTH ?>px;">
 		<div class="name">
-<?php if ($items['url']) { ?>
-			<a href='<?= $items['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
+<?php if ($item['url']) { ?>
+			<a href='<?= $item['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
 <?php } ?>
-		<?= $items['firstname']." ".$items['lastname'] ?></div>
-		<div class="institute"><?php if($items['institution']) { echo $items['institution']; } else { echo $items['name']; } ?></div>
+		<label title="<?= $item['interests'] ?>"><?= $item['fullname'] ?></label></div>
+		<div class="institute"><label title="<?= $item['institution'] ?>"><?= $short_inst_name ?></label></div>
 <?php // TODO - make this so it shortens the output of interests
 	/**	
-		<div class=interests><?= $items['interests'] ?></div>
+		<div class=interests><?= $item['interests'] ?></div>
 	**/
 ?>
 	</div>
