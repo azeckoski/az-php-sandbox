@@ -35,8 +35,6 @@ and page settings are so if you want to export all items, make sure you select t
 </div>
 </div>
 
-<?php include 'defineterms.html'; ?>
-
 <input type="button" value="Close Help Window" onClick="javascript:window.close();">
 
 </body>
