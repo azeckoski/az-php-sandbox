@@ -1,15 +1,11 @@
 <?php
 require ('../../sql/mysqlconnect.php');
 
-$email_sql="Select * from `conf_proposals` WHERE id='$demo_id' ";
+$email_sql="Select * from `conf_proposals` WHERE id='$demo_pk' ";
 $result= mysql_query($email_sql);
 
 	while($demo_sql=mysql_fetch_array($result))
 	{
-	// TODO - why are these variables set? -AZ
-	$firstname=$User->firstname;
-	$lastname=$User->lastname;
-	$email=$User->email;
 
 	$title=$demo["title"];
 	$abstract=$demo["abstract"];
@@ -65,10 +61,10 @@ $headers .= 'MIME-Version: 1.0' ."\n";
 $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
-//set up mail for attendee
+//set up mail for user
 $recipient = "$email";
 $subject= "Sakai Call for Proposals: Demo- $lastname";
-//send the mail to attendee
+//send the mail to user
 mail($recipient, $subject, $msg, $headers);
  	 	 
 

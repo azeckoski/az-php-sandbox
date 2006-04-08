@@ -1,8 +1,4 @@
 <?php 
-//echo "VALIDATED<br /><br/>";
-
-
-
 
 $title=mysql_real_escape_string($_POST['title']);
 $abstract=mysql_real_escape_string($_POST['abstract']);

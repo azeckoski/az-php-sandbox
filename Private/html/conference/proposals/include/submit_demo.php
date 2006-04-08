@@ -17,7 +17,7 @@ $result = mysql_query($demo_sql) or die("Error:<br/>" . mysql_error() . "<br/>Th
 		"If you continue to have problems, please report the problem to the " .
 		"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
 		
-		$demo_id=mysql_insert_id(); //this is how to query the last entered auto-id entry
+		$demo_pk=mysql_insert_id(); //this is how to query the last entered auto-id entry
 
 ?>
 

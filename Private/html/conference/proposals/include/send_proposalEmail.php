@@ -10,19 +10,6 @@ $result= mysql_query($email_sql);
 while($presentation=mysql_fetch_array($result))
 {
 
-$date=stripslashes($presentation['date']);
-// TODO - why are these variables set? -AZ
-$firstname=$User->firstname;
-$lastname=$User->lastname;
-$email=$User->email;
-$address1=$User->address;
-$city=$User->city;
-$state=$User->state;
-$zip=$User->zipcode;
-$country=$User->country;
-$phone=$User->phone;
-$fax=$User->fax;
-
 $title=stripslashes($presentation['title']);
 $abstract=stripslashes($presentation['abstract']);
 $desc=stripslashes($presentation['desc']);
@@ -121,11 +108,6 @@ $subject= "Sakai Call for Proposals: Presentation- $lastname";
 mail($recipient, $subject, $msg, $headers);
  	 
 
-	 	 
-	 	 	 //	 echo "done sending user copy<br />";
-
 }
-
-	 	 //echo "done with all messages<br />";
 
 ?>
