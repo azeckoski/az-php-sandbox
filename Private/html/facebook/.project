@@ -11,6 +11,8 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-	</buildSpec>	<natures>
+	</buildSpec>
+	<natures>
+		<nature>net.sourceforge.phpeclipse.phpnature</nature>
 	</natures>
 </projectDescription>
