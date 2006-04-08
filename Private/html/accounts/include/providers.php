@@ -545,7 +545,6 @@ class User {
 		// try to create the user
 		if ($USE_LDAP) {
 			$this->createLDAP(); // create the LDAP entry first if possible
-			echo "mesg: $this->Message <br/>";
 		}
 		return $this->createDB(); // create the DB entry always
 	}
