@@ -1,5 +1,6 @@
 <?php
-/* file: providers.php
+/* 
+ * file: providers.php
  * Created on Mar 24, 2006 by @author az
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
@@ -21,7 +22,8 @@
  */
 $TOOL_SHORT = "provider";
 
-// LDAP SERVER NAMES AND USERS IN TOOL_VARS
+// LDAP variables
+require 'ldap_vars.php'; // has to be in same directory
 
 /*
  * GLOBAL VARS
@@ -817,7 +819,7 @@ class User {
 
 		if (ldapConnect()) {
 			// bind with appropriate dn to give readonly access
-			$read_bind=ldap_bind(getDS(), $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
+			$read_bind=@ldap_bind(getDS(), $LDAP_READ_DN, $LDAP_READ_PW); // do bind as read user
 			if ($read_bind) {
 				// set up the search filter
 				$filter = "";
