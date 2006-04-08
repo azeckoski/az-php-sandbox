@@ -21,33 +21,12 @@
  */
 $TOOL_SHORT = "provider";
 
-/*
- * LDAP variables
- * These are stored here since the rest of the system should not need to
- * have any concept of LDAP, it should only understand the concept of a
- * user or an institution
- * 
- * Test user for testing LDAP auth:
- * Username: sakai 
- * Password: ironchef
- * NOTE: This user cannot function in the system, they can only be used to
- * test the LDAP authentication, they cannot have a valid session
- */
-//$LDAP_SERVER = "reynolds.cc.vt.edu"; // test server 1
-$LDAP_SERVER = "bluelaser.cc.vt.edu"; // prod server 1
-$LDAP_PORT = "389";
-$LDAPS_SERVER = "ldaps://bluelaser.cc.vt.edu"; // SSL prod server 1
-$LDAP_ADMIN_DN = "cn=Manager,dc=sakaiproject,dc=org";
-$LDAP_ADMIN_PW = "ldapadmin";
-$LDAP_READ_DN = "uid=!readonly,ou=users,dc=sakaiproject,dc=org";
-$LDAP_READ_PW = "ironchef";
-// TODO - make the passwords more secure
+// LDAP SERVER NAMES AND USERS IN TOOL_VARS
 
 /*
  * GLOBAL VARS
  */
 $LDAP_DS = null; // This is the LDAP connection
-
 
 /*
  * Shared functions
@@ -556,7 +535,7 @@ class User {
 		$this->username = strtolower($this->username);
 
 		// make sure the institution is always set correctly
-		if ($this->institution_pk && !$this->institution) {
+		if ($this->institution_pk > 1) {
 			$Inst = new Institution($this->institution_pk);
 			$this->institution = $Inst->name;
 		}
@@ -564,6 +543,7 @@ class User {
 		// try to create the user
 		if ($USE_LDAP) {
 			$this->createLDAP(); // create the LDAP entry first if possible
+			echo "mesg: $this->Message <br/>";
 		}
 		return $this->createDB(); // create the DB entry always
 	}
@@ -612,11 +592,13 @@ class User {
 					$info["userpassword"]=$this->password;
 				}
 
-				$permissions = array();
-				foreach($this->sakaiPerm as $value) {
-					$permissions[] = $value;
+				if (isset($this->sakaiPerm)) {
+					$info["sakaiperm"] = array_values($this->sakaiPerm);
 				}
-				$info["sakaiperm"]=$permissions;
+
+				if (isset($this->userStatus)) {
+					$info["userstatus"] = array_values($this->userStatus);
+				}
 
 				// empty items must be removed
 				// Note: you cannot pass an empty array for any values or the add will fail!
@@ -1067,7 +1049,7 @@ class User {
 		$this->username = strtolower($this->username);
 
 		// make sure the institution is always set correctly
-		if ($this->institution_pk && !$this->institution) {
+		if ($this->institution_pk > 1) {
 			$Inst = new Institution($this->institution_pk);
 			$this->institution = $Inst->name;
 		}
@@ -1132,7 +1114,8 @@ class User {
 				$info["sn"]=$this->lastname;
 				$info["sakaiuser"]=$this->username;
 				$info["mail"]=$this->email;
-				$info["iid"]="$this->institution_pk";
+				$info["o"]=$this->institution;
+				$info["iid"]=$this->institution_pk;
 				$info["primaryrole"]=$this->primaryRole;
 				$info["secondaryrole"]=$this->secondaryRole;
 				$info["postaladdress"]=$this->address;
@@ -1142,13 +1125,6 @@ class User {
 				$info["c"]=$this->country;
 				$info["telephonenumber"]=$this->phone;
 				$info["facsimiletelephonenumber"]=$this->fax;
-					
-				// get the institution name for this $INSTITUTION_PK
-				$sr=ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", "iid=$institution_pk", array("o"));
-				$item = ldap_get_entries(getDS(), $sr);
-				if ($item["count"]) {
-					$info["o"]=$item[0]["o"][0];
-				}
 
 				// only set password if it is not blank
 				if (strlen($this->password) > 0) {
@@ -1159,8 +1135,13 @@ class User {
 					$info["sakaiperm"] = array_values($this->sakaiPerm);
 				}
 
+				if (isset($this->userStatus)) {
+					$info["userstatus"] = array_values($this->userStatus);
+				}
+
 				// empty items must be set to a blank array
 				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+				//echo "<pre>",print_r($info),"</pre><br/>";
 
 				$user_dn = "uid=$this->pk,ou=users,dc=sakaiproject,dc=org";
 				$ldap_result=ldap_modify(getDS(), $user_dn, $info);
@@ -1252,7 +1233,7 @@ class User {
 		// attempt LDAP authenticate first
 		if ($USE_LDAP) {
 			if($this->authenticateUserFromLDAP($username,$password)) {
-				$this->updateDB(); // update the DB from the LDAP (sync)
+				$this->createDB(); // update the DB from the LDAP (sync)
 				return true;
 			}
 		}
@@ -1260,7 +1241,7 @@ class User {
 		// attempt DB authentication as a fallback
 		if($this->authenticateUserFromDB($username,$password)) {
 			if ($USE_LDAP) {
-				$this->updateLDAP(); // update the LDAP from the DB (sync)
+				$this->createLDAP(); // update the LDAP from the DB (sync)
 			}
 			return true;
 		}
@@ -1541,16 +1522,18 @@ class User {
 		$this->primaryRole = $userArray['primaryRole'];
 		$this->secondaryRole = $userArray['secondaryRole'];
 		// convert the string of perms to an array
-		$permArray = explode(":",$userArray['sakaiPerm']);
-		if (is_array($permArray)) {
-			foreach ($permArray as $value) {
+		$a = explode(":",$userArray['sakaiPerm']);
+		if (is_array($a)) {
+			foreach ($a as $value) {
+				if (!$value) { continue; }
 				$this->sakaiPerm[$value] = "$value";
 			}
 		} else { $this->sakaiPerm = array(); }
 		// convert the string of status to an array
-		$permArray = explode(":",$userArray['userStatus']);
-		if (is_array($permArray)) {
-			foreach ($permArray as $value) {
+		$a = explode(":",$userArray['userStatus']);
+		if (is_array($a)) {
+			foreach ($a as $value) {
+				if (!$value) { continue; }
 				$this->userStatus[$value] = "$value";
 			}
 		} else { $this->userStatus = array(); }

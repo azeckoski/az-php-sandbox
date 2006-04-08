@@ -86,7 +86,13 @@ CREATE TABLE permissions (
     PRIMARY KEY (pk)
 );
 
-
+/**
+INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_accounts', 'Account administration and control');
+INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_insts', 'Institution administration and control');
+INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_reqs', 'Requirements voting administration and control');
+INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_skin', 'Skin submission and voting administration and control');
+INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_conference', 'Conference administration and control');
+**/
 
 CREATE TABLE institution (
     pk				int(10) auto_increment not null,

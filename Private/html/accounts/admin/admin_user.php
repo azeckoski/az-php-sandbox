@@ -129,7 +129,17 @@ if ($_POST["save"] && $allowed) {
 	}
 
 	if ($errors == 0) {
-		$opUser->setPassword($_POST["password1"]);
+		// set password
+		if (strlen($PASS1) > 0) {
+			$opUser->setPassword($_POST["password1"]);
+		}
+
+		// handle the other institution stuff in a special way
+		if (!is_numeric($opUser->institution_pk)) {
+			// assume someone is using the other institution, Other MUST be pk=1
+			$opUser->institution = $opUser->institution_pk;
+			$opUser->institution_pk = 1;
+		}
 
 		// Set vote rep if checked - have to set the vote rep first
 		if($_POST["voterep"]) {

@@ -76,6 +76,7 @@ function itemdel(itempk) {
 	}
 ?>
 
+<a href="<?= $ACCOUNTS_URL ?>/ldapadmin/">Access the phpLDAPAdmin tool</a><br/>
 
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; ?>
