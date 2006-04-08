@@ -58,6 +58,13 @@ function ldapConnect() {
 	// and not reconnect if we are already connected - faster in theory
 	global $LDAP_DS, $LDAP_SERVER, $LDAP_PORT;
 
+	// attempt to enable the LDAP support if not already there
+	if (!extension_loaded('ldap')) {
+		if (!dl('ldap.so')) {
+			die("No LDAP library support enabled on this PHP server");
+		}
+	}
+	
 	if (!isset($LDAP_DS)) {
 		// $LDAP_DS = ldap_connect($LDAPS_SERVER) or die ("CRITICAL SSL LDAP CONNECTION FAILURE"); // ssl connection
 		$LDAP_DS = ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
