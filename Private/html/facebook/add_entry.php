@@ -91,7 +91,7 @@ if ($_REQUEST["save"]) {
 				   $maxHeight = round( ($maxWidth / $width) * $height);
 				}
 
-				print "new size: ".$maxWidth."x".$maxHeight."<br/>";
+				//print "new size: ".$maxWidth."x".$maxHeight."<br/>";
 
 				$image_input = "";
 				switch($IMAGE_MIMES[$file['type']]) {
@@ -183,6 +183,19 @@ $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <script>
 <!--
+function orderBy(newOrder) {
+	if (document.adminform.sortorder.value == newOrder) {
+		if (newOrder.match("^.* desc$")) {
+			document.adminform.sortorder.value = newOrder.replace(" desc","");
+		} else {
+			document.adminform.sortorder.value = newOrder;
+		}
+	} else {
+		document.adminform.sortorder.value = newOrder;
+	}
+	document.adminform.submit();
+	return false;
+}
 // -->
 </script>
 <!-- // INCLUDE THE HEADER -->
@@ -190,11 +203,16 @@ $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 
 <?= $Message ?>
 
+<!-- this form is just here to make it easy to sort from this page -->
+<form name="adminform" action="index.php" method="post" style="margin:0px;">
+<input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
+</form>
+
 <fieldset><legend>Facebook Entry</legend>
 
 <div class="required" id="requiredMessage"></div>
 
-<form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;" enctype="multipart/form-data">
+<form name="addform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;" enctype="multipart/form-data">
 <input type="hidden" name="save" value="1" />
 <input type="hidden" name="MAX_FILE_SIZE" value="1000000" /> <!-- 1 MB -->
 

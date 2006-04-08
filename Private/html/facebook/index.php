@@ -98,8 +98,12 @@ function popup(url,name,w,h){
 }
 
 function orderBy(newOrder) {
-	if (document.adminform.sortorder.value.match == newOrder) {
-		document.adminform.sortorder.value = newOrder + " desc";
+	if (document.adminform.sortorder.value == newOrder) {
+		if (newOrder.match("^.* desc$")) {
+			document.adminform.sortorder.value = newOrder.replace(" desc","");
+		} else {
+			document.adminform.sortorder.value = newOrder;
+		}
 	} else {
 		document.adminform.sortorder.value = newOrder;
 	}

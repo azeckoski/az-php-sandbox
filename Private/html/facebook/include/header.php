@@ -68,7 +68,7 @@
 			<tr> <th>View Options</th> </tr>
 			<tr><td><br/>&nbsp;&nbsp;&nbsp;<strong>Display by:</strong>
 				<ul>
-				<li><a href="javascript:orderBy('date_created');">Recent Entry</a></li>
+				<li><a href="javascript:orderBy('date_created desc');">Recent Entry</a></li>
 				<li><a href="javascript:orderBy('lastname');">Last Name</a></li>
 				<li><a href="javascript:orderBy('institution');">Institution</a></li>
 				<li><a href="javascript:orderBy('date_modified desc');">Recent Update</a></li>
