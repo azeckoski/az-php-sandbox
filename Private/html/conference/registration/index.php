@@ -34,10 +34,10 @@ if($_GET['msg']) {
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['primaryRole'] = "required:focus";
+$vItems['primaryRole'] = "required";
 $vItems['secondaryRole'] = "";
 $vItems['institution'] = "required";
-$vItems['address1'] = "required";
+$vItems['address1'] = "required:focus";
 $vItems['city'] = "required";
 $vItems['state'] = "required:namespaces";
 $vItems['zipcode'] = "zipcode";
