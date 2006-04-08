@@ -127,6 +127,7 @@ class User {
 
 	private $data_source = "ldap";
 	private $password;
+	private $authentic = false;
 	private $searchResults = array();
 
 	// map object items to the ldap
@@ -1235,6 +1236,7 @@ class User {
 		$username = strtolower($username);
 		$this->username = $username;
 		$this->password = $password;
+		$this->authentic = false; // start out not authenticated
 
 		// attempt LDAP authenticate first
 		if ($USE_LDAP) {
@@ -1289,6 +1291,7 @@ class User {
 					$this->Message = "Valid LDAP login: $username";
 					$this->data_source = "ldap";
 					if ($this->active) {
+						$this->authentic = true;
 						return true;
 					} else {
 						$this->Message = "Cannot login; user is not active: $username";
@@ -1336,6 +1339,7 @@ class User {
 
 			$this->data_source = "db";
 			if ($this->active) {
+				$this->authentic = true;
 				return true;
 			} else {
 				$this->Message = "Cannot login; user is not active: $username";
@@ -1365,6 +1369,7 @@ class User {
 		
 		if (!$this->authenticateUser($username, $password)) {
 			$this->Message = "Invalid username or password";
+			$this->destroySession();
 			return false;
 		}
 
