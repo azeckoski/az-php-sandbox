@@ -1,7 +1,6 @@
 <?php
-require ('../../sql/mysqlconnect.php');
 
-$email_sql="Select * from `conf_proposals` WHERE id='$demo_pk' ";
+$email_sql="Select * from `conf_proposals` WHERE pk='$demo_pk' ";
 $result= mysql_query($email_sql);
 
 	while($demo_sql=mysql_fetch_array($result))
