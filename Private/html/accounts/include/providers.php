@@ -1248,7 +1248,9 @@ class User {
 
 		// attempt DB authentication as a fallback
 		if($this->authenticateUserFromDB($username,$password)) {
-			$this->updateLDAP(); // update the LDAP from the DB (sync)
+			if ($USE_LDAP) {
+				$this->updateLDAP(); // update the LDAP from the DB (sync)
+			}
 			return true;
 		}
 
