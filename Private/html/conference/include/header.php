@@ -17,7 +17,7 @@
               <div align="right" style="width:18em;padding:10px;background:#eee;font-size:12pt;color:#000;">
 <?php if ($User->pk > 0) { ?>
 	<span style="font-size:.8em;">
-  	Welcome,&nbsp;<?= $User->firstname."&nbsp".$User->lastname ?>
+  	Welcome,&nbsp;<?= $User->firstname."&nbsp;".$User->lastname ?>
   	</span><br/>
   	<a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a><br/>
 <?php if ($User->checkPerm("admin_conference")) { ?>

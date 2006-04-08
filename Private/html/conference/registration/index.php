@@ -130,7 +130,7 @@ if ($_POST['save']) { // saving the form
 			$result = mysql_query($confsql) or die('Conf update query failed: ('.$confsql.')' . mysql_error());
 		}
 		
-		// refresh the USER and CONF arrays in case anything changed and to get the new conf data
+		// refresh the CONF arrays in case anything changed and to get the new conf data
 		// for the newly created registration
 
 		// get the new conf info for this user
