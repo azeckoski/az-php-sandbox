@@ -116,8 +116,8 @@ function orderBy(newOrder) {
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 
-<div class="navigation">
-	<div style="display:inline;text-align:left;width:75%;">
+<div class="navigation" style="width:100%;">
+	<div style="display:inline;text-align:left;">
 		<input type="hidden" name="page" value="<?= $page ?>" />
 		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
 		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
@@ -127,7 +127,8 @@ function orderBy(newOrder) {
 		&nbsp;-&nbsp;
 		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 	</div>
-	<div style="display:inline;text-align:right;width:25%;">
+	&nbsp;--&nbsp;
+	<div style="display:inline;text-align:right;">
 		Sort order: <strong><?= $sortorder ?></strong>
 	</div>
 </div>
