@@ -79,11 +79,6 @@ if (!$isPartner){
 <form id='form1' method="post" action="https://payments.verisign.com/payflowlink">
 <table width="500"  cellpadding="0" cellspacing="0">
 	<tr>
-		<td valign="top" colspan="2" style="padding:0px;">
-			<span class="small"> * = Required fields</span>
-		</td>
-    </tr>
-	<tr>
 		<td valign=top>
 			<div align="right">
 				<strong>Registrant's Information: </strong>

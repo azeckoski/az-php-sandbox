@@ -18,7 +18,7 @@ $co_registrant=$CONF["delegate"];
 
 $today = date("F j, Y"); 
 
-//set up mail message
+//set up cleaner mail message -AZ
 $msg ="Thank you for your registration to the Sakai Vancouver Conference, scheduled for May 30 to June 2, 2006 in Vancouver B.C.\r\n";
 $msg.=" If you have any questions about your registration information please contact kreister@umich.edu. \r\n \r\nThank You\r\n      Sakai Staff\r";
 $msg.="-------------------------------------------- \r\n\r\n";
@@ -61,16 +61,16 @@ if ($fee > 0){
 ini_set(SMTP, $MAIL_SERVER);
 $headers  = 'From: ' . $HELP_EMAIL . "\n";
 $headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
-$headers .= 'Reply-To: ' . $email . "\n";
+$headers .= 'Reply-To: ' . $User->email . "\n";
 $headers .= 'MIME-Version: 1.0' ."\n";
 $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 //set up mail for Susan
 $recipient = "shardin@umich.edu";
-$subject= "COPY-Vancouver Reg-$firstname $lastname";
+$subject= "COPY-Vancouver Reg-$User->firstname $User->lastname";
 //send the mail to susan
-mail($recipient, $subject, $msg, $headers);
+@mail($recipient, $subject, $msg, $headers);
 
 /*******	 
  //set up mail for Susan with the old mail method
@@ -94,5 +94,5 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 $recipient = $User->email;
 $subject= "Sakai Conference Registration";
 //send the mail to registrant
-mail($recipient, $subject, $msg, $headers);
+@mail($recipient, $subject, $msg, $headers);
 ?>

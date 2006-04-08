@@ -143,7 +143,9 @@ if ($_POST['save']) { // saving the form
 
 		// to payment page IF they have not already paid (no transID)
 		if (!$isPartner && !$CONF['transID']) {
-			//header("Location:payment.php");  //begin VerisignPayment process
+			header("Location:payment.php");  //begin VerisignPayment process
+			print "Beginning versign payment process...<br/>";
+			print "<a href='payment.php'>Continue if not redirected<a/>";
 			exit();
 		}
 	}
