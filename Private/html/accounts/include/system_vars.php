@@ -12,7 +12,8 @@ if ($ENVIRONMENT == "dev") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai WebDev";
 	$SERVER_NAME = "http://localhost";
-	$USE_LDAP = 1; // 0=no ldap
+	$USE_LDAP = true; // false=no ldap
+	$LDAP_SSL = false; // false=no SSL
 
 	$HELP_EMAIL = "aaronz@vt.edu";
 	$MAIL_SERVER = "mail.vt.edu";
@@ -21,7 +22,8 @@ elseif ($ENVIRONMENT == "test") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai WebTest";
 	$SERVER_NAME = "https://sakaitest.org";
-	$USE_LDAP = 1; // 0=no ldap
+	$USE_LDAP = true; // false=no ldap
+	$LDAP_SSL = true; // false=no SSL
 
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
@@ -30,7 +32,8 @@ elseif ($ENVIRONMENT == "prod") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai Web";
 	$SERVER_NAME = "https://sakaiproject.org";
-	$USE_LDAP = 0; // 0=no ldap
+	$USE_LDAP = false; // false=no ldap
+	$LDAP_SSL = false; // false=no SSL
 
 	$HELP_EMAIL = "sakaiproject_webmaster@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
@@ -39,7 +42,8 @@ elseif ($ENVIRONMENT == "devSusan") {
 	// Set needed system variables
 	$SYSTEM_NAME = "SusanMac";
 	$SERVER_NAME = "http://localhost";
-	$USE_LDAP = 0; // 0=no ldap
+	$USE_LDAP = false; // false=no ldap
+	$LDAP_SSL = false; // false=no SSL
 
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";

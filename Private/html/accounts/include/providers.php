@@ -56,7 +56,7 @@ $LDAP_DS = null; // This is the LDAP connection
 function ldapConnect() {
 	// this is an easy connection script to make a connection to the LDAP server for us
 	// and not reconnect if we are already connected - faster in theory
-	global $LDAP_DS, $LDAP_SERVER, $LDAP_PORT;
+	global $LDAP_SSL, $LDAP_DS, $LDAP_SERVER, $LDAP_PORT, $LDAPS_SERVER;
 
 	// attempt to enable the LDAP support if not already there
 	if (!extension_loaded('ldap')) {
@@ -66,8 +66,12 @@ function ldapConnect() {
 	}
 	
 	if (!isset($LDAP_DS)) {
-		// $LDAP_DS = ldap_connect($LDAPS_SERVER) or die ("CRITICAL SSL LDAP CONNECTION FAILURE"); // ssl connection
-		$LDAP_DS = ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		if ($LDAP_SSL) { // use secure connection as specified
+			$LDAP_DS = ldap_connect($LDAPS_SERVER) or die ("CRITICAL SSL LDAP CONNECTION FAILURE"); // ssl connection
+		} else {
+			$LDAP_DS = ldap_connect($LDAP_SERVER,$LDAP_PORT) or die ("CRITICAL LDAP CONNECTION FAILURE");
+		}
+
 		if ($LDAP_DS) {
 			ldap_set_option($LDAP_DS, LDAP_OPT_PROTOCOL_VERSION, 3) or die("Failed to set LDAP Protocol version to 3");
 			return true;
