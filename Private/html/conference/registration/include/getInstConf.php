@@ -18,10 +18,12 @@ if ($CONF) {
 	$isRegistered = true;
 	$transID = $CONF['transID'];
 	$Message = "<span style='color:red;'>You have already filled out a registration for this conference.</span>";
-    if ($transID) { //non-member payment transaction received from Verisign
-    	$Message  .="<span style='color:red;'><br />Your payment confirmation number is: $transID </span>";
-    } else {
-    	$Message  .="<span style='color:red;'><br />You have not paid yet. Please go to the <a href='payment.php'>Payment page</a></span>";
-    }
+	if (!$isPartner) {
+	    if ($transID) { //non-member payment transaction received from Verisign
+	    	$Message  .="<span style='color:red;'><br />Your payment confirmation number is: $transID </span>";
+	    } else {
+	    	$Message  .="<span style='color:red;'><br />You have not paid yet. Please go to the <a href='payment.php'>Payment page</a></span>";
+	    }
+	}
 }
 ?>
