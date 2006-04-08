@@ -1,7 +1,7 @@
 CREATE TABLE users ( 
     pk          		int(10) AUTO_INCREMENT NOT NULL,
-    date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_created		timestamp NULL,
     username    		varchar(100) NOT NULL UNIQUE,
     password    		varchar(255) NOT NULL,
     firstname   		varchar(100) NULL,
@@ -27,8 +27,8 @@ CREATE TABLE users (
 // update users set password=PASSWORD('new_pass') where username='shardin';
 
 /*** Changes to the user table
-alter table users modify date_modified timestamp not null default CURRENT_TIMESTAMP;
-update users set date_modified = NOW();
+alter table users modify date_modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP;
+alter table users modify date_created timestamp NULL;
 alter table users add sakaiPerms text;
 alter table users add userStatus text;
 alter table users add institution varchar(200) not null;
@@ -55,8 +55,8 @@ alter table users add `admin_insts` enum('0','1') NOT NULL default '0';
 
 CREATE TABLE roles ( 
     pk          		int(10) AUTO_INCREMENT NOT NULL,
-    date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_created		timestamp NULL,
     role_name           varchar(100) NOT NULL,
     role_order          int(6) NOT NULL,
     PRIMARY KEY (pk)
@@ -71,16 +71,16 @@ CREATE TABLE sessions (
     pk          		int(10) AUTO_INCREMENT NOT NULL,
     users_pk    		int(10) NOT NULL DEFAULT '0',
     passkey     		varchar(100) NOT NULL,
-    date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_created		timestamp NULL,
     PRIMARY KEY(pk)
 );
 
 // This stores a list of permissions for various parts of the system
 CREATE TABLE permissions ( 
     pk          		int(10) AUTO_INCREMENT NOT NULL,
-    date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_created		timestamp NULL,
     perm_name           varchar(50) NOT NULL UNIQUE,
     perm_description    varchar(250) NOT NULL,
     PRIMARY KEY (pk)
@@ -90,6 +90,8 @@ CREATE TABLE permissions (
 
 CREATE TABLE institution (
     pk				int(10) auto_increment not null,
+    date_modified	timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_created	timestamp NULL,
     name			varchar(255) NOT NULL,
     type			enum('educational','commercial','non-member') NOT NULL DEFAULT 'educational',
     city    		varchar(100) NULL,
@@ -107,6 +109,8 @@ alter table institution add city varchar(100) NULL;
 alter table institution add state varchar(100) NULL;
 alter table institution add zipcode varchar(50) NULL;
 alter table institution add country varchar(100) NULL;
+alter table institution add date_modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP;
+alter table institution add date_created timestamp NULL;
 **/
 
 /**** This is the base OTHER institution ****
