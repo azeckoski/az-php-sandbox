@@ -3,9 +3,14 @@
 	<name>facebook</name>
 	<comment></comment>
 	<projects>
+		<project>accounts</project>
 	</projects>
 	<buildSpec>
-	</buildSpec>
-	<natures>
+		<buildCommand>
+			<name>net.sourceforge.phpeclipse.parserbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>	<natures>
 	</natures>
 </projectDescription>
