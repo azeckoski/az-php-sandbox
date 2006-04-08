@@ -11,7 +11,7 @@
     $myActivationCode = substr(md5($newUser->username),0,10);
 
 	// send an email to the new user with a confirmation URL
-	$subject = "$TOOL_NAME account";
+	$subject = "SakaiWeb User Account activation";
 	$mail_message = "Dear $newUser->firstname $newUser->lastname,\n" .
 			"Thank you for registering at our website, $SERVER_NAME.\n\n" .
 			"You are two steps away from logging in and accessing the $TOOL_NAME system.\n\n" .

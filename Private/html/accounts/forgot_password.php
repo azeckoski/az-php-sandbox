@@ -36,7 +36,7 @@ if ($errors == 0) {
 
 	writeLog($TOOL_SHORT,$_SERVER["REMOTE_ADDR"],"password reset: $email");
 
-	$subject = "$TOOL_NAME password reset";
+	$subject = "SakaiWeb User Account password reset";
 	$mail_message = "Hi, we have reset your password.
 
 Username: $thisUser->username
