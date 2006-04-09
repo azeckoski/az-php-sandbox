@@ -3,7 +3,7 @@
 $email_sql="Select * from `conf_proposals` WHERE pk='$demo_pk' ";
 $result= mysql_query($email_sql);
 
-	while($demo_sql=mysql_fetch_array($result))
+	while($email_sql=mysql_fetch_array($result))
 	{
 
 	$title=$demo["title"];
@@ -12,7 +12,7 @@ $result= mysql_query($email_sql);
 	$url=$demo["URL"];
 
 	//set up mail message
-
+$thisUser = $User;
 
 	 $today = date("F j, Y"); 
 
@@ -25,8 +25,8 @@ $result= mysql_query($email_sql);
 	 	 $msg.="Date Submitted: $today \r\n\r\n";
 	 	 
 	 	 $msg.="Proposal:  TECHNICAL DEMO  \r\n\r\n";
-	 	 $msg.="Submitted by:  $firstname $lastname  \r\n\r\n";
-	 	 $msg.="Email:  $email  \r\n\r\n";
+	 	 $msg.="Submitted by: $thisUser->firstname $thisUser->lastname  \r\n\r\n";
+	 	 $msg.="Email:  $thisUser->email  \r\n\r\n";
 	 	 $msg.="Demo product:  $title  \r\n\r\n";
 	 	 $msg.="Description:  $abstract  \r\n\r\n";
 	 	 $msg.="Speaker: $speaker  \r\n\r\n";
@@ -46,7 +46,7 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 //set up mail for Susan
 $recipient = "shardin@umich.edu";
-$subject= "COPY-Vancouver CFP Demo- $lastname";
+$subject= "COPY-Vancouver CFP Demo- $thisUser->lastname";
 //send the mail to susan
 mail($recipient, $subject, $msg, $headers);
 
@@ -61,8 +61,8 @@ $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 //set up mail for user
-$recipient = "$email";
-$subject= "Sakai Call for Proposals: Demo- $lastname";
+$recipient = "$thisUser->email";
+$subject= "Sakai Call for Proposals: Demo- $thisUser->lastname";
 //send the mail to user
 mail($recipient, $subject, $msg, $headers);
  	 	 
