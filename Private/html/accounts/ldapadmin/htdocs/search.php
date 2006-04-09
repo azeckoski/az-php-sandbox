@@ -15,8 +15,20 @@
  * @package phpLDAPadmin
  * @todo Search is probably broken, since base_dn is now an array
  */
-/**
- */
+
+// Have to load these modules here first -AZ
+if( !extension_loaded( 'gettext')) {
+    if( !@dl( 'gettext.so')) {
+		die("Could not enable the gettext library!");
+    }
+}
+
+// Load LDAP module also
+if (!extension_loaded('ldap')) {
+    if (!dl('ldap.so')) {
+    	die("Could not enable LDAP library!");
+    }
+}
 
 define('SIZE_LIMIT_EXCEEDED',4);
 require './common.php';
