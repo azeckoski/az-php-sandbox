@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 		
 		
 
-		//	require ('include/send_proposalEmail.php');
+		require ('include/send_proposalEmail.php');
 			header("Location:next.php");
 		
 	}
