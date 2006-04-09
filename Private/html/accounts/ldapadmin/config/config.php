@@ -41,7 +41,7 @@
 
 /* phpLDAPadmin can encrypt the content of sensitive cookies if you set this
    to a big random string. */
-$config->custom->session['blowfish'] = '';
+$config->custom->session['blowfish'] = 'sakai';
 
 /* The language setting. If you set this to 'auto', phpLDAPadmin will attempt
    to determine your language automatically. Otherwise, available lanaguages
