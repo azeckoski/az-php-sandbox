@@ -64,7 +64,20 @@ $result = mysql_query($demo_sql) or die("Error:<br/>" . mysql_error() . "<br/>Th
 		$demo_pk=mysql_insert_id(); //this is how to query the last entered auto-id entry
 if($result) {
 
+echo $demo_pk;
+$email_sql="Select * from `conf_proposals` WHERE pk='$demo_pk' ";
+$email_result= mysql_query($email_sql);
 
+	while($demo=mysql_fetch_array($email_result))
+	{
+
+	$title=$demo["title"];
+	$abstract=$demo["abstract"];
+	$speaker=$demo["speaker"];
+	$url=$demo["URL"];
+
+	//set up mail message
+//echo $title ."<br/>" . $abstract ."<br/>" .$speaker ."<br/>"  . $url;
 require ('include/send_demoEmail.php');
 
 
@@ -77,6 +90,7 @@ header("Location:next.php");
 
 
 
+}
 }
 ?>
 
