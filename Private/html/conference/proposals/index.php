@@ -27,10 +27,7 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 // bring in inst and conf data
 require '../registration/include/getInstConf.php';
 
-// TODO - why are these variables set? -AZ
-$firstname=$User->firstname;
-$lastname=$User->lastname;
-$email=$User->email;
+
 
 // get the passed message if there is one
 if($_GET['msg']) {
