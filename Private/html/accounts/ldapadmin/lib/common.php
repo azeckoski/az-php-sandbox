@@ -38,17 +38,17 @@ if (!extension_loaded('xsl')) {
     }
 }
 
-//// Load xmlrpc module also
-//if (!extension_loaded('xmlrpc')) {
-//    if (!dl('xmlrpc.so')) {
-//    	die("Could not enable xmlrpc library!");
-//    }
-//}
+// Load openssl module also
+if (!extension_loaded('openssl')) {
+    if (!dl('openssl.so')) {
+    	die("Could not enable openssl library!");
+    }
+}
 
-// Load xmlrpc module also
-if (!extension_loaded('xml')) {
-    if (!dl('xml.so')) {
-    	die("Could not enable xml library!");
+// Load soap module also
+if (!extension_loaded('soap')) {
+    if (!dl('soap.so')) {
+    	die("Could not enable soap library!");
     }
 }
 
