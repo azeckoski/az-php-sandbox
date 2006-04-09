@@ -3,11 +3,11 @@
 
 $email_sql="Select * from `conf_proposals` WHERE id='$proposals_pk' ";
 
-$result= mysql_query($email_sql);
+$email_result= mysql_query($email_sql);
 
 
 
-while($presentation=mysql_fetch_array($result))
+while($presentation=mysql_fetch_array($email_result))
 {
 
 $title=stripslashes($presentation['title']);
@@ -19,7 +19,7 @@ $co_speaker=stripslashes($presentation['co_speaker']);
 $co_bio=stripslashes($presentation['co_bio']);
 $url=$presentation['URL'];
 
-
+$thisUser = $User;
 $today = date("F j, Y"); 
 
 
@@ -38,8 +38,8 @@ $today = date("F j, Y");
 	 	 $msg.="Date Submitted: $today \r\n\r\n";
 	 	 
 	 	 $msg.="Proposal:  PRESENTATION  \r\n\r\n";
-	 	 $msg.="Submitted by:  $firstname $lastname  \r\n\r\n";
-	 	 $msg.="Email:  $email  \r\n\r\n";
+	 	 $msg.="Submitted by:  $thisUser->firstname $thisUser->lastname  \r\n\r\n";
+	 	 $msg.="Email:  $thisUser->email  \r\n\r\n";
 	 	 $msg.="Format:  $type  \r\n\r\n";
 	 	 $msg.="Title: $title  \r\n\r\n";
 	 	 $msg.="Abstract:\r\n  $abstract  \r\n\r\n";
@@ -80,14 +80,14 @@ $today = date("F j, Y");
 ini_set(SMTP, $MAIL_SERVER);
 $headers  = 'From: ' . $HELP_EMAIL . "\n";
 $headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
-$headers .= 'Reply-To: ' . $email . "\n";
+$headers .= 'Reply-To: ' . $thisUser->email . "\n";
 $headers .= 'MIME-Version: 1.0' ."\n";
 $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 //set up mail for Susan
 $recipient = "shardin@umich.edu";
-$subject= "COPY-Vancouver CFP Presentation- $lastname";
+$subject= "COPY-Vancouver CFP Presentation- $thisUser->lastname";
 //send the mail to susan
 mail($recipient, $subject, $msg, $headers);
 
@@ -96,14 +96,14 @@ mail($recipient, $subject, $msg, $headers);
 ini_set(SMTP, $MAIL_SERVER);
 $headers  = 'From: ' . $HELP_EMAIL . "\n";
 $headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
-$headers .= 'Reply-To: ' . $email . "\n";
+$headers .= 'Reply-To: ' . $thisUser->email . "\n";
 $headers .= 'MIME-Version: 1.0' ."\n";
 $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 //set up mail for attendee
-$recipient = "$email";
-$subject= "Sakai Call for Proposals: Presentation- $lastname";
+$recipient = "$thisUser->email";
+$subject= "Sakai Call for Proposals: Presentation- $thisUser->lastname";
 //send the mail to attendee
 mail($recipient, $subject, $msg, $headers);
  	 
