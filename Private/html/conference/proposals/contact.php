@@ -8,7 +8,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Call for Proposals";
+$PAGE_NAME = "Conference Call for Proposals";
 $Message = "";
 
 // connect to database
@@ -18,12 +18,14 @@ require '../sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-$AUTH_MESSAGE = "You must login to create proposals for the $CONF_NAME conference. If you do not have an account, please create one.";
+$AUTH_MESSAGE = "You must login to register or submit a proposal for the $CONF_NAME conference. If you do not have an account, please create one.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+
+// bring in the form validation code
+require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // bring in inst and conf data
 require '../registration/include/getInstConf.php';
-
 
 // get the passed message if there is one
 if($_GET['msg']) {
@@ -31,25 +33,23 @@ if($_GET['msg']) {
 }
 
 
-// bring in the form validation code
-require $ACCOUNTS_PATH.'ajax/validators.php';
-
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['title'] = "required:focus";
-if (!$isPartner) {
-	$vItems['institution'] = "required";
-}
-$vItems['address1'] = "required";
+$vItems['primaryRole'] = "required";
+$vItems['secondaryRole'] = "";
+$vItems['institution'] = "required";
+$vItems['address1'] = "required:focus";
 $vItems['city'] = "required";
 $vItems['state'] = "required:namespaces";
-$vItems['zip'] = "zipcode";
+$vItems['zipcode'] = "zipcode";
 $vItems['country'] = "required:namespaces";
 $vItems['phone'] = "required:phone";
+$vItems['fax'] = "phone";
 
 
 // writing data and other good things happen here
 $completed = false;
+$thisUser = $User;
 if ($_POST['save']) { // saving the form
 
 	// DO SERVER SIDE VALIDATION
@@ -63,30 +63,41 @@ if ($_POST['save']) { // saving the form
 	}
 
 	// get the post variables - USER
-	$address1 = mysql_real_escape_string($_POST["address1"]);
-	$city = mysql_real_escape_string($_POST["city"]);
-	$state = mysql_real_escape_string($_POST["state"]);
-	$zip = mysql_real_escape_string($_POST["zip"]);
-	$country = mysql_real_escape_string($_POST["country"]);
-	$phone = mysql_real_escape_string($_POST["phone"]);
-	$fax = mysql_real_escape_string($_POST["fax"]);
+	$thisUser->primaryRole = $_POST["primaryRole"];
+	$thisUser->secondaryRole = $_POST["secondaryRole"];
+	$thisUser->address = $_POST["address"];
+	$thisUser->city = $_POST["city"];
+	$thisUser->state = $_POST["state"];
+	$thisUser->zipcode = $_POST["zipcode"];
+	$thisUser->country = $_POST["country"];
+	$thisUser->phone = $_POST["phone"];
+	$thisUser->fax = $_POST["fax"];
+
+	if (!$isPartner && $_POST["institution"]) {
+		$thisUser->institution = $_POST["institution"];
+		$thisUser->institution_pk = 1;
+	}
 
 
-	// other vars
-	$institution = $INST['name'];
-	$activated = "";
+	
 	
 	// SAVE THE CURRENT DATA IN THE DATABASE
 	if ($errors == 0) {
-		// write the data to the database
-		
 		// update the user information first
-		$usersql = "UPDATE users SET address='$address1', city='$city', state='$state', " .
-			"zipcode='$zip', country='$country', phone='$phone', fax='$fax' where pk='$User->pk'";
-		$result = mysql_query($usersql) or die('User update query failed: ('.$usersql.')' . mysql_error());
-header("Location: confirmpage.php");
-}
-}
+		$thisUser->save();
+
+	// registration complete (not including payment)
+		$completed = true;
+
+	
+		}
+	
+	
+	header("Location: confirmpage.php");
+	}
+
+
+
 ?>
 
 
@@ -145,70 +156,58 @@ header("Location: confirmpage.php");
 	<div style="margin:10px;"></div>
 	If the above information is wrong, use 
 	<a href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>" >My Account</a>
-	to correct it <strong>before</strong> registering
+	to correct it. 
 		</div>
 	</td>
 </tr>
 
-   <tr valign="top">
-  <td><div align=right>
-	      <img id="titleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-	      <strong>Your Role/Title:</strong>
-      </div>
+ <tr valign="top">
+  <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+  	<div align=right>
+		<img id="primaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<strong>Your Primary Role:</strong>
+		</div>
   </td>
-  <td>
-    <select name="title">
-<?php if ($CONF['title']) {
-	echo "<option value='".$CONF['title']."'>".$CONF['title']."</option>";
-	}
-?>
-      <option value="">-- select --</option>
-      <option value="Developer/Programmer">Developer/Programmer</option>
-      <option value="UI Developer">UI Developer</option>
-      <option value="User Support">User Support</option>
-      <option value="Faculty">Faculty</option>
-      <option value="Faculty Development">Faculty Development</option>
-      <option value="Librarian">Librarian</option>
-      <option value="Implementor">Implementor</option>
-      <option value="Instructional Designer">Instructional Designer</option>
-      <option value="Instructional Technologist">Instructional Technologist</option>
-      <option value="Manager">Manager</option>
-      <option value="System Administrator">System Administrator</option>
-      <option value="University Administration">University Administration</option>
-    </select>
-	<input type="hidden" id="titleValidate" value="<?= $vItems['title'] ?>"/>
-    <span id="titleMsg"></span>
+  <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+	<select name="primaryRole">
+		<option value="">-- select role --</option>
+		<?= generate_roles_dropdown($User->primaryRole) ?>
+	</select><br/>
+	<input type="hidden" id="primaryRoleValidate" value="<?= $vItems['primaryRole'] ?>" />
+	<span id="primaryRoleMsg"></span>
   </td>
 </tr>
-    
-<?php if (!$isPartner) {  // this means the user is NOT in partner inst 
-?>
-  <tr>
+
+<tr valign="top">
   <td>
-      <div align="right">
-      	<img id="institutionImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-      	<strong><span class="formLable">Organization:</span></strong>
-      </div>
+  	<div align=right>
+		<img id="primaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<strong>Your Secondary Role:</strong>
+		</div>
   </td>
   <td>
-  	<input type="text" name="institution" size="30" maxlength="30" value="<?= $User->institution ?>" />
-  	<input type="hidden" id="institutionValidate" value="<?= $vItems['institution'] ?>"/>
-    <span id="institutionMsg"></span>
+	<select name="secondaryRole">
+		<option value="">-- select role --</option>
+		<?= generate_roles_dropdown($User->secondaryRole) ?>
+		<option value="" <?php if(!$User->secondaryRole) echo " selected='y' "; ?> >None</option>
+	</select><br/>
+	<input type="hidden" id="secondaryRoleValidate" value="<?= $vItems['secondaryRole'] ?>" />
+	<span id="secondaryRoleMsg"></span>
   </td>
 </tr>
-<?php } ?>
+
 
 <tr>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<div align="right">
-  		<img id="address1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+  		<img id="addressImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">Address</span>: </strong>
   	</div>
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">(Department, Street address, PO Box, etc.) <br />
-    <textarea name="address1" cols='40' rows='3'><?= $User->address ?></textarea>
-  	<input type="hidden" id="address1Validate" value="<?= $vItems['address1'] ?>"/>
-    <span id="address1Msg"></span>
+    <textarea name="address" cols='40' rows='3'><?= $User->address ?></textarea>
+  	<input type="hidden" id="addressValidate" value="<?= $vItems['address'] ?>"/>
+    <span id="addressMsg"></span>
   </td>
 </tr>
 
@@ -237,89 +236,12 @@ header("Location: confirmpage.php");
   </td>
   <td  style="border-bottom:0px solid #eee; padding-bottom: 0px;">
     <select name="state">
-<?php if ($User->state) {
-	echo "<option value='$User->state'>$User->state</option>";
-	}
+<?php	$selectItem = $User->state;
+		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
+		require $ACCOUNTS_PATH.'include/state_select.php';
 ?>
-      <option value="">State/Province</option>
-      <option value="">----United States----</option>
-      <option value="AL"> Alabama</option>
-      <option value="AK"> Alaska</option>
-      <option value="AZ"> Arizona</option>
-      <option value="AR"> Arkansas</option>
-      <option value="CA"> California</option>
-      <option value="CO"> Colorado</option>
-      <option value="CT"> Connecticut</option>
-      <option value="DE"> Delaware</option>
-      <option value="DC"> District of Columbia</option>
-      <option value="FL"> Florida</option>
-      <option value="GA"> Georgia</option>
-      <option value="HI"> Hawaii</option>
-      <option value="ID"> Idaho</option>
-      <option value="IL"> Illinois</option>
-      <option value="IN"> Indiana</option>
-      <option value="IA"> Iowa</option>
-      <option value="KS"> Kansas</option>
-      <option value="KY"> Kentucky</option>
-      <option value="LA"> Louisiana</option>
-      <option value="ME"> Maine</option>
-      <option value="MD"> Maryland</option>
-      <option value="MA"> Massachusetts</option>
-      <option value="MI"> Michigan</option>
-      <option value="MN"> Minnesota</option>
-      <option value="MS"> Mississippi</option>
-      <option value="MO"> Missouri</option>
-      <option value="MT"> Montana</option>
-      <option value="NE"> Nebraska</option>
-      <option value="NV"> Nevada</option>
-      <option value="NH"> New Hampshire</option>
-      <option value="NJ"> New Jersey</option>
-      <option value="NM"> New Mexico</option>
-      <option value="NY"> New York</option>
-      <option value="NC"> North Carolina</option>
-      <option value="ND"> North Dakota</option>
-      <option value="OH"> Ohio</option>
-      <option value="OK"> Oklahoma</option>
-      <option value="OR"> Oregon</option>
-      <option value="PA"> Pennsylvania</option>
-      <option value="RI"> Rhode Island</option>
-      <option value="SC"> South Carolina</option>
-      <option value="SD"> South Dakota</option>
-      <option value="TN"> Tennessee</option>
-      <option value="TX"> Texas</option>
-      <option value="UT"> Utah</option>
-      <option value="VT"> Vermont</option>
-      <option value="VA"> Virginia</option>
-      <option value="WA"> Washington</option>
-      <option value="WV"> West Virginia</option>
-      <option value="WI"> Wisconsin</option>
-      <option value="WY"> Wyoming</option>
-      <option value="">&nbsp;</option>
-      <option value="">----US Territories----</option>
-      <option value="AS"> America Samoa</option>
-      <option value="GU"> Guam</option>
-      <option value="MH"> Marshall Islands</option>
-      <option value="MP"> Northern Mariana Islands</option>
-      <option value="PW"> Palau</option>
-      <option value="PR"> Puerto Rico</option>
-      <option value="VI"> Virgin Islands</option>
-      <option value="">&nbsp;</option>
-      <option value="">----Canada----</option>
-      <option value="AB"> Alberta</option>
-      <option value="BC"> British Columbia</option>
-      <option value="MB"> Manitoba</option>
-      <option value="NB"> New Brunswick</option>
-      <option value="NF"> Newfoundland</option>
-      <option value="NWT"> Northwest Territories</option>
-      <option value="NS"> Nova Scotia</option>
-      <option value="NU"> Nunavut</option>
-      <option value="ON"> Ontario</option>
-      <option value="PE"> Prince Edward Island</option>
-      <option value="PQ"> Quebec</option>
-      <option value="SK"> Saskatchewan</option>
-      <option value="YT"> Yukon Territory</option>
-      <option value="">&nbsp;</option>
-      <option value="-other-">Other (Not Listed)</option>
+		<option value="">&nbsp;</option>
+		<option value="-other-">Other (Not Listed)</option>
     </select>
     <input style="display:none;" type="text" id="stateOther"  size="25" maxlength="50" value="<?= $User->state ?>" />
   	<input type="hidden" id="stateValidate" value="<?= $vItems['state'] ?>"/>
@@ -331,14 +253,14 @@ header("Location: confirmpage.php");
 <tr>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
   	<div align="right">
-        <img id="zipImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+        <img id="zipcodeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   		<strong><span class="formLable">Zip/Postal Code:</span></strong>
   	</div>
   </td>
   <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
-  	<input type="text" name="zip" size="10" maxlength="10"  value="<?= $User->zipcode ?>" />
-  	<input type="hidden" id="zipValidate" value="<?= $vItems['zip'] ?>"/><br />
-    <span id="zipMsg"></span>
+  	<input type="text" name="zipcode" size="10" maxlength="10"  value="<?= $User->zipcode ?>" />
+  	<input type="hidden" id="zipcodeValidate" value="<?= $vItems['zipcode'] ?>"/><br />
+    <span id="zipcodeMsg"></span>
   </td>
 </tr>
 
@@ -350,112 +272,10 @@ header("Location: confirmpage.php");
   </div></td>
   <td>
       <select name="country">
-<?php if ($User->country) {
-	echo "<option value='$User->country'>$User->country</option>";
-	}
+<?php	$selectItem = $User->country;
+		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
+		require $ACCOUNTS_PATH.'include/country_select.php';
 ?>
-        <option value="">Country</option>
-        <option value="US">United States</option>
-        <option value="CA">Canada</option>
-        <option value="AL">Albania</option>
-        <option value="DZ">Algeria</option>
-        <option value="AI">Anguilla</option>
-        <option value="AR">Argentina</option>
-        <option value="AU">Australia</option>
-        <option value="AT">Austria</option>
-        <option value="BS">Bahamas</option>
-        <option value="BH">Bahrain</option>
-        <option value="BD">Bangladesh</option>
-        <option value="BE">Belgium</option>
-        <option value="BM">Bermuda</option>
-        <option value="BR">Brazil</option>
-        <option value="BN">Brunei</option>
-        <option value="BG">Bulgaria</option>
-        <option value="KY">Cayman Islands</option>
-        <option value="CL">Chile</option>
-        <option value="CN">China</option>
-        <option value="CO">Colombia</option>
-        <option value="CR">Costa Rica</option>
-        <option value="HR">Croatia</option>
-        <option value="DK">Denmark</option>
-        <option value="DJ">Djibouti</option>
-        <option value="EC">Ecuador</option>
-        <option value="EG">Egypt</option>
-        <option value="ET">Ethiopia</option>
-        <option value="FL">Falkland Islands (Malvinas)</option>
-        <option value="FJ">Fiji</option>
-        <option value="FI">Finland</option>
-        <option value="FR">France</option>
-        <option value="PF">French Polynesia</option>
-        <option value="DE">Germany</option>
-        <option value="GE">Georgia</option>
-        <option value="GR">Greece</option>
-        <option value="GU">Guam</option>
-        <option value="GT">Guatemala</option>
-        <option value="HK">Hong Kong</option>
-        <option value="HU">Hungary</option>
-        <option value="IN">India</option>
-        <option value="ID">Indonesia</option>
-        <option value="IE">Ireland</option>
-        <option value="IL">Israel</option>
-        <option value="IT">Italy</option>
-        <option value="JP">Japan</option>
-        <option value="JO">Jordan</option>
-        <option value="KR">Korea</option>
-        <option value="KW">Kuwait</option>
-        <option value="LV">Latvia</option>
-        <option value="LB">Lebanon</option>
-        <option value="LU">Luxembourg</option>
-        <option value="MO">Macau</option>
-        <option value="MY">Malaysia</option>
-        <option value="MT">Malta</option>
-        <option value="MX">Mexico</option>
-        <option value="MA">Morocco</option>
-        <option value="NL">Netherlands</option>
-        <option value="AN">Netherlands Antilles</option>
-        <option value="NZ">New Zealand</option>
-        <option value="NI">Nicaragua</option>
-        <option value="NG">Nigeria</option>
-        <option value="NF">Norfolk Island</option>
-        <option value="NO">Norway</option>
-        <option value="OM">Oman</option>
-        <option value="PK">Pakistan</option>
-        <option value="PA">Panama</option>
-        <option value="PN">Papua New Guinea</option>
-        <option value="PY">Paraguay</option>
-        <option value="PE">Peru</option>
-        <option value="PH">Philippines</option>
-        <option value="PL">Poland</option>
-        <option value="PT">Portugal</option>
-        <option value="QA">Qatar</option>
-        <option value="PA">Republic of Panama</option>
-        <option value="RO">Romania</option>
-        <option value="RU">Russia</option>
-        <option value="SC">Seychelles</option>
-        <option value="SA">Saudi Arabia</option>
-        <option value="SG">Singapore</option>
-        <option value="ZA">South Africa</option>
-        <option value="ES">Spain</option>
-        <option value="SE">Sweden</option>
-        <option value="CH">Switzerland</option>
-        <option value="SY">Syria</option>
-        <option value="TW">Taiwan</option>
-        <option value="TZ">Tanzania</option>
-        <option value="TH">Thailand</option>
-        <option value="TN">Tunisia</option>
-        <option value="TR">Turkey</option>
-        <option value="TC">Turks and Caicos Islands</option>
-        <option value="TM">Turkmenistan</option>
-        <option value="UG">Uganda</option>
-        <option value="GB">United Kingdom</option>
-        <option value="AE">United Arab Emirates</option>
-        <option value="US">United States</option>
-        <option value="UY">Uruguay</option>
-        <option value="UZ">Uzbekistan</option>
-        <option value="VE">Venezuela</option>
-        <option value="VN">Vietnam</option>
-        <option value="YE">Yemen</option>
-        <option value="ZW">Zimbabwe</option>
 		<option value="">&nbsp;</option>
 		<option value="-other-">Other (Not Listed)</option>
     </select>
@@ -478,14 +298,33 @@ header("Location: confirmpage.php");
     <span id="phoneMsg"></span>
   </td>
 </tr>
+
+<tr>
+  <td>
+  	<div align="right">
+  		<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+  		<strong><span class="formLable">Fax:</span></strong>
+  	</div>
+  </td>
+  <td>
+  	<input type="text" name="fax" size="18" maxlength="18"  value="<?= $User->fax ?>" />
+  	<input type="hidden" id="faxValidate" value="<?= $vItems['fax'] ?>"/><br />
+    <span id="faxMsg"></span>
+  </td>
+</tr>
+    
 <tr>
         <td>&nbsp;</td>
         <td> Click <strong>Submit</strong> to complete the proposal submission process. <br />
           <br />
-          <input type="submit" name="submit" value="Submit" />
-          <br />
+           <input id="submitbutton" type="submit" name="submit_MemberReg" value="Submit" />
+        <br />
         </td>
       </tr>
+        <tr>
+      <td colspan=2><div align=center>
+         </div></td>
+    </tr>
     </table>
   </form>
 

@@ -7,8 +7,8 @@ $speaker=addslashes($_POST['speaker']);
 $url=addslashes($_POST['url']);
 $co_speaker=addslashes($_POST['co_speaker']);
 
-$demo_sql="INSERT INTO `conf_proposals` (`confID` , `users_pk` , `type` ,  `title` , `abstract` ,  `speaker` , `URL` , `co_speaker` ,  `approved` )
-VALUES ( '$CONF_ID', '$User->pk', 'demo', '$title', '$abstract' , '$speaker', '$url' , '$co_speaker', 'N')";
+$demo_sql="INSERT INTO `conf_proposals` (`date_created` , `confID` , `users_pk` , `type` ,  `title` , `abstract` ,  `speaker` , `URL` , `co_speaker` ,  `approved` )
+VALUES ( NOW() , '$CONF_ID', '$User->pk', 'demo', '$title', '$abstract' , '$speaker', '$url' , '$co_speaker', 'N')";
 
 
 

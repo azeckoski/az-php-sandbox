@@ -16,9 +16,9 @@ $conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POS
 
 
   //add presentation information into conf_proposals --all data except role and topic data
-$presentation_sql="INSERT INTO `conf_proposals` ( `confID` , `users_pk` , `type`, `title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` , `conflict` , `co_speaker` , `co_bio` , `approved` )
+$presentation_sql="INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, `title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` , `conflict` , `co_speaker` , `co_bio` , `approved` )
 VALUES (
-'$CONF_ID', '$User->pk', '$type', '$title', '$abstract', '$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' , '$co_speaker' , '$co_bio' , 'N'
+NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', '$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' , '$co_speaker' , '$co_bio' , 'N'
 )";
 
 
