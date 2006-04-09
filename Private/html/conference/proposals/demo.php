@@ -142,7 +142,7 @@ if ($_POST['save']) { // saving the form
 			</td>
       </tr>
       <tr>
-        <td align="right">   <img id="abstractImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+        <td align="right">   <img id="speakerImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
       <strong>Demo Presenter </strong></td>
         <td><input type="text" name="speaker" size="40" maxlength="100" value="<?php echo $_POST['speaker']; ?>" />
          <input type="hidden" id="speakerValidate" value="<?= $vItems['speaker'] ?>" />
