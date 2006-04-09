@@ -16,6 +16,22 @@ define('HOOKSDIR',sprintf('%s/',realpath(LIBDIR.'../hooks/')));
 define('CSSDIR','css/');
 define('JSDIR','js/');
 
+
+// Have to load these modules here first -AZ
+if( !extension_loaded( 'gettext')) {
+    if( !@dl( 'gettext.so')) {
+		die("Could not enable the gettext library!");
+    }
+}
+
+// Load LDAP module also
+if (!extension_loaded('ldap')) {
+    if (!dl('ldap.so')) {
+    	die("Could not enable LDAP library!");
+    }
+}
+
+
 /* Supplimental functions
  * This list is a list of supplimental functions that are used throughout PLA. The
  * order here IS important - so that files that refer to functions defined in other files
