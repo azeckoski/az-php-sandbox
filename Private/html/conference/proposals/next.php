@@ -8,7 +8,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Testing-Call for Proposals";
+$PAGE_NAME = "Call for Proposals";
 $Message = "";
 
 // connect to database
@@ -54,11 +54,11 @@ if ($_POST['save']) { // saving the form
 		//all required information provided
 		if ($_POST['type']=="presentation") {
 			//if presentation is selected, go to presentation page 
-			header("Location: testing-presentation.php");
+			header("Location: presentation.php");
 			exit;
 		} else if ($_POST['type']=="demo") {
 			//if demo is selected, go to demo page 
-			header("Location: testing-demo.php");
+			header("Location: demo.php");
 			exit;
 		} else if ($_POST['type']=="done") {
 			//if done is selected, go to contact info page 

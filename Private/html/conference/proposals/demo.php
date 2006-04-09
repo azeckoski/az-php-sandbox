@@ -8,7 +8,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Testing-Demo";
+$PAGE_NAME = "Demo";
 $Message = "";
 
 // connect to database
@@ -60,7 +60,7 @@ require ('include/send_demoEmail.php');
 
 
 
-header("Location:testing-next.php");
+header("Location:next.php");
 
 }
 }

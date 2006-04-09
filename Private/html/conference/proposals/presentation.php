@@ -8,7 +8,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Testing-Presentation";
+$PAGE_NAME = "Presentation";
 $Message = "";
 
 // connect to database
@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 		
 
 		//	require ('include/send_proposalEmail.php');
-			header("Location:testing-next.php");
+			header("Location:next.php");
 		
 	}
 }
