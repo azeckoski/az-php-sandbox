@@ -38,13 +38,19 @@ if (!extension_loaded('xsl')) {
     }
 }
 
+//// Load xmlrpc module also
+//if (!extension_loaded('xmlrpc')) {
+//    if (!dl('xmlrpc.so')) {
+//    	die("Could not enable xmlrpc library!");
+//    }
+//}
+
 // Load xmlrpc module also
-if (!extension_loaded('xmlrpc')) {
-    if (!dl('xmlrpc.so')) {
-    	die("Could not enable xmlrpc library!");
+if (!extension_loaded('xml')) {
+    if (!dl('xml.so')) {
+    	die("Could not enable xml library!");
     }
 }
-
 
 $timer = stopwatch();
 
