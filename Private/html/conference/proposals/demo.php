@@ -97,13 +97,13 @@ if ($_POST['save']) { // saving the form
 ?>
 <!-- // INCLUDE THE HTML HEAD -->
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
-<script type="text/javascript" src="../../accounts/ajax/validate.js"></script>
+<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
 <?php include '../include/header.php';  ?>
 
 <table width="100%"  cellpadding="0" cellspacing="0">
  <tr>
-    <td><div class="componentheading">Call for Proposals - DEMO Submission Form</div></td>
+    <td><div class="componentheading">Call for Proposals - Submission Form</div></td>
   </tr>
   <tr>
 	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
@@ -125,7 +125,7 @@ if ($_POST['save']) { // saving the form
     <table width="100%"  cellpadding="0" cellspacing="0">
       <tr >
         <td valign="top" align="right">	
-        <img id="titleImg" src="../../accounts/ajax/images/required.gif" width="16" height="16" />
+        <img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
         <strong>Tool or Product Name </strong></td>
         <td><input type="text" name="title" size="40" maxlength="100" value="<?php echo $_POST['title']; ?>" />
         <input type="hidden" id="titleValidate" value="<?= $vItems['title'] ?>" />
@@ -133,7 +133,7 @@ if ($_POST['save']) { // saving the form
       </tr>
       <tr>
         <td align="right" width="150"> 
-         <img id="abstractImg" src="../../accounts/ajax/images/required.gif" width="16" height="16" />
+         <img id="abstractImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
           <strong>Demo Description </strong><br />
           ( 50 words max.) </td>
         <td><textarea name="abstract" cols="40" rows="4"><?php echo $_POST['abstract']; ?></textarea>
@@ -142,7 +142,7 @@ if ($_POST['save']) { // saving the form
 			</td>
       </tr>
       <tr>
-        <td align="right">   <img id="abstractImg" src="../../accounts/ajax/images/required.gif" width="16" height="16" />
+        <td align="right">   <img id="abstractImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
       <strong>Demo Presenter </strong></td>
         <td><input type="text" name="speaker" size="40" maxlength="100" value="<?php echo $_POST['speaker']; ?>" />
          <input type="hidden" id="speakerValidate" value="<?= $vItems['speaker'] ?>" />
