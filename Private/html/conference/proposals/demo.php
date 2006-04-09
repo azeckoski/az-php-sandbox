@@ -95,16 +95,15 @@ if ($_POST['save']) { // saving the form
 
 }
 ?>
-
 <!-- // INCLUDE THE HTML HEAD -->
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
-<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
+<script type="text/javascript" src="../../accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
 <?php include '../include/header.php';  ?>
 
 <table width="100%"  cellpadding="0" cellspacing="0">
  <tr>
-    <td><div class="componentheading">Call for Proposals - Submission Form</div></td>
+    <td><div class="componentheading">Call for Proposals - DEMO Submission Form</div></td>
   </tr>
   <tr>
 	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
