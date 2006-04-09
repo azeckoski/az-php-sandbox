@@ -100,6 +100,7 @@ if ($_POST["save"]) {
 <input type="hidden" name="save" value="1" />
 
 <?php
+	//echo "<pre>",$User,"</pre><br/>";
 	$thisUser = $User->toArray();
 	$disableUsername = true;
 	$submitButtonName = "Save Information";

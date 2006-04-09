@@ -31,6 +31,20 @@ if (!extension_loaded('ldap')) {
     }
 }
 
+// Load XSL module also
+if (!extension_loaded('xsl')) {
+    if (!dl('xsl.so')) {
+    	die("Could not enable xsl library!");
+    }
+}
+
+// Load xmlrpc module also
+if (!extension_loaded('xmlrpc')) {
+    if (!dl('xmlrpc.so')) {
+    	die("Could not enable xmlrpc library!");
+    }
+}
+
 
 $timer = stopwatch();
 

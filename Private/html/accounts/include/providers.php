@@ -21,9 +21,10 @@
  * information is refreshed when updated.
  */
 $TOOL_SHORT = "provider";
+$SESSION_FROM_DB = true; // false means get the session data from the LDAP (slower but more accurate), true gets it from the DB always
 
 // LDAP variables
-require 'ldap_vars.php'; // has to be in same directory
+require 'ldap_vars.php'; // has to be in same directory as this file
 
 /*
  * GLOBAL VARS
@@ -167,13 +168,16 @@ class User {
 
 	// constructor
 	function __construct($userid=-1) {
+		global $SESSION_FROM_DB;
 		// constructor will create a user based on username or userpk if possible
 		if ($userid == -1) { return true; } // created an empty user object
 
 		if ($userid=="session") {
 			// create a user from the session (if exists)
 			if($this->checkSession()) {
-				return $this->getUserByPk($this->pk);
+				$data_source = "";
+				if ($SESSION_FROM_DB) { $data_source = "db"; }
+				return $this->getUserByPk($this->pk, $data_source);
 			} else {
 				return false;
 			}
@@ -710,14 +714,14 @@ class User {
  * when you cannot use a search based on the user data only (i.e. get all
  * users who registered for the conference)
  */
-	public function getUserByPk($pk) {
+	public function getUserByPk($pk, $data_source="") {
 		if (!$pk) {
 			$this->Message = "User PK is empty";
 			return false;
 		}
 
 		// first use the search to get the user data
-		if(!$this->getUsersBySearch("pk=$pk", "", "*")) {
+		if(!$this->getUsersBySearch("pk=$pk", "", "*", false, $data_source)) {
 			$this->Message = "Could not find user by pk: $pk";
 			return false;
 		}
