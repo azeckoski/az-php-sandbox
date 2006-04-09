@@ -39,8 +39,15 @@ $config_file = CONFDIR.'config.php';
 ob_end_clean();
 
 # Make sure this PHP install has gettext, we use it for language translation
-if (! extension_loaded('gettext'))
-	die('Your install of PHP appears to be missing GETTEXT support. GETTEXT is used for language translation. Please install GETTEXT support before using phpLDAPadmin. (Dont forget to restart your web server afterwards)');
+//if (! extension_loaded('gettext'))
+//	die('Your install of PHP appears to be missing GETTEXT support. GETTEXT is used for language translation. Please install GETTEXT support before using phpLDAPadmin. (Dont forget to restart your web server afterwards)');
+
+// this is the right way to do it -AZ
+if( !extension_loaded( 'gettext')) {
+    if( !@dl( 'php_gettext.' . PHP_SHLIB_SUFFIX)) {
+		die('Your install of PHP appears to be missing GETTEXT support. GETTEXT is used for language translation. Please install GETTEXT support before using phpLDAPadmin. (Dont forget to restart your web server afterwards)');
+    }
+}
 
 /* Helper functions.
  * Our required helper functions are defined in functions.php

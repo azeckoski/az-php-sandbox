@@ -64,11 +64,6 @@ require_once '../../include/ldap_vars.php'; // get the LDAP server vars
 // also changed lib/config_default.php line 274 -AZ
 // 'default'=>array('uid','sakaiUser','cn','mail','o','givenname','sn','objectClass'));
 
-// load the required gettext library
-if( !extension_loaded('gtk')) { 
-    dl( 'php_gtk.' . PHP_SHLIB_SUFFIX); 
-}
-
 $i=0;
 $ldapservers = new LDAPServers;
 
