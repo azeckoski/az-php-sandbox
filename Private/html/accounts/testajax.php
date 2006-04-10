@@ -157,5 +157,14 @@ if ($_REQUEST["submit"]) {
 </form>
 </fieldset>
 
+<div style="background:black;width:20px;zindex:1;text-align:center;background-image:url(include/images/shadow-bg.png);">
+<div style="background:white;width:94px;height:86px;zindex:2;float:center;text-align:center;margin:14px;">
+Hiya<br/>
+This<br/>
+is neat<br/>
+isn't it
+</div>
+</div>
+
 </body>
 </html>
