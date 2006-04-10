@@ -10,7 +10,7 @@
 
 // config variables
 var ajaxPath = "/accounts/ajax/"; // must the relative path from the web root
-var gProcUrl = ajaxPath + "validate.php?ajax=1"; // url is the relative processor page 
+var ajaxValidateUrl = ajaxPath + "validate.php?ajax=1"; // url is the relative processor page 
 // processor will do the validation (include ?ajax=1 if using my php processor)
 // Processor should return a string: passId|elementId|textMessage
 // passId must equal gPass var value if valid and gFail var value if invalid
@@ -41,7 +41,7 @@ var useRequiredMessage = true;
 /******
 	<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
 	<input type="text" name="email" tabindex="2"/>
-	<input type="hidden" name="emailValidate" value="required:email:uniquesql;new;users;email"/>
+	<input type="hidden" name="emailValidate" value="required:email:uniquesql;users;email"/>
 	<span id="emailMsg"></span>
 ******/
 
@@ -52,8 +52,26 @@ var useRequiredMessage = true;
 var vUseOther = true;
 var vOtherCode = "-other-";
 /******
-<input style="display:none;" type="text" id="emailOther"  size="30" maxlength="100" value="">
+<input style="display:none;" type="text" id="emailOther" size="30" maxlength="100" value="" />
 ******/
+
+// POPUP DIVS
+var ajaxTipsDataUrl = ajaxPath + "tips.php?ajax=1"; // url is the relative processor page 
+var defaultPopWidth = 240; // default pixels width of popup divs
+
+// Popup tip sample
+// Putting the mouse over the item identified with (tipid)Activate will
+// display a popup div with the data inside the div identified by (tipid)
+// The popup div will appear near the activate item
+// Any class or style my be specified, display:none should always be included
+// Pass parameters using a hidden input identified by (tipid)Params as shown
+/***
+<span id="tipActivate">Activate Item Text</span>
+<input type="hidden" id="tipParams" value="header;Header text:ajax;table;column;id" />
+<div id="tip" style="display:none;width:200px;">
+	This is my awesome tip
+</div>
+***/
 
 
 // text message output
@@ -74,6 +92,8 @@ var imgVal = vImagePath + "validated.gif"; // a validated image file (check)
 var imgInv = vImagePath + "invalid.gif"; // an invalid image file (x mark)
 var imgExc = vImagePath + "exclaim.gif"; // an exclaimation mark image
 
+// Holds the mouse position
+var mousePosX = 0, mousePosY = 0;
 
 
 // this handles the error message to the user
@@ -229,8 +249,7 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 
 // This attachs all the nice handlers to the form elements
 // it also handles some initialization
-function attachFormHandlers()
-{
+function attachValidateHandlers() {
 	for (var f=0; f<document.forms.length; f++) {
 		//alert("form:"+document.forms[f].name+":"+document.forms[f].elements.length);
 		var itemCount = document.forms[f].elements.length;
@@ -347,6 +366,194 @@ function attachFormHandlers()
 			}
 		}
 	}
+}
+
+
+
+function clearAllPopDivs() {
+	// TODO - do something
+}
+
+function getMouseCoords(e) {
+	// get the mouse position in a browser safe way
+	var e = window.event;
+	if (e.pageX || e.pageY) {
+		mousePosX = e.pageX;
+		mousePosY = e.pageY;
+	} else if (e.clientX || e.clientY) {
+		mousePosX = e.clientX + document.body.scrollLeft;
+		mousePosY = e.clientY + document.body.scrollTop;
+	}
+}
+
+function findPosX(obj) {
+    var curleft = 0;
+    if (obj.offsetParent) {
+        while (1) {
+            curleft+=obj.offsetLeft;
+            if (!obj.offsetParent) { break; }
+            obj=obj.offsetParent;
+        }
+    } else if (obj.x) {
+        curleft+=obj.x;
+    }
+    return curleft;
+}
+
+function findPosY(obj) {
+    var curtop = 0;
+    if (obj.offsetParent) {
+        while (1) {
+            curtop+=obj.offsetTop;
+            if (!obj.offsetParent) { break; }
+            obj=obj.offsetParent;
+        }
+    } else if (obj.y) {
+        curtop+=obj.y;
+    }
+    return curtop;
+}
+
+
+function showPopDiv(activatorItem) {
+	// show the item on the page with this id
+	var item = document.getElementById(activatorItem.id.replace("Activate",""));
+	if (item == null) {
+		alert("showPopDiv: Cannot find item by id: "+itemId);
+		return false;
+	}
+
+	// browser safe window width and height
+	var winWidth = 0, winHeight = 0;
+	if( typeof( window.innerWidth ) == 'number' ) {
+		//Non-IE
+		winWidth = window.innerWidth;
+		winHeight = window.innerHeight;
+	} else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+		//IE 6+ in 'standards compliant mode'
+		winWidth = document.documentElement.clientWidth;
+		winHeight = document.documentElement.clientHeight;
+	} else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+		//IE 4 compatible
+		winWidth = document.body.clientWidth;
+		winHeight = document.body.clientHeight;
+	}
+
+	// width = activatorItem.offsetWidth;
+	// height = activatorItem.offsetHeight;
+
+	// setting the look if not already done
+    if(!item.style.backgroundColor) item.style.backgroundColor = "white";
+	if(!item.style.textAlign) item.style.textAlign = "left";
+	if(!item.style.border) item.style.border = "3px solid #999999";
+	if(!item.style.width) item.style.width = defaultPopWidth + "px";
+
+	// get position for the popdiv from the activator
+	var posX = findPosX(activatorItem);
+	var origX = posX;
+
+	var posY = findPosY(activatorItem);
+	var origY = posY;
+
+	// handle any params
+	var fixX = 0, fixY = 0;
+	var paramsItem = document.getElementById(item.id+"Params");
+	if (paramsItem != null) {
+		var params = paramsItem.value.split(gSeparator);
+		paramsItem.value = ""; // clear the params
+		for(var j=0; j<params.length; j++) {
+			if(params[j] == "") { continue; } // skip blank
+			if(params[j].match("header" + iSeparator + ".*")) {
+				// handle the header request
+				var splitItems = params[j].split(iSeparator);
+				item.innerHTML = "<div style='color:white;background:darkblue;padding:2px;font-weight:bold;'>" +
+					splitItems[1] + "</div><div style='padding:2px;'>" + item.innerHTML + "</div>";
+			} else if(params[j].match("fixX" + iSeparator + ".*")) {
+				// this allows us to make absolute div positioning work
+				// if trapped in a parent container
+				var splitItems = params[j].split(iSeparator);
+				fixX = splitItems[1];
+				paramsItem.value += params[j] + gSeparator;
+			} else if(params[j].match("fixY" + iSeparator + ".*")) {
+				// this allows us to make absolute div positioning work
+				// if trapped in a parent container
+				var splitItems = params[j].split(iSeparator);
+				fixY = splitItems[1];
+				paramsItem.value += params[j] + gSeparator;
+			} else if(params[j].match("ajax" + iSeparator + ".*")) {
+				// TODO: handle the AJAX request
+				paramsItem.value += params[j] + gSeparator;
+			} else {
+				// do nothing
+			}
+		}
+	}
+
+	// try to correct for being too close to the edges
+	if ( posX > (winWidth * 0.52) ) { // move it to the left
+		itemWidth = item.style.width.replace(/px|em/,"");
+		if (isNaN(itemWidth)) { itemWidth = defaultPopWidth; }
+		posX = posX - itemWidth - 20;
+	} else { // move to the right edge+
+		posX += activatorItem.offsetWidth + 10;
+	}
+	posX = posX - fixX;
+
+	if ( posY > (winHeight * 0.80) ) { // move it up
+		posY = (winHeight * 0.65);
+	} else if (posY < 50) { // move it down
+		posY = posY + 50;
+	} else {
+		posY = posY - 20;
+	}
+	posY = posY - fixY;
+
+	//alert("x:"+posX+"y:"+posY+" ww:"+(winWidth * 0.52));
+
+	// settings for visibility of the object
+	item.style.position = "absolute";
+	item.style.zIndex = "999999999";
+    item.style.filter = "alpha(opacity=100)";
+	item.style.top = posY + "px";
+	item.style.left = posX + "px";
+	item.style.display = "";
+	item.style.visibility = "visible";
+}
+
+function hidePopDiv(activatorItem) {
+	// hide the item on the page with this id
+	var item = document.getElementById(activatorItem.id.replace("Activate",""));
+	if (item == null) {
+		alert("showPopDiv: Cannot find item by id: "+itemId);
+		return false;
+	}
+
+	item.style.display = "none";
+	item.style.visibility = "hidden";
+}
+
+function attachPopDivHandlers() {
+	var divs = document.getElementsByTagName('div');
+	for (var i = 0; i < divs.length; i++) {
+		var thisElement = divs.item(i);
+		if (thisElement.id) {
+			var activatorItem = document.getElementById(thisElement.id + "Activate");
+			if (activatorItem != null) {
+				//alert("Found pop div: "+thisElement.id);
+				thisElement.style.display = "none"; // hide it in case it is not already hidden
+				var itemId = thisElement.id;
+				activatorItem.onmouseover = function(){return showPopDiv(this);}
+				activatorItem.onmouseout = function(){return hidePopDiv(this);}
+			}
+		}
+	}
+	document.getElementsByTagName("body").item(0).onclick = function(){return clearAllPopDivs();}
+}
+
+// attach the handlers to the form
+function attachFormHandlers(){
+	attachValidateHandlers();
+	attachPopDivHandlers();
 }
 
 // setup up the handlers on all appropriate form elements
@@ -506,7 +713,7 @@ function validateObject(objInput) {
 	}
 
 	//sends the rules and value to be validated
-	var vUrl = gProcUrl + "&id=" + objInput.id + "&val="+ vVal + vParams;
+	var vUrl = ajaxValidateUrl + "&id=" + objInput.id + "&val="+ vVal + vParams;
 	//alert("sending: " + vUrl);
 	var http = createRequestObject(); // create the http object
 	http.open("GET", vUrl, true);

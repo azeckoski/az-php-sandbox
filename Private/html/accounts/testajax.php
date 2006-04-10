@@ -32,7 +32,26 @@ if ($_REQUEST["submit"]) {
 
 <div id="requiredMessage"></div>
 <form name="testform" method="post" action="<?= $_SERVER["PHP_SELF"] ?>" style="margin:0px;">
-<table>
+<table width="90%">
+	<tr>
+		<td align="left" width="20%">
+			<span id="tipLeftActivate">Left Item Tip</span>
+			<input type="hidden" id="tipLeftParams" value="header;Left header" />
+			<div id="tipLeft" style="display:none;width:200px;">
+				This is my awesome tip
+				for items on the left
+				This is the 3rd line
+			</div>
+		</td>
+		<td align="right">
+			<span id="tipRightActivate">Right Item Tip</span>
+			<div id="tipRight" style="display:none;width:200px;">
+				<div style="color:white;background:darkblue;padding:2px;font-weight:bold;">Header</div>
+				<div style="padding:3px;">
+				This is my awesome tip for items on the right
+				</div>
+			</div>
+		</td>
 	<tr>
 		<td>Username</td>
 		<td>
@@ -54,23 +73,36 @@ if ($_REQUEST["submit"]) {
 	</tr>
 
 	<tr>
-		<td>Other</td>
+		<td>ShowMe</td>
 		<td>
-			<img id="otherImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<input type="password" name="other" value="" />
-			<input type="hidden" id="otherValidate" value="required:password"/>
-			<span id="otherMsg"></span>
+			<span id="tip1Activate">Put mouse here<br/>Or anywhere near here</span>
+			<div id="tip1" style="display:none;width:200px;">
+				<div style="color:white;background:darkblue;padding:2px;font-weight:bold;">Header</div>
+				<div style="padding:3px;">
+				<img src="ajax/images/required.gif"/>
+				<img src="ajax/images/validated.gif"/>
+				<img src="ajax/images/invalid.gif"/>
+				<img src="ajax/images/exclaim.gif"/>
+				<= Images!
+				<br/>
+				Show this when the user puts their mouse over the activator
+				</div>
+			</div>
+			<br/>
 		</td>
-	</tr>	
+	</tr>
 
 	<tr>
 		<td>Drop-down List Box Test</td>
 		<td>
 			<img id="dropDownImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<select name="dropDown" tabindex="4"">
-			  <option value="" selected>blank value</option>
-			  <option value="non-blank">non-blank value</option>
+				<option value="" selected>blank value</option>
+				<option value="non-blank">non-blank value</option>
+				<option value="">&nbsp;</option>
+				<option value="-other-">Other (Not Listed)</option>
 			</select>
+			<input style="display:none;" type="text" id="dropDownOther" value="" size="20" maxlength="50" />
 			<input type="hidden" id="dropDownValidate" value="required"/>
 			<span id="dropDownMsg"></span>
 		</td>
@@ -120,211 +152,10 @@ if ($_REQUEST["submit"]) {
 	
 </table>
 
-Tons of test items for testing if the count of items causes problems:<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
-<input type="radio" name="extra" />1
-<input type="radio" name="extra" />2
-<input type="radio" name="extra" />3
-<input type="radio" name="extra" />4
-<input type="radio" name="extra" />5
-<input type="radio" name="extra" />6
-<input type="radio" name="extra" />7
-<input type="radio" name="extra" />8
-<input type="radio" name="extra" />9
-<input type="radio" name="extra" />10<br/>
+<textarea rows="4" cols="100" name="check"></textarea>
 
 </form>
 </fieldset>
+
 </body>
-
-
 </html>
