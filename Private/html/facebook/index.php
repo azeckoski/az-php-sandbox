@@ -150,7 +150,7 @@ while($item=mysql_fetch_array($result)) {
 	}
 ?>
 
-<div class="frame">
+<div class="frame" id="tip<?= $item['pk'] ?>Activate">
 	<div style="width:<?= $MAX_THUMB_WIDTH ?>px;height:<?= $MAX_THUMB_HEIGHT ?>px;text-align:center;">
 		<img src="include/drawThumb.php?pk=<?= $item['image_pk'] ?>" alt="<?= $fullname ?> facebook image" />
 	</div>
@@ -161,11 +161,14 @@ while($item=mysql_fetch_array($result)) {
 <?php } ?>
 		<label title="<?= $item['interests'] ?>"><?= $fullname ?></label></div>
 		<div class="institute"><label title="<?= $item['institution'] ?>"><?= $short_inst_name ?></label></div>
-<?php // TODO - make this so it shortens the output of interests
-	/**	
-		<div class=interests><?= $item['interests'] ?></div>
-	**/
-?>
+<!-- Popup info about the user -->
+		<input type="hidden" id="tip<?= $item['pk'] ?>Params" value="fixX;160:fixY;160:header;<?= $fullname ?>" />
+		<div id="tip<?= $item['pk'] ?>" style="display:none;width:300px;">
+		Institution: <?= $item['institution'] ?><br/>
+		Homepage: <?= $item['url'] ?><br/>
+		Interests: <?= $item['interests'] ?><br/>
+		Email: <?= $item['email'] ?><br/>
+		</div>
 	</div>
 </div>
 
