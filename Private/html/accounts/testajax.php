@@ -177,14 +177,16 @@ if ($_REQUEST["submit"]) {
 </form>
 </fieldset>
 
-<div style="background:black;width:20px;zindex:1;text-align:center;background-image:url(include/images/shadow-bg.png);">
-<div style="background:white;width:94px;height:86px;zindex:2;float:center;text-align:center;margin:14px;">
-Hiya<br/>
+<div style="border:6px dotted #000080;position:absolute;top:200px;left:500px;width:140px;zIndex:2;text-align:center;background-color:white;">
 This<br/>
 is neat<br/>
-isn't it
+isn't it?<br/>
+But not<br/>
+as neat<br/>
+as it<br/>
+could be
 </div>
-</div>
+
 
 </body>
 </html>
