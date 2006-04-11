@@ -706,7 +706,6 @@ function validateObject(objInput) {
 			// now do a matching check
 			var splitItems = field.split(iSeparator);
 			var matchItem = document.getElementById(splitItems[1]);
-			alert("item= " + field +" : "+ splitItems[1]);
 			if (matchItem != null) {
 				if(matchItem.value == objInput.value) {
 					localCheck = true; // passed the local check
