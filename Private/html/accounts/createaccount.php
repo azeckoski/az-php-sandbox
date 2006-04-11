@@ -35,7 +35,7 @@ $vItems = array();
 $vItems['username'] = "required:nospaces:focus:uniqueuserp;username";
 $vItems['email'] = "required:email:uniqueuserp;email";
 $vItems['password1'] = "required:password";
-$vItems['password2'] = "required:password";
+$vItems['password2'] = "required:password:match;password1";
 $vItems['firstname'] = "required";
 $vItems['lastname'] = "required";
 $vItems['primaryRole'] = "required";
@@ -83,7 +83,7 @@ if ($_POST["save"]) {
 			"<span style='color:red;'>Please fix the following errors:</span><br/>".
 			$validationOutput."</fieldset>";
 	}
-	
+
 	// Check for password match
 	if ((strlen($PASS1) > 0 || strlen($PASS2) > 0) && ($PASS1 != $PASS2)) {
 		$Message .= "<span class='error'>Error: Passwords do not match</span><br/>";

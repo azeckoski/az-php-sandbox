@@ -61,6 +61,26 @@ if ($_REQUEST["submit"]) {
 			<span id="usernameMsg"></span>
 		</td>
 	</tr>
+
+	<tr>
+		<td>Password</td>
+		<td>
+			<img id="passwordImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<input type="password" name="password" value="" />
+			<input type="hidden" id="passwordValidate" value="required:password"/>
+			<span id="passwordMsg"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td>Confirm</td>
+		<td>
+			<img id="confirmImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<input type="password" name="confirm" value="" />
+			<input type="hidden" id="confirmValidate" value="required:password:match;password"/>
+			<span id="confirmMsg"></span>
+		</td>
+	</tr>
  
 	<tr>
 		<td>Email</td>

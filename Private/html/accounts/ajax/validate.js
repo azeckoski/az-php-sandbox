@@ -15,7 +15,7 @@ var ajaxValidateUrl = ajaxPath + "validate.php?ajax=1"; // url is the relative p
 // Processor should return a string: passId|elementId|textMessage
 // passId must equal gPass var value if valid and gFail var value if invalid
 // Processor will be called with a get string, here is a sample:
-// ajax=1&id=user&type=none&spec=undefined&val=asd&param3=undefined
+// ajax=1&id=user&val=asdf&rule1=required&rule2=nospaces
 var gPass = "ok"; // global - the response that indicates no problems
 var gFail = "error"; // global - the response that indicates failure
 var gClear = "clear"; // global - the response that indicates clear
@@ -38,6 +38,7 @@ var useRequiredMessage = true;
 
 // Basic form element sample
 // validation rules shown are "required", "email", and "unique sql check"
+// rules enforced in this script: required, focus, nospaces, password, match;elementID
 /******
 	<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
 	<input type="text" name="email" tabindex="2"/>
@@ -648,7 +649,7 @@ function validateObject(objInput) {
 
 
 	// do any local javascript checks
-	
+
 	// do a blank check first
 	var isBlank = false;
 	if (objInput.value == "" || 
@@ -682,22 +683,52 @@ function validateObject(objInput) {
 		}
 	}
 
-	// done with local checks
-
-	// get additional validations and pass them on
+	// loop through the validation checks
 	var vFields = validateItem.value.split(gSeparator);
 	var i = 1;
     var vParams = ""; //  stores the params in get string ready form
 	for(var j=0; j<vFields.length; j++) {
 		var field = vFields[j];
-		if(field == "required" || field == "focus" ||
-			field == "") { continue; } // skip blank and specified flags
+		if(field == "required" || field == "focus" || field == "") {
+			continue;
+		} else if (field == "password" || field == "nospaces") {
+			// now do a nospaces or password check
+			if (objInput.value.match(/[\s]/g)) {
+				// found spaces
+				markField(gFail, objInput.id, "Invalid: no spaces allowed", true, gInitialCheck);
+				return false;
+			} else {
+				localCheck = true; // passed the local check
+				localText = "Valid password";
+				continue;
+			}
+		} if (field.match("match" + iSeparator)) {
+			// now do a matching check
+			var splitItems = field.split(iSeparator);
+			var matchItem = document.getElementById(splitItems[1]);
+			alert("item= " + field +" : "+ splitItems[1]);
+			if (matchItem != null) {
+				if(matchItem.value == objInput.value) {
+					localCheck = true; // passed the local check
+					localText = "Items match";
+					continue;
+				} else {
+					markField(gFail, objInput.id, "Invalid: items do not match", true, gInitialCheck);
+					return false;
+				}
+			} else {
+				alert("Invalid match itemId: " + matchId);
+				return false;
+			}
+		}
+
+		// take unhandled validations and pass them on
 		vParams = vParams + "&rule" + i + "=" + encodeURIComponent(field);
 		i++;
 	}
 
-	var vVal = encodeURIComponent(objInput.value); //get value inside of input field
-	
+	var vVal = encodeURIComponent(objInput.value); // encode value inside of input field
+
 	// if no serverside validations are set then don't bug the server
 	if(vParams == "") {
 		// send to passed to check error and exit
