@@ -24,6 +24,48 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 // bring in the form validation code
 require $ACCOUNTS_PATH.'ajax/validators.php';
 
+
+$PK = $_REQUEST["pk"]; // grab the pk
+$error = false; // preset the error flag to no errors
+$allowed = false; // assume user is NOT allowed unless otherwise shown
+
+// this allows us to use this page as an edit for admins or
+// to add/edit/delete for normal users (don't forget to handle the errors flag)
+// NOTE: make sure the permission check below is looking for the right permission
+if (!$PK) {
+	// no PK set so we must be adding a new item
+	$Message = "Please read the <a href='skin_contest_rules.php'>contest rules</a> before submitting a skin.";
+} else {
+	// pk is set, see if it is valid for this user
+	$check_sql = "select pk, users_pk from skin_entries where pk='$PK'";
+	$result = mysql_query($check_sql) or die("check query failed ($check_sql): ".mysql_error());
+	if (mysql_num_rows($result) > 0) {
+		$row = mysql_fetch_assoc($result);
+		if ( ($row['users_pk'] != $User->pk) && !$User->checkPerm("admin_skin")) {
+			// this item is not owned by current user and current user is not an admin
+			$error = true;
+			$Message = "You may not access someone else's skin entry " .
+				"unless you have the (admin_skin) permission.";
+		} else {
+			// entry is owned by current user or they are an admin
+			if ($_REQUEST["delete"]) {
+				// if delete was passed then wipe out this item and related items
+				$delete_sql = "delete from skin_votes where skin_entries_pk='$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());				
+				$delete_sql = "delete from skin_entries where pk='$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				// NOTE: Don't forget to handle the deletion below as needed
+				$Message = "Deleted item ($PK) and related data";
+			}
+		}
+	} else {
+		// PK does not match, invalid PK set to this page
+		$error = true;
+		$Message = "Invalid item PK ($PK): Item does not exist";
+	}
+}
+
+
 // Define the array of items to validate and the validation strings
 $vItems = array();
 $vItems['title'] = "required";
@@ -34,42 +76,8 @@ $vItems['image2'] = "required";
 $vItems['image3'] = "required";
 $vItems['image4'] = "required";
 
-$errors = 0; // preset the error count
-$PK = $_REQUEST["pk"]; // grab the pk
-$allowed = false; // assume user is NOT allowed unless otherwise shown
-
-// currently one entry per person so check for an existing entry
-
-// this allows us to use this page as an edit for admins or
-// to add/edit/delete for normal users
-if (!$PK) {
-	$entry_sql = "select pk from skin_entries where users_pk='$User->pk'";
-	$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
-	if (mysql_num_rows($result) > 0) {
-		$row = mysql_fetch_assoc($result);
-		$PK = $row['pk'];
-	} else {
-		$Message = "Please read the <a href='skin_contest_rules.php'>contest rules</a> before submitting a skin.";
-	}
-} else {
-	$entry_sql = "select pk, users_pk from skin_entries where pk='$PK'";
-	$result = mysql_query($entry_sql) or die("entry query failed ($entry_sql): ".mysql_error());
-	if (mysql_num_rows($result) > 0) {
-		$row = mysql_fetch_assoc($result);
-		$PK = $row['pk'];
-		if ( ($row['users_pk'] != $User->pk) && !$User->checkPerm("admin_skin")) {
-			$errors++;
-			$Message = "You may not access someone else's skin entry " .
-				"unless you have the (admin_skin) permission.";
-		}
-	} else {
-		$errors++;
-		$Message = "Invalid skin_entry PK ($PK): Entry does not exist";
-	}
-}
-
 // process the form
-if ($_REQUEST["save"] && $errors == 0) {
+if ($_REQUEST["save"] && !$error) {
 	// save the data
 
 	$title = mysql_real_escape_string($_POST["title"]);
@@ -79,13 +87,13 @@ if ($_REQUEST["save"] && $errors == 0) {
 	// DO SERVER SIDE VALIDATION
 	$validationOutput = ServerValidate($vItems, "return");
 	if ($validationOutput) {
-		$errors++;
+		$error = true;
 		$Message = "<fieldset><legend>Validation Errors</legend>".
 			"<span style='color:red;'>Please fix the following errors:</span><br/>".
 			$validationOutput."</fieldset>";
 	}
 
-	if ($errors == 0) {
+	if (!$error) {
 
 		// get the current file PKs (if they exist)
 		$file_pks;
@@ -203,7 +211,7 @@ if ($_REQUEST["save"] && $errors == 0) {
 		}
 	}
 
-	if ($errors == 0) {
+	if (!$error) {
 		// now create or modify the skin entry
 		if ($PK) {
 			$files_sql = "";
