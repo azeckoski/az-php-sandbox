@@ -92,6 +92,7 @@ INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(),
 INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_reqs', 'Requirements voting administration and control');
 INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_skin', 'Skin submission and voting administration and control');
 INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_conference', 'Conference administration and control');
+INSERT INTO permissions(date_created, perm_name, perm_description) VALUES(NOW(), 'admin_facebook', 'Facebook administration and control');
 **/
 
 CREATE TABLE institution (
