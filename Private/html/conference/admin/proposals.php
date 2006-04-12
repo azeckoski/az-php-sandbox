@@ -70,10 +70,11 @@ function orderBy(newOrder) {
 ?>
 
 <?php
-// Time to do the fun stuff -AZ
-
-// First get the list of proposals for the current conf (maybe limit this using a search later on)
-$sql = "select CP.* from conf_proposals CP where CP.confID = '$CONF_ID'";
+// First get the list of proposals and related users for the current conf 
+// (maybe limit this using a search later on)
+$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
+	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
+	"where CP.confID = '$CONF_ID'";
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $items = array();
@@ -81,17 +82,7 @@ $items = array();
 // put all of the query results into an array first
 while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
 
-// Use the user pks to get the user info for these proposal users
-$userPks = array();
-foreach ($items as $item) {
-	// this should produce a nice unique list of user pks
-	$userPks[$item['users_pk']] = $item['users_pk'];
-}
-// use the current User object to get the userinfo
-$userInfo = $User->getUsersByPkList($userPks, "fullname,email,institution");
-//echo "<pre>",print_r($userInfo),"</pre><br/>";
-
-// TODO - add in the audiences and topics of that nature (should require 2 more queries)
+// add in the audiences and topics of that nature (should require 2 more queries)
 $sql = "select PA.pk, PA.proposals_pk, R.role_name, PA.choice from proposals_audiences PA " .
 	"join conf_proposals CP on CP.pk = PA.proposals_pk and confID='$CONF_ID' " .
 	"join roles R on R.pk = PA.roles_pk";
@@ -110,11 +101,7 @@ while($row=mysql_fetch_assoc($result)) {
 	$topics_items[$row['proposals_pk']][$row['pk']] = $row;
 }
 
-// put the userInfo into the items array
 foreach ($items as $item) {
-	$items[$item['pk']]['fullname'] = $userInfo[$item['users_pk']]['fullname'];
-	$items[$item['pk']]['email'] = $userInfo[$item['users_pk']]['email'];
-	$items[$item['pk']]['institution'] = $userInfo[$item['users_pk']]['institution'];
 	// these add an array to each proposal item which contains the relevant topics/audiences
 	$items[$item['pk']]['topics'] = $topics_items[$item['pk']];
 	$items[$item['pk']]['audiences'] = $audience_items[$item['pk']];
