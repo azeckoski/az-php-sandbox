@@ -249,8 +249,8 @@ if ($_REQUEST["save"] && !$error) {
 // now fetch the current entry
 $thisItem = array();
 if ($PK) {
-	$inst_sql = "select * from skin_entries where pk='$PK'";
-	$result = mysql_query($inst_sql) or die("Entry fetch query failed: ".mysql_error().": ".$entry_sql);
+	$sql = "select * from skin_entries where pk='$PK'";
+	$result = mysql_query($sql) or die("Entry fetch query failed ($sql): " . mysql_error());
 	$thisItem = mysql_fetch_assoc($result); // first result is all we care about
 }
 
@@ -303,6 +303,29 @@ if ($User->checkPerm("admin_skin")) { $allowed = true; }
 ?>
 
 <?php
+	$sql = "select pk, title from skin_entries where users_pk='$User->pk'";
+	$result = mysql_query($sql) or die("Current items query failed ($sql): " . mysql_error());
+	if (mysql_num_rows($result) > 0) {
+		echo "<fieldset><legend>Current Entries</legend>";
+		while($row = mysql_fetch_assoc($result)) {
+?>
+	<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>"><?= $row['title'] ?></a><br/>
+<?php
+		} // end while
+	echo "<a href='$_SERVER[PHP_SELF]'>Add new entry</a><br/>";
+	echo "</fieldset>";
+	} // end if 
+?>
+
+<form name="adminform" action="<?= $_SERVER['PHP_SELF'] ?>" method="post" style="margin:0px;" enctype="multipart/form-data">
+<input type="hidden" name="save" value="1" />
+<input type="hidden" name="pk" value="<?= $PK ?>" />
+<input type="hidden" name="MAX_FILE_SIZE" value="2000000" /> <!-- 2 MB -->
+
+<fieldset><legend>Skin Contest Entry</legend>
+<div style="width:100%">
+<div style="float:left;">
+<?php
 	// print out a message to let people know the status of their entry
 	if ($thisItem['approved'] == "N" && $thisItem['tested']  == "N") {
 		echo "<strong style='color:#CC6600;'>This entry has not been approved or tested yet</strong><br/>";
@@ -313,14 +336,9 @@ if ($User->checkPerm("admin_skin")) { $allowed = true; }
 	}
 	// TODO - add in admin approval and tested switches
 ?>
-
-<form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;" enctype="multipart/form-data">
-<input type="hidden" name="save" value="1" />
-<input type="hidden" name="pk" value="<?= $PK ?>" />
-<input type="hidden" name="MAX_FILE_SIZE" value="2000000" /> <!-- 2 MB -->
-
-<fieldset><legend>Skin Contest Entry</legend>
-<div class="required" id="requiredMessage"></div>
+</div>
+<div class="required" style="float:right;" id="requiredMessage"></div>
+</div>
 <table border="0" class="padded">
 	<tr>
 		<td nowrap="y">
