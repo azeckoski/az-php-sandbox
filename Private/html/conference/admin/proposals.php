@@ -18,7 +18,7 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
