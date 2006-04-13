@@ -381,7 +381,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 	 <?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
 	 else { echo  $item['type'] ." min.<br/>"; 
 	 }   ?>
-	<br/><strong>Date Submitted: </strong><?= $item['date_created'] ?>
+	<br/><strong>Date Submitted: </strong><br/><?= $item['date_created'] ?>
 		
 		
 	</td>
