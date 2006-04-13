@@ -1,9 +1,10 @@
 /* ---------------------requirements voting form css--------------------- */
 
 
-td {
+#proposals_vote tr td {
 	vertical-align:top;
 	font-size:11px;
+		text-align: left;
 	}
 	
 	
