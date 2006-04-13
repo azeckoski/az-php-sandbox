@@ -32,7 +32,7 @@ if (!$User->checkPerm("admin_conference")) {
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
-
+$CSS_FILE2 = "../include/proposals.css";
 // set header links
 $EXTRA_LINKS = 
 	"<br/><span style='font-size:9pt;'>" .
@@ -74,7 +74,7 @@ function orderBy(newOrder) {
 // (maybe limit this using a search later on)
 $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
-	"where CP.confID = '$CONF_ID'";
+	"where CP.confID = '$CONF_ID' ORDER by CP.title";
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $items = array();
@@ -111,7 +111,7 @@ foreach ($items as $item) {
 
 ?>
 
-<table cellspacing="0" cellpadding="3" border="0">
+<table id=proposals_vote cellspacing="0" cellpadding="3" border="0">
 <?php // now dump the data we currently have
 $line = 0;
 foreach ($items as $item) { // loop through all of the proposal items
@@ -125,25 +125,89 @@ foreach ($items as $item) { // loop through all of the proposal items
 	}
 
 	if ($line==1) { // print the header row quick style
-		foreach($item as $key=>$value) { echo "<th>$key</th>"; }
+	$header_row=array('id', 'Reviewer Rank', 'Comments', 'Title', 'Abstract-Description-Presenter',  'Format', 'Topics Rank', 'Audience Rank');
+	foreach($header_row as $key=>$value) { echo "<th>$value</th>"; }
 	}
 ?>
 
 <tr class="<?= $linestyle ?>">
-<?php // write out the values quick style
-	foreach($item as $key=>$value) {
+<?php 	
+	$proposal_pk=$item['pk'];
+	$url=$item['URL'];
+	$title=$item['title'];
+	$speaker=$item['speaker'];
+	$abstract=$item['abstract'];
+	$description=$item['desc'];
+	$length=$item['length'];
+	$type=$item['type'];
+	$bio=$item['bio'];
+	$co_speaker=$item['co_speaker'];
+		$email=$item['email'];
+	$fullname=$item['firstname'] ." " .$item['lastname'];
+	$institution=$item['institution'];	
+$date=$item['date_created'];
+echo "<td>$proposal_pk</td>";
+	
+
+ ?>
+ <td width="120"">	<strong>Rank this session:</strong><br/>
+ <input id="vr6_2" name="vr6" type="radio" value="2"  onClick="checkSaved('6')" title="Can use Sakai but need this as soon as possible"><label for="vr6_2" title="Can use Sakai but need this as soon as possible">green</label><br />
+			<input id="vr6_1" name="vr6" type="radio" value="1"  onClick="checkSaved('6')" title="Can use Sakai but would like this"><label for="vr6_1" title="Can use Sakai but would like this">yellow</label><br />
+			<input id="vr6_0" name="vr6" type="radio" value="0"  onClick="checkSaved('6')" title="Does not impact our use of Sakai"><label for="vr6_0" title="Does not impact our use of Sakai">red</label><br />
+			<br/><br/><strong>Or suggest a change to:</strong><br/>
+<input id="vr6_0" name="vr6" type="radio" value="0"  onClick="checkSaved('6')" title="Does not impact our use of Sakai"><label for="vr6_0" title="Does not impact our use of Sakai">Tool Carousel</label><br />
+<input id="vr6_0" name="vr6" type="radio" value="0"  onClick="checkSaved('6')" title="Does not impact our use of Sakai"><label for="vr6_0" title="Does not impact our use of Sakai">Tech Demo</label><br />
+	</td>
+	
+	
+<td style="padding-right:10px;"><strong>Reviewer Comments: </strong><br/>
+<textarea name="comments" cols="25" rows="6">Not working yet....</textarea>
+<input name="submit" type="submit" value="save">
+</td>
+
+<?php	
+echo" <td style=\"border-right:#ffcc33\" ><strong>$title</strong><br/><br/><a href=\"mailto:$email\">$fullname</a><br/>$institution</td>
+<td><strong>Abstract: <br/></strong>";
+
+
+echo"$abstract<br /><br />";
+		
+
+
+echo "<br/>";
+
+	echo "<br/><strong>Presenter Bio: </strong><br/>$bio <br /><br />
+<strong>Co-Presenters:<br/></strong>$co_speaker<br/><br/>";
+
+if ($url) {
+echo"<strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a>";
+	}
+
+echo"</td><td width=\"120\"><strong>Format: </strong><br/>$type<br /><br/><strong>Length:</strong><br/>$length min.<br /><br/><strong>Date Submitted: </strong>$date</td>
+";
+?>
+
+<FORM ACTION="<?php echo($PHP_SELF); ?>" METHOD="POST" 
+name="comment_form" id="comment_form">
+<?php	if ($type=='demo')  //only non-demo types use the following data
+	{ echo "<td>demo</td><td>demo</td>";
+		
+	}else{
+		foreach($item as $key=>$value) {
 		if (is_array($value)) {
 			echo "<td>";
-			foreach($value as $v) { echo $v['topic_name'],$v['role_name'],":",$v['choice'],"<br/>"; }
+			foreach($value as $v) { echo $v['topic_name'],$v['role_name']," (",$v['choice'],")<br/>"; }
 			echo "</td>";
-		} else {
-			echo "<td>$value</td>";
 		}
+}
 	}
 ?>
+
+</form>		
 </tr>
 
-<?php } /* end the foreach loop */ ?>
+<?php 
+	
+	} /* end the foreach loop */ ?>
 </table>
-
 <?php include $TOOL_PATH.'include/admin_footer.php'; // Include the FOOTER ?>
