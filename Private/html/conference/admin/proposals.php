@@ -297,11 +297,10 @@ foreach ($items as $item) {
 <tr class='tableheader'>
 <td width='10%'>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
 <td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>
-<td width='10%' align="center"><a href="javascript:orderBy('lastname');">Submitted by</a></td>
-<td width='30%'><a href="javascript:orderBy('title');">Title</a></td>
+<td width='10%' align="center"><a href="javascript:orderBy('title');">Title</a> /<a href="javascript:orderBy('lastname');">Submitted by</a> </td>
 <td width='49%'>Abstract-Descript.-Speakers</td>
-<td width='49%'>Topics Rank</td>
-<td width='49%'>Audiences</td>
+<td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>
+<td width='49%'>Topic/Audience Rank</td>
 </tr>
 
 <?php // now dump the data we currently have
@@ -316,9 +315,12 @@ foreach ($items as $item) { // loop through all of the proposal items
 	}
 
 	$printInst = $item['institution'];
-	if (strlen($printInst) > 33) {
-		$printInst = substr($printInst,0,30) . "...";
-	}
+/***
+ * 
+ *	if (strlen($printInst) > 33) {
+ *	$printInst = substr($printInst,0,30) . "...";
+ *	}
+***/
 
 	$linestyle = "oddrow";
 	if ($line % 2 == 0) {
@@ -355,42 +357,75 @@ foreach ($items as $item) { // loop through all of the proposal items
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
 	</td>
 	
-<td style="padding-right:10px; border-bottom:1px solid black;">
-<textarea name="comments" cols="25" rows="6">Not working yet....</textarea>
+<td style="padding-right:10px; border-right:1px dotted #ccc; border-bottom:1px solid black;">
+<textarea name="comments" cols="25" rows="6">add comments....</textarea>
 <input class="button" name="submit" type="submit" value="save comments">
 </td>
 
-	<td nowrap='y' style="border-bottom:1px solid black;">
-		<?= $item['firstname']." ".$item['lastname'] ?><br/>
+	<td style="border-bottom:1px solid black;">
+	<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
+	<div nowrap='y'>	<?= $item['firstname']." ".$item['lastname'] ?><br/>
 		<span style="font-size:10pt;">
 			<a href="mailto:<?= $item['email'] ?>"><?= $item['email'] ?></a>
 		</span><br/>
-		<span style="font-size:9pt;"><?= $printInst ?></span><br/>
+		<span><br/><?= $printInst ?></span><br/></div>
 	</td>
+
+
 
 	<td style="border-bottom:1px solid black;">
-		<div class="summary"><?= $item['title'] ?></div>
-	</td>
+		<div class="description"><strong>Abstract:</strong><br/><?= $item['abstract'] ?><br/><br/></div>
+	
+	<?php
+	if ($item['URL']) { //a project URL was provided
+	echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
+	}
+	 if ($item['type']!='demo')  {  ?>
+		<div class="description"><strong>Speaker Bio:</strong><br/><?= $item['bio'] ?><br/><br/></div>
+     <?php } ?>
+		<div class="description"><strong>Co-Speaker:</strong><br/><?= $item['co_speaker'] ?><br/><br/></div>
+	</td>	
+	
+	<td style="border-bottom:1px solid black;" width=\"120\">
+	<strong>Format: </strong><br/><?= $item['type'] ?><br/><br/>
+	<strong>Length:</strong><br/>
+	 <?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
+	 else { echo  $item['type'] ." min.<br/>"; 
+	 }   ?>
+	<br/><strong>Date Submitted: </strong><?= $item['date_created'] ?>
+  	</td>
 
-	<td style="padding:2px;border-bottom:1px solid black;">
-		<div class="description"><?= $item['abstract'] ?></div>
-	</td>
 	
 	
 <?php if ($item['type']=='demo')  //only non-demo types use the following data
 	{ 
 	?>
-	<td style="border-bottom:1px solid black;">demo</td><td style="border-bottom:1px solid black;" >demo</td>
+	<td style="border-bottom:1px solid black;">n/a:  demo</td>
    <?php
-	}else{
+	}else{	echo "<td style=\"border-bottom:1px solid black;\" >";
+		$topic = 0; //start with the first array which is  topics ranking
+		
 		foreach($item as $key=>$value) {
+			
 		if (is_array($value)) {
-			echo "<td>";
-			foreach($value as $v) { echo $v['topic_name'],$v['role_name']," (",$v['choice'],")<br/>"; }
-			echo "</td>";
+	
+		if ($topic=='0') {
+			 echo "<strong>Topic ranking: </strong><br/>"; 
+			 $topic++;  // next array is audience ranking 
 		}
+		else { echo "<br/><strong>Audience ranking: </strong><br/>"; }
+			
+			foreach($value as $v) { 
+				
+				if ($v['choice'] > 1) { //only display those with value higher than 1
+					echo "<div style=\"white-space: nowrap; \">" . $v['topic_name'],$v['role_name']," (",$v['choice'],")</div>"; 
+				}
+
+				}
+			
+		 }
 }
-	}
+	echo "</td>";}
 ?>
 </tr>
 
