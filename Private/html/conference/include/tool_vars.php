@@ -31,8 +31,9 @@ $SHORT_DATE_FORMAT = "g A M d, y";
 
 // proposals voting
 
-$VOTE_TEXT = array("demo","red","yellow","green");
+$VOTE_TEXT = array("demo", "carousel" ,"red","yellow","green");
 $VOTE_HELP = array("Proposal should be a demo",
+	"Proposal should be a tool carousel",
 	"Proposal is inappropriate",
 	"Proposal needs work but idea is sound",
 	"Proposal is appropriate");
