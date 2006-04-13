@@ -190,7 +190,7 @@ function setCleared(num) {
 	if (!$allowed) {
 		include $TOOL_PATH.'include/admin_footer.php';
 		exit;
-	}
+	} else {
 ?>
 
 <?php
@@ -305,10 +305,17 @@ foreach ($items as $item) {
 
 <?php // now dump the data we currently have
 $line = 0;
+
 foreach ($items as $item) { // loop through all of the proposal items
 	$line++;
 	$pk = $item['pk'];
 	$vote = $item['vote'];
+	if ($item['type']=='demo'){
+		$demo++;
+	} else {
+		$presentation++;
+	}
+	
 
 	if (!isset($item['lastname'])) {
 		$item['lastname'] = "<em>unknown user</em>";
@@ -359,7 +366,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 	
 <td style="padding-right:10px; border-right:1px dotted #ccc; border-bottom:1px solid black;">
 <textarea name="comments" cols="25" rows="6">add comments....</textarea>
-<input class="button" name="submit" type="submit" value="save comments">
+
 </td>
 
 	<td style="border-bottom:1px solid black;">
@@ -369,6 +376,14 @@ foreach ($items as $item) { // loop through all of the proposal items
 			<a href="mailto:<?= $item['email'] ?>"><?= $item['email'] ?></a>
 		</span><br/>
 		<span><br/><?= $printInst ?></span><br/></div>
+			<strong>Format: </strong><br/><?= $item['type'] ?><br/><br/>
+	<strong>Length:</strong><br/>
+	 <?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
+	 else { echo  $item['type'] ." min.<br/>"; 
+	 }   ?>
+	<br/><strong>Date Submitted: </strong><?= $item['date_created'] ?>
+		
+		
 	</td>
 
 
@@ -386,14 +401,6 @@ foreach ($items as $item) { // loop through all of the proposal items
 		<div class="description"><strong>Co-Speaker:</strong><br/><?= $item['co_speaker'] ?><br/><br/></div>
 	</td>	
 	
-	<td style="border-bottom:1px solid black;" width=\"120\">
-	<strong>Format: </strong><br/><?= $item['type'] ?><br/><br/>
-	<strong>Length:</strong><br/>
-	 <?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
-	 else { echo  $item['type'] ." min.<br/>"; 
-	 }   ?>
-	<br/><strong>Date Submitted: </strong><?= $item['date_created'] ?>
-  	</td>
 
 	
 	
@@ -433,5 +440,5 @@ foreach ($items as $item) { // loop through all of the proposal items
 </table>
 
 </form>
-
+<?php } ?>
 <?php include $TOOL_PATH.'include/admin_footer.php'; // Include the FOOTER ?>
