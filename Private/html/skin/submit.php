@@ -48,14 +48,19 @@ if (!$PK) {
 				"unless you have the (admin_skin) permission.";
 		} else {
 			// entry is owned by current user or they are an admin
-			if ($_REQUEST["delete"]) {
+			if ($_REQUEST["del"]) {
 				// if delete was passed then wipe out this item and related items
 				$delete_sql = "delete from skin_votes where skin_entries_pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());				
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				// delete the 5 related files
+				$delete_sql = "delete from skin_files where skin_entries_pk='$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				// now delete the item itself
 				$delete_sql = "delete from skin_entries where pk='$PK'";
 				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 				// NOTE: Don't forget to handle the deletion below as needed
 				$Message = "Deleted item ($PK) and related data";
+				$PK = 0; // clear the PK
 			}
 		}
 	} else {
@@ -303,17 +308,35 @@ if ($User->checkPerm("admin_skin")) { $allowed = true; }
 ?>
 
 <?php
-	$sql = "select pk, title from skin_entries where users_pk='$User->pk'";
+	$sql = "select * from skin_entries where users_pk='$User->pk' order by date_created";
 	$result = mysql_query($sql) or die("Current items query failed ($sql): " . mysql_error());
 	if (mysql_num_rows($result) > 0) {
-		echo "<fieldset><legend>Current Entries</legend>";
+		echo "<fieldset><legend>Current Entries</legend>" .
+				"<div style='width:80%;margin: 0px 40px;'>";
 		while($row = mysql_fetch_assoc($result)) {
+			if (!$_REQUEST['add'] && !$PK) {
+				// this will make "thisItem" the most recent entry if no item is selected
+				$thisItem = $row;
+			}
 ?>
-	<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>"><?= $row['title'] ?></a><br/>
+	<div style="width:100%;">
+		<div style="width:60%;float:left;">
+			<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>"><?= $row['title'] ?></a>
+			-- last updated: <?= date($DATE_FORMAT,strtotime($row['date_modified'])) ?>
+		</div>
+		<div style="width:35%;float:right;">
+			<span style="font-size:9pt;display:inline;">
+				[<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>">edit</a> | 
+				<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>?del=1">del</a>]
+			</span>
+		</div>
+	</div>
 <?php
 		} // end while
-	echo "<a href='$_SERVER[PHP_SELF]'>Add new entry</a><br/>";
-	echo "</fieldset>";
+	echo "<div style='text-align:left;font-size:10pt;margin-top:10px;'>" .
+			"[<a href='$_SERVER[PHP_SELF]?add=1'>Add new entry</a>]</div>";
+	echo "</div>" .
+			"</fieldset>";
 	} // end if 
 ?>
 

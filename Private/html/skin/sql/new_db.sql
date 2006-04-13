@@ -1,6 +1,6 @@
 // table for storing uploaded files and images
 CREATE TABLE skin_files (
-	pk					INT(10) NOT NULL AUTO_INCREMENT,
+	pk					int(10) NOT NULL AUTO_INCREMENT,
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     date_created		timestamp NULL,
 	name				VARCHAR(100) NOT NULL,
