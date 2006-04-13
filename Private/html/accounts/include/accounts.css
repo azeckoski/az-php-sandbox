@@ -20,6 +20,27 @@ a:hover {
  border: 2px solid #CCCCCC;
 }
 
+.date_message {
+ font-size:9pt;
+ width:100%;
+ text-align:right;
+}
+
+.unsaved { 
+ background-color: #990000;
+ color : #ffffff;
+}
+
+.saved { 
+ background-color: #009900;
+ color : #ffffff;
+}
+
+.clear { 
+ background-color: transparent;
+ color : black;
+}
+
 .padded {
  padding:.2em;
 }

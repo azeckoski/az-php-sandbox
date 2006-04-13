@@ -174,7 +174,11 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 <!--
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
-		document.adminform.sortorder.value = newOrder + " desc";
+		if (newOrder.match("^.* desc$")) {
+			document.adminform.sortorder.value = newOrder.replace(" desc","");
+		} else {
+			document.adminform.sortorder.value = newOrder;
+		}
 	} else {
 		document.adminform.sortorder.value = newOrder;
 	}
