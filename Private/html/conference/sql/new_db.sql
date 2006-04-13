@@ -45,6 +45,15 @@ CREATE TABLE conf_proposals (
     PRIMARY KEY(pk)
 )
 
+CREATE TABLE conf_proposals_vote ( 
+    pk					int(10) AUTO_INCREMENT NOT NULL,
+    users_pk				int(10) NOT NULL,
+    conf_proposals_pk		int(10) NOT NULL,
+    vote					int(2) NOT NULL,
+    PRIMARY KEY(pk)
+);
+
+
 // topics table
 CREATE TABLE topics (
     pk                  int(10) auto_increment NOT NULL,
