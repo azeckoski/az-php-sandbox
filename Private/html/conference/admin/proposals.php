@@ -32,6 +32,7 @@ if (!$User->checkPerm("admin_conference")) {
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
+$CSS_FILE2 = "../include/proposals.css";
 
 // set header links
 $EXTRA_LINKS = 
@@ -250,6 +251,8 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"where CP.confID = '$CONF_ID'" . $sqlsorting;
+	
+	
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $items = array();
@@ -289,13 +292,16 @@ foreach ($items as $item) {
 <form name="voteform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 
-<table width="100%" cellspacing="0" cellpadding="3">
+<table id="proposals_vote" width="100%" cellspacing="0" cellpadding="3">
 
 <tr class='tableheader'>
 <td width='10%'>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
-<td width='10%' align="center"><a href="javascript:orderBy('lastname');">Creator</a></td>
+<td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>
+<td width='10%' align="center"><a href="javascript:orderBy('lastname');">Submitted by</a></td>
 <td width='30%'><a href="javascript:orderBy('title');">Title</a></td>
-<td width='49%'><a href="javascript:orderBy('abstract');">Abstract</a></td>
+<td width='49%'>Abstract-Descript.-Speakers</td>
+<td width='49%'>Topics Rank</td>
+<td width='49%'>Audiences</td>
 </tr>
 
 <?php // now dump the data we currently have
@@ -343,11 +349,16 @@ foreach ($items as $item) { // loop through all of the proposal items
 <?php	} ?>
 		<div style="margin:8px;"></div>
 		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $vote ?>" />
-		<input id="vc<?= $pk ?>" type="button" value="Reset" onClick="setCleared('<?= $pk ?>')"
+		<input id="vc<?= $pk ?>"  class="button" type="button" value="Reset" onClick="setCleared('<?= $pk ?>')"
 			disabled='y' title="Clear the radio buttons for this item or reset to the saved vote" />
-		<input id="vs<?= $pk ?>" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
+		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
 	</td>
+	
+<td style="padding-right:10px; border-bottom:1px solid black;">
+<textarea name="comments" cols="25" rows="6">Not working yet....</textarea>
+<input class="button" name="submit" type="submit" value="save comments">
+</td>
 
 	<td nowrap='y' style="border-bottom:1px solid black;">
 		<?= $item['firstname']." ".$item['lastname'] ?><br/>
@@ -364,6 +375,23 @@ foreach ($items as $item) { // loop through all of the proposal items
 	<td style="padding:2px;border-bottom:1px solid black;">
 		<div class="description"><?= $item['abstract'] ?></div>
 	</td>
+	
+	
+<?php if ($item['type']=='demo')  //only non-demo types use the following data
+	{ 
+	?>
+	<td style="border-bottom:1px solid black;">demo</td><td style="border-bottom:1px solid black;" >demo</td>
+   <?php
+	}else{
+		foreach($item as $key=>$value) {
+		if (is_array($value)) {
+			echo "<td>";
+			foreach($value as $v) { echo $v['topic_name'],$v['role_name']," (",$v['choice'],")<br/>"; }
+			echo "</td>";
+		}
+}
+	}
+?>
 </tr>
 
 <?php } /* end the foreach loop */ ?>
