@@ -18,7 +18,7 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
@@ -32,7 +32,7 @@ if (!$User->checkPerm("admin_conference")) {
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
-$CSS_FILE2 = "../include/proposals.css";
+
 // set header links
 $EXTRA_LINKS = 
 	"<br/><span style='font-size:9pt;'>" .
@@ -41,19 +41,142 @@ $EXTRA_LINKS =
 	"<a href='proposals.php'><strong>Proposals</strong></a> " .
 	"</span>";
 
+
+// this restricts the voting by date
+$EXTRA_LINKS .= "<div class='date_message'>";
+if (strtotime($VOTE_CLOSE_DATE) < time()) {
+	// No one can access after the close date
+	$allowed = false;
+	$Message = "Voting closed on " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+	$EXTRA_LINKS .= "Voting closed " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+} else if (strtotime($VOTE_OPEN_DATE) > time()) {
+	// No access until voting opens
+	$allowed = false;
+	$Message = "Voting is not allowed until " . date($DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
+	$EXTRA_LINKS .= "Voting opens " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
+} else {
+	// open voting is allowed
+	$allowed = true;
+	$EXTRA_LINKS .= "Voting open from " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE)) .
+		" to " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+}
+$EXTRA_LINKS .= "</div>";
+
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
-	if (document.adminform.sortorder.value == newOrder) {
-		document.adminform.sortorder.value = newOrder + " desc";
+	if (document.voteform.sortorder.value == newOrder) {
+		if (newOrder.match("^.* desc$")) {
+			document.voteform.sortorder.value = newOrder.replace(" desc","");
+		} else {
+			document.voteform.sortorder.value = newOrder;
+		}
 	} else {
-		document.adminform.sortorder.value = newOrder;
+		document.voteform.sortorder.value = newOrder;
 	}
-	document.adminform.submit();
+	document.voteform.submit();
 	return false;
+}
+
+function setAnchor(num) {
+
+	document.voteform.action += "#anchor"+num;
+	document.voteform.submit();
+	return false;
+}
+
+function getSelectedRadio(buttonGroup) {
+   // returns the array number of the selected radio button or -1 if no button is selected
+   if (buttonGroup[0]) { // if the button group is an array (one button is not an array)
+      for (var i=0; i<buttonGroup.length; i++) {
+         if (buttonGroup[i].checked) {
+            return i
+         }
+      }
+   } else {
+      if (buttonGroup.checked) { return 0; } // if the one button is checked, return zero
+   }
+   // if we get to this point, no radio button is selected
+   return -1;
+}
+
+function checkSaved(num) {
+	// Get current vote for this item
+	var voteItem = document.getElementById('vh'+num);
+	var curVote = voteItem.value;
+
+	// Get current selection
+	var rbuttons = document.getElementsByName('vr'+num);
+	var curSelect = getSelectedRadio(rbuttons);
+	curSelect = 3 - curSelect; // make it line up with the radio buttons
+
+	// Compare values
+	if (curVote >= 0) {
+		if (curVote == curSelect) {
+			setSaved(num);
+		} else {
+			setUnsaved(num);
+		}
+	} else {
+		// no vote saved for this item
+		setUnsaved(num);
+	}
+}
+
+
+function setUnsaved(num) {
+	var item = document.getElementById('vb'+num);
+	item.className='unsaved';
+
+	var sbutton = document.getElementById('vs'+num);
+	sbutton.disabled=false;
+
+	var cbutton = document.getElementById('vc'+num);
+	cbutton.disabled=false;
+}
+
+function setSaved(num) {
+	var item = document.getElementById('vb'+num);
+	item.className='saved';
+
+	var sbutton = document.getElementById('vs'+num);
+	sbutton.disabled=true;
+
+	var cbutton = document.getElementById('vc'+num);
+	cbutton.disabled=true;
+}
+
+function setCleared(num) {
+	// get current vote
+	var voteItem = document.getElementById('vh'+num);
+	var curVote = voteItem.value;
+
+	// reset radio buttons
+	var rbuttons = document.getElementsByName('vr'+num);
+	for (i=0;i<rbuttons.length;i++) {
+		rbuttons[i].checked=false;
+		if (i == (3 - curVote)) {
+			rbuttons[i].checked=true;
+		}
+	}
+
+	// reset style if not returning to saved vote
+	if (curVote < 0) {
+		var item = document.getElementById('vb'+num);
+		item.className='clear';
+
+		var sbutton = document.getElementById('vs'+num);
+		sbutton.disabled=true;
+
+		var cbutton = document.getElementById('vc'+num);
+		cbutton.disabled=true;
+	} else {
+		// reset to saved value
+		setSaved(num);
+	}
 }
 // -->
 </script>
@@ -70,11 +193,63 @@ function orderBy(newOrder) {
 ?>
 
 <?php
+//processing the posted values for saving
+$Keys = array();
+$Keys = array_keys($_POST);
+foreach( $Keys as $key)
+{
+	$check = strpos($key,'vr');
+	if ( $check !== false && $check == 0 ) {
+		$itemPk = substr($key, 2);
+		$newVote = $_POST[$key];
+		//print "key=$key : item_pk=$item_pk : value=$value <br/>";
+
+		// Check to see if this vote already exists
+		$check_exists_sql="select pk, vote from conf_proposals_vote where " .
+			"users_pk='$User->pk' and conf_proposals_pk='$itemPk'" . $rep_sql;
+		$result = mysql_query($check_exists_sql) or die('Query failed: ' . mysql_error());
+
+		$writeScore = 0;
+		if ($result && (mysql_num_rows($result) > 0) ) {
+			$row = mysql_fetch_assoc($result);
+			$existingVote = $row["vote"];
+			$votePk = $row["pk"];
+
+			// vote exists, now see if it changed
+			if ($newVote == $existingVote) {
+				// vote not changed so continue
+				//print "vote not changed: $existingPk : $existingVote <br/>";
+				continue;
+			} else {
+				// vote changed so write update
+				$update_vote_sql="update conf_proposals_vote set vote='$newVote' where pk='$votePk'";
+				$result = mysql_query($update_vote_sql) or die('Query failed: ' . mysql_error());
+				mysql_free_result($result);
+			}
+
+		} else {
+			// vote does not exist, insert it
+			//print "New vote: $User->pk : $item_pk : $value <br/>";
+			$insert_vote_sql="insert into conf_proposals_vote (users_pk,conf_proposals_pk,vote,confID) values " .
+				"('$User->pk','$itemPk','$newVote','$CONF_ID')";
+			$result = mysql_query($insert_vote_sql) or die('Query failed: ' . mysql_error());
+		}
+	}
+}
+
+
+// sorting
+$sortorder = "date_created";
+if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
+$sqlsorting = " order by $sortorder ";
+
 // First get the list of proposals and related users for the current conf 
 // (maybe limit this using a search later on)
 $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
+	"U1.firstname||' '||U1.lastname as fullname, CV.vote, " .
 	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
-	"where CP.confID = '$CONF_ID' ORDER by CP.title";
+	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
+	"where CP.confID = '$CONF_ID'" . $sqlsorting;
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $items = array();
@@ -111,11 +286,33 @@ foreach ($items as $item) {
 
 ?>
 
-<table id=proposals_vote cellspacing="0" cellpadding="3" border="0">
+<form name="voteform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
+<input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
+
+<table width="100%" cellspacing="0" cellpadding="3">
+
+<tr class='tableheader'>
+<td width='10%'>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
+<td width='10%' align="center"><a href="javascript:orderBy('lastname');">Creator</a></td>
+<td width='30%'><a href="javascript:orderBy('title');">Title</a></td>
+<td width='49%'><a href="javascript:orderBy('abstract');">Abstract</a></td>
+</tr>
+
 <?php // now dump the data we currently have
 $line = 0;
 foreach ($items as $item) { // loop through all of the proposal items
 	$line++;
+	$pk = $item['pk'];
+	$vote = $item['vote'];
+
+	if (!isset($item['lastname'])) {
+		$item['lastname'] = "<em>unknown user</em>";
+	}
+
+	$printInst = $item['institution'];
+	if (strlen($printInst) > 33) {
+		$printInst = substr($printInst,0,30) . "...";
+	}
 
 	$linestyle = "oddrow";
 	if ($line % 2 == 0) {
@@ -124,90 +321,54 @@ foreach ($items as $item) { // loop through all of the proposal items
 		$linestyle = "oddrow";
 	}
 
-	if ($line==1) { // print the header row quick style
-	$header_row=array('id', 'Reviewer Rank', 'Comments', 'Title', 'Abstract-Description-Presenter',  'Format', 'Topics Rank', 'Audience Rank');
-	foreach($header_row as $key=>$value) { echo "<th>$value</th>"; }
+	// voting check
+	if (!isset($vote)) { $vote = -1; }
+	$checked = array("","","","","");
+
+	$tdstyle = "";
+	if ($vote < 0) {
+		// item has not been voted on and saved
+	} else {
+		// item has been voted on and saved
+		$checked[$vote] = " checked ";
+		$tdstyle = " class='saved' ";
 	}
 ?>
 
-<tr class="<?= $linestyle ?>">
-<?php 	
-	$proposal_pk=$item['pk'];
-	$url=$item['URL'];
-	$title=$item['title'];
-	$speaker=$item['speaker'];
-	$abstract=$item['abstract'];
-	$description=$item['desc'];
-	$length=$item['length'];
-	$type=$item['type'];
-	$bio=$item['bio'];
-	$co_speaker=$item['co_speaker'];
-		$email=$item['email'];
-	$fullname=$item['firstname'] ." " .$item['lastname'];
-	$institution=$item['institution'];	
-$date=$item['date_created'];
-echo "<td>$proposal_pk</td>";
-	
-
- ?>
- <td width="120"">	<strong>Rank this session:</strong><br/>
- <input id="vr6_2" name="vr6" type="radio" value="2"  onClick="checkSaved('6')" title="Can use Sakai but need this as soon as possible"><label for="vr6_2" title="Can use Sakai but need this as soon as possible">green</label><br />
-			<input id="vr6_1" name="vr6" type="radio" value="1"  onClick="checkSaved('6')" title="Can use Sakai but would like this"><label for="vr6_1" title="Can use Sakai but would like this">yellow</label><br />
-			<input id="vr6_0" name="vr6" type="radio" value="0"  onClick="checkSaved('6')" title="Does not impact our use of Sakai"><label for="vr6_0" title="Does not impact our use of Sakai">red</label><br />
-			<br/><br/><strong>Or suggest a change to:</strong><br/>
-<input id="vr6_0" name="vr6" type="radio" value="0"  onClick="checkSaved('6')" title="Does not impact our use of Sakai"><label for="vr6_0" title="Does not impact our use of Sakai">Tool Carousel</label><br />
-<input id="vr6_0" name="vr6" type="radio" value="0"  onClick="checkSaved('6')" title="Does not impact our use of Sakai"><label for="vr6_0" title="Does not impact our use of Sakai">Tech Demo</label><br />
+<tr class="<?= $linestyle ?>" valign="top">
+	<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;border-bottom:1px solid black;'>
+		<a name="anchor<?= $pk ?>"></a>
+<?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
+		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $vi ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br />
+<?php	} ?>
+		<div style="margin:8px;"></div>
+		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $vote ?>" />
+		<input id="vc<?= $pk ?>" type="button" value="Reset" onClick="setCleared('<?= $pk ?>')"
+			disabled='y' title="Clear the radio buttons for this item or reset to the saved vote" />
+		<input id="vs<?= $pk ?>" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
+			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
 	</td>
-	
-	
-<td style="padding-right:10px;"><strong>Reviewer Comments: </strong><br/>
-<textarea name="comments" cols="25" rows="6">Not working yet....</textarea>
-<input name="submit" type="submit" value="save">
-</td>
 
-<?php	
-echo" <td style=\"border-right:#ffcc33\" ><strong>$title</strong><br/><br/><a href=\"mailto:$email\">$fullname</a><br/>$institution</td>
-<td><strong>Abstract: <br/></strong>";
+	<td nowrap='y' style="border-bottom:1px solid black;">
+		<?= $item['firstname']." ".$item['lastname'] ?><br/>
+		<span style="font-size:10pt;">
+			<a href="mailto:<?= $item['email'] ?>"><?= $item['email'] ?></a>
+		</span><br/>
+		<span style="font-size:9pt;"><?= $printInst ?></span><br/>
+	</td>
 
+	<td style="border-bottom:1px solid black;">
+		<div class="summary"><?= $item['title'] ?></div>
+	</td>
 
-echo"$abstract<br /><br />";
-		
-
-
-echo "<br/>";
-
-	echo "<br/><strong>Presenter Bio: </strong><br/>$bio <br /><br />
-<strong>Co-Presenters:<br/></strong>$co_speaker<br/><br/>";
-
-if ($url) {
-echo"<strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a>";
-	}
-
-echo"</td><td width=\"120\"><strong>Format: </strong><br/>$type<br /><br/><strong>Length:</strong><br/>$length min.<br /><br/><strong>Date Submitted: </strong>$date</td>
-";
-?>
-
-<FORM ACTION="<?php echo($PHP_SELF); ?>" METHOD="POST" 
-name="comment_form" id="comment_form">
-<?php	if ($type=='demo')  //only non-demo types use the following data
-	{ echo "<td>demo</td><td>demo</td>";
-		
-	}else{
-		foreach($item as $key=>$value) {
-		if (is_array($value)) {
-			echo "<td>";
-			foreach($value as $v) { echo $v['topic_name'],$v['role_name']," (",$v['choice'],")<br/>"; }
-			echo "</td>";
-		}
-}
-	}
-?>
-
-</form>		
+	<td style="padding:2px;border-bottom:1px solid black;">
+		<div class="description"><?= $item['abstract'] ?></div>
+	</td>
 </tr>
 
-<?php 
-	
-	} /* end the foreach loop */ ?>
+<?php } /* end the foreach loop */ ?>
 </table>
+
+</form>
+
 <?php include $TOOL_PATH.'include/admin_footer.php'; // Include the FOOTER ?>

@@ -46,10 +46,11 @@ CREATE TABLE conf_proposals (
 )
 
 CREATE TABLE conf_proposals_vote ( 
-    pk					int(10) AUTO_INCREMENT NOT NULL,
+    pk						int(10) AUTO_INCREMENT NOT NULL,
     users_pk				int(10) NOT NULL,
     conf_proposals_pk		int(10) NOT NULL,
     vote					int(2) NOT NULL,
+    confID					varchar(10) NOT NULL,
     PRIMARY KEY(pk)
 );
 
