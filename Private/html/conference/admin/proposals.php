@@ -299,7 +299,7 @@ foreach ($items as $item) {
 <td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>
 <td width='10%' align="center"><a href="javascript:orderBy('title');">Title</a> /<a href="javascript:orderBy('lastname');">Submitted by</a> </td>
 <td width='49%'>Abstract-Descript.-Speakers</td>
-<td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>
+<!-- <td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>-->
 <td width='49%'>Topic/Audience Rank</td>
 </tr>
 
@@ -375,9 +375,9 @@ foreach ($items as $item) { // loop through all of the proposal items
 		<span style="font-size:10pt;">
 			<a href="mailto:<?= $item['email'] ?>"><?= $item['email'] ?></a>
 		</span><br/>
-		<span><br/><?= $printInst ?></span><br/></div>
-			<strong>Format: </strong><br/><?= $item['type'] ?><br/><br/>
-	<strong>Length:</strong><br/>
+		<span><br/><?= $printInst ?></span><br/><br/><br/></div>
+			<strong>Format: </strong><?= $item['type'] ?><br/><br/>
+	<strong>Length:</strong>
 	 <?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
 	 else { echo  $item['type'] ." min.<br/>"; 
 	 }   ?>
