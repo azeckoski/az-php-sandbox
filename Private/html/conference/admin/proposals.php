@@ -459,7 +459,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 <tr class="<?= $linestyle ?>" valign="top">
 	<td colspan="2" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
 		<div>
-			Reviewer Comments:
+			Reviewer Comments:<br/>
 			<textarea name="comments" cols="40" rows="3"></textarea>
 		</div>
 	</td>
