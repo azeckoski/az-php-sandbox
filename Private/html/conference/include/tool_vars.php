@@ -31,12 +31,12 @@ $SHORT_DATE_FORMAT = "g A M d, y";
 
 // proposals voting
 
-$VOTE_TEXT = array("red","yellow","green");
+$VOTE_TEXT = array("green", "yellow", "red");
 $VOTE_HELP = array(
-	"Proposal is inappropriate",
+	"Proposal is appropriate",
 	"Proposal needs work but idea is sound",
-	"Proposal is appropriate");
-$VOTE_SCORE = array("0","1","2");
+	"Proposal is inappropriate");
+$VOTE_SCORE = array("2", "1", "0");
 
 // dates below in format: YYYY/MM/DD HH24:MI
 $VOTE_OPEN_DATE = "2006/04/12 8:00";
