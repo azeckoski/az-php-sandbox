@@ -343,11 +343,26 @@ foreach ($items as $item) { // loop through all of the proposal items
 	$tdstyle = "";
 	if ($vote < 0) {
 		// item has not been voted on and saved
-	} else {
+	}
+		if ($vote ==2) {
 		// item has been voted on and saved
 		$checked[$vote] = " checked ";
-		$tdstyle = " class='saved' ";
+		$tdstyle = " class='saved_green' ";
+		
 	}
+		if ($vote ==1) {
+		// item has been voted on and saved
+		$checked[$vote] = " checked ";
+		$tdstyle = " class='saved_yellow' ";
+		}
+	
+		if ($vote ==0) {
+		// item has seen voted on and saved
+		$checked[$vote] = " checked ";
+		$tdstyle = " class='saved_red' ";
+		}
+		
+	
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
