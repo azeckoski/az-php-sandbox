@@ -29,10 +29,14 @@ font-size: 11px;
  background-color: #660000;
  color : #ffffff;
 }
-
-
+	
 .saved_yellow { 
  background-color: yellow;
+ color : #000000;
+}
+
+.demo { 
+ background-color: orange;
  color : #000000;
 }
 
