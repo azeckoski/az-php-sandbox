@@ -293,21 +293,26 @@ foreach ($items as $item) {
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 
 <table id="proposals_vote" width="100%" cellspacing="0" cellpadding="0">
-<tr><td colspan=4><strong>LEGEND:</strong>  
-<span class=demo style="border: 1px dotted #ccc; padding:1px 4px;">demo</span>&nbsp; &nbsp;
-<span class=unsaved  style="border: 1px dotted #ccc; padding:1px 4px; color: #eee;">unsaved vote</span>
- <span style="border: 1px dotted #ccc; padding:1px 4px; color: #333;">not voted on</span> &nbsp; &nbsp;
-  <span class=saved_red style="border: 1px dotted #ccc; padding:1px 4px; color: #eee;">your vote</span> &nbsp; &nbsp;
-  <span class=saved_yellow style="border: 1px dotted #ccc; padding:1px 4px; color: #000;">your vote</span> &nbsp; &nbsp;
-  <span class=saved_green style="border: 1px dotted #ccc; padding:1px 4px; color: #000;">your vote</span> &nbsp; &nbsp;
- 
-  </td></tr>
-<tr class='tableheader'>
-<td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td
-<td><a href="javascript:orderBy('title');">Title</a> /<a href="javascript:orderBy('lastname');">Submitted by</a> </td>
-<td>Abstract-Descript.-Speakers - <a href="javascript:orderBy('type');">(sort by Format)</a> </td>
-<td>Topic/Audience Rank</td>
-</tr>
+	<tr>
+	<td colspan=3><strong>LEGEND:</strong>  
+		<span class=demo style="border: 1px dotted #ccc; padding:1px 4px;">demo</span>&nbsp; &nbsp;
+		<span class=unsaved  style="border: 1px dotted #ccc; padding:1px 4px; color: #eee;">unsaved vote</span>
+ 		<span style="border: 1px dotted #ccc; padding:1px 4px; color: #333;">not voted on</span> &nbsp; &nbsp;
+  		<span class=saved_red style="border: 1px dotted #ccc; padding:1px 4px; color: #eee;">your vote</span> &nbsp; &nbsp;
+  		<span class=saved_yellow style="border: 1px dotted #ccc; padding:1px 4px; color: #000;">your vote</span> &nbsp; &nbsp;
+  		<span class=saved_green style="border: 1px dotted #ccc; padding:1px 4px; color: #000;">your vote</span> &nbsp; &nbsp;
+     </td>
+     <td>
+      <div><strong>Topics/Audiences:</strong> only <span style="color:#000;">High (black)</span> and <span style="color:#666;">Medium (grey)</span> rankings are shown below.  
+	  </div>   
+    </td>
+   </tr>
+   <tr class='tableheader'>
+	<td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
+	<td><a href="javascript:orderBy('title');">Title</a> /<a href="javascript:orderBy('lastname');">Submitted by</a> </td>
+	<td>Abstract-Descript.-Speakers - <a href="javascript:orderBy('type');">(sort by Format)</a> </td>
+	<td>Topic/Audience Rank</td>
+   </tr>
 
 <?php // now dump the data we currently have
 $line = 0;
@@ -375,7 +380,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 	<?php if ($item['type']=='demo') { 
 		$tdstyle = " class='demo' ";
 		?> 
-		<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;'>
+		<td id="vb<?= $pk ?>" <?= $tdstyle ?> style='white-space:nowrap; border-right:1px dotted #ccc;'>
 		<a name="anchor<?= $pk ?>"></a> <br/> 
 		<div> Techincal Demo<br/> (no vote required) </div>
 		</td>
@@ -383,7 +388,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 		else {
 			?>
 		
-	<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;'>
+	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  style='white-space:nowrap; border-right:1px dotted #ccc;'>
 		<a name="anchor<?= $pk ?>"></a><br/>
 <?php  	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $vi ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
@@ -396,12 +401,13 @@ foreach ($items as $item) { // loop through all of the proposal items
 			disabled='y' title="Clear the radio buttons for this item or reset to the saved vote" />
 		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
-	<?php }  ?>
+	
 	</td>
+	<?php }  ?>
 
 	<td>
 		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
-		<div nowrap='y'>
+		<div class=nowrap>
 			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
 			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/><?= $item['date_created'] ?><br/><br/>
 		</div>		
@@ -409,7 +415,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 	<td style="border-bottom:1px solid black;" rowspan="2">
 		<div class="description"><strong>Abstract:</strong><br/><?= $item['abstract'] ?><br/><br/></div>
-		<?php if ($item['URL']) { /* a project URL was provided */
+		<?php if ($item['url']) { /* a project URL was provided */
 			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
 		}
 		
@@ -418,9 +424,9 @@ foreach ($items as $item) { // loop through all of the proposal items
      	<?php } ?>
      	
 		<div class="description"><strong>Co-Speaker:</strong><br/><?= $item['co_speaker'] ?><br/><br/>
-		 <span style="padding-right: 20px;">	<strong>Format: </strong><?= $item['type'] ?></span>
-		 <span style="padding-right: 20px;" ><strong>Length:</strong>
-	 		<?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
+		 <span style="padding-right: 20px;"><strong>Format: </strong><?= $item['type'] ?></span>
+		 <span style="padding-right: 20px;"><strong>Length:</strong>
+	 		<?php if ($item['length']=='0') {  echo "n/a<br/></span>"; } //this is a demo with no time limit
 	 		else { echo  $item['length'] ." min. </span>"; 
 			 }   ?>
 	    </div>
