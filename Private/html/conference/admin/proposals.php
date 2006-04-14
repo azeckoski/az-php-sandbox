@@ -351,7 +351,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;border-bottom:1px solid black;'>
+	<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;'>
 		<a name="anchor<?= $pk ?>"></a>
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $vi ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
@@ -366,24 +366,22 @@ foreach ($items as $item) { // loop through all of the proposal items
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
 	</td>
 
-	<td style="border-bottom:1px solid black;">
+	<td>
 		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
 		<div nowrap='y'>
 			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
 			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/><?= $item['date_created'] ?><br/><br/>
 		</div>		
-		<div><br/>Reviewer Comments:<textarea name="comments" cols="40" rows="3"></textarea><br/></div>
 	</td>
 
-	<td style="border-bottom:1px solid black;">
+	<td style="border-bottom:1px solid black;" rowspan="2">
 		<div class="description"><strong>Abstract:</strong><br/><?= $item['abstract'] ?><br/><br/></div>
-		<?php
-		if ($item['URL']) { //a project URL was provided
-		echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
+		<?php if ($item['URL']) { /* a project URL was provided */
+			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
 		}
 		
-		 if ($item['type']!='demo')  {  ?>
-	   <div class="description"><strong>Speaker Bio:</strong><br/><?= $item['bio'] ?><br/><br/></div>
+		if ($item['type']!='demo')  { ?>
+			<div class="description"><strong>Speaker Bio:</strong><br/><?= $item['bio'] ?><br/><br/></div>
      	<?php } ?>
      	
 		<div class="description"><strong>Co-Speaker:</strong><br/><?= $item['co_speaker'] ?><br/><br/>
@@ -394,46 +392,44 @@ foreach ($items as $item) { // loop through all of the proposal items
 			 }   ?>
 	    </div>
 	</td>	
-	
-	<?php if ($item['type']=='demo')  //only non-demo types use the following data
-	{ ?>
-	<td style="border-bottom:1px solid black;">n/a:  demo</td>
-   
-   <?php
-	}else {
-		echo "<td style=\"border-bottom:1px solid black;\" >";
+
+	<td style="border-bottom:1px solid black;" rowspan="2">
+	<?php if ($item['type']=='demo') {  /* only non-demo types use the following data */ ?>
+		n/a:  demo
+	<?php }else {
 		$topic = 0; //start with the first array which is  topics ranking
-		
 		foreach($item as $key=>$value) {
-			
-		if (is_array($value)) {
-	
-		if ($topic=='0') {
-			 echo "<strong>Topic ranking: </strong><br/>"; 
-			 $topic++;  // next array is audience ranking 
-			 }
-			 else {
-			 	 echo "<br/><strong>Audience ranking: </strong><br/>"; 
-			 }
-			
-			foreach($value as $v) { 
-					
-				 //only display those with value higher than 1
-				 if ($v['choice'] == 3) { //high ranking
-				 		echo "<div style=\"white-space: nowrap; color:#333;\">" . $v['topic_name'],$v['role_name']," </div>";
-				 		} 
-				 if ($v['choice'] == 2) { // medium ranking
-				 	  echo "<div style=\"white-space: nowrap; color: #999; \">" . $v['topic_name'],$v['role_name']," </div>"; 
-				 	  }
-				  
-				  }
-			}
-			
-		}
-	
-	echo "</td>";
-	}
+			if (is_array($value)) {
+				if ($topic=='0') {
+					echo "<strong>Topic ranking: </strong><br/>"; 
+					$topic++;  // next array is audience ranking 
+				} else {
+					echo "<br/><strong>Audience ranking: </strong><br/>"; 
+				}
+
+				foreach($value as $v) {
+					 //only display those with value higher than 1
+					 if ($v['choice'] == 3) { //high ranking
+					 	echo "<div style=\"white-space: nowrap; color:#333;\">" . $v['topic_name'],$v['role_name']," </div>";
+					 } 
+					 if ($v['choice'] == 2) { // medium ranking
+					 	echo "<div style=\"white-space: nowrap; color: #999; \">" . $v['topic_name'],$v['role_name']," </div>"; 
+					 }
+				}
+			}	
+		}	
+	} 
 ?>
+	</td>
+</tr>
+
+<tr class="<?= $linestyle ?>" valign="top">
+	<td colspan="2" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
+		<div>
+			Reviewer Comments:
+			<textarea name="comments" cols="40" rows="3"></textarea>
+		</div>
+	</td>
 </tr>
 
 <?php } /* end the foreach loop */ ?>
