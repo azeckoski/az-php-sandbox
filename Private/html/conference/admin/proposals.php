@@ -293,13 +293,19 @@ foreach ($items as $item) {
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 
 <table id="proposals_vote" width="100%" cellspacing="0" cellpadding="0">
-
+<tr><td colspan=4><strong>LEGEND:</strong>  
+<span class=demo style="border: 1px dotted #ccc; padding:1px 4px;">demo</span>&nbsp; &nbsp;
+<span class=unsaved  style="border: 1px dotted #ccc; padding:1px 4px; color: #eee;">unsaved vote</span>
+ <span style="border: 1px dotted #ccc; padding:1px 4px; color: #333;">not voted on</span> &nbsp; &nbsp;
+  <span class=saved_red style="border: 1px dotted #ccc; padding:1px 4px; color: #eee;">your vote</span> &nbsp; &nbsp;
+  <span class=saved_yellow style="border: 1px dotted #ccc; padding:1px 4px; color: #000;">your vote</span> &nbsp; &nbsp;
+  <span class=saved_green style="border: 1px dotted #ccc; padding:1px 4px; color: #000;">your vote</span> &nbsp; &nbsp;
+ 
+  </td></tr>
 <tr class='tableheader'>
-<td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
-<!-- <td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>-->
+<td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td
 <td><a href="javascript:orderBy('title');">Title</a> /<a href="javascript:orderBy('lastname');">Submitted by</a> </td>
-<td>Abstract-Descript.-Speakers</td>
-<!-- <td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>-->
+<td>Abstract-Descript.-Speakers - <a href="javascript:orderBy('type');">(sort by Format)</a> </td>
 <td>Topic/Audience Rank</td>
 </tr>
 
@@ -370,7 +376,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 		$tdstyle = " class='demo' ";
 		?> 
 		<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;'>
-		<a name="anchor<?= $pk ?>"></a>  
+		<a name="anchor<?= $pk ?>"></a> <br/> 
 		<div> Techincal Demo<br/> (no vote required) </div>
 		</td>
 		<?php }
@@ -378,7 +384,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 			?>
 		
 	<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;'>
-		<a name="anchor<?= $pk ?>"></a>
+		<a name="anchor<?= $pk ?>"></a><br/>
 <?php  	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $vi ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
 <?php	} ?>
