@@ -263,7 +263,7 @@ while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
 // add in the audiences and topics of that nature (should require 2 more queries)
 $sql = "select PA.pk, PA.proposals_pk, R.role_name, PA.choice from proposals_audiences PA " .
 	"join conf_proposals CP on CP.pk = PA.proposals_pk and confID='$CONF_ID' " .
-	"join roles R on R.pk = PA.roles_pk";
+	"join roles R on R.pk = PA.roles_pk order by PA.choice desc";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $audience_items = array();
 while($row=mysql_fetch_assoc($result)) {
@@ -272,7 +272,7 @@ while($row=mysql_fetch_assoc($result)) {
 
 $sql = "select PT.pk, PT.proposals_pk, T.topic_name, PT.choice from proposals_topics PT " .
 	"join conf_proposals CP on CP.pk = PT.proposals_pk and confID='$CONF_ID' " .
-	"join topics T on T.pk = PT.topics_pk";
+	"join topics T on T.pk = PT.topics_pk order by PT.choice desc";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $topics_items = array();
 while($row=mysql_fetch_assoc($result)) {
@@ -292,15 +292,15 @@ foreach ($items as $item) {
 <form name="voteform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 
-<table id="proposals_vote" width="100%" cellspacing="0" cellpadding="3">
+<table id="proposals_vote" width="100%" cellspacing="0" cellpadding="0">
 
 <tr class='tableheader'>
-<td width='10%'>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
-<td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>
-<td width='10%' align="center"><a href="javascript:orderBy('title');">Title</a> /<a href="javascript:orderBy('lastname');">Submitted by</a> </td>
-<td width='49%'>Abstract-Descript.-Speakers</td>
+<td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
+<!-- <td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>-->
+<td><a href="javascript:orderBy('title');">Title</a> /<a href="javascript:orderBy('lastname');">Submitted by</a> </td>
+<td>Abstract-Descript.-Speakers</td>
 <!-- <td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>-->
-<td width='49%'>Topic/Audience Rank</td>
+<td>Topic/Audience Rank</td>
 </tr>
 
 <?php // now dump the data we currently have
@@ -354,62 +354,54 @@ foreach ($items as $item) { // loop through all of the proposal items
 	<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;border-bottom:1px solid black;'>
 		<a name="anchor<?= $pk ?>"></a>
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
-		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $vi ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br />
+		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $vi ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
 <?php	} ?>
 		<div style="margin:8px;"></div>
+			
+	
 		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $vote ?>" />
 		<input id="vc<?= $pk ?>"  class="button" type="button" value="Reset" onClick="setCleared('<?= $pk ?>')"
 			disabled='y' title="Clear the radio buttons for this item or reset to the saved vote" />
 		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
 	</td>
-	
-<td style="padding-right:10px; border-right:1px dotted #ccc; border-bottom:1px solid black;">
-<textarea name="comments" cols="25" rows="6">add comments....</textarea>
-
-</td>
 
 	<td style="border-bottom:1px solid black;">
-	<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
-	<div nowrap='y'>	<?= $item['firstname']." ".$item['lastname'] ?><br/>
-		<span style="font-size:10pt;">
-			<a href="mailto:<?= $item['email'] ?>"><?= $item['email'] ?></a>
-		</span><br/>
-		<span><br/><?= $printInst ?></span><br/><br/><br/></div>
-			<strong>Format: </strong><?= $item['type'] ?><br/><br/>
-	<strong>Length:</strong>
-	 <?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
-	 else { echo  $item['type'] ." min.<br/>"; 
-	 }   ?>
-	<br/><strong>Date Submitted: </strong><br/><?= $item['date_created'] ?>
-		
-		
+		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
+		<div nowrap='y'>
+			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
+			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/><?= $item['date_created'] ?><br/><br/>
+		</div>		
+		<div>Reviewer Comments:<textarea name="comments" cols="40" rows="3"></textarea><br/></div>
 	</td>
-
-
 
 	<td style="border-bottom:1px solid black;">
 		<div class="description"><strong>Abstract:</strong><br/><?= $item['abstract'] ?><br/><br/></div>
-	
-	<?php
-	if ($item['URL']) { //a project URL was provided
-	echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
-	}
-	 if ($item['type']!='demo')  {  ?>
-		<div class="description"><strong>Speaker Bio:</strong><br/><?= $item['bio'] ?><br/><br/></div>
-     <?php } ?>
-		<div class="description"><strong>Co-Speaker:</strong><br/><?= $item['co_speaker'] ?><br/><br/></div>
+		<?php
+		if ($item['URL']) { //a project URL was provided
+		echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
+		}
+		
+		 if ($item['type']!='demo')  {  ?>
+	   <div class="description"><strong>Speaker Bio:</strong><br/><?= $item['bio'] ?><br/><br/></div>
+     	<?php } ?>
+     	
+		<div class="description"><strong>Co-Speaker:</strong><br/><?= $item['co_speaker'] ?><br/><br/>
+		 <span style="padding-right: 20px;">	<strong>Format: </strong><?= $item['type'] ?></span>
+		 <span style="padding-right: 20px;" ><strong>Length:</strong>
+	 		<?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
+	 		else { echo  $item['length'] ." min. </span>"; 
+			 }   ?>
+	    </div>
 	</td>	
 	
-
-	
-	
-<?php if ($item['type']=='demo')  //only non-demo types use the following data
-	{ 
-	?>
+	<?php if ($item['type']=='demo')  //only non-demo types use the following data
+	{ ?>
 	<td style="border-bottom:1px solid black;">n/a:  demo</td>
+   
    <?php
-	}else{	echo "<td style=\"border-bottom:1px solid black;\" >";
+	}else {
+		echo "<td style=\"border-bottom:1px solid black;\" >";
 		$topic = 0; //start with the first array which is  topics ranking
 		
 		foreach($item as $key=>$value) {
@@ -419,20 +411,28 @@ foreach ($items as $item) { // loop through all of the proposal items
 		if ($topic=='0') {
 			 echo "<strong>Topic ranking: </strong><br/>"; 
 			 $topic++;  // next array is audience ranking 
-		}
-		else { echo "<br/><strong>Audience ranking: </strong><br/>"; }
+			 }
+			 else {
+			 	 echo "<br/><strong>Audience ranking: </strong><br/>"; 
+			 }
 			
 			foreach($value as $v) { 
-				
-				if ($v['choice'] > 1) { //only display those with value higher than 1
-					echo "<div style=\"white-space: nowrap; \">" . $v['topic_name'],$v['role_name']," (",$v['choice'],")</div>"; 
-				}
-
-				}
+					
+				 //only display those with value higher than 1
+				 if ($v['choice'] == 3) { //high ranking
+				 		echo "<div style=\"white-space: nowrap; color:#ca660e;\">" . $v['topic_name'],$v['role_name']," </div>";
+				 		} 
+				 if ($v['choice'] == 2) { // medium ranking
+				 	  echo "<div style=\"white-space: nowrap; color: #9Fd94f; \">" . $v['topic_name'],$v['role_name']," </div>"; 
+				 	  }
+				  
+				  }
+			}
 			
-		 }
-}
-	echo "</td>";}
+		}
+	
+	echo "</td>";
+	}
 ?>
 </tr>
 
