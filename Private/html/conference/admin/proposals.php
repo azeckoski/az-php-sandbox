@@ -366,9 +366,20 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
+	<?php if ($item['type']=='demo') { 
+		$tdstyle = " class='demo' ";
+		?> 
+		<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;'>
+		<a name="anchor<?= $pk ?>"></a>  
+		<div> Techincal Demo<br/> (no vote required) </div>
+		</td>
+		<?php }
+		else {
+			?>
+		
 	<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;'>
 		<a name="anchor<?= $pk ?>"></a>
-<?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
+<?php  	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $vi ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
 <?php	} ?>
 		<div style="margin:8px;"></div>
@@ -379,6 +390,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 			disabled='y' title="Clear the radio buttons for this item or reset to the saved vote" />
 		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
+	<?php }  ?>
 	</td>
 
 	<td>
