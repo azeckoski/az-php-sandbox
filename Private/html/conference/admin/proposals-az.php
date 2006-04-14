@@ -95,7 +95,7 @@ function getSelectedRadio(buttonGroup) {
    if (buttonGroup[0]) { // if the button group is an array (one button is not an array)
       for (var i=0; i<buttonGroup.length; i++) {
          if (buttonGroup[i].checked) {
-            return i
+            return i;
          }
       }
    } else {
@@ -109,13 +109,14 @@ function checkSaved(num) {
 	// Get current vote for this item
 	var voteItem = document.getElementById('vh'+num);
 	var curVote = voteItem.value;
+	if (curVote == "") { curVote = -1; }
 
 	// Get current selection
 	var rbuttons = document.getElementsByName('vr'+num);
 	var curSelect = getSelectedRadio(rbuttons);
 
 	// Compare values
-	if (curVote >= 0) {
+	if (curVote >= 0 && curSelect >= 0) {
 		if (curVote == curSelect) {
 			setSaved(num);
 		} else {
@@ -141,7 +142,23 @@ function setUnsaved(num) {
 
 function setSaved(num) {
 	var item = document.getElementById('vb'+num);
-	item.className='saved';
+	//item.className='saved'
+// this part adds in the nicer coloring like Susan wanted
+	var voteItem = document.getElementById('vh'+num);
+	var curVote = voteItem.value;
+	if (curVote == "") { curVote = -1; }
+
+	var rbuttons = document.getElementsByName('vr'+num);
+	for (var i=0;i<rbuttons.length;i++) {
+		if (i == curVote) {
+			switch (i) {
+				case 0: item.className='saved_green'; break;
+				case 1: item.className='saved_yellow'; break;
+				case 2: item.className='saved_red'; break;
+				default : item.className='saved';
+			}
+		}
+	}
 
 	var sbutton = document.getElementById('vs'+num);
 	sbutton.disabled=true;
@@ -154,6 +171,7 @@ function setCleared(num) {
 	// get current vote
 	var voteItem = document.getElementById('vh'+num);
 	var curVote = voteItem.value;
+	if (curVote == "") { curVote = -1; }
 
 	// reset radio buttons
 	var rbuttons = document.getElementsByName('vr'+num);
@@ -199,13 +217,13 @@ $Keys = array();
 $Keys = array_keys($_POST);
 foreach( $Keys as $key)
 {
-	if (!$_POST[$key]) { continue; } // skip blank values
+	if ($_POST[$key] == "") { continue; } // skip blank values
 
 	$check = strpos($key,'vr');
 	$check2 = strpos($key,'cmnt');
 	if ( $check !== false && $check == 0 ) {
 		$itemPk = substr($key, 2);
-		$newVote = $_POST[$key];
+		$newVote = $VOTE_SCORE[$_POST[$key]];
 		//print "key=$key : item_pk=$itemPk : vote=$newVote <br/>";
 
 		// Check to see if this vote already exists
@@ -261,8 +279,8 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"where CP.confID = '$CONF_ID'" . $sqlsorting;
-	
-print "SQL=$sql<br/>";
+
+//print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $items = array();
 
@@ -288,10 +306,20 @@ while($row=mysql_fetch_assoc($result)) {
 	$topics_items[$row['proposals_pk']][$row['pk']] = $row;
 }
 
+$sql = "select CC.pk, CC.conf_proposals_pk, CC.comment_text, U1.username, U1.email " .
+	"from conf_proposals_comments CC left join users U1 on U1.pk = CC.users_pk " .
+	"where CC.confID like '$CONF_ID' order by CC.conf_proposals_pk";
+$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+$comments_items = array();
+while($row=mysql_fetch_assoc($result)) {
+	$comments_items[$row['conf_proposals_pk']][$row['pk']] = $row;
+}
+
 foreach ($items as $item) {
 	// these add an array to each proposal item which contains the relevant topics/audiences
 	$items[$item['pk']]['topics'] = $topics_items[$item['pk']];
 	$items[$item['pk']]['audiences'] = $audience_items[$item['pk']];
+	$items[$item['pk']]['comments'] = $comments_items[$item['pk']];
 }
 
 //echo "<pre>",print_r($items),"</pre><br/>";
@@ -314,11 +342,12 @@ foreach ($items as $item) {
 
 <?php // now dump the data we currently have
 $line = 0;
-
 foreach ($items as $item) { // loop through all of the proposal items
 	$line++;
+
 	$pk = $item['pk'];
 	$vote = $item['vote'];
+
 	if ($item['type']=='demo'){
 		$demo++;
 	} else {
@@ -338,11 +367,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 ***/
 
 	$linestyle = "oddrow";
-	if ($line % 2 == 0) {
-		$linestyle = "evenrow";
-	} else {
-		$linestyle = "oddrow";
-	}
+	if (($line % 2) == 0) { $linestyle = "evenrow"; } else { $linestyle = "oddrow"; }
 
 	// voting check
 	if (!isset($vote)) { $vote = -1; }
@@ -352,7 +377,15 @@ foreach ($items as $item) { // loop through all of the proposal items
 	if (isset($VOTE_SCORE[$vote])) {
 		// item has been voted on and saved
 		$checked[$VOTE_SCORE[$vote]] = " checked='y' ";
-		$tdstyle = " class='saved' ";
+		//$tdstyle = " class='saved' ";
+
+// Added this in for special coloring
+		switch ($VOTE_TEXT[$vote]) {
+			case "green": $tdstyle = " class='saved_green' "; break;
+			case "yellow": $tdstyle = " class='saved_yellow' "; break;
+			case "red": $tdstyle = " class='saved_red' "; break;
+			default: $tdstyle = " class='saved' ";
+		}
 	}
 ?>
 
@@ -363,9 +396,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$VOTE_SCORE[$vi]] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
 <?php	} ?>
 		<div style="margin:8px;"></div>
-			
-	
-		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $VOTE_SCORE[$vote] ?>" />
+		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $vote ?>" />
 		<input id="vc<?= $pk ?>"  class="button" type="button" value="Reset" onClick="setCleared('<?= $pk ?>')"
 			disabled='y' title="Clear the radio buttons for this item or reset to the saved vote" />
 		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
@@ -374,7 +405,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 	<td>
 		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
-		<div nowrap='y'>
+		<div>
 			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
 			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/><?= $item['date_created'] ?><br/><br/>
 		</div>		
@@ -402,26 +433,31 @@ foreach ($items as $item) { // loop through all of the proposal items
 	<td style="border-bottom:1px solid black;" rowspan="2">
 	<?php if ($item['type']=='demo') {  /* only non-demo types use the following data */ ?>
 		n/a:  demo
-	<?php }else {
-		$topic = 0; //start with the first array which is  topics ranking
-		foreach($item as $key=>$value) {
-			if (is_array($value)) {
-				if ($topic=='0') {
-					echo "<strong>Topic ranking: </strong><br/>"; 
-					$topic++;  // next array is audience ranking 
-				} else {
-					echo "<br/><strong>Audience ranking: </strong><br/>"; 
-				}
+	<?php } else {
+		if (is_array($item['topics'])) {
+			echo "<strong>Topic ranking:</strong><br/>";
 
-				foreach($value as $v) {
-					 //only display those with value higher than 1
-					 if ($v['choice'] == 3) { //high ranking
-					 	echo "<div style=\"white-space: nowrap; color:#333;\">" . $v['topic_name'],$v['role_name']," </div>";
-					 }
-					 if ($v['choice'] == 2) { // medium ranking
-					 	echo "<div style=\"white-space: nowrap; color: #999; \">" . $v['topic_name'],$v['role_name']," </div>"; 
-					 }
-				}
+			foreach($item['topics'] as $v) {
+				 //only display those with value higher than 1
+				 if ($v['choice'] == 3) { //high ranking
+				 	echo "<div style=\"white-space: nowrap; color:#000;\">" . $v['topic_name'],$v['role_name']," </div>";
+				 }
+				 if ($v['choice'] == 2) { // medium ranking
+				 	echo "<div style=\"white-space: nowrap; color: #666; \">" . $v['topic_name'],$v['role_name']," </div>"; 
+				 }
+			}
+		}
+		if (is_array($item['audiences'])) {
+			echo "<br/><strong>Audience ranking:</strong><br/>"; 
+
+			foreach($item['audiences'] as $v) {
+				 //only display those with value higher than 1
+				 if ($v['choice'] == 3) { //high ranking
+				 	echo "<div style=\"white-space: nowrap; color:#000;\">" . $v['topic_name'],$v['role_name']," </div>";
+				 }
+				 if ($v['choice'] == 2) { // medium ranking
+				 	echo "<div style=\"white-space: nowrap; color: #666; \">" . $v['topic_name'],$v['role_name']," </div>"; 
+				 }
 			}
 		}
 	}
@@ -432,9 +468,27 @@ foreach ($items as $item) { // loop through all of the proposal items
 <tr class="<?= $linestyle ?>" valign="top">
 	<td colspan="2" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
 		<div>
-			Reviewer Comments:
+			Reviewer Comments (<?= count($item['comments']) ?>):
 			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes">Save</a>
-			<textarea name="cmnt<?= $pk ?>" cols="40" rows="3"></textarea>
+			<textarea name="cmnt<?= $pk ?>" cols="40" rows="3"></textarea><br/>
+<?php
+	if (!empty($item['comments'])) {
+		$cline = 0;
+		foreach($item['comments'] as $comment) {
+			$cline++;
+			$lineclass = "evenrow";
+			if (($cline+($line % 2)) % 2) { $lineclass = "evenrow"; } else { $lineclass = "oddrow"; }
+			$short_comment = $comment['comment_text'];
+			if (strlen($short_comment) > 53) {
+				$short_comment = substr($short_comment,0,50) . "...";
+			}
+			echo "<div style='width:100%;font-size:8pt;' class='$lineclass'>" .
+				"&nbsp;<label title='$comment[comment_text]'>" .
+				"<em><a href='mailto:$comment[email]'>$comment[username]</a></em>" .
+				" - $short_comment</label></div>";
+		}
+	}
+?>
 		</div>
 	</td>
 </tr>
