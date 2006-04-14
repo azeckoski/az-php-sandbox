@@ -36,6 +36,7 @@ $VOTE_HELP = array(
 	"Proposal is inappropriate",
 	"Proposal needs work but idea is sound",
 	"Proposal is appropriate");
+$VOTE_SCORE = array("0","1","2");
 
 // dates below in format: YYYY/MM/DD HH24:MI
 $VOTE_OPEN_DATE = "2006/04/12 8:00";
