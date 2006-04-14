@@ -50,10 +50,18 @@ if (!$PK) {
 			// entry is owned by current user or they are an admin
 			if ($_REQUEST["del"]) {
 				// if delete was passed then wipe out this item and related items
-				$delete_sql = "delete from skin_votes where skin_entries_pk='$PK'";
+				$delete_sql = "delete from skin_vote where skin_entries_pk='$PK'";
 				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 				// delete the 5 related files
-				$delete_sql = "delete from skin_files where skin_entries_pk='$PK'";
+				$delete_sql = "delete from SF using skin_files SF join skin_entries SE on SE.skin_zip = SF.pk and SE.pk = '$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				$delete_sql = "delete from SF using skin_files SF join skin_entries SE on SE.image1 = SF.pk and SE.pk = '$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				$delete_sql = "delete from SF using skin_files SF join skin_entries SE on SE.image2 = SF.pk and SE.pk = '$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				$delete_sql = "delete from SF using skin_files SF join skin_entries SE on SE.image3 = SF.pk and SE.pk = '$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				$delete_sql = "delete from SF using skin_files SF join skin_entries SE on SE.image4 = SF.pk and SE.pk = '$PK'";
 				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 				// now delete the item itself
 				$delete_sql = "delete from skin_entries where pk='$PK'";
@@ -327,7 +335,7 @@ if ($User->checkPerm("admin_skin")) { $allowed = true; }
 		<div style="width:35%;float:right;">
 			<span style="font-size:9pt;display:inline;">
 				[<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>">edit</a> | 
-				<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>?del=1">del</a>]
+				<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>&amp;del=1">del</a>]
 			</span>
 		</div>
 	</div>
