@@ -154,7 +154,7 @@ if (!$isPartner){
           <input type="hidden" name="LOGIN" value="sakaiproject"/>
           <input type="hidden" name="PARTNER" value="verisign"/>
 <?php //use amount below when testing live transactions
- //$amount='1.00';
+ $amount='1.00';
 ?>
           <input type="hidden" name="AMOUNT" value="<?php echo $amount; ?>"/>
           <input type="hidden" name="DESCRIPTION" value="Sakai -Vancover Conference registration"/>
