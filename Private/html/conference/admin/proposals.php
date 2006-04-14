@@ -372,7 +372,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
 			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/><?= $item['date_created'] ?><br/><br/>
 		</div>		
-		<div>Reviewer Comments:<textarea name="comments" cols="40" rows="3"></textarea><br/></div>
+		<div><br/>Reviewer Comments:<textarea name="comments" cols="40" rows="3"></textarea><br/></div>
 	</td>
 
 	<td style="border-bottom:1px solid black;">
@@ -420,10 +420,10 @@ foreach ($items as $item) { // loop through all of the proposal items
 					
 				 //only display those with value higher than 1
 				 if ($v['choice'] == 3) { //high ranking
-				 		echo "<div style=\"white-space: nowrap; color:#ca660e;\">" . $v['topic_name'],$v['role_name']," </div>";
+				 		echo "<div style=\"white-space: nowrap; color:#333;\">" . $v['topic_name'],$v['role_name']," </div>";
 				 		} 
 				 if ($v['choice'] == 2) { // medium ranking
-				 	  echo "<div style=\"white-space: nowrap; color: #9Fd94f; \">" . $v['topic_name'],$v['role_name']," </div>"; 
+				 	  echo "<div style=\"white-space: nowrap; color: #999; \">" . $v['topic_name'],$v['role_name']," </div>"; 
 				 	  }
 				  
 				  }
