@@ -1249,17 +1249,17 @@ class User {
 
 	private function authenticateUserFromLDAP($username,$password) {
 		global $LDAP_SERVER, $LDAP_PORT, $TOOL_SHORT;
-		
+
 		if (ldapConnect()) {
 			$anon_bind=ldap_bind(getDS()); // do an anonymous ldap bind, expect ranon=1
 			if ($anon_bind) {
 				// Searching for (sakaiUser=username)
 			   	$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", 
 					"(&(sakaiUser=$username)(userStatus=active))"); // expect sr=array
-		
+
 				//echo "Number of entries = " . ldap_count_entries(getDS(), $sr) . "<br />";
 				$info = ldap_get_entries(getDS(), $sr); // $info["count"] = items returned
-				
+
 				// annonymous call to sakai ldap will only return the dn
 				$user_dn = $info[0]["dn"];
 
