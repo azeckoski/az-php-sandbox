@@ -71,6 +71,12 @@ if (!extension_loaded('gd')) {
 		die("Could not enable GD library!");
 	}
 }
+// Load the openssl module
+if (!extension_loaded('openssl')) {
+	if (!dl('openssl.so')) {
+		die("Could not enable openssl library!");
+	}
+}
 
 // GLOBAL functions
 
