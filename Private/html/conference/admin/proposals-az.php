@@ -267,6 +267,47 @@ foreach( $Keys as $key)
 }
 
 
+
+
+// get the search
+$searchtext = "";
+if ($_REQUEST["searchtext"] && (!$_REQUEST["clearall"]) ) { $searchtext = $_REQUEST["searchtext"]; }
+$sqlsearch = "";
+if ($searchtext) {
+	$sqlsearch = " and (title like '%$searchtext%' OR abstract like '%$searchtext%' " .
+		"OR firstname like '%$searchtext%' OR lastname like '%$searchtext%'" .
+		"OR institution like '%$searchtext%') ";
+}
+
+// Voting Filter
+$filter_items_default = "show all items";
+$filter_items = "";
+if ($_REQUEST["filter_items"] && (!$_REQUEST["clearall"]) ) { $filter_items = $_REQUEST["filter_items"]; }
+
+$special_filter = "";
+$filter_items_sql = "";
+if ($filter_items == "show my voted items") {
+	$filter_items_sql = " and vote is not null ";
+} else if ($filter_items == "show my unvoted items") {
+	$filter_items_sql = " and vote is null ";
+} else {
+	// show all items
+	$filter_items = $filter_items_default;
+	$filter_items_sql = "";
+}
+
+// Type Filter
+$filter_type_default = "show all types";
+$filter_type = "";
+if ($_REQUEST["filter_type"] && (!$_REQUEST["clearall"]) ) { $filter_type = $_REQUEST["filter_type"]; }
+
+$filter_type_sql = "";
+if ($filter_type && ($filter_type != $filter_type_default)) {
+	$filter_type_sql = " and type='$filter_type' ";
+} else {
+	$filter_type = $filter_type_default;
+}
+
 // sorting
 $sortorder = "date_created";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
@@ -278,7 +319,9 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"U1.firstname||' '||U1.lastname as fullname, CV.vote, " .
 	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
-	"where CP.confID = '$CONF_ID'" . $sqlsorting;
+	"and CV.users_pk='$User->pk' " .
+	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
+	$filter_type_sql . $filter_items_sql . $sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -328,6 +371,50 @@ foreach ($items as $item) {
 
 <form name="voteform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
+
+
+<div style="background:#ECECEC;border:1px solid #ccc;padding:3px;margin-bottom:10px;">
+	<table border=0 cellspacing=0 cellpadding=0 width="100%">
+	<tr>
+	<td nowrap="y">
+	<strong>Filters:</strong>&nbsp;&nbsp;
+	</td>
+	<td nowrap="y" style="font-size:0.9em;">
+		<strong>Vote:</strong>
+		<select name="filter_items" title="Filter the items by my votes">
+			<option value="<?= $filter_items ?>" selected><?= $filter_items ?></option>
+			<option value="show all items">show all items</option>
+			<option value="show my voted items">show my voted items</option>
+			<option value="show my unvoted items">show my unvoted items</option>
+		</select>
+		&nbsp;&nbsp;
+		<strong>Type:</strong>
+		<select name="filter_type" title="Filter the items by type">
+			<option value="<?= $filter_type ?>" selected><?= $filter_type ?></option>
+			<option value="demo">demo</option>
+			<option value="lecture">lecture</option>
+			<option value="discussion">discussion</option>
+			<option value="workshop">workshop</option>
+			<option value="panel">panel</option>
+			<option value="show all types">show all types</option>
+		</select>
+		&nbsp;
+	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
+		&nbsp;&nbsp;&nbsp;
+		<?= count($items) ?> proposals shown
+	</td>
+
+	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
+        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
+        	length="20" title="Enter search text here" />
+        <script type="text/javascript">document.voteform.searchtext.focus();</script>
+        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
+	</td>
+	</tr>
+	</table>
+</div>
+
 
 <table id="proposals_vote" width="100%" cellspacing="0" cellpadding="0">
 
