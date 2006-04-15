@@ -83,6 +83,18 @@ function orderBy(newOrder) {
 	return false;
 }
 
+function showAddComment(num) {
+	var commentItem = document.getElementById('addComment'+num);
+	if (commentItem != null) {
+		commentItem.style.display = "";
+	}
+	var triggerItem = document.getElementById('onComment'+num);
+	if (triggerItem != null) {
+		triggerItem.style.display = "none";
+	}
+}
+
+// These are the voting functions
 function setAnchor(num) {
 
 	document.voteform.action += "#anchor"+num;
@@ -349,8 +361,10 @@ while($row=mysql_fetch_assoc($result)) {
 	$topics_items[$row['proposals_pk']][$row['pk']] = $row;
 }
 
-$sql = "select CC.pk, CC.conf_proposals_pk, CC.comment_text, U1.username, U1.email " .
-	"from conf_proposals_comments CC left join users U1 on U1.pk = CC.users_pk " .
+// now bring in the comments
+$sql = "select CC.pk, CC.conf_proposals_pk, CC.comment_text, CC.date_created, " .
+	"U1.username, U1.email from conf_proposals_comments CC " .
+	"left join users U1 on U1.pk = CC.users_pk " .
 	"where CC.confID like '$CONF_ID' order by CC.conf_proposals_pk";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $comments_items = array();
@@ -477,7 +491,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='border-right:1px dotted #ccc;'>
+	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;'>
 		<a name="anchor<?= $pk ?>"></a>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
 		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$VOTE_SCORE[$vi]] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
@@ -490,7 +504,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
 	</td>
 
-	<td>
+	<td width="25%">
 		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
 		<div>
 			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
@@ -498,7 +512,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 		</div>		
 	</td>
 
-	<td style="border-bottom:1px solid black;" rowspan="2">
+	<td style="border-bottom:1px solid black;" rowspan="2" width="40%">
 		<div class="description"><strong>Abstract:</strong><br/><?= $item['abstract'] ?><br/><br/></div>
 		<?php if ($item['URL']) { /* a project URL was provided */
 			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
@@ -517,7 +531,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 	    </div>
 	</td>	
 
-	<td style="border-bottom:1px solid black;" rowspan="2">
+	<td style="border-bottom:1px solid black;" rowspan="2" width="25%">
 	<?php if ($item['type']=='demo') {  /* only non-demo types use the following data */ ?>
 		n/a:  demo
 	<?php } else {
@@ -556,26 +570,31 @@ foreach ($items as $item) { // loop through all of the proposal items
 	<td colspan="2" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
 		<div>
 			Reviewer Comments (<?= count($item['comments']) ?>):
-			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes">Save</a>
-			<textarea name="cmnt<?= $pk ?>" cols="40" rows="3"></textarea><br/>
+			<a id="onComment<?= $pk ?>" href="<?= $_SERVER['PHP_SELF'] ?>" onClick="showAddComment('<?= $pk ?>');return false;" title="Reveal a comment box so you can enter comments">Add Comment</a>
+			<br/>
 <?php
 	if (!empty($item['comments'])) {
 		$cline = 0;
 		foreach($item['comments'] as $comment) {
 			$cline++;
 			$lineclass = "evenrow";
-			if (($cline+($line % 2)) % 2) { $lineclass = "evenrow"; } else { $lineclass = "oddrow"; }
+			if (($cline+($line % 2)) % 2 == 0) { $lineclass = "evenrow"; } else { $lineclass = "oddrow"; }
 			$short_comment = $comment['comment_text'];
-			if (strlen($short_comment) > 53) {
-				$short_comment = substr($short_comment,0,50) . "...";
+			if (strlen($short_comment) > 45) {
+				$short_comment = substr($short_comment,0,42) . "...";
 			}
 			echo "<div style='width:100%;font-size:8pt;' class='$lineclass'>" .
-				"&nbsp;<label title='$comment[comment_text]'>" .
+				"&nbsp;<label title='Entered by $comment[username] on " .
+				date($DATE_FORMAT,strtotime($comment['date_created']))."'>" .
 				"<em><a href='mailto:$comment[email]'>$comment[username]</a></em>" .
-				" - $short_comment</label></div>";
+				" - <label title='$comment[comment_text]'>$short_comment</label></div>";
 		}
 	}
 ?>
+			<div id="addComment<?= $pk ?>" style="display:none;">
+			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes">Save New Comment</a><br/>
+			<textarea name="cmnt<?= $pk ?>" cols="40" rows="3"></textarea>
+			</div>
 		</div>
 	</td>
 </tr>

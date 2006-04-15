@@ -47,6 +47,7 @@ CREATE TABLE conf_proposals (
 
 CREATE TABLE conf_proposals_vote ( 
     pk						int(10) AUTO_INCREMENT NOT NULL,
+    date_created			timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     users_pk				int(10) NOT NULL,
     conf_proposals_pk		int(10) NOT NULL,
     vote					int(2) NOT NULL,
@@ -56,6 +57,7 @@ CREATE TABLE conf_proposals_vote (
 
 CREATE TABLE conf_proposals_comments ( 
     pk						int(10) AUTO_INCREMENT NOT NULL,
+    date_created			timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     users_pk				int(10) NOT NULL,
     conf_proposals_pk		int(10) NOT NULL,
     comment_text			text NOT NULL,
