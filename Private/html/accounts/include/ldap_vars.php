@@ -30,4 +30,19 @@ $LDAP_READ_PW = "ironchef";
 $LDAP_TEST_DN = "uid=test,ou=users,dc=sakaiproject,dc=org";
 $LDAP_TEST_PW = "ironchef";
 // TODO - make the passwords more secure
+
+// Load LDAP module
+if ($USE_LDAP && !extension_loaded('ldap')) {
+	if (!dl('ldap.so')) {
+		die("Could not enable LDAP library!");
+	}
+}
+
+// Load the openssl module
+if (!extension_loaded('openssl')) {
+	if (!dl('openssl.so')) {
+		die("Could not enable openssl library!");
+	}
+}
+
 ?>
