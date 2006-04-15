@@ -863,10 +863,8 @@ class User {
 				}
 
 				$itemCount = ldap_count_entries(getDS(), $sr);
-				echo "count: $itemCount <br/>";
 				if ($count) {
 					// only return the count
-					echo "returning count: $itemCount <br/>";
 					$this->searchResults['count'] += $itemCount;
 					$this->searchResults['ldap'] = $itemCount;
 					return true;
