@@ -40,13 +40,6 @@ function ldapConnect() {
 	// and not reconnect if we are already connected - faster in theory
 	global $LDAP_SSL, $LDAP_DS, $LDAP_SERVER, $LDAP_PORT, $LDAPS_SERVER;
 
-	// attempt to enable the LDAP support if not already there
-	if (!extension_loaded('ldap')) {
-		if (!dl('ldap.so')) {
-			die("No LDAP library support enabled on this PHP server");
-		}
-	}
-	
 	if (!isset($LDAP_DS)) {
 		if ($LDAP_SSL) { // use secure connection as specified
 			$LDAP_DS = ldap_connect($LDAPS_SERVER) or die ("CRITICAL SSL LDAP CONNECTION FAILURE"); // ssl connection
@@ -870,8 +863,10 @@ class User {
 				}
 
 				$itemCount = ldap_count_entries(getDS(), $sr);
+				echo "count: $itemCount <br/>";
 				if ($count) {
 					// only return the count
+					echo "returning count: $itemCount <br/>";
 					$this->searchResults['count'] += $itemCount;
 					$this->searchResults['ldap'] = $itemCount;
 					return true;

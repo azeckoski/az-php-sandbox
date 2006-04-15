@@ -23,7 +23,7 @@ elseif ($ENVIRONMENT == "test") {
 	$SYSTEM_NAME = "Sakai WebTest";
 	$SERVER_NAME = "https://sakaitest.org";
 	$USE_LDAP = true; // false=no ldap
-	$LDAP_SSL = true; // false=no SSL
+	$LDAP_SSL = false; // false=no SSL
 
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
@@ -32,7 +32,7 @@ elseif ($ENVIRONMENT == "prod") {
 	// Set needed system variables
 	$SYSTEM_NAME = "Sakai Web";
 	$SERVER_NAME = "https://sakaiproject.org";
-	$USE_LDAP = false; // false=no ldap
+	$USE_LDAP = true; // false=no ldap
 	$LDAP_SSL = false; // false=no SSL
 
 	$HELP_EMAIL = "sakaiproject_webmaster@umich.edu";
@@ -59,24 +59,13 @@ $LOGIN_PAGE = "login.php";
 $LOGOUT_PAGE = "logout.php";
 
 
-// Load LDAP module
-if ($USE_LDAP && !extension_loaded('ldap')) {
-	if (!dl('ldap.so')) {
-		die("Could not enable LDAP library!");
-	}
-}
 // Load the GD module (for images)
 if (!extension_loaded('gd')) {
 	if (!dl('gd.so')) {
 		die("Could not enable GD library!");
 	}
 }
-// Load the openssl module
-if (!extension_loaded('openssl')) {
-	if (!dl('openssl.so')) {
-		die("Could not enable openssl library!");
-	}
-}
+
 
 // GLOBAL functions
 
