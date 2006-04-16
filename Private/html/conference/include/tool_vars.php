@@ -44,6 +44,19 @@ $VOTE_SCORE = array("2", "1", "0");
 $VOTE_OPEN_DATE = "2006/04/12 8:00";
 $VOTE_CLOSE_DATE = "2006/04/22 5:00";
 
+// conference attendee reports
+if ($ENVIRONMENT == "prod") {
+	$CONF_REPORT_TO = "hardin@umich.edu,wendemm@gmail.com,mmiles@umich.edu";
+	$CONF_REPORT_CC = "shardin@umich.edu";
+} elseif ($ENVIRONMENT == "test") {
+	// TESTING
+	$CONF_REPORT_TO = "shardin@umich.edu";
+	$CONF_REPORT_CC = "aaronz@vt.edu";
+} else { // assume dev environment
+	$CONF_REPORT_TO = "aaronz@vt.edu";
+	$CONF_REPORT_CC = "aaron@vt.edu";
+}
+
 // tool functions
 
 
