@@ -45,7 +45,7 @@ if ($ENVIRONMENT == "prod") {
 	$ROUND_SWITCH_DATE = "2006/03/06 1:00";
 	$ROUND_CLOSE_DATE = "2006/03/23 6:00";	
 
-} elseif ($ENVIRONMENT == "preprod") {
+} elseif ($ENVIRONMENT == "test") {
 	// TESTING DATES
 	$ROUND_OPEN_DATE = "2006/02/01 11:00";
 	$ROUND_SWITCH_DATE = "2006/03/06 1:00";
