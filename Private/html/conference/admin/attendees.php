@@ -108,11 +108,11 @@ if ($_REQUEST["export"] && $allowed) {
 	header("Expires: 0");
 
 	$line = 0;
-	while ($item = ) {
+	while ($item = mysql_fetch_assoc($result)) {
 		$line++;
 		if ($line == 1) {
 			echo "\"Institutions Export:\",\n";
-			echo join(',', $fields) . "\n"; // add header line
+			print join(',', array_keys($item)) . "\n"; // add header line
 		}
 
 		$exportRow = array();
