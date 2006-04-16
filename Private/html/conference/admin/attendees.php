@@ -86,16 +86,47 @@ $start_item = $limitvalue + 1;
 $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
-// the main user fetching query
-$users_sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, C1.*, I1.name as institution" .
+// the main fetching query
+$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, C1.*, I1.name as institution" .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
-//print "SQL=$users_sql<br/>";
-$result = mysql_query($users_sql) or die('User query failed: ' . mysql_error());
+//print "SQL=$sql<br/>";
+$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $items_displayed = mysql_num_rows($result);
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $DATE_FORMAT = "M d, Y h:i A";
+
+
+// Do the export as requested by the user
+if ($_REQUEST["export"] && $allowed) {
+	$date = date("Ymd-Hi",time());
+	$filename = "conf_attendees-" . $date . ".csv";
+	header("Content-type: text/x-csv");
+	header("Content-disposition: attachment; filename=$filename\n\n");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0");
+
+	$line = 0;
+	while ($item = ) {
+		$line++;
+		if ($line == 1) {
+			echo "\"Institutions Export:\",\n";
+			echo join(',', $fields) . "\n"; // add header line
+		}
+
+		$exportRow = array();
+		foreach ($fields as $name) {
+			$value = str_replace("\"", "\"\"", $item[$name]); // fix for double quotes
+			$exportRow[] = '"' . $value . '"'; // put quotes around each item
+		}
+		echo join(',', $exportRow) . "\n";
+	}
+	echo "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
+
+	exit;
+} // END EXPORT
+
 
 // set header links
 $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
