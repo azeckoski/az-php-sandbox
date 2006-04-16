@@ -436,7 +436,7 @@ foreach ($items as $item) {
 <td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
 <!-- <td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>-->
 <td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a> </td>
-<td>Abstract&nbsp;/&nbsp;Description&nbsp;/&nbsp;Speakers</td>
+<td>Abstract&nbsp;/&nbsp;Description&nbsp;/&nbsp;Speakers&nbsp;/&nbsp; <a href="javascript:orderBy('type');">Format</a></td>
 <!-- <td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>-->
 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
 </tr>
