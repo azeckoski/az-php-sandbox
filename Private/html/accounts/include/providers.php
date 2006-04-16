@@ -529,7 +529,7 @@ class User {
 /*
  * CREATE functions
  */
-	public function create() {
+	public function create($data_source="") {
 		global $USE_LDAP;
 		$this->username = strtolower($this->username);
 
@@ -546,7 +546,7 @@ class User {
 		return $this->createDB(); // create the DB entry always
 	}
 
-	private function createLDAP() {
+	public function createLDAP() {
 		global $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 
 		// write the values to LDAP
@@ -577,7 +577,11 @@ class User {
 				$info["o"] = $this->institution;
 				$info["primaryrole"]=$this->primaryRole;
 				$info["secondaryrole"]=$this->secondaryRole;
-				$info["postaladdress"]=$this->address;
+				$info["postaladdress"]=trim($this->address);
+				if (is_utf8($this->address)) {
+					// not sure why this is needed
+					$info["postaladdress"] = utf8_encode(trim($this->address));
+				}
 				$info["l"]=$this->city;
 				$info["st"]=$this->state;
 				$info["postalcode"]=$this->zipcode;
@@ -649,7 +653,7 @@ class User {
 		return false;
 	}
 
-	private function createDB() {
+	public function createDB() {
 		// check to see if the user already exists
 		$checksql = "SELECT pk from users where pk='$this->pk' or " .
 			"username='$this->username' or email='$this->email'";
@@ -1107,20 +1111,20 @@ class User {
 
 				// prepare data array
 				$info = array();
-				$info["cn"]="$this->firstname $this->lastname";
-				$info["givenname"]=$this->firstname;
-				$info["sn"]=$this->lastname;
+				$info["cn"]=utf8_encode("$this->firstname $this->lastname");
+				$info["givenname"]=utf8_encode($this->firstname);
+				$info["sn"]=utf8_encode($this->lastname);
 				$info["sakaiuser"]=$this->username;
 				$info["mail"]=$this->email;
-				$info["o"]=$this->institution;
+				$info["o"]=utf8_encode($this->institution);
 				$info["iid"]=$this->institution_pk;
 				$info["primaryrole"]=$this->primaryRole;
 				$info["secondaryrole"]=$this->secondaryRole;
-				$info["postaladdress"]=$this->address;
-				$info["l"]=$this->city;
-				$info["st"]=$this->state;
+				$info["postaladdress"] = utf8_encode(trim($this->address));
+				$info["l"]=utf8_encode($this->city);
+				$info["st"]=utf8_encode($this->state);
 				$info["postalcode"]=$this->zipcode;
-				$info["c"]=$this->country;
+				$info["c"]=utf8_encode($this->country);
 				$info["telephonenumber"]=$this->phone;
 				$info["facsimiletelephonenumber"]=$this->fax;
 
@@ -1150,6 +1154,7 @@ class User {
 					return true;
 				} else {
 					$this->Message = "Failed to modify user in LDAP (".ldap_error(getDS()).":".ldap_errno(getDS()).")";
+					echo "<pre>",print_r($info),"</pre><br/>";
 				}
 				
 			} else {

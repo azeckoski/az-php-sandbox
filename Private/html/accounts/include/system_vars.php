@@ -117,6 +117,11 @@ function generate_roles_dropdown($role="") {
  	return $output;
 }
 
+// check if an item is utf-8 encoded
+function is_utf8($string) {
+	if (mb_detect_encoding($string) == "UTF-8") { return true; }
+	return false;
+}
 
 // $UID should be a user ID, $str will be written
 function writeLog($tool,$UID, $str) {

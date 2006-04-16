@@ -56,7 +56,7 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 // show all
 if ($_REQUEST["showall"]) { $searchtext = "*"; }
 
-$totalItems = $opInst->getInstsBySearch("*","","pk",true); // get count of items
+$totalItems = $opInst->getInstsBySearch("*","","pk",true,"db"); // get count of items
 $output = "";
 $items = array();
 if ($searchtext) { // no results without doing a search
@@ -80,7 +80,7 @@ if ($_REQUEST["ldif"] && $allowed) {
 	$date = date("Ymd-Hi",time());
 	$filename = "institutions-" . $date . ".ldif";
 	header("Content-type: text/plain; charset=utf-8");
-	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Content-disposition: attachment; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	header("Expires: 0");
 
@@ -90,9 +90,9 @@ if ($_REQUEST["ldif"] && $allowed) {
 
 	echo "# LDIF export of institutions on $date - includes $items_count items\n";
 	echo "# Use the following command to insert this export into ldap:\n";
-	echo "# ldapadd -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
+	echo "# ldapadd -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -c -f $filename\n";
 	echo "# Use the following command to modify ldap using this export:\n";
-	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f $filename\n";
+	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -c -f $filename\n";
 	echo "\n";
 	foreach ($allItems as $itemrow) {
 		echo "# Institution: $itemrow[name]\n";
@@ -118,7 +118,7 @@ if ($_REQUEST["export"] && $allowed) {
 	$date = date("Ymd-Hi",time());
 	$filename = "institutions-" . $date . ".csv";
 	header("Content-type: text/x-csv");
-	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Content-disposition: attachment; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	header("Expires: 0");
 

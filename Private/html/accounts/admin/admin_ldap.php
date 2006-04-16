@@ -44,37 +44,78 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
-function orderBy(newOrder) {
-	if (document.adminform.sortorder.value == newOrder) {
-		document.adminform.sortorder.value = newOrder + " desc";
-	} else {
-		document.adminform.sortorder.value = newOrder;
-	}
-	document.adminform.submit();
-	return false;
-}
-
-function itemdel(itempk) {
-	var response = window.confirm("Are you sure you want to remove this user (id="+itempk+")?");
-	if (response) {
-		document.adminform.itemdel.value = itempk;
-		document.adminform.submit();
-		return false;
-	}
-}
 // -->
 </script>
 <?php include $ACCOUNTS_PATH.'include/header.php'; ?>
 
-<?= $Message ?>
-
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
+		echo $Message;
 		include $ACCOUNTS_PATH.'include/footer.php';
 		exit;
 	}
 ?>
+
+<?php
+if ($_REQUEST['usersLdapToDb']) {
+	// get all ldap item data and write to the database
+} else if ($_REQUEST['usersDbToLdap']) {
+	// get all database items and write to the ldap
+	set_time_limit(600); // timeout increased to 10 minutes
+
+	$search = "*";
+	if ($_REQUEST['username']) {
+		$search = "username=".$_REQUEST['username'];
+	}
+
+	$allItems = $User->getUsersBySearch($search,"username","*",false,"db");
+	$items_count = count($allItems);
+
+	if ($_REQUEST['username']) {
+		$Message = "Updating Ldap user from the Database: ".$_REQUEST['username']."<br/>";
+	} else {
+		$Message = "Updating Ldap users from the Database ($items_count items)...<br/>";
+	}
+	$errors = 0;
+	foreach ($allItems as $item) {
+		$opUser = new User(); // create empty user to write the data
+		if($opUser->updateFromArray($item)) {
+			if($opUser->createLdap()) {
+				$Message .= "Created/Updated user in LDAP: $opUser->username <br/>";
+			} else {
+				$Message .= "<strong>Failed to update ldap user: " .
+						"$item[username]: $opUser->Message </strong><br/>";
+				//echo "<pre>",print_r($opUser->toArray()),"</pre><br/>";
+				$errors++;
+			}
+		} else {
+			$Message .= "<strong>Failed to update user from array: $item[username] </strong><br/>";
+			$errors++;
+		}
+	}
+	$Message .= "Ldap updating Complete! $errors errors.<br/><br/>";
+}
+?>
+
+<?= $Message ?>
+
+<strong><?= $TOOL_NAME ?> Admin Operations</strong><br/>
+<div style="margin:8px;"></div>
+
+<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
+
+Username: <input type="input" name="username" size="30" value="<?= $_REQUEST['username'] ?>"/> 
+<em>optional</em><br/>
+<em>allows you to work with a single user - leaving blank = all users</em><br/>
+<br/>
+
+<input type="submit" name="usersDbToLdap" value="Users DB to LDAP"/> 
+- This will update the ldap users from the database<br/>
+<i style="font-size:.9em;">This is very slow and should never be used unless you know what you are doing!</i><br/>
+<br/>
+
+</form>
 
 <a href="<?= $ACCOUNTS_URL ?>/ldapadmin/index.php">Access the phpLDAPAdmin tool</a><br/>
 

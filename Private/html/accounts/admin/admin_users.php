@@ -52,7 +52,7 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 // show all
 if ($_REQUEST["showall"]) { $searchtext = "*"; }
 
-$totalItems = $User->getUsersBySearch("*","","pk",true); // get count of users
+$totalItems = $User->getUsersBySearch("*","","pk",true,"db"); // get count of users
 $output = "";
 $items = array();
 if ($searchtext) { // no results without doing a search
@@ -79,12 +79,13 @@ if ($_REQUEST["export"] && $allowed) {
 	$date = date("Ymd-Hi",time());
 	$filename = "institutions-" . $date . ".csv";
 	header("Content-type: text/x-csv");
-	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Content-disposition: attachment; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	header("Expires: 0");
 
-	$exportItems = $opInst->getInstsBySearch($search,$sortorder,"*");
-	$fields = $opInst->getFields();
+	$exportItems = $User->getUsersBySearch($search,$sortorder,"*");
+	$items_count = count($exportItems);
+	$fields = $User->getFields();
 
 	$line = 0;
 	foreach ($exportItems as $item) {
@@ -112,19 +113,19 @@ if ($_REQUEST["ldif"] && $allowed) {
 	$date = date("Ymd-Hi",time());
 	$filename = "users-" . $date . ".ldif";
 	header("Content-type: text/plain; charset=utf-8");
-	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Content-disposition: attachment; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	header("Expires: 0");
 
-	$allItems = $User->getUsersBySearch("*","pk","*");
+	$allItems = $User->getUsersBySearch("*","pk","*",false,"db");
 	$items_count = count($allItems);
 
 	echo "# LDIF export of users on $date - includes $items_count items\n";
 	echo "# Note that password CAN NOT transfer so users will have to reset them\n";
 	echo "# Use the following command to insert this export into ldap:\n";
-	echo "# ldapadd -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f -c $filename\n";
+	echo "# ldapadd -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -c -f $filename\n";
 	echo "# Use the following command to modify ldap using this export:\n";
-	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -f -c $filename\n";
+	echo "# ldapmodify -x -D \"cn=Manager,dc=sakaiproject,dc=org\" -W -c -f $filename\n";
 	echo "\n";
 	foreach ($allItems as $itemrow) {
 		// generate LDIF export, do UTF-8 encoding as needed
@@ -178,8 +179,8 @@ if ($_REQUEST["ldif"] && $allowed) {
 		if ($itemrow['phone']) { echo "telephoneNumber: $itemrow[phone]\n"; }
 		if ($itemrow['fax']) { echo "facsimileTelephoneNumber: $itemrow[fax]\n"; }
 		if ($itemrow['address']) {
-			$itemrow['address'] = preg_replace("[\r\n]","\n",trim($itemrow['address']));
-			echo "postalAddress: ".base64_encode($itemrow['address'])."\n";
+			$itemrow['address'] = preg_replace("/[\r\n]/s","\n",trim($itemrow['address']));
+			echo "postalAddress:: ".base64_encode($itemrow['address'])."\n";
 		}
 		if ($itemrow['city']) {
 			if (is_utf8($itemrow['city']))

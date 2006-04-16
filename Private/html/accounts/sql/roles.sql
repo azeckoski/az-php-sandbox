@@ -9,7 +9,7 @@ CREATE TABLE roles (
 INSERT INTO roles(pk, date_created, date_modified, role_name, role_order)
   VALUES(1, '2006-03-24 14:25:02.0', '2006-03-24 14:25:02.0', 'Developer/Programmer', 1);
 INSERT INTO roles(pk, date_created, date_modified, role_name, role_order)
-  VALUES(2, '2006-03-24 14:25:02.0', '2006-03-24 14:25:02.0', 'UI Developer', 2);
+  VALUES(2, '2006-03-24 14:25:02.0', '2006-03-24 14:25:02.0', 'UI/Interaction Designer', 2);
 INSERT INTO roles(pk, date_created, date_modified, role_name, role_order)
   VALUES(3, '2006-03-24 14:25:02.0', '2006-03-24 14:25:02.0', 'User Support', 3);
 INSERT INTO roles(pk, date_created, date_modified, role_name, role_order)
