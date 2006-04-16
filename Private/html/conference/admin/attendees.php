@@ -232,6 +232,7 @@ function orderBy(newOrder) {
 <td><a href="javascript:orderBy('email');">Email</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
 <td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
+<td>#</td>
 </tr>
 
 <?php
@@ -239,6 +240,7 @@ function orderBy(newOrder) {
 //TO DO  report on the number of registrations each day (for Joseph's projections') 
 
 $line = 0;
+$row_num=$total_items;
 while($row=mysql_fetch_assoc($result)) {
 	$line++;
 	
@@ -270,9 +272,11 @@ while($row=mysql_fetch_assoc($result)) {
 	<td class="line"><?= $row["institution"] ?></td>
 <?php 	} ?>
 	<td class="line" align="center"><?= date($DATE_FORMAT,strtotime($row["date_created"])) ?></td>
+	<td class="line"><?= $row_num ?> </td>
 </tr>
 
-<?php } ?>
+<?php $row_num--;  
+}   ?>
 
 </table>
 </form>
