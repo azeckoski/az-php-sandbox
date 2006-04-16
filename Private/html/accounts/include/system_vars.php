@@ -16,7 +16,7 @@ if ($ENVIRONMENT == "dev") {
 	$LDAP_SSL = false; // false=no SSL
 
 	$HELP_EMAIL = "aaronz@vt.edu";
-	$MAIL_SERVER = "mail.vt.edu";
+	$MAIL_SERVER = "smtp.vt.edu";
 }
 elseif ($ENVIRONMENT == "test") {
 	// Set needed system variables
