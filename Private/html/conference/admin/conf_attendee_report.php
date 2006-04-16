@@ -56,12 +56,17 @@ ob_end_clean(); // purge the buffer
 
 // create a file if requested
 if($_REQUEST['gen'] == "file" || $_REQUEST['gen'] == "both") {
-	$filePath = $ACCOUNTS_PATH."admin/conf_exports/";
-	$filename = $filePath.$filename;
-	$fhandle = fopen($filename,"w");
-	if (!$fhandle) { echo "ERROR: Could not open file: $filename <br/>"; }
-	if (!fwrite($fileContent)) { echo "ERROR: Could not write contents to file<br/>"; }
-	fclose($fhandle);
+	$file = $CONF_REPORT_PATH."/".$filename;
+	$fhandle = fopen($file,"w");
+	if (!$fhandle) { echo "ERROR: Could not open file: $file <br/>"; }
+	else {
+		if (!fwrite($fhandle, $fileContent)) {
+			echo "ERROR: Could not write contents to file<br/>";
+		} else {
+			echo "Wrote new report file: $file<br/>";
+		}
+		fclose($fhandle);
+	}
 }
 
 if($_REQUEST['gen'] == "email" || $_REQUEST['gen'] == "both") {
