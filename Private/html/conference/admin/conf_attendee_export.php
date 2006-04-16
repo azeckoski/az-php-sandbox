@@ -7,31 +7,41 @@
  */
 ?>
 <?php
-	$date = date("Ymd-Hi",time());
-	$filename = "institutions-" . $date . ".csv";
-	header("Content-type: text/x-csv");
-	header("Content-disposition: attachment; filename=$filename\n\n");
-	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-	header("Expires: 0");
+require_once '../include/tool_vars.php';
 
-	$exportItems = $opInst->getInstsBySearch($search,$sortorder,"*");
-	$fields = $opInst->getFields();
+require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 
-	$line = 0;
-	foreach ($exportItems as $item) {
-		$line++;
-		if ($line == 1) {
-			echo "\"Conference Attendees Export:\",,\"$CONF_ID\"\n";
-			print join(',', array_keys($item)) . "\n"; // add header line
-		}
+$sql = "select U1.firstname, U1.lastname, U1.email, I1.name as institution, " .
+	"U1.institution_pk, C1.* from users U1 " .
+	"join conferences C1 on U1.pk=C1.users_pk " .
+	"left join institution I1 on U1.institution_pk=I1.pk " .
+	"where confID='$CONF_ID' order by date_created desc";
+//print "SQL=$sql<br/>";
+$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
+$items_count = mysql_num_rows($result);
 
-		foreach ($item as $name=>$value) {
-			$value = str_replace("\"", "\"\"", $value); // fix for double quotes
-			$item[$name] = '"' . trim($value) . '"'; // put quotes around each item
-		}
-		echo join(',', $item) . "\n";
+$date = date("Ymd-Hi",time());
+$filename = "institutions-" . $date . ".csv";
+
+$filePath = $ACCOUNTS_PATH."admin/conf_exports/";
+$filename = $filePath.$filename;
+$fhandle = fopen($filename,"w");
+
+$line = 0;
+while ($item = mysql_fetch_assoc($result)) {
+	$line++;
+	if ($line == 1) {
+		fwrite("\"Conference Attendees Export:\",,\"$CONF_NAME\",\"$CONF_ID\"\n");
+		fwrite(join(',', array_keys($item)) . "\n"); // add header line
 	}
-	echo "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
 
-	exit;
+	foreach ($item as $name=>$value) {
+		$value = str_replace("\"", "\"\"", $value); // fix for double quotes
+		$item[$name] = '"' . trim($value) . '"'; // put quotes around each item
+	}
+	fwrite(join(',', $item) . "\n");
+}
+fwrite("\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n");
+
+fclose($fhandle);
 ?>

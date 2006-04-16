@@ -36,7 +36,7 @@ $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " where (U1.username like '%$searchtext%' or U1.firstname like '%$searchtext%' or " .
+	$sqlsearch = " and (U1.username like '%$searchtext%' or U1.firstname like '%$searchtext%' or " .
 		"U1.lastname like '%$searchtext%' or U1.email like '%$searchtext%' or I1.name like '%$searchtext%') ";
 }
 
@@ -47,7 +47,7 @@ $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all items
 $from_sql = " from users U1 join conferences C1 on U1.pk=C1.users_pk " .
-		"left join institution I1 on U1.institution_pk=I1.pk " ;
+		"left join institution I1 on U1.institution_pk=I1.pk where confID='$CONF_ID' " ;
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
@@ -87,7 +87,8 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main fetching query
-$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, C1.*, I1.name as institution" .
+$sql = "select U1.firstname, U1.lastname, U1.email, " .
+		"I1.name as institution, U1.institution_pk, C1.* " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
@@ -136,7 +137,7 @@ $EXTRA_LINKS =
 	"</span>";
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
