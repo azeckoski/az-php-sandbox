@@ -170,30 +170,59 @@ function orderBy(newOrder) {
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
+		<td nowrap="y"><b style="font-size:1.1em;">Info:</b></td>
+		<td nowrap="y">
+			<strong>Conference:</strong> <?= $CONF_NAME ?>
+			(<?= date($SHORT_DATE_FORMAT,strtotime($CONF_START_DATE)) ?> - <?= date($SHORT_DATE_FORMAT,strtotime($CONF_END_DATE)) ?>)
+		</td>
+		<td nowrap="y" align="right">
+<?php
+	$count_sql = "SELECT count(*) FROM conferences where activated = 'Y'";
+	$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
+	$row = mysql_fetch_array($count_result);
+	$total_activated = $row[0];
 
-	<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
-	<td nowrap="y">
-		<input type="hidden" name="page" value="<?= $page ?>" />
-		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
-		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
-		<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
-		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page" />
-		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
-		<span class="keytext">&nbsp;-&nbsp;
-		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
-		</span>&nbsp;&nbsp;
-		<input class="filter" type="submit" name="show_all" value="Show All" />
-	</td>
-
-	<td nowrap="y" align="right">
-		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
-        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
-        	size="20" title="Enter search text here" />
-        <script type="text/javascript">document.adminform.searchtext.focus();</script>
-        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
-	</td>
-
+	$count_sql = "SELECT count(*) FROM conferences where date_created > curdate()-INTERVAL 7 DAY";
+	$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
+	$row = mysql_fetch_array($count_result);
+	$total_week = $row[0];
+?>
+			<strong>Attendees:</strong> <?= $total_activated ?>
+			<span style="font-size:.9em;">
+			(<?= $total_items ?> total, <?= $total_week ?> in the past week)
+			</span>
+		</td>
 	</tr>
+
+	<tr>
+		<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
+		<td nowrap="y">
+			<input type="hidden" name="page" value="<?= $page ?>" />
+			<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
+			<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
+			<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
+			<input class="filter" type="submit" name="paging" value="next" title="Go to the next page" />
+			<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
+			<span class="keytext">&nbsp;-&nbsp;
+			Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
+			</span>&nbsp;&nbsp;
+			<strong>Show:</strong> 
+<?php if ($_REQUEST["show_all"]) { ?>
+			<input class="filter" type="submit" name="num_limit" value="25" />
+<?php } else { ?>
+			<input class="filter" type="submit" name="show_all" value="All" />
+<?php } ?>
+		</td>
+	
+		<td nowrap="y" align="right">
+			<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
+	        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
+	        	size="20" title="Enter search text here" />
+	        <script type="text/javascript">document.adminform.searchtext.focus();</script>
+	        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
+		</td>
+	</tr>
+
 	</table>
 </div>
 
@@ -220,8 +249,8 @@ while($row=mysql_fetch_assoc($result)) {
 	$rowstyle = "";
 	if ($row["activated"] == 'N') {
 		$rowstyle = " style = 'color:red;' ";
-	} else if ($row["institution"]) {
-		$rowstyle = " style = 'color:#336699;' ";
+	} else if ($row["institution_pk"] == "1") {
+		$rowstyle = " style = 'color:#CC0099;' ";
 	}
 	
 	$linestyle = "oddrow";

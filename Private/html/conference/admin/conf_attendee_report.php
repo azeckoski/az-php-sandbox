@@ -7,6 +7,24 @@
  */
 ?>
 <?php
+/*
+ * You will want to create a crontab entry like this to generate the reports automatically
+
+# min    hour    dayMonth    monthYear    dayWeek
+# 0-59   0-23    1-31        1-12         0-6 (0=Sunday)
+#
+# Send a daily report on conference attendees (to help Susan)
+00 19 * * * wget https://sakaitest.org/conference/admin/conf_attendee_report.php?gen=email -O conf_report_output
+# Don't forget to turn this off after the conference is over!
+
+ * options for gen are:
+ * file - generate a file in the reports directory (should be ~sakai/Private/reports)
+ * email - send an email to the list of users defined in the tool_vars file ($CONF_REPORT_TO and $CONF_REPORT_CC)
+ * both - generate a file and send an email
+ * 
+ * TODO: maybe make this function only generate a report before the CONF_END_DATE?
+ */
+
 require_once '../include/tool_vars.php';
 
 if (!$_REQUEST['gen']) {
