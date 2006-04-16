@@ -568,27 +568,23 @@ class User {
 
 				// prepare data array
 				$info = array();
-				$info["cn"]="$this->firstname $this->lastname";
-				$info["givenname"]=$this->firstname;
-				$info["sn"]=$this->lastname;
+				$info["cn"]=utf8_encode("$this->firstname $this->lastname");
+				$info["givenname"]=utf8_encode($this->firstname);
+				$info["sn"]=utf8_encode($this->lastname);
 				$info["sakaiuser"]=$this->username;
 				$info["mail"]=$this->email;
-				$info["iid"]="$this->institution_pk";
-				$info["o"] = $this->institution;
+				$info["o"]=utf8_encode($this->institution);
+				$info["iid"]=$this->institution_pk;
 				$info["primaryrole"]=$this->primaryRole;
 				$info["secondaryrole"]=$this->secondaryRole;
-				$info["postaladdress"]=trim($this->address);
-				if (is_utf8($this->address)) {
-					// not sure why this is needed
-					$info["postaladdress"] = utf8_encode(trim($this->address));
-				}
-				$info["l"]=$this->city;
-				$info["st"]=$this->state;
+				$info["postaladdress"] = utf8_encode(trim($this->address));
+				$info["l"]=utf8_encode($this->city);
+				$info["st"]=utf8_encode($this->state);
 				$info["postalcode"]=$this->zipcode;
-				$info["c"]=$this->country;
+				$info["c"]=utf8_encode($this->country);
 				$info["telephonenumber"]=$this->phone;
 				$info["facsimiletelephonenumber"]=$this->fax;
-
+				
 				// only set password if it is not blank
 				if (strlen($this->password) > 0) {
 					$info["userpassword"]=$this->password;
