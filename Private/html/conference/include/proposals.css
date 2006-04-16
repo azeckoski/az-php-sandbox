@@ -35,22 +35,18 @@ textarea {
 	color : #000000;
 }
 
-.saved_red {
-	background-color: #660000;
+.saved_green { 
+	background-color: green;
 	color : #ffffff;
 }
 
-.nowrap {
-	white-space="nowrap";
-}
-	
 .saved_yellow {
 	background-color: yellow;
 	color : #000000;
 }
 
-.saved_green { 
-	background-color: green;
+.saved_red {
+	background-color: #660000;
 	color : #ffffff;
 }
 
@@ -59,4 +55,7 @@ textarea {
 	color : #000000;
 }
 
+.nowrap {
+	white-space: nowrap;
+}
 	

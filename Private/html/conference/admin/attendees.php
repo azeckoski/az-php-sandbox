@@ -111,16 +111,15 @@ if ($_REQUEST["export"] && $allowed) {
 	while ($item = mysql_fetch_assoc($result)) {
 		$line++;
 		if ($line == 1) {
-			echo "\"Institutions Export:\",\n";
+			echo "\"Conference Attendees Export:\",,\"$CONF_NAME\",\"$CONF_ID\"\n";
 			print join(',', array_keys($item)) . "\n"; // add header line
 		}
 
-		$exportRow = array();
-		foreach ($fields as $name) {
-			$value = str_replace("\"", "\"\"", $item[$name]); // fix for double quotes
-			$exportRow[] = '"' . $value . '"'; // put quotes around each item
+		foreach ($item as $name=>$value) {
+			$value = str_replace("\"", "\"\"", $value); // fix for double quotes
+			$item[$name] = '"' . trim($value) . '"'; // put quotes around each item
 		}
-		echo join(',', $exportRow) . "\n";
+		echo join(',', $item) . "\n";
 	}
 	echo "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
 
@@ -129,11 +128,12 @@ if ($_REQUEST["export"] && $allowed) {
 
 
 // set header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-		"<a href='index.php'>Admin:</a> " .
-		"<a href='attendees.php'><strong>Attendees</strong></a>" .
-		"</span>";
-
+$EXTRA_LINKS = 
+	"<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin:</a> " .
+	"<a href='attendees.php'><strong>Attendees</strong></a> - " .
+	"<a href='proposals.php'>Proposals</a> " .
+	"</span>";
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>

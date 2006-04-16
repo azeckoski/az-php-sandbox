@@ -269,7 +269,7 @@ foreach( $Keys as $key)
 		}
 	} else if ($check2 !== false && $check2 == 0 ) {
 		$itemPk = substr($key, 4);
-		$comment = $_POST[$key];
+		$comment = mysql_real_escape_string($_POST[$key]);
 
 		$insert_sql="insert into conf_proposals_comments " .
 			"(users_pk,conf_proposals_pk,comment_text,confID) values " .
@@ -449,12 +449,6 @@ foreach ($items as $item) { // loop through all of the proposal items
 	$pk = $item['pk'];
 	$vote = $item['vote'];
 
-	if ($item['type']=='demo'){
-		$demo++;
-	} else {
-		$presentation++;
-	}
-
 	if (!isset($item['lastname'])) {
 		$item['lastname'] = "<em>unknown user</em>";
 	}
@@ -488,10 +482,22 @@ foreach ($items as $item) { // loop through all of the proposal items
 			default: $tdstyle = " class='saved' ";
 		}
 	}
+
+	if ($item['type']=='demo'){
+		$demo++;
+		$tdstyle = " class='demo' ";
+	} else {
+		$presentation++;
+	}
+
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
 	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;'>
+<?php if($item['type']=='demo') {
+		echo "<strong>Demo:</strong><br/>No voting<br/>on demos";
+	} else {
+?>
 		<a name="anchor<?= $pk ?>"></a>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
 		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$VOTE_SCORE[$vi]] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
@@ -502,6 +508,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 			disabled='y' title="Clear the radio buttons for this item or reset to the saved vote" />
 		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
+<?php } /* end demo check */ ?>
 	</td>
 
 	<td width="25%">

@@ -21,16 +21,15 @@
 	foreach ($exportItems as $item) {
 		$line++;
 		if ($line == 1) {
-			echo "\"Institutions Export:\",\n";
-			echo join(',', $fields) . "\n"; // add header line
+			echo "\"Conference Attendees Export:\",,\"$CONF_ID\"\n";
+			print join(',', array_keys($item)) . "\n"; // add header line
 		}
 
-		$exportRow = array();
-		foreach ($fields as $name) {
-			$value = str_replace("\"", "\"\"", $item[$name]); // fix for double quotes
-			$exportRow[] = '"' . $value . '"'; // put quotes around each item
+		foreach ($item as $name=>$value) {
+			$value = str_replace("\"", "\"\"", $value); // fix for double quotes
+			$item[$name] = '"' . trim($value) . '"'; // put quotes around each item
 		}
-		echo join(',', $exportRow) . "\n";
+		echo join(',', $item) . "\n";
 	}
 	echo "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
 
