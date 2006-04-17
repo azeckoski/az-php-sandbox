@@ -171,28 +171,40 @@ function orderBy(newOrder) {
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
 		<td nowrap="y"><b style="font-size:1.1em;">Info:</b></td>
-		<td nowrap="y">
-			<strong>Conference:</strong> <?= $CONF_NAME ?>
-			(<?= date($SHORT_DATE_FORMAT,strtotime($CONF_START_DATE)) ?> - <?= date($SHORT_DATE_FORMAT,strtotime($CONF_END_DATE)) ?>)
-		</td>
-		<td nowrap="y" align="right">
+		<td nowrap="y" colspan="2">
+			<div style="float:left;">
+				<strong><?= $CONF_NAME ?></strong>
+				(<?= date($SHORT_DATE_FORMAT,strtotime($CONF_START_DATE)) ?> - <?= date($SHORT_DATE_FORMAT,strtotime($CONF_END_DATE)) ?>)
+			</div>
+			<div style="float:right;">
+
 <?php
-	$count_sql = "SELECT count(*) FROM conferences where activated = 'Y'";
+	$count_sql = "SELECT count(*) FROM conferences where activated = 'Y' and confId = '$CONF_ID'";
 	$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
 	$row = mysql_fetch_array($count_result);
 	$total_activated = $row[0];
 
-	$count_sql = "SELECT count(*) FROM conferences where date_created > curdate()-INTERVAL 7 DAY";
+	$count_sql = "SELECT count(*) FROM conferences where date_created > curdate()-INTERVAL 7 DAY and confId = '$CONF_ID'";
 	$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
 	$row = mysql_fetch_array($count_result);
 	$total_week = $row[0];
+
+	$count_sql = "SELECT count(*) from conferences C1 join users U1 on U1.pk = C1.users_pk " .
+			"and institution_pk = '1' where confId = '$CONF_ID'";
+	$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
+	$row = mysql_fetch_array($count_result);
+	$non_members = $row[0];
 ?>
 			<strong>Attendees:</strong> 
-			<label title="number of active registrations (i.e. signed up and paid)"><?= $total_activated ?></label>
+			<label title="number of active registrations\n(i.e. signed up and paid)"><?= $total_activated ?></label>
 			<span style="font-size:.9em;">
-			(<label title="total number of registrations (including those who have not paid yet)"><?= $total_items ?> total</label>, 
-			<label title="registrations in the past 7 days"><?= $total_week ?> in the past week</label>)
+			(<label title="total number of registrations\n(including those who have not paid yet)"><?= $total_items ?> total</label> 
+			{<label style="color:red;" title="non-members that have not paid yet"><?= $total_items - $total_activated ?> inactive</label>},
+			<label title="registrations in the past 7 days"><?= $total_week ?> recent</label>,
+			<label title="members of Sakai partner institutions"><?= $total_items - $non_members ?> members</label> /
+			<label style="color:#990099;" title="not members of Sakai partner institutions"><?= $non_members ?> non-members</label>)
 			</span>
+			</div>
 		</td>
 	</tr>
 
@@ -254,7 +266,7 @@ while($row=mysql_fetch_assoc($result)) {
 	if ($row["activated"] == 'N') {
 		$rowstyle = " style = 'color:red;' ";
 	} else if ($row["institution_pk"] == "1") {
-		$rowstyle = " style = 'color:#CC0099;' ";
+		$rowstyle = " style = 'color:#990099;' ";
 	}
 	
 	$linestyle = "oddrow";
