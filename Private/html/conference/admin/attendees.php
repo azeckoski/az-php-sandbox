@@ -187,9 +187,11 @@ function orderBy(newOrder) {
 	$row = mysql_fetch_array($count_result);
 	$total_week = $row[0];
 ?>
-			<strong>Attendees:</strong> <?= $total_activated ?>
+			<strong>Attendees:</strong> 
+			<label title="number of active registrations (i.e. signed up and paid)"><?= $total_activated ?></label>
 			<span style="font-size:.9em;">
-			(<?= $total_items ?> total, <?= $total_week ?> in the past week)
+			(<label title="total number of registrations (including those who have not paid yet)"><?= $total_items ?> total</label>, 
+			<label title="registrations in the past 7 days"><?= $total_week ?> in the past week</label>)
 			</span>
 		</td>
 	</tr>
