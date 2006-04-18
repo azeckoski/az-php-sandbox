@@ -14,11 +14,13 @@ CREATE TABLE conferences (
   delegate varchar(200) default NULL,
   expectations text,
   activated enum('Y','N') default 'N',
+  arrived timestamp NULL default NULL,
   payeeInfo text,
   transID varchar(100) default NULL,
   PRIMARY KEY  (id)
 )
 
+// alter table conferences add arrived timestamp NULL default NULL;
 
 // new proposals table - conf_proposals
 
