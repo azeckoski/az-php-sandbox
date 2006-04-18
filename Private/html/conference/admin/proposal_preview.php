@@ -11,7 +11,6 @@
 
 
 $PK=$_REQUEST['pk'];
-//echo $PK;
 
 require_once '../include/tool_vars.php';
 
