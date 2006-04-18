@@ -526,8 +526,9 @@ foreach ($items as $item) { // loop through all of the proposal items
 		}
 		
 		if ($item['type']!='demo')  { ?>
-			<div class="description"><strong>Speaker Bio:</strong><br/><?= $item['bio'] ?><br/><br/></div>
-     	<?php } ?>
+		<div class="description"><strong>Description:</strong><br/><a href="<?php echo "proposal_preview" . "?pk=" . $pk; ?> "> [ view full details ]</a><br/><br/></div>
+     	<div class="description"><strong>Speaker Bio:</strong><br/><?= $item['bio'] ?><br/><br/></div>
+ <?php } ?>
      	
 		<div class="description"><strong>Co-Speaker:</strong><br/><?= $item['co_speaker'] ?><br/><br/>
 		 <span style="padding-right: 20px;">	<strong>Format: </strong><?= $item['type'] ?></span>
