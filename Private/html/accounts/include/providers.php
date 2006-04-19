@@ -603,15 +603,13 @@ class User {
 				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare user dn, find next available uid
-				if (!$uid = nextAutoIncrement("users")) {
-					$this->Message = "Could not get a valid uid for new user ($uid)";
-					return false;
+				$uid = $this->pk; // use the current pk if one is set
+				if($uid <= 0) {
+					if (!$uid = nextAutoIncrement("users")) {
+						$this->Message = "Could not get a valid uid for new user ($uid)";
+						return false;
+					}
 				}
-//				$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
-//				$uidinfo = ldap_get_entries(getDS(), $sr);
-//				$uidinfo = nestedArrayNumSortReverse($uidinfo,"uid");
-//				$uid = $uidinfo[0]['uid'][0] + 1;
-//				ldap_free_result($sr);
 
 				// DN FORMAT: uid=#,ou=users,dc=sakaiproject,dc=org
 				$user_dn = "uid=$uid,ou=users,dc=sakaiproject,dc=org";
@@ -1752,10 +1750,14 @@ class Institution {
 				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare inst dn, find next available iid
-				if (!$id = nextAutoIncrement("institution")) {
-					$this->Message = "Could not get a valid iid for new item ($id)";
-					return false;
+				$id = $this->pk; // use the current pk if one is set
+				if($id <= 0) {
+					if (!$id = nextAutoIncrement("institution")) {
+						$this->Message = "Could not get a valid iid for new item ($id)";
+						return false;
+					}
 				}
+
 //				$sr=ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", "iid=*", array("iid"));
 //				ldap_sort(getDS(), $sr, 'iid');
 //				$idinfo = ldap_get_entries(getDS(), $sr);
