@@ -63,7 +63,7 @@ if ($searchtext) { // no results without doing a search
 	$returnItems = "pk,name,type,rep_pk,repvote_pk";
 	$search = $searchtext;
 	if (strpos($searchtext,"=") === false) { // there is not a specific search
-		$search = "name=$searchtext,type=$searchtext";
+		$search = "name=*$searchtext*,type=$searchtext*";
 	}
 	$items = $opInst->getInstsBySearch($search,$sortorder,$returnItems);
 	$output = "Returned ". count($items)." items out of " . $totalItems['count'];
