@@ -59,7 +59,8 @@ if ($searchtext) { // no results without doing a search
 	$returnItems = "pk,username,fullname,email,institution,userStatus,sakaiPerm";
 	$search = $searchtext;
 	if (strpos($searchtext,"=") === false) { // there is not a specific search
-		$search = "username=$searchtext*,firstname=$searchtext*,lastname=$searchtext*,email=$searchtext*,institution=*$searchtext*";
+		$search = "username=$searchtext*,firstname=$searchtext*,lastname=$searchtext*," .
+				"email=$searchtext*,institution=*$searchtext*,fullname=$searchtext";
 	}
 	$items = $User->getUsersBySearch($search,$sortorder,$returnItems);
 	$output = "Number of entries returned: " . count($items);
