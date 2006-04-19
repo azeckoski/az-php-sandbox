@@ -603,12 +603,8 @@ class User {
 				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare user dn, find next available uid
-				$sql = "SELECT MAX(pk) as uid FROM users FOR UPDATE";
-				$result = mysql_query($sql) or die("Next uid query failed ($sql): " . mysql_error());
-				$row = mysql_fetch_assoc($result);
-				$uid = $row['uid'] + 1;
-				if ($uid <= 1) {
-					$this->Message = "Could not get a valid user uid for new user ($uid)";
+				if (!$uid = nextAutoIncrement("users")) {
+					$this->Message = "Could not get a valid uid for new user ($uid)";
 					return false;
 				}
 //				$sr=ldap_search(getDS(), "ou=users,dc=sakaiproject,dc=org", "uid=*", array("uid"));
@@ -1756,12 +1752,8 @@ class Institution {
 				foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
 
 				//prepare inst dn, find next available iid
-				$sql = "SELECT MAX(pk) as id FROM institution FOR UPDATE";
-				$result = mysql_query($sql) or die("Next iid query failed ($sql): " . mysql_error());
-				$row = mysql_fetch_assoc($result);
-				$id = $row['id'] + 1;
-				if ($id <= 1) {
-					$this->Message = "Could not get a valid uid for new item ($id)";
+				if (!$id = nextAutoIncrement("institution")) {
+					$this->Message = "Could not get a valid iid for new item ($id)";
 					return false;
 				}
 //				$sr=ldap_search(getDS(), "ou=institutions,dc=sakaiproject,dc=org", "iid=*", array("iid"));

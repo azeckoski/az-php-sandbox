@@ -246,7 +246,7 @@ function itemdel(itempk) {
 <td><a href="javascript:orderBy('type');">Type</a></td>
 <td>InstRep</td>
 <td>VoteRep</td>
-<td align="center"><a title="Add a new institution" href="admin_inst.php?pk=-1&amp;add=1">add</a></td>
+<td align="center"><a title="Add a new institution" href="admin_inst.php">add</a></td>
 </tr>
 
 <?php

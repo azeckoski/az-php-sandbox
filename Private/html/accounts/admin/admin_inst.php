@@ -9,7 +9,7 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Institution Edit";
-$Message = "Edit the information below to adjust the institution.<br/>";
+$Message = "Add the information below to create an institution.<br/>";
 
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
@@ -22,7 +22,6 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = false; // assume user is NOT allowed unless otherwise shown
-$Message = "";
 if (!$User->checkPerm("admin_insts")) {
 	$allowed = false;
 	$Message = "Only admins with <b>admin_insts</b> may view this page.<br/>" .
@@ -32,30 +31,57 @@ if (!$User->checkPerm("admin_insts")) {
 }
 
 
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'>Users</a> - " .
+	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"</span>";
+
+?>
+
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
+<?php include $ACCOUNTS_PATH.'include/header.php'; ?>
+
+
+<?php
+	// Put in footer and stop the rest of the page from loading if not allowed -AZ
+	if (!$allowed) {
+		echo $Message;
+		include $ACCOUNTS_PATH.'include/footer.php';
+		exit;
+	}
+?>
+
+
+<?php
 $PK = $_REQUEST["pk"]; // if editing/removing this will be set
 if ($PK) {
 	$Message = "Edit the information below to adjust the institution.<br/>";
 }
-
+// create the user object from provider
+$opInst = new Institution($PK);
+if ($PK && !$opInst->pk) {
+	echo "ERROR: Institution cannot be obtained from pk: $PK";
+	exit;
+}
 
 // bring in the form validation code
 require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['name'] = "required:namespaces:uniqueinstp;name;$PK";
+$vItems['name'] = "required:namespaces:uniqueinstp;name;$PK"; // PK MUST be the last item
 $vItems['type'] = "required";
 $vItems['city'] = "namespaces";
 $vItems['state'] = "namespaces";
 $vItems['zipcode'] = "zipcode";
 $vItems['country'] = "namespaces";
 
-
-// create the user object from provider
-$opInst = new Institution($PK);
-
 // this matters when the form is submitted
-if ($_POST["save"] && $allowed) {
+if ($_POST["save"]) {
 
 	$opInst->name = $_POST["name"];
 	$opInst->type = $_POST["type"];
@@ -80,6 +106,14 @@ if ($_POST["save"] && $allowed) {
 			$Message = "Error: Could not save: ".$opInst->Message;
 		} else {
 			$Message = "<strong>Saved institution information</strong>";
+			if (!$PK) {
+				// added a new institution
+				echo "Created new institution: $opInst->name<br/>" .
+					"<a href='$_SERVER[PHP_SELF]?pk=$opInst->pk'>Edit this institution</a> " .
+					"or <a href='admin_insts.php'>Go to Institutions page</a>";
+				include $ACCOUNTS_PATH.'include/footer.php';
+				exit;
+			}
 		}
 	} else {
 		$Message = "<div class='error'>Please fix the following errors:\n<blockquote>\n$Message</blockquote>\n</div>\n";
@@ -106,34 +140,14 @@ $thisItem['email'] = $userInfo[$opInst->rep_pk]['email'];
 $thisItem['vfirstname'] = $userInfo[$opInst->repvote_pk]['firstname'];
 $thisItem['vlastname'] = $userInfo[$opInst->repvote_pk]['lastname'];
 $thisItem['vemail'] = $userInfo[$opInst->repvote_pk]['email'];
-
-
-// top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
-	"<a href='admin_perms.php'>Permissions</a>" .
-	"</span>";
-
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
-<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<?php include $ACCOUNTS_PATH.'include/header.php'; ?>
 
 <?= $Message ?>
 
-<?php
-	// Put in footer and stop the rest of the page from loading if not allowed -AZ
-	if (!$allowed) {
-		include $ACCOUNTS_PATH.'include/footer.php';
-		exit;
-	}
-?>
 
 <div class="required" id="requiredMessage"></div>
-<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post" name="adminform" style="margin:0px;">
+<form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" name="adminform" style="margin:0px;">
 <input type="hidden" name="pk" value="<?= $PK ?>" />
 <input type="hidden" name="save" value="1" />
 

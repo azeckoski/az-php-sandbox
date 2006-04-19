@@ -13,27 +13,27 @@
 <table border="0" class="padded">
 	<tr>
 		<td class="account"><b>Name:</b></td>
-		<td>
+		<td nowrap="y">
 			<img id="nameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="name" value="<?= $thisItem['name'] ?>" size="40" maxlength="200"/>
+			<input type="text" name="name" value="<?= $thisItem['name'] ?>" size="40" maxlength="200" tabindex="1" />
 			<input type="hidden" id="nameValidate" value="<?= $vItems['name'] ?>" /><br/>
 			<span id="nameMsg"></span>
 		</td>
 	</tr>
 
 	<tr>
-		<td class="account"><b>Type:</b></td>
+		<td nowrap="y" class="account"><b>Type:</b></td>
 		<td style="font-size:10pt;">
 			<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="radio" name="type" tabindex="3" value="educational" <?php
+			<input type="radio" name="type" tabindex="2" value="educational" <?php
 				if (!$thisItem["type"] || $thisItem["type"] == "educational") { echo " checked='y' "; }
 			?>/> educational
 			&nbsp;
-			<input type="radio" name="type" tabindex="3" value="commercial" <?php
+			<input type="radio" name="type" tabindex="2" value="commercial" <?php
 				if ($thisItem["type"] == "commercial") { echo " checked='y' "; }
 			?>/> commercial
 			&nbsp;
-			<input type="radio" name="type" tabindex="3" value="" <?php
+			<input type="radio" name="type" tabindex="2" value="" <?php
 				if ($thisItem["type"] == "") { echo " checked='y' "; }
 			?>/> non-member
 			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" /><br/>
@@ -92,7 +92,7 @@ if ($_REQUEST["add"]) {
 		<td class="account"><b>City:</b></td>
 		<td nowrap="y">
 			<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="city" value="<?= $thisItem['city'] ?>" size="30" maxlength="50"/>
+			<input type="text" name="city" value="<?= $thisItem['city'] ?>" size="30" maxlength="50" tabindex="3" />
 			<input type="hidden" id="cityValidate" value="<?= $vItems['city'] ?>"/>
 			<span id="cityMsg"></span>
 		</td>
@@ -102,7 +102,7 @@ if ($_REQUEST["add"]) {
 		<td class="account"><b>State:</b></td>
 		<td nowrap="y">
 			<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<select name="state">
+			<select name="state" tabindex="4">
 <?php	$selectItem = $thisItem['state'];
 		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
 		require $ACCOUNTS_PATH.'include/state_select.php';
@@ -120,7 +120,7 @@ if ($_REQUEST["add"]) {
 		<td class="account"><b>Zipcode:</b></td>
 		<td nowrap="y">
 			<img id="zipcodeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="zipcode" value="<?= $thisItem['zipcode'] ?>" size="10" maxlength="10"/>
+			<input type="text" name="zipcode" value="<?= $thisItem['zipcode'] ?>" size="10" maxlength="10" tabindex="5" />
 			<input type="hidden" id="zipcodeValidate" value="<?= $vItems['zipcode'] ?>" />
 			<span id="zipcodeMsg"></span>
 		</td>
@@ -130,7 +130,7 @@ if ($_REQUEST["add"]) {
 		<td class="account"><b>Country:</b></td>
 		<td nowrap="y">
 			<img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<select name="country">
+			<select name="country" tabindex="6">
 <?php	$selectItem = $thisItem['country'];
 		if ($selectItem) { echo "<option value='$selectItem'>$selectItem</option>"; }
 		require $ACCOUNTS_PATH.'include/country_select.php';

@@ -31,6 +31,32 @@ if (!$User->checkPerm("admin_accounts")) {
 }
 
 
+// top header links
+$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+	"<a href='index.php'>Admin</a>: " .
+	"<a href='admin_users.php'><strong>Users</strong></a> - " .
+	"<a href='admin_insts.php'>Institutions</a> - " .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"</span>";
+
+?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
+<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
+<!-- // INCLUDE THE HEADER -->
+<?php include $ACCOUNTS_PATH.'include/header.php';  ?>
+
+
+<?php
+	// Put in footer and stop the rest of the page from loading if not allowed -AZ
+	if (!$allowed) {
+		echo $Message;
+		include $ACCOUNTS_PATH.'include/footer.php';
+		exit;
+	}
+?>
+
+
+<?php
 $PK = $_REQUEST["pk"]; // if editing/removing this will be set
 if ($PK) {
 	$Message = "Edit the information below to adjust the account.<br/>";
@@ -38,7 +64,7 @@ if ($PK) {
 
 // create the user object from provider
 $opUser = new User($PK);
-if (!$opUser->pk) {
+if ($PK && !$opUser->pk) {
 	$allowed = false;
 	$Message = "ERROR: User cannot be obtained from pk = $PK";
 } else {
@@ -69,7 +95,7 @@ $vItems['fax'] = "phone";
 
 
 // this matters when the form is submitted
-if ($_POST["save"] && $allowed) {
+if ($_POST["save"]) {
 
 	$opUser->username = $_POST["username"];
 	$opUser->email = $_POST["email"];
@@ -160,6 +186,14 @@ if ($_POST["save"] && $allowed) {
 			$Message = "Error: Could not save: ".$opUser->Message;
 		} else {
 			$Message = "<strong>Saved user information</strong>";
+			if (!$PK) {
+				// added a new user
+				echo "Created new user: $opUser->username<br/>" .
+					"<a href='$_SERVER[PHP_SELF]?pk=$opUser->pk'>Edit this user</a> " .
+					"or <a href='admin_users.php'>Go to Users page</a>";
+				include $ACCOUNTS_PATH.'include/footer.php';
+				exit;
+			}
 		}
 	}
 }
@@ -167,29 +201,11 @@ if ($_POST["save"] && $allowed) {
 //echo $opUser, "<br/>"; // for testing
 $thisUser = $opUser->toArray(); // put the user data into an array for easy access
 
-// top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'><strong>Users</strong></a> - " .
-	"<a href='admin_insts.php'>Institutions</a> - " .
-	"<a href='admin_perms.php'>Permissions</a>" .
-	"</span>";
-
 ?>
-<?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
-<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<!-- // INCLUDE THE HEADER -->
-<?php include $ACCOUNTS_PATH.'include/header.php';  ?>
+
 
 <?= $Message ?>
 
-<?php
-	// Put in footer and stop the rest of the page from loading if not allowed -AZ
-	if (!$allowed) {
-		include $ACCOUNTS_PATH.'include/footer.php';
-		exit;
-	}
-?>
 
 <div class="required" id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
