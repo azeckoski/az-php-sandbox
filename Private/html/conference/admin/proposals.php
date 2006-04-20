@@ -596,8 +596,8 @@ foreach ($items as $item) { // loop through all of the proposal items
 				date($DATE_FORMAT,strtotime($comment['date_created']))."'>\n" .
 				"<em><a href='mailto:$comment[email]'>$comment[username]</a></em>" .
 				" - <label style='cursor:pointer;' title='Click to reveal the entire comment' " .
-				"onClick=\"javascript:this.style.display='none';getElementById('fullcmnt$pk').style.display='inline';\">$short_comment</label>\n" .
-				"<div id='fullcmnt$pk' style='display:none;'>$comment[comment_text]</div></div>";
+				"onClick=\"javascript:this.style.display='none';getElementById('fullcmnt$pk$cline').style.display='inline';\">$short_comment</label>\n" .
+				"<div id='fullcmnt$pk$cline' style='display:none;'>$comment[comment_text]</div></div>";
 		}
 	}
 ?>
