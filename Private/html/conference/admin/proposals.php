@@ -591,11 +591,13 @@ foreach ($items as $item) { // loop through all of the proposal items
 			if (strlen($short_comment) > 45) {
 				$short_comment = substr($short_comment,0,42) . "...";
 			}
-			echo "<div style='width:100%;font-size:8pt;' class='$lineclass'>" .
+			echo "<div style='width:100%;font-size:8pt;' class='$lineclass'>\n" .
 				"&nbsp;<label title='Entered by $comment[username] on " .
-				date($DATE_FORMAT,strtotime($comment['date_created']))."'>" .
+				date($DATE_FORMAT,strtotime($comment['date_created']))."'>\n" .
 				"<em><a href='mailto:$comment[email]'>$comment[username]</a></em>" .
-				" - <label title='$comment[comment_text]'>$short_comment</label></div>";
+				" - <label style='cursor:pointer;' title='Click to reveal the entire comment' " .
+				"onClick=\"javascript:this.style.display='none';getElementById('fullcmnt$pk').style.display='inline';\">$short_comment</label>\n" .
+				"<div id='fullcmnt$pk' style='display:none;'>$comment[comment_text]</div></div>";
 		}
 	}
 ?>
