@@ -39,6 +39,31 @@ if (!$_REQUEST['gen']) {
 
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 
+
+// do stats calculations
+$count_sql = "SELECT count(*) FROM conferences where confId = '$CONF_ID'";
+$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
+$row = mysql_fetch_array($count_result);
+$total_reg = $row[0];
+
+$count_sql = "SELECT count(*) FROM conferences where activated = 'Y' and confId = '$CONF_ID'";
+$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
+$row = mysql_fetch_array($count_result);
+$total_activated = $row[0];
+$total_inactive = $total_reg - $total_activated;
+
+$count_sql = "SELECT count(*) FROM conferences where date_created > curdate()-INTERVAL 7 DAY and confId = '$CONF_ID'";
+$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
+$row = mysql_fetch_array($count_result);
+$total_week = $row[0];
+
+$count_sql = "SELECT count(*) from conferences C1 join users U1 on U1.pk = C1.users_pk " .
+		"and institution_pk = '1' where confId = '$CONF_ID'";
+$count_result = mysql_query($count_sql) or die("Count failed ($count_sql): " . mysql_error());
+$row = mysql_fetch_array($count_result);
+$non_members = $row[0];
+$members = $total_reg - $non_members;
+
 $sql = "select U1.firstname, U1.lastname, U1.email, I1.name as institution, " .
 	"U1.institution_pk, C1.* from users U1 " .
 	"join conferences C1 on U1.pk=C1.users_pk " .
@@ -58,6 +83,14 @@ while ($item = mysql_fetch_assoc($result)) {
 	$line++;
 	if ($line == 1) {
 		echo ("\"Conference Attendees Report:\",,\"$CONF_NAME\",\"$CONF_ID\"\n");
+		echo ("\"SUMMARY:\"\n");
+		echo ("\"Registered:\",\"$total_reg\",\"total number of registrations (including those who have not paid yet)\"\n");
+		echo ("\"Active:\",\"$total_activated\",\"number of active registrations (i.e. signed up and paid)\"\n");
+		echo ("\"Inactive:\",\"$total_inactive\",\"non-members that have not paid yet\"\n");
+		echo ("\"Recent:\",\"$total_week\",\"registrations in the past 7 days\"\n");
+		echo ("\"Members:\",\"$members\",\"members of Sakai partner institutions\"\n");
+		echo ("\"Non-members:\",\"$non_members\",\"not members of Sakai partner institutions\"\n");
+		echo ("\n");
 		echo (join(',', array_keys($item)) . "\n"); // add header line
 	}
 
@@ -71,6 +104,7 @@ echo ("\n\"Generated on:\",\"" . date($DATE_FORMAT,time()) . "\"\n");
 
 $fileContent = ob_get_contents(); // put buffer into variable
 ob_end_clean(); // purge the buffer
+
 
 // create a file if requested
 if($_REQUEST['gen'] == "file" || $_REQUEST['gen'] == "both") {
@@ -98,7 +132,7 @@ if($_REQUEST['gen'] == "email" || $_REQUEST['gen'] == "both") {
 	$headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 	$headers .= 'MIME-Version: 1.0' . "\n";
 	$mime_boundary=md5(time());
-	$headers .= "Content-Type: multipart/related; boundary=\"$mime_boundary\"\n";
+	$headers .= "Content-Type: multipart/mixed; boundary=\"$mime_boundary\"\n";
 	
 	$recipient = $CONF_REPORT_TO;
 	$subject= "Attendee Report: " . date($SHORT_DATE_FORMAT,time());
@@ -108,7 +142,7 @@ if($_REQUEST['gen'] == "email" || $_REQUEST['gen'] == "both") {
 	$msg .= "Content-Type: text/x-csv; name=\"".$filename."\""."\n";
 	$msg .= "Content-Transfer-Encoding: base64"."\n";
 	$msg .= "Content-Disposition: attachment; filename=\"".$filename."\""."\n"."\n";
-	$msg .= base64_encode($fileContent)."\n"."\n";
+	$msg .= chunk_split(base64_encode($fileContent)) ."\n"."\n";
 	
 	// put in a short message
 	$msg .= "--".$mime_boundary."\n";
@@ -116,8 +150,17 @@ if($_REQUEST['gen'] == "email" || $_REQUEST['gen'] == "both") {
 	$msg .= "Content-Transfer-Encoding: 8bit"."\n";
 	$msg .= "This mail is generated automatically by the sakaiproject.org website.\n" .
 		"This is a report of the current conference attendees for: $CONF_NAME ($CONF_ID).\n" .
-		"Report is attached as $filename and was generated: " . date($SHORT_DATE_FORMAT,time()) . "\n" .
-		"-- Sakai Webmaster\n";
+		"Report is attached as $filename and was generated: " . date($SHORT_DATE_FORMAT,time()) . "\n";
+	$msg .= "\n";
+	$msg .= "SUMMARY:\n";
+	$msg .= "Registered: $total_reg   (total number of registrations (including those who have not paid yet))\n";
+	$msg .= "Active: $total_activated   (number of active registrations (i.e. signed up and paid))\n";
+	$msg .= "Inactive: $total_inactive   (non-members that have not paid yet)\n";
+	$msg .= "Recent: $total_week   (registrations in the past 7 days)\n";
+	$msg .= "Members: $members   (members of Sakai partner institutions)\n";
+	$msg .= "Non-members: $non_members   (not members of Sakai partner institutions)\n";
+	$msg .= "\n";
+	$msg .= "-- Sakai Webmaster\n";
 	$msg .= "--".$mime_boundary."--\n\n";
 	
 	//echo "Subject: $subject <br/>Message: $msg <br/>";
