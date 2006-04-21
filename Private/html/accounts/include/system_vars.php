@@ -23,7 +23,7 @@ elseif ($ENVIRONMENT == "test") {
 	$SYSTEM_NAME = "Sakai WebTest";
 	$SERVER_NAME = "https://sakaitest.org";
 	$USE_LDAP = true; // false=no ldap
-	$LDAP_SSL = false; // false=no SSL
+	$LDAP_SSL = true; // false=no SSL
 
 	$HELP_EMAIL = "shardin@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
@@ -33,7 +33,7 @@ elseif ($ENVIRONMENT == "prod") {
 	$SYSTEM_NAME = "Sakai Web";
 	$SERVER_NAME = "https://sakaiproject.org";
 	$USE_LDAP = true; // false=no ldap
-	$LDAP_SSL = false; // false=no SSL
+	$LDAP_SSL = true; // false=no SSL
 
 	$HELP_EMAIL = "sakaiproject_webmaster@umich.edu";
 	$MAIL_SERVER = "mail.umich.edu";
