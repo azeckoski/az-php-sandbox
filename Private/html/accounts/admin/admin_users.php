@@ -41,6 +41,31 @@ if ($_REQUEST["itemdel"] && $allowed) {
 }
 
 
+// do the checkbox actions (perms)
+if($allowed && $_POST['userPk'] && is_array($_POST['userPk']) ) {
+	$changedPerms = 0;
+	foreach( $_POST['userPk'] as $userPk) {
+		if ($_POST['perm']) {
+			// changing perms for someone
+			$opUser = new User($userPk);
+			if ($_POST['add_perm']) {
+				$opUser->addPerm($_POST['perm']);
+			} else if ($_POST['remove_perm']) {
+				$opUser->removePerm($_POST['perm']);
+			}
+			if($opUser->save()) { $changedPerms++; }
+		}
+	}
+	if ($changedPerms > 0) {
+		if ($_POST['add_perm']) {
+			$Message = "<strong>Added ".$_POST['perm']." permission for $changedPerms users</strong>";
+		} else if ($_POST['remove_perm']) {
+			$Message = "<strong>Removed ".$_POST['perm']." permission for $changedPerms users</strong>";
+		}
+	}
+}
+
+
 // get the search
 $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
@@ -257,6 +282,7 @@ function itemdel(itempk) {
 	}
 ?>
 
+
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 <input type="hidden" name="itemdel" value="" />
@@ -271,12 +297,29 @@ function itemdel(itempk) {
 	</td>
 
 	<td nowrap="y" align="left">
+		<strong>Perms:</strong>
+<?php
+	// get the list of permissions
+	$perms_sql="select * from permissions";
+	$perm_result = mysql_query($perms_sql) or die("Query failed ($perms_sql): " . mysql_error());	
+	echo "<select name='perm'>\n";
+	while($row = mysql_fetch_assoc($perm_result)) {
+		echo "<option title=\"$row[perm_description]\" value=\"$row[perm_name]\">$row[perm_name]</option>\n";
+	}
+	echo "</select>\n";
+?>
+		<input class="filter" type="submit" name="add_perm" value="Add" title="Assign this permission to multiple users"/>
+		<input class="filter" type="submit" name="remove_perm" value="Remove" title="Remove this permission from multiple users"/>
 	</td>
 
-	<td nowrap="y" align="right">
+	<td nowrap="y" align="right" width="10%">
 		<input class="filter" type="submit" name="showall" value="Show All" title="Display all items" tabindex="3" />
 		<input class="filter" type="submit" name="ldif" value="LDIF" title="Export an LDIF (ldap) file of all users" tabindex="4" />
 		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current search" tabindex="5" />
+		&nbsp;
+	</td>
+
+	<td nowrap="y" align="right" width="10%">
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	size="20" title="Enter search text here"  tabindex="1" />
         <input class="filter" type="submit" name="search" value="Search" title="Search the users" tabindex="2" />
@@ -288,6 +331,7 @@ function itemdel(itempk) {
 
 <table border="0" cellspacing="0" width="100%">
 <tr class='tableheader'>
+<td></td>
 <td></td>
 <td><a href="javascript:orderBy('username');">username</a></td>
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
@@ -323,6 +367,9 @@ foreach ($items as $item) {
 ?>
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
 	<td class="line" align="center"><em><?= $line ?>&nbsp;</em></td>
+	<td class="line" align="center">
+		<input type="checkbox" name="userPk[]" value="<?= $item['pk'] ?>" />
+	</td>
 	<td class="line"><?= $item['username'] ?></td>
 	<td class="line"><?= $item['fullname'] ?></td>
 	<td class="line"><?= $item['email'] ?></td>

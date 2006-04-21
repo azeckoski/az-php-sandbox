@@ -926,7 +926,11 @@ class User {
 					// TODO - make the search work for perms and status
 					$value = str_replace("*","%",$value); // cleanup the ldap search chars
 					if ($filter) { $filter .= " or "; }
-					$filter .= "$item like '$value'";
+					if ($item == "fullname") {
+						$filter .= "CONCAT(firstname,' ',lastname) like '$value'";
+					} else {
+						$filter .= "$item like '$value'";
+					}
 				}
 			}
 			$filter= trim($filter, " ,"); // trim spaces and commas
