@@ -45,4 +45,6 @@ if (!extension_loaded('openssl')) {
 	}
 }
 
+// set the LDAPCONF file location
+putenv( "LDAPCONF=".$_SERVER["DOCUMENT_ROOT"]."/accounts/cert/ldaprc" );
 ?>
