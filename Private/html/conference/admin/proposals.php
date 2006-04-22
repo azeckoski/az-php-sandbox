@@ -21,13 +21,13 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
-$allowed = 0; // assume user is NOT allowed unless otherwise shown
+$allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("admin_conference")) {
-	$allowed = 0;
+	$allowed = false;
 	$Message = "Only admins with <b>admin_conference</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
-	$allowed = 1;
+	$allowed = true;
 }
 
 // custom CSS file
@@ -44,20 +44,21 @@ $EXTRA_LINKS =
 
 
 // this restricts the voting by date
+$voting = false;
 $EXTRA_LINKS .= "<div class='date_message'>";
 if (strtotime($VOTE_CLOSE_DATE) < time()) {
 	// No one can access after the close date
-	$allowed = false;
+	$voting = false;
 	$Message = "Voting closed on " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 	$EXTRA_LINKS .= "Voting closed " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 } else if (strtotime($VOTE_OPEN_DATE) > time()) {
 	// No access until voting opens
-	$allowed = false;
+	$voting = false;
 	$Message = "Voting is not allowed until " . date($DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
 	$EXTRA_LINKS .= "Voting opens " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
 } else {
 	// open voting is allowed
-	$allowed = true;
+	$voting = true;
 	$EXTRA_LINKS .= "Voting open from " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE)) .
 		" to " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 }
@@ -490,6 +491,10 @@ foreach ($items as $item) { // loop through all of the proposal items
 		$presentation++;
 	}
 
+	$vote_disable = "";
+	if (!$voting) {
+		$vote_disable = "disabled='y'";
+	}
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
@@ -500,7 +505,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 		<a name="anchor<?= $pk ?>"></a>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
-		<input id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$VOTE_SCORE[$vi]] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
+		<input <?= $vote_disable ?> id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$VOTE_SCORE[$vi]] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
 <?php	} ?>
 		<div style="margin:8px;"></div>
 		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $vote ?>" />
@@ -525,17 +530,28 @@ foreach ($items as $item) { // loop through all of the proposal items
 			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
 		}
 		
-		if ($item['type']!='demo')  { ?>
-		<div class="description"><strong>Description:</strong><br/><a href="<?php echo "proposal_preview.php" . "?pk=" . $pk; ?> "> [ view full details ]</a><br/><br/></div>
-     	<div class="description"><strong>Speaker Bio:</strong><br/><?= $item['bio'] ?><br/><br/></div>
- <?php } ?>
-     	
-		<div class="description"><strong>Co-Speaker:</strong><br/><?= $item['co_speaker'] ?><br/><br/>
-		 <span style="padding-right: 20px;">	<strong>Format: </strong><?= $item['type'] ?></span>
+if ($item['type']!='demo')  { ?>
+		<div class="description"><strong>Description:</strong>
+			<a href="" onClick="javascript:this.style.display='none';getElementById('desc<?= $pk ?>').style.display='inline';return false;" 
+			title="Click to reveal the description">[view description]</a><br/>
+			<div id='desc<?= $pk ?>' style='display:none;'><?= $item['desc'] ?></div>
+		</div>
+		<br/>
+     	<div class="description"><strong>Speaker Bio:</strong><br/>
+     	<?= $item['bio'] ?><br/><br/>
+     	</div>
+<?php } ?>
+
+<?php if ($item['co_speaker'])  { ?>
+		<div class="description"><strong>Co-Speaker:</strong><br/>
+		<?= $item['co_speaker'] ?><br/><br/>
+<?php } ?>
+		 <span style="padding-right: 20px;">
+		 	<strong>Format: </strong><?= $item['type'] ?></span>
 		 <span style="padding-right: 20px;" ><strong>Length:</strong>
-	 		<?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
+<?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
 	 		else { echo  $item['length'] ." min. </span>"; 
-			 }   ?>
+} ?>
 	    </div>
 	</td>	
 
@@ -587,14 +603,20 @@ foreach ($items as $item) { // loop through all of the proposal items
 			$cline++;
 			$lineclass = "evenrow";
 			if (($cline+($line % 2)) % 2 == 0) { $lineclass = "evenrow"; } else { $lineclass = "oddrow"; }
+
 			$short_comment = $comment['comment_text'];
-			if (strlen($short_comment) > 45) {
-				$short_comment = substr($short_comment,0,42) . "...";
+			if (strlen($short_comment) > 43) {
+				$short_comment = substr($short_comment,0,40) . "...";
 			}
+			$short_username = $comment['username'];
+			if (strlen($short_username) > 13) {
+				$short_username = substr($short_username,0,10) . "...";
+			}
+
 			echo "<div style='width:100%;font-size:8pt;' class='$lineclass'>\n" .
 				"&nbsp;<label title='Entered by $comment[username] on " .
 				date($DATE_FORMAT,strtotime($comment['date_created']))."'>\n" .
-				"<em><a href='mailto:$comment[email]'>$comment[username]</a></em>" .
+				"<em><a href='mailto:$comment[email]'>$short_username</a></em>" .
 				" - <label style='cursor:pointer;' title='Click to reveal the entire comment' " .
 				"onClick=\"javascript:this.style.display='none';getElementById('fullcmnt$pk$cline').style.display='inline';\">$short_comment</label>\n" .
 				"<div id='fullcmnt$pk$cline' style='display:none;'>$comment[comment_text]</div></div>";
