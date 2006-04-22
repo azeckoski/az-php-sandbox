@@ -520,7 +520,8 @@ foreach ($items as $item) { // loop through all of the proposal items
 		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
 		<div>
 			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
-			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/><?= $item['date_created'] ?><br/><br/>
+			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/>
+			<?= date($MED_DATE_FORMAT,strtotime($item['date_created'])) ?><br/><br/>
 		</div>		
 	</td>
 

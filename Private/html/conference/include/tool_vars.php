@@ -28,7 +28,8 @@ $CONF_START_DATE = "2006/05/30 8:00";
 $CONF_END_DATE = "2006/06/03 17:00";
 
 // date format for display
-$DATE_FORMAT = "l, F dS, Y h:i A";
+$DATE_FORMAT = "l, F dS, Y g:i A";
+$MED_DATE_FORMAT = "M d, Y (g A)";
 $SHORT_DATE_FORMAT = "g A M d, y";
 
 // proposals voting
