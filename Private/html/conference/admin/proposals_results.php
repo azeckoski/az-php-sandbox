@@ -30,6 +30,32 @@ if (!$User->checkPerm("admin_conference")) {
 	$allowed = true;
 }
 
+// this restricts the viewing by date
+$viewing = false;
+$EXTRA_LINKS .= "<div class='date_message'>";
+if (strtotime($VOTE_CLOSE_DATE) < time()) {
+	// Results viewable after close date
+	$viewing = true;
+	$EXTRA_LINKS .= "Voting closed " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+} else {
+	// no viewing allowed
+	$viewing = false;
+	$EXTRA_LINKS .= "Results visible after " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+	$Message = "Results cannot be viewed until after " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+}
+$EXTRA_LINKS .= "</div>";
+
+// Do the export as requested by the user
+if ($_REQUEST["export"] && $allowed && $viewing) {
+	$date = date("Ymd-Hi",time());
+	$filename = "proposal_results-" . $date . ".csv";
+	header("Content-type: text/x-csv");
+	header("Content-disposition: inline; filename=$filename\n\n");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0"); 
+} else { 
+	// display the page normally
+
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $CSS_FILE2 = "../include/proposals.css";
@@ -46,26 +72,9 @@ $EXTRA_LINKS =
 		"</em>)" .
 	"</span>";
 
-
-// this restricts the viewing by date
-$viewing = false;
-$EXTRA_LINKS .= "<div class='date_message'>";
-if (strtotime($VOTE_CLOSE_DATE) < time()) {
-	// Results viewable after close date
-	$viewing = true;
-	$EXTRA_LINKS .= "Voting closed " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
-} else {
-	// no viewing allowed
-	$viewing = false;
-	$EXTRA_LINKS .= "Results visible after " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
-	$Message = "Results cannot be viewed until after " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
-}
-$EXTRA_LINKS .= "</div>";
-
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
-<!-- <script type="text/javascript" src="/accounts/ajax/validate.js"></script> -->
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -84,18 +93,16 @@ function orderBy(newOrder) {
 // -->
 </script>
 <?php include $TOOL_PATH.'include/admin_header.php'; ?>
-
-<?= $Message ?>
-
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
+		echo $Message;
 		include $TOOL_PATH.'include/admin_footer.php';
 		exit;
-	} else {
-?>
+	}
 
-<?php
+} /* export check */
+
 // first get the votes and drop them into a hash
 $votes_sql = "select conf_proposals_pk, vote, " .
 	"count(V.pk) as votes from conf_proposals_vote V " .
@@ -209,12 +216,13 @@ foreach ($items as $item) {
 }
 
 //echo "<pre>",print_r($items),"</pre><br/>";
-
+if (!$_REQUEST["export"]) {
 ?>
+
+<?= $Message ?>
 
 <form name="voteform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
-
 
 <div style="background:#ECECEC;border:1px solid #ccc;padding:3px;margin-bottom:10px;">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -248,6 +256,7 @@ foreach ($items as $item) {
 	</td>
 
 	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters">
 		<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	length="20" title="Enter search text here" />
@@ -271,7 +280,10 @@ foreach ($items as $item) {
 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
 </tr>
 
-<?php // now dump the data we currently have
+<?php 
+} /* export check */
+
+// now dump the data we currently have
 $line = 0;
 foreach ($items as $item) { // loop through all of the proposal items
 	$line++;
@@ -346,18 +358,56 @@ foreach ($items as $item) { // loop through all of the proposal items
 		$tdstyle = " class='saved' ";
 	}
 
+	// this selects the background so that it highlights
+	// red if there are any red votes, yellow if any yellows
+	// if approved then the color is set to blue
 	if ($item['type']=='demo'){
 		$tdstyle = " class='demo' ";
+	} else if ($item["approved"] == "Y") {
+		$tdstyle = " class='approved' ";
 	} else if ($item["red"]) {
-		$tdstyle = " class='saved_red' ";
+		if ($item["approved"] == "N") {
+			$tdstyle = " class='saved_red unapproved' ";
+		} else {
+			$tdstyle = " class='saved_red' ";
+		}
 	} else if ($item["yellow"]) {
-		$tdstyle = " class='saved_yellow' ";
+		if ($item["approved"] == "N") {
+			$tdstyle = " class='saved_yellow unapproved' ";
+		} else {
+			$tdstyle = " class='saved_yellow' ";
+		}
 	} else if ($item["green"]) {
-		$tdstyle = " class='saved_green' ";
+		if ($item["approved"] == "N") {
+			$tdstyle = " class='saved_green unapproved' ";
+		} else {
+			$tdstyle = " class='saved_green' ";
+		}
 	} else {
 		$tdstyle = " class='saved' ";
 	}
 
+	if ($_REQUEST["export"]) {
+		// print out EXPORT format instead of display
+		if ($line == 1) {
+			$output = "\"Proposal vote export\",\"KEY:\",";
+			for ($i=0; $i<count($VOTE_TEXT); $i++) {
+				$output .= "\"" . $VOTE_TEXT[$i] . "=" . $i . "\",";
+			}
+			print $output . "\n";
+			print join(',', array_keys($item)) . "\n"; // add header line
+		}
+		
+		foreach ($item as $name=>$value) {
+			$value = str_replace("\"", "\"\"", $value); // fix for double quotes
+			$item[$name] = '"' . $value . '"'; // put quotes around each item
+		}
+		print join(',', $item) . "\n";
+
+		print "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
+		print "\"Voting end date:\",\"" . date($DATE_FORMAT,strtotime($ROUND_END_DATE)) . "\"\n";		
+	} else {
+		// normal display
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
@@ -393,6 +443,20 @@ foreach ($items as $item) { // loop through all of the proposal items
 	</td>
 
 	<td width="25%">
+<?php
+if ($item['type'] != 'demo') { 
+	if ($item['approved'] == "Y") {
+		echo "<div style='width:100%;background-color:blue;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
+				"APPROVED</div>";
+	} else {
+		echo "<div style='width:100%;background-color:red;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
+				"UNAPPROVED</div>";
+	}
+	echo "<div style='text-align:center;'>" .
+			"<a href=''>edit</a> | <a href=''>delete</a></div>";
+	echo "<div style='margin:6px;'></div>";
+}
+?>
 		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
 		<div>
 			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
@@ -503,22 +567,42 @@ if ($item['type']!='demo')  { ?>
 	</td>
 </tr>
 
+<?php 	} /* export check */ ?>
+
 <?php } /* end the foreach loop */ ?>
+
+<?php if (!$_REQUEST["export"]) { ?>
 </table>
 
 </form>
-<?php } ?>
 
 <div class="definitions">
 	<div class="defheader">Color Key</div>
 	<div style="padding:3px;">
 		<b style="font-size:1.1em;">Key:</b> 
 	<?php if($User->pk) { ?>
-		<div class="myvote" style='display:inline;'>&nbsp;Your vote&nbsp;</div> &nbsp;
-		<div class="matchvote" style='display:inline;'><label title="Your vote matches the average">&nbsp;Your vote matches the average&nbsp;</label></div> &nbsp;
+		<div class="myvote" style='display:inline;'>&nbsp;Your vote&nbsp;</div>
+		&nbsp;
+		<div class="matchvote" style='display:inline;'><label title="Your vote matches the average">&nbsp;Your vote matches the average&nbsp;</label></div>
+		&nbsp;
 	<?php } ?>
 		<div class="avgvote" style='display:inline;'>&nbsp;Average vote&nbsp;</div>
+		&nbsp;
+		<div class="unapproved" style='display:inline;'>&nbsp;Unapproved&nbsp;</div>
+		&nbsp;
+		<div class="approved" style='display:inline;'>&nbsp;Approved&nbsp;</div>
+		&nbsp;
+		<div class="demo" style='display:inline;'>&nbsp;Demo&nbsp;</div>
+		&nbsp;
+		<div class="saved_green" style='display:inline;'>&nbsp;Green&nbsp;</div>
+		&nbsp;
+		<div class="saved_yellow" style='display:inline;'>&nbsp;Yellow&nbsp;</div>
+		&nbsp;
+		<div class="saved_red" style='display:inline;'>&nbsp;Red&nbsp;</div>
+		&nbsp;
 	</div>
 </div>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; // Include the FOOTER ?>
+
+<?php } /* export check */ ?>
