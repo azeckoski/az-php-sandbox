@@ -8,7 +8,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Proposals Voting and Viewing";
+$PAGE_NAME = "Proposals Results and Editing";
 $Message = "";
 
 // connect to database
@@ -40,27 +40,25 @@ $EXTRA_LINKS =
 	"<a href='index.php'>Admin:</a> " .
 	"<a href='attendees.php'>Attendees</a> - " .
 	"<a href='proposals.php'><strong>Proposals</strong></a> " .
+		"(<em>" .
+		"<a href='proposals.php'>Viewing / Voting</a> - " .
+		"<a href='proposals_results.php'><strong>Results / Editing</strong></a>" .
+		"</em>)" .
 	"</span>";
 
 
-// this restricts the voting by date
-$voting = false;
+// this restricts the viewing by date
+$viewing = false;
 $EXTRA_LINKS .= "<div class='date_message'>";
 if (strtotime($VOTE_CLOSE_DATE) < time()) {
-	// No one can access after the close date
-	$voting = false;
-	$Message = "Voting closed on " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+	// Results viewable after close date
+	$viewing = true;
 	$EXTRA_LINKS .= "Voting closed " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
-} else if (strtotime($VOTE_OPEN_DATE) > time()) {
-	// No access until voting opens
-	$voting = false;
-	$Message = "Voting is not allowed until " . date($DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
-	$EXTRA_LINKS .= "Voting opens " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
 } else {
-	// open voting is allowed
-	$voting = true;
-	$EXTRA_LINKS .= "Voting open from " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE)) .
-		" to " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+	// no viewing allowed
+	$viewing = false;
+	$EXTRA_LINKS .= "Results visible after " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+	$Message = "Results cannot be viewed until after " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 }
 $EXTRA_LINKS .= "</div>";
 
@@ -83,133 +81,6 @@ function orderBy(newOrder) {
 	document.voteform.submit();
 	return false;
 }
-
-function showAddComment(num) {
-	var commentItem = document.getElementById('addComment'+num);
-	if (commentItem != null) {
-		commentItem.style.display = "";
-	}
-	var triggerItem = document.getElementById('onComment'+num);
-	if (triggerItem != null) {
-		triggerItem.style.display = "none";
-	}
-}
-
-// These are the voting functions
-function setAnchor(num) {
-
-	document.voteform.action += "#anchor"+num;
-	document.voteform.submit();
-	return false;
-}
-
-function getSelectedRadio(buttonGroup) {
-   // returns the array number of the selected radio button or -1 if no button is selected
-   if (buttonGroup[0]) { // if the button group is an array (one button is not an array)
-      for (var i=0; i<buttonGroup.length; i++) {
-         if (buttonGroup[i].checked) {
-            return i;
-         }
-      }
-   } else {
-      if (buttonGroup.checked) { return 0; } // if the one button is checked, return zero
-   }
-   // if we get to this point, no radio button is selected
-   return -1;
-}
-
-function checkSaved(num) {
-	// Get current vote for this item
-	var voteItem = document.getElementById('vh'+num);
-	var curVote = voteItem.value;
-	if (curVote == "") { curVote = -1; }
-
-	// Get current selection
-	var rbuttons = document.getElementsByName('vr'+num);
-	var curSelect = getSelectedRadio(rbuttons);
-
-	// Compare values
-	if (curVote >= 0 && curSelect >= 0) {
-		if (curVote == curSelect) {
-			setSaved(num);
-		} else {
-			setUnsaved(num);
-		}
-	} else {
-		// no vote saved for this item
-		setUnsaved(num);
-	}
-}
-
-
-function setUnsaved(num) {
-	var item = document.getElementById('vb'+num);
-	item.className='unsaved';
-
-	var sbutton = document.getElementById('vs'+num);
-	sbutton.disabled=false;
-
-	var cbutton = document.getElementById('vc'+num);
-	cbutton.disabled=false;
-}
-
-function setSaved(num) {
-	var item = document.getElementById('vb'+num);
-	//item.className='saved'
-// this part adds in the nicer coloring like Susan wanted
-	var voteItem = document.getElementById('vh'+num);
-	var curVote = voteItem.value;
-	if (curVote == "") { curVote = -1; }
-
-	var rbuttons = document.getElementsByName('vr'+num);
-	for (var i=0;i<rbuttons.length;i++) {
-		if (i == curVote) {
-			switch (i) {
-				case 0: item.className='saved_green'; break;
-				case 1: item.className='saved_yellow'; break;
-				case 2: item.className='saved_red'; break;
-				default : item.className='saved';
-			}
-		}
-	}
-
-	var sbutton = document.getElementById('vs'+num);
-	sbutton.disabled=true;
-
-	var cbutton = document.getElementById('vc'+num);
-	cbutton.disabled=true;
-}
-
-function setCleared(num) {
-	// get current vote
-	var voteItem = document.getElementById('vh'+num);
-	var curVote = voteItem.value;
-	if (curVote == "") { curVote = -1; }
-
-	// reset radio buttons
-	var rbuttons = document.getElementsByName('vr'+num);
-	for (i=0;i<rbuttons.length;i++) {
-		rbuttons[i].checked=false;
-		if (i == curVote) {
-			rbuttons[i].checked=true;
-		}
-	}
-
-	// reset style if not returning to saved vote
-	if (curVote < 0) {
-		var item = document.getElementById('vb'+num);
-		item.className='clear';
-
-		var sbutton = document.getElementById('vs'+num);
-		sbutton.disabled=true;
-
-		var cbutton = document.getElementById('vc'+num);
-		cbutton.disabled=true;
-	} else {
-		// reset to saved value
-		setSaved(num);
-	}
-}
 // -->
 </script>
 <?php include $TOOL_PATH.'include/admin_header.php'; ?>
@@ -225,61 +96,18 @@ function setCleared(num) {
 ?>
 
 <?php
-//processing the posted values for saving
-$Keys = array();
-$Keys = array_keys($_POST);
-foreach( $Keys as $key)
-{
-	if ($_POST[$key] == "") { continue; } // skip blank values
-
-	$check = strpos($key,'vr');
-	$check2 = strpos($key,'cmnt');
-	if ( $check !== false && $check == 0 ) {
-		$itemPk = substr($key, 2);
-		$newVote = $VOTE_SCORE[$_POST[$key]];
-		//print "key=$key : item_pk=$itemPk : vote=$newVote <br/>";
-
-		// Check to see if this vote already exists
-		$check_exists_sql="select pk, vote from conf_proposals_vote where " .
-			"users_pk='$User->pk' and conf_proposals_pk='$itemPk'";
-		$result = mysql_query($check_exists_sql) or die("Query failed ($check_exists_sql): " . mysql_error());
-
-		if ($result && (mysql_num_rows($result) > 0) ) {
-			$row = mysql_fetch_assoc($result);
-			$existingVote = $row['vote'];
-			$votePk = $row['pk'];
-
-			// vote exists, now see if it changed
-			if ($newVote == $existingVote) {
-				// vote not changed so continue
-				//print "vote not changed: $votePk : $existingVote <br/>";
-				continue;
-			} else {
-				// vote changed so write update
-				//print "vote changed: $votePk : $existingVote <br/>";
-				$update_vote_sql="update conf_proposals_vote set vote='$newVote' where pk='$votePk'";
-				$result = mysql_query($update_vote_sql) or die("Query failed ($update_vote_sql): " . mysql_error());
-			}
-
-		} else {
-			// vote does not exist, insert it
-			//print "New vote: $User->pk : $item_pk : $value <br/>";
-			$insert_vote_sql="insert into conf_proposals_vote (users_pk,conf_proposals_pk,vote,confID) values " .
-				"('$User->pk','$itemPk','$newVote','$CONF_ID')";
-			$result = mysql_query($insert_vote_sql) or die('Query failed: ' . mysql_error());
-		}
-	} else if ($check2 !== false && $check2 == 0 ) {
-		$itemPk = substr($key, 4);
-		$comment = mysql_real_escape_string($_POST[$key]);
-
-		$insert_sql="insert into conf_proposals_comments " .
-			"(users_pk,conf_proposals_pk,comment_text,confID) values " .
-			"('$User->pk','$itemPk','$comment','$CONF_ID')";
-		$result = mysql_query($insert_sql) or die("Query failed ($insert_sql): " . mysql_error());
-	}
+// first get the votes and drop them into a hash
+$votes_sql = "select conf_proposals_pk, vote, " .
+	"count(V.pk) as votes from conf_proposals_vote V " .
+	"where confID='$CONF_ID' group by conf_proposals_pk, vote";
+//print "VOTE_SQL=$votes_sql<br/>";
+$result = mysql_query($votes_sql) or die('Votes query failed: ' . mysql_error());
+$allvotes = array();
+while($row = mysql_fetch_array($result)) {
+	//print "Votes:" . $row[0] . ":" . $row[1] . "=" . $row[2] . "<br/>";
+	$allvotes[$row[0] . ":" . $row[1]] = $row[2];
 }
-
-
+mysql_free_result($result);
 
 
 // get the search
@@ -435,6 +263,7 @@ foreach ($items as $item) {
 
 <tr class='tableheader'>
 <td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
+<td>&nbsp;</td>
 <!-- <td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>-->
 <td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a> </td>
 <td>Abstract&nbsp;/&nbsp;Description&nbsp;/&nbsp;Speakers&nbsp;/&nbsp; <a href="javascript:orderBy('type');">Format</a></td>
@@ -455,12 +284,11 @@ foreach ($items as $item) { // loop through all of the proposal items
 	}
 
 	$printInst = $item['institution'];
-/***
- * 
+/*
  *	if (strlen($printInst) > 33) {
  *	$printInst = substr($printInst,0,30) . "...";
  *	}
-***/
+ */
 
 	$linestyle = "oddrow";
 	if (($line % 2) == 0) { $linestyle = "evenrow"; } else { $linestyle = "oddrow"; }
@@ -469,50 +297,98 @@ foreach ($items as $item) { // loop through all of the proposal items
 	if (!isset($vote)) { $vote = -1; }
 	$checked = array("","","","","");
 
-	$tdstyle = "";
 	if (isset($VOTE_SCORE[$vote])) {
 		// item has been voted on and saved
 		$checked[$VOTE_SCORE[$vote]] = " checked='y' ";
-		//$tdstyle = " class='saved' ";
+	}
 
-// Added this in for special coloring
-		switch ($VOTE_TEXT[$vote]) {
-			case "green": $tdstyle = " class='saved_green' "; break;
-			case "yellow": $tdstyle = " class='saved_yellow' "; break;
-			case "red": $tdstyle = " class='saved_red' "; break;
-			default: $tdstyle = " class='saved' ";
+	// get votes counts
+	$total = 0;
+	for ($i=0; $i<count($VOTE_TEXT); $i++) {
+		$total += $allvotes["$pk:$i"];
+	}
+	$item["Total Votes"] = $total;
+
+	$votes = array();
+	$percents = array();
+	$numerator = 0;
+	for ($i=0; $i<count($VOTE_TEXT); $i++) {
+		$votes[$i] = $allvotes["$pk:$i"]+0;
+		$item[$VOTE_TEXT[$i]] = $votes[$i];
+		if (!$total) {
+			$percents[$i] = 0;
+		} else {
+			$percents[$i] = round(($votes[$i]/$total)*100,1);
 		}
+		$item[$VOTE_TEXT[$i]."%"] = $percents[$i];
+		$numerator += ($i+1) * $votes[$i];
+	}
+
+	$checked = array();
+	if (!$total) {
+		$item["Average"] = 0;
+	} else {
+		$item["Average"] = round($numerator/$total) - 1;
+	}
+	$item["AvgText"] = $VOTE_TEXT[ $item["Average"] ];
+	$checked[$item["Average"]] = " class='avgvote' ";
+	// array_search(max($votes),$votes)
+
+	// Added this in for special coloring
+	$tdstyle = "";
+	if ($vote >= 0) {
+		// item has been voted on and saved
+		if ($checked[$vote]) {
+			$checked[$vote] = " class='matchvote' ";
+		} else {
+			$checked[$vote] = " class='myvote' ";
+		}
+		$tdstyle = " class='saved' ";
 	}
 
 	if ($item['type']=='demo'){
-		$demo++;
 		$tdstyle = " class='demo' ";
+	} else if ($item["red"]) {
+		$tdstyle = " class='saved_red' ";
+	} else if ($item["yellow"]) {
+		$tdstyle = " class='saved_yellow' ";
+	} else if ($item["green"]) {
+		$tdstyle = " class='saved_green' ";
 	} else {
-		$presentation++;
+		$tdstyle = " class='saved' ";
 	}
 
-	$vote_disable = "";
-	if (!$voting) {
-		$vote_disable = "disabled='y'";
-	}
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;'>
+	<td <?= $tdstyle ?> nowrap='y' style="text-align:right;">
+		<a name="anchor<?= $pk ?>"></a>
 <?php if($item['type']=='demo') {
 		echo "<strong>Demo:</strong><br/>No voting<br/>on demos";
 	} else {
 ?>
-		<a name="anchor<?= $pk ?>"></a>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
-		<input <?= $vote_disable ?> id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$VOTE_SCORE[$vi]] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
+		<div <?= $checked[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
 <?php	} ?>
-		<div style="margin:8px;"></div>
-		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $vote ?>" />
-		<input id="vc<?= $pk ?>"  class="button" type="button" value="Reset" onClick="setCleared('<?= $pk ?>')"
-			disabled='y' title="Clear the radio buttons for this item or reset to the saved vote" />
-		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
-			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
+		<div style='margin:6px;'></div>
+		&nbsp;<label title="Total number of votes for this item">Total:</label>&nbsp;<br />
+		<div style="margin:12px;"></div>
+<?php } /* end demo check */ ?>
+	</td>
+
+	<td nowrap="y" style="border-right:1px dotted #ccc;">
+<?php if($item['type']=='demo') {
+	echo "<strong>Demo:</strong><br/>No results<br/>for demos";
+	} else {
+?>
+		<div style="margin-left:6px;">
+<?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
+			<?= $votes[$vi] ?> (<?= $percents[$vi] ?>%)<br/>
+<?php	} ?>
+			<div style='margin:6px;'></div>
+			<b><?= $total ?></b><br/>
+			<div style="margin:12px;"></div>
+		</div>
 <?php } /* end demo check */ ?>
 	</td>
 
@@ -592,10 +468,9 @@ if ($item['type']!='demo')  { ?>
 </tr>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td colspan="2" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
+	<td colspan="3" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
 		<div>
 			Reviewer Comments (<?= count($item['comments']) ?>):
-			<a id="onComment<?= $pk ?>" href="<?= $_SERVER['PHP_SELF'] ?>" onClick="showAddComment('<?= $pk ?>');return false;" title="Reveal a comment box so you can enter comments">Add Comment</a>
 			<br/>
 <?php
 	if (!empty($item['comments'])) {
@@ -624,10 +499,6 @@ if ($item['type']!='demo')  { ?>
 		}
 	}
 ?>
-			<div id="addComment<?= $pk ?>" style="display:none;">
-			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes">Save New Comment</a><br/>
-			<textarea name="cmnt<?= $pk ?>" cols="40" rows="3"></textarea>
-			</div>
 		</div>
 	</td>
 </tr>
@@ -637,4 +508,17 @@ if ($item['type']!='demo')  { ?>
 
 </form>
 <?php } ?>
+
+<div class="definitions">
+	<div class="defheader">Color Key</div>
+	<div style="padding:3px;">
+		<b style="font-size:1.1em;">Key:</b> 
+	<?php if($User->pk) { ?>
+		<div class="myvote" style='display:inline;'>&nbsp;Your vote&nbsp;</div> &nbsp;
+		<div class="matchvote" style='display:inline;'><label title="Your vote matches the average">&nbsp;Your vote matches the average&nbsp;</label></div> &nbsp;
+	<?php } ?>
+		<div class="avgvote" style='display:inline;'>&nbsp;Average vote&nbsp;</div>
+	</div>
+</div>
+
 <?php include $TOOL_PATH.'include/admin_footer.php'; // Include the FOOTER ?>

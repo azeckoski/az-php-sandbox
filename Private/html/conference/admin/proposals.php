@@ -40,6 +40,10 @@ $EXTRA_LINKS =
 	"<a href='index.php'>Admin:</a> " .
 	"<a href='attendees.php'>Attendees</a> - " .
 	"<a href='proposals.php'><strong>Proposals</strong></a> " .
+		"(<em>" .
+		"<a href='proposals.php'><strong>Viewing / Voting</strong></a> - " .
+		"<a href='proposals_results.php'>Results / Editing</a>" .
+		"</em>)" .
 	"</span>";
 
 
