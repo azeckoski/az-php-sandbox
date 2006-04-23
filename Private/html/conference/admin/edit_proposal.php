@@ -377,11 +377,11 @@ if ($_POST['save']) {
    	<td><input type="text" name="title" size="40" maxlength="75" value="<?= $_POST['title'] ?>" /> <br/>(75 max chars)
     	 <input type="hidden" id="titleValidate" value="<?= $vItems['title'] ?>" /><span id="titleMsg"></span>
    	</td>
- </tr>
+ </tr
  <?php if ($type!="demo") { ?>
  <tr>
-	<td><strong>Track:</strong></td>
-	<td>
+	<td colspan=2><strong>Select/change track for this proposal:  </strong> 
+	
 		<select name="track" title="conference tracks">
 			<option value="<?= $_POST['track'] ?>" selected><?= $_POST['track'] ?></option>
 			<option value="Community">Community</option>
@@ -389,11 +389,13 @@ if ($_POST['save']) {
 			<option value="Implementors">Implementors</option>
 			<option value="Technology">Technology</option>
 			<option value="Tool Overview">Tool Overview</option>
-			<option value="show all tracks">show all tracks</option>
+			
 		</select>
-   	</td>
+		</td>
+
  </tr>
  <?php } ?>
+ 
  <tr>
     <td colspan=2><img id="abstractImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
     		<?php if ($type1!="demo") {?> 
@@ -447,144 +449,17 @@ if ($_POST['save']) {
 <tr>
     <td><strong>Project URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
-</tr>
-<?php if ($type!="demo") {?>
-<tr>
-   <td colspan=2>
-     <div id="topicInfo">
-    		<div><img id="topicImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
-        		<strong>Topic Areas </strong> <input type="hidden" id="topicValidate" value="<?= $vItems['topic'] ?>" /><span id="topic"></span>
-     	</div>
-     	<div>Although in the last Call for Proposals (for the 4th Sakai conference in Austin) presenters were asked to categorize their proposal 
-	          within one of five tracks, for the Vancouver conference, presenters are being asked to rank the relevance of their proposal to a list of
-	          topic areas. Once the deadline for submitting proposals has passed, the Vancouver Program Committee will review all the proposals and see 
-	          which topic areas have emerged as most relevant for the Sakai community.  Those topic areas will become the tracks for the 5th Sakai 
-	          conference (part of Community Source Week) in Vancouver.<br/><br/>Rank <strong>at least one</strong> of the topics below on their
-	          relationship to your proposed presentation. <br/><br/>
-	     </div>
-	     <div class=topic_row_header>
-	        	 <div class=topic_type_header>TOPIC AREAS </div>
-	   		 <div class=topic_vote_header><span>n/a&nbsp;&nbsp;&nbsp;&nbsp;</span><span>low&nbsp;&nbsp;&nbsp;</span><span>med&nbsp;&nbsp;&nbsp;</span>
-	   		 	 <span>high&nbsp;&nbsp;&nbsp;</span></div>
-	     </div> 
-	     <div> Here is the full list of topics</div>
-	     
+</tr>     
 		 <?php           
+		 if ($type!="demo") {
 		 //populate form with topic information
 
 		 //TODO:
-		 //  this is the old method for populating the topics list
-		 //this works well for new forms  but does not pull in the full
-		 // list with stored data from the database when editing proposal   
+		 // bring the topics and audiences code back in - not worried about not using it
+		 // when editing the proposals at this date - it does not affec the ability to add
+		 // this file is only used when editing   
 
-		$topic_sql="select pk, topic_name from topics order by topic_order";
-		$result = mysql_query($topic_sql) or die(mysql_error());
-		
-		 while($topic_items=mysql_fetch_array($result)) {
-		$topic_pk=$topic_items['pk'];
-		$topic_name=$topic_items['topic_name'];
-		$topicID="topic_" . $topic_pk;
 		?>
-		<div class=topic_row>  <div class=topic_type><?= $topic_name?> </div>
-			<div class=topic_vote>
-		     <span><input name<?= $topic_pk?> type="radio" value="" <?php if ($_POST[$topicID]=="0") { echo "checked"; }?>" />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name=<?= $topicID ?> type="radio" value="1"  <?php if ($_POST[$topicID]=="1") { echo "checked"; }?>" />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name=<?= $topicID ?> type="radio" value="2"<?php  if ($_POST[$topicID]=="2") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name=<?= $topicID ?> type="radio" value="3" <?php  if ($_POST[$topicID]=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
-		    </div>
-		 </div>
-		 <?php  }
-		   ?> 		              
- 		<div> And - Here are the topics ranking results</div>
-	      <?php 
-		 //TODO:  
-		 //this is the newer method for populating the topics list
-		 //with data already stored but does not provide a full topics list
-		 //only the list that the user first provided when submitting the proposal initially
-   
-	  		foreach($_POST['topics'] as $v) {
-	  			//echo "<br/>" . $v['pk'] ." " . $v['topic_name'] ." " . $v['choice'] ."<br/>";
-	  		?>		
-		<div class=topic_row>  
-			<div class=topic_type><?= $v['topic_name'] ?></div>
-			<div class=topic_vote>
-	    			<span> <input name=<?= $v['pk']?> type="radio" value="" <?php if ($v['choice'] == "") { echo "checked"; } ?> " />&nbsp;&nbsp;&nbsp;</span>
-				<span> <input name= <?= $v['pk'] ?> type="radio" value="0" <?php if ($v['choice'] == "1") { echo "checked"; } ?> " />&nbsp;&nbsp;&nbsp;</span>
-				<span> <input name=<?= $v['pk'] ?> type="radio" value="1" <?php if($v['choice'] == "2") { echo "checked"; } ?> " />&nbsp;&nbsp;&nbsp;</span>
-				<span> <input name=<?= $v['pk'] ?> type="radio" value="2" <?php if ($v['choice'] == "3") { echo "checked"; } ?> " />&nbsp;&nbsp;&nbsp;</span>
-			</div>
-		</div>
-		<?php } ?>
-	</div> <!-- end topic info -->
-  </td>
-</tr>
-<tr>
-    <td colspan=2>
-      <div id="audienceInfo">
-    		<div><img id="audienceImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong>Intended Audience(s)* </strong>
-    			 <input type="hidden" id="audienceValidate" value="<?= $vItems['audience'] ?>" />
-			<span id="audience"></span>
-	    </div>
-        <div> Please indicate your intended audience by selecting an interest level <strong>for at least one </strong>of the audience groups listed below. 
-           For example, a session on your campus implementation might be of high interest to Implementors and of medium 
-           interest to Senior Administration, etc. <br/><br/>
-        </div>
-        <div>Here is the full list of audience roles</div> 
-        <div class=topic_row_header> <div class=topic_type_header>AUDIENCE</div><div class=topic_vote_header>
-        		<span>n/a&nbsp;&nbsp;&nbsp;&nbsp;</span><span>low &nbsp;&nbsp;&nbsp;</span><span>med &nbsp;&nbsp;&nbsp;</span> <span>high &nbsp;&nbsp;&nbsp;</span> </div>
-        </div>	                    
-		<?php
-		//populate form with audience information
-		 //TODO:  this is the old method for populating the audience list
-		 //this works well for new forms  but does not pull in the full
-		 // list with stored data from the database when editing proposal   
-	
-			$audience_sql="select pk,role_name from roles order by role_order";
-			$result = mysql_query($audience_sql) or die(mysql_error());
-			
-			 while($audience_items=mysql_fetch_array($result)) {
-			 	$audience_pk=$audience_items['pk'];
-				$audience_name=$audience_items['role_name'];
-			 	$audienceID="audience_" .$audience_pk;
-		?>
-			 	<div class=topic_row>  <div class=topic_type><?= $audience_name?></div>
-			 		<div class=topic_vote>
-			           <span><input name=<?= $audienceID ?> type="radio" value="" <?php  if ($_POST[$audienceID]=="0") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-			           <span><input name=<?= $audienceID ?> type="radio" value="1"<?php if ($_POST[$audienceID]=="1") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-			           <span><input name=<?= $audienceID ?> type="radio" value="2" <?php if ($_POST[$audienceID]=="2") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-			           <span><input name=<?= $audienceID ?> type="radio" value="3" <?php  if ($_POST[$audienceID]=="3") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-			         </div>
-			    </div> 
-			   
-		 <?php
-			} ?>
-
-		 <div> And - Here are the audience ranking results</div>
-
-		 <?php 
-	 
-	    //TODO: 
-	    // this is the newer method for populating the topics list
-	    //with data already stored but does not provide a full topics list
-	    //only the list that the user first provided when submitting the proposal initially
-   
-        foreach($_POST['audiences'] as $v) {
-  		//echo "<br/>" . $v['pk '] ." " . $v['role_name'] ." " . $v['choice'] ."<br/>";
-  	  	?>
-  	  	
-	  <div class=topic_row>  
-		<div class=topic_type><?= $v['role_name'] ?></div>
-			<div class=topic_vote>
-     		   <span><input name=<?= $v['pk']?> type="radio" value="" <?php if ($v['choice'] == "") { echo "checked"; }?> " /> &nbsp;&nbsp;&nbsp;</span> 
-				<span><input name= <?= $v['pk'] ?> type="radio" value="0" <?php if ($v['choice'] == "1") { echo "checked"; }?> " /> &nbsp;&nbsp;&nbsp;</span>
-				<span><input name=<?= $v['pk'] ?> type="radio" value="1" <?php if($v['choice'] == "2") { echo "checked"; }?> " />  &nbsp;&nbsp;&nbsp;</span>
-				<span><input name=<?= $v['pk'] ?> type="radio" value="2" <?php if ($v['choice'] == "3") { echo "checked"; }?> " />  &nbsp;&nbsp;&nbsp;</span>
-			</div>
-		</div>
-		<?php	} ?>
-  	</div>   <!-- end audienceinfo-->
-   </td>
- </tr>
  <tr>
     <td><img id="typeImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong> Presentation Format </strong></td>
      <td><input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" /><span id="type"></span>
