@@ -522,7 +522,7 @@ if ($item['type']!='demo')  { ?>
 			<a href="" onClick="javascript:this.style.display='inline';getElementById('desc<?= $pk ?>').style.display='none';return false;" 
 			title="Click to hide the description">[ hide ]</a> <br/>
 			<div id='desc<?= $pk ?>' style='display:none;'><?= $item['desc'] ?></div>
-			
+		<br/>	
 		<br/>
      	<div class="description"><strong>Speaker Bio:</strong><br/>
      	<?= $item['bio'] ?><br/><br/>
