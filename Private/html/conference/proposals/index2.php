@@ -124,10 +124,11 @@ if ($_POST['save']) { // saving the form
 				foreach ($items as $item) { // loop through all of the proposal items
 					$line++;
 					$pk = $item['pk'];
-					$type=$item['type'];  ?>
+				
+					  ?>
 					
-					<li><?=  $item['title'] ?> ( <a style="color:#336699;" href="<?= "viewPresentation.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $type ; ?>"> edit </a> | 
-						<a style="color:#336699;" href="<?=  "viewPresentation.php" . "?pk=" . $item['pk'] . "&amp;delete=1" ."&amp;type=". $type ; ?>"> delete </a>)&nbsp; &nbsp;<br/></li>
+					<li><?=  $item['title'] ?> ( <a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>"> edit </a> | 
+						<a style="color:#336699;" href="<?=  "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;delete=1" ."&amp;type=". $item['type'] ; ?>"> delete </a>)&nbsp; &nbsp;<br/></li>
 					<?php  }  ?>
 				</ul>
 			 </div>
