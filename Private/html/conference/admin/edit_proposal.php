@@ -155,12 +155,15 @@ if (!$PK) {
 			 $_POST[$item['pk']]=$items[$item['pk']];
 			 }
 			 
-			 if ($_REQUEST['type']=="demo"){
-			  $Message = "<div><br/><strong>Editing Tech Demo: </strong>"  . $_POST['title'] . "<br/><br/></div>";
+			if ($type=="demo"){
+			  $Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
+			   . $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
 			 }
 			 else { 
-			 $Message = "<div><br/><strong>Editing Presentation: </strong>"  . $_POST['title'] . "<br/><br/></div>";
+			 $Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
+			 . $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
 			 }
+
 			 
 		// get the dates when a presenter cannot be available
 		$conflict=$_POST['conflict'];
