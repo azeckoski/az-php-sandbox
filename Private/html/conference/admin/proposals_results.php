@@ -543,16 +543,19 @@ if ($item['type']!='demo')  { ?>
  
 		 	
 	 <span style="padding-right: 20px;"><strong>Track:</strong>
-	 <?php if (!$item['track']) { 
+	 <?php  
 	 if ($item['type']=="demo") {
-	 	echo "demo<br/>";
+	 	echo "demo  ";
 			 }
-			 else {  echo "<span style='color: #666666;'>not set </span>";   
-			} 
-	 }
-				 echo $item['track'];
-			  ?> (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" >edit</a>)
-	
+			 else { if ($item['track']) {
+			 	 echo $item['track'];
+			 }
+			 else {
+			  echo "<span style='color: #666666;'>not set </span>";  
+			 } ?> (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" >edit</a>)
+<?php } 
+	 
+	 ?>
 	    </div>
 	    <div>
 	  
