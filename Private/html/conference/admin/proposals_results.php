@@ -488,6 +488,10 @@ if ($item['type'] != 'demo') {
 				"UNAPPROVED</div>";
 	}
 	echo "<div style='text-align:center;'>";
+	
+	//TODO  
+	//provide a javascript or ajax warning for the delete link below  before
+	//letting people use this feature
 	?>
 		( <a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>"> edit </a> | delete 
 		<!-- <a style="color:#336699;" href="<?=  "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;delete=1" ."&amp;type=". $item['type'] ; ?>"> delete </a> -->)
@@ -570,9 +574,13 @@ if ($item['type']!='demo')  { ?>
 ?>
 	</td>
 	<td rowspan="2" style="border-bottom:1px solid black;">
-	<strong>Track:</strong><br/> 
-	<?php if ($item['track']) { echo $item['track'] ; }
-			 else { echo "<span style='color: #666666;'>not set </span>";  }
+	<?php if ($item['type']=='demo') { echo "n/a: demo<br/>";
+		 }
+		 else { 
+		 	echo "<strong>Track:</strong><br/>"; 
+			 if ($item['track']) {  echo $item['track']; } 
+			 	 else { echo "<span style='color: #666666;'>not set </span>";  }
+			 }
 	?>
 	</td>
 	
