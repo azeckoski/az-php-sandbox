@@ -156,6 +156,27 @@ if ($filter_type && ($filter_type != $filter_type_default)) {
 	$filter_type = $filter_type_default;
 }
 
+
+// Track Filter
+$filter_track_default = "show all tracks";
+$filter_track = "";
+if ($_REQUEST["filter_track"] && (!$_REQUEST["clearall"]) ) { $filter_track = $_REQUEST["filter_track"]; }
+
+$special_filter = "";
+$filter_track_sql = "";
+switch ($filter_track){
+   	case "Community": $filter_track_sql = " and track='Community' "; break;
+  	case "Faculty": $filter_track_sql = " and track='Faculty' "; break;
+ 	case "Impementors": $filter_track_sql = " and track='Implementors' "; break;
+ 	case "Technology": $filter_track_sql = " and track='Technology' "; break;
+ 	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
+	case ""; // show all items
+		$filter_track = $filter_track_default;
+		$filter_track_sql = "";
+		break;
+}
+  
+
 // sorting
 $sortorder = "date_created";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
@@ -169,7 +190,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql . $filter_items_sql . $sqlsorting . $mysql_limit;
+	$filter_type_sql . $filter_items_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -250,6 +271,19 @@ if (!$_REQUEST["export"]) {
 			<option value="show all types">show all types</option>
 		</select>
 		&nbsp;
+		&nbsp;
+		<strong>Track:</strong>
+		<select name="filter_track" title="Filter the items by track">
+			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
+			<option value="Community">Community</option>
+			<option value="Faculty">Faculty</option>
+			<option value="Implementors">Implementors</option>
+			<option value="Technology">Technology</option>
+			<option value="Tool Overview">Tool Overview</option>
+			<option value="show all tracks">show all tracks</option>
+		</select>
+			&nbsp;
+		
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
 		&nbsp;&nbsp;&nbsp;
 		<?= count($items) ?> proposals shown
@@ -278,6 +312,7 @@ if (!$_REQUEST["export"]) {
 <td>Abstract&nbsp;/&nbsp;Description&nbsp;/&nbsp;Speakers&nbsp;/&nbsp; <a href="javascript:orderBy('type');">Format</a></td>
 <!-- <td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>-->
 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
+<td><a href="javascript:orderBy('track');">Track&nbsp;</a></td>
 </tr>
 
 <?php 
@@ -452,8 +487,13 @@ if ($item['type'] != 'demo') {
 		echo "<div style='width:100%;background-color:red;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
 				"UNAPPROVED</div>";
 	}
-	echo "<div style='text-align:center;'>" .
-			"<a href=''>edit</a> | <a href=''>delete</a></div>";
+	echo "<div style='text-align:center;'>";
+	?>
+		( <a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>"> edit </a> | delete 
+		<!-- <a style="color:#336699;" href="<?=  "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;delete=1" ."&amp;type=". $item['type'] ; ?>"> delete </a> -->)
+		</div>
+	<?php
+		
 	echo "<div style='margin:6px;'></div>";
 }
 ?>
@@ -529,6 +569,13 @@ if ($item['type']!='demo')  { ?>
 	}
 ?>
 	</td>
+	<td rowspan="2" style="border-bottom:1px solid black;">
+	<strong>Track:</strong><br/> 
+	<?php if ($item['track']) { echo $item['track'] ; }
+			 else { echo "<span style='color: #666666;'>not set </span>";  }
+	?>
+	</td>
+	
 </tr>
 
 <tr class="<?= $linestyle ?>" valign="top">
