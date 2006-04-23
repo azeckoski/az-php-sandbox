@@ -167,7 +167,7 @@ $filter_track_sql = "";
 switch ($filter_track){
    	case "Community": $filter_track_sql = " and track='Community' "; break;
   	case "Faculty": $filter_track_sql = " and track='Faculty' "; break;
- 	case "Impementors": $filter_track_sql = " and track='Implementors' "; break;
+ 	case "Imp;ementors": $filter_track_sql = " and track='Implementors' "; break;
  	case "Technology": $filter_track_sql = " and track='Technology' "; break;
  	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
 	case ""; // show all items
