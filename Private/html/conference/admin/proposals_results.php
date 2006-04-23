@@ -517,10 +517,12 @@ if ($item['type'] != 'demo') {
 		
 if ($item['type']!='demo')  { ?>
 		<div class="description"><strong>Description:</strong>
-			<a href="" onClick="javascript:this.style.display='none';getElementById('desc<?= $pk ?>').style.display='inline';return false;" 
-			title="Click to reveal the description">[view description]</a><br/>
+			<a href="" onClick="javascript:this.style.display='inline';getElementById('desc<?= $pk ?>').style.display='inline';return false;" 
+			title="Click to reveal the description">[ show ]</a> &nbsp; 
+			<a href="" onClick="javascript:this.style.display='inline';getElementById('desc<?= $pk ?>').style.display='none';return false;" 
+			title="Click to hide the description">[ hide ]</a> <br/>
 			<div id='desc<?= $pk ?>' style='display:none;'><?= $item['desc'] ?></div>
-		</div>
+			
 		<br/>
      	<div class="description"><strong>Speaker Bio:</strong><br/>
      	<?= $item['bio'] ?><br/><br/>
