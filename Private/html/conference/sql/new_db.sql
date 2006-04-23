@@ -47,6 +47,10 @@ CREATE TABLE conf_proposals (
     PRIMARY KEY(pk)
 )
 
+//changes to conf_proposals
+ALTER TABLE `conf_proposals` ADD `track` VARCHAR( 50 ) NOT NULL;
+
+
 CREATE TABLE conf_proposals_vote ( 
     pk						int(10) AUTO_INCREMENT NOT NULL,
     date_created			timestamp NULL DEFAULT CURRENT_TIMESTAMP,
