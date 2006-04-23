@@ -112,58 +112,42 @@ if ($_POST['save']) { // saving the form
 	  <input type="hidden" name="save" value="1" />
 	   <input type="hidden" name="new" value="" />
 	  <table width="100%" cellpadding="0" cellspacing="0">
-		<?php if ($items) { // user has submitted a previous proposal   	
-			 // now dump the data we currently have
-			$line = 0;  ?>
-		<tr>
-		 <td colspan=2>
-			<div style="padding:5px; margin:0px; background: #ffffff;">
-				<input type="hidden" name="new" value="1" /><strong>Your Vancouver conference proposals: </strong>
-		   		<ul>
-				<?php 
-				foreach ($items as $item) { // loop through all of the proposal items
-					$line++;
-					$pk = $item['pk'];
-				
-					  ?>
-					
-					<li><?=  $item['title'] ?> ( <a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>"> edit </a> | 
-						<a style="color:#336699;" href="<?=  "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;delete=1" ."&amp;type=". $item['type'] ; ?>"> delete </a>)&nbsp; &nbsp;<br/></li>
-					<?php  }  ?>
-				</ul>
-			 </div>
-		  </td>
-	   </tr> <?php } ?>
 	   <tr>
-	      <td valign="top" colspan="2" style="padding:0px;">
+	      <td valign="top" colspan="3" style="padding:0px;">
 	      	<div id="requiredMessage"></div>
 	      </td>
 	   </tr>
 	   <tr valign="top">
-	      <td colspan="2" style="border:0; padding-bottom:0px;">
-	        	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" /><strong>Select a proposal type:</strong>
+	      <td colspan="3" style="border:0; padding-bottom:0px;">
+	        	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" /><strong>Choose the type of proposal to be submitted</strong>
 			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" /><span id="typeMsg"></span>
 		 </td>
 	   </tr>
 	   <tr>
-	     <td valign="top" width="50%">
-	      	<input name="type" type="radio" value="presentation" <?php if ($_POST['type']=="presentation") echo "checked" ?> />&nbsp;&nbsp;<strong>Conference Presentation</strong>
-			<div style="padding:0px 10px;">
+	     <td colspan=3 valign="top">
+	      	<div><input name="type" type="radio" value="presentation" <?php if ($_POST['type']=="presentation") echo "checked" ?> />&nbsp;&nbsp;<strong>Conference Presentation</strong>
+				<div style="padding: 0px 40px;">
 					Presentation formats include: panel, workshop, discussion, and lecture. 
 					Presentations will take place at the conference hotel, during the conference's 
-					daytime schedule for May 30 through June 2nd.
+					daytime schedule for May 30 through June 2nd.<br/><br/>
 				</div>
-			</td>
-	        <td valign="top" width="50%">
-	        		<input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />	&nbsp;&nbsp;<strong>Technology Demo</strong>
-				<div style="padding:0px 10px;">
-					Technology Demos will take place on Thursday, June 1st. 
-					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]
+			</div>
+	        	<div><input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />&nbsp;&nbsp;<strong>Technology Demo</strong><br/>
+					<div style="padding: 0px 40px;">
+					Technology Demos will take place on Thursday, June 1st. Sign up early to guarantee space and equipment availability. 
+					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]<br/><br/>
 				</div>
-			</td>
-	      </tr>
-	      <tr>
-	         <td colspan=2 style="text-align:center;">
+			</div>
+			<div><input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>
+				<div style="padding: 0px 40px;">
+					BOFs are self-formed meetings set up by any conference attendee to discuss a Sakai-related topic during the conference. BOFs may take place during the main conference sessions, as well as before or after the normal conference scheduled session - based on room availablity.
+					[<a href="http://sakaiproject.org/index.php?option=com_content&task=blogcategory&id=178&Itemid=524" target=blank>more information</a>]<br/><br/>
+				</div>
+			</div>
+		</td>
+	   </tr>
+     <tr>
+	     <td colspan=3 style="text-align:center;">
 			   	<input type="submit" name="submit" value="Continue" />
 		     </td>
 		 </tr>
@@ -179,6 +163,29 @@ if ($_POST['save']) { // saving the form
 
 	 <div id=outerright><!-- start outerright -->
 		 <div id=rightcol> <!--start rightcol -->
+		
+		 <?php if ($items) { // user has submitted a previous proposal   	
+			 // now dump the data we currently have
+			$line = 0;  ?>
+		
+			<div style="padding:3px; margin:0px;>
+				<input type="hidden" name="new" value="1" />
+				 <div><hr></div>
+				<div class=componentheading><strong>Your Proposals: </strong></div>
+		   		
+				<?php 
+				foreach ($items as $item) { // loop through all of the proposal items
+					$line++;
+					$pk = $item['pk'];
+					  ?>
+					<span><br/>- &nbsp;<?=  $item['title'] ?><br/> (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" title="Delete this proposal" > edit </a> )
+						(<a style="color:#336699;" href="<?=  "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;delete=1" ."&amp;type=". $item['type']; ?>" title="Delete this proposal" > delete </a>)&nbsp; &nbsp;<br/>
+					</span>
+					<?php  }  ?>
+				
+			 </div>
+		  <?php } ?>
+		 <div class="componentheading"><hr><br/></div>
 		   <div class="componentheading">More Info...</div>
 		   <div class="contentheading">What will you need to provide?</div>
 		   <div class="contentpaneopen">
