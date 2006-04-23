@@ -77,7 +77,7 @@ if ($_POST['save']) { // saving the form
 		//all required information provided
 		$type=$_POST['type'];
 		$new=$_POST['new'];
-			header("Location: viewPresentation.php?type=$type&amp;edit=0&amp;new=$new");
+			header("Location: edit_proposal.php?type=$type&amp;edit=0&amp;new=$new");
 	}
 }
 
@@ -140,7 +140,7 @@ if ($_POST['save']) { // saving the form
 	   </tr>
 	   <tr valign="top">
 	      <td colspan="2" style="border:0; padding-bottom:0px;">
-	        	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" /><strong>Select the type of proposal to be submitted:</strong>
+	        	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" /><strong>Select a proposal type:</strong>
 			<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" /><span id="typeMsg"></span>
 		 </td>
 	   </tr>
