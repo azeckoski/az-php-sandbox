@@ -312,7 +312,6 @@ if (!$_REQUEST["export"]) {
 <td>Abstract&nbsp;/&nbsp;Description&nbsp;/&nbsp;Speakers&nbsp;/&nbsp; <a href="javascript:orderBy('type');">Format</a></td>
 <!-- <td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>-->
 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
-<td><a href="javascript:orderBy('track');">Track&nbsp;</a></td>
 </tr>
 
 <?php 
@@ -533,12 +532,31 @@ if ($item['type']!='demo')  { ?>
 		<div class="description"><strong>Co-Speaker:</strong><br/>
 		<?= $item['co_speaker'] ?><br/><br/>
 <?php } ?>
+		<div class="description">
 		 <span style="padding-right: 20px;">
 		 	<strong>Format: </strong><?= $item['type'] ?></span>
 		 <span style="padding-right: 20px;" ><strong>Length:</strong>
-<?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
+<?php if ($item['length']=='0') {  echo "n/a </span>"; } //this is a demo with no time limit
 	 		else { echo  $item['length'] ." min. </span>"; 
 } ?>
+
+ 
+		 	
+	 <span style="padding-right: 20px;"><strong>Track:</strong>
+	 <?php if (!$item['track']) { 
+	 if ($item['type']=="demo") {
+	 	echo "demo<br/>";
+			 }
+			 else {  echo "<span style='color: #666666;'>not set </span>";   
+			} 
+	 }
+				 echo $item['track'];
+			  ?> (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" >edit</a>)
+	
+	    </div>
+	    <div>
+	  
+	    
 	    </div>
 	</td>	
 
@@ -575,17 +593,7 @@ if ($item['type']!='demo')  { ?>
 	}
 ?>
 	</td>
-	<td rowspan="2" style="border-bottom:1px solid black;">
-	<?php if ($item['type']=='demo') { echo "n/a: demo<br/>";
-		 }
-		 else { 
-		 	echo "<strong>Track:</strong><br/>"; 
-			 if ($item['track']) {  echo $item['track']; } 
-			 	 else { echo "<span style='color: #666666;'>not set </span>";  }
-			 }
-	?>
-	</td>
-	
+
 </tr>
 
 <tr class="<?= $linestyle ?>" valign="top">
