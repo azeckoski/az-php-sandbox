@@ -182,7 +182,6 @@ This way we will allow the hard work beyond the image to be displayed as well. T
 
 <p><b>Software recommendations for CSS work</b></p>
 <ul>
-
 	<li>TopStyle Lite 3.10 - <a href="http://www.bradsoft.com/download/" target="_new">http://www.bradsoft.com/download/</a> (PC only)</li>
 	<li>Xyle Scope - <a href="http://www.culturedcode.com/xyle/" target="_new">http://www.culturedcode.com/xyle/</a> (Mac)</li>
 	<li>Firefox Web Developer Extension - <a href="http://chrispederick.com/work/webdeveloper/" target="_new">http://chrispederick.com/work/webdeveloper/</a></li>
