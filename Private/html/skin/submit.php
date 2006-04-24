@@ -44,6 +44,7 @@ if (!$PK) {
 		if ( ($row['users_pk'] != $User->pk) && !$User->checkPerm("admin_skin")) {
 			// this item is not owned by current user and current user is not an admin
 			$error = true;
+			$allowed = false;
 			$Message = "You may not access someone else's skin entry " .
 				"unless you have the (admin_skin) permission.";
 		} else {
