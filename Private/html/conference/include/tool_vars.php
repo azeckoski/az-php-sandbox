@@ -49,7 +49,7 @@ $VOTE_CLOSE_DATE = "2006/04/23 15:00";
 $CONF_REPORT_PATH = realpath($_SERVER["DOCUMENT_ROOT"]."/../reports/");
 if ($ENVIRONMENT == "prod") {
 	$CONF_REPORT_TO = "hardin@umich.edu,wendemm@gmail.com,mmiles@umich.edu";
-	$CONF_REPORT_CC = "shardin@umich.edu";
+	$CONF_REPORT_CC = "shardin@umich.edu,kreister@umich.edu";
 } elseif ($ENVIRONMENT == "test") {
 	// TESTING
 	$CONF_REPORT_TO = "shardin@umich.edu";
