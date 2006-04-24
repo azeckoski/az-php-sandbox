@@ -492,8 +492,8 @@ if ($item['type'] != 'demo') {
 	//provide a javascript or ajax warning for the delete link below  before
 	//letting people use this feature
 	?>
-		( <a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>"> edit </a> | delete 
-		<!-- <a style="color:#336699;" href="<?=  "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;delete=1" ."&amp;type=". $item['type'] ; ?>"> delete </a> -->)
+		( <a href="<?= "$ACCOUNTS_URL/proposals/edit_proposal.php?pk=$item[pk]" ?>">edit</a> | 
+		  <a href="<?= "$ACCOUNTS_URL/proposals/edit_proposal.php?pk=$item[pk]&amp;delete=1" ?>">delete</a> )
 		</div>
 	<?php
 		

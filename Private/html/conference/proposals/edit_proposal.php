@@ -9,16 +9,8 @@
  // figure out the audience and  topic display code
  // add proper validation to this code
  //add a warning prior to deleting a proposal
- 
- 
 ?>
 <?php
-
-$PK = $_REQUEST['pk']; // grab the pk
-$edit = $_REQUEST['edit']; // grab the edit status
-$type = $_REQUEST['type']; // grab the proposal type
-
-//echo $type;
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Call for Proposals";
@@ -45,142 +37,145 @@ if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
 
+// these should not be needed -AZ
+$edit = $_REQUEST['edit']; // grab the edit status
+$type = $_REQUEST['type']; // grab the proposal type
+
+$PK = $_REQUEST["pk"]; // grab the pk
 $error = false; // preset the error flag to no errors
 $allowed = false; // assume user is NOT allowed unless otherwise shown
 
 // this allows us to use this page as an edit for admins or
 // to add/edit/delete for normal users (don't forget to handle the errors flag)
 // NOTE: make sure the permission check below is looking for the right permission
-
-// to add/edit/delete for normal users don't forget to handle the errors 
-
-// NOTE: make sure the permission check below is looking for the right permission
-
 if (!$PK) {
 	// no PK set so we must be adding a new item
 	$Message = "";
-}
- else { 
+} else {
 	// pk is set, see if it is valid for this user
 	$check_sql = "select pk, users_pk from conf_proposals where pk='$PK'";
-	$result = mysql_query($check_sql) or die("check query failed($check_sql): ".mysql_error());
+	$result = mysql_query($check_sql) or die("check query failed ($check_sql): ".mysql_error());
 	if (mysql_num_rows($result) > 0) {
 		$row = mysql_fetch_assoc($result);
 		if ( ($row['users_pk'] != $User->pk) && !$User->checkPerm("admin_conference")) {
 			// this item is not owned by current user and current user is not an admin
 			$error = true;
+			$allowed = false;
 			$Message = "You may not access someone else's conference proposal entry " .
 				"unless you have the (admin_conference) permission.";
-		} else if ($_REQUEST["delete"]) {
-	 
-	// entry is owned by current user or they are an admin
-	
-		// if delete was passed then wipe out this item and related items
-		$delete_sql = "delete from conf_proposals where pk='$PK'";
-		$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
-         
-         //now delete the topic ranking for this proposal
-		$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
-		$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+		} else {
+			// entry is owned by current user or they are an admin
+			if ($_REQUEST["delete"]) {
+				// if delete was passed then wipe out this item and related items
+				$delete_sql = "delete from conf_proposals where pk='$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 		
-		//now delete the topic ranking for this proposal
-		$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
-		$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
-		// NOTE: Don't forget to handle the deletion below as needed
-		$Message = "Deleted item ($PK) and related data";
-	} 
-
-	else if ($_REQUEST["edit"]) {  //user is reviewing this proposal and may make edit 
-			
-			// First get the requested proposal for this  users for the current conf 
-			// (maybe limit this using a search later on)
-			
-			$filter_edits_sql = " and CP.pk=$PK "; //the pk of the proposal requested by user
-			
-			//$filter_users_sql = "and CP.users_pk='$User->pk' ";
-			
-			$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
-				"U1.firstname||' '||U1.lastname as fullname,  " .
-				"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
-				"where CP.confID = '$CONF_ID' "  . 
-				$filter_users_sql . $filter_edits_sql . $sqlsorting . $mysql_limit;
-			
-				//print "SQL=$sql<br/>";
-			$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-			$items = array();	
-			
-			// put all of the query results into an array first
-			while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
-				//	echo "<pre>",print_r($items),"</pre><br/>";
-	
-			
-			// add in the audiences rankings
-			$sql = "select PA.pk, PA.proposals_pk, R.role_name, R.pk,  PA.choice from proposals_audiences PA " .
-				"join conf_proposals CP on CP.pk = PA.proposals_pk and confID='$CONF_ID' " .
-				"join roles R on R.pk = PA.roles_pk where PA.proposals_pk=$PK order by R.pk asc";
-			
-			$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-			$audience_items = array();
-			while($row=mysql_fetch_assoc($result)) {
-				$audience_items[$row['proposals_pk']][$row['pk']] = $row;
-				}
-				//	echo "audience:<pre>",print_r($audience_items),"</pre><br/>";
-					
-			// add in the topics rankings
-			$sql = "select PT.pk, PT.proposals_pk, T.topic_name, T.pk, PT.choice from proposals_topics PT " .
-			"join conf_proposals CP on CP.pk = PT.proposals_pk and confID='$CONF_ID' " .
-			" join topics T on T.pk = PT.topics_pk where PT.proposals_pk=$PK order by T.pk asc";
-			$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-			$topics_items = array();
-			while($row=mysql_fetch_assoc($result)) {
-				$topics_items[$row['proposals_pk']][$row['pk']] = $row;
-			
-			
+				//now delete the audiences for this proposal
+				$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+		
+				//now delete the topic ranking for this proposal
+				$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				// NOTE: Don't forget to handle the deletion below as needed
+				$Message = "Deleted item ($PK) and related data";
+				$PK = 0; // clear the PK
 			}
-				//echo "<pre>",print_r($topics_items),"</pre><br/>";
-			
-				foreach ($items as $item) {
-			// these add an array to each proposal item which contains the relevant topics/audiences
-			$items[$item['pk']]['audiences'] = $audience_items[$item['pk']];
-			$items[$item['pk']]['topics'] = $topics_items[$item['pk']];
-			
-			//echo "<pre>",print_r($items[$item['pk']]['audiences'] ),"</pre><br/>";
-			//echo "<pre>",print_r($items[$item['pk']]['topics'] ),"</pre><br/>";
-		
-			}
-				
-		
-			foreach ($items as $_POST) {
-			 // set $items to $_POST for form processing
-			 $_POST[$item['pk']]=$items[$item['pk']];
-			 }
-			 
-			if ($type=="demo"){
-			  $Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
-			   . $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
-			 }
-			 else { 
-			 $Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
-			 . $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
-			 }
-
-			 
-		// get the dates when a presenter cannot be available
-		$conflict=$_POST['conflict'];
-		if (preg_match("/Tue/", $conflict)) {	$_POST['conflict_tue']="Tue";  }
-		if (preg_match("/Wed/", $conflict)) { $_POST['conflict_wed']="Wed";}
-		if (preg_match("/Thu/", $conflict)) {	$_POST['conflict_thu']="Thu"; }
-		if (preg_match("/Fri/", $conflict)) {	$_POST['conflict_fri']="Fri"; }
-		
-	   } else {
+		}
+	} else {
 		// PK does not match, invalid PK set to this page
 		$error = true;
-		$Message = "Invalid item proposal number: Item does not exist";
+		$Message = "Invalid item PK ($PK): Item does not exist";
 	}
- }
- }
-	 //end edit info
- 
+}
+
+
+// not sure about this part yet -AZ
+if (1 == 2) {
+		$filter_edits_sql = " and CP.pk=$PK "; //the pk of the proposal requested by user
+		
+		//$filter_users_sql = "and CP.users_pk='$User->pk' ";
+		
+		$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
+			"U1.firstname||' '||U1.lastname as fullname,  " .
+			"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
+			"where CP.confID = '$CONF_ID' "  . 
+			$filter_users_sql . $filter_edits_sql . $sqlsorting . $mysql_limit;
+		
+			//print "SQL=$sql<br/>";
+		$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+		$items = array();	
+		
+		// put all of the query results into an array first
+		while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
+			//	echo "<pre>",print_r($items),"</pre><br/>";
+
+		
+		// add in the audiences rankings
+		$sql = "select PA.pk, PA.proposals_pk, R.role_name, R.pk,  PA.choice from proposals_audiences PA " .
+			"join conf_proposals CP on CP.pk = PA.proposals_pk and confID='$CONF_ID' " .
+			"join roles R on R.pk = PA.roles_pk where PA.proposals_pk=$PK order by R.pk asc";
+		
+		$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+		$audience_items = array();
+		while($row=mysql_fetch_assoc($result)) {
+			$audience_items[$row['proposals_pk']][$row['pk']] = $row;
+			}
+			//	echo "audience:<pre>",print_r($audience_items),"</pre><br/>";
+				
+		// add in the topics rankings
+		$sql = "select PT.pk, PT.proposals_pk, T.topic_name, T.pk, PT.choice from proposals_topics PT " .
+		"join conf_proposals CP on CP.pk = PT.proposals_pk and confID='$CONF_ID' " .
+		" join topics T on T.pk = PT.topics_pk where PT.proposals_pk=$PK order by T.pk asc";
+		$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+		$topics_items = array();
+		while($row=mysql_fetch_assoc($result)) {
+			$topics_items[$row['proposals_pk']][$row['pk']] = $row;
+		
+		
+		}
+			//echo "<pre>",print_r($topics_items),"</pre><br/>";
+		
+			foreach ($items as $item) {
+		// these add an array to each proposal item which contains the relevant topics/audiences
+		$items[$item['pk']]['audiences'] = $audience_items[$item['pk']];
+		$items[$item['pk']]['topics'] = $topics_items[$item['pk']];
+		
+		//echo "<pre>",print_r($items[$item['pk']]['audiences'] ),"</pre><br/>";
+		//echo "<pre>",print_r($items[$item['pk']]['topics'] ),"</pre><br/>";
+	
+		}
+			
+	
+		foreach ($items as $_POST) {
+		 // set $items to $_POST for form processing
+		 $_POST[$item['pk']]=$items[$item['pk']];
+		 }
+		 
+		if ($type=="demo"){
+		  $Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
+		   . $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
+		 }
+		 else { 
+		 $Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
+		 . $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
+		 }
+
+		 
+	// get the dates when a presenter cannot be available
+	$conflict=$_POST['conflict'];
+	if (preg_match("/Tue/", $conflict)) {	$_POST['conflict_tue']="Tue";  }
+	if (preg_match("/Wed/", $conflict)) { $_POST['conflict_wed']="Wed";}
+	if (preg_match("/Thu/", $conflict)) {	$_POST['conflict_thu']="Thu"; }
+	if (preg_match("/Fri/", $conflict)) {	$_POST['conflict_fri']="Fri"; }
+	
+   } else {
+	// PK does not match, invalid PK set to this page
+	$error = true;
+	$Message = "Invalid item proposal number: Item does not exist";
+}
+
+
  
 // Define the array of items to validate and the validation strings
 $vItems = array();
@@ -317,7 +312,6 @@ if ($PK)  {  //this proposal has been edited
 
 <!-- // INCLUDE THE HTML HEAD -->
 <?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
-
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
 <?php include '../include/header.php'; ?>
