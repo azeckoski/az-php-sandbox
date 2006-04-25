@@ -309,7 +309,7 @@ if ($_POST['save']) {
    	<td><input type="text" name="title" size="40" maxlength="75" value="<?= $_POST['title'] ?>" /> <br/>(75 max chars)
     	 <input type="hidden" id="titleValidate" value="<?= $vItems['title'] ?>" /><span id="titleMsg"></span>
    	</td>
- </tr
+ </tr>
  <?php if ($type!="demo") { ?>
  <tr>
 	<td colspan=2><strong>Select/change track for this proposal:  </strong> 
@@ -392,16 +392,24 @@ if ($_POST['save']) {
 		 // this file is only used when editing   
 
 		?>
+ 
+  
  <tr>
-    <td><img id="typeImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong> Presentation Format </strong></td>
-     <td><input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" /><span id="type"></span>
+    <td nowrap='y'>
+		<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+    	<strong>Presentation Format</strong>
+    </td>
+    <td>
 		<div class=small>see sidebar for <a href="#getformat">format descriptions</a></div><br/>
-          <input name="type" type="radio" value="discussion" <?php if ($_POST['type']=="discussion") { echo "checked"; } ?> /> Discussion <br/>
-          <input name="type" type="radio" value="lecture" <?php if ($_POST['type']=="lecture") { echo "checked"; } ?> /> Lecture <br/>
-          <input name="type" type="radio" value="panel" <?php if ($_POST['type']=="panel") { echo "checked"; } ?> /> Panel <br/>
-          <input name="type" type="radio" value="workshop" <?php if ($_POST['type']=="workshop") { echo "checked"; } ?> /> Workshop (How-to) <br/><br/>
-   	 </td>
+			<input name="type" type="radio" value="discussion" <?php if ($_POST['type']=="discussion") { echo "checked"; } ?> /> Discussion <br/>
+			<input name="type" type="radio" value="lecture" <?php if ($_POST['type']=="lecture") { echo "checked"; } ?> /> Lecture <br/>
+			<input name="type" type="radio" value="panel" <?php if ($_POST['type']=="panel") { echo "checked"; } ?> /> Panel <br/>
+			<input name="type" type="radio" value="workshop" <?php if ($_POST['type']=="workshop") { echo "checked"; } ?> /> Workshop (How-to) <br/><br/>
+		<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" />
+		<span id="typeMsg"></span>
+	</td>
   </tr>
+
   <tr>
      <td><img id="layoutImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong>Room setup desired* </strong></td>
      <td> <input type="hidden" id="layoutValidate" value="<?= $vItems['layout'] ?>" /><span id="layout"></span>

@@ -83,29 +83,28 @@ for the call for proposals forms
 text-align:left;
 }
 
-.topic_row, .audience_row{
-border-bottom:1px solid #ccc;
-padding:2px 20px;
+.list_header {
+	line-height:20px;
+	padding:2px 20px;
+	background:#ccc;
+	width: 80%;
+}
+
+.list_row {
+	border-bottom:1px solid #ccc;
+	padding:2px 20px;
+	width: 80%;
 }
 
 .audience_type, .topic_type, .topic_type_header{
-float:right;
-clear:left;
-text-align:left;
-width:350px;
-font-weight: bold;
-line-height:20px;
-}
-
-
-.topic_type_header, .topic_vote_header{
-line-height:20px;
-background:#ccc;
+	text-align:left;
+	font-weight: bold;
+	display:inline;
 }
 
 .vote, .topic_vote_header, .topic_vote{
-text-align:right;
-line-height:20px;
+	text-align:right;
+	display:inline;
 }
 
 .topic_vote_header span{

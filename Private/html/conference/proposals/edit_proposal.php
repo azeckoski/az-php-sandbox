@@ -91,7 +91,7 @@ if (!$PK) {
 
 
 // not sure about this part yet -AZ
-if (1 == 2) {
+if ($PK) {
 		$filter_edits_sql = " and CP.pk=$PK "; //the pk of the proposal requested by user
 		
 		//$filter_users_sql = "and CP.users_pk='$User->pk' ";
@@ -215,7 +215,8 @@ $PK=$_POST['editPK'];
 
 $type=$_POST['type'];
 $layout=$_POST['layout'];
-$length=$_POST['length'];
+// NOTE: You cannot use length as an identifier, it is a reserved word in AJAX -AZ
+$length=$_POST['Length'];
 $conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
 
 if ($PK)  {  //this proposal has been edited
@@ -340,7 +341,7 @@ if ($PK)  {  //this proposal has been edited
    <input type="hidden" name="save" value="1" />
    <input type="hidden" name="new" value="<?php $_POST['new']?>" />
    	<table width="100%"  cellpadding="0" cellspacing="0">
-   
+
 <tr>
 	<td valign="top" colspan="2" style="padding:0px;">
 		<div id="requiredMessage"></div>
@@ -439,8 +440,11 @@ if ($PK)  {  //this proposal has been edited
 <tr>
    <td colspan=2>
      <div id="topicInfo">
-    		<div><img id="topicImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
-        		<strong>Topic Areas </strong> <input type="hidden" id="topicValidate" value="<?= $vItems['topic'] ?>" /><span id="topic"></span>
+		<div>
+			<img id="topicImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+    		<strong>Topic Areas </strong>
+    		<input type="hidden" id="topicValidate" value="<?= $vItems['topic'] ?>" />
+    		<span id="topic"></span>
      	</div>
      	<div>Although in the last Call for Proposals (for the 4th Sakai conference in Austin) presenters were asked to categorize their proposal 
 	          within one of five tracks, for the Vancouver conference, presenters are being asked to rank the relevance of their proposal to a list of
@@ -449,159 +453,136 @@ if ($PK)  {  //this proposal has been edited
 	          conference (part of Community Source Week) in Vancouver.<br/><br/>Rank <strong>at least one</strong> of the topics below on their
 	          relationship to your proposed presentation. <br/><br/>
 	     </div>
-	     <div class=topic_row_header>
-	        	 <div class=topic_type_header>TOPIC AREAS </div>
-	   		 <div class=topic_vote_header><span>n/a&nbsp;&nbsp;&nbsp;&nbsp;</span><span>low&nbsp;&nbsp;&nbsp;</span><span>med&nbsp;&nbsp;&nbsp;</span>
-	   		 	 <span>high&nbsp;&nbsp;&nbsp;</span></div>
-	     </div> 
-	     <div> Here is the full list of topics</div>
-	     
-		 <?php           
-		 //populate form with topic information
 
-		 //TODO:
-		 //  this is the old method for populating the topics list
-		 //this works well for new forms  but does not pull in the full
-		 // list with stored data from the database when editing proposal   
-
-		$topic_sql="select pk, topic_name from topics order by topic_order";
-		$result = mysql_query($topic_sql) or die(mysql_error());
-		
-		 while($topic_items=mysql_fetch_array($result)) {
-		$topic_pk=$topic_items['pk'];
-		$topic_name=$topic_items['topic_name'];
-		$topicID="topic_" . $topic_pk;
-		?>
-		<div class=topic_row>  <div class=topic_type><?= $topic_name?> </div>
-			<div class=topic_vote>
-		     <span><input name<?= $topic_pk?> type="radio" value="" <?php if ($_POST[$topicID]=="0") { echo "checked"; }?>" />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name=<?= $topicID ?> type="radio" value="1"  <?php if ($_POST[$topicID]=="1") { echo "checked"; }?>" />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name=<?= $topicID ?> type="radio" value="2"<?php  if ($_POST[$topicID]=="2") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name=<?= $topicID ?> type="radio" value="3" <?php  if ($_POST[$topicID]=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
-		    </div>
-		 </div>
-		 <?php  }
-		   ?> 		              
- 		<div> And - Here are the topics ranking results</div>
-	      <?php 
-		 //TODO:  
-		 //this is the newer method for populating the topics list
-		 //with data already stored but does not provide a full topics list
-		 //only the list that the user first provided when submitting the proposal initially
-   
-	  		foreach($_POST['topics'] as $v) {
-	  			//echo "<br/>" . $v['pk'] ." " . $v['topic_name'] ." " . $v['choice'] ."<br/>";
-	  		?>		
-		<div class=topic_row>  
-			<div class=topic_type><?= $v['topic_name'] ?></div>
-			<div class=topic_vote>
-	    			<span> <input name=<?= $v['pk']?> type="radio" value="" <?php if ($v['choice'] == "") { echo "checked"; } ?> " />&nbsp;&nbsp;&nbsp;</span>
-				<span> <input name= <?= $v['pk'] ?> type="radio" value="0" <?php if ($v['choice'] == "1") { echo "checked"; } ?> " />&nbsp;&nbsp;&nbsp;</span>
-				<span> <input name=<?= $v['pk'] ?> type="radio" value="1" <?php if($v['choice'] == "2") { echo "checked"; } ?> " />&nbsp;&nbsp;&nbsp;</span>
-				<span> <input name=<?= $v['pk'] ?> type="radio" value="2" <?php if ($v['choice'] == "3") { echo "checked"; } ?> " />&nbsp;&nbsp;&nbsp;</span>
+		<div class="list_header">
+			<div class="topic_vote_header">
+	   		 	<span>n/a&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	   		 	<span>low&nbsp;&nbsp;&nbsp;</span>
+	   		 	<span>med&nbsp;&nbsp;&nbsp;</span>
+				<span>high&nbsp;&nbsp;&nbsp;</span>
 			</div>
+			<div class="topic_type_header">TOPIC AREAS</div>
 		</div>
-		<?php } ?>
+	     
+<?php           
+	 //populate form with topic information
+		$list_sql = "select PT.pk, PT.proposals_pk, T.topic_name, T.pk, PT.choice from topics T " .
+			"left join proposals_topics PT on PT.topics_pk = T.pk and PT.proposals_pk=$PK " .
+			"left join conf_proposals CP on CP.pk = PT.proposals_pk and confID='$CONF_ID' " .
+			"order by T.topic_order";
+		$result = mysql_query($list_sql) or die(mysql_error());
+		
+		while($list_items=mysql_fetch_array($result)) {
+			$itemID = "topic_" . $list_items['pk'];
+?>
+		<div class="list_row">
+			<div class="topic_vote">
+		     <span><input name="<?= $itemID ?>" type="radio" value="" <?php if (!$list_items['choice']) { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+		     <span><input name="<?= $itemID ?>" type="radio" value="1" <?php if ($list_items['choice']=="1") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+		     <span><input name="<?= $itemID ?>" type="radio" value="2" <?php if ($list_items['choice']=="2") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+		     <span><input name="<?= $itemID ?>" type="radio" value="3" <?php if ($list_items['choice']=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		    </div>
+			<div class="topic_type"><?= $list_items['topic_name'] ?></div>
+		 </div>
+<?php } ?>
 	</div> <!-- end topic info -->
   </td>
 </tr>
 <tr>
     <td colspan=2>
       <div id="audienceInfo">
-    		<div><img id="audienceImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong>Intended Audience(s)* </strong>
-    			 <input type="hidden" id="audienceValidate" value="<?= $vItems['audience'] ?>" />
+		<div>
+			<img id="audienceImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+			<strong>Intended Audience(s)</strong>
+			<input type="hidden" id="audienceValidate" value="<?= $vItems['audience'] ?>" />
 			<span id="audience"></span>
 	    </div>
         <div> Please indicate your intended audience by selecting an interest level <strong>for at least one </strong>of the audience groups listed below. 
            For example, a session on your campus implementation might be of high interest to Implementors and of medium 
            interest to Senior Administration, etc. <br/><br/>
         </div>
-        <div>Here is the full list of audience roles</div> 
-        <div class=topic_row_header> <div class=topic_type_header>AUDIENCE</div><div class=topic_vote_header>
-        		<span>n/a&nbsp;&nbsp;&nbsp;&nbsp;</span><span>low &nbsp;&nbsp;&nbsp;</span><span>med &nbsp;&nbsp;&nbsp;</span> <span>high &nbsp;&nbsp;&nbsp;</span> </div>
-        </div>	                    
+
+		<div class="list_header">
+			<div class="topic_vote_header">
+	   		 	<span>n/a&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	   		 	<span>low&nbsp;&nbsp;&nbsp;</span>
+	   		 	<span>med&nbsp;&nbsp;&nbsp;</span>
+				<span>high&nbsp;&nbsp;&nbsp;</span>
+			</div>
+			<div class="topic_type_header">AUDIENCE</div>
+		</div>
+
 		<?php
 		//populate form with audience information
-		 //TODO:  this is the old method for populating the audience list
-		 //this works well for new forms  but does not pull in the full
-		 // list with stored data from the database when editing proposal   
-	
-			$audience_sql="select pk,role_name from roles order by role_order";
-			$result = mysql_query($audience_sql) or die(mysql_error());
-			
-			 while($audience_items=mysql_fetch_array($result)) {
-			 	$audience_pk=$audience_items['pk'];
-				$audience_name=$audience_items['role_name'];
-			 	$audienceID="audience_" .$audience_pk;
-		?>
-			 	<div class=topic_row>  <div class=topic_type><?= $audience_name?></div>
-			 		<div class=topic_vote>
-			           <span><input name=<?= $audienceID ?> type="radio" value="" <?php  if ($_POST[$audienceID]=="0") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-			           <span><input name=<?= $audienceID ?> type="radio" value="1"<?php if ($_POST[$audienceID]=="1") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-			           <span><input name=<?= $audienceID ?> type="radio" value="2" <?php if ($_POST[$audienceID]=="2") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-			           <span><input name=<?= $audienceID ?> type="radio" value="3" <?php  if ($_POST[$audienceID]=="3") { echo "checked"; } ?>" />&nbsp;&nbsp;&nbsp;</span>
-			         </div>
-			    </div> 
-			   
-		 <?php
-			} ?>
-
-		 <div> And - Here are the audience ranking results</div>
-
-		 <?php 
-	 
-	    //TODO: 
-	    // this is the newer method for populating the topics list
-	    //with data already stored but does not provide a full topics list
-	    //only the list that the user first provided when submitting the proposal initially
-   
-        foreach($_POST['audiences'] as $v) {
-  		//echo "<br/>" . $v['pk '] ." " . $v['role_name'] ." " . $v['choice'] ."<br/>";
-  	  	?>
-  	  	
-	  <div class=topic_row>  
-		<div class=topic_type><?= $v['role_name'] ?></div>
-			<div class=topic_vote>
-     		   <span><input name=<?= $v['pk']?> type="radio" value="" <?php if ($v['choice'] == "") { echo "checked"; }?> " /> &nbsp;&nbsp;&nbsp;</span> 
-				<span><input name= <?= $v['pk'] ?> type="radio" value="0" <?php if ($v['choice'] == "1") { echo "checked"; }?> " /> &nbsp;&nbsp;&nbsp;</span>
-				<span><input name=<?= $v['pk'] ?> type="radio" value="1" <?php if($v['choice'] == "2") { echo "checked"; }?> " />  &nbsp;&nbsp;&nbsp;</span>
-				<span><input name=<?= $v['pk'] ?> type="radio" value="2" <?php if ($v['choice'] == "3") { echo "checked"; }?> " />  &nbsp;&nbsp;&nbsp;</span>
-			</div>
-		</div>
-		<?php	} ?>
+		$list_sql = "select PA.pk, PA.proposals_pk, R.role_name, R.pk, PA.choice from roles R " .
+			"left join proposals_audiences PA on PA.roles_pk = R.pk and PA.proposals_pk='$PK' " .
+			"left join conf_proposals CP on CP.pk = PA.proposals_pk and confID='$CONF_ID' order by R.role_order";
+		$result = mysql_query($list_sql) or die(mysql_error());
+		
+		while($list_items=mysql_fetch_array($result)) {
+			$itemID = "audience_" . $list_items['pk'];
+?>
+		<div class="list_row">
+			<div class="topic_vote">
+		     <span><input name="<?= $itemID ?>" type="radio" value="" <?php if (!$list_items['choice']) { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+		     <span><input name="<?= $itemID ?>" type="radio" value="1" <?php if ($list_items['choice']=="1") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+		     <span><input name="<?= $itemID ?>" type="radio" value="2" <?php if ($list_items['choice']=="2") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+		     <span><input name="<?= $itemID ?>" type="radio" value="3" <?php if ($list_items['choice']=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		    </div>
+			<div class="topic_type"><?= $list_items['role_name'] ?></div>
+		 </div>
+<?php } ?>
   	</div>   <!-- end audienceinfo-->
    </td>
  </tr>
+
  <tr>
-    <td><img id="typeImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong> Presentation Format </strong></td>
-     <td><input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" /><span id="type"></span>
+    <td>
+    	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />
+    	<strong> Presentation Format</strong>
+    </td>
+    <td>
 		<div class=small>see sidebar for <a href="#getformat">format descriptions</a></div><br/>
           <input name="type" type="radio" value="discussion" <?php if ($_POST['type']=="discussion") { echo "checked"; } ?> /> Discussion <br/>
           <input name="type" type="radio" value="lecture" <?php if ($_POST['type']=="lecture") { echo "checked"; } ?> /> Lecture <br/>
           <input name="type" type="radio" value="panel" <?php if ($_POST['type']=="panel") { echo "checked"; } ?> /> Panel <br/>
-          <input name="type" type="radio" value="workshop" <?php if ($_POST['type']=="workshop") { echo "checked"; } ?> /> Workshop (How-to) <br/><br/>
+          <input name="type" type="radio" value="workshop" <?php if ($_POST['type']=="workshop") { echo "checked"; } ?> /> Workshop (How-to) <br/>
+		<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" />
+		<span id="typeMsg"></span>
    	 </td>
   </tr>
+
   <tr>
-     <td><img id="layoutImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong>Room setup desired* </strong></td>
-     <td> <input type="hidden" id="layoutValidate" value="<?= $vItems['layout'] ?>" /><span id="layout"></span>
+     <td>
+     	<img id="layoutImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />
+     	<strong>Room setup desired</strong>
+     </td>
+     <td>
 		<div class=small>We will do our best to accomodate your request</div><br/>
           <input name="layout" type="radio" value="class" <?php if ($_POST['layout']=="class") { echo "checked"; } ?> /> <strong>classroom </strong>(rows of narrow tables w/chairs)<br/>
           <input name="layout" type="radio" value="theater" <?php if ($_POST['layout']=="theater") { echo "checked"; } ?> /> <strong>theater </strong>(rows of chairs only)<br/>
           <input name="layout" type="radio" value="conference" <?php if ($_POST['layout']=="conference") { echo "checked"; } ?> /> <strong>conference</strong> (roundtables or conference room setup)<br/>
+		<input type="hidden" id="layoutValidate" value="<?= $vItems['layout'] ?>" />
+		<span id="layoutMsg"></span>
      </td>
   </tr>
+
   <tr>
-     <td><img id="lengthImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
-     	<strong>Presentation Length* </strong></td>
-     <td><input type="hidden" id="lengthValidate" value="<?= $vItems['length'] ?>" /><span id="length"></span>
-		<div class=small>Times are not guaranteed. We will do our best to match each session with an appropriate time block</div><br/>
-          <input name="length" type="radio" value="30" <?php if ($_POST['length']=="30") { echo "checked"; } ?> /> 30 minutes  <br/>
-          <input name="length" type="radio" value="60" <?php if ($_POST['length']=="60") { echo "checked"; } ?> /> 60 minutes  <br/>
-          <input name="length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
-          <input name="length" type="radio" value="120" <?php if ($_POST['length']=="120") { echo "checked"; } ?> /> 120 minutes  <br/><br/>
+     <td>
+     	<img id="LengthImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />
+     	<strong>Presentation Length</strong>
+     </td>
+     <td>
+		<div class="small">Times are not guaranteed. We will do our best to match each session with an appropriate time block</div><br/>
+          <input name="Length" type="radio" value="30" <?php if ($_POST['length']=="30") { echo "checked"; } ?> /> 30 minutes  <br/>
+          <input name="Length" type="radio" value="60" <?php if ($_POST['length']=="60") { echo "checked"; } ?> /> 60 minutes  <br/>
+          <input name="Length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
+          <input name="Length" type="radio" value="120" <?php if ($_POST['length']=="120") { echo "checked"; } ?> /> 120 minutes  <br/>
+		<input type="hidden" id="LengthValidate" value="<?= $vItems['length'] ?>" />
+		<span id="LengthMsg"></span>
      </td>
   </tr>
+
   <tr>
      <td><strong>Availability</strong></td>
      <td><div class=small> Please check the days that the presenter(s)<br/>CANNOT present due to a travel conflict</div>
@@ -613,8 +594,7 @@ if ($PK)  {  //this proposal has been edited
         <br/>
      </td>
   </tr>
-    <?php 	}
-   	?>
+<?php 	} ?>
     <tr>
         <td >&nbsp;</td>
         <td style="padding-top: 5px;">
