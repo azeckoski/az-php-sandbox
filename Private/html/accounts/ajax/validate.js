@@ -273,6 +273,7 @@ function attachValidateHandlers() {
 				if (validateItem != null) {
 					// if the validation value is blank then skip this item
 					if (validateItem.value == "") { continue; }
+					//alert("validation: "+thisElement.name);
 
 					// cleanup the validate string
 					validateItem.value = gSeparator + validateItem.value + gSeparator;
@@ -310,7 +311,7 @@ function attachValidateHandlers() {
 						}
 					} else {
 						thisElement.id = thisElement.name; // set the id to the name
-						
+						//alert("validation: "+thisElement.id+":"+thisElement.name);
 						// do the initial validation check
 						if (gInitialCheck) { validateObject(thisElement); }
 					}
@@ -607,7 +608,7 @@ function validateMsg(objInput) {
 function validateObject(objInput) {
 	var localCheck = false;
 	var localText = "";
-	//alert("valuecheck="+objInput.value);
+	//alert("valuecheck: "+objInput.id+" ("+objInput.id+") = "+objInput.value);
 
 	// do the "other" checking first
 	if (vUseOther) {
