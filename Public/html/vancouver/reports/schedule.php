@@ -39,7 +39,7 @@ td {  vertical-align:top; }
 </style>
 </head>
 
-<body><br>
+<body><div style="padding:20px;"
 <div>
   <p><strong>NOT WORKING  -- sample display only</strong><br>
     <br>
@@ -55,10 +55,7 @@ To assign a presentation to a slot, click on that room's 'add' link.  This will 
   <p>This is all a work in progress and we'll do as much as possible as quickly as possible..... email me comments </p>
   <p>-susan</p>
 </div>
-<div>
-  <form name="form1" method="post" action="">
-</form>
-</div>
+
 <div>
   <table cellspacing="0" cellpadding="0">
     <tr>
@@ -681,75 +678,7 @@ To assign a presentation to a slot, click on that room's 'add' link.  This will 
     </tr>
   </table>
 </div>
-<p>&nbsp;</p>
-<div>
-  <form name="form1" method="post" action="">
-    <table border=0 cellpadding=0 cellspacing=0>
-      <tr>
-        <td style="padding:10px;"><label>Select a day</label>
-            <br/>
-            <select style="width:100px;" name="rooms" size="4" multiple col="60">
-              <option name="room">Tuesday</option>
-              <option name="room">Wednesday</option>
-              <option name="room">Thursday</option>
-              <option name="room">Friday</option>
-            </select>
-        </td>
-        <td style="padding:10px;"><label>Select a room <br/>
-          (only available rooms appear)<br/>
-          </label>
-            <select style="width:200px;" name="rooms" size="6" multiple col="60">
-              <option name="room">Grand A: Faculty</option>
-              <option name="room">Grand B: Implementations</option>
-              <option name="room">Grand C: Standards</option>
-              <option name="room">Jr AB</option>
-              <option name="room">Jr C</option>
-              <option name="room">Jr D</option>
-              <option name="room">Gulf BCD</option>
-              <option name="room">Gulf A: BOF</option>
-              <option name="room">Chart: BOF</option>
-              <option name="room">Blue: BOF</option>
-              <option name="room">Beluga: BOF</option>
-              <option name="room">Parkville: Tool</option>
-            </select>
-        </td>
-        <td style="padding:10px;"><label>Select a time <br/>
-          (only unassigned times appear)<br/>
-          </label>
-            <select style="width:200px;" name="rooms" size="6" multiple col="60">
-              <option name="room">8:30-10:00 pm</option>
-              <option name="room">10:15-12:00 pm</option>
-              <option name="room">1:00-2:45 pm</option>
-              <option name="room">3:00-4:30 pm</option>
-              <option name="room">room</option>
-              <option name="room">room</option>
-              <option name="room">room</option>
-              <option name="room">room</option>
-              <option name="room">room</option>
-            </select>
-        </td>
-        <td style="padding:10px;"></td>
-        <td style="padding:10px;"><label>Select a presentation title <br/>
-          (only unassigned rooms appear)<br/>
-          </label>
-            <select style="width:250px;" name="rooms" size="6" multiple col="60">
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-              <option name="room">title</option>
-            </select>
-        </td>
-      </tr>
-    </table>
-  </form>
+
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
