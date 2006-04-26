@@ -58,7 +58,8 @@ $select_statement =
 		"R2.role_name as SECONDARY_ROLE, " .
 		"R2.color as SECONDARY_COLOR " .
 		"from users U " .
-		"join roles R1 on R1.role_name=U.primaryRole " .
+		"join conferences C on C.users_pk=U.pk and C.activated='Y' ".
+		"left join roles R1 on R1.role_name=U.primaryRole " .
 		"left join roles R2 on R2.role_name=U.secondaryRole " .
 		$where_clause;
 
@@ -70,6 +71,7 @@ if (mysql_num_rows($result) < 1) {
 
 // this is the closest predefined page size matching the labels
 $pdf = new Cezpdf('A7','landscape');
+$pdf->ezSetMargins('15','15','15','15');
 $pdf->selectFont('../../accounts/include/fonts/Helvetica.afm');
 $pdf->setFontFamily('b');   
 
@@ -81,23 +83,70 @@ $pdf->addInfo("CreationDate", localtime());
 $pageCount = 0;
 
 while ($person = mysql_fetch_assoc($result)) {
-	$textOptions["justification"]="center";
-
-	if ($pageCount > 0) { $pdf->ezNewPage(); }
+	if ($pageCount > 0) { 
+		$pdf->ezNewPage(); 
+	}
 	
 	$pdf->addJpegFromFile($logo_file, (round($page_width/2) - round($logo_width/2)), ($page_height - $margin - ($base_height*2) - $logo_height) ,$logo_width);
 
-	$pdf->ezSetDy((0-$logo_height-round($base_height/2)));
-	$pdf->ezText($person["FIRSTNAME"] . " " . $person["LASTNAME"], 18, $textOptions);
+	$nameString = $person["FIRSTNAME"] . " " . $person["LASTNAME"];
+	$nameSize = 32;
 
-	$pdf->ezSetDy(-5);
-	$pdf->ezText($person["INSTITUTION"], 12, $textOptions);
+	while ($pdf->getTextWidth($nameSize, $nameString) > 260) {
+		$nameSize-=2;	
+	}
+
+	$nameX=$page_width/2-($pdf->getTextWidth($nameSize,$nameString)/2);
+	$nameY=$page_height-($margin*2)-$base_height-$logo_height-$pdf->getFontHeight($nameSize);
+	$pdf->addText($nameX,$nameY, $nameSize, $nameString);
+
+	$institutionString = $person["INSTITUTION"];
+	$institutionSize = 18;
+
+	while ($pdf->getTextWidth($institutionSize, $institutionString) > 568) {
+		$institutionSize-=2;	
+	}
+
+	$institutionX=$page_width/2-($pdf->getTextWidth($institutionSize,$institutionString)/2);
+	$institutionY=$nameY - $pdf->getFontHeight($institutionSize) - $margin;
+	
+	/* display shorter institutions on a single line */
+	if ($pdf->getTextWidth($institutionSize, $institutionString) < 234) {
+		$pdf->addText($institutionX, $institutionY, $institutionSize, $institutionString);
+	}
+	/* split longer institutions up over two lines */
+	else {
+		$institutionStringArray=split(' ',$institutionString);
+		$institutionString1="";
+		$institutionString2="";
+		
+		for ($a=0;$a<count($institutionStringArray);$a++) {
+			if ($pdf->getTextWidth($institutionSize, "$institutionString1 " . $institutionStringArray[$a]) < 234) {
+				if ($institutionString1 != "") { $institutionString1 .= " "; }
+				$institutionString1 .= $institutionStringArray[$a];
+			}
+			else {
+				if ($institutionString1 != "") { $institutionString2 .= " "; }
+				$institutionString2 .= $institutionStringArray[$a];
+			}
+		}
+
+		$institutionX = $page_width/2-($pdf->getTextWidth($institutionSize,$institutionString1)/2);
+		$pdf->addText($institutionX,$institutionY,$institutionSize,$institutionString1);
+
+
+		$institutionX2 = $page_width/2-($pdf->getTextWidth($institutionSize,$institutionString2)/2);
+		$institutionY2 = $institutionY - $pdf->getFontHeight($institutionSize);
+		$pdf->addText($institutionX2,$institutionY2,$institutionSize,$institutionString2);
+	}
+
+
 
 	$lpoints = array($margin,$margin,
 					 $margin+($base_width*1),$margin,
 					 $margin+($base_width*2),$margin+$base_height,
-					 $margin+$base_width, $margin+$base_height,
-					 $margin+$base_width, ($page_height-$base_height-$margin),
+					 $margin+$base_width/2, $margin+$base_height,
+					 $margin+$base_width/2, ($page_height-$base_height-$margin),
 					 $margin+(9.5*$base_width), ($page_height-$base_height-$margin),
 				 	 $margin+(10.5*$base_width), ($page_height-$margin),
 				 	 $margin, ($page_height-$margin)
@@ -106,8 +155,8 @@ while ($person = mysql_fetch_assoc($result)) {
 	$rpoints = array($page_width-$margin,$margin,
 					 $page_width-($margin+($base_width*10.5)),$margin,
 					 $page_width-($margin+($base_width*9.5)),$margin+$base_height,
-					 $page_width-($margin+$base_width), $margin+$base_height,
-					 $page_width-($margin+$base_width), ($page_height-$base_height-$margin),
+					 $page_width-($margin+$base_width/2), $margin+$base_height,
+					 $page_width-($margin+$base_width/2), ($page_height-$base_height-$margin),
 					 $page_width-($margin+(2*$base_width)), ($page_height-$base_height-$margin),
 				 	 $page_width-($margin+(1*$base_width)), ($page_height-$margin),
 				 	 $page_width-$margin, ($page_height-$margin)
@@ -135,29 +184,30 @@ while ($person = mysql_fetch_assoc($result)) {
 		$rpoints[12]=($page_width-($margin+(2*$base_width)));
 	}
 
-	$color = get_color($person["PRIMARY_COLOR"]);
-	$pdf->setcolor($color[0],$color[1],$color[2]);	
+	/* don't display the outline if the person has no role */
+	if ($person["PRIMARY_ROLE"] != "Unknown") {
+		$color = get_color($person["PRIMARY_COLOR"]);
+		$pdf->setcolor($color[0],$color[1],$color[2]);	
 
-    $pdf->polygon($lpoints,8,1);
+	    $pdf->polygon($lpoints,8,1);
 
-	$color = get_text_color($person["PRIMARY_COLOR"]);
-	$pdf->setcolor($color[0],$color[1],$color[2]);	
-	$role1Width = $pdf->getTextWidth(12, $person["PRIMARY_ROLE"]);
-	$pdf->addText($margin+$base_width, $page_height-$margin-12, 12, $person["PRIMARY_ROLE"]);
-	$pdf->setcolor(0,0,0);
-
-
+		$color = get_text_color($person["PRIMARY_COLOR"]);
+		$pdf->setcolor($color[0],$color[1],$color[2]);	
+		$role1Width = $pdf->getTextWidth(12, $person["PRIMARY_ROLE"]);
+		$pdf->addText($margin+$base_width/2, $page_height-$margin-12, 12, $person["PRIMARY_ROLE"]);
 	
-	$color = get_color($person["SECONDARY_COLOR"]);
-	$pdf->setcolor($color[0],$color[1],$color[2]);	
+		$color = get_color($person["SECONDARY_COLOR"]);
+		$pdf->setcolor($color[0],$color[1],$color[2]);	
 
-    $pdf->polygon($rpoints,8,1);
+	    $pdf->polygon($rpoints,8,1);
+	
+		$color = get_text_color($person["SECONDARY_COLOR"]);
+		$pdf->setcolor($color[0],$color[1],$color[2]);	
+		$role2Width = $pdf->getTextWidth(12, $person["SECONDARY_ROLE"]);
+		$pdf->addText($page_width-$margin-$base_width/2-$role2Width, $margin+round($base_height/4), 12, $person["SECONDARY_ROLE"]);
 
-	$color = get_text_color($person["SECONDARY_COLOR"]);
-	$pdf->setcolor($color[0],$color[1],$color[2]);	
-	$role2Width = $pdf->getTextWidth(12, $person["SECONDARY_ROLE"]);
-	$pdf->addText($page_width-$margin-$base_width-$role2Width, $margin+round($base_height/4), 12, $person["SECONDARY_ROLE"]);
-	$pdf->setcolor(0,0,0);
+		$pdf->setcolor(0,0,0);
+	}
 
 	$pageCount++;
 }
@@ -181,8 +231,26 @@ function get_color($hex_string="999999") {
 }
 
 function get_text_color($hex_string="999999") {
-	$cutoff = "555555";
-	if (hexdec($hex_string) < hexdec($cutoff)) {
+	$fill_color[0] = hexdec(substr($hex_string, 0,2));	
+	$fill_color[1] = hexdec(substr($hex_string, 2,2));	
+	$fill_color[2] = hexdec(substr($hex_string, 4,2));	
+
+	/* perceived brightness formula:
+	 * 
+	 * ((R * 299) + (G*587) + (B*114))/1000
+	 * 
+	 * Where R,G,B all range from 0-255, and the perceived brightness calculated 
+	 * ranges from 0-255.
+	 * 
+	 * taken from:
+	 * http://juicystudio.com/article/luminositycontrastratioalgorithm.php
+	 */
+
+	$brightness = (($fill_color[0]*299) + ($fill_color[1]*587) + ($fill_color[2]*114))/1000;
+
+	$cutoff = 85;
+
+	if ($brightness <= $cutoff) {
 		$color[0]=1;
 		$color[1]=1;
 		$color[2]=1;
