@@ -78,11 +78,11 @@ if (!$PK) {
 				$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
 				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 				// NOTE: Don't forget to handle the deletion below as needed
-				$Message = 
-					"<div style='border:2px solid darkgreen;padding:3px;background:lightgreen;font-weight:bold;'>" .
-					"Deleted item ($PK) and related data</div>";
+
+				$msg = "Deleted item ($PK) and related data";
 				$PK = 0; // clear the PK
-				$allowed = false; // don't load the rest of the page
+				// redirect to the index page
+				header("Location:index2.php?msg=$msg");
 			}
 		}
 	} else {
@@ -91,45 +91,6 @@ if (!$PK) {
 		$Message = "Invalid item PK ($PK): Item does not exist";
 	}
 }
-
-
-// if a PK was supplied, we are editing
-if ($PK) {
-	$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
-		"U1.firstname||' '||U1.lastname as fullname,  " .
-		"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
-		"where CP.confID = '$CONF_ID' and CP.pk=$PK";
-	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-	$item = mysql_fetch_assoc($result); // put first item into an array
-
-	if(mysql_num_rows($result) > 0) {
-		// update the type
-		$type = $item['type'];
-
-		// refer to the item array by name $_POST (this might not be a good idea) -AZ
-		foreach($item as $key=>$value) {
-			$_POST[$key] = $value;
-		}
-
-		if ($type=="demo") {
-			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
-			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
-		} else {
-			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
-			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
-		}
-
-		// get the dates when a presenter cannot be available
-		$conflict=$_POST['conflict'];
-		if (preg_match("/Tue/", $conflict)) { $_POST['conflict_tue']="Tue";  }
-		if (preg_match("/Wed/", $conflict)) { $_POST['conflict_wed']="Wed";}
-		if (preg_match("/Thu/", $conflict)) { $_POST['conflict_thu']="Thu"; }
-		if (preg_match("/Fri/", $conflict)) { $_POST['conflict_fri']="Fri"; }
-	} else {
-		$Message = "ERROR: Could not get information for: $PK";
-	}
-}
-
 
  
 // Define the array of items to validate and the validation strings
@@ -167,16 +128,16 @@ if ($_POST['save']) {
 		$bio=mysql_real_escape_string($_POST['bio']);
 		$co_speaker=mysql_real_escape_string($_POST['co_speaker']);
 		$co_bio=mysql_real_escape_string($_POST['co_bio']);
-		$url=$_POST['URL'];
-		$PK=$_POST['editPK'];
-		
+		$url=mysql_real_escape_string($_POST['URL']);
+
 		$type=$_POST['type'];
 		$layout=$_POST['layout'];
 		// NOTE: You cannot use length as an identifier, it is a reserved word in AJAX -AZ
 		$length=$_POST['Length'];
+
 		$conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
-		
-		
+
+		$msg = "";
 		if ($PK)  {  //this proposal has been edited
 			// update proposal information  --all data except role and topic data
 			$proposal_sql="UPDATE conf_proposals" .
@@ -184,16 +145,22 @@ if ($_POST['save']) {
 						" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio' , `layout`='$layout', " .
 						"`length`='$length' , `conflict`='$conflict' ," .
 						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio' where pk= '$PK'   ";
-						
+
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				"registration form submission. Please try to submit the registration again. " .
 				"If you continue to have problems, please report the problem to the " .
 				"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
-				
-			//TODO
-			//How do you update the topics and audiences without having duplicate entries in the 
-			//propsals_audiences tables
-					
+
+			$msg = "Updated $type: $title";
+
+			//now delete the audiences for this proposal
+			$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
+			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+
+			//now delete the topic ranking for this proposal
+			$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
+			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+
 		} else {  //this is a new  proposal so add this to the conf_proposals table
 		
 			//first add presentation information into --all data except role and topic data
@@ -208,61 +175,62 @@ if ($_POST['save']) {
 				"registration form submission. Please try to submit the registration again. " .
 				"If you continue to have problems, please report the problem to the " .
 				"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
-				
-			$proposal_pk=mysql_insert_id(); //get this proposal_pk
-			
+
+			$PK = mysql_insert_id(); //get this proposal_pk
+			$msg = "Created new $type: $title";
+
+
+			// TODO - why is this being fetched from the DB? This info was just passed in the POST -AZ
 			if ($type="demo") {  // send the user an email confirmation for this demo
 				$email_sql="Select * from `conf_proposals` WHERE pk='$proposal_pk' ";
 				$email_result= mysql_query($email_sql);
 				while($demo=mysql_fetch_array($email_result)) {	
-				$title=$demo["title"];
-				$abstract=$demo["abstract"];
-				$speaker=$demo["speaker"];
-				$url=$demo["URL"];
+					$title=$demo["title"];
+					$abstract=$demo["abstract"];
+					$speaker=$demo["speaker"];
+					$url=$demo["URL"];
 				}
 				 //send confirmation email message
 				//require ('../include/send_demoEmail.php');
 				
-			} 
-			 else {  //this is a presentation proposal so we need to add topics and proposal info 
-							
-				//get audience information for the proposal_audiences table
-				$audience_sql="select pk,role_name from roles order by role_order";
-				$result = mysql_query($audience_sql) or die(mysql_error());
-				
-				 while($audience_items=mysql_fetch_array($result)) {
-				 $audience_pk=$audience_items['pk'];
-			     $audienceID="audience_" .$audience_pk;
-				
-			 	if ($_POST[$audienceID] > 0){ // - only get $audience_items with values above 0
-					$audience_choice=$_POST[$audienceID];
-					$insert_audience_sql="INSERT INTO `proposals_audiences` ( `pk` , `date_created` ,  `proposals_pk` , `roles_pk` , `choice` )
-						VALUES ('', NOW(), '$proposals_pk', '$audience_pk', '$audience_choice')";
-					$audience_result = mysql_query($insert_audience_sql) or die("Error:<br/>" . mysql_error() . "problem entering role" );
-					}
-			 }
-					
-			//get topic information for the proposal_topics table
-			$topic_sql="select pk, topic_name from topics order by topic_order";
-			$result = mysql_query($topic_sql) or die(mysql_error());
-				
-			while($topic_items=mysql_fetch_array($result)) {
-			$topic_pk=$topic_items['pk'];
-			$topicID="topic_" . $topic_pk;
-			
-			 if ($_POST[$topicID] > 0) { // - only get topics with values greater than 0
-				$topic_choice=$_POST[$topicID];
-				$insert_topic_sql="INSERT INTO `proposals_topics` ( `pk` , `date_created` , `proposals_pk` , `topics_pk` , `choice` )
-				VALUES('', NOW(),  '$proposals_pk', '$topic_pk', '$topic_choice') " ;				
-				$topic_result = mysql_query($insert_topic_sql) or die("Error:<br/>" . mysql_error() . "problem entering topic" );
-				}
+			} else {
+
+				//TODO
+				//test confirmation email message against recent changes
+				//require ('../include/send_proposalEmail.php'); 
 			}
-			//TODO
-			//test confirmation email message against recent changes
-			//require ('../include/send_proposalEmail.php'); 
-		  }
+
 		}  // finished handling new proposal submission
-		header("Location:index2.php");
+
+		// go through all the POST values and add any topics or audience items
+		// to the appropriate tables
+		foreach(array_keys($_POST) as $key) {
+			if ($_POST[$key] == "") { continue; } // skip blank values
+
+			$check = strpos($key,'audience_');
+			$check2 = strpos($key,'topic_');
+			if ( $check !== false && $check == 0 ) {
+				$itemPk = substr($key, 9);
+				$newValue = $_POST[$key];
+
+				$insert_sql="INSERT INTO `proposals_audiences` " .
+						"(`date_created` , `proposals_pk` , `roles_pk` , `choice` )" .
+						"VALUES (NOW(), '$PK', '$itemPk', '$newValue')";
+				$result = mysql_query($insert_sql) or die("Query failed ($insert_sql): " . mysql_error());
+
+			} else if ($check2 !== false && $check2 == 0 ) {
+				$itemPk = substr($key, 6);
+				$newValue = $_POST[$key];
+		
+				$insert_sql="INSERT INTO `proposals_topics` " .
+						"(`date_created` , `proposals_pk` , `topics_pk` , `choice` ) " .
+						"VALUES(NOW(), '$PK', '$itemPk', '$newValue')";
+				$result = mysql_query($insert_sql) or die("Query failed ($insert_sql): " . mysql_error());
+			}
+		}
+
+		// redirect back to the index page
+		header("Location:index2.php?msg=$msg");
 	}
 }
 ?>
@@ -272,6 +240,46 @@ if ($_POST['save']) {
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
 <?php include '../include/header.php'; ?>
+
+
+<?php
+// if a PK was supplied, we are editing
+if ($PK) {
+	$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
+		"U1.firstname||' '||U1.lastname as fullname,  " .
+		"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
+		"where CP.confID = '$CONF_ID' and CP.pk=$PK";
+	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+	$item = mysql_fetch_assoc($result); // put first item into an array
+
+	if(mysql_num_rows($result) > 0) {
+		// update the type
+		$type = $item['type'];
+
+		// refer to the item array by name $_POST (this might not be a good idea) -AZ
+		foreach($item as $key=>$value) {
+			$_POST[$key] = $value;
+		}
+
+		if ($type=="demo") {
+			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
+			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
+		} else {
+			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
+			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
+		}
+
+		// get the dates when a presenter cannot be available
+		$conflict=$_POST['conflict'];
+		if (preg_match("/Tue/", $conflict)) { $_POST['conflict_tue']="Tue";  }
+		if (preg_match("/Wed/", $conflict)) { $_POST['conflict_wed']="Wed";}
+		if (preg_match("/Thu/", $conflict)) { $_POST['conflict_thu']="Thu"; }
+		if (preg_match("/Fri/", $conflict)) { $_POST['conflict_fri']="Fri"; }
+	} else {
+		$Message = "ERROR: Could not get information for: $PK";
+	}
+}
+?>
 
 <table width="100%"  cellpadding="0" cellspacing="0">
  <tr>
@@ -305,7 +313,6 @@ if ($_POST['save']) {
   <form name="form1" id="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
    <input type="hidden" name="save" value="1" />
    <input type="hidden" name="pk" value="<?= $PK ?>" />
-   <input type="hidden" name="type" value="<?= $type ?>" />
 
 
    	<table width="100%"  cellpadding="0" cellspacing="0">
@@ -467,7 +474,7 @@ if ($_POST['save']) {
 		    </div>
 			<div class="topic_type"><?= $list_items['topic_name'] ?></div>
 		 </div>
-<?php } /* demo */ ?>
+<?php } ?>
 	</div> <!-- end topic info -->
   </td>
 </tr>
@@ -522,7 +529,7 @@ if ($_POST['save']) {
  <tr>
     <td>
     	<img id="typeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />
-    	<strong> Presentation Format</strong>
+    	<strong>Presentation Format</strong>
     </td>
     <td>
 		<div class=small>see sidebar for <a href="#getformat">format descriptions</a></div><br/>
@@ -549,6 +556,7 @@ if ($_POST['save']) {
 		<span id="layoutMsg"></span>
      </td>
   </tr>
+
 
   <tr>
      <td>
@@ -577,7 +585,11 @@ if ($_POST['save']) {
         <br/>
      </td>
   </tr>
-<?php 	} ?>
+
+<?php 	} else { /* is demo check */ ?>
+	<input type="hidden" name="type" value="<?= $type ?>" />
+<?php } ?>
+
     <tr>
         <td >&nbsp;</td>
         <td style="padding-top: 5px;">
@@ -617,7 +629,7 @@ if ($_POST['save']) {
 <?php
 	while($item=mysql_fetch_assoc($result)) {
 ?>
-	<li><a href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;edit=1" title="Edit this proposal" ><?=  $item['title'] ?></a>
+	<li><a href="edit_proposal.php?pk=<?= $item['pk'] ?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
 		[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
 			title="Delete this proposal"
 			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]

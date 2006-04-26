@@ -24,35 +24,14 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 // bring in the form validation code
 require $ACCOUNTS_PATH.'ajax/validators.php';
 
-// bring in inst and conf data
-require '../registration/include/getInstConf.php';
-
-
 
 // get the passed message if there is one
 if($_GET['msg']) {
-	$Message .= "<br/>" . $_GET['msg'];
+	$Message = 
+	"<div style='border:2px solid darkgreen;padding:3px;background:lightgreen;font-weight:bold;'>" . 
+	$_GET['msg'] . "</div>";
 }
 
-// First get the list of proposals for this user for the current conf 
-
-$filter_users_sql = "and CP.users_pk='$User->pk' ";
-
-// (maybe limit this using a search later on)
-$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
-	"U1.firstname||' '||U1.lastname as fullname, CV.vote, " .
-	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
-	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
-	"and CV.users_pk='$User->pk' " .
-	"where CP.confID = '$CONF_ID' "  . 
-	$filter_users_sql . $filter_edits_sql . $sqlsorting . $mysql_limit;
-
-//print "SQL=$sql<br/>";
-$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-$items = array();
-
-// put all of the query results into an array first
-while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
@@ -88,6 +67,8 @@ if ($_POST['save']) { // saving the form
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
 <?php include '../include/header.php';  ?>
+
+<?= $Message ?>
 
 	<table width="100%" class="blog" cellpadding="0" cellspacing="0">
 	  <tr>
@@ -163,27 +144,33 @@ if ($_POST['save']) { // saving the form
 	 <div id=outerright><!-- start outerright -->
 		 <div id=rightcol> <!--start rightcol -->
 		
-		 <?php if ($items) { // user has submitted a previous proposal   	
-			 // now dump the data we currently have
-			$line = 0;  ?>
-		
-			<div style="padding:3px; margin:0px;>
-				<input type="hidden" name="new" value="1" />
-				 <div><hr></div>
-				<div class=componentheading><strong>Your Proposals: </strong></div>
-		   		
-				<?php 
-				foreach ($items as $item) { // loop through all of the proposal items
-					$line++;
-					$pk = $item['pk'];
-					  ?>
-					<span><br/>- &nbsp;<?=  $item['title'] ?><br/> (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" title="Delete this proposal" > edit </a> )
-						(<a style="color:#336699;" href="<?=  "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;delete=1" ."&amp;type=". $item['type']; ?>" title="Delete this proposal" > delete </a>)&nbsp; &nbsp;<br/>
-					</span>
-					<?php  }  ?>
-				
-			 </div>
-		  <?php } ?>
+<?php 
+	$sql = "select CP.title, CP.pk from conf_proposals CP " .
+		"where CP.users_pk='$User->pk' and CP.confID = '$CONF_ID'";
+	//print "SQL=$sql<br/>";
+	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+
+	if(mysql_num_rows($result) > 0) {
+		// print the nice header
+?>
+	<div style="padding:3px; margin:0px;border:2px solid black;background:white;">
+		<div class="componentheading"><strong>Your&nbsp;Proposals:</strong></div>
+<?php
+	while($item=mysql_fetch_assoc($result)) {
+?>
+	<li><a href="edit_proposal.php?pk=<?= $item['pk'] ?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
+		[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
+			title="Delete this proposal"
+			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]
+	</li>
+<?php
+		} // end while
+		echo "<li>[ <a title='Create a new proposal' href='index.php'>new proposal</a> ]</li>";
+		echo "</div>";
+	} // end if
+?>
+
+	<br/>
 		 <div class="componentheading"><hr><br/></div>
 		   <div class="componentheading">More Info...</div>
 		   <div class="contentheading">What will you need to provide?</div>
