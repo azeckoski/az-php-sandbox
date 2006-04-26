@@ -76,8 +76,7 @@ if ($_POST['save']) { // saving the form
 	if ($errors == 0) {
 		//all required information provided
 		$type=$_POST['type'];
-		$new=$_POST['new'];
-			header("Location: edit_proposal.php?type=$type&amp;edit=0&amp;new=$new");
+		header("Location: edit_proposal.php?type=$type");
 	}
 }
 
