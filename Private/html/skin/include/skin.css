@@ -101,6 +101,14 @@ a:hover {
  color:white;
 }
 
+.tableheader{
+ color:#993333;
+ background:#CCCCCC;
+ font-weight: bold;
+ border:none;
+ padding-top:2px;
+}
+
 .unsaved { 
  background-color: #990000;
  color : #ffffff;
@@ -274,15 +282,6 @@ white-space: nowrap;
 
 .line_no{
 color:#000;
-}
-
-
-.tableheader{
- background:#336699;
- font-weight: bold;
- border:none;
-  padding-top:2px;
- color:#ffcc33;
 }
 
 

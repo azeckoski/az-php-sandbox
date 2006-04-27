@@ -22,12 +22,20 @@ $HELP_LINK = $TOOL_URL."/include/help.php";
 
 $JIRA_REQ = "http://bugs.sakaiproject.org/jira/browse/";
 
-$VOTE_TEXT = array("not applicable","desirable","essential","critical");
-$VOTE_HELP = array("Does not impact our use of Sakai",
-	"Can use Sakai but would like this",
-	"Can use Sakai but need this as soon as possible",
-	"Cannot use Sakai without it");
-// Weighting for sorting votes
+$VOTE_TEXT = array("poor", "fair", "average", "good", "excellent");
+$VOTE_HELP1 = array(
+	"Usability is poor",
+	"Usability is fair",
+	"Usability is average",
+	"Usability is good",
+	"Usability is excellent");
+$VOTE_HELP2 = array(
+	"Asthetic appeal is poor",
+	"Asthetic appeal is fair",
+	"Asthetic appeal is average",
+	"Asthetic appeal is good",
+	"Asthetic appeal is excellent");
+$VOTE_SCORE = array("-2", "-1", "0", "1", "2");
 
 // Image handling vars
 $MAX_THUMB_WIDTH  = 160;
@@ -46,6 +54,8 @@ $IMAGE_MIMES = array(
 $ROUND = 1;
 // date format for display
 $DATE_FORMAT = "D, M j, Y h:i A";
+$MED_DATE_FORMAT = "M d, Y (g A)";
+$SHORT_DATE_FORMAT = "g A M d, y";
 
 // dates below in format: YYYY/MM/DD HH24:MI
 if ($ENVIRONMENT == "prod") {
