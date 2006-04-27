@@ -335,11 +335,8 @@ foreach ($items as $item) {
 <div style="background:#ECECEC;border:1px solid #ccc;padding:3px;margin-bottom:10px;">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
-	<td nowrap="y">
-	<strong>Filters:</strong>&nbsp;&nbsp;
-	</td>
 	<td nowrap="y" style="font-size:0.9em;">
-		<strong>Vote:</strong>
+		<strong>View votes:</strong>
 		<select name="filter_items" title="Filter the items by my votes">
 			<option value="<?= $filter_items ?>" selected><?= $filter_items ?></option>
 			<option value="show all items">show all items</option>
@@ -347,7 +344,7 @@ foreach ($items as $item) {
 			<option value="show my unvoted items">show my unvoted items</option>
 		</select>
 		&nbsp;
-	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
+	    <input class="filter" type="submit" name="filter" value="View" title="Apply the current filter settings to the page">
 		&nbsp;&nbsp;&nbsp;
 		<?= count($items) ?> entries shown
 	</td>
@@ -366,11 +363,13 @@ foreach ($items as $item) {
 
 <table width="100%" cellspacing="0" cellpadding="0">
 
+<!--
 <tr class='tableheader'>
 <td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
 <td><a href="javascript:orderBy('title');">Title</a></td>
 <td>Description</td>
 </tr>
+-->
 
 <?php // now dump the data we currently have
 $line = 0;
@@ -413,24 +412,33 @@ foreach ($items as $item) { // loop through all of the proposal items
 	}
 ?>
 
-<tr class="<?= $linestyle ?>" valign="top">
-	<td width="15%">
+<tr class="tableheader" valign="top">
+	<td>
 		<div style="margin:3px;">
+			<a href="javascript:orderBy('title');">Title</a>:
 			<strong><?= $item['title'] ?></strong>
-			[<a href="<?= $item['url'] ?>">View skin in action</a>]
+			&nbsp;&nbsp;
+			<a style="text-decoration:underline;" href="<?= $item['url'] ?>">View skin in action</a>
 		</div>
 	</td>
 
-	<td width="50%">
-		<div style="margin:3px;"><?= $item['description'] ?></div>
+<tr class="<?= $linestyle ?>" valign="top">
+	<td>
+		<div style="margin:3px;">
+			<a href="javascript:orderBy('title');">Description</a>:
+			<?= $item['description'] ?></div>
+		</div>
 	</td>
 </tr>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td width="34%" nowrap='y' style='border-right:1px dotted #ccc;'>
+	<td width="34%" nowrap='y' style='border:1px dotted #ccc;;'>
 		<a name="anchor<?= $pk ?>"></a>
 
 		<div id="vb<?= $pk ?>" style="padding:3px;" <?= $style1 ?> >
+			<strong>Usability</strong>
+			(<a style="text-decoration:underline;font-size:.9em;" href="" target="new">suggested criteria</a>)
+			&nbsp;&nbsp;
 			<?= $VOTE_TEXT[0] ?>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
 		<label title="<?= $VOTE_HELP1[$vi] ?>">
@@ -438,12 +446,11 @@ foreach ($items as $item) { // loop through all of the proposal items
 		</label>
 <?php	} ?>
 			<?= $VOTE_TEXT[count($VOTE_TEXT)-1] ?>
-			&nbsp;&nbsp;
-			<strong>Usability</strong>
-			(<a style="text-decoration:underline;font-size:.9em;" href="" target="new">suggested criteria</a>)
 		</div>
 
 		<div id="vb2<?= $pk ?>" style="padding:3px;" <?= $style2 ?> >
+			<strong>Asthetic Appeal</strong>
+			&nbsp;&nbsp;
 			<?= $VOTE_TEXT[0] ?>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
 		<label title="<?= $VOTE_HELP2[$vi] ?>">
@@ -451,8 +458,6 @@ foreach ($items as $item) { // loop through all of the proposal items
 		</label>
 <?php	} ?>
 			<?= $VOTE_TEXT[count($VOTE_TEXT)-1] ?>
-			&nbsp;&nbsp;
-			<strong>Asthetic Appeal</strong>
 		</div>
 
 		<div style="margin:8px;"></div>
