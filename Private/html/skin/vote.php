@@ -414,6 +414,19 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
+	<td width="15%">
+		<div style="margin:3px;">
+			<strong><?= $item['title'] ?></strong>
+			[<a href="<?= $item['url'] ?>">View skin in action</a>]
+		</div>
+	</td>
+
+	<td width="50%">
+		<div style="margin:3px;"><?= $item['description'] ?></div>
+	</td>
+</tr>
+
+<tr class="<?= $linestyle ?>" valign="top">
 	<td width="34%" nowrap='y' style='border-right:1px dotted #ccc;'>
 		<a name="anchor<?= $pk ?>"></a>
 
@@ -449,14 +462,6 @@ foreach ($items as $item) { // loop through all of the proposal items
 		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
 			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
 	</td>
-
-	<td width="15%">
-		<div style="margin:3px;"><strong><?= $item['title'] ?></strong></div>
-	</td>
-
-	<td width="50%">
-		<div style="margin:3px;"><?= $item['description'] ?></div>
-	</td>
 </tr>
 
 <tr class="<?= $linestyle ?>" valign="top">
@@ -470,22 +475,22 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 		<div style="display:inline;float:left;padding:3px;">
 			<strong>Workspace screenshot</strong><br/>
-			<a href="include/drawImage.php?pk=<?= $item['image1'] ?>" target="_new">
-				<img src="include/drawThumb.php?pk=<?= $item['image1'] ?>" alt="Workspace image" />
+			<a href="include/drawImage.php?pk=<?= $item['image2'] ?>" target="_new">
+				<img src="include/drawThumb.php?pk=<?= $item['image2'] ?>" alt="Workspace image" />
 			</a>
 		</div>
 
 		<div style="display:inline;float:left;padding:3px;">
 			<strong>Resources screenshot</strong><br/>
-			<a href="include/drawImage.php?pk=<?= $item['image1'] ?>" target="_new">
-				<img src="include/drawThumb.php?pk=<?= $item['image1'] ?>" alt="Resources image" />
+			<a href="include/drawImage.php?pk=<?= $item['image3'] ?>" target="_new">
+				<img src="include/drawThumb.php?pk=<?= $item['image3'] ?>" alt="Resources image" />
 			</a>
 		</div>
 
 		<div style="display:inline;float:left;padding:3px;">
 			<strong>Gradebook screenshot</strong><br/>
-			<a href="include/drawImage.php?pk=<?= $item['image1'] ?>" target="_new">
-				<img src="include/drawThumb.php?pk=<?= $item['image1'] ?>" alt="Gradebook image" />
+			<a href="include/drawImage.php?pk=<?= $item['image4'] ?>" target="_new">
+				<img src="include/drawThumb.php?pk=<?= $item['image4'] ?>" alt="Gradebook image" />
 			</a>
 		</div>
 	</td>
