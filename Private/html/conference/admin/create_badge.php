@@ -4,6 +4,11 @@
  * Created on Apr 25, 2006 by @author aba
  * Tony Atkins (anthony.atkins@vt.edu) - Virginia Tech (http://www.vt.edu/)
  * copyright 2006 Virginia Tech
+ * 
+ * Create a badge for a user.  
+ * 
+ * Expects USERS_PK=# for a specific badge or USERS_PK=all to print all badges.
+ * 
  */
 ?>
 <?php
