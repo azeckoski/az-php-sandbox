@@ -46,7 +46,7 @@ if (!isset($USERS_PK) || $USERS_PK == "") {
 
 $where_clause = "";
 if($USERS_PK != "all") {
-	$where_clause= "where U.pk='" . mysql_real_escape_string($USERS_PK) . "'";
+	$where_clause= "where U.pk='" . mysql_real_escape_string($USERS_PK) . "' ";
 }
 
 $select_statement = 
@@ -61,7 +61,8 @@ $select_statement =
 		"join conferences C on C.users_pk=U.pk and C.activated='Y' ".
 		"left join roles R1 on R1.role_name=U.primaryRole " .
 		"left join roles R2 on R2.role_name=U.secondaryRole " .
-		$where_clause;
+		$where_clause .
+		"order by U.lastname, U.firstname";
 
 $result = mysql_query($select_statement) or die("Fetch query failed ($select_statement): " . mysql_error());
 
@@ -89,7 +90,7 @@ while ($person = mysql_fetch_assoc($result)) {
 	
 	$pdf->addJpegFromFile($logo_file, (round($page_width/2) - round($logo_width/2)), ($page_height - $margin - ($base_height*2) - $logo_height) ,$logo_width);
 
-	$nameString = $person["FIRSTNAME"] . " " . $person["LASTNAME"];
+	$nameString = ucfirst($person["FIRSTNAME"]) . " " . ucfirst($person["LASTNAME"]);
 	$nameSize = 32;
 
 	while ($pdf->getTextWidth($nameSize, $nameString) > 260) {
