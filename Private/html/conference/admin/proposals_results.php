@@ -282,6 +282,7 @@ if (!$_REQUEST["export"]) {
 			<option value="Tool Overview">Tool Overview</option>
 			<option value="show all tracks">show all tracks</option>
 		</select>
+		
 			&nbsp;
 		
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
@@ -558,7 +559,20 @@ if ($item['type']!='demo')  { ?>
 	 ?>
 	    </div>
 	    <div>
-	  
+	  <br>
+	 
+	  <?php if ($item['conflict']) {
+	  	echo "<strong>Availability: </strong>  Can NOT present on "  ;
+	  	?>
+	  	<span style="color:red;"> <?= $item['conflict'] ?></span>
+	  	
+	  	<?php
+	  } else {
+	  	echo "  <strong>Availability:  </strong>   available all days";
+	  }
+	
+	  ?>
+	 
 	    
 	    </div>
 	</td>	
