@@ -223,14 +223,14 @@ if ($_POST['save']) {
 		$layout=$_POST['layout'];
 		$length=$_POST['length'];
 		$conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
-		
+		$approved=$_POST['approved'];
 		if ($PK)  {  //this proposal has been edited
 			  // update proposal information  --all data except role and topic data
 			$proposal_sql="UPDATE conf_proposals" .
 					" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
 						" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio' , `layout`='$layout', " .
 						"`length`='$length' , `conflict`='$conflict' ," .
-						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `track`='$track'  where pk= '$PK'   ";
+						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', `track`='$track'  where pk= '$PK'   ";
 						
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				"registration form submission. Please try to submit the registration again. " .
@@ -318,11 +318,21 @@ if ($_POST['save']) {
 			<option value="<?= $_POST['track'] ?>" selected><?= $_POST['track'] ?></option>
 			<option value="Community">Community</option>
 			<option value="Faculty">Faculty</option>
-			<option value="Implementors">Implementors</option>
+			<option value="Implementors">Implementation</option>
 			<option value="Technology">Technology</option>
+			<option value="Technology">Mixed Audiences</option>
 			<option value="Tool Overview">Tool Overview</option>
 			
 		</select>
+		</td>
+
+ </tr> 
+ <tr>
+	<td><strong>Proposal Status: </strong> </td>
+	<td><input name="type" type="radio" value="approved" <?php if ($_POST['approved']=="Y") { echo "checked"; } ?> /> Approved &nbsp;&nbsp;&nbsp;&nbsp;
+			<input name="type" type="radio" value="approved" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved <br/>
+		
+		
 		</td>
 
  </tr>
