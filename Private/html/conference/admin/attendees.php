@@ -30,6 +30,17 @@ if (!$User->checkPerm("admin_conference")) {
 	$allowed = 1;
 }
 
+// Roles Filter
+$filter_roles_default = "show all Roles";
+$filter_roles = "";
+if ($_REQUEST["filter_roles"] && (!$_REQUEST["clearall"]) ) { $filter_roles = $_REQUEST["filter_roles"]; }
+
+$filter_roles_sql = "";
+if ($filter_roles && ($filter_roles != $filter_roles_default)) {
+	$filter_roles_sql = " and primaryRole='$filter_roles' ";
+} else {
+	$filter_roles = $filter_roles_default;
+}
 
 // get the search
 $searchtext = "";
@@ -87,9 +98,9 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main fetching query
-$sql = "select U1.firstname, U1.lastname, U1.email, " .
+$sql = "select U1.firstname, U1.lastname, U1.email, U1.primaryRole," .
 		"I1.name as institution, U1.institution_pk, C1.* " .
-	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
+	$from_sql . $sqlsearch . $filter_roles_sql . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $items_displayed = mysql_num_rows($result);
@@ -171,12 +182,12 @@ function orderBy(newOrder) {
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
 		<td nowrap="y"><b style="font-size:1.1em;">Info:</b></td>
-		<td nowrap="y" colspan="2">
+		<td nowrap="y" colspan="5">
 			<div style="float:left;">
 				<strong><?= $CONF_NAME ?></strong>
 				(<?= date($SHORT_DATE_FORMAT,strtotime($CONF_START_DATE)) ?> - <?= date($SHORT_DATE_FORMAT,strtotime($CONF_END_DATE)) ?>)
 			</div>
-			<div style="float:right;">
+			<div style="float:right; padding-right: 30px;">
 
 <?php
 	$count_sql = "SELECT count(*) FROM conferences where activated = 'Y' and confId = '$CONF_ID'";
@@ -203,15 +214,22 @@ function orderBy(newOrder) {
 			<label title="registrations in the past 7 days"><?= $total_week ?> recent</label>,
 			<label title="members of Sakai partner institutions"><?= $total_items - $non_members ?> members</label> /
 			<label style="color:#990099;" title="not members of Sakai partner institutions"><?= $non_members ?> non-members</label>)
-			</span>
+			</span><br/><br/>
 			</div>
 		</td>
 	</tr>
 
 	<tr>
-		<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
+		<td nowrap="y" ><b style="font-size:1.1em;">Paging:</b></td>
 		<td nowrap="y">
-			<input type="hidden" name="page" value="<?= $page ?>" />
+		<?php if ($_REQUEST["show_all"]) { ?>
+		<span class="keytext">&nbsp;-&nbsp;
+			Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
+			</span>&nbsp;&nbsp;
+				<strong>Show </strong> <input class="filter" type="submit" name="num_limit" value="25" /> per page
+		
+		<?php } else {  ?>
+					<input type="hidden" name="page" value="<?= $page ?>" />
 			<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
 			<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
 			<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
@@ -220,12 +238,29 @@ function orderBy(newOrder) {
 			<span class="keytext">&nbsp;-&nbsp;
 			Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 			</span>&nbsp;&nbsp;
-			<strong>Show:</strong> 
-<?php if ($_REQUEST["show_all"]) { ?>
-			<input class="filter" type="submit" name="num_limit" value="25" />
-<?php } else { ?>
-			<input class="filter" type="submit" name="show_all" value="All" />
-<?php } ?>
+		<strong>Show </strong> 	<input class="filter" type="submit" name="show_all" value="All" />
+<?php } ?></td><td>
+
+		<strong>Filter:</strong>
+		<select name="filter_roles" title="Filter the items by role">
+			<option value="<?= $filter_roles ?>" selected><?= $filter_roles ?></option>
+			<option value="Developer/Programmer">Developer/Programmer</option>
+			<option value="Faculty">Faculty</option>
+			<option value="Faculty Development">Faculty Development</option>
+			<option value="Implementor">Implementor</option>
+			<option value="Instructional Designer">Instructional Designer</option>
+			<option value="Instructional Technologist">Instructional Technologist</option>
+			<option value="Librarian">Librarian</option>
+			<option value="Manager">Manager</option>
+			<option value="System Administrator">System Administrator</option>
+			<option value="UI/Interaction Designer">UI/Interaction Designer</option>
+			<option value="University Administration">University Administration</option>
+			<option value="User Support">User Support</option>
+			<option value="show all Roles">show all Roles</option>
+		</select>
+	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
+		&nbsp;&nbsp;
+		
 		</td>
 	
 		<td nowrap="y" align="right">
@@ -244,6 +279,7 @@ function orderBy(newOrder) {
 <tr class='tableheader'>
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('email');">Email</a></td>
+<td><a href="javascript:orderBy('primaryRole');">Primary Role</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
 <td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
 <td>#</td>
@@ -280,6 +316,7 @@ while($row=mysql_fetch_assoc($result)) {
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
 	<td class="line"><?= $row["firstname"] ?> <?= $row["lastname"] ?></td>
 	<td class="line"><?= $row["email"] ?></td>
+		<td class="line"><?= $row['primaryRole'] ?> </td>
 	<?php if ($row["institution"]){ ?>
 		<td class="line"><?= $row["institution"] ?></td>
 	<?php }else {  ?>
