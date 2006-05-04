@@ -318,9 +318,9 @@ if ($_POST['save']) {
 			<option value="<?= $_POST['track'] ?>" selected><?= $_POST['track'] ?></option>
 			<option value="Community">Community</option>
 			<option value="Faculty">Faculty</option>
-			<option value="Implementors">Implementation</option>
+			<option value="Implementation">Implementation</option>
 			<option value="Technology">Technology</option>
-			<option value="Technology">Mixed Audiences</option>
+			<option value="Mixed Audiences">Mixed Audiences</option>
 			<option value="Tool Overview">Tool Overview</option>
 			
 		</select>
