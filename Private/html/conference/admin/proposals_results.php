@@ -156,7 +156,21 @@ if ($filter_type && ($filter_type != $filter_type_default)) {
 	$filter_type = $filter_type_default;
 }
 
+// Approval Status Filter
+$filter_status_default = "show all tracks";
+$filter_status = "";
+if ($_REQUEST["filter_status"] && (!$_REQUEST["clearall"]) ) { $filter_status = $_REQUEST["filter_status"]; }
 
+$special_filter = "";
+$filter_status_sql = "";
+switch ($filter_status){
+   	case "approved": $filter_status_sql = " and approved ='Y' "; break;
+  	case "not approved": $filter_status_sql = " and approved ='N' "; break;
+	case ""; // show all items
+		$filter_status = $filter_status_default;
+		$filter_status_sql = "";
+		break;
+}
 // Track Filter
 $filter_track_default = "show all tracks";
 $filter_track = "";
@@ -190,7 +204,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql . $filter_items_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
+	$filter_type_sql . $filter_items_sql . $filter_status_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -260,6 +274,15 @@ if (!$_REQUEST["export"]) {
 			<option value="show my unvoted items">show my unvoted items</option>
 		</select>
 		&nbsp;&nbsp;
+		<strong>Status:</strong>
+		<select name="filter_status" title="Filter the items by approval">
+			<option value="<?= $filter_status ?>" selected><?= $filter_status ?></option>
+			<option value="approved">approved</option>
+			<option value="not approved">not approved</option>
+			<option value="show all status">show all sessions</option>
+		</select>
+		&nbsp;
+		&nbsp;	
 		<strong>Type:</strong>
 		<select name="filter_type" title="Filter the items by type">
 			<option value="<?= $filter_type ?>" selected><?= $filter_type ?></option>
@@ -310,7 +333,7 @@ if (!$_REQUEST["export"]) {
 <td>&nbsp;</td>
 <!-- <td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>-->
 <td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a> </td>
-<td>Abstract&nbsp;/&nbsp;Description&nbsp;/&nbsp;Speakers&nbsp;/&nbsp; <a href="javascript:orderBy('type');">Format</a></td>
+<td>Abstract&nbsp;/&nbsp;Description&nbsp;/&nbsp;Speakers&nbsp;/&nbsp; <a href="javascript:orderBy('type');">Format</a>&nbsp;/&nbsp;<a href="javascript:orderBy('track');">Track</a></td>
 <!-- <td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>-->
 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
 </tr>
