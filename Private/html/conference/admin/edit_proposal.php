@@ -319,7 +319,7 @@ if ($_POST['save']) {
 			<option value="Community">Community</option>
 			<option value="Faculty">Faculty</option>
 			<option value="Implementation">Implementation</option>
-			<option value="Technology">Technology</option>
+			<option value="Technical">Technical</option>
 			<option value="Mixed Audiences">Mixed Audiences</option>
 			<option value="Tool Overview">Tool Overview</option>
 			
