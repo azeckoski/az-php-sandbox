@@ -157,7 +157,7 @@ if ($filter_type && ($filter_type != $filter_type_default)) {
 }
 
 // Approval Status Filter
-$filter_status_default = "show all tracks";
+$filter_status_default = "show all status";
 $filter_status = "";
 if ($_REQUEST["filter_status"] && (!$_REQUEST["clearall"]) ) { $filter_status = $_REQUEST["filter_status"]; }
 
@@ -275,11 +275,11 @@ if (!$_REQUEST["export"]) {
 		</select>
 		&nbsp;&nbsp;
 		<strong>Status:</strong>
-		<select name="filter_status" title="Filter the items by approval">
+		<select name="filter_status" title="Filter the items by approval status">
 			<option value="<?= $filter_status ?>" selected><?= $filter_status ?></option>
 			<option value="approved">approved</option>
 			<option value="not approved">not approved</option>
-			<option value="show all status">show all sessions</option>
+			<option value="show all status">show all status</option>
 		</select>
 		&nbsp;
 		&nbsp;	
