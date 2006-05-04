@@ -326,11 +326,12 @@ if ($_POST['save']) {
 		</select>
 		</td>
 
+
  </tr> 
  <tr>
 	<td><strong>Proposal Status: </strong> </td>
-	<td><input name="type" type="radio" value="approved" <?php if ($_POST['approved']=="Y") { echo "checked"; } ?> /> Approved &nbsp;&nbsp;&nbsp;&nbsp;
-			<input name="type" type="radio" value="approved" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved <br/>
+	<td><input name="approved" type="radio" value="Y" <?php if ($_POST['approved']=="Y") { echo "checked"; } ?> /> Approved &nbsp;&nbsp;&nbsp;&nbsp;
+			<input name="approved" type="radio" value="N" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved <br/>
 		
 		
 		</td>
