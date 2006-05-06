@@ -80,7 +80,8 @@ $sqlsearch = "";
 if ($searchtext) {
 	$sqlsearch = " and (U1.username like '%$searchtext%' or U1.firstname like '%$searchtext%' or " .
 		"U1.lastname like '%$searchtext%' or U1.email like '%$searchtext%' or " .
-		"CONCAT(U1.firstname,' ',U1.lastname) like '%$searchtext%' or I1.name like '%$searchtext%') ";
+		"CONCAT(U1.firstname,' ',U1.lastname) like '%$searchtext%' or " .
+		"U1.institution like '%$searchtext%') ";
 }
 
 // sorting
@@ -90,7 +91,6 @@ $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all items
 $from_sql = " from users U1 join conferences C1 on U1.pk=C1.users_pk " .
-		"left join institution I1 on U1.institution_pk=I1.pk " .
 		"where C1.activated='Y' and C1.confID='$CONF_ID' " ;
 
 // counting number of items
@@ -131,7 +131,7 @@ if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main fetching query
 $sql = "select U1.pk as userpk, U1.firstname, U1.lastname, U1.email, " .
-		"I1.name as institution, U1.institution_pk, C1.* " .
+		"U1.institution, U1.institution_pk, C1.* " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
