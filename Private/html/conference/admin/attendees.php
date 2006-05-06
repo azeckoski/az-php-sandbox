@@ -246,6 +246,7 @@ function orderBy(newOrder) {
 		</td>
 	
 		<td nowrap="y" align="right">
+			<input class="filter" type="submit" name="clearall" value="Clear" title="Reset display to defaults" />
 			<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
 	        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
 	        	size="20" title="Enter search text here" />

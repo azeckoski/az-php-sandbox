@@ -179,7 +179,7 @@ $EXTRA_LINKS =
 	"<a href='proposals.php'>Proposals</a> - " .
 	"<a href='check_in.php'><strong>Check In</strong></a> " .
 		"(<em>" .
-		"<a href='create_badge.php?USERS_PK=all' target='_new'>All Badges [pdf]</a>" .
+		"<a href='create_badge.php?USERS_PK=all' target='new'>All Badges [pdf]</a>" .
 		"</em>)" .
 	"</span>";
 ?>
@@ -300,7 +300,7 @@ function unCheckInUser(num) {
 		</td>
 	
 		<td nowrap="y" align="right">
-			<input class="filter" type="submit" name="clearall" value="Clear" title="Reset display to defaults">
+			<input class="filter" type="submit" name="clearall" value="Clear" title="Reset display to defaults" />
 			<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
 	        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
 	        	size="20" title="Enter search text here" />
@@ -378,7 +378,7 @@ while($row=mysql_fetch_assoc($result)) {
 	</td>
 
 	<td class="line" align="center">
-		<a href='create_badge.php?USERS_PK=<?= $row['userpk'] ?>' target='_new'>make pdf</a>
+		<a href='create_badge.php?USERS_PK=<?= $row['userpk'] ?>' target='new'>make pdf</a>
 	</td>
 </tr>
 
