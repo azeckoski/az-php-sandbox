@@ -26,6 +26,20 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 // login if not autheticated
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
+// Make sure user is authorized
+$allowed = false; // assume user is NOT allowed unless otherwise shown
+if (!$User->checkPerm("admin_conference")) {
+	$allowed = false;
+	$Message = "Only admins with <b>admin_conference</b> may view this page.<br/>" .
+		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
+
+	// STOP them here if not authorized
+	echo $Message;
+	exit();
+} else {
+	$allowed = true;
+}
+
 // simple script to generate a badge based on a person's information
 
 // load ezPDF library

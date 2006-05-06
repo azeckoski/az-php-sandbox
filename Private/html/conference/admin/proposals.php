@@ -43,7 +43,8 @@ $EXTRA_LINKS =
 		"(<em>" .
 		"<a href='proposals.php'><strong>Viewing / Voting</strong></a> - " .
 		"<a href='proposals_results.php'>Results / Editing</a>" .
-		"</em>)" .
+		"</em>) - " .
+	"<a href='check_in.php'>Check In</a> " .
 	"</span>";
 
 

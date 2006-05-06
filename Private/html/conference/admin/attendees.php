@@ -143,8 +143,12 @@ if ($_REQUEST["export"] && $allowed) {
 $EXTRA_LINKS = 
 	"<br/><span style='font-size:9pt;'>" .
 	"<a href='index.php'>Admin:</a> " .
-	"<a href='attendees.php'><strong>Attendees</strong></a> - " .
-	"<a href='proposals.php'>Proposals</a> " .
+	"<a href='attendees.php'><strong>Attendees</strong></a> " .
+		"(<em>" .
+		"<a href='create_badge.php?USERS_PK=all' target='_new'>All Badges [pdf]</a>" .
+		"</em>) - " .
+	"<a href='proposals.php'>Proposals</a> - " .
+	"<a href='check_in.php'>Check In</a> " .
 	"</span>";
 ?>
 
@@ -214,21 +218,20 @@ function orderBy(newOrder) {
 			<label title="registrations in the past 7 days"><?= $total_week ?> recent</label>,
 			<label title="members of Sakai partner institutions"><?= $total_items - $non_members ?> members</label> /
 			<label style="color:#990099;" title="not members of Sakai partner institutions"><?= $non_members ?> non-members</label>)
-			</span><br/><br/>
+			</span>
 			</div>
 		</td>
 	</tr>
 
 	<tr>
-		<td nowrap="y" ><b style="font-size:1.1em;">Paging:</b></td>
+		<td nowrap="y" ><strong style="font-size:1.1em;">Paging:</strong></td>
 		<td nowrap="y">
-		<?php if ($_REQUEST["show_all"]) { ?>
-		<span class="keytext">&nbsp;-&nbsp;
+<?php if ($_REQUEST["show_all"]) { ?>
+		<span class="keytext">
 			Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 			</span>&nbsp;&nbsp;
 				<strong>Show </strong> <input class="filter" type="submit" name="num_limit" value="25" /> per page
-		
-		<?php } else {  ?>
+<?php } else {  ?>
 					<input type="hidden" name="page" value="<?= $page ?>" />
 			<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
 			<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
@@ -239,28 +242,7 @@ function orderBy(newOrder) {
 			Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 			</span>&nbsp;&nbsp;
 		<strong>Show </strong> 	<input class="filter" type="submit" name="show_all" value="All" />
-<?php } ?></td><td>
-
-		<strong>Filter:</strong>
-		<select name="filter_roles" title="Filter the items by role">
-			<option value="<?= $filter_roles ?>" selected><?= $filter_roles ?></option>
-			<option value="Developer/Programmer">Developer/Programmer</option>
-			<option value="Faculty">Faculty</option>
-			<option value="Faculty Development">Faculty Development</option>
-			<option value="Implementor">Implementor</option>
-			<option value="Instructional Designer">Instructional Designer</option>
-			<option value="Instructional Technologist">Instructional Technologist</option>
-			<option value="Librarian">Librarian</option>
-			<option value="Manager">Manager</option>
-			<option value="System Administrator">System Administrator</option>
-			<option value="UI/Interaction Designer">UI/Interaction Designer</option>
-			<option value="University Administration">University Administration</option>
-			<option value="User Support">User Support</option>
-			<option value="show all Roles">show all Roles</option>
-		</select>
-	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
-		&nbsp;&nbsp;
-		
+<?php } ?>
 		</td>
 	
 		<td nowrap="y" align="right">
@@ -269,6 +251,32 @@ function orderBy(newOrder) {
 	        	size="20" title="Enter search text here" />
 	        <script type="text/javascript">document.adminform.searchtext.focus();</script>
 	        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<strong style="font-size:1.1em;">Filter:</strong>
+		</td>
+		<td>
+			<select name="filter_roles" title="Filter the items by role">
+				<option value="<?= $filter_roles ?>" selected><?= $filter_roles ?></option>
+				<option value="Developer/Programmer">Developer/Programmer</option>
+				<option value="Faculty">Faculty</option>
+				<option value="Faculty Development">Faculty Development</option>
+				<option value="Implementor">Implementor</option>
+				<option value="Instructional Designer">Instructional Designer</option>
+				<option value="Instructional Technologist">Instructional Technologist</option>
+				<option value="Librarian">Librarian</option>
+				<option value="Manager">Manager</option>
+				<option value="System Administrator">System Administrator</option>
+				<option value="UI/Interaction Designer">UI/Interaction Designer</option>
+				<option value="University Administration">University Administration</option>
+				<option value="User Support">User Support</option>
+				<option value="show all Roles">show all Roles</option>
+			</select>
+		    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
+			&nbsp;&nbsp;
 		</td>
 	</tr>
 

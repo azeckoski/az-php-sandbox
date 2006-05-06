@@ -33,8 +33,43 @@ if (!$User->checkPerm("admin_conference")) {
 
 
 // handle check in
-if ($_REQUEST['checkIn']) {
-	echo "check-in: ".$_REQUEST['checkIn']."<br/>";
+if ($_REQUEST['check_in']) {
+	$checkUser = $_REQUEST['check_in'];
+	$sql = "select * from users where users.pk = '$checkUser'";
+	//print "SQL=$sql<br/>";
+	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+	$userInfo = mysql_fetch_assoc($result);
+
+	if (!empty($userInfo)) {
+		$sql = "update conferences set arrived = NOW() where users_pk='$checkUser'";
+		//print "SQL=$sql<br/>";
+		$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+
+		if (mysql_affected_rows()) {
+			$Message = "<span style='color:green'>" .
+				"Checked in user: <strong>" . $userInfo['firstname'] . " " . $userInfo['lastname'] .
+				"</strong> on " . date($DATE_FORMAT,time()) . "</span>";
+		} else {
+			$Message = "<span style='color:red;font-weight:bold;'>" .
+				"Could not check in user with pk: $checkUser (could not update conference table)</span>";
+		}
+	} else {
+		$Message = "<span style='color:red;font-weight:bold;'>" .
+			"Could not check in user with pk: $checkUser (user pk invalid)</span>";
+	}
+} else if ($_REQUEST['check_out']) {
+	$checkUser = $_REQUEST['check_out'];
+		$sql = "update conferences set arrived = null where users_pk='$checkUser'";
+		//print "SQL=$sql<br/>";
+		$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+
+		if (mysql_affected_rows()) {
+			$Message = "<span style='color:green'>" .
+				"Checked out user with PK: $checkUser</span>";
+		} else {
+			$Message = "<span style='color:red;font-weight:bold;'>" .
+				"Could not check in user with pk: $checkUser (could not update conference table)</span>";
+		}
 }
 
 
@@ -95,7 +130,7 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main fetching query
-$sql = "select U1.firstname, U1.lastname, U1.email, " .
+$sql = "select U1.pk as userpk, U1.firstname, U1.lastname, U1.email, " .
 		"I1.name as institution, U1.institution_pk, C1.* " .
 	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
@@ -143,6 +178,9 @@ $EXTRA_LINKS =
 	"<a href='attendees.php'>Attendees</a> - " .
 	"<a href='proposals.php'>Proposals</a> - " .
 	"<a href='check_in.php'><strong>Check In</strong></a> " .
+		"(<em>" .
+		"<a href='create_badge.php?USERS_PK=all' target='_new'>All Badges [pdf]</a>" .
+		"</em>)" .
 	"</span>";
 ?>
 
@@ -162,7 +200,16 @@ function orderBy(newOrder) {
 function checkInUser(num) {
 	var response = window.confirm("Check in this user now?");
 	if (response) {
-		document.adminform.checkIn.value = num;
+		document.adminform.check_in.value = num;
+		document.adminform.submit();
+		return false;
+	}
+}
+
+function unCheckInUser(num) {
+	var response = window.confirm("Reset this user to Not checked in?");
+	if (response) {
+		document.adminform.check_out.value = num;
 		document.adminform.submit();
 		return false;
 	}
@@ -184,7 +231,8 @@ function checkInUser(num) {
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
-<input type="hidden" name="checkIn" value=""/>
+<input type="hidden" name="check_in" value=""/>
+<input type="hidden" name="check_out" value=""/>
 
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -271,6 +319,7 @@ function checkInUser(num) {
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
 <td><a href="javascript:orderBy('shirt');">Shirt</a></td>
 <td align="center"><a href="javascript:orderBy('date_created');">Arrival Date</a></td>
+<td align="center">Badge</td>
 </tr>
 
 <?php
@@ -318,12 +367,18 @@ while($row=mysql_fetch_assoc($result)) {
 <?php 
 	if($row["arrived"]) {
 		echo date($DATE_FORMAT,strtotime($row["arrived"]));
+		echo "&nbsp;<input style='font-size:7pt;' type='button' name='check' value='X' " .
+				"onClick='javascript:unCheckInUser(".$row['userpk'].");return false;' />";
 	} else {
 		echo "<em>Not arrived</em> - " .
 				"<input style='font-size:7pt;' type='button' name='check' value='Check In' " .
-				"onClick='javascript:checkInUser($row[pk]);return false;' />";
+				"onClick='javascript:checkInUser(".$row['userpk'].");return false;' />";
 	}
 ?>
+	</td>
+
+	<td class="line" align="center">
+		<a href='create_badge.php?USERS_PK=<?= $row['userpk'] ?>' target='_new'>make pdf</a>
 	</td>
 </tr>
 
