@@ -57,7 +57,7 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all items
-$from_sql = " from users U1 join conferences C1 on U1.pk=C1.users_pk " .
+$from_sql = " from users U1 join conferences C1 on U1.pk=C1.users_pk " . 
 		"left join institution I1 on U1.institution_pk=I1.pk where confID='$CONF_ID' " ;
 
 // counting number of items
@@ -98,7 +98,7 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main fetching query
-$sql = "select U1.firstname, U1.lastname, U1.email, U1.primaryRole," .
+$sql = "select U1.firstname, U1.lastname, U1.email, U1.primaryRole, U1.institution as otherInst,  " .
 		"I1.name as institution, U1.institution_pk, C1.* " .
 	$from_sql . $sqlsearch . $filter_roles_sql . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
@@ -326,8 +326,8 @@ while($row=mysql_fetch_assoc($result)) {
 	<td class="line"><?= $row["firstname"] ?> <?= $row["lastname"] ?></td>
 	<td class="line"><?= $row["email"] ?></td>
 		<td class="line"><?= $row['primaryRole'] ?> </td>
-	<?php if ($row["institution"]){ ?>
-		<td class="line"><?= $row["institution"] ?></td>
+	<?php if ($row["institution"]=="Other (non-Member)"){ ?>
+		<td class="line"><?= $row["otherInst"] ?></td>
 	<?php }else {  ?>
 	<td class="line"><?= $row["institution"] ?></td>
 <?php 	} ?>
