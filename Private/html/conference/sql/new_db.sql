@@ -173,37 +173,36 @@ CREATE TABLE conf_rooms (
 	room_style		varchar(255) NULL,
     BOF		     	enum('Y','N') NOT NULL DEFAULT 'N',
     PRIMARY KEY(pk)
-)
+);
 
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(1, '2006-05-09 20:38:42.0', '2006-05-09 20:38:42.0', 'Jun2006', 'Grand A', 100, 1, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(2, '2006-05-09 20:38:42.0', '2006-05-09 20:38:42.0', 'Jun2006', 'Grand B', 100, 2, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(3, '2006-05-09 20:39:13.0', '2006-05-09 20:39:13.0', 'Jun2006', 'Grand C', 100, 3, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(4, '2006-05-09 20:39:24.0', '2006-05-09 20:39:24.0', 'Jun2006', 'Grand D', 100, 4, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(5, '2006-05-09 20:39:48.0', '2006-05-09 20:39:48.0', 'Jun2006', 'Jr A', 100, 5, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(6, '2006-05-09 20:40:08.0', '2006-05-09 20:40:08.0', 'Jun2006', 'Jr B', 100, 6, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(7, '2006-05-09 20:40:08.0', '2006-05-09 20:40:08.0', 'Jun2006', 'Jr C', 100, 7, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(8, '2006-05-09 20:40:08.0', '2006-05-09 20:40:08.0', 'Jun2006', 'Jr D', 100, 8, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(9, '2006-05-09 20:40:19.0', '2006-05-09 20:40:19.0', 'Jun2006', 'Gulf BCD', 100, 9, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(10, '2006-05-09 20:41:11.0', '2006-05-09 20:41:11.0', 'Jun2006', 'Parkville', 50, 10, 'N', NULL);
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(11, '2006-05-09 20:42:37.0', '2006-05-09 20:42:37.0', 'Jun2006', 'Gulf A', 34, 11, 'Y', 'theater');
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(12, '2006-05-09 20:42:37.0', '2006-05-09 20:42:37.0', 'Jun2006', 'Blue', 20, 12, 'Y', 'theater');
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(13, '2006-05-09 20:42:37.0', '2006-05-09 20:42:37.0', 'Jun2006', 'Beluga', 30, 13, 'Y', 'theater');
-INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
   VALUES(14, '2006-05-09 20:42:37.0', '2006-05-09 20:42:37.0', 'Jun2006', 'Chart', 8, 14, 'Y', 'board room');
-
 
 CREATE TABLE conf_timeslots ( 
     pk           	int(10) AUTO_INCREMENT NOT NULL,
@@ -216,7 +215,7 @@ CREATE TABLE conf_timeslots (
     start_time		timestamp NOT NULL,
     length_mins		int(5) NOT NULL DEFAULT 30,
     PRIMARY KEY(pk)
-)
+);
 
 INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
   VALUES(NOW(), 'Jun2006', 1, '2006-05-30 7:30', 60, 'coffee', 'Coffee');
@@ -304,7 +303,6 @@ INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mi
 INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
   VALUES(NOW(), 'Jun2006', 41, '2006-06-02 16:00', 60, 'keynote', 'Conference Feedback');
 
-
 CREATE TABLE conf_sessions ( 
     pk           	int(10) AUTO_INCREMENT NOT NULL,
     date_modified	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -316,4 +314,4 @@ CREATE TABLE conf_sessions (
     ordering		int(6) NOT NULL,
     title			varchar(255) NULL,
     PRIMARY KEY(pk)
-)
+);
