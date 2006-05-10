@@ -25,7 +25,7 @@ $CONF_ID = "Jun2006";
 $CONF_LOC = "Vancouver";
 $CONF_NAME = "Sakai Vancouver";
 $CONF_START_DATE = "2006/05/30 8:00";
-$CONF_END_DATE = "2006/06/03 17:00";
+$CONF_END_DATE = "2006/06/02 17:00";
 
 // date format for display
 $DATE_FORMAT = "l, F dS, Y g:i A";

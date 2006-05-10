@@ -48,6 +48,15 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 	text-align: center;
 }
 
+.proposal_title {
+	font-size: .9em;
+}
+
+.session_date {
+	text-align: center;
+	font-size: .8em;
+}
+
 .blackbar {
 	background: #000000;
 	color:#fff;
