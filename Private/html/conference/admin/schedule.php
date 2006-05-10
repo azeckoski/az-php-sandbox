@@ -34,33 +34,55 @@ if (!$User->checkPerm("admin_conference")) {
 // fetch the conference rooms
 $sql = "select * from conf_rooms where confID = '$CONF_ID'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
-$total_rooms = mysql_num_rows($result);
 $conf_rooms = array();
 while($row=mysql_fetch_assoc($result)) { $conf_rooms[$row['pk']] = $row; }
 
 // fetch the conference timeslots
 $sql = "select * from conf_timeslots where confID = '$CONF_ID'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
-$total_timeslots = mysql_num_rows($result);
 $conf_timeslots = array();
 while($row=mysql_fetch_assoc($result)) { $conf_timeslots[$row['pk']] = $row; }
 
-// TODO - fetch the sessions
+// fetch the conf sessions
+$sql = "select * from conf_sessions where confID = '$CONF_ID' order by ordering";
+$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
+$conf_sessions = array();
+while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
+
+// fetch the proposals that have sessions assigned
+$sql = "select CP.pk, CP.title, CP.length from conf_proposals CP " .
+		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
+		"where CP.confID = '$CONF_ID'";
+$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
+$conf_proposals = array();
+while($row=mysql_fetch_assoc($result)) { $conf_proposals[$row['pk']] = $row; }
 
 
 // now put these together into a 3D array
 $timeslots = array();
 foreach($conf_timeslots as $conf_timeslot) {
 	$rooms = array();
-	foreach($conf_rooms as $conf_room) {
-		// TODO - insert the session PKs array in the table here
-		$rooms[$conf_room['pk']] = array();
+	if ($conf_timeslot['type'] != 'event') {
+		// we don't need all the rooms inserted for rows that don't use them
+		$rooms['0'] = '0'; // placeholder
+	} else {
+		foreach($conf_rooms as $conf_room) {
+			// TODO - insert the session PKs array in the table here
+			$sessions = array();
+			foreach($conf_sessions as $conf_session) {
+				if ($conf_session['timeslots_pk'] == $conf_timeslot['pk'] &&
+					$conf_session['rooms_pk'] == $conf_room['pk']) {
+						$sessions[$conf_session['pk']] = $conf_session;
+				}
+			}
+			$rooms[$conf_room['pk']] = $sessions;
+		}
 	}
 	$timeslots[$conf_timeslot['pk']] = $rooms;
 }
 
 
-//echo "<pre>",print_r($timeslots),"</pre>"; 
+echo "<pre>",print_r($timeslots),"</pre>"; 
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
@@ -144,7 +166,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		foreach($conf_rooms as $conf_room) {
 			$type = "schedule_header";
 			if ($conf_room['BOF'] == 'Y') { $type = "bof_header"; }
-			echo "<td class='$type'>".$conf_room['title']."</td>\n";
+			echo "<td class='$type' nowrap='Y'>".$conf_room['title']."</td>\n";
 		}
 		echo "</tr>\n\n";
 	}
@@ -163,7 +185,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	}
 ?>
 <tr class="<?= $linestyle ?>">
-	<td class="time">
+	<td class="time" nowrap='Y'>
 		<?= date('g:i a',strtotime($timeslot['start_time'])) ?>
 	</td>
 
@@ -175,10 +197,26 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		// print the grid selector
 		foreach ($rooms as $room_pk=>$room) { ?>
 	<td class="grid">
-		<a href="add_session.php?room=<?= $room_pk ?>&amp;time=<?= $timeslot_pk ?>">+</a>
 <?php
-	// TODO - session check here
+	// session check here
+	$total_length = 0; // TODO - check length used
+	if (is_array($room)) {
+		$counter = 0;
+		foreach ($room as $session_pk=>$session) {
+			$counter++;
+
+			$gridclass = "grid_event_odd";
+			if (($line % 2) == 0) { $gridclass = "grid_event_even"; }
+
+			$proposal = $conf_proposals[$session['proposals_pk']];
+			$total_length += $proposal['length'];
+			echo "<div class='$gridclass'>".$proposal['title'].
+				"&nbsp;<a href='add_session.php?delete=1&amp;pk=".$session_pk."'>x</a>" .
+				"</div>";
+		}
+	}
 ?>
+		<a href="add_session.php?room=<?= $room_pk ?>&amp;time=<?= $timeslot_pk ?>">+</a>
 	</td>
 <?php	}
 	}

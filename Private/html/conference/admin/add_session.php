@@ -42,11 +42,11 @@ if (!$_REQUEST['room'] || !$_REQUEST['time']) {
 	$timeslotPk = $_REQUEST['time'];
 
 	// fetch the room and time for the PKs
-	$sql = "select title from conf_rooms where pk = '$roomPk'";
+	$sql = "select * from conf_rooms where pk = '$roomPk'";
 	$result = mysql_query($sql) or die("Room query failed ($sql): " . mysql_error());
 	$conf_room = mysql_fetch_assoc($result);
 
-	$sql = "select start_time from conf_timeslots where pk = '$timeslotPk'";
+	$sql = "select * from conf_timeslots where pk = '$timeslotPk'";
 	$result = mysql_query($sql) or die("Timeslot query failed ($sql): " . mysql_error());
 	$conf_timeslot = mysql_fetch_assoc($result);
 }
@@ -66,16 +66,18 @@ if ($_REQUEST['add'] && $allowed) {
 		// check for existing sessions in this timeslot
 		// and check for this proposal in another slot already
 		$sql = "select CS.*, CP.length from conf_sessions CS " .
-			"join conf_proposals CP on CP.pk = CS.proposals_pk and pk = '$proposalPk' " .
+			"join conf_proposals CP on CP.pk = CS.proposals_pk and CP.pk = '$proposalPk' " .
 			"where CS.timeslots_pk = '$timeslotPk'";
 		$result = mysql_query($sql) or die("Sessions fetch query failed ($sql): " . mysql_error());
 		$conf_sessions = array();
 		while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
+		echo "<pre>",print_r($conf_sessions),"</pre>";
+
 		$new = true;
-		$order = 0;
+		$order = 0; // TODO - figure out ordering
 		$error = false;
-		if (mysql_num_rows($result) > 0) {
+		if (count($conf_sessions) > 0) {
 			$found_session = 0;
 			$time_used = 0;
 			foreach ($conf_sessions as $key=>$conf_session) {
@@ -98,6 +100,7 @@ if ($_REQUEST['add'] && $allowed) {
 			}
 
 			// do the length check
+			echo "time_used: $time_used >= length:".$conf_timeslot['length_mins']."<br/>";
 			if ($time_used >= $conf_timeslot['length_mins']) {
 				$error = true;
 				$Message = "Error: No more time remaining in this timeslot. You have to remove current proposals from this slot before you can add more.";
@@ -108,6 +111,7 @@ if ($_REQUEST['add'] && $allowed) {
 				// remove this session so we can put this proposal somewhere else
 				$sql = "DELETE from conf_sessions where pk = '$found_session'";
 				$result = mysql_query($sql) or die("Sessions remove failed ($sql): " . mysql_error());
+				$Message = "Moved proposal to new timeslot/room";
 			}
 		}
 
@@ -123,12 +127,15 @@ if ($_REQUEST['add'] && $allowed) {
 					"VALUES(NOW(), '$CONF_ID', '$roomPk', '$timeslotPk', '$proposalPk', $order, '')";
 			}
 			$result = mysql_query($sql) or die("Sessions query failed ($sql): " . mysql_error());
-			if (mysql_affected_rows($result) > 0) {
+			if (mysql_affected_rows() > 0) {
+				$Message = "Created new session for proposal";
 				if ($Message) {
 					$msg = "?msg=".$Message;
 				}
 				// redirect to the schedule page
 				//header('location:schedule.php'.$msg);
+				echo $Message;
+				exit;
 			} else {
 				$Message = "Error: Could not insert sessions record!";
 			}
@@ -215,24 +222,10 @@ function setConfProposal(pk) {
 			<div style="float:right; padding-right: 30px;">
 		</td>
 		<td nowrap="y">
-<?php
-// fetch the room and time for the PKs
-$sql = "select title from conf_rooms where pk = '$roomPk'";
-$result = mysql_query($sql) or die("Room query failed ($sql): " . mysql_error());
-$row = mysql_fetch_assoc($result);
-$roomTitle = $row['title'];
-?>
-			<strong>Room:</strong> <?= $roomTitle ?>
+			<strong>Room:</strong> <?= $conf_room['title'] ?>
 		</td>
 		<td nowrap="y">
-<?php
-// fetch the room and time for the PKs
-$sql = "select start_time from conf_timeslots where pk = '$timeslotPk'";
-$result = mysql_query($sql) or die("Timeslot query failed ($sql): " . mysql_error());
-$row = mysql_fetch_assoc($result);
-$timeslotTime = $row['start_time'];
-?>
-			<strong>Timeslot:</strong> <?= date('D, M d, g:i a',strtotime($timeslotTime)) ?>
+			<strong>Timeslot:</strong> <?= date('D, M d, g:i a',strtotime($conf_timeslot['start_time'])) ?>
 		</td>
 	</tr>
 
@@ -250,6 +243,12 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 	$linestyle = "oddrow";
 	if (($line % 2) == 0) { $linestyle = "evenrow"; } else { $linestyle = "oddrow"; }
 
+	$disabled = "";
+	if ($conf_proposal['sessions_pk']) {
+		$disabled = "disabled='Y'";
+		$linestyle = "session_exists";
+	} 
+
 	$current = $conf_proposal['type'];
 	if ($line == 1 || $current != $last) {
 		// next item, print the header again
@@ -266,7 +265,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 ?>
 	<tr class="<?= $linestyle ?>">
 		<td class="grid">
-			<input type="submit" name="add" value="add" onClick="setConfProposal('<?= $conf_proposal['pk'] ?>');" />
+			<input type="submit" <?= $disabled ?> name="add" value="add" onClick="setConfProposal('<?= $conf_proposal['pk'] ?>');" />
 		</td>
 		<td class="proposal_title">
 			<label title="<?= mysql_real_escape_string($conf_proposal['abstract']) ?>">

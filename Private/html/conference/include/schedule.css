@@ -48,6 +48,25 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 	text-align: center;
 }
 
+.grid_event_even {
+	background:#AAFFAA;
+	font-size: .7em;
+	color:#111; 
+	font-weight:normal;
+}
+
+.grid_event_odd {
+	background:#99FF99;
+	font-size: .7em;
+	color:#000; 
+	font-weight:normal;
+}
+
+.session_exists {
+	background: #FFCCCC;
+	color: #AAAAAA;
+}
+
 .proposal_title {
 	font-size: .9em;
 }
