@@ -144,9 +144,6 @@ $EXTRA_LINKS =
 	"<br/><span style='font-size:9pt;'>" .
 	"<a href='index.php'>Admin:</a> " .
 	"<a href='attendees.php'><strong>Attendees</strong></a> " .
-		"(<em>" .
-		"<a href='create_badge.php?USERS_PK=all' target='_new'>All Badges [pdf]</a>" .
-		"</em>) - " .
 	"<a href='proposals.php'>Proposals</a> - " .
 	"<a href='check_in.php'>Check In</a> " .
 	"</span>";
