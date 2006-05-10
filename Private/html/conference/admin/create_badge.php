@@ -64,7 +64,7 @@ $logo_width               = 72;
 $logo_height              = 72;
 
 
-$USERS_PK = $_GET["USERS_PK"];
+$USERS_PK = $_REQUEST["USERS_PK"];
 if (!isset($USERS_PK) || !is_array($USERS_PK)) {
 	die("Can't continue without a value for USERS_PK.");
 }
@@ -109,10 +109,10 @@ $pdf->addInfo("Title", "Sakai Conference Badges");
 $pdf->addInfo("CreationDate", localtime());
 
 $pageCount = 0;
-$offsetRow = 0;
+$offsetRow = 2;
 
 while ($person = mysql_fetch_assoc($result)) {
-	if ($pageCount > 0 && $offsetRow == 0) { 
+	if ($pageCount > 0 && $offsetRow == 2) { 
 		$pdf->ezNewPage(); 
 	}
 	
@@ -246,11 +246,11 @@ while ($person = mysql_fetch_assoc($result)) {
 
 	}
 
-	if ($offsetRow == 2) {
-		$offsetRow=0;
+	if ($offsetRow == 0) {
+		$offsetRow=2;
 		$pageCount++;
 	}
-	else { $offsetRow++; }
+	else { $offsetRow--; }
 }
 
 $buf = $pdf->ezOutput();
