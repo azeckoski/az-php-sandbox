@@ -83,6 +83,16 @@ function orderBy(newOrder) {
       <td>This allows an admin to view and vote on the current list of conference proposals for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
     </tr>
 
+    <tr>
+      <td valign="top"><a href="check_in.php">Check In</a></td>
+      <td>This allows an admin to handle check in and badges for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
+    </tr>
+
+    <tr>
+      <td valign="top"><a href="schedule.php">Scheduling</a></td>
+      <td>This allows an admin to handle scheduling for sessions for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
+    </tr>
+
 </table>  
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; // Include the FOOTER ?>
