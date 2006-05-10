@@ -1,0 +1,91 @@
+/* ---------------------voting form css--------------------- */
+/* 
+It is better to NOT use px sizes for fonts:
+IE users cannot resize a font size that is specified using px and that
+is an accessibility issue for people with poor eyesight.
+Here is a page that let's you compare sizes on browsers.
+em and % are the best ones to use in my opinion but I also use 
+pt a lot as it seems to offer better control.
+http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
+*/
+
+.schedule_header {
+	background:#336699;
+	padding:.2em;
+	font-weight:bold;
+	text-align: center;
+	color:white;
+}
+
+.bof_header {
+	background:#336699;
+	padding:.2em;
+	font-weight:bold;
+	text-align: center;
+	color: yellow;
+}
+
+.time_header {
+	margin: 0px;
+	padding: 0px;
+	font-size: .9em;
+	background: #CCC;
+	text-align: center;
+	font-weight:bold;
+	color:black;
+}
+
+.time {
+	color: darkgreen;
+	background: white;
+	font-size: .8em;
+	text-align: left;
+	font-weight: normal;
+	padding-left: 10px;
+}
+
+.grid {
+	text-align: center;
+}
+
+.blackbar {
+	background: #000000;
+	color:#fff;
+}
+
+
+.event {
+	background:#ffcc33; 
+	color:#000; 
+	font-weight:bold;
+}
+
+.bof {
+	background:#336699;
+	color: #eee;
+	font-style: italic;
+}
+
+.lunch {
+	background:#FFCCFF; 
+	color:#000;
+}
+
+.break {
+	background:#CCCCFF; 
+	color:#000;
+}
+
+.keynote {
+	background:yellow; 
+	color:#000;
+}
+
+.closed {
+	background:#666;
+}
+
+.coffee {
+	background:tan;
+	color: #000;
+}

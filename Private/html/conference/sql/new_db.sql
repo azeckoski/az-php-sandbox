@@ -160,3 +160,160 @@ CREATE TABLE proposal_demo (
   demo_url varchar(150) NOT NULL default '',
   PRIMARY KEY  (id)
 )
+
+// room scheduling tables
+CREATE TABLE conf_rooms ( 
+    pk           	int(10) AUTO_INCREMENT NOT NULL,
+    date_modified	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    date_created 	timestamp NULL DEFAULT NULL,
+    confID       	varchar(10) NOT NULL,
+    title			varchar(255) NOT NULL,
+    capacity		int(5) NOT NULL DEFAULT 10,
+    ordering		int(5) NOT NULL DEFAULT 0,
+	room_style		varchar(255) NULL,
+    BOF		     	enum('Y','N') NOT NULL DEFAULT 'N',
+    PRIMARY KEY(pk)
+)
+
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(1, '2006-05-09 20:38:42.0', '2006-05-09 20:38:42.0', 'Jun2006', 'Grand A', 100, 1, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(2, '2006-05-09 20:38:42.0', '2006-05-09 20:38:42.0', 'Jun2006', 'Grand B', 100, 2, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(3, '2006-05-09 20:39:13.0', '2006-05-09 20:39:13.0', 'Jun2006', 'Grand C', 100, 3, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(4, '2006-05-09 20:39:24.0', '2006-05-09 20:39:24.0', 'Jun2006', 'Grand D', 100, 4, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(5, '2006-05-09 20:39:48.0', '2006-05-09 20:39:48.0', 'Jun2006', 'Jr A', 100, 5, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(6, '2006-05-09 20:40:08.0', '2006-05-09 20:40:08.0', 'Jun2006', 'Jr B', 100, 6, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(7, '2006-05-09 20:40:08.0', '2006-05-09 20:40:08.0', 'Jun2006', 'Jr C', 100, 7, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(8, '2006-05-09 20:40:08.0', '2006-05-09 20:40:08.0', 'Jun2006', 'Jr D', 100, 8, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(9, '2006-05-09 20:40:19.0', '2006-05-09 20:40:19.0', 'Jun2006', 'Gulf BCD', 100, 9, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(10, '2006-05-09 20:41:11.0', '2006-05-09 20:41:11.0', 'Jun2006', 'Parkville', 50, 10, 'N', NULL);
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(11, '2006-05-09 20:42:37.0', '2006-05-09 20:42:37.0', 'Jun2006', 'Gulf A', 34, 11, 'Y', 'theater');
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(12, '2006-05-09 20:42:37.0', '2006-05-09 20:42:37.0', 'Jun2006', 'Blue', 20, 12, 'Y', 'theater');
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(13, '2006-05-09 20:42:37.0', '2006-05-09 20:42:37.0', 'Jun2006', 'Beluga', 30, 13, 'Y', 'theater');
+INSERT INTO 'conf_rooms'('pk', 'date_modified', 'date_created', 'confID', 'title', 'capacity', 'ordering', 'BOF', 'room_style')
+  VALUES(14, '2006-05-09 20:42:37.0', '2006-05-09 20:42:37.0', 'Jun2006', 'Chart', 8, 14, 'Y', 'board room');
+
+
+CREATE TABLE conf_timeslots ( 
+    pk           	int(10) AUTO_INCREMENT NOT NULL,
+    date_modified	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    date_created 	timestamp NULL DEFAULT NULL,
+    confID       	varchar(10) NOT NULL,
+    ordering		int(6) NOT NULL,
+    title			varchar(255) NULL,
+    type			varchar(255) NOT NULL DEFAULT 'open',
+    start_time		timestamp NOT NULL,
+    length_mins		int(5) NOT NULL DEFAULT 30,
+    PRIMARY KEY(pk)
+)
+
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 1, '2006-05-30 7:30', 60, 'coffee', 'Coffee');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 2, '2006-05-30 8:30', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 3, '2006-05-30 10:00', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 4, '2006-05-30 10:15', 105, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 5, '2006-05-30 12:00', 60, 'lunch', 'lunch');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 6, '2006-05-30 13:00', 105, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 7, '2006-05-30 14:45', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 8, '2006-05-30 15:00', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 9, '2006-05-30 16:30', 60, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 10, '2006-05-30 17:30', 120, 'special', 'Karaoke');
+
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 11, '2006-05-31 7:30', 60, 'coffee', 'Coffee');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 12, '2006-05-31 8:30', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 13, '2006-05-31 10:00', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 14, '2006-05-31 10:15', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 15, '2006-05-31 11:45', 90, 'lunch', 'lunch');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 16, '2006-05-31 13:15', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 17, '2006-05-31 14:45', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 18, '2006-05-31 15:00', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 19, '2006-05-31 16:30', 60, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 20, '2006-05-31 17:30', 120, 'special', 'Awards');
+
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 21, '2006-06-01 7:30', 60, 'coffee', 'Coffee');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 22, '2006-06-01 8:30', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 23, '2006-06-01 10:00', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 24, '2006-06-01 10:15', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 25, '2006-06-01 11:45', 90, 'lunch', 'lunch');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 26, '2006-06-01 13:15', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 27, '2006-06-01 14:45', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 28, '2006-06-01 15:00', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 29, '2006-06-01 16:30', 60, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 30, '2006-06-01 17:30', 120, 'special', 'Tech Demos');
+
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 31, '2006-06-02 7:30', 60, 'coffee', 'Coffee');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 32, '2006-06-02 8:30', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 33, '2006-06-02 10:00', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 34, '2006-06-02 10:15', 90, 'event', '');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 35, '2006-06-02 11:45', 30, 'lunch', 'lunch');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 36, '2006-06-02 12:15', 60, 'keynote', 'Keynote2');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 37, '2006-06-02 13:15', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 38, '2006-06-02 13:30', 75, 'keynote', 'Board response to sessions');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 39, '2006-06-02 14:45', 15, 'break', 'break');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 40, '2006-06-02 15:00', 60, 'keynote', 'Executive Director Address');
+INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
+  VALUES(NOW(), 'Jun2006', 41, '2006-06-02 16:00', 60, 'keynote', 'Conference Feedback');
+
+
+CREATE TABLE conf_sessions ( 
+    pk           	int(10) AUTO_INCREMENT NOT NULL,
+    date_modified	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    date_created 	timestamp NULL DEFAULT NULL,
+    confID       	varchar(10) NOT NULL,
+    rooms_pk		int(10) NOT NULL REFERENCES conf_rooms(pk),
+    timeslots_pk	int(10) NOT NULL REFERENCES conf_timeslots(pk),
+    proposals_pk	int(10) NULL,
+    ordering		int(6) NOT NULL,
+    title			varchar(255) NULL,
+    PRIMARY KEY(pk)
+)

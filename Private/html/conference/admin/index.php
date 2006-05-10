@@ -39,7 +39,8 @@ $EXTRA_LINKS =
 	"<a href='index.php'><strong>Admin:</strong></a> " .
 	"<a href='attendees.php'>Attendees</a> - " .
 	"<a href='proposals.php'>Proposals</a> - " .
-	"<a href='check_in.php'>Check In</a> " .
+	"<a href='check_in.php'>Check In</a> - " .
+	"<a href='schedule.php'>Schedule</a> " .
 	"</span>";
 
 ?>
