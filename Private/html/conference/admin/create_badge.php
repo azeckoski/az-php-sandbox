@@ -46,25 +46,21 @@ if (!$User->checkPerm("admin_conference")) {
 // for usage information, look at http://ros.co.nz/pdf/readme.pdf
 include('../../accounts/include/class.ezpdf.php');
 
-$page_width               = 612;
-$page_height              = 792;
-//$badge_width              = 288;
-//$badge_height             = 216;
-$badge_width              = 297;
-$badge_height             = 225;
-$base_width               = round($badge_width/12);
-$base_height			  = round($badge_height/12);
-$margin                   = 5;
-//$left_margin              = 18;
-$left_margin              = 9;
+$vertical_margin          = 24;
+$margin                   = 12;
+$left_margin              = 18;
 $right_margin             = 18;
 $top_margin				  = 72;
-$bottom_margin            = 63;
-//$bottom_margin            = 72;
+$bottom_margin            = 72;
+$page_width               = 612;
+$page_height              = 792;
+$badge_width              = 288;
+$badge_height             = 216;
+$base_width               = round(($badge_width-($margin*2))/12);
+$base_height			  = round(($badge_height-($margin*2))/12);
 
-//$logo_file		          = "../../accounts/include/images/vancouverBadgeLogo.jpg";
 $logo_file		          = "../../accounts/include/images/sakai-logo-6inch.png";
-$logo_width               = 82;
+$logo_width               = 72;
 $logo_height              = 72;
 
 
@@ -121,22 +117,24 @@ while ($person = mysql_fetch_assoc($result)) {
 	}
 	
 	for ($columnOffset=0; $columnOffset<=1; $columnOffset++) {
-		$left_edge   = $left_margin + ($badge_width * $columnOffset) + $margin;
-		$right_edge  = $left_edge + $badge_width - $margin;
+		$left_edge   = $left_margin + (($badge_width) * $columnOffset) + $margin;
+		$right_edge  = $left_edge + $badge_width - ($margin*2);
 		$top_edge    = $top_margin + (($offsetRow+1) * $badge_height) - $margin;
-		$bottom_edge = $top_edge - $badge_height + $margin;
+		$bottom_edge = $top_edge - $badge_height + ($margin*2);
+		$center      = $left_edge + ($badge_width-$margin-($base_height/2))/2;
 
-		$pdf->addPngFromFile($logo_file, $left_edge + $badge_width/2 - $logo_width/2 , $top_edge - ($base_height*2) - $logo_height + $base_height - $margin, $logo_width, $logo_height);
+	 	$logoY = $top_edge - $logo_height - ($base_height*1.5);
+		$pdf->addPngFromFile($logo_file, $left_edge + $badge_width/2 - $logo_width/2 , $logoY, $logo_width, $logo_height);
 
 		$nameString = ucfirst($person["FIRSTNAME"]) . " " . ucfirst($person["LASTNAME"]);
 		$nameSize = 32;
 
-		while ($pdf->getTextWidth($nameSize, $nameString) > 260) {
+		while ($pdf->getTextWidth($nameSize, $nameString) > ($badge_width-($margin*4))) {
 			$nameSize-=2;	
 		}
 
-		$nameX=$left_edge + $badge_width/2-($pdf->getTextWidth($nameSize,$nameString)/2);
-		$nameY=$top_edge-($margin*2)-$base_height-$logo_height-$pdf->getFontHeight($nameSize);
+		$nameX=$center-($pdf->getTextWidth($nameSize,$nameString)/2);
+		$nameY=$logoY-$pdf->getFontHeight($nameSize)+6;
 		$pdf->addText($nameX,$nameY, $nameSize, $nameString);
 		
 		$institutionString = $person["INSTITUTION"];
@@ -146,8 +144,8 @@ while ($person = mysql_fetch_assoc($result)) {
 			$institutionSize-=2;	
 		}
 	
-		$institutionX=$left_edge + $badge_width/2-($pdf->getTextWidth($institutionSize,$institutionString)/2);
-		$institutionY=$nameY - $pdf->getFontHeight($institutionSize) - $margin;
+		$institutionX=$center-($pdf->getTextWidth($institutionSize,$institutionString)/2);
+		$institutionY=$nameY - $pdf->getFontHeight($institutionSize);
 		
 		/* display shorter institutions on a single line */
 		if ($pdf->getTextWidth($institutionSize, $institutionString) < 234) {
@@ -170,31 +168,31 @@ while ($person = mysql_fetch_assoc($result)) {
 				}
 			}
 	
-			$institutionX = $left_edge + $badge_width/2-($pdf->getTextWidth($institutionSize,$institutionString1)/2);
+			$institutionX = $center-($pdf->getTextWidth($institutionSize,$institutionString1)/2);
 			$pdf->addText($institutionX,$institutionY,$institutionSize,$institutionString1);
 	
 	
-			$institutionX2 = $left_edge + $badge_width/2-($pdf->getTextWidth($institutionSize,$institutionString2)/2);
+			$institutionX2 = $center-($pdf->getTextWidth($institutionSize,$institutionString2)/2);
 			$institutionY2 = $institutionY - $pdf->getFontHeight($institutionSize);
 			$pdf->addText($institutionX2,$institutionY2,$institutionSize,$institutionString2);
 		}
 
 		$lpoints = array($left_edge,$bottom_edge,
 						 $left_edge+($base_width*1),$bottom_edge,
-						 $left_edge+($base_width*2),$bottom_edge+$base_height,
-						 $left_edge+$base_width/2, $bottom_edge+$base_height,
-						 $left_edge+$base_width/2, $top_edge - $base_height,
-						 $left_edge+(9.5*$base_width), $top_edge - $base_height,
+						 $left_edge+($base_width*2),$bottom_edge+($base_height*1.25),
+						 $left_edge+$base_width/2, $bottom_edge+($base_height*1.25),
+						 $left_edge+$base_width/2, $top_edge - ($base_height*1.25),
+						 $left_edge+(9.5*$base_width), $top_edge - ($base_height*1.25),
 					 	 $left_edge+(10.5*$base_width), $top_edge,
 					 	 $left_edge, $top_edge
 						);
 	
 		$rpoints = array($right_edge,$bottom_edge,
 						 $right_edge-($base_width*10.5),$bottom_edge,
-						 $right_edge-($base_width*9.5),$bottom_edge+$base_height,
-						 $right_edge-($base_width/2), $bottom_edge+$base_height,
-						 $right_edge-($base_width/2), ($top_edge-$base_height),
-						 $right_edge-(2*$base_width), ($top_edge-$base_height),
+						 $right_edge-($base_width*9.5),$bottom_edge+($base_height*1.25),
+						 $right_edge-($base_width/2), $bottom_edge+($base_height*1.25),
+						 $right_edge-($base_width/2), ($top_edge-($base_height*1.25)),
+						 $right_edge-(2*$base_width), ($top_edge-($base_height*1.25)),
 					 	 $right_edge-(1*$base_width), $top_edge,
 					 	 $right_edge, $top_edge
 						);
@@ -215,8 +213,8 @@ while ($person = mysql_fetch_assoc($result)) {
 	
 		/* present a uniform outline if the roles are the same */
 		if ($person["PRIMARY_ROLE"] == $person["SECONDARY_ROLE"]) {
-			$rpoints[2]=($right_edge-($base_width*11.5));
-			$rpoints[4]=($right_edge-($base_width*10.5));
+			$rpoints[2]=($right_edge-($base_width*11));
+			$rpoints[4]=($right_edge-($base_width*10));
 			$rpoints[10]=($right_edge - (3*$base_width));
 			$rpoints[12]=($right_edge - (2*$base_width));
 		}
