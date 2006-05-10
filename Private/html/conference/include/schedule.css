@@ -15,6 +15,7 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 	font-weight:bold;
 	text-align: center;
 	color:white;
+	border: 1px solid white;
 }
 
 .bof_header {
@@ -23,6 +24,7 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 	font-weight:bold;
 	text-align: center;
 	color: yellow;
+	border: 1px solid white;
 }
 
 .time_header {
@@ -45,11 +47,12 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 }
 
 .grid {
+	vertical-align: top;
 	text-align: center;
 }
 
 .grid_event_even {
-	background:#AAFFAA;
+	background:#CCFFCC;
 	font-size: .7em;
 	color:#111; 
 	font-weight:normal;
@@ -62,9 +65,15 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 	font-weight:normal;
 }
 
+.remaining {
+	font-size: .7em;
+	font-style: italic;
+	vertical-align: middle;
+}
+
 .session_exists {
 	background: #FFCCCC;
-	color: #AAAAAA;
+	color: #999999;
 }
 
 .proposal_title {
@@ -74,6 +83,16 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 .session_date {
 	text-align: center;
 	font-size: .8em;
+}
+
+.message {
+	border: 3px solid darkblue;
+	color: black;
+	background: #CCCCFF;
+	font-size: 1.1em;
+	text-align: left;
+	padding: 3px;
+	margin:3px;
 }
 
 .blackbar {

@@ -30,6 +30,11 @@ if (!$User->checkPerm("admin_conference")) {
 	$allowed = 1;
 }
 
+// get the passed message if there is one
+if($_GET['msg']) {
+	$Message = "<div class='message'>".$_GET['msg']."</div>";
+}
+
 
 // fetch the conference rooms
 $sql = "select * from conf_rooms where confID = '$CONF_ID'";
@@ -82,7 +87,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 }
 
 
-echo "<pre>",print_r($timeslots),"</pre>"; 
+//echo "<pre>",print_r($timeslots),"</pre>"; 
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
@@ -162,7 +167,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	if ($line == 1 || $current_date != $last_date) {
 		// next date, print the header again
 		echo "<tr>";
-		echo "<td class='time_header'>$current_date</td>\n";
+		echo "<td class='time_header' nowrap='Y'>$current_date</td>\n";
 		foreach($conf_rooms as $conf_room) {
 			$type = "schedule_header";
 			if ($conf_room['BOF'] == 'Y') { $type = "bof_header"; }
@@ -198,35 +203,65 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		foreach ($rooms as $room_pk=>$room) { ?>
 	<td class="grid">
 <?php
-	// session check here
-	$total_length = 0; // TODO - check length used
-	if (is_array($room)) {
-		$counter = 0;
-		foreach ($room as $session_pk=>$session) {
-			$counter++;
-
-			$gridclass = "grid_event_odd";
-			if (($line % 2) == 0) { $gridclass = "grid_event_even"; }
-
-			$proposal = $conf_proposals[$session['proposals_pk']];
-			$total_length += $proposal['length'];
-			echo "<div class='$gridclass'>".$proposal['title'].
-				"&nbsp;<a href='add_session.php?delete=1&amp;pk=".$session_pk."'>x</a>" .
-				"</div>";
+		// session check here
+		$total_length = 0;
+		if (is_array($room)) {
+			$counter = 0;
+			foreach ($room as $session_pk=>$session) {
+				$counter++;
+	
+				$gridclass = "grid_event_odd";
+				if (($counter % 2) == 0) { $gridclass = "grid_event_even"; }
+	
+				$proposal = $conf_proposals[$session['proposals_pk']];
+				$total_length += $proposal['length'];
+				echo "<div class='$gridclass'>".$proposal['title'].
+					"&nbsp;<a href='delete_session.php?pk=".$session_pk."'>x</a>" .
+					"</div>";
+			}
 		}
-	}
+
+		// time check here
+		$remaining_time = $timeslot['length_mins'] - $total_length;
+		if ($remaining_time > 0) {
 ?>
+		<span class="remaining"><?= $remaining_time ?></span>
 		<a href="add_session.php?room=<?= $room_pk ?>&amp;time=<?= $timeslot_pk ?>">+</a>
+<?php
+		}
+?>
 	</td>
-<?php	}
-	}
+<?php 
+		}
 ?>
 </tr>
 
 <?php 
+	}
 } ?>
 
 </table>
 </form>
+
+<br/>
+<div class="right">
+<div class="rightheader">How to use the scheduling grid</div>
+<div style="padding:3px;">
+<div style="padding:3px 0px;"><span class="schedule_header">Rooms</span> are shown across the top of the grid, 
+<span class="bof_header">BOF rooms</span> are indicated.</div>
+<div>The numbers in each <span class="event">event cell</span> indicate
+the unused time available in that cell.</div>
+<div>When no more time remains in an event timeslot, the number and + will not be shown.</div>
+<div>
+<li><strong>Adding sessions to the schedule:</strong> Clicking on the 
+<strong><a href="" class="grid" style="font-size:1.1em;">+</a></strong> will take you to 
+a screen with a list of the currently approved proposals.</li>
+<li><strong>Removing sessions form the schedule:</strong> 
+Clicking on the <strong><a href="" class="grid" style="font-size:1.1em;">x</a></strong>
+to the right of a session title will take you to a delete confirmation screen.
+</div>
+</li>
+</div>
+</div>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>

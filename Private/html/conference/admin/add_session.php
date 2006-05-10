@@ -34,6 +34,8 @@ $roomPk = 0;
 $timeslotPk = 0;
 $conf_room = array();
 $conf_timeslot = array();
+$mins_used = 0;
+$mins_left = 0;
 if (!$_REQUEST['room'] || !$_REQUEST['time']) {
 	$allowed = false;
 	$Message = "Error: room and time must be set.<br/><a href='schedule.php'>Go Back</a>";
@@ -49,6 +51,17 @@ if (!$_REQUEST['room'] || !$_REQUEST['time']) {
 	$sql = "select * from conf_timeslots where pk = '$timeslotPk'";
 	$result = mysql_query($sql) or die("Timeslot query failed ($sql): " . mysql_error());
 	$conf_timeslot = mysql_fetch_assoc($result);
+
+	// find remaining time in this slot and room
+	$sql = "select sum(CP.length) as mins_used from conf_proposals CP " .
+		"join conf_sessions CS on CS.proposals_pk = CP.pk and " .
+		"CS.rooms_pk='$roomPk' and CS.timeslots_pk='$timeslotPk'" .
+		"where CP.confID = 'Jun2006'";
+	$result = mysql_query($sql) or die("Sessions fetch query failed ($sql): " . mysql_error());
+	$conf_sessions = array();
+	$row=mysql_fetch_assoc($result);
+	$mins_used = $row['mins_used'];
+	$mins_left = $conf_timeslot['length_mins'] - $mins_used;
 }
 
 
@@ -72,7 +85,7 @@ if ($_REQUEST['add'] && $allowed) {
 		$conf_sessions = array();
 		while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
-		echo "<pre>",print_r($conf_sessions),"</pre>";
+		//echo "<pre>",print_r($conf_sessions),"</pre>";
 
 		$new = true;
 		$order = 0; // TODO - figure out ordering
@@ -133,16 +146,13 @@ if ($_REQUEST['add'] && $allowed) {
 					$msg = "?msg=".$Message;
 				}
 				// redirect to the schedule page
-				//header('location:schedule.php'.$msg);
-				echo $Message;
+				header('location:schedule.php'.$msg);
 				exit;
 			} else {
 				$Message = "Error: Could not insert sessions record!";
 			}
 		}
 	}
-} else if ($_REQUEST['delete'] && $allowed) {
-	// TODO - allow deletes from this page?
 }
 
 // fetch the proposals
@@ -227,6 +237,9 @@ function setConfProposal(pk) {
 		<td nowrap="y">
 			<strong>Timeslot:</strong> <?= date('D, M d, g:i a',strtotime($conf_timeslot['start_time'])) ?>
 		</td>
+		<td nowrap="y">
+			<strong>Remaining:</strong> <?= $mins_left ?>
+		</td>
 	</tr>
 
 	</table>
@@ -247,7 +260,11 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 	if ($conf_proposal['sessions_pk']) {
 		$disabled = "disabled='Y'";
 		$linestyle = "session_exists";
-	} 
+	}
+	
+	if ($conf_proposal['length'] > $mins_left) {
+		$disabled = "disabled='Y'";
+	}
 
 	$current = $conf_proposal['type'];
 	if ($line == 1 || $current != $last) {
@@ -286,4 +303,16 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 </table>
 </form>
 
+<br/>
+<div class="right">
+<div class="rightheader">How to use the add session page</div>
+<div style="padding:3px;">
+<li>This page contains a full listing of all approved proposals</li>
+<li>Click the add button to create a session in the Room and Timeslot indicated at the top of the page</li>
+<li>Note that the time remaining in this timeslot is indicated in the upper right</li>
+<li>If a proposal is longer than the time remaining in this timeslot then the add button will be disabled</li>
+<li>If a proposal has already been added to a timeslot then the add button will be disabled and 
+the <span class="session_exists">style will be different</span></li>
+</div>
+</div>
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>
