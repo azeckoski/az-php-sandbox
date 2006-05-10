@@ -179,7 +179,7 @@ $EXTRA_LINKS =
 	"<a href='proposals.php'>Proposals</a> - " .
 	"<a href='check_in.php'><strong>Check In</strong></a> " .
 		"(<em>" .
-		"<a href='create_badge.php?USERS_PK=all' target='new'>All Badges [pdf]</a>" .
+		"<a href='create_badge.php?USERS_PK[]=all' target='new'>All Badges [pdf]</a>" .
 		"</em>)" .
 	"</span>";
 ?>
@@ -319,7 +319,7 @@ function unCheckInUser(num) {
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
 <td><a href="javascript:orderBy('shirt');">Shirt</a></td>
 <td align="center"><a href="javascript:orderBy('date_created');">Arrival Date</a></td>
-<td align="center">Badge</td>
+<td align="center" width="10%">Badge</td>
 </tr>
 
 <?php
@@ -378,12 +378,18 @@ while($row=mysql_fetch_assoc($result)) {
 	</td>
 
 	<td class="line" align="center">
-		<a href='create_badge.php?USERS_PK=<?= $row['userpk'] ?>' target='new'>make pdf</a>
+		<input type="checkbox" name="USERS_PK[]" value="<?= $row['userpk'] ?>"/>
 	</td>
 </tr>
 
 <?php } ?>
 
+<tr>
+<td colspan="5">&nbsp;</td>
+<td align="center">
+<input type="submit" value="Print Badges" onClick="document.adminform.action='create_badge.php';"/>
+</td>
+</tr>
 </table>
 </form>
 
