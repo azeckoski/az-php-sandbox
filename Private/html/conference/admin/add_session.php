@@ -156,8 +156,9 @@ if ($_REQUEST['add'] && $allowed) {
 }
 
 // fetch the proposals
-$sql = "select CP.*, CS.pk as sessions_pk from conf_proposals CP " .
-	"left join conf_sessions CS on CS.proposals_pk = CP.pk and CS.confID = '$CONF_ID' " .
+$sql = "select CP.*, CS.pk as sessions_pk, CT.start_time from conf_proposals CP " .
+	"left join conf_sessions CS on CS.proposals_pk = CP.pk " .
+	"left join conf_timeslots CT on CT.pk = CS.timeslots_pk " .
 	"where CP.confID = '$CONF_ID' and CP.approved='Y' and CP.type != 'demo'" .
 	"order by type desc, length, title";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
@@ -273,6 +274,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 		<tr>
 			<td class='time_header'><?= $current ?></td>
 			<td class='schedule_header'>Title</td>
+			<td class='schedule_header'>Track</td>
 			<td class='schedule_header'>Length</td>
 			<td class='schedule_header'></td>
 		</tr>
@@ -289,11 +291,20 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 				<?= $conf_proposal['title'] ?>
 			</label>
 		</td>
+		<td class="session_date">
+			<?= $conf_proposal['track'] ?>
+		</td>
 		<td class="grid">
 			<?= $conf_proposal['length'] ?>
 		</td>
 		<td class="session_date">
-			<?= date('D, M d, g:i a',strtotime($session_date)) ?>
+<?php
+			if ($conf_proposal['start_time']) {
+				echo date('D, M d, g:i a',strtotime($conf_proposal['start_time']));
+			} else {
+				echo "--";
+			}
+?>
 		</td>
 	</tr>
 <?php

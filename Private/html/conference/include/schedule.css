@@ -9,6 +9,10 @@ pt a lot as it seems to offer better control.
 http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 */
 
+html,body,td {
+	height: 100%;
+}
+
 .schedule_header {
 	background:#336699;
 	padding:.2em;
@@ -49,21 +53,61 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 .grid {
 	vertical-align: top;
 	text-align: center;
+	padding: 0px;
+	height: 100%;
 }
 
-.grid_event_even {
-	background:#CCFFCC;
+.grid_event {
+	background:#CCEEFF;
 	font-size: .7em;
 	color:#111; 
 	font-weight:normal;
+	height: 100%;
+	border: 2px solid #666666;
 }
 
-.grid_event_odd {
-	background:#99FF99;
-	font-size: .7em;
-	color:#000; 
-	font-weight:normal;
+.grid_event_header {
+	font-size: 1.1em;
+	font-weight: bold;
+	background-color: #339933;
+	color: white;
 }
+
+.grid_event_text {
+	padding: 2px;
+}
+
+.grid_event_speaker {
+	border-top: 1px dotted black;
+	font-style: italic;
+	background: white;
+}
+
+<!-- tracks -->
+.technical {
+	background: #993333;
+}
+
+.community {
+	background: #333399;
+}
+
+.faculty {
+	background: #999933;
+}
+
+.implementation {
+	background: #339933;
+}
+
+.tool_overview {
+	background: #339999;
+}
+
+.multiple_audiences {
+	background: #993399;
+}
+
 
 .remaining {
 	font-size: .7em;
@@ -73,7 +117,7 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 
 .session_exists {
 	background: #FFCCCC;
-	color: #999999;
+	color: #666666;
 }
 
 .proposal_title {

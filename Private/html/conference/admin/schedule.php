@@ -20,14 +20,13 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 // login if not autheticated
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
-// Make sure user is authorized
-$allowed = 0; // assume user is NOT allowed unless otherwise shown
+// THIS PAGE IS ACCESSIBLE BY ANYONE
+// Make sure user is authorized for admin perms
+$isAdmin = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("admin_conference")) {
-	$allowed = 0;
-	$Message = "Only admins with <b>admin_conference</b> may view this page.<br/>" .
-		"Try out this one instead: <a href='$TOOL_URL/'>$TOOL_NAME</a>";
+	$isAdmin = false;
 } else {
-	$allowed = 1;
+	$isAdmin = true;
 }
 
 // get the passed message if there is one
@@ -55,7 +54,7 @@ $conf_sessions = array();
 while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
-$sql = "select CP.pk, CP.title, CP.length from conf_proposals CP " .
+$sql = "select CP.pk, CP.title, CP.track, CP.speaker, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
@@ -123,14 +122,6 @@ function orderBy(newOrder) {
 <?php include $TOOL_PATH.'include/admin_header.php'; ?>
 
 <?= $Message ?>
-
-<?php
-	// Put in footer and stop the rest of the page from loading if not allowed -AZ
-	if (!$allowed) {
-		include $TOOL_PATH.'include/admin_footer.php';
-		exit;
-	}
-?>
 
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
@@ -210,20 +201,33 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			foreach ($room as $session_pk=>$session) {
 				$counter++;
 	
-				$gridclass = "grid_event_odd";
-				if (($counter % 2) == 0) { $gridclass = "grid_event_even"; }
+				$gridclass = "grid_event";
+				//if (($counter % 2) == 0) { $gridclass = "grid_event_even"; }
 	
 				$proposal = $conf_proposals[$session['proposals_pk']];
+
+				$trackclass = "";
+				if($proposal['track']) {
+					$trackclass = str_replace(" ","_",strtolower($proposal['track']));
+				}
+
 				$total_length += $proposal['length'];
-				echo "<div class='$gridclass'>".$proposal['title'].
-					"&nbsp;<a href='delete_session.php?pk=".$session_pk."'>x</a>" .
-					"</div>";
+
+				echo "<div class='grid_event'>";
+				echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>";
+				echo "<div class='grid_event_text'>".$proposal['title'];
+				if ($isAdmin) {
+					echo "&nbsp;<a href='delete_session.php?pk=".$session_pk."'>x</a>";
+				}
+				echo "</div>";
+				echo "<div class='grid_event_speaker'>".$proposal['speaker']."</div>";
+				echo "</div>";
 			}
 		}
 
 		// time check here
 		$remaining_time = $timeslot['length_mins'] - $total_length;
-		if ($remaining_time > 0) {
+		if ($remaining_time > 0 && $isAdmin) {
 ?>
 		<span class="remaining"><?= $remaining_time ?></span>
 		<a href="add_session.php?room=<?= $room_pk ?>&amp;time=<?= $timeslot_pk ?>">+</a>
@@ -243,6 +247,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 </table>
 </form>
 
+<?php if($isAdmin) { ?>
 <br/>
 <div class="right">
 <div class="rightheader">How to use the scheduling grid</div>
@@ -263,5 +268,6 @@ to the right of a session title will take you to a delete confirmation screen.
 </li>
 </div>
 </div>
+<?php } ?>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>
