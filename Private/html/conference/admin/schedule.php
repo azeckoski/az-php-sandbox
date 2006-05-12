@@ -79,7 +79,6 @@ foreach($conf_timeslots as $conf_timeslot) {
 		$rooms['0'] = '0'; // placeholder
 	} else {
 		foreach($conf_rooms as $conf_room) {
-			// insert the session PKs array in the table here
 			$sessions = array();
 			foreach($conf_sessions as $conf_session) {
 				if ($conf_session['timeslots_pk'] == $conf_timeslot['pk'] &&
@@ -138,7 +137,7 @@ if ($User && $isAdmin) {
 <?= $Message ?>
 
 <div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
-<strong>Tentative Draft Schedule:<strong> Times and sessions may change and new sessions may be added<br/>
+<strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
 Check back closer to the conference for the final schedule, contact <a href="mailto:wendemm@gmail.com">Wende Morgaine</a> with questions
 </div>
 
@@ -183,7 +182,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 		// create a blank line if after first one
 		if ($line > 1) {
-			echo "<tr><td>&nbsp;</td></tr>\n";
+			echo "<tr><td style='page-break-before: always;'>&nbsp;</td></tr>\n";
 		}
 
 		// print date header
