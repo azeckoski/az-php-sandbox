@@ -72,6 +72,13 @@ if ($_REQUEST['check_in']) {
 		}
 }
 
+// handle the filters
+$sql_filter = "";
+if ($_REQUEST['show_in']) {
+	$sql_filter = " and arrived is not null ";
+} else if ($_REQUEST['show_na']) {
+	$sql_filter = " and arrived is null ";
+}
 
 // get the search
 $searchtext = "";
@@ -85,7 +92,7 @@ if ($searchtext) {
 }
 
 // sorting
-$sortorder = "lastname";
+$sortorder = "date_created desc";
 if ($_REQUEST["sortorder"]  && (!$_REQUEST["clearall"]) ) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
@@ -132,7 +139,7 @@ if ($end_item > $total_items) { $end_item = $total_items; }
 // the main fetching query
 $sql = "select U1.pk as userpk, U1.firstname, U1.lastname, U1.email, " .
 		"U1.institution, U1.institution_pk, C1.* " .
-	$from_sql . $sqlsearch . $sqlsorting . $mysql_limit;
+	$from_sql . $sql_filter . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $items_displayed = mysql_num_rows($result);
@@ -295,8 +302,17 @@ function unCheckInUser(num) {
 <?php } else { ?>
 			<input class="filter" type="submit" name="show_all" value="All" />
 <?php } ?>
-			<input class="filter" type="submit" name="show_in" value="IN" title="show all users who have checked in" />
-			<input class="filter" type="submit" name="show_na" value="NA" title="show all users who have not arrived yet" />
+<?php
+	$show_in_style = "";
+	$show_na_style = "";
+	if ($_REQUEST["show_in"]) {
+		$show_in_style = "style='background:red;'";
+	} else if ($_REQUEST["show_na"]) {
+		$show_na_style = "style='background:red;'";
+	}
+?>
+			<input <?= $show_in_style ?> class="filter" type="submit" name="show_in" value="IN" title="show all users who have checked in" />
+			<input <?= $show_na_style ?> class="filter" type="submit" name="show_na" value="NA" title="show all users who have not arrived yet" />
 		</td>
 	
 		<td nowrap="y" align="right">
@@ -318,8 +334,8 @@ function unCheckInUser(num) {
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
 <td><a href="javascript:orderBy('shirt');">Shirt</a></td>
-<td align="center"><a href="javascript:orderBy('date_created');">Arrival Date</a></td>
-<td align="center" width="10%">Badge</td>
+<td align="center"><a href="javascript:orderBy('arrived');">Arrival Date</a></td>
+<td align="center" width="10%"><a href="javascript:orderBy('printed_badge');">Badge</a></td>
 </tr>
 
 <?php
@@ -379,6 +395,11 @@ while($row=mysql_fetch_assoc($result)) {
 
 	<td class="line" align="center">
 		<input type="checkbox" name="USERS_PK[]" value="<?= $row['userpk'] ?>"/>
+<?php if($row['printed_badge'] == "Y") { ?>
+		<image width="20" height="20" src="../include/images/blank.gif" alt="printed" />
+<?php } else { ?>
+		<image width="20" height="20" src="../include/images/printer.gif" alt="not printed yet" />
+<?php } ?>
 	</td>
 </tr>
 
@@ -392,6 +413,21 @@ while($row=mysql_fetch_assoc($result)) {
 </tr>
 </table>
 </form>
+
+<br/>
+<div class="right">
+<div class="rightheader">How to use the conference check-in and badge printer</div>
+<div style="padding:3px;">
+<div>Users are listed in the order they registered by default, resort them by clicking on the headers for each column</div>
+<div>To check-in a user click on the <strong>Check In</strong> button (only visible if the user is not checked in)<br/>
+To undo a check-in, click on the <strong>X</strong> button (only visible if the user is checked in)</div>
+<div>To only show all users, click the <strong>ALL</strong> button at the top</div>
+<div>To only show users who have not checked in yet, click the <strong>NA</strong> button at the top</div>
+<div>To only show users who have already checked in, click the <strong>IN</strong> button at the top</div>
+<div>If a badge has not been printed for a user yet then a printer image <image width="20" height="20" src="../include/images/printer.gif" alt="not printed yet" /> will appear in the badge column</div>
+<div>To print badges for every activated and registered person, click the <strong>(All Badges [pdf])</strong> link at the top</div>
+<div>To print badges for a select group of users, check the box(es) in the badge column and click the <strong>Print Badges</strong> button at the bottom of the page</div>
+</div>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>
 

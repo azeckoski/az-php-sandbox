@@ -103,7 +103,7 @@ if (mysql_num_rows($result) < 1) {
 		$users_sql = "and U.pk in ('" . join("','", $USERS_PK) . "') ";
 	}
 	$sql = "update conferences CONF join users U on U.pk = CONF.users_pk " . $users_sql .
-		"set CONF.printed_badge = 'Y' where CONF.confID = 'Jun2006' and CONF.activated = 'Y'";
+		"set CONF.printed_badge = 'Y' where CONF.confID = '$CONF_ID' and CONF.activated = 'Y'";
 	mysql_query($sql) or die("Update query failed ($sql): " . mysql_error());
 }
 
