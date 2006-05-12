@@ -9,8 +9,12 @@ pt a lot as it seems to offer better control.
 http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 */
 
-html,body,td {
+html,body {
 	height: 100%;
+}
+
+tr,td {
+	height: 1%;
 }
 
 .schedule_header {
@@ -64,15 +68,13 @@ html,body,td {
 	vertical-align: top;
 	text-align: center;
 	padding: 0px;
-	height: 100%;
 }
 
 .grid_event {
-	background:#CCEEFF;
 	font-size: .7em;
 	color:#111; 
 	font-weight:normal;
-	height: 100%;
+	background: white;
 	border: 2px solid #666666;
 }
 

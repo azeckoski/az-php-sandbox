@@ -79,7 +79,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 		$rooms['0'] = '0'; // placeholder
 	} else {
 		foreach($conf_rooms as $conf_room) {
-			// TODO - insert the session PKs array in the table here
+			// insert the session PKs array in the table here
 			$sessions = array();
 			foreach($conf_sessions as $conf_session) {
 				if ($conf_session['timeslots_pk'] == $conf_timeslot['pk'] &&
@@ -137,6 +137,10 @@ if ($User && $isAdmin) {
 
 <?= $Message ?>
 
+<div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
+<strong>Tentative Draft Schedule:<strong> Times and sessions may change and new sessions may be added<br/>
+Check back closer to the conference for the final schedule, contact <a href="mailto:wendemm@gmail.com">Wende Morgaine</a> with questions
+</div>
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
@@ -159,7 +163,7 @@ if ($User && $isAdmin) {
 	</table>
 </div>
 
-<table border="0" cellspacing="0" width="100%">
+<table border="0" cellspacing="0" style='width:100%;height:100%;'>
 
 <?php
 // create the grid
@@ -226,7 +230,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	</td>
 
 
-<?php	
+<?php
 	if ($timeslot['type'] != "event") {
 		echo "<td align='center' colspan='".count($conf_rooms)."'>".$timeslot['title']."</td>";
 	} else {
@@ -236,7 +240,10 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			$conf_room = $conf_rooms[$room_pk];
 			if ($conf_room && $conf_room['BOF'] == 'Y' && $hide_bof_rooms) { continue; }
 
-			echo "<td class='grid'>";
+			// TODO - try to get the sessions to fill the cells
+			echo "<td valign='top' class='grid' style='height:30%;'>";
+			// try tables instead of divs
+			echo "<table style='width:100%;height:100%;' cellpadding='0' cellspacing='0'>";
 
 			// session check here
 			$total_length = 0;
@@ -245,15 +252,13 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
-		
-					$gridclass = "grid_event";
-					//if (($counter % 2) == 0) { $gridclass = "grid_event_even"; }
-		
+
 					$proposal = $conf_proposals[$session['proposals_pk']];
-	
+
 					$total_length += $proposal['length'];
-	
-					echo "<div class='grid_event'>\n";
+
+					//echo "<div class='grid_event'>\n";
+					echo "<tr><td valign='top' class='grid_event'>";
 					if($proposal['track']) {
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>\n";
@@ -275,19 +280,21 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						echo "<div class='grid_event_speaker'>".
 							htmlspecialchars($proposal['speaker'])."</div>\n";
 					}
-					echo "</div>\n";
+					//echo "</div>\n";
+					echo "</td></tr>";
 				}
 			}
-	
+			echo "</table>";
+
 			// time check here
 			$remaining_time = $timeslot['length_mins'] - $total_length;
 			if ($remaining_time > 0 && $isAdmin) {
 				echo "<span class='remaining'>$remaining_time</span>";
 				echo "&nbsp;<a href='add_session.php?room=$room_pk&amp;time=$timeslot_pk'>+</a>";
 			}
-		echo "</td>";
+			echo "</td>";
 		}
-	echo "</tr>";
+		echo "</tr>";
 	}
 } 
 ?>
