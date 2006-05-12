@@ -5,8 +5,9 @@
  * Tony Atkins (anthony.atkins@vt.edu) - Virginia Tech (http://www.vt.edu/)
  * copyright 2006 Virginia Tech
  * 
- * Create a badge for a user.  
+ * Added code to track badges printed -AZ
  * 
+ * Create a badge for a user.
  * Expects USERS_PK=# for a specific badge or USERS_PK=all to print all badges.
  * 
  */
@@ -95,6 +96,15 @@ $result = mysql_query($select_statement) or die("Fetch query failed ($select_sta
 
 if (mysql_num_rows($result) < 1) {
 	die("No information found for user $USERS_PK.");
+} else {
+	// update the badge printing tracker
+	$users_sql = "";
+	if ($USERS_PK[0] != "all") {
+		$users_sql = "and U.pk in ('" . join("','", $USERS_PK) . "') ";
+	}
+	$sql = "update conferences CONF join users U on U.pk = CONF.users_pk " . $users_sql .
+		"set CONF.printed_badge = 'Y' where CONF.confID = 'Jun2006' and CONF.activated = 'Y'";
+	mysql_query($sql) or die("Update query failed ($sql): " . mysql_error());
 }
 
 // this is the closest predefined page size matching the labels

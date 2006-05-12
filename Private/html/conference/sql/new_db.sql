@@ -3,8 +3,8 @@ CREATE TABLE conferences (
   id int(10) NOT NULL auto_increment,
   confID varchar(50) NOT NULL default '',
   users_pk int(10) NOT NULL default '0',
-  date_created timestamp NULL default '0000-00-00 00:00:00',
   date_modified timestamp NOT NULL default CURRENT_TIMESTAMP,
+  date_created timestamp NULL default '0000-00-00 00:00:00',
   shirt varchar(50) default NULL,
   special text,
   confHotel enum('Y','N') default 'Y',
@@ -15,12 +15,14 @@ CREATE TABLE conferences (
   expectations text,
   activated enum('Y','N') default 'N',
   arrived timestamp NULL default NULL,
+  printed_badge enum('Y','N') default 'N',
   payeeInfo text,
   transID varchar(100) default NULL,
   PRIMARY KEY  (id)
 )
 
 // alter table conferences add arrived timestamp NULL default NULL;
+// alter table conferences add printed_badge enum('Y','N') default 'N';
 
 // new proposals table - conf_proposals
 
