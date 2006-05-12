@@ -17,16 +17,19 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
-// login if not autheticated
-require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+// login if not autheticated - not required
+//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // THIS PAGE IS ACCESSIBLE BY ANYONE
 // Make sure user is authorized for admin perms
 $isAdmin = false; // assume user is NOT allowed unless otherwise shown
+$hide_bof_rooms = false; // flag to hide the BOF rooms
 if (!$User->checkPerm("admin_conference")) {
 	$isAdmin = false;
+	$hide_bof_rooms = true;
 } else {
 	$isAdmin = true;
+	$hide_bof_rooms = false;
 }
 
 // get the passed message if there is one
@@ -34,6 +37,10 @@ if($_GET['msg']) {
 	$Message = "<div class='message'>".$_GET['msg']."</div>";
 }
 
+// get the passed message if there is one
+if($_REQUEST['hbr']) {
+	$hide_bof_rooms = true;
+}
 
 // fetch the conference rooms
 $sql = "select * from conf_rooms where confID = '$CONF_ID'";
@@ -54,7 +61,8 @@ $conf_sessions = array();
 while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
-$sql = "select CP.pk, CP.title, CP.track, CP.speaker, CP.length from conf_proposals CP " .
+$sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, " .
+		"CP.type, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
@@ -119,7 +127,13 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include $TOOL_PATH.'include/admin_header.php'; ?>
+<?php 
+if ($User && $isAdmin) {
+	include $TOOL_PATH.'include/admin_header.php';
+} else {
+	echo "</head><body>";
+}
+?>
 
 <?= $Message ?>
 
@@ -130,13 +144,15 @@ function orderBy(newOrder) {
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
-		<td nowrap="y"><b style="font-size:1.1em;">Info:</b></td>
+		<td nowrap="y"><b style="font-size:1.1em;">Conference schedule:</b></td>
 		<td nowrap="y" colspan="5">
 			<div style="float:left;">
 				<strong><?= $CONF_NAME ?></strong>
-				(<?= date($SHORT_DATE_FORMAT,strtotime($CONF_START_DATE)) ?> - <?= date($SHORT_DATE_FORMAT,strtotime($CONF_END_DATE)) ?>)
+<?php $confDateFormat = "g:i a, l, M j, Y"; ?>
+				(<?= date($confDateFormat,strtotime($CONF_START_DATE)) ?> - <?= date($confDateFormat,strtotime($CONF_END_DATE)) ?>)
 			</div>
 			<div style="float:right; padding-right: 30px;">
+			</div>
 		</td>
 	</tr>
 
@@ -149,20 +165,42 @@ function orderBy(newOrder) {
 // create the grid
 $line = 0;
 $last_date = 0;
+$conference_day = 0;
 foreach ($timeslots as $timeslot_pk=>$rooms) {
 	$line++;
 
 	$timeslot = $conf_timeslots[$timeslot_pk];
-	
-	$current_date = date('D, M d',strtotime($timeslot['start_time']));
+
+	// HANDLE HEADER
+	$current_date = date('M d',strtotime($timeslot['start_time']));
 	if ($line == 1 || $current_date != $last_date) {
-		// next date, print the header again
+		// next date
+		$conference_day++;
+
+		// create a blank line if after first one
+		if ($line > 1) {
+			echo "<tr><td>&nbsp;</td></tr>\n";
+		}
+
+		// print date header
+		echo "<tr>\n";
+		echo "<td class='date_header' nowrap='y' colspan='" .
+				(count($conf_rooms) + 1) . "'>" .
+				"Conference day $conference_day - " .
+				date('l, M j, Y',strtotime($timeslot['start_time'])) .
+				"</td>\n";
+		echo "</tr>\n\n";
+		
+		// print the room header
 		echo "<tr>";
-		echo "<td class='time_header' nowrap='Y'>$current_date</td>\n";
+		echo "<td class='time_header' nowrap='y'>$current_date</td>\n";
 		foreach($conf_rooms as $conf_room) {
 			$type = "schedule_header";
-			if ($conf_room['BOF'] == 'Y') { $type = "bof_header"; }
-			echo "<td class='$type' nowrap='Y'>".$conf_room['title']."</td>\n";
+			if ($conf_room['BOF'] == 'Y') {
+				if ($hide_bof_rooms) { continue; }
+				$type = "bof_header";
+			}
+			echo "<td class='$type' nowrap='y'>".$conf_room['title']."</td>\n";
 		}
 		echo "</tr>\n\n";
 	}
@@ -181,8 +219,10 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	}
 ?>
 <tr class="<?= $linestyle ?>">
-	<td class="time" nowrap='Y'>
+	<td class="time" nowrap='y'>
 		<?= date('g:i a',strtotime($timeslot['start_time'])) ?>
+		 -<br/>
+		<?= date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
 	</td>
 
 
@@ -191,58 +231,66 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		echo "<td align='center' colspan='".count($conf_rooms)."'>".$timeslot['title']."</td>";
 	} else {
 		// print the grid selector
-		foreach ($rooms as $room_pk=>$room) { ?>
-	<td class="grid">
-<?php
-		// session check here
-		$total_length = 0;
-		if (is_array($room)) {
-			$counter = 0;
-			foreach ($room as $session_pk=>$session) {
-				$counter++;
+		foreach ($rooms as $room_pk=>$room) {
+
+			$conf_room = $conf_rooms[$room_pk];
+			if ($conf_room && $conf_room['BOF'] == 'Y' && $hide_bof_rooms) { continue; }
+
+			echo "<td class='grid'>";
+
+			// session check here
+			$total_length = 0;
+			if (is_array($room)) {
+				$counter = 0;
+
+				foreach ($room as $session_pk=>$session) {
+					$counter++;
+		
+					$gridclass = "grid_event";
+					//if (($counter % 2) == 0) { $gridclass = "grid_event_even"; }
+		
+					$proposal = $conf_proposals[$session['proposals_pk']];
 	
-				$gridclass = "grid_event";
-				//if (($counter % 2) == 0) { $gridclass = "grid_event_even"; }
+					$total_length += $proposal['length'];
 	
-				$proposal = $conf_proposals[$session['proposals_pk']];
-
-				$trackclass = "";
-				if($proposal['track']) {
-					$trackclass = str_replace(" ","_",strtolower($proposal['track']));
+					echo "<div class='grid_event'>\n";
+					if($proposal['track']) {
+						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
+						echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>\n";
+					}
+					$typeclass = "";
+					if($proposal['type']) {
+						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
+						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
+					}
+					echo "<div class='grid_event_text $typeclass'>" .
+							"<label title=\"".
+							str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">" .
+							htmlspecialchars($proposal['title'])."</label>";
+					if ($isAdmin) {
+						echo "&nbsp;<a href='delete_session.php?pk=".$session_pk."'>x</a>";
+					}
+					echo "</div>\n";
+					if($proposal['speaker']) {
+						echo "<div class='grid_event_speaker'>".
+							htmlspecialchars($proposal['speaker'])."</div>\n";
+					}
+					echo "</div>\n";
 				}
-
-				$total_length += $proposal['length'];
-
-				echo "<div class='grid_event'>";
-				echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>";
-				echo "<div class='grid_event_text'>".$proposal['title'];
-				if ($isAdmin) {
-					echo "&nbsp;<a href='delete_session.php?pk=".$session_pk."'>x</a>";
-				}
-				echo "</div>";
-				echo "<div class='grid_event_speaker'>".$proposal['speaker']."</div>";
-				echo "</div>";
 			}
+	
+			// time check here
+			$remaining_time = $timeslot['length_mins'] - $total_length;
+			if ($remaining_time > 0 && $isAdmin) {
+				echo "<span class='remaining'>$remaining_time</span>";
+				echo "&nbsp;<a href='add_session.php?room=$room_pk&amp;time=$timeslot_pk'>+</a>";
+			}
+		echo "</td>";
 		}
-
-		// time check here
-		$remaining_time = $timeslot['length_mins'] - $total_length;
-		if ($remaining_time > 0 && $isAdmin) {
-?>
-		<span class="remaining"><?= $remaining_time ?></span>
-		<a href="add_session.php?room=<?= $room_pk ?>&amp;time=<?= $timeslot_pk ?>">+</a>
-<?php
-		}
-?>
-	</td>
-<?php 
-		}
-?>
-</tr>
-
-<?php 
+	echo "</tr>";
 	}
-} ?>
+} 
+?>
 
 </table>
 </form>

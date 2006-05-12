@@ -31,6 +31,15 @@ html,body,td {
 	border: 1px solid white;
 }
 
+.date_header {
+	padding: 4px;
+	font-size: 1.2em;
+	background: #CCC;
+	text-align: center;
+	font-weight:bold;
+	color:black;
+}
+
 .time_header {
 	margin: 0px;
 	padding: 0px;
@@ -48,6 +57,7 @@ html,body,td {
 	text-align: left;
 	font-weight: normal;
 	padding-left: 10px;
+	border-bottom: 1px dotted black;
 }
 
 .grid {
@@ -73,17 +83,24 @@ html,body,td {
 	color: white;
 }
 
+.grid_event_type {
+	font-size: 1em;
+	font-weight: normal;
+	font-style: italic;
+	border-bottom: 1px dashed black;
+}
+
 .grid_event_text {
 	padding: 2px;
 }
 
 .grid_event_speaker {
-	border-top: 1px dotted black;
+	border-top: 2px dotted #AAAAAA;
 	font-style: italic;
 	background: white;
 }
 
-<!-- tracks -->
+
 .technical {
 	background: #993333;
 }
@@ -109,6 +126,24 @@ html,body,td {
 }
 
 
+.workshop {
+	background: #FFDDDD;
+}
+
+.discussion {
+	background: #FFFFCC;
+}
+
+.panel {
+	background: #CCFFCC;
+}
+
+.lecture {
+	background: #CCEEFF;
+}
+
+
+<!-- other stuff -->
 .remaining {
 	font-size: .7em;
 	font-style: italic;
