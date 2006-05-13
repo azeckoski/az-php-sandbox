@@ -96,29 +96,6 @@ function orderBy(newOrder) {
       </td>
     </tr>
 
-    <tr>
-      <td valign="top" colspan="2">&nbsp;</td>
-    </tr>
-
-    <tr>
-      <td valign="top"><strong>Deprecated Functions</strong></td>
-      <td valign="top"><em>Do not use these unless you know what you are doing</em></td>
-    </tr>
-
-    <tr>
-      <td valign="top"><a href="admin_users_db.php">Users Control (old)</a></td>
-      <td>This allows control of internal user accounts and related properties and
-      allows for LDIF file generation for old style accounts
-      </td>
-    </tr>
-
-    <tr>
-      <td valign="top"><a href="admin_insts_db.php">Insts Control (old)</a></td>
-      <td>This allows control of internal institutions and related properties and
-      allows for LDIF file generation for old style institution listings
-      </td>
-    </tr>
-
 </table>  
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

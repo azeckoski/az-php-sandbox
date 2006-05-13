@@ -258,6 +258,40 @@ class User {
 		return $output;
 	}
 
+	// this function will revert this user object to a clean state
+	public function clear() {
+		$pk = 0;
+		$username = "";
+		$fullname = "";
+		$firstname = "";
+		$lastname = "";
+		$email = "";
+		$institution = "";
+		$institution_pk = "";
+		$address = "";
+		$city = "";
+		$state = "";
+		$zipcode = "";
+		$country = "";
+		$phone = "";
+		$fax = "";
+		$primaryRole = "";
+		$secondaryRole = "";
+
+		$sakaiPerm = array();
+		$userStatus = array();
+		$active = false;
+		$isRep = false;
+		$isVoteRep = false;
+		$Message = "";
+
+		$data_source = "ldap";
+		$password = "";
+		$authentic = false;
+		$searchResults = array();	
+	}
+
+
 	// SETTERS for private vars
 	// password setter (no getter, password should not be retrieveable)
 	public function setPassword($password) {
@@ -1042,6 +1076,10 @@ class User {
  */
 	public function update() {
 		global $USE_LDAP;
+		if (!$this->pk || $this->pk == 0) {
+			return false;
+		}
+
 		$this->username = strtolower($this->username);
 
 		// make sure the institution is always set correctly
@@ -1058,39 +1096,61 @@ class User {
 	}
 
 	private function updateDB() {
-		$passChange = "";
-		if ($this->password) {
-			$passChange = " password=PASSWORD('".mysql_real_escape_string($this->password)."'), ";
-		}
-
 		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
 		$statusString = implode(":",$this->userStatus); // convert the array of status into a string
-		$sql = sprintf("UPDATE users set username='%s', email='%s', " . $passChange .
-			"firstname='%s', lastname='%s', institution='%s', " .
-			"primaryRole='%s', secondaryRole='%s', institution_pk='%s', address='%s', " .
-			"city='%s', state='%s', zipcode='%s', country='%s', phone='%s', " .
-			"fax='%s', sakaiPerms='$permString', userStatus='$statusString', " .
-			"date_modified=NOW() where pk='$this->pk'",
-				mysql_real_escape_string($this->username),
-				mysql_real_escape_string($this->email),
-				mysql_real_escape_string($this->firstname),
-				mysql_real_escape_string($this->lastname),
-				mysql_real_escape_string($this->institution),
-				mysql_real_escape_string($this->primaryRole),
-				mysql_real_escape_string($this->secondaryRole),
-				mysql_real_escape_string($this->institution_pk),
-				mysql_real_escape_string($this->address),
-				mysql_real_escape_string($this->city),
-				mysql_real_escape_string($this->state),
-				mysql_real_escape_string($this->zipcode),
-				mysql_real_escape_string($this->country),
-				mysql_real_escape_string($this->phone),
-				mysql_real_escape_string($this->fax),
-				mysql_real_escape_string($this->pk) );
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Update query failed ($sql): " . mysql_error();
-			return false;
+
+		$update_sql = "";
+		if ($this->username) { $update_sql .= " username='".mysql_real_escape_string($this->username)."', "; }
+		if ($this->password) { $update_sql .= " password=PASSWORD('".mysql_real_escape_string($this->password)."'), "; }
+		if ($this->email) { $update_sql .= " email='".mysql_real_escape_string($this->email)."', "; }
+		if ($this->firstname) { $update_sql .= " firstname='".mysql_real_escape_string($this->firstname)."', "; }
+		if ($this->lastname) { $update_sql .= " lastname='".mysql_real_escape_string($this->lastname)."', "; }
+		if ($this->institution_pk) { $update_sql .= " institution_pk='".mysql_real_escape_string($this->institution_pk)."', "; }
+		if ($this->institution) { $update_sql .= " institution='".mysql_real_escape_string($this->institution)."', "; }
+		if ($this->primaryRole) { $update_sql .= " primaryRole='".mysql_real_escape_string($this->primaryRole)."', "; }
+		if ($this->secondaryRole) { $update_sql .= " secondaryRole='".mysql_real_escape_string($this->secondaryRole)."', "; }
+		if ($this->address) { $update_sql .= " address='".mysql_real_escape_string($this->address)."', "; }
+		if ($this->city) { $update_sql .= " city='".mysql_real_escape_string($this->city)."', "; }
+		if ($this->state) { $update_sql .= " state='".mysql_real_escape_string($this->state)."', "; }
+		if ($this->zipcode) { $update_sql .= " zipcode='".mysql_real_escape_string($this->zipcode)."', "; }
+		if ($this->country) { $update_sql .= " country='".mysql_real_escape_string($this->country)."', "; }
+		if ($this->phone) { $update_sql .= " phone='".mysql_real_escape_string($this->phone)."', "; }
+		if ($this->fax) { $update_sql .= " fax='".mysql_real_escape_string($this->fax)."', "; }
+		if ($permString) { $update_sql .= " sakaiPerms='$permString', "; }
+		if ($statusString) { $update_sql .= " userStatus='$statusString', "; }
+		$sql .= "UPDATE users set $update_sql date_modified=NOW() where pk='$this->pk'";
+
+//		$sql = sprintf("UPDATE users set username='%s', email='%s', " . $passChange .
+//			"firstname='%s', lastname='%s', institution='%s', " .
+//			"primaryRole='%s', secondaryRole='%s', institution_pk='%s', address='%s', " .
+//			"city='%s', state='%s', zipcode='%s', country='%s', phone='%s', " .
+//			"fax='%s', sakaiPerms='$permString', userStatus='$statusString', " .
+//			"date_modified=NOW() where pk='$this->pk'",
+//				mysql_real_escape_string($this->username),
+//				mysql_real_escape_string($this->email),
+//				mysql_real_escape_string($this->firstname),
+//				mysql_real_escape_string($this->lastname),
+//				mysql_real_escape_string($this->institution),
+//				mysql_real_escape_string($this->primaryRole),
+//				mysql_real_escape_string($this->secondaryRole),
+//				mysql_real_escape_string($this->institution_pk),
+//				mysql_real_escape_string($this->address),
+//				mysql_real_escape_string($this->city),
+//				mysql_real_escape_string($this->state),
+//				mysql_real_escape_string($this->zipcode),
+//				mysql_real_escape_string($this->country),
+//				mysql_real_escape_string($this->phone),
+//				mysql_real_escape_string($this->fax),
+//				mysql_real_escape_string($this->pk) );
+
+		if ($update_sql) {
+			$result = mysql_query($sql);
+			if (!$result) {
+				$this->Message = "Update query failed ($sql): " . mysql_error();
+				return false;
+			}
+		} else {
+			return false; // nothing to update
 		}
 		return true;
 	}
@@ -1559,6 +1619,7 @@ class Institution {
 
 	public $Message = "";
 
+	private $currentName;
 	private $data_source = "ldap";
 	private $searchResults = array();
 
@@ -1651,6 +1712,24 @@ class Institution {
 		return $output;
 	}
 
+	// this function will revert this object to a clean state
+	public function clear() {
+		$pk = 0;
+		$name = "";
+		$type = "";
+		$city = "";
+		$state = "";
+		$zipcode = "";
+		$country = "";
+		$rep_pk = "";
+		$repvote_pk = "";
+
+		$Message = "";
+
+		$currentName = "";
+		$data_source = "ldap";
+		$searchResults = array();
+	}
 
 /*
  * Function to return whether this institution is a partner or not
@@ -2108,31 +2187,48 @@ class Institution {
 	public function update() {
 		global $USE_LDAP;
 		
-		// create the instituion
+		// update the instituion
 		if ($USE_LDAP) {
 			$this->updateLDAP(); // update the LDAP entry first if possible
 		}
-		return $this->updateDB(); // update the DB entry always
+		if ($this->updateDB()) { // update the DB entry always
+			if ($this->name != $this->currentName) {
+				// inst name was changed
+				return $this->updateUsersInstName();
+			}
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	private function updateDB() {
-		$sql = sprintf("UPDATE institution set name='%s', type='%s', city='%s', " .
-			"state='%s', zipcode='%s', country='%s', rep_pk='%s', repvote_pk='%s' " .
-			"where pk='%s'",
-				mysql_real_escape_string($this->name),
-				mysql_real_escape_string($this->type),
-				mysql_real_escape_string($this->city),
-				mysql_real_escape_string($this->state),
-				mysql_real_escape_string($this->zipcode),
-				mysql_real_escape_string($this->country),
-				mysql_real_escape_string($this->rep_pk),
-				mysql_real_escape_string($this->repvote_pk),
-				mysql_real_escape_string($this->pk) );
 
-		$result = mysql_query($sql);
-		if (!$result) {
-			$this->Message = "Update query failed ($sql): " . mysql_error();
-			return false;
+		// only update the entries that are filled out
+		$update_sql = "";
+		if ($this->name) { $update_sql .= " name='".mysql_real_escape_string($this->name)."', "; }
+		if ($this->type) { $update_sql .= " type='".mysql_real_escape_string($this->type)."', "; }
+		if ($this->city) { $update_sql .= " city='".mysql_real_escape_string($this->city)."', "; }
+		if ($this->state) { $update_sql .= " state='".mysql_real_escape_string($this->state)."', "; }
+		if ($this->zipcode) { $update_sql .= " zipcode='".mysql_real_escape_string($this->zipcode)."', "; }
+		if ($this->country) { $update_sql .= " country='".mysql_real_escape_string($this->country)."', "; }
+		if ($this->rep_pk) { $update_sql .= " rep_pk='".mysql_real_escape_string($this->rep_pk)."', "; }
+		if ($this->repvote_pk) { $update_sql .= " repvote_pk='".mysql_real_escape_string($this->repvote_pk)."', "; }
+		$sql .= "UPDATE institution set $update_sql date_modified=NOW() where pk='$this->pk'";
+
+		if ($update_sql) {
+			$result = mysql_query($sql);
+			if (!$result) {
+				$this->Message = "Inst: updateDB query failed ($sql): " . mysql_error();
+				return false;
+			}
+
+			if ($this->name != $this->currentName) {
+				// inst name was changed
+				return $this->updateUsersInstName();
+			}
+		} else {
+			return false; // nothing to update
 		}
 		return true;
 	}
@@ -2179,6 +2275,39 @@ class Institution {
 		}
 		return false;
 	}
+
+/*
+ * This is a special function to keep the institution name up to date
+ * when it gets changed since it is stored in the ldap user as well
+ * as in the ldap institution
+ */
+	private function updateUsersInstName() {
+
+		// first get the list of users with the currentName as institution
+		$opUser = new User();
+		$userList = $opUser->getUsersBySearch("institution=".$this->currentName, "", "pk");
+		//echo "Found ".count($userList)." users matching inst named: ".$this->currentName."<br/>";
+
+		// loop through the list and update each user
+		$this->Message = "";
+		$errors = 0;
+		foreach($userList as $user) {
+			$opUser->pk = $user['pk'];
+			// only update the institution name
+			$opUser->institution = $this->name;
+			if(!$opUser->update()) {
+				$this->Message .= "Failed to update institution to ".
+					$this->name." for user (".$user['pk'].") \n";
+				$errors++;
+			}
+		}
+		if ($errors > 0) {
+			$this->Message .= "$errors errors occurred updating ".count($userList)." users inst names";
+			return false;
+		}
+		return true;
+	}
+
 
 /*
  * DELETE functions
@@ -2251,6 +2380,11 @@ class Institution {
 		}
 		$this->pk = $objArray['pk'];
 		$this->name = $objArray['name'];
+		// use the currentName to hold the last fetched name so we can 
+		// tell if the name was updated
+		if(!$this->currentName) {
+			$this->currentName = $objArray['name'];
+		}
 		$this->type = $objArray['type'];
 		$this->city = $objArray['city'];
 		$this->state = $objArray['state'];
