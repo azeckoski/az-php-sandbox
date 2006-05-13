@@ -1073,8 +1073,10 @@ class User {
 
 /*
  * UPDATE and save functions
+ * if setBlanks is true (default) then the update will blank out entries if
+ * the variable in the object has no value, else blanks will be ignored
  */
-	public function update() {
+	public function update($setBlanks=true) {
 		global $USE_LDAP;
 		if (!$this->pk || $this->pk == 0) {
 			return false;
@@ -1090,58 +1092,35 @@ class User {
 
 		// save the user to the appropriate location
 		if ($USE_LDAP) {
-			$this->updateLDAP(); // update the LDAP entry first if possible
+			$this->updateLDAP($setBlanks); // update the LDAP entry first if possible
 		}
-		return $this->updateDB(); // update the DB entry always
+		return $this->updateDB($setBlanks); // update the DB entry always
 	}
 
-	private function updateDB() {
+	private function updateDB($setBlanks=true) {
 		$permString = implode(":",$this->sakaiPerm); // convert the array of perms into a string
 		$statusString = implode(":",$this->userStatus); // convert the array of status into a string
 
 		$update_sql = "";
-		if ($this->username) { $update_sql .= " username='".mysql_real_escape_string($this->username)."', "; }
-		if ($this->password) { $update_sql .= " password=PASSWORD('".mysql_real_escape_string($this->password)."'), "; }
-		if ($this->email) { $update_sql .= " email='".mysql_real_escape_string($this->email)."', "; }
-		if ($this->firstname) { $update_sql .= " firstname='".mysql_real_escape_string($this->firstname)."', "; }
-		if ($this->lastname) { $update_sql .= " lastname='".mysql_real_escape_string($this->lastname)."', "; }
-		if ($this->institution_pk) { $update_sql .= " institution_pk='".mysql_real_escape_string($this->institution_pk)."', "; }
-		if ($this->institution) { $update_sql .= " institution='".mysql_real_escape_string($this->institution)."', "; }
-		if ($this->primaryRole) { $update_sql .= " primaryRole='".mysql_real_escape_string($this->primaryRole)."', "; }
-		if ($this->secondaryRole) { $update_sql .= " secondaryRole='".mysql_real_escape_string($this->secondaryRole)."', "; }
-		if ($this->address) { $update_sql .= " address='".mysql_real_escape_string($this->address)."', "; }
-		if ($this->city) { $update_sql .= " city='".mysql_real_escape_string($this->city)."', "; }
-		if ($this->state) { $update_sql .= " state='".mysql_real_escape_string($this->state)."', "; }
-		if ($this->zipcode) { $update_sql .= " zipcode='".mysql_real_escape_string($this->zipcode)."', "; }
-		if ($this->country) { $update_sql .= " country='".mysql_real_escape_string($this->country)."', "; }
-		if ($this->phone) { $update_sql .= " phone='".mysql_real_escape_string($this->phone)."', "; }
-		if ($this->fax) { $update_sql .= " fax='".mysql_real_escape_string($this->fax)."', "; }
-		if ($permString) { $update_sql .= " sakaiPerms='$permString', "; }
-		if ($statusString) { $update_sql .= " userStatus='$statusString', "; }
+		if ($this->username || $setBlanks) { $update_sql .= " username='".mysql_real_escape_string($this->username)."', "; }
+		if ($this->password || $setBlanks) { $update_sql .= " password=PASSWORD('".mysql_real_escape_string($this->password)."'), "; }
+		if ($this->email || $setBlanks) { $update_sql .= " email='".mysql_real_escape_string($this->email)."', "; }
+		if ($this->firstname || $setBlanks) { $update_sql .= " firstname='".mysql_real_escape_string($this->firstname)."', "; }
+		if ($this->lastname || $setBlanks) { $update_sql .= " lastname='".mysql_real_escape_string($this->lastname)."', "; }
+		if ($this->institution_pk || $setBlanks) { $update_sql .= " institution_pk='".mysql_real_escape_string($this->institution_pk)."', "; }
+		if ($this->institution || $setBlanks) { $update_sql .= " institution='".mysql_real_escape_string($this->institution)."', "; }
+		if ($this->primaryRole || $setBlanks) { $update_sql .= " primaryRole='".mysql_real_escape_string($this->primaryRole)."', "; }
+		if ($this->secondaryRole || $setBlanks) { $update_sql .= " secondaryRole='".mysql_real_escape_string($this->secondaryRole)."', "; }
+		if ($this->address || $setBlanks) { $update_sql .= " address='".mysql_real_escape_string($this->address)."', "; }
+		if ($this->city || $setBlanks) { $update_sql .= " city='".mysql_real_escape_string($this->city)."', "; }
+		if ($this->state || $setBlanks) { $update_sql .= " state='".mysql_real_escape_string($this->state)."', "; }
+		if ($this->zipcode || $setBlanks) { $update_sql .= " zipcode='".mysql_real_escape_string($this->zipcode)."', "; }
+		if ($this->country || $setBlanks) { $update_sql .= " country='".mysql_real_escape_string($this->country)."', "; }
+		if ($this->phone || $setBlanks) { $update_sql .= " phone='".mysql_real_escape_string($this->phone)."', "; }
+		if ($this->fax || $setBlanks) { $update_sql .= " fax='".mysql_real_escape_string($this->fax)."', "; }
+		if ($permString || $setBlanks) { $update_sql .= " sakaiPerms='$permString', "; }
+		if ($statusString || $setBlanks) { $update_sql .= " userStatus='$statusString', "; }
 		$sql .= "UPDATE users set $update_sql date_modified=NOW() where pk='$this->pk'";
-
-//		$sql = sprintf("UPDATE users set username='%s', email='%s', " . $passChange .
-//			"firstname='%s', lastname='%s', institution='%s', " .
-//			"primaryRole='%s', secondaryRole='%s', institution_pk='%s', address='%s', " .
-//			"city='%s', state='%s', zipcode='%s', country='%s', phone='%s', " .
-//			"fax='%s', sakaiPerms='$permString', userStatus='$statusString', " .
-//			"date_modified=NOW() where pk='$this->pk'",
-//				mysql_real_escape_string($this->username),
-//				mysql_real_escape_string($this->email),
-//				mysql_real_escape_string($this->firstname),
-//				mysql_real_escape_string($this->lastname),
-//				mysql_real_escape_string($this->institution),
-//				mysql_real_escape_string($this->primaryRole),
-//				mysql_real_escape_string($this->secondaryRole),
-//				mysql_real_escape_string($this->institution_pk),
-//				mysql_real_escape_string($this->address),
-//				mysql_real_escape_string($this->city),
-//				mysql_real_escape_string($this->state),
-//				mysql_real_escape_string($this->zipcode),
-//				mysql_real_escape_string($this->country),
-//				mysql_real_escape_string($this->phone),
-//				mysql_real_escape_string($this->fax),
-//				mysql_real_escape_string($this->pk) );
 
 		if ($update_sql) {
 			$result = mysql_query($sql);
@@ -1155,7 +1134,7 @@ class User {
 		return true;
 	}
 
-	private function updateLDAP() {
+	private function updateLDAP($setBlanks=true) {
 		global $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
 		if (ldapConnect()) {
@@ -1165,7 +1144,7 @@ class User {
 
 				// prepare data array
 				$info = array();
-				$info["cn"]=utf8_encode("$this->firstname $this->lastname");
+				$info["cn"]=utf8_encode(trim("$this->firstname $this->lastname"));
 				$info["givenname"]=utf8_encode($this->firstname);
 				$info["sn"]=utf8_encode($this->lastname);
 				$info["sakaiuser"]=$this->username;
@@ -1195,8 +1174,16 @@ class User {
 					$info["userstatus"] = array_values($this->userStatus);
 				}
 
-				// empty items must be set to a blank array
-				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+				if ($setBlanks) {
+					// empty items must be set to a blank array
+					foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+				} else {
+					// empty items must be removed
+					foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
+					if (empty($info)) {
+						return false; // no items to update
+					}
+				}
 				//echo "<pre>",print_r($info),"</pre><br/>";
 
 				$user_dn = "uid=$this->pk,ou=users,dc=sakaiproject,dc=org";
@@ -1208,7 +1195,7 @@ class User {
 					return true;
 				} else {
 					$this->Message = "Failed to modify user in LDAP (".ldap_error(getDS()).":".ldap_errno(getDS()).")";
-					echo "<pre>",print_r($info),"</pre><br/>";
+					//echo "<pre>",print_r($info),"</pre><br/>";
 				}
 				
 			} else {
@@ -2184,7 +2171,7 @@ class Institution {
 /*
  * UPDATE and save functions
  */
-	public function update() {
+	public function update($setBlanks=true) {
 		global $USE_LDAP;
 		
 		// update the instituion
@@ -2202,18 +2189,18 @@ class Institution {
 		}
 	}
 
-	private function updateDB() {
+	private function updateDB($setBlanks=true) {
 
 		// only update the entries that are filled out
 		$update_sql = "";
-		if ($this->name) { $update_sql .= " name='".mysql_real_escape_string($this->name)."', "; }
-		if ($this->type) { $update_sql .= " type='".mysql_real_escape_string($this->type)."', "; }
-		if ($this->city) { $update_sql .= " city='".mysql_real_escape_string($this->city)."', "; }
-		if ($this->state) { $update_sql .= " state='".mysql_real_escape_string($this->state)."', "; }
-		if ($this->zipcode) { $update_sql .= " zipcode='".mysql_real_escape_string($this->zipcode)."', "; }
-		if ($this->country) { $update_sql .= " country='".mysql_real_escape_string($this->country)."', "; }
-		if ($this->rep_pk) { $update_sql .= " rep_pk='".mysql_real_escape_string($this->rep_pk)."', "; }
-		if ($this->repvote_pk) { $update_sql .= " repvote_pk='".mysql_real_escape_string($this->repvote_pk)."', "; }
+		if ($this->name || $setBlanks) { $update_sql .= " name='".mysql_real_escape_string($this->name)."', "; }
+		if ($this->type || $setBlanks) { $update_sql .= " type='".mysql_real_escape_string($this->type)."', "; }
+		if ($this->city || $setBlanks) { $update_sql .= " city='".mysql_real_escape_string($this->city)."', "; }
+		if ($this->state || $setBlanks) { $update_sql .= " state='".mysql_real_escape_string($this->state)."', "; }
+		if ($this->zipcode || $setBlanks) { $update_sql .= " zipcode='".mysql_real_escape_string($this->zipcode)."', "; }
+		if ($this->country || $setBlanks) { $update_sql .= " country='".mysql_real_escape_string($this->country)."', "; }
+		if ($this->rep_pk || $setBlanks) { $update_sql .= " rep_pk='".mysql_real_escape_string($this->rep_pk)."', "; }
+		if ($this->repvote_pk || $setBlanks) { $update_sql .= " repvote_pk='".mysql_real_escape_string($this->repvote_pk)."', "; }
 		$sql .= "UPDATE institution set $update_sql date_modified=NOW() where pk='$this->pk'";
 
 		if ($update_sql) {
@@ -2233,7 +2220,7 @@ class Institution {
 		return true;
 	}
 
-	private function updateLDAP() {
+	private function updateLDAP($setBlanks=true) {
 		global $LDAP_SERVER, $LDAP_PORT, $LDAP_ADMIN_DN, $LDAP_ADMIN_PW, $TOOL_SHORT;
 		// write the values to LDAP
 		if (ldapConnect()) {
@@ -2252,8 +2239,16 @@ class Institution {
 				$info["repuid"]=$this->rep_pk;
 				$info["voteuid"]=$this->repvote_pk;
 
-				// empty items must be set to a blank array
-				foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+				if ($setBlanks) {
+					// empty items must be set to a blank array
+					foreach ($info as $key => $value) if (empty($info[$key])) $info[$key] = array();
+				} else {
+					// empty items must be removed
+					foreach ($info as $key => $value) if (empty($info[$key])) unset($info[$key]);
+					if (empty($info)) {
+						return false; // no items to update
+					}
+				}
 
 				// DN FORMAT: iid=#,ou=institutions,dc=sakaiproject,dc=org
 				$item_dn = "iid=$this->pk,ou=institutions,dc=sakaiproject,dc=org";
@@ -2295,7 +2290,7 @@ class Institution {
 			$opUser->pk = $user['pk'];
 			// only update the institution name
 			$opUser->institution = $this->name;
-			if(!$opUser->update()) {
+			if(!$opUser->update(false)) {
 				$this->Message .= "Failed to update institution to ".
 					$this->name." for user (".$user['pk'].") \n";
 				$errors++;
@@ -2303,6 +2298,7 @@ class Institution {
 		}
 		if ($errors > 0) {
 			$this->Message .= "$errors errors occurred updating ".count($userList)." users inst names";
+			echo $this->Message."<br/>";
 			return false;
 		}
 		return true;
