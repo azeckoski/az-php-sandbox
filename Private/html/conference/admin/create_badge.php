@@ -167,13 +167,15 @@ while ($person = mysql_fetch_assoc($result)) {
 			$institutionString1="";
 			$institutionString2="";
 			
+			$gotoSecondLine = 0;
 			for ($a=0;$a<count($institutionStringArray);$a++) {
-				if ($pdf->getTextWidth($institutionSize, "$institutionString1 " . $institutionStringArray[$a]) < 234) {
+				if ($gotoSecondLine == 0 && $pdf->getTextWidth($institutionSize, "$institutionString1 " . $institutionStringArray[$a]) < 234) {
 					if ($institutionString1 != "") { $institutionString1 .= " "; }
-					$institutionString1 .= $institutionStringArray[$a];
+					$institutionString1 .= $institutionStringArray[$a];	
 				}
 				else {
-					if ($institutionString1 != "") { $institutionString2 .= " "; }
+					$gotoSecondLine = 1;
+					if ($institutionString2 != "") { $institutionString2 .= " "; }
 					$institutionString2 .= $institutionStringArray[$a];
 				}
 			}
