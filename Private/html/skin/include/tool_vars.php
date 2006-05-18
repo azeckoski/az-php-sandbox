@@ -96,11 +96,7 @@ function generate_title_dropdown($title="") {
 	$result = mysql_query($sql_names) or die("Name query failed ($sql_names): " . mysql_error());
 	$usedItems = array();
 	while ($row = mysql_fetch_row($result)) {
-		if ( $title && $title == $row[0] ) {
-			// do nothing, we need to include the current name in the list
-		} else {
-			$usedItems[]=$row[0];
-		}
+		$usedItems[]=$row[0];
 	}
 	mysql_free_result($result);
 	$allNames = array_diff($allNames,$usedItems);
