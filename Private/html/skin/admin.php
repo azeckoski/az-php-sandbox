@@ -128,7 +128,9 @@ if ($_REQUEST['tested']) {
 }
 
 // fetch the current skin entries data
-$sql = "select * from skin_entries where round = '$ROUND' order by date_created";
+$sql = "select skin_entries.*, users.username, users.firstname, users.lastname, " .
+	"users.email from skin_entries join users on users.pk = skin_entries.users_pk " .
+	"where round = '$ROUND' order by date_created";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $skin_entries = array();
 while($row=mysql_fetch_assoc($result)) { $skin_entries[$row['pk']] = $row; }
@@ -143,7 +145,7 @@ while($row=mysql_fetch_assoc($result)) { $skin_entries[$row['pk']] = $row; }
 <table border="0" cellspacing="0" style='width:100%;height:100%;'>
 
 <tr class='tableheader'>
-<td>#</td>
+<td>#&nbsp;&nbsp;</td>
 <td width="10%">&nbsp;Title</td>
 <td width="60%">&nbsp;Description / URL</td>
 <td width="10%" align="center">&nbsp;Approved</td>
@@ -165,7 +167,10 @@ foreach ($skin_entries as $skin_pk=>$skin_entry) {
 			<?= $line ?>
 		</td>
 		<td valign="top" nowrap="y">
-			<a href="submit.php?pk=<?= $skin_pk ?>"><?= $skin_entry['title'] ?></a><br/>
+		<label title="<?= $skin_entry['firstname']." ".$skin_entry['lastname']." (".$skin_entry['email'].")" ?>">
+			<a href="submit.php?pk=<?= $skin_pk ?>"><?= $skin_entry['title'] ?></a>
+		</label>
+		<br/>
 <?php if ($skin_entry['skin_zip']) { ?>
 		<a style="font-size:.8em;" href="include/getFile.php?pk=<?= $skin_entry['skin_zip'] ?>">
 		(DL&nbsp;entry)
