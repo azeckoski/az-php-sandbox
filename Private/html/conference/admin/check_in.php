@@ -80,6 +80,18 @@ if ($_REQUEST['show_in']) {
 	$sql_filter = " and arrived is null ";
 }
 
+// Roles Filter
+$filter_roles_default = "show all Roles";
+$filter_roles = "";
+if ($_REQUEST["filter_roles"] && (!$_REQUEST["clearall"]) ) { $filter_roles = $_REQUEST["filter_roles"]; }
+
+$filter_roles_sql = "";
+if ($filter_roles && ($filter_roles != $filter_roles_default)) {
+	$filter_roles_sql = " and primaryRole='$filter_roles' ";
+} else {
+	$filter_roles = $filter_roles_default;
+}
+
 // get the search
 $searchtext = "";
 if ($_REQUEST["searchtext"] && (!$_REQUEST["clearall"]) ) { $searchtext = $_REQUEST["searchtext"]; }
@@ -139,7 +151,7 @@ if ($end_item > $total_items) { $end_item = $total_items; }
 // the main fetching query
 $sql = "select U1.pk as userpk, U1.firstname, U1.lastname, U1.email, " .
 		"U1.institution, U1.institution_pk, C1.* " .
-	$from_sql . $sql_filter . $sqlsearch . $sqlsorting . $mysql_limit;
+	$from_sql . $sql_filter . $filter_roles_sql . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $items_displayed = mysql_num_rows($result);
@@ -324,6 +336,32 @@ function unCheckInUser(num) {
 	        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
 		</td>
 	</tr>
+		<tr>
+		<td>
+			<strong style="font-size:1.1em;">Filter:</strong>
+		</td>
+		<td>
+			<select name="filter_roles" title="Filter the items by role">
+				<option value="<?= $filter_roles ?>" selected><?= $filter_roles ?></option>
+				<option value="Developer/Programmer">Developer/Programmer</option>
+				<option value="Faculty">Faculty</option>
+				<option value="Faculty Development">Faculty Development</option>
+				<option value="Implementor">Implementor</option>
+				<option value="Instructional Designer">Instructional Designer</option>
+				<option value="Instructional Technologist">Instructional Technologist</option>
+				<option value="Librarian">Librarian</option>
+				<option value="Manager">Manager</option>
+				<option value="System Administrator">System Administrator</option>
+				<option value="UI/Interaction Designer">UI/Interaction Designer</option>
+				<option value="University Administration">University Administration</option>
+				<option value="User Support">User Support</option>
+				<option value="show all Roles">show all Roles</option>
+			</select>
+		    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
+			&nbsp;&nbsp;
+		</td>
+	</tr>
+	
 
 	</table>
 </div>
@@ -334,6 +372,7 @@ function unCheckInUser(num) {
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
 <td><a href="javascript:orderBy('shirt');">Shirt</a></td>
+<td align="center"><a href="javascript:orderBy('date_created');">Registration Date</a></td>
 <td align="center"><a href="javascript:orderBy('arrived');">Arrival Date</a></td>
 <td align="center" width="10%"><a href="javascript:orderBy('printed_badge');">Badge</a></td>
 </tr>
@@ -378,7 +417,7 @@ while($row=mysql_fetch_assoc($result)) {
 		<label style="font-size:.9em;color:darkblue;" title="Special Needs: <?= $row['special'] ?>">[special]</label>
 <?php } ?>
 	</td>
-
+<td class="line" align="center"><?= date($DATE_FORMAT,strtotime($row["date_created"])) ?></td>
 	<td class="line" align="center">
 <?php 
 	if($row["arrived"]) {
@@ -396,9 +435,9 @@ while($row=mysql_fetch_assoc($result)) {
 	<td class="line" align="center">
 		<input type="checkbox" name="USERS_PK[]" value="<?= $row['userpk'] ?>"/>
 <?php if($row['printed_badge'] == "Y") { ?>
-		<image width="20" height="20" src="../include/images/blank.gif" alt="printed" />
+		<image width="20" height="20" src="../include/images/printer_r.gif" alt="printed" />
 <?php } else { ?>
-		<image width="20" height="20" src="../include/images/printer.gif" alt="not printed yet" />
+		<image width="20" height="20" src="../include/images/printer_g.gif" alt="not printed yet" />
 <?php } ?>
 	</td>
 </tr>
@@ -424,7 +463,7 @@ To undo a check-in, click on the <strong>X</strong> button (only visible if the 
 <div>To only show all users, click the <strong>ALL</strong> button at the top</div>
 <div>To only show users who have not checked in yet, click the <strong>NA</strong> button at the top</div>
 <div>To only show users who have already checked in, click the <strong>IN</strong> button at the top</div>
-<div>If a badge has not been printed for a user yet then a printer image <image width="20" height="20" src="../include/images/printer.gif" alt="not printed yet" /> will appear in the badge column</div>
+<div>If a badge has not been printed for a user yet then a <font color="green">green</font> printer image <image width="20" height="20" src="../include/images/printer_g.gif" alt="not printed yet" /> will appear in the badge column.  If a badge has been printed, a <font color="red">red</font> printer image <image width="20" height="20" src="../include/images/printer_r.gif" alt="already printed " /> will appear in the badge column.  </div>
 <div>To print badges for every activated and registered person, click the <strong>(All Badges [pdf])</strong> link at the top</div>
 <div>To print badges for a select group of users, check the box(es) in the badge column and click the <strong>Print Badges</strong> button at the bottom of the page</div>
 </div>
