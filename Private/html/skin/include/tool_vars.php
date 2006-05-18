@@ -95,7 +95,13 @@ function generate_title_dropdown($title="") {
 	$sql_names = "select title from skin_entries where round='$ROUND' and title != '$title'";
 	$result = mysql_query($sql_names) or die("Name query failed ($sql_names): " . mysql_error());
 	$usedItems = array();
-	while ($row = mysql_fetch_row($result)) { $usedItems[]=$row[0]; }
+	while ($row = mysql_fetch_row($result)) {
+		if ( $title && $title == $row[0] ) {
+			// do nothing, we need to include the current name in the list
+		} else {
+			$usedItems[]=$row[0];
+		}
+	}
 	mysql_free_result($result);
 	$allNames = array_diff($allNames,$usedItems);
 
