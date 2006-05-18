@@ -165,7 +165,12 @@ foreach ($skin_entries as $skin_pk=>$skin_entry) {
 			<?= $line ?>
 		</td>
 		<td valign="top">
-			<a href="submit.php?pk=<?= $skin_pk ?>"><?= $skin_entry['title'] ?></a>
+			<a href="submit.php?pk=<?= $skin_pk ?>"><?= $skin_entry['title'] ?></a><br/>
+<?php if ($skin_entry['skin_zip']) { ?>
+		<a style="font-size:.8em;" href="include/getFile.php?pk=<?= $skin_entry['skin_zip'] ?>">
+		(DL&nbsp;entry)
+		</a>
+<?php } ?>
 		</td>
 		<td valign="top">
 			<?= $skin_entry['description'] ?><br/>
