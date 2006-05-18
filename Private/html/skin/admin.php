@@ -144,11 +144,11 @@ while($row=mysql_fetch_assoc($result)) { $skin_entries[$row['pk']] = $row; }
 
 <tr class='tableheader'>
 <td>#</td>
-<td>&nbsp;Title</td>
-<td>&nbsp;Description / URL</td>
-<td align="center">&nbsp;Approved</td>
-<td align="center">&nbsp;Tested</td>
-<td>&nbsp;Date</td>
+<td width="10%">&nbsp;Title</td>
+<td width="60%">&nbsp;Description / URL</td>
+<td width="10%" align="center">&nbsp;Approved</td>
+<td width="10%" align="center">&nbsp;Tested</td>
+<td width="10%">&nbsp;Date</td>
 </tr>
 
 <?php
@@ -164,7 +164,7 @@ foreach ($skin_entries as $skin_pk=>$skin_entry) {
 		<td valign="top">
 			<?= $line ?>
 		</td>
-		<td valign="top">
+		<td valign="top" nowrap="y">
 			<a href="submit.php?pk=<?= $skin_pk ?>"><?= $skin_entry['title'] ?></a><br/>
 <?php if ($skin_entry['skin_zip']) { ?>
 		<a style="font-size:.8em;" href="include/getFile.php?pk=<?= $skin_entry['skin_zip'] ?>">
@@ -203,7 +203,7 @@ if ($skin_entry['url']) {
 	}
 ?>
 		</td>
-		<td valign="top" style="font-size:.9em;">
+		<td valign="top" style="font-size:.9em;" nowrap="y">
 			<?= date('M j, Y',strtotime($skin_entry['date_created'])) ?>
 			<br/>
 			<?= date('(D) g:i a',strtotime($skin_entry['date_created'])) ?>

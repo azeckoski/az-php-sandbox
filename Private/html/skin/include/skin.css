@@ -102,8 +102,8 @@ a:hover {
 }
 
 .tableheader{
- color:#993333;
- background:#CCCCCC;
+ color:#339933;
+ background:#CCCCFF;
  font-weight: bold;
  border:none;
  padding-top:2px;
@@ -125,12 +125,12 @@ a:hover {
 }
 
 
-#evenrow{
- background: #eee;
+.evenrow{
+ background: #E1E1E1;
 }
 
-#oddrow{
- background: #F8F8EC;
+.oddrow{
+ background: #FFFFFF;
 }
 
 .summary {
