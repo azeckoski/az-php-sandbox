@@ -31,7 +31,7 @@ $EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>H
 <tr>
 <td valign="top" width="75%">
 <div class="info">
-The <a href="http://bugs.sakaiproject.org/confluence/x/9yc">Default Skin WG</a> is coordinating a contest to
+The <a href="http://bugs.sakaiproject.org/confluence/x/czQ">Default Skin WG</a> is coordinating a contest to
 create the next default skin for Sakai. <a href="skin_contest_rules.php">Complete details and rules</a> 
 for the contest are available online.<br/>
 <br/>

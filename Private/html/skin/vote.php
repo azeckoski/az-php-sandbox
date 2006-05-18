@@ -295,9 +295,9 @@ $sqlsorting = " order by $sortorder ";
 $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"U1.firstname||' '||U1.lastname as fullname, SV.vote_asthetic, SV.vote_usability, " .
 	"SE.* from skin_entries SE left join users U1 on U1.pk = SE.users_pk " .
-	"left join skin_vote SV on SV.skin_entries_pk = SE.pk " .
-	"and SV.users_pk='$User->pk' " . $sqlsearch . 
-	$filter_type_sql . $filter_items_sql . $sqlsorting . $mysql_limit;
+	"left join skin_vote SV on SV.skin_entries_pk = SE.pk and SV.users_pk='$User->pk' " .
+	"where approved='Y' " . 
+	$sqlsearch . $filter_type_sql . $filter_items_sql . $sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -306,7 +306,7 @@ $items = array();
 // put all of the query results into an array first
 while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
 
-// now bring in the comments
+// now bring in the comments - TODO
 $sql = "select CC.pk, CC.conf_proposals_pk, CC.comment_text, CC.date_created, " .
 	"U1.username, U1.email from conf_proposals_comments CC " .
 	"left join users U1 on U1.pk = CC.users_pk " .
@@ -425,8 +425,10 @@ foreach ($items as $item) { // loop through all of the proposal items
 <tr class="<?= $linestyle ?>" valign="top">
 	<td>
 		<div style="margin:3px;">
-			<a href="javascript:orderBy('title');">Description</a>:
-			<?= $item['description'] ?></div>
+			<strong style="font-size:.9em;">Description:</strong>
+			<span style="font-size:.8em;">
+				<?= $item['description'] ?>
+			</span>
 		</div>
 	</td>
 </tr>
@@ -435,42 +437,56 @@ foreach ($items as $item) { // loop through all of the proposal items
 	<td width="34%" nowrap='y' style='border:1px dotted #ccc;;'>
 		<a name="anchor<?= $pk ?>"></a>
 
-		<div id="vb<?= $pk ?>" style="padding:3px;" <?= $style1 ?> >
+		<table width="70%">
+		<tr>
+		<td nowrap="y" width="10%">
 			<strong>Usability</strong>
 			(<a style="text-decoration:underline;font-size:.9em;" href="" target="new">suggested criteria</a>)
 			&nbsp;&nbsp;
-			<?= $VOTE_TEXT[0] ?>
+		</td>
+		<td nowrap="y" width="50%">
+			<div id="vb<?= $pk ?>" style="padding:3px;" <?= $style1 ?> >
+				<?= $VOTE_TEXT[0] ?>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
-		<label title="<?= $VOTE_HELP1[$vi] ?>">
-			<input <?= $vote_disable ?> id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" />
-		</label>
+				<label title="<?= $VOTE_HELP1[$vi] ?>">
+					<input <?= $vote_disable ?> id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$vi] ?> onClick="checkSaved('<?= $pk ?>')" />
+				</label>
 <?php	} ?>
-			<?= $VOTE_TEXT[count($VOTE_TEXT)-1] ?>
-		</div>
+				<?= $VOTE_TEXT[count($VOTE_TEXT)-1] ?>
+			</div>
+		</td>
+		<td nowrap="y" width="10%"></td>
+		</tr>
 
-		<div id="vb2<?= $pk ?>" style="padding:3px;" <?= $style2 ?> >
+		<tr>
+		<td nowrap="y">
 			<strong>Asthetic Appeal</strong>
-			&nbsp;&nbsp;
-			<?= $VOTE_TEXT[0] ?>
+		</td>
+		<td nowrap="y">
+			<div id="vb2<?= $pk ?>" style="padding:3px;" <?= $style2 ?> >
+				<?= $VOTE_TEXT[0] ?>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
-		<label title="<?= $VOTE_HELP2[$vi] ?>">
-			<input <?= $vote_disable ?> id="vr2<?= $pk ?>_<?= $vi ?>" name="vr2<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked2[$vi] ?> onClick="checkSaved('<?= $pk ?>')" />
-		</label>
+			<label title="<?= $VOTE_HELP2[$vi] ?>">
+				<input <?= $vote_disable ?> id="vr2<?= $pk ?>_<?= $vi ?>" name="vr2<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked2[$vi] ?> onClick="checkSaved('<?= $pk ?>')" />
+			</label>
 <?php	} ?>
-			<?= $VOTE_TEXT[count($VOTE_TEXT)-1] ?>
-		</div>
+				<?= $VOTE_TEXT[count($VOTE_TEXT)-1] ?>
+			</div>
+		</td>
+		<td nowrap="y" width="10%">
+			<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save Votes" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
+				disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
+		</td>
+		</tr>
+		</table>
 
-		<div style="margin:8px;"></div>
 		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $SCORE_VOTE[$vote1] ?>" />
 		<input id="vh2<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $SCORE_VOTE[$vote2] ?>" />
-
-		<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
-			disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
 	</td>
 </tr>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td colspan="3" style="padding:4px;font-size:.9em;border-top:1px dotted #ccc;">
+	<td colspan="3" style="padding:4px;font-size:.9em;">
 		<div style="display:inline;float:left;padding:3px;">
 			<strong>Portal screenshot</strong><br/>
 			<a href="include/drawImage.php?pk=<?= $item['image1'] ?>" target="_new">
