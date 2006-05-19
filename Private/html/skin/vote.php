@@ -43,6 +43,9 @@ if (strtotime($ROUND_END_DATE) < time()) {
 }
 $EXTRA_LINKS .= "</div>";
 
+// get the flipped array
+$SCORE_VOTE = array_flip($VOTE_SCORE);
+
 if ($User->checkPerm("admin_skin")) {
 	$voting = true;
 }
@@ -99,6 +102,7 @@ function getSelectedRadio(buttonGroup) {
    return -1;
 }
 
+
 function checkSaved(num) {
 	// Get current vote for this item
 	var voteItem = document.getElementById('vh'+num);
@@ -109,8 +113,10 @@ function checkSaved(num) {
 	var rbuttons = document.getElementsByName('vr'+num);
 	var curSelect = getSelectedRadio(rbuttons);
 
+	//alert("vote: " + curVote + " selected: " + curSelect);
+
 	// Compare values
-	if (curVote >= 0 && curSelect >= 0) {
+	if (curVote >= 0 && curSelect != 2) {
 		if (curVote == curSelect) {
 			setSaved(num);
 		} else {
@@ -128,9 +134,6 @@ function setSaved(num) {
 
 	var sbutton = document.getElementById('vs'+num);
 	sbutton.disabled=true;
-
-	var cbutton = document.getElementById('vc'+num);
-	cbutton.disabled=true;
 }
 
 function setCleared(num) {
@@ -149,15 +152,12 @@ function setCleared(num) {
 	}
 
 	// reset style if not returning to saved vote
-	if (curVote < 0) {
+	if (curVote < 0 || curVote == 2) {
 		var item = document.getElementById('vb'+num);
 		item.className='clear';
 
 		var sbutton = document.getElementById('vs'+num);
 		sbutton.disabled=true;
-
-		var cbutton = document.getElementById('vc'+num);
-		cbutton.disabled=true;
 	} else {
 		// reset to saved value
 		setSaved(num);
@@ -170,11 +170,77 @@ function setUnsaved(num) {
 
 	var sbutton = document.getElementById('vs'+num);
 	sbutton.disabled=false;
-
-	var cbutton = document.getElementById('vc'+num);
-	cbutton.disabled=false;
 }
 
+
+function checkSaved2(num) {
+	// Get current vote for this item
+	var voteItem = document.getElementById('vha'+num);
+	var curVote = voteItem.value;
+	if (curVote == "") { curVote = -1; }
+
+	// Get current selection
+	var rbuttons = document.getElementsByName('va'+num);
+	var curSelect = getSelectedRadio(rbuttons);
+
+	//alert("vote: " + curVote + " selected: " + curSelect);
+
+	// Compare values
+	if (curVote >= 0 && curSelect != 2) {
+		if (curVote == curSelect) {
+			setSaved2(num);
+		} else {
+			setUnsaved2(num);
+		}
+	} else {
+		// no vote saved for this item
+		setUnsaved2(num);
+	}
+}
+
+function setSaved2(num) {
+	var item = document.getElementById('vba'+num);
+	item.className='saved'
+
+	var sbutton = document.getElementById('vs'+num);
+	sbutton.disabled=true;
+}
+
+function setCleared2(num) {
+	// get current vote
+	var voteItem = document.getElementById('vha'+num);
+	var curVote = voteItem.value;
+	if (curVote == "") { curVote = -1; }
+
+	// reset radio buttons
+	var rbuttons = document.getElementsByName('va'+num);
+	for (i=0;i<rbuttons.length;i++) {
+		rbuttons[i].checked=false;
+		if (i == curVote) {
+			rbuttons[i].checked=true;
+		}
+	}
+
+	// reset style if not returning to saved vote
+	if (curVote < 0 || curVote == 2) {
+		var item = document.getElementById('vba'+num);
+		item.className='clear';
+
+		var sbutton = document.getElementById('vs'+num);
+		sbutton.disabled=true;
+	} else {
+		// reset to saved value
+		setSaved2(num);
+	}
+}
+
+function setUnsaved2(num) {
+	var item = document.getElementById('vba'+num);
+	item.className='unsaved';
+
+	var sbutton = document.getElementById('vs'+num);
+	sbutton.disabled=false;
+}
 // -->
 </script>
 <?php include $TOOL_PATH.'include/header.php'; ?>
@@ -197,50 +263,57 @@ foreach( $Keys as $key)
 {
 	if ($_POST[$key] == "") { continue; } // skip blank values
 
-	$check = strpos($key,'vr');
-	$check2 = strpos($key,'cmnt');
-	if ( $check !== false && $check == 0 ) {
+	$checkU = strpos($key,'vr');
+	if ( $checkU !== false && $checkU == 0 ) {
 		$itemPk = substr($key, 2);
-		$newVote = $VOTE_SCORE[$_POST[$key]];
-		//print "key=$key : item_pk=$itemPk : vote=$newVote <br/>";
+		$newUsabilityVote = mysql_real_escape_string($_POST[$key]);
+		$newAstheticVote = mysql_real_escape_string($_POST["va".$itemPk]);
+		//print "<br/>key=$key : item_pk=$itemPk : voteU=$newUsabilityVote : voteA=$newAstheticVote <br/>";
 
 		// Check to see if this vote already exists
-		$check_exists_sql="select pk, vote from conf_proposals_vote where " .
-			"users_pk='$User->pk' and conf_proposals_pk='$itemPk'";
+		$check_exists_sql="select pk, vote_usability, vote_asthetic from skin_vote where " .
+			"users_pk='$User->pk' and skin_entries_pk='$itemPk'";
 		$result = mysql_query($check_exists_sql) or die("Query failed ($check_exists_sql): " . mysql_error());
 
 		if ($result && (mysql_num_rows($result) > 0) ) {
 			$row = mysql_fetch_assoc($result);
-			$existingVote = $row['vote'];
+			$existingUsabilityVote = $row['vote_usability'];
+			$existingAstheticVote = $row['vote_asthetic'];
 			$votePk = $row['pk'];
 
+			// purge this vote if both votes are 0
+			if ($newUsabilityVote == '0' && $newAstheticVote == '0') {
+				$remove_sql="delete from skin_vote where pk='$votePk'";
+				$result = mysql_query($remove_sql) or die("Query failed ($remove_sql): " . mysql_error());
+				continue;
+			}
+
 			// vote exists, now see if it changed
-			if ($newVote == $existingVote) {
+			if ($newUsabilityVote == $existingUsabilityVote && 
+				$newAstheticVote == $existingAstheticVote) {
 				// vote not changed so continue
 				//print "vote not changed: $votePk : $existingVote <br/>";
 				continue;
 			} else {
 				// vote changed so write update
 				//print "vote changed: $votePk : $existingVote <br/>";
-				$update_vote_sql="update conf_proposals_vote set vote='$newVote' where pk='$votePk'";
+				$update_vote_sql="update skin_vote set " .
+						"vote_usability='$newUsabilityVote', " .
+						"vote_asthetic='$newAstheticVote'" .
+						"where pk='$votePk'";
 				$result = mysql_query($update_vote_sql) or die("Query failed ($update_vote_sql): " . mysql_error());
 			}
 
 		} else {
-			// vote does not exist, insert it
+			// vote does not exist, insert it if the values are not both 0
 			//print "New vote: $User->pk : $item_pk : $value <br/>";
-			$insert_vote_sql="insert into conf_proposals_vote (users_pk,conf_proposals_pk,vote,confID) values " .
-				"('$User->pk','$itemPk','$newVote','$CONF_ID')";
-			$result = mysql_query($insert_vote_sql) or die('Query failed: ' . mysql_error());
-		}
-	} else if ($check2 !== false && $check2 == 0 ) {
-		$itemPk = substr($key, 4);
-		$comment = mysql_real_escape_string($_POST[$key]);
+			if ($newUsabilityVote == '0' && $newAstheticVote == '0') { continue; }
 
-		$insert_sql="insert into conf_proposals_comments " .
-			"(users_pk,conf_proposals_pk,comment_text,confID) values " .
-			"('$User->pk','$itemPk','$comment','$CONF_ID')";
-		$result = mysql_query($insert_sql) or die("Query failed ($insert_sql): " . mysql_error());
+			$insert_vote_sql="insert into skin_vote " .
+				"(users_pk,skin_entries_pk,vote_usability,vote_asthetic,round) values " .
+				"('$User->pk','$itemPk','$newUsabilityVote','$newAstheticVote','$ROUND')";
+			$result = mysql_query($insert_vote_sql) or die("Query failed ($insert_vote_sql): " . mysql_error());
+		}
 	}
 }
 
@@ -306,24 +379,6 @@ $items = array();
 // put all of the query results into an array first
 while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
 
-// now bring in the comments - TODO
-$sql = "select CC.pk, CC.conf_proposals_pk, CC.comment_text, CC.date_created, " .
-	"U1.username, U1.email from conf_proposals_comments CC " .
-	"left join users U1 on U1.pk = CC.users_pk " .
-	"where CC.confID like '$CONF_ID' order by CC.conf_proposals_pk";
-$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-$comments_items = array();
-while($row=mysql_fetch_assoc($result)) {
-	$comments_items[$row['conf_proposals_pk']][$row['pk']] = $row;
-}
-
-foreach ($items as $item) {
-	// these add an array to each proposal item which contains the relevant topics/audiences
-	$items[$item['pk']]['topics'] = $topics_items[$item['pk']];
-	$items[$item['pk']]['audiences'] = $audience_items[$item['pk']];
-	$items[$item['pk']]['comments'] = $comments_items[$item['pk']];
-}
-
 //echo "<pre>",print_r($items),"</pre><br/>";
 
 ?>
@@ -384,8 +439,6 @@ foreach ($items as $item) { // loop through all of the proposal items
 	if (($line % 2) == 0) { $linestyle = "evenrow"; } else { $linestyle = "oddrow"; }
 
 	// voting check
-	$SCORE_VOTE = array_flip($VOTE_SCORE);
-
 	if (!$vote1) { $vote1 = "0"; }
 	$checked = array();
 	$style1 = "";
@@ -417,10 +470,17 @@ foreach ($items as $item) { // loop through all of the proposal items
 		<div style="margin:3px;">
 			<a href="javascript:orderBy('title');">Title</a>:
 			<strong><?= $item['title'] ?></strong>
-			&nbsp;&nbsp;
+<?php if ($item['url']) { ?>
+			&nbsp;&nbsp;&nbsp;&nbsp;
 			<a style="text-decoration:underline;" href="<?= $item['url'] ?>">View skin in action</a>
+<?php } ?>
+<?php if ($item['allow_download'] == 'Y') { ?>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $item['skin_zip'] ?>">Download skin</a>
+<?php } ?>
 		</div>
 	</td>
+</tr>
 
 <tr class="<?= $linestyle ?>" valign="top">
 	<td>
@@ -463,16 +523,17 @@ foreach ($items as $item) { // loop through all of the proposal items
 			<strong>Asthetic Appeal</strong>
 		</td>
 		<td nowrap="y">
-			<div id="vb2<?= $pk ?>" style="padding:3px;" <?= $style2 ?> >
+			<div id="vba<?= $pk ?>" style="padding:3px;" <?= $style2 ?> >
 				<?= $VOTE_TEXT[0] ?>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
 			<label title="<?= $VOTE_HELP2[$vi] ?>">
-				<input <?= $vote_disable ?> id="vr2<?= $pk ?>_<?= $vi ?>" name="vr2<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked2[$vi] ?> onClick="checkSaved('<?= $pk ?>')" />
+				<input <?= $vote_disable ?> id="va<?= $pk ?>_<?= $vi ?>" name="va<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked2[$vi] ?> onClick="checkSaved2('<?= $pk ?>')" />
 			</label>
 <?php	} ?>
 				<?= $VOTE_TEXT[count($VOTE_TEXT)-1] ?>
 			</div>
 		</td>
+
 		<td nowrap="y" width="10%">
 			<input id="vs<?= $pk ?>"  class="button" type="submit" name="save" value="Save Votes" onClick="setAnchor('<?= $pk ?>');this.disabled=true;return false;"
 				disabled='y' title="Save all votes, votes cannot be removed once they are saved" />
@@ -481,7 +542,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 		</table>
 
 		<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $SCORE_VOTE[$vote1] ?>" />
-		<input id="vh2<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $SCORE_VOTE[$vote2] ?>" />
+		<input id="vha<?= $pk ?>" type="hidden" name="cura<?= $pk ?>" value="<?= $SCORE_VOTE[$vote2] ?>" />
 	</td>
 </tr>
 
@@ -513,47 +574,6 @@ foreach ($items as $item) { // loop through all of the proposal items
 			<a href="include/drawImage.php?pk=<?= $item['image4'] ?>" target="_new">
 				<img src="include/drawThumb.php?pk=<?= $item['image4'] ?>" alt="Gradebook image" />
 			</a>
-		</div>
-	</td>
-</tr>
-
-<tr class="<?= $linestyle ?>" valign="top">
-	<td colspan="3" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
-		<div style="font-size:10pt;">
-			Comments (<?= count($item['comments']) ?>):
-			<a id="onComment<?= $pk ?>" href="<?= $_SERVER['PHP_SELF'] ?>" onClick="showAddComment('<?= $pk ?>');return false;" title="Reveal a comment box so you can enter comments">Add Comment</a>
-			<br/>
-<?php
-	if (!empty($item['comments'])) {
-		$cline = 0;
-		foreach($item['comments'] as $comment) {
-			$cline++;
-			$lineclass = "evenrow";
-			if (($cline+($line % 2)) % 2 == 0) { $lineclass = "evenrow"; } else { $lineclass = "oddrow"; }
-
-			$short_comment = $comment['comment_text'];
-			if (strlen($short_comment) > 43) {
-				$short_comment = substr($short_comment,0,40) . "...";
-			}
-			$short_username = $comment['username'];
-			if (strlen($short_username) > 13) {
-				$short_username = substr($short_username,0,10) . "...";
-			}
-
-			echo "<div style='width:100%;font-size:9pt;' class='$lineclass'>\n" .
-				"&nbsp;<label title='Entered by $comment[username] on " .
-				date($DATE_FORMAT,strtotime($comment['date_created']))."'>\n" .
-				"<em><a href='mailto:$comment[email]'>$short_username</a></em>" .
-				" - <label style='cursor:pointer;' title='Click to reveal the entire comment' " .
-				"onClick=\"javascript:this.style.display='none';getElementById('fullcmnt$pk$cline').style.display='inline';\">$short_comment</label>\n" .
-				"<div id='fullcmnt$pk$cline' style='display:none;'>$comment[comment_text]</div></div>";
-		}
-	}
-?>
-			<div id="addComment<?= $pk ?>" style="display:none;">
-			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes">Save New Comment</a><br/>
-			<textarea name="cmnt<?= $pk ?>" cols="80" rows="3"></textarea>
-			</div>
 		</div>
 	</td>
 </tr>
