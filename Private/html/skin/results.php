@@ -22,7 +22,7 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 $EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
 
 // add in the display to let people know how long they have to vote
-$EXTRA_LINKS .= "<br/><div class='date_message'>";
+$EXTRA_LINKS .= "<div class='date_message'>";
 
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
 if (strtotime($ROUND_END_DATE) < time()) {
@@ -42,6 +42,8 @@ $EXTRA_LINKS .= "</div>";
 // admin access check
 if ($User->checkPerm("admin_skin")) { $allowed = 1; }
 
+// get the flipped array
+$SCORE_VOTE = array_flip($VOTE_SCORE);
 
 // institution filtering
 $institution = "";
@@ -57,18 +59,28 @@ if ($institution && is_numeric($institution)) {
 }
 
 // first get the votes and drop them into a hash
-$votes_sql = "select skin_entries_pk, vote_usability, vote_asthetic, " .
-	"count(V.pk) as votes from skin_vote V " . $instSql .
-	"where round='$ROUND' group by skin_entries_pk, vote_usability, vote_asthetic";
+$votes_sql = "select skin_entries_pk, vote_usability, count(V.pk) as votes " .
+	"from skin_vote V where round='1' group by skin_entries_pk, vote_usability";
 //print "VOTE_SQL=$votes_sql<br/>";
 $result = mysql_query($votes_sql) or die('Votes query failed: ' . mysql_error());
-$allvotes = array();
+$allvotesU = array();
 while($row = mysql_fetch_array($result)) {
-	//print "Votes:" . $row[0] . ":" . $row[1] . "=" . $row[2] . "<br/>";
-	$allvotes[$row[0] . ":" . $row[1]] = $row[2];
+	$allvotesU[$row[0] . ":" . $row[1]] = $row[2];
 }
 mysql_free_result($result);
 
+$votes_sql = "select skin_entries_pk, vote_asthetic, count(V.pk) as votes " .
+	"from skin_vote V where round='1' group by skin_entries_pk, vote_asthetic";
+//print "VOTE_SQL=$votes_sql<br/>";
+$result = mysql_query($votes_sql) or die('Votes query failed: ' . mysql_error());
+$allvotesA = array();
+while($row = mysql_fetch_array($result)) {
+	$allvotesA[$row[0] . ":" . $row[1]] = $row[2];
+}
+mysql_free_result($result);
+
+echo "<pre>",print_r($allvotesU),"</pre>";
+echo "<pre>",print_r($allvotesA),"</pre>";
 
 // the SQL to fetch the requirements and related votes
 $from_sql = "from skin_entries D left join skin_vote V on " .
@@ -217,81 +229,20 @@ if ($_REQUEST["export"] && $allowed) {
 			<option value="show all items">show all items</option>
 			<option value="show all voted items">show all voted items</option>
 			<option value="show all unvoted items">show all unvoted items</option>
-<?php if($User->pk) { ?>
-			<option value="show my voted items">show my voted items</option>
-			<option value="show my unvoted items">show my unvoted items</option>
-			<option value="show my critical items">show my critical items</option>
-			<option value="show my essential items">show my essential items</option>
-			<option value="show my desirable items">show my desirable items</option>
-			<option value="show my not applicable items">show my not applicable items</option>
-<?php } ?>
 		</select>
 		&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
 	</td>
 
 	<td nowrap="y" align="right">
+		<input class="filter" type="submit" name="clearall" value="Clear All Filters" title="Reset all filters">
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	length="20" title="Enter search text here">
         <script>document.adminform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
 	</td>
 	</tr>
-
-	<tr>
-	<td nowrap="y"><b style="font-size:1.1em;">Paging:</b></td>
-	<td nowrap="y">
-		<input type="hidden" name="page" value="<?= $page ?>" />
-		<input class="filter" type="submit" name="paging" value="first" title="Go to the first page" />
-		<input class="filter" type="submit" name="paging" value="prev" title="Go to the previous page" />
-		<span class="keytext">Page <?= $page ?> of <?= $total_pages ?></span>
-		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page" />
-		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
-		<span class="keytext">&nbsp;-&nbsp;
-		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
-		&nbsp;-&nbsp;
-		Max of</span>
-		<select name="num_limit" title="Choose the max items to view per page">
-			<option value="<?= $num_limit ?>"><?= $num_limit ?></option>
-			<option value="10">10</option>
-			<option value="25">25</option>
-			<option value="50">50</option>
-			<option value="100">100</option>
-			<option value="200">200</option>
-			<option value="500">500</option>
-		</select>
-		<span class="keytext">items per page</span>
-	</td>
-	<td align="right">
-		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters">
-		<input class="filter" type="submit" name="clearall" value="Clear All Filters" title="Reset all filters">
-	</td>
-	</tr>
 	
-	</table>
-
-	<table width="100%" border="0" cellpadding="0">
-	<tr>
-	
-	<td nowrap="y">
-		<b style="font-size:1.0em;">Institution:</b>
-		<select name="institution">
-			<option value='all' <?php if ($institution == "all") { echo "selected='Y'"; } ?>>All institutions</option>
-			<?php $institutionDropdownText = generate_partner_dropdown( $institution, 1 ); ?>
-			<?= $institutionDropdownText ?>
-		</select>
-	</td>
-	
-	<td align="right" nowrap="y">
-		<b style="font-size:1.0em;">Sort:</b>
-		<select name="sorting" title="Choose the order to display items in">
-			<option value="<?= $sorting ?>"><?= $sorting ?></option>
-			<option value="Date">Date</option>
-			<option value="Date (reverse)">Date (reverse)</option>
-		</select>
-		<input class="filter" type="submit" name="sort" value="Sort" title="Sort items by the sort order">
-	</td>
-	</tr>
 	</table>
 
 </div>
@@ -302,11 +253,12 @@ if ($_REQUEST["export"] && $allowed) {
 <table width=100% border=0 cellspacing=0>
 
 <tr class='tableheader'>
-<td width='10%'>&nbsp;VOTE</td>
+<td width='10%' align="right">Usability&nbsp;</td>
 <td width='10%'>&nbsp;Results</td>
-<td width='5%' align="center">Item</td>
-<td width='35%'>Summary</td>
-<td width='40%'>Description</td>
+<td width='10%' align="right">Asthetic&nbsp;</td>
+<td width='10%'>&nbsp;Results</td>
+<td width='40%'>Title / Description</td>
+<td width='20%'></td>
 </tr>
 
 <?php } // end export else 
@@ -316,32 +268,58 @@ while($itemrow=mysql_fetch_assoc($result)) {
 	$line++;
 	$pk=$itemrow["pk"];
 
-	// voting check
-	if (!isset($itemrow["vote"])) { $itemrow["vote"] = -1; }
+	// TODO - verify that the votes line up with the results
 
-	// get votes counts
-	$total = 0;
+	$total_usability = 0;
+	$total_asthetic = 0;
 	for ($i=0; $i<count($VOTE_TEXT); $i++) {
-		$total += $allvotes["$pk:$i"];
+		$num = $VOTE_SCORE[$i];
+		$total_usability += $allvotesU["$pk:$num"];
+		$total_asthetic += $allvotesA["$pk:$num"];
 	}
-	$itemrow["Total Votes"] = $total;
-	
-	$votes = array();
-	$percents = array();
-	$numerator = 0;
-	for ($i=0; $i<count($VOTE_TEXT); $i++) {
-		$votes[$i] = $allvotes["$pk:$i"]+0;
-		$itemrow[$VOTE_TEXT[$i]] = $votes[$i];
-		$percents[$i] = round(($votes[$i]/$total)*100,1);
-		$itemrow[$VOTE_TEXT[$i]."%"] = $percents[$i];
-		$numerator += ($i+1) * $votes[$i];
+	$itemrow["Total Usability"] = $total_usability;
+	$itemrow["Total Asthetic"] = $total_asthetic;
+
+	$votes_usability = array();
+	$percents_usability = array();
+	$numerator_usability = 0;
+	if ($total_usability) {
+		for ($i=0; $i<count($VOTE_TEXT); $i++) {
+			$num = $VOTE_SCORE[$i];
+			$votes_usability[$i] = $allvotesU["$pk:$num"]+0;
+			$itemrow[$VOTE_TEXT[$i]] = $votes_usability[$i];
+			$percents_usability[$i] = round(($votes_usability[$i]/$total_usability)*100,1);
+			$itemrow[$VOTE_TEXT[$i]."%"] = $percents_usability[$i];
+			$numerator_usability += ($i+1) * $votes_usability[$i];
+		}
 	}
 
-	$checked = array();
-	$itemrow["Average"] = round($numerator/$total) - 1;
-	$itemrow["AvgText"] = $VOTE_TEXT[ $itemrow["Average"] ];
-	$checked[$itemrow["Average"]] = " class='avgvote' ";
+	$votes_asthetic = array();
+	$percents_asthetic = array();
+	$numerator_asthetic = 0;
+	if ($total_asthetic) {
+		for ($i=0; $i<count($VOTE_TEXT); $i++) {
+			$num = $VOTE_SCORE[$i];
+			$votes_asthetic[$i] = $allvotesA["$pk:$num"]+0;
+			$itemrow[$VOTE_TEXT[$i]] = $votes_asthetic[$i];
+			$percents_asthetic[$i] = round(($votes_asthetic[$i]/$total_asthetic)*100,1);
+			$itemrow[$VOTE_TEXT[$i]."%"] = $percents_asthetic[$i];
+			$numerator_asthetic += ($i+1) * $votes_asthetic[$i];
+		}
+	}
+
+	$checked_usability = array();
+	$itemrow["Average Usability"] = round($numerator_usability/$total_usability) - 1;
+	$itemrow["AvgText Usability"] = $VOTE_TEXT[ $itemrow["Average Usability"] ];
+	$checked_usability[$itemrow["Average Usability"]] = " class='avgvote' ";
 	// array_search(max($votes),$votes)
+
+	$checked_asthetic = array();
+	$itemrow["Average Asthetic"] = round($numerator_asthetic/$total_asthetic) - 1;
+	$itemrow["AvgText Asthetic"] = $VOTE_TEXT[ $itemrow["Average Asthetic"] ];
+	$checked_asthetic[$itemrow["Average Asthetic"]] = " class='avgvote' ";
+	// array_search(max($votes),$votes)
+
 
 	if ($_REQUEST["export"]) {
 		// print out EXPORT format instead of display
@@ -361,17 +339,31 @@ while($itemrow=mysql_fetch_assoc($result)) {
 		print join(',', $itemrow) . "\n";
 	} else {
 		// extra stuff for DISPLAY
-		$tdstyle = "";
-		if ($vote >= 0) {
+		$tdstyle_usability = "";
+		if (isset($itemrow["vote_usability"])) {
 			// item has been voted on and saved
-			if ($checked[$itemrow["vote"]]) {
-				$checked[$itemrow["vote"]] = " class='matchvote' ";
+			$num = $SCORE_VOTE[$itemrow["vote_usability"]];
+			if ($checked_usability[$num]) {
+				$checked_usability[$num] = " class='matchvote' ";
 			} else {
-				$checked[$itemrow["vote"]] = " class='myvote' ";
+				$checked_usability[$num] = " class='myvote' ";
 			}
-			$tdstyle = " class='saved' ";
+			$tdstyle_usability = " class='saved' ";
 		}
-	
+
+		$tdstyle_asthetic = "";
+		if (isset($itemrow["vote_asthetic"])) {
+			// item has been voted on and saved
+			$num = $SCORE_VOTE[$itemrow["vote_asthetic"]];
+			if ($checked_asthetic[$num]) {
+				$checked_asthetic[$num] = " class='matchvote' ";
+			} else {
+				$checked_asthetic[$num] = " class='myvote' ";
+			}
+			$tdstyle_asthetic = " class='saved' ";
+		}
+
+
 		$linestyle = "oddrow";
 		if ($line % 2 == 0) {
 			$linestyle = "evenrow";
@@ -381,9 +373,9 @@ while($itemrow=mysql_fetch_assoc($result)) {
 ?>
 
 	<tr class="<?= $linestyle ?>" valign="top">
-		<td id="vb<?= $pk ?>" <?= $tdstyle ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
+		<td id="vb<?= $pk ?>" <?= $tdstyle_usability ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
-			<div <?= $checked[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
+			<div <?= $checked_usability[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
 <?php	} ?>
 			<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $itemrow["vote"] ?>">
 			<div style="margin:6px;"></div>
@@ -394,21 +386,39 @@ while($itemrow=mysql_fetch_assoc($result)) {
 		<td nowrap="y" style='border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
 			<div style="margin-left:6px;">
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
-				<?= $votes[$vi] ?> (<?= $percents[$vi] ?>%)<br/>
+				<?= $votes_usability[$vi] ?> (<?= $percents_usability[$vi] ?>%)<br/>
 <?php	} ?>
 				<div style='margin:6px;'></div>
-				<b><?= $total ?></b><br/>
+				<b><?= $total_usability ?></b><br/>
 			</div>
 		</td>
 
+		<td id="vb<?= $pk ?>" <?= $tdstyle_asthetic ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
+<?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
+			<div <?= $checked_asthetic[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
+<?php	} ?>
+			<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $itemrow["vote"] ?>">
+			<div style="margin:6px;"></div>
+			&nbsp;<label title="Total number of votes for this item">Total:</label>&nbsp;<br />
+			<div style="margin:12px;"></div>
+		</td>
+
+		<td nowrap="y" style='border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
+			<div style="margin-left:6px;">
+<?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
+				<?= $votes_asthetic[$vi] ?> (<?= $percents_asthetic[$vi] ?>%)<br/>
+<?php	} ?>
+				<div style='margin:6px;'></div>
+				<b><?= $total_asthetic ?></b><br/>
+			</div>
+		</td>
+
+		<td>
+			<strong><?= $itemrow["title"] ?></strong><br/>
+			<div class="description"><?= $itemrow["description"] ?></div>
+		</td>
 		<td nowrap='y'>
-			<?= $items["pk"] ?>
-		</td>
-		<td height="30px">
-			<div class="summary"><?= $items["summary"] ?></div>
-		</td>
-		<td rowspan="2" style="padding:2px;border-bottom:1px solid black;">
-			<div class="description"><?= $items["description"] ?></div>
+			<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $itemrow['skin_zip'] ?>">Download skin</a>
 		</td>
 	</tr>
 <?php
