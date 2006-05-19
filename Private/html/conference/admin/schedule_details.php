@@ -69,8 +69,9 @@ $filter_track_sql = "";
 switch ($filter_track){
    	case "Community": $filter_track_sql = " and track='Community' "; break;
   	case "Faculty": $filter_track_sql = " and track='Faculty' "; break;
- 	case "Implementers": $filter_track_sql = " and track='Implementers' "; break;
+ 	case "Implementation": $filter_track_sql = " and track='Implementation' "; break;
  	case "Technical": $filter_track_sql = " and track='Technical' "; break;
+ 	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
  	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
 	case ""; // show all items
 		$filter_track = $filter_track_default;
@@ -237,8 +238,9 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
 			<option value="Community">Community</option>
 			<option value="Faculty">Faculty</option>
-			<option value="Implementors">Implementors</option>
+			<option value="Implementation">Implementation</option>
 			<option value="Technical">Technical</option>
+			<option value="Multiple Audiences">Multiple Audiences</option>
 			<option value="Tool Overview">Tool Overview</option>
 			<option value="show all tracks">show all tracks</option>
 		</select>
