@@ -162,14 +162,20 @@ if ($_POST['save']) {
 			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 
 		} else {  //this is a new  proposal so add this to the conf_proposals table
-		
+	    $track=""; // tracks are determined after the voting process - except for Demos and BOFs
+	    if ($type=="demo") {
+	    	 $track="Demo";
+	    } else  if ($type=="BOF") {
+	    	 $track="BOF";
+	    }
+	    
 			//first add presentation information into --all data except role and topic data
 			$proposal_sql="INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, " .
 					"`title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` ," .
-					" `conflict` , `co_speaker` , `co_bio` , `approved` )
+					" `conflict` , `co_speaker` , `co_bio` , `approved`, `track` )
 				VALUES ( NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', " .
 				"'$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' ," .
-				" '$co_speaker' , '$co_bio' , 'N' )";
+				" '$co_speaker' , '$co_bio' , 'N', '$track' )";
 			
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				"registration form submission. Please try to submit the registration again. " .
@@ -264,7 +270,11 @@ if ($PK) {
 		if ($type=="demo") {
 			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
 			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
-		} else {
+		} else if ($type="BOF"){
+			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing BOF:  session </strong>"  
+			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
+		}
+		 else {
 			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
 			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
 		}
@@ -292,9 +302,7 @@ if ($PK) {
     <span class="pathway">
 	 	<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Start &nbsp; &nbsp; &nbsp;
 	  		<img src="../include/images/arrow.png" height="12" width="12" alt="arrow" /><span class="activestep">Proposal Details &nbsp; &nbsp; &nbsp;</span> 
-	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Contact Information&nbsp; &nbsp; &nbsp; 
-	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Confirmation  		
-	  	</span>
+	    	</span>
 	 <?php }	?>
 	   </td>
   </tr>
@@ -332,8 +340,22 @@ if ($PK) {
     </td>
 </tr>
 
+<?php } else  if ($type=="BOF") { ?>
+ 	<tr>
+    <td colspan=2>
+    		<div><strong>Birds of a Feather (BOF) session </strong></div>
+    		<div style="padding:0px 10px;">
+					BOFs may take place at any time during the conference. 
+					We have a group of rooms and timeslots which you may choose from. 
+					 When rooms are filled, we will do our best to locate 
+					'community areas' within the hotel where you may gather for impromptu BOFS.   <br/><br />
+					We encourage you to create your BOF wiki pages in our <a href="http://bugs.sakaiproject.org/confluence/display/Conf2006Vancouver/Birds+of+a+Feather+BOF+meetings">Conference Wiki</a> 
+					then enter wiki page's URL into this form so we can easily link to your BOF page.' 
+					[<a href="http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=178&Itemid=524" target=blank>more information</a>]
+				</div>
+    </td>
+</tr>
 <?php } else { ?>
-
 <tr>
     <td colspan=2>
     		<div><strong> Proposal for Conference Presentation </strong></div>
@@ -355,6 +377,9 @@ if ($PK) {
 <?php if ($type == "demo") { ?>
  	    <img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
  	    <strong>Product or Tool Name</strong>
+<?php } else  if ($type == "BOF") { ?>
+ 	    <img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+ 	    <strong>BOF Title</strong>
 <?php } else  { ?>
  		<img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
  		<strong>Presentation Title</strong>
@@ -370,6 +395,9 @@ if ($PK) {
 <?php if ($type == "demo") {?>
 		<strong>Demo  Description </strong> ( 50 word max.)  <br/>
 		This will appear on the conference program.
+<?php } else if ($type == "BOF") {?>
+		<strong>Description </strong> ( 50 word max.)  <br/>
+		
 <?php } else { ?>
     	<strong>Presentation Summary </strong> ( 50 word max.)  <br/>
     	This summary will appear on the conference program.
@@ -379,7 +407,7 @@ if ($PK) {
     </td>
 </tr>
 
-<?php if ($type!="demo") {?> 
+<?php if (($type!="demo") && ($type!="BOF")) {?> 
 <tr>
    <td colspan=2><img id="descImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>Presentation Description: </strong>( 150 word max.)
      <br/>This description is used by the program committee for a more in-depth review of your session. <br/>
@@ -400,7 +428,7 @@ if ($PK) {
     </td>
 </tr>
 
-<?php if ($type!="demo") {?>
+<?php if (($type!="demo") && ($type!="BOF")){?>
 <tr>
     <td colspan=2>
     	<img id="bioImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
@@ -417,17 +445,25 @@ if ($PK) {
    <td><strong><br/>Co-Presenters</strong><br/>(if any)</td>
    <td>  
       <div id="co_presenters">  List the names of your co-presenters, one name per line. 
-       <textarea name="co_speaker" cols="60" rows="4"><?= $_POST['co_speaker']  ?></textarea><br/>
+       <textarea name="co_speaker" cols="40" rows="4"><?= $_POST['co_speaker']  ?></textarea><br/>
      </div>
    </td>
 </tr>
 
+<?php if ($type!="BOF") { ?>
 <tr>
     <td><strong>Project URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
 </tr>
-
-<?php if ($type!="demo") { ?>
+<?php } else   {
+	?>
+	
+<tr>
+    <td><strong>BOF wiki page URL </strong></td>
+    <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
+</tr>
+<?php } ?>
+<?php if (($type!="demo") && ($type!="BOF")){ ?>
 <tr>
    <td colspan=2>
      <div id="topicInfo">
@@ -641,6 +677,8 @@ if ($PK) {
 	} // end if
 ?>
 	<br/>
+	
+<?php if (($type!="demo") && ($type!="BOF")){ ?>
     <div id="getformat" class="componentheading">Presentation Formats</div>
     <div class="contentheading"> Discussion </div>
     <div class="contentpaneopen"> This type of session involves a very brief presentation of a topic and immediately opens for discussion of the topic by attendees.</div>
@@ -653,7 +691,7 @@ if ($PK) {
     <div class="contentheading"> Showcase/Poster </div>
     <div class="contentpaneopen"> Please note that we will <strong>not</strong> be soliciting proposals for Showcase/Poster sessions using this call for proposals form. We do, however, encourage you to create a poster that showcases your campus implementation or toolset. You can use the template we will provide (sometime in March) or use your own design. We will provide more details in March. </div>
   </div>
-
+<?php  } ?> 
   <!--end rightcol -->
 </div>
 <!-- end outerright -->

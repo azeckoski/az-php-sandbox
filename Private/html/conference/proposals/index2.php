@@ -80,9 +80,8 @@ if ($_POST['save']) { // saving the form
 		  		<img src="../include/images/arrow.png" height="12" width="12" alt="arrow" />
 		  		<span class="activestep">Start &nbsp; &nbsp; &nbsp;</span>
 		  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Proposal Details &nbsp; &nbsp; &nbsp; 
-		  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Contact Information&nbsp; &nbsp; &nbsp; 
-		  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Confirmation
-		  	</span>
+		  	 	</span>
+		  	 
 		  </td>
 	  </tr>
 	</table>
@@ -105,25 +104,28 @@ if ($_POST['save']) { // saving the form
 	   </tr>
 	   <tr>
 	     <td colspan=3 valign="top">
-	      	<div><input name="type" type="radio" value="presentation" <?php if ($_POST['type']=="presentation") echo "checked" ?> />&nbsp;&nbsp;<strong>Conference Presentation</strong>
-				<div style="padding: 0px 40px;">
-					Presentation formats include: panel, workshop, discussion, and lecture. 
-					Presentations will take place at the conference hotel, during the conference's 
-					daytime schedule for May 30 through June 2nd.<br/><br/>
-				</div>
-			</div>
-	        	<div><input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />&nbsp;&nbsp;<strong>Technology Demo</strong><br/>
-					<div style="padding: 0px 40px;">
-					Technology Demos will take place on Thursday, June 1st. Sign up early to guarantee space and equipment availability. 
-					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]<br/><br/>
-				</div>
-			</div>
-			<div><input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>
+	      	<div><input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>
 				<div style="padding: 0px 40px;">
 					BOFs are self-formed meetings set up by any conference attendee to discuss a Sakai-related topic during the conference. BOFs may take place during the main conference sessions, as well as before or after the normal conference scheduled session - based on room availablity.
 					[<a href="http://sakaiproject.org/index.php?option=com_content&task=blogcategory&id=178&Itemid=524" target=blank>more information</a>]<br/><br/>
 				</div>
 			</div>
+				<div><input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />&nbsp;&nbsp;<strong>Technology Demo</strong><br/>
+					<div style="padding: 0px 40px;">
+					Technology Demos will take place on Thursday, June 1st. Sign up early to guarantee space and equipment availability. 
+					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]<br/><br/>
+				</div>
+			</div>
+			<div><input name="type" type="radio" value="presentation" <?php if ($_POST['type']=="presentation") echo "checked" ?> />&nbsp;&nbsp;<strong>Conference Presentation</strong>
+				<div style="padding: 0px 40px;">
+					<strong>Please Note:</strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
+					 <br/><br/> Presentation formats include: panel, workshop, discussion, and lecture. 
+					Presentations will take place at the conference hotel, during the conference's 
+					daytime schedule for May 30 through June 2nd.<br/><br/>
+				</div>
+			</div>
+	        
+			
 		</td>
 	   </tr>
      <tr>

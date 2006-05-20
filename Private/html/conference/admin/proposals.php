@@ -492,7 +492,11 @@ foreach ($items as $item) { // loop through all of the proposal items
 	if ($item['type']=='demo'){
 		$demo++;
 		$tdstyle = " class='demo' ";
-	} else {
+	}
+	if ($item['type']=='BOF'){
+		$demo++;
+		$tdstyle = " class='bof' ";
+	}  else {
 		$presentation++;
 	}
 
@@ -504,8 +508,8 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 <tr class="<?= $linestyle ?>" valign="top">
 	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;'>
-<?php if($item['type']=='demo') {
-		echo "<strong>Demo:</strong><br/>No voting<br/>on demos";
+<?php if ( ($item['type']=='demo') || ($item['type']=='BOF'))  {
+		echo "<strong>Demo:</strong><br/>No voting<br/>on demos or BOFs";
 	} else {
 ?>
 		<a name="anchor<?= $pk ?>"></a>

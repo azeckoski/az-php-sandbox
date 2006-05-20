@@ -184,6 +184,8 @@ switch ($filter_track){
  	case "Implementors": $filter_track_sql = " and track='Implementors' "; break;
  	case "Technology": $filter_track_sql = " and track='Technology' "; break;
  	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
+ 	case "BOF": $filter_track_sql = " and track='BOF' "; break;
+ 	case "Demo": $filter_track_sql = " and track='Demo' "; break;
 	case ""; // show all items
 		$filter_track = $filter_track_default;
 		$filter_track_sql = "";
@@ -303,6 +305,8 @@ if (!$_REQUEST["export"]) {
 			<option value="Implementors">Implementors</option>
 			<option value="Technology">Technology</option>
 			<option value="Tool Overview">Tool Overview</option>
+			<option value="BOF">BOF</option>
+			<option value="Demo">Demo</option>
 			<option value="show all tracks">show all tracks</option>
 		</select>
 		
@@ -419,7 +423,9 @@ foreach ($items as $item) { // loop through all of the proposal items
 	// if approved then the color is set to blue
 	if ($item['type']=='demo'){
 		$tdstyle = " class='demo' ";
-	} else if ($item["approved"] == "Y") {
+	} else if ($item['type']=='BOF'){
+		$tdstyle = " class='bof' ";
+	} else  if ($item["approved"] == "Y") {
 		$tdstyle = " class='approved' ";
 	} else if ($item["red"]) {
 		if ($item["approved"] == "N") {
@@ -469,8 +475,10 @@ foreach ($items as $item) { // loop through all of the proposal items
 <tr class="<?= $linestyle ?>" valign="top">
 	<td <?= $tdstyle ?> nowrap='y' style="text-align:right;">
 		<a name="anchor<?= $pk ?>"></a>
-<?php if($item['type']=='demo') {
+<?php if ($item['type']=='demo') {
 		echo "<strong>Demo:</strong><br/>No voting<br/>on demos";
+	} else  if  ($item['type']=='BOF') {
+		echo "<strong>BOF:</strong><br/>No voting<br/>on BOFs";
 	} else {
 ?>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
@@ -485,6 +493,8 @@ foreach ($items as $item) { // loop through all of the proposal items
 	<td nowrap="y" style="border-right:1px dotted #ccc;">
 <?php if($item['type']=='demo') {
 	echo "<strong>Demo:</strong><br/>No results<br/>for demos";
+	} else if ($item['type']=='BOF') {
+	echo "<strong>BOF:</strong><br/>No results<br/>for BOFs";
 	} else {
 ?>
 		<div style="margin-left:6px;">
@@ -500,7 +510,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 	<td width="25%">
 <?php
-if ($item['type'] != 'demo') { 
+if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){ 
 	if ($item['approved'] == "Y") {
 		echo "<div style='width:100%;background-color:blue;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
 				"APPROVED</div>";
@@ -541,7 +551,7 @@ if ($item['type'] != 'demo') {
 			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
 		}
 		
-if ($item['type']!='demo')  { ?>
+if (($item['type']!='demo') && ($item['type'] != 'BOF'))  { ?>
 		<div class="description"><strong>Description:</strong>
 			<a href="" onClick="javascript:this.style.display='inline';getElementById('desc<?= $pk ?>').style.display='inline';return false;" 
 			title="Click to reveal the description">[ show ]</a> &nbsp; 
@@ -573,6 +583,9 @@ if ($item['type']!='demo')  { ?>
 	 <?php  
 	 if ($item['type']=="demo") {
 	 	echo "demo  ";
+			 }
+			 else if ($item['type']=="BOF") {
+	 	echo "BOF  ";
 			 }
 			 else { if ($item['track']) {
 			 	 echo $item['track'];
@@ -606,7 +619,10 @@ if ($item['type']!='demo')  { ?>
 	<td style="border-bottom:1px solid black;" rowspan="2" width="25%">
 	<?php if ($item['type']=='demo') {  /* only non-demo types use the following data */ ?>
 		n/a:  demo
+	<?php } else if ($item['type']=='BOF') {  /* only non-demo types use the following data */ ?>
+		n/a:  BOF
 	<?php } else {
+
 		if (is_array($item['topics'])) {
 			echo "<strong>Topic ranking:</strong><br/>";
 
