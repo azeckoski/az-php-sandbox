@@ -523,6 +523,8 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){
 	//TODO  
 	//provide a javascript or ajax warning for the delete link below  before
 	//letting people use this feature
+	
+}
 	?>
 		( <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1" ?>">edit</a> | 
 		  <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;delete=" ?>">delete</a> )
@@ -530,7 +532,7 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){
 	<?php
 		
 	echo "<div style='margin:6px;'></div>";
-}
+
 ?>
 		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
 		<div>
@@ -581,21 +583,13 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  { ?>
 		 	
 	 <span style="padding-right: 20px;"><strong>Track:</strong>
 	 <?php  
-	 if ($item['type']=="demo") {
-	 	echo "demo  ";
-			 }
-			 else if ($item['type']=="BOF") {
-	 	echo "BOF  ";
-			 }
-			 else { if ($item['track']) {
+	 if ($item['track']) {
 			 	 echo $item['track'];
 			 }
 			 else {
 			  echo "<span style='color: #666666;'>not set </span>";  
 			 } ?> (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" >edit</a>)
-<?php } 
-	 
-	 ?>
+
 	    </div>
 	    <div>
 	  <br>

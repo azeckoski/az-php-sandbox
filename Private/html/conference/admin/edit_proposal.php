@@ -155,14 +155,17 @@ if (!$PK) {
 			 $_POST[$item['pk']]=$items[$item['pk']];
 			 }
 			 
-			if ($type=="demo"){
-			  $Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
-			   . $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
-			 }
-			 else { 
-			 $Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
-			 . $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
-			 }
+			if ($type=="demo") {
+			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
+			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
+		} else if ($type="BOF"){
+			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing BOF:  session </strong>"  
+			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
+		}
+		 else {
+			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
+			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
+		}
 
 			 
 		// get the dates when a presenter cannot be available
@@ -266,9 +269,7 @@ if ($_POST['save']) {
     <span class="pathway">
 	 	<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Start &nbsp; &nbsp; &nbsp;
 	  		<img src="../include/images/arrow.png" height="12" width="12" alt="arrow" /><span class="activestep">Proposal Details &nbsp; &nbsp; &nbsp;</span> 
-	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Contact Information&nbsp; &nbsp; &nbsp; 
-	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Confirmation  		
-	  	</span>
+		</span>
 	 <?php }	?>
 	   </td>
   </tr>
@@ -300,19 +301,35 @@ if ($_POST['save']) {
 	</td>
 </tr>
 <tr>
- 	<td> <?php if ($type!="demo") { ?>
- 		<img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong>Presentation Title</strong><br/>
- 	    <?php } else  { ?>
- 	    	<img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong>Product or Tool Name</strong><br/>
- 	    	<?php } ?>
+ 	<td><?php if ($type == "demo") { ?>
+ 	    <img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+ 	    <strong>Product or Tool Name</strong>
+<?php } else  if ($type == "BOF") { ?>
+ 	    <img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+ 	    <strong>BOF Title</strong>
+<?php } else  { ?>
+ 		<img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+ 		<strong>Presentation Title</strong>
+<?php } ?>
   	</td>
    	<td><input type="text" name="title" size="40" maxlength="75" value="<?= $_POST['title'] ?>" /> <br/>(75 max chars)
     	 <input type="hidden" id="titleValidate" value="<?= $vItems['title'] ?>" /><span id="titleMsg"></span>
    	</td>
  </tr>
- <?php if ($type!="demo") { ?>
+ 
  <tr>
-	<td colspan=2><strong>Select/change track for this proposal:  </strong> 
+	<td colspan=2><strong>Current Track:  </strong>
+	
+	 <?php if ($_POST['track']) {
+	 	echo  $_POST['track']; }
+	 	else {
+	 		echo "none selected";
+	 	}
+	   ?>
+	 
+	 <br/><br/>
+	
+	<strong>Select/change track for this proposal:  </strong> 
 	
 		<select name="track" title="conference tracks">
 			<option value="<?= $_POST['track'] ?>" selected><?= $_POST['track'] ?></option>
@@ -322,13 +339,15 @@ if ($_POST['save']) {
 			<option value="Technical">Technical</option>
 			<option value="Mixed Audiences">Mixed Audiences</option>
 			<option value="Tool Overview">Tool Overview</option>
+			<option value="BOF">BOF</option>
+			<option value="Demo">Demo</option>
 			
 		</select>
 		</td>
+</tr> 
 
-
- </tr> 
- <tr>
+<?php if (($type!="demo") && ($type!="BOF")){?>
+	 <tr>
 	<td><strong>Proposal Status: </strong> </td>
 	<td><input name="approved" type="radio" value="Y" <?php if ($_POST['approved']=="Y") { echo "checked"; } ?> /> Approved &nbsp;&nbsp;&nbsp;&nbsp;
 			<input name="approved" type="radio" value="N" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved <br/>
@@ -341,12 +360,16 @@ if ($_POST['save']) {
  
  <tr>
     <td colspan=2><img id="abstractImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
-    		<?php if ($type1!="demo") {?> 
-    		<strong>Presentation Summary </strong> ( 50 word max.)  <br/> This summary will appear on the conference program. <br/>
-    		<?php } else { ?>
-    			<strong>Demo  Description </strong> ( 50 word max.)  <br/> This  will appear on the conference program. <br/>
-    		<?php } ?>
-   		<br/><textarea name="abstract" cols="75" rows="6"><?= $_POST['abstract'] ?></textarea>
+    <?php if ($type == "demo") {?>
+		<strong>Demo  Description </strong> ( 50 word max.)  <br/>
+		This will appear on the conference program.
+<?php } else if ($type == "BOF") {?>
+		<strong>Description </strong> ( 50 word max.)  <br/>
+		
+<?php } else { ?>
+    	<strong>Presentation Summary </strong> ( 50 word max.)  <br/>
+    	This summary will appear on the conference program.
+<?php } ?>  		<br/><textarea name="abstract" cols="75" rows="6"><?= $_POST['abstract'] ?></textarea>
        	<input type="hidden" id="abstractValidate" value="<?= $vItems['abstract'] ?>" /><span id="abstract"></span> <br/>
     </td>
 </tr>
@@ -366,7 +389,7 @@ if ($_POST['save']) {
     </td>
 </tr>
 
-<?php if ($type!="demo") {?>
+<?php if (($type!="demo") && ($type!="BOF")){?>
 <tr>
     <td colspan=2><img id="bioImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /><strong>Brief Text Bio* </strong><br/>
       	(for primary presenter only - for online and print program. (50 word max.)<br/><br/>
@@ -383,18 +406,13 @@ if ($_POST['save']) {
      </div>
    </td>
 </tr>
-<!--
-<tr>
-   <td colspan=2><strong>Co-Presenter bio(s)</strong><br/>Short bios for other presenters (200 word max.)</span><br/><br/><textarea name="co_bio" cols="75" rows="4"><?= $_POST['co_bio']  ?></textarea>
-   </td>
-</tr>
--->
+
 <tr>
     <td><strong>Project URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
 </tr>     
-		 <?php           
-		 if ($type!="demo") {
+		<?php if (($type!="demo") && ($type!="BOF")){
+			
 		 //populate form with topic information
 
 		 //TODO:
@@ -503,6 +521,7 @@ if ($_POST['save']) {
     <div id=barRight> </div>
     <br/>
     <br/>-->
+    
     <div id=getformat class="componentheading">Presentation Formats</div>
     <div class="contentheading"> Discussion </div>
     <div class="contentpaneopen"> This type of session involves a very brief presentation of a topic and immediately opens for discussion of the topic by attendees.</div>
