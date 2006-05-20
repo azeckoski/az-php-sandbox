@@ -262,8 +262,12 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>\n";
 					}
-					$typeclass = "";
-					if($proposal['type']) {
+					
+					
+					if($proposal['type']=="BOF") { //don't list the type on the schedule
+						$typeclass = "";
+					}
+					 else if($proposal['type']) {
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
 						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}

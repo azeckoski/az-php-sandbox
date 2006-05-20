@@ -73,6 +73,7 @@ switch ($filter_track){
  	case "Technical": $filter_track_sql = " and track='Technical' "; break;
  	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
  	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
+ 	case "BOF": $filter_track_sql = " and track='BOF' "; break;
  	case ""; // show all items
 		$filter_track = $filter_track_default;
 		$filter_track_sql = "";
@@ -272,8 +273,10 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 			<option value="Implementation">Implementation</option>
 			<option value="Technical">Technical</option>
 			<option value="Multiple Audiences">Multiple Audiences</option>
-			<option value="Tool Overview">Tool Overview</option>
-			<option value="Technical Demos-Event">Technical Demos-Event</option>
+			<option value="Tool Overview">Tool Overview</option>			
+			<option value="BOF">BOF</option>
+			
+
 			<option value="show all tracks">show all tracks</option>
 		</select>
 		
