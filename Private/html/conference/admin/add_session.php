@@ -68,7 +68,7 @@ if (!$_REQUEST['room'] || !$_REQUEST['time']) {
 // adding
 if ($_REQUEST['add'] && $allowed) {
 
-	// TODO - write the new value to the sessions table
+	// write the new value to the sessions table
 	if ($_REQUEST['proposals_pk']) {
 		$proposalPk = $_REQUEST['proposals_pk'];
 

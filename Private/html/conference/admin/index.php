@@ -40,7 +40,8 @@ $EXTRA_LINKS =
 	"<a href='attendees.php'>Attendees</a> - " .
 	"<a href='proposals.php'>Proposals</a> - " .
 	"<a href='check_in.php'>Check In</a> - " .
-	"<a href='schedule.php'>Schedule</a> " .
+	"<a href='schedule.php'>Schedule</a> - " .
+	"<a href='volunteers.php'>Volunteers</a> " .
 	"</span>";
 
 ?>
@@ -91,6 +92,11 @@ function orderBy(newOrder) {
     <tr>
       <td valign="top"><a href="schedule.php">Scheduling</a></td>
       <td>This allows an admin to handle scheduling for sessions for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
+    </tr>
+
+    <tr>
+      <td valign="top"><a href="volunteers.php">Volunteers</a></td>
+      <td>This allows an admin to view the list of conveners and recorders for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
     </tr>
 
 </table>  

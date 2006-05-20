@@ -313,7 +313,12 @@ CREATE TABLE conf_sessions (
     rooms_pk		int(10) NOT NULL REFERENCES conf_rooms(pk),
     timeslots_pk	int(10) NOT NULL REFERENCES conf_timeslots(pk),
     proposals_pk	int(10) NULL,
+    convenor_pk		int(10) NULL,
+    recorder_pk		int(10) NULL,
     ordering		int(6) NOT NULL,
     title			varchar(255) NULL,
     PRIMARY KEY(pk)
 );
+
+// alter table conf_sessions add convenor_pk int(10) null;
+// alter table conf_sessions add recorder_pk int(10) null;

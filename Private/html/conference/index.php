@@ -43,6 +43,8 @@ From here you can:<br/>
 	Click here to register for the upcoming Sakai conference<br/>
 <a style="font-size:12pt;" href="proposals/">Propose a session for the conference</a> -
 	Click here to enter a proposal for the upcoming Sakai conference<br/>
+<a style="font-size:12pt;" href="volunteer.php">Volunteer to help at the conference</a> -
+	Click here to volunteer to be a convener or recorder for the upcoming Sakai conference<br/>
 </div>
 
 <?php require 'include/outer_right.php'; // Include right column ?>

@@ -231,6 +231,15 @@ tr,td {
 	font-size: .8em;
 }
 
+.small_text {
+	font-size: .8em;
+}
+
+.small_centered {
+	text-align: center;
+	font-size: .8em;
+}
+
 .message {
 	border: 3px solid darkblue;
 	color: black;
@@ -281,4 +290,45 @@ tr,td {
 .coffee {
 	background:tan;
 	color: #000;
+}
+
+
+.convenor_exists {
+	background: #AAFFAA;
+	color: #000;
+}
+
+.recorder_exists {
+	background: #AACCFF;
+	color: #000;
+}
+
+.recorder_convenor_exist {
+	background: #AAFFFF;
+	color: #000;
+}
+
+.convenor_user {
+	background: #009933;
+	color: white;
+}
+
+.recorder_user {
+	background: #333399;
+	color: white;
+}
+
+.no_convenor {
+	background: #999933;
+	color: white;
+}
+
+.no_recorder {
+	background: #996633;
+	color: white;
+}
+
+.no_recorder_convenor {
+	background: #993333;
+	color: white;
 }
