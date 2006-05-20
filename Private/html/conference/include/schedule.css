@@ -47,7 +47,7 @@ tr,td {
 .time_header {
 	margin: 0px;
 	padding: 0px;
-	font-size: .9em;
+	font-size: 1em;
 	background: #CCC;
 	text-align: center;
 	font-weight:bold;
@@ -108,7 +108,7 @@ tr,td {
 	text-align: left;
 	padding: 0px;
 	font-style:normal;
-	font-size: .9em;
+	font-size: 1em;
 }
 
 .list_date_header {
@@ -125,7 +125,7 @@ tr,td {
 }
 
 .list_event_header {
-	font-size: .9em;
+	font-size: 1em;
 	font-weight: bold;
 	background-color: #339933;
 	color: white;
@@ -157,7 +157,7 @@ tr,td {
 	border-top: 1px dotted #AAAAAA;
 	color: darkgreen;
 	background: white;
-	font-size: .9em;
+	font-size: 1em;
 	text-align: left;
 	font-weight: normal;
 	padding:5px 10px;
@@ -223,7 +223,7 @@ tr,td {
 }
 
 .proposal_title {
-	font-size: .9em;
+	font-size: 1em;
 }
 
 .session_date {
