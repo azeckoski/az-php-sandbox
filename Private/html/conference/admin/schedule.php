@@ -149,7 +149,7 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 	<tr>
 		<td nowrap="y"><b style="font-size:1.1em;">Conference schedule:</b></td>
 		<td nowrap="y" colspan="5">
-			<div style="float:left; padding-right: 30px;"><a href="schedule_details.php"><strong>List View  <img src="../include/images/arrow.gif" height=9 width=9/></a>
+			<div style="float:left; padding-right: 30px;"><a href="schedule_details.php"><strong>List View  <img src="../include/images/arrow.gif" border=0 height=9 width=9/></a>
 			</div><div style="float:left;">
 				<strong><?= $CONF_NAME ?></strong>
 <?php $confDateFormat = "g:i a, l, M j, Y"; ?>
