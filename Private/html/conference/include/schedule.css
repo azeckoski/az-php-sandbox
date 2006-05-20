@@ -1,4 +1,4 @@
-/* ---------------------voting form css--------------------- */
+/* ---------------------schedule css--------------------- */
 /* 
 It is better to NOT use px sizes for fonts:
 IE users cannot resize a font size that is specified using px and that
@@ -209,8 +209,6 @@ tr,td {
 	background: #CCEEFF;
 }
 
-
-<!-- other stuff -->
 .remaining {
 	font-size: .7em;
 	font-style: italic;
@@ -291,7 +289,6 @@ tr,td {
 	background:tan;
 	color: #000;
 }
-
 
 .convenor_exists {
 	background: #AAFFAA;
