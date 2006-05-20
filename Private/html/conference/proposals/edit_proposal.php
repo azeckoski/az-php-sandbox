@@ -162,12 +162,21 @@ if ($_POST['save']) {
 			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 
 		} else {  //this is a new  proposal so add this to the conf_proposals table
+	   
 	    $track=""; // tracks are determined after the voting process - except for Demos and BOFs
 	    if ($type=="demo") {
 	    	 $track="Demo";
 	    } else  if ($type=="BOF") {
 	    	 $track="BOF";
 	    }
+	    $approved="";
+	    if ($type=="demo") {
+	    	 $approved="Y";
+	    } else  if ($type=="BOF") {
+	    	 $approved="Y";
+	    	 $length="90";
+	    }
+	    
 	    
 			//first add presentation information into --all data except role and topic data
 			$proposal_sql="INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, " .
@@ -175,7 +184,7 @@ if ($_POST['save']) {
 					" `conflict` , `co_speaker` , `co_bio` , `approved`, `track` )
 				VALUES ( NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', " .
 				"'$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' ," .
-				" '$co_speaker' , '$co_bio' , 'N', '$track' )";
+				" '$co_speaker' , '$co_bio' , '$approved', '$track' )";
 			
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				"registration form submission. Please try to submit the registration again. " .
