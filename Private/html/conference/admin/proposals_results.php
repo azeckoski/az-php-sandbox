@@ -262,7 +262,7 @@ if (!$_REQUEST["export"]) {
 <div style="background:#ECECEC;border:1px solid #ccc;padding:3px;margin-bottom:10px;">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
-	<td nowrap="y">
+	<td nowrap="y" valign=top>
 	<strong>Filters:</strong>&nbsp;&nbsp;
 	</td>
 	<td nowrap="y" style="font-size:0.9em;">
@@ -309,11 +309,9 @@ if (!$_REQUEST["export"]) {
 			&nbsp;
 		
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
-		&nbsp;&nbsp;&nbsp;
-		<?= count($items) ?> proposals shown
-	</td>
+		&nbsp;&nbsp;&nbsp; <?= count($items) ?> proposals shown<br/><br/>
+		
 
-	<td nowrap="y" align="right">
 		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters">
 		<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
@@ -526,14 +524,19 @@ if ($item['type'] != 'demo') {
 ?>
 		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
 		<div>
-			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
+			<strong>Submitted by:</strong> <a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
 			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/>
 			<?= date($MED_DATE_FORMAT,strtotime($item['date_created'])) ?><br/><br/>
 		</div>		
 	</td>
 
 	<td style="border-bottom:1px solid black;" rowspan="2" width="40%">
-		<div class="description"><strong>Abstract:</strong><br/><?= $item['abstract'] ?><br/><br/></div>
+	<div class="description"><strong>Speaker(s):</strong><br/><?= $item['speaker'] ?> 
+	<?php if ($item['co_speaker']) {   echo "with " .$item['co_speaker'] ;      }
+	?><br/><br/></div>
+		<div class="description"><strong>Abstract:</strong><?php if (!$item['abstract']) { 
+			  echo "not available";    }
+	?><br/><?= $item['abstract'] ?><br/><br/></div>
 		<?php if ($item['URL']) { /* a project URL was provided */
 			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
 		}
