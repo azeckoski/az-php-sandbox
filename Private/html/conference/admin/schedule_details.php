@@ -73,7 +73,7 @@ switch ($filter_track){
  	case "Technical": $filter_track_sql = " and track='Technical' "; break;
  	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
  	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
-	case ""; // show all items
+ 	case ""; // show all items
 		$filter_track = $filter_track_default;
 		$filter_track_sql = "";
 		break;
@@ -84,6 +84,24 @@ switch ($filter_track){
 <?php
   
   
+
+
+//get only the technical demo information for the Tech Demo filter
+$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
+	"U1.firstname||' '||U1.lastname as fullname, CV.vote, " .
+	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
+	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
+	"and CV.users_pk='$User->pk' " .
+	"where CP.confID = '$CONF_ID'" . $sqlsorting . $mysql_limit;
+
+//print "SQL=$sql<br/>";
+$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
+$items = array();
+
+// put all of the query results into an array first
+while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
+
+//echo "<pre>",print_r($items),"</pre>"; 
 
 
 // fetch the conference rooms
@@ -192,10 +210,13 @@ if ($User && $isAdmin) {
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
+
 <div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
 <strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
 Check back closer to the conference for the final schedule, contact <a href="mailto:wendemm@gmail.com">Wende Morgaine</a> with questions
 </div>
+
+
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
@@ -222,17 +243,27 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 	<strong>Filters:</strong>&nbsp;&nbsp;
 	</td>
 	<td nowrap="y" style="font-size:0.9em;">
-			<strong>By Day:</strong>
-		<select name="filter_days" title="Filter the items by day">
-			<option value="<?= $filter_days ?>" selected><?= $filter_days ?></option>
-			<option value="Tuesday">Tuesday</option>
-			<option value="Wednesday">Wednesday</option>
-			<option value="Thursday">Thursday</option>
-			<option value="Friday">Friday</option>
-			<option value="show all days">show all days</option>
-		</select>
-			&nbsp;
-		&nbsp;
+	<?php 
+	
+	//TODO  fix the filter by day
+	/*
+	 * 
+	 *	 		<strong>By Day:</strong>
+	 *		<select name="filter_days" title="Filter the items by day">
+	 *			<option value="<?= $filter_days ?>" selected><?= $filter_days ?></option>
+	 *		<option value="Tuesday">Tuesday</option>
+	 *		<option value="Wednesday">Wednesday</option>
+	 *		<option value="Thursday">Thursday</option>
+	 *		<option value="Friday">Friday</option>
+	 *		<option value="show all days">show all days</option>
+	 *	</select>
+	 *		&nbsp;
+	 *	&nbsp;
+	 */
+	 
+		
+		?>
+		
 		<strong>Track:</strong>
 		<select name="filter_track" title="Filter the items by track">
 			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
@@ -242,6 +273,7 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 			<option value="Technical">Technical</option>
 			<option value="Multiple Audiences">Multiple Audiences</option>
 			<option value="Tool Overview">Tool Overview</option>
+			<option value="Technical Demos-Event">Technical Demos-Event</option>
 			<option value="show all tracks">show all tracks</option>
 		</select>
 		
@@ -303,6 +335,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		case "keynote": $linestyle = "keynote"; break;
 		case "special": $linestyle = "keynote"; break;
 		case "closed": $linestyle = "closed"; break;
+		case "demo": $linestyle = "demo"; break;
 		default: $linestyle = "event";
 	}
 ?>	</td></tr>
