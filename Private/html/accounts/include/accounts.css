@@ -107,6 +107,40 @@ div.error {
  font-size:70%;
 }
 
+.colorkey {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	background: #E1E1E1;
+	border: 2px solid #AAAAFF;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.colorkeyheader {
+	background:#336699;
+	font-size:1.1em;
+	padding:.2em;
+	font-weight:bold;
+	color:white;
+}
+
+.definitions {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	background: #AADDFF;
+	border: 2px solid #AAAAAA;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.defheader {
+	background:#336699;
+	font-size:1.1em;
+	padding:.2em;
+	font-weight:bold;
+	color:white;
+}
+
 .right {
  font-family: Arial, Helvetica, sans-serif;
  font-size: 10pt;
