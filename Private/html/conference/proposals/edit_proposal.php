@@ -144,7 +144,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 					$is_scheduled=true;
 					$this_session_pk=$sessions[$conf_session['pk']];
 					
-echo "<pre>",print_r($this_session_pk=$sessions[$conf_session['pk']]),"</pre><br/>";
+//echo "<pre>",print_r($this_session_pk=$sessions[$conf_session['pk']]),"</pre><br/>";
 					
 						
 				}
