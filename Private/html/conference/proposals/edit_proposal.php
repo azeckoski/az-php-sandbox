@@ -137,7 +137,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 				
 				if ($conf_session['timeslots_pk'] == $conf_timeslot['pk'] &&
 					$conf_session['rooms_pk'] == $conf_room['pk']) {
-						$sessions[$conf_session['pk']] = $conf_session;  echo "$PK";
+						$sessions[$conf_session['pk']] = $conf_session; 
 						if($conf_session['proposals_pk']==$PK) {
 						  $is_scheduled=true;
 						  if ($conf_session['proposals_pk']==NULL) {
@@ -458,7 +458,7 @@ if ($PK) {
     </td>
 </tr>
 <?php 
-    if ($is_scheduled){  //show the list of open bof rooms
+    if (!$is_scheduled){  //show the list of open bof rooms
       ?>
 <tr><td colspan=2>
        
