@@ -32,6 +32,9 @@ if (!$User->checkPerm("admin_conference")) {
 	$hide_bof_rooms = false;
 }
 
+//opening up the bof viewing to all a week before the conference
+$hide_bof_rooms = false;
+
 // get the passed message if there is one
 if($_GET['msg']) {
 	$Message = "<div class='message'>".$_GET['msg']."</div>";
