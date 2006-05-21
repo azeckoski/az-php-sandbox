@@ -462,10 +462,10 @@ if ($PK) {
       ?>
 <tr><td colspan=2>
        
-      <div> Select a room/timeslot from the list below. Please select the room that has a capacity which best matches
-      your expected BOF group size.    <br/><br/>
-      
-      Contact Mary Miles at mmiles@umich.edu if you cannot find a timeslot or room that fits your group's needs.<br/><br/>
+      <div><strong>Select a room/timeslot: </strong><br/><br/>
+       Please select the room that has a capacity which best matches
+      your expected BOF group size. Contact Mary Miles at mmiles@umich.edu 
+      if you cannot find a timeslot or room that fits your group's needs.<br/>
       </div>
  		<div align=center><br/>
  		<?php
