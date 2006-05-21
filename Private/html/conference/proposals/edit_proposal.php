@@ -494,8 +494,8 @@ if ($PK) {
 						$counter++;
 		
 						$proposal = $conf_proposals[$session['proposals_pk']];
-						
-						if (($proposal)==NULL){    //get only the list of open BOF slots
+						echo "$proposal";
+						if ($proposal==NULL){    //get only the list of open BOF slots
 						echo "<option value=" .$session['pk']. ">" . 
 							 date('l',strtotime($timeslot['start_time']))  . " " .
 				 		date('g:i a',strtotime($timeslot['start_time'])) . " - " .
