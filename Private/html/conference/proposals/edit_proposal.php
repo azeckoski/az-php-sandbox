@@ -38,8 +38,7 @@ if($_GET['msg']) {
 }
 
 $PK = $_REQUEST["pk"]; // grab the pk
-$type = $_REQUEST['type']; // grab the proposal type
-if (!$type) { $type = "demo"; } // default type if not specified
+$type = $_REQUEST["type"]; // grab the proposal type
 $error = false; // preset the error flag to no errors
 $allowed = false; // assume user is NOT allowed unless otherwise shown
 
@@ -49,7 +48,8 @@ $allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$PK) {
 	// no PK set so we must be adding a new item
 	$Message = "";
-	$allowed = true;
+	$allowed = true;	
+	$is_scheduled=false; 
 } else {
 	// pk is set, see if it is valid for this user
 	$check_sql = "select pk, users_pk from conf_proposals where pk='$PK'";
@@ -137,27 +137,41 @@ foreach($conf_timeslots as $conf_timeslot) {
 				
 				if ($conf_session['timeslots_pk'] == $conf_timeslot['pk'] &&
 					$conf_session['rooms_pk'] == $conf_room['pk']) {
-						$sessions[$conf_session['pk']] = $conf_session;
+						$sessions[$conf_session['pk']] = $conf_session;  echo "$PK";
+						if($conf_session['proposals_pk']==$PK) {
+						  $is_scheduled=true;
+						  if ($conf_session['proposals_pk']==NULL) {
+						  	$is_scheduled=false;
+						  	
+						  }
+							 //get the current schedule information for this session
+							
+							$this_session_pk= $conf_session['pk'];
+							$this_room_pk= $conf_session['rooms_pk'];
+							$this_room_name= $conf_room['title'];
+							$this_timeslot_pk= $conf_timeslot['pk'];
+							$this_start_time= date('D, M d, g:i a',strtotime($conf_timeslot['start_time']));
+							$this_end_time= date('g:i a',strtotime($conf_timeslot['start_time']) + ($conf_timeslot['length_mins']*60));
+							$this_room_size=$conf_room['capacity'];
+							
+						} 
+				
 					}
 						
-				if($conf_session['proposals_pk']==$PK) {
-					$is_scheduled=true;
-					$this_session_pk=$sessions[$conf_session['pk']];
-					
-//echo "<pre>",print_r($this_session_pk=$sessions[$conf_session['pk']]),"</pre><br/>";
-					
-						
-				}
-			}
+				
+			
 			$rooms[$conf_room['pk']] = $sessions;
-			$this_room[$conf_room['pk']] =$sessions;
+			
+			}		
+		  
 			
 		}
 	}
 	$timeslots[$conf_timeslot['pk']] = $rooms;
+	
  
 }
-
+						
 //echo "<pre>",print_r($conf_session['proposals_pk'] ),"</pre><br/>";
 					
 
@@ -226,6 +240,11 @@ if ($_POST['save']) {
 			$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
 			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 
+
+			//now delete the schedule info for this session
+			$delete_sql = "delete from conf_sessions where proposals_pk='$PK'";
+			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+
 			//now delete the topic ranking for this proposal
 			$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
 			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
@@ -239,7 +258,7 @@ if ($_POST['save']) {
 		 	 
 		 	}
 		} else {  //this is a new  proposal so add this to the conf_proposals table
-	   
+	  
 	    $track=""; // tracks are determined after the voting process - except for Demos and BOFs
 	    if ($type=="demo") {
 	    	 $track="Demo";
@@ -270,27 +289,6 @@ if ($_POST['save']) {
 
 			$PK = mysql_insert_id(); //get this proposal_pk
 			$msg = "Created new $type: $title";
-
-
-			// TODO - why is this being fetched from the DB? This info was just passed in the POST -AZ
-			if ($type="demo") {  // send the user an email confirmation for this demo
-				$email_sql="Select * from `conf_proposals` WHERE pk='$proposal_pk' ";
-				$email_result= mysql_query($email_sql);
-				while($demo=mysql_fetch_array($email_result)) {	
-					$title=$demo["title"];
-					$abstract=$demo["abstract"];
-					$speaker=$demo["speaker"];
-					$url=$demo["URL"];
-				}
-				 //send confirmation email message
-				//require ('../include/send_demoEmail.php');
-				
-			} else {
-
-				//TODO
-				//test confirmation email message against recent changes
-				//require ('../include/send_proposalEmail.php'); 
-			}
 
 		}  // finished handling new proposal submission
 
@@ -347,23 +345,25 @@ if ($PK) {
 	if(mysql_num_rows($result) > 0) {
 		// update the type
 		$type = $item['type'];
-
+		
 		// refer to the item array by name $_POST (this might not be a good idea) -AZ
 		foreach($item as $key=>$value) {
 			$_POST[$key] = $value;
 		}
-
 		if ($type=="demo") {
 			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
 			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
-		} else if ($type="BOF"){
-			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing BOF:  session </strong>"  
+		} else if ($type=="BOF"){
+			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing BOF session: </strong>"  
 			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
 		}
 		 else {
 			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
 			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
 		}
+		
+		
+		
 
 		// get the dates when a presenter cannot be available
 		$conflict=$_POST['conflict'];
@@ -383,7 +383,20 @@ if ($PK) {
   </tr>
   <tr>
 	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
-	 <?php if ($Message) {  echo $Message;  }
+	 <?php 
+	  if ($is_scheduled) {
+	    	 ?>
+	 	 <div style="background: #fff; border: 1px solid orange; padding:10px;">  	 
+			<div><strong>This session is currently scheduled for:</strong> <br/></div>
+			<div style="padding-left: 30px;">
+			<strong>Date/Time : </strong><?= $this_start_time . " - " .$this_end_time ?>
+			<br/><strong>Room:</strong> <?= $this_room_name  ?>  (capacity= <?=$this_room_size ?>)</div>
+			</div>			
+	    <br/>
+		<? 
+		 } if ($Message) {  echo $Message;  
+	 	    
+	 }
 	 else {  ?>
     <span class="pathway">
 	 	<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Start &nbsp; &nbsp; &nbsp;
@@ -426,7 +439,9 @@ if ($PK) {
     </td>
 </tr>
 
-<?php } else  if ($type=="BOF") { ?>
+<?php } else  if ($type=="BOF") { 
+	
+	?>
  	<tr>
     <td colspan=2>
     		<div><strong>Birds of a Feather (BOF) session </strong></div>
@@ -442,6 +457,62 @@ if ($PK) {
 			
     </td>
 </tr>
+<?php 
+    if ($is_scheduled){  //show the list of open bof rooms
+      ?>
+<tr><td colspan=2>
+       
+      <div> Select a room/timeslot from the list below. Please select the room that has a capacity which best matches
+      your expected BOF group size.    <br/><br/>
+      
+      Contact Mary Miles at mmiles@umich.edu if you cannot find a timeslot or room that fits your group's needs.<br/><br/>
+      </div>
+ 		<div align=center><br/>
+ 		<?php
+ 		// create the grid
+		$line = 0;
+		$last_date = 0;
+		$conference_day = 0;
+		
+ 		?>
+ 		
+		<select name="bof_selection">
+		<option value=""> -- select a room/time --</option> 
+		<?php
+		foreach ($timeslots as $timeslot_pk=>$rooms) {
+			$line++;
+			$timeslot = $conf_timeslots[$timeslot_pk];
+		
+			//
+			foreach ($rooms as $room_pk=>$room) {
+				
+				$conf_room = $conf_rooms[$room_pk];
+				
+				if (is_array($room)) {
+					$counter = 0;
+					foreach ($room as $session_pk=>$session) {
+						$counter++;
+		
+						$proposal = $conf_proposals[$session['proposals_pk']];
+						
+						if (($proposal)==NULL){    //get only the list of open BOF slots
+						echo "<option value=" .$session['pk']. ">" . 
+							 date('l',strtotime($timeslot['start_time']))  . " " .
+				 		date('g:i a',strtotime($timeslot['start_time'])) . " - " .
+			     		 date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) . 
+			    			 " "  . $conf_room['title'] ." (capacity: " .  $conf_room['capacity'] .")"   . "</option>";
+						}
+					}	
+				}
+		  	}
+		}  
+		?>
+		</select>
+				</div>
+	 
+		</td>
+	</tr>
+	   <?php } ?>
 <?php } else { ?>
 <tr>
     <td colspan=2>
@@ -550,72 +621,9 @@ if ($PK) {
     <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
 </tr>
 
-<tr><td colspan=2>Instructions for selecting a time for the BOF.....<br/>
-<br/>Only unscheduled/available rooms should appear here.  Once a timeslot is selected, can it be changed?  
-If not, then their previous selection appears here instead. <br/><br/>
-       <?php 
-     //TODO 
-    //check to see if this proposal has been scheduled - then either allow
-    //user to shift to another timeslot or only display the current timeslot 
-    //
-    
-    if ($is_scheduled) {
-    echo 	$this_room[$conf_room['pk']] ."and " . $this_room[$conf_room['title']] ;
-  						
-    	echo "ROOM: " . $this_conf_session .$current_schedule_room;
-    	echo 		 date('l',strtotime($timeslot['start_time']))  . " " .
-				 		date('g:i a',strtotime($timeslot['start_time'])) . " - " .
-			     		 date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) . 
-			    			 " "  . $conf_room['title'] ." (capacity: " .  $conf_room['capacity'] .")"   . "</option>";
-					
-    
-    }
-      ?>
- 		<div align=center><br/>
- 		<?php
- 		// create the grid
-		$line = 0;
-		$last_date = 0;
-		$conference_day = 0;
-		
- 		?>
- 		
-		<select name="bof_selection">
-		<option value=""> -- select a room/time --</option> 
-		<?php
-		foreach ($timeslots as $timeslot_pk=>$rooms) {
-			$line++;
-			$timeslot = $conf_timeslots[$timeslot_pk];
-		
-			//
-			foreach ($rooms as $room_pk=>$room) {
-				
-				$conf_room = $conf_rooms[$room_pk];
-				
-				if (is_array($room)) {
-					$counter = 0;
-					foreach ($room as $session_pk=>$session) {
-						$counter++;
-		
-						$proposal = $conf_proposals[$session['proposals_pk']];
-						
-						if (($proposal)==NULL){    //get only the list of open BOF slots
-						echo "<option value=" .$session['pk']. ">" . 
-							 date('l',strtotime($timeslot['start_time']))  . " " .
-				 		date('g:i a',strtotime($timeslot['start_time'])) . " - " .
-			     		 date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) . 
-			    			 " "  . $conf_room['title'] ." (capacity: " .  $conf_room['capacity'] .")"   . "</option>";
-						}
-					}	
-				}
-		  	}
-		}  
-		?>
-		</select>
-				</div>
-		</td>
-	</tr>
-<?php } ?>
+<?php } //bof check
+?>
+
 <?php if (($type!="demo") && ($type!="BOF")){ ?>
 <tr>
    <td colspan=2>
@@ -805,8 +813,8 @@ If not, then their previous selection appears here instead. <br/><br/>
   <div id=rightcol>
 
 <?php 
-	$sql = "select CP.title, CP.pk from conf_proposals CP " .
-		"where CP.users_pk='$User->pk' and CP.confID = '$CONF_ID'";
+	$sql = "select CP.title, CP.approved, CP.pk from conf_proposals CP  " .
+		"where CP.users_pk='$User->pk' and CP.confID = '$CONF_ID' ";
 	//print "SQL=$sql<br/>";
 	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 
@@ -818,7 +826,7 @@ If not, then their previous selection appears here instead. <br/><br/>
 <?php
 	while($item=mysql_fetch_assoc($result)) {
 ?>
-	<li><a href="edit_proposal.php?pk=<?= $item['pk'] ?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
+	<li><a href="edit_proposal.php?pk=<?= $item['pk']?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
 		[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
 			title="Delete this proposal"
 			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]
