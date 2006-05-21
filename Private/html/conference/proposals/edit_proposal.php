@@ -249,10 +249,10 @@ if ($_POST['save']) {
 			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 
 		 	//if timeslot was selected for a BOF-  update the conf_sessions table
-		 	$session_pk=$_POST['bof_selection'];
+		 	$bof_timeslot=$_POST['bof_selection'];
 		 
-		 	if ($session_pk)  { //user selected a timeslot for the BOF
-		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$session_pk' ";
+		 	if ($bof_timeslot)  { //user selected a timeslot for the BOF
+		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$bof_timeslot' ";
 		 	 $result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): ".mysql_error());
 		 	 
 		 	}
@@ -289,11 +289,11 @@ if ($_POST['save']) {
 			$PK = mysql_insert_id(); //get this proposal_pk
 			
 			//now update the conf_session table if they selected a timeslot for the BOF
-			
-		 	$session_pk=$_POST['bof_selection'];
+		 	 	//if timeslot was selected for a BOF-  update the conf_sessions table
+		 	$bof_timeslot=$_POST['bof_selection'];
 		 
-		 	if ($session_pk)  { //user selected a timeslot for the BOF
-		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$session_pk' ";
+		 	if ($bof_timeslot)  { //user selected a timeslot for the BOF
+		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$bof_timeslot' ";
 		 	 $result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): ".mysql_error());
 		 	 
 		 	}
