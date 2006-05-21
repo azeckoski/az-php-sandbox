@@ -92,6 +92,8 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
+<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
+
 <?php include $TOOL_PATH.'include/admin_header.php'; ?>
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
@@ -527,7 +529,10 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){
 }
 	?>
 		( <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1" ?>">edit</a> | 
-		  <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;delete=" ?>">delete</a> )
+		 
+		<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
+			title="Delete this proposal"
+			onClick="return confirm('Are you sure you want to delete this proposal?');" >delete</a> )
 		</div>
 	<?php
 		
