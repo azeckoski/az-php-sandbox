@@ -255,7 +255,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					$proposal = $conf_proposals[$session['proposals_pk']];
 
 					$total_length += $proposal['length'];
-
+                     if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
+                     	
 					//echo "<div class='grid_event'>\n";
 					echo "<tr><td valign='top' class='grid_event'>";
 					if($proposal['track']) {
@@ -283,6 +284,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						echo "<div class='grid_event_speaker'>".
 							htmlspecialchars($proposal['speaker'])."</div>\n";
 					}
+                     }
 					//echo "</div>\n";
 					echo "</td></tr>";
 				}
