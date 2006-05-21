@@ -81,7 +81,7 @@ if (!$PK) {
 				$msg = "Deleted item ($PK) and related data";
 				$PK = 0; // clear the PK
 				// redirect to the index page
-				header("Location:index2.php?msg=$msg");
+				header("Location:index.php?msg=$msg");
 			}
 		}
 	} else {
@@ -330,7 +330,7 @@ if ($_POST['save']) {
 		}
 
 		// redirect back to the index page
-		header("Location:index2.php?msg=$msg");
+		header("Location:index.php?msg=$msg");
 	}
 }
 ?>
