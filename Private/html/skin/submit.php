@@ -339,7 +339,7 @@ if ($User->checkPerm("admin_skin")) { $allowed = true; }
 				<a href="<?= $_SERVER['PHP_SELF'] ?>?pk=<?= $row['pk'] ?>&amp;del=1">del</a>]
 			</span>
 		</div>
-	</div>
+	</div><br/>
 <?php
 		} // end while
 	echo "<div style='text-align:left;font-size:10pt;margin-top:10px;'>" .
@@ -368,7 +368,8 @@ if ($User->checkPerm("admin_skin")) { $allowed = true; }
 	}
 	// TODO - add in admin approval and tested switches
 ?>
-</div>
+</div><br/>
+
 <div class="required" style="float:right;" id="requiredMessage"></div>
 </div>
 <table border="0" class="padded">
