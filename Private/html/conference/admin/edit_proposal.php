@@ -158,7 +158,7 @@ if (!$PK) {
 			if ($type=="demo") {
 			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
 			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div>";
-		} else if ($type="BOF"){
+		} else if ($type=="BOF"){
 			$Message = "<div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing BOF:  session </strong>"  
 			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div>";
 		}
@@ -402,7 +402,7 @@ if ($_POST['save']) {
    <td><strong><br/>Co-Presenters</strong><br/>(if any)</td>
    <td>  
       <div id="co_presenters">  List the names of your co-presenters, one name per line. 
-       <textarea name="co_speaker" cols="60" rows="4"><?= $_POST['co_speaker']  ?></textarea><br/>
+       <textarea name="co_speaker" cols="40" rows="4"><?= $_POST['co_speaker']  ?></textarea><br/>
      </div>
    </td>
 </tr>
