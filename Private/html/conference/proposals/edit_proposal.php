@@ -92,7 +92,76 @@ if (!$PK) {
 	}
 }
 
+
+// fetch the conference rooms
+$sql = "select * from conf_rooms where confID = '$CONF_ID'";
+$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
+$conf_rooms = array();
+while($row=mysql_fetch_assoc($result)) { $conf_rooms[$row['pk']] = $row; }
+
+// fetch the conference timeslots
+$sql = "select * from conf_timeslots where confID = '$CONF_ID'";
+$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
+$conf_timeslots = array();
+while($row=mysql_fetch_assoc($result)) { $conf_timeslots[$row['pk']] = $row; }
+
+// fetch the conf sessions
+$sql = "select * from conf_sessions where confID = '$CONF_ID' order by ordering";
+$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
+$conf_sessions = array();
+while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
+
+// fetch the proposals that have sessions assigned
+$sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, " .
+		"CP.type, CP.length from conf_proposals CP " .
+		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
+		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
+	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
+
+$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
+$conf_proposals = array();
+while($row=mysql_fetch_assoc($result)) { $conf_proposals[$row['pk']] = $row; }
+
+
+// now put these together into a 3D array
+$timeslots = array();
+foreach($conf_timeslots as $conf_timeslot) {
+	$rooms = array();
+	if ($conf_timeslot['type'] != 'event') {
+		// we don't need all the rooms inserted for rows that don't use them
+		$rooms['0'] = '0'; // placeholder
+	} else {
+		foreach($conf_rooms as $conf_room) {
+			$sessions = array();
+			foreach($conf_sessions as $conf_session) {
+				
+				if ($conf_session['timeslots_pk'] == $conf_timeslot['pk'] &&
+					$conf_session['rooms_pk'] == $conf_room['pk']) {
+						$sessions[$conf_session['pk']] = $conf_session;
+					}
+						
+				if($conf_session['proposals_pk']==$PK) {
+					$is_scheduled=true;
+					$this_session_pk=$sessions[$conf_session['pk']];
+					
+echo "<pre>",print_r($this_session_pk=$sessions[$conf_session['pk']]),"</pre><br/>";
+					
+						
+				}
+			}
+			$rooms[$conf_room['pk']] = $sessions;
+			$this_room[$conf_room['pk']] =$sessions;
+			
+		}
+	}
+	$timeslots[$conf_timeslot['pk']] = $rooms;
  
+}
+
+//echo "<pre>",print_r($conf_session['proposals_pk'] ),"</pre><br/>";
+					
+
+//echo "<pre>",print_r($items),"</pre><br/>";
 // Define the array of items to validate and the validation strings
 $vItems = array();
 $vItems['title'] = "required";
@@ -161,6 +230,14 @@ if ($_POST['save']) {
 			$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
 			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 
+		 	//if timeslot was selected for a BOF-  update the conf_sessions table
+		 	$session_pk=$_POST['bof_selection'];
+		 
+		 	if ($session_pk)  { //user selected a timeslot for the BOF
+		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$session_pk' ";
+		 	 $result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): ".mysql_error());
+		 	 
+		 	}
 		} else {  //this is a new  proposal so add this to the conf_proposals table
 	   
 	    $track=""; // tracks are determined after the voting process - except for Demos and BOFs
@@ -362,6 +439,7 @@ if ($PK) {
 					then enter wiki page's URL into this form so we can easily link to your BOF page.' 
 					[<a href="http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=178&Itemid=524" target=blank>more information</a>]
 				</div>
+			
     </td>
 </tr>
 <?php } else { ?>
@@ -471,6 +549,72 @@ if ($PK) {
     <td><strong>BOF wiki page URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
 </tr>
+
+<tr><td colspan=2>Instructions for selecting a time for the BOF.....<br/>
+<br/>Only unscheduled/available rooms should appear here.  Once a timeslot is selected, can it be changed?  
+If not, then their previous selection appears here instead. <br/><br/>
+       <?php 
+     //TODO 
+    //check to see if this proposal has been scheduled - then either allow
+    //user to shift to another timeslot or only display the current timeslot 
+    //
+    
+    if ($is_scheduled) {
+    echo 	$this_room[$conf_room['pk']] ."and " . $this_room[$conf_room['title']] ;
+  						
+    	echo "ROOM: " . $this_conf_session .$current_schedule_room;
+    	echo 		 date('l',strtotime($timeslot['start_time']))  . " " .
+				 		date('g:i a',strtotime($timeslot['start_time'])) . " - " .
+			     		 date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) . 
+			    			 " "  . $conf_room['title'] ." (capacity: " .  $conf_room['capacity'] .")"   . "</option>";
+					
+    
+    }
+      ?>
+ 		<div align=center><br/>
+ 		<?php
+ 		// create the grid
+		$line = 0;
+		$last_date = 0;
+		$conference_day = 0;
+		
+ 		?>
+ 		
+		<select name="bof_selection">
+		<option value=""> -- select a room/time --</option> 
+		<?php
+		foreach ($timeslots as $timeslot_pk=>$rooms) {
+			$line++;
+			$timeslot = $conf_timeslots[$timeslot_pk];
+		
+			//
+			foreach ($rooms as $room_pk=>$room) {
+				
+				$conf_room = $conf_rooms[$room_pk];
+				
+				if (is_array($room)) {
+					$counter = 0;
+					foreach ($room as $session_pk=>$session) {
+						$counter++;
+		
+						$proposal = $conf_proposals[$session['proposals_pk']];
+						
+						if (($proposal)==NULL){    //get only the list of open BOF slots
+						echo "<option value=" .$session['pk']. ">" . 
+							 date('l',strtotime($timeslot['start_time']))  . " " .
+				 		date('g:i a',strtotime($timeslot['start_time'])) . " - " .
+			     		 date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) . 
+			    			 " "  . $conf_room['title'] ." (capacity: " .  $conf_room['capacity'] .")"   . "</option>";
+						}
+					}	
+				}
+		  	}
+		}  
+		?>
+		</select>
+				</div>
+		</td>
+	</tr>
 <?php } ?>
 <?php if (($type!="demo") && ($type!="BOF")){ ?>
 <tr>
