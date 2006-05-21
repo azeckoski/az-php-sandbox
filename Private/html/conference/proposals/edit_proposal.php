@@ -49,7 +49,6 @@ if (!$PK) {
 	// no PK set so we must be adding a new item
 	$Message = "";
 	$allowed = true;	
-	$is_scheduled=false; 
 } else {
 	// pk is set, see if it is valid for this user
 	$check_sql = "select pk, users_pk from conf_proposals where pk='$PK'";
@@ -288,7 +287,18 @@ if ($_POST['save']) {
 				"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
 
 			$PK = mysql_insert_id(); //get this proposal_pk
+			
+			//now update the conf_session table if they selected a timeslot for the BOF
+			
+		 	$session_pk=$_POST['bof_selection'];
+		 
+		 	if ($session_pk)  { //user selected a timeslot for the BOF
+		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$session_pk' ";
+		 	 $result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): ".mysql_error());
+		 	 
+		 	}
 			$msg = "Created new $type: $title";
+
 
 		}  // finished handling new proposal submission
 
