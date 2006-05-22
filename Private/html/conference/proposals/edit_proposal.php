@@ -78,12 +78,16 @@ if (!$PK) {
 				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 				// NOTE: Don't forget to handle the deletion below as needed
 
+				
+			
+		 
 				$msg = "Deleted item ($PK) and related data";
 				$PK = 0; // clear the PK
 				// redirect to the index page
 				header("Location:index.php?msg=$msg");
 			}
 		}
+		
 	} else {
 		// PK does not match, invalid PK set to this page
 		$error = true;
@@ -112,7 +116,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, " .
-		"CP.type, CP.length from conf_proposals CP " .
+		"CP.type, CP.length, CP.URL, CP.wiki_url from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
@@ -211,12 +215,16 @@ if ($_POST['save']) {
 		$co_speaker=mysql_real_escape_string($_POST['co_speaker']);
 		$co_bio=mysql_real_escape_string($_POST['co_bio']);
 		$url=mysql_real_escape_string($_POST['URL']);
+		$wiki_url=mysql_real_escape_string($_POST['wiki_url']);
 
 		$type=$_POST['type'];
 		$layout=$_POST['layout'];
 		// NOTE: You cannot use length as an identifier, it is a reserved word in AJAX -AZ
-		$length=$_POST['Length'];
-
+		$length=$_POST['Length'];	
+		if ($type=="BOF") {
+	    	 $approved="Y";
+	    	 $length="90";
+	    }
 		$conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
 
 		$msg = "";
@@ -226,10 +234,10 @@ if ($_POST['save']) {
 					" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
 						" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio' , `layout`='$layout', " .
 						"`length`='$length' , `conflict`='$conflict' ," .
-						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio' where pk= '$PK'   ";
+						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `wiki_url` ='$wiki_url' where pk= '$PK'   ";
 
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
-				"registration form submission. Please try to submit the registration again. " .
+				" form submission. Please try to submit the registration again. " .
 				"If you continue to have problems, please report the problem to the " .
 				"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
 
@@ -238,24 +246,15 @@ if ($_POST['save']) {
 			//now delete the audiences for this proposal
 			$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
 			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
-
-
-			//now delete the schedule info for this session
-			$delete_sql = "delete from conf_sessions where proposals_pk='$PK'";
-			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
-
-			//now delete the topic ranking for this proposal
-			$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
-			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
-
-		 	//if timeslot was selected for a BOF-  update the conf_sessions table
+	//now update the conf_session table if they selected a timeslot for the BOF
+		 	 	//if timeslot was selected for a BOF-  update the conf_sessions table
 		 	$bof_timeslot=$_POST['bof_selection'];
-		 
 		 	if ($bof_timeslot)  { //user selected a timeslot for the BOF
 		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$bof_timeslot' ";
 		 	 $result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): ".mysql_error());
 		 	 
 		 	}
+		 	
 		} else {  //this is a new  proposal so add this to the conf_proposals table
 	  
 	    $track=""; // tracks are determined after the voting process - except for Demos and BOFs
@@ -276,10 +275,10 @@ if ($_POST['save']) {
 			//first add presentation information into --all data except role and topic data
 			$proposal_sql="INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, " .
 					"`title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` ," .
-					" `conflict` , `co_speaker` , `co_bio` , `approved`, `track` )
+					" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url` )
 				VALUES ( NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', " .
 				"'$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' ," .
-				" '$co_speaker' , '$co_bio' , '$approved', '$track' )";
+				" '$co_speaker' , '$co_bio' , '$approved', '$track', '$wiki_url')";
 			
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				"registration form submission. Please try to submit the registration again. " .
@@ -291,7 +290,6 @@ if ($_POST['save']) {
 			//now update the conf_session table if they selected a timeslot for the BOF
 		 	 	//if timeslot was selected for a BOF-  update the conf_sessions table
 		 	$bof_timeslot=$_POST['bof_selection'];
-		 
 		 	if ($bof_timeslot)  { //user selected a timeslot for the BOF
 		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$bof_timeslot' ";
 		 	 $result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): ".mysql_error());
@@ -438,6 +436,7 @@ if ($PK) {
 			<div id="requiredMessage"></div>
 		</td>
 	</tr>
+
 <?php if ($type=="demo") { ?>
   	<tr>
     <td colspan=2>
@@ -503,9 +502,9 @@ if ($PK) {
 					foreach ($room as $session_pk=>$session) {
 						$counter++;
 		
-						$proposal = $conf_proposals[$session['proposals_pk']];
+						$bof_session_check = $conf_proposals[$session['proposals_pk']];
 			
-						if ($proposal==0){    //get only the list of open BOF slots
+						if ($bof_session_check==0){    //get only the list of open BOF slots
 						echo "<option value=" .$session['pk']. ">" . 
 							 date('l',strtotime($timeslot['start_time']))  . " " .
 				 		date('g:i a',strtotime($timeslot['start_time'])) . " - " .
@@ -628,7 +627,7 @@ if ($PK) {
 	
 <tr>
     <td><strong>BOF wiki page URL </strong></td>
-    <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
+    <td>http://www.example.com<br/><input type="text" name="wiki_url" size="35" value="<?= $_POST['wiki_url']  ?>" maxlength="100" /></td>
 </tr>
 
 <?php } //bof check
@@ -776,7 +775,7 @@ if ($PK) {
           <input name="Length" type="radio" value="60" <?php if ($_POST['length']=="60") { echo "checked"; } ?> /> 60 minutes  <br/>
           <input name="Length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
           <input name="Length" type="radio" value="120" <?php if ($_POST['length']=="120") { echo "checked"; } ?> /> 120 minutes  <br/>
-		<input type="hidden" id="LengthValidate" value="<?= $vItems['length'] ?>" />
+		<input type="hidden" id="LengthValidate" value="<?= $vItems['Length'] ?>" />
 		<span id="LengthMsg"></span>
      </td>
   </tr>
@@ -837,7 +836,7 @@ if ($PK) {
 	while($item=mysql_fetch_assoc($result)) {
 ?>
 	<li><a href="edit_proposal.php?pk=<?= $item['pk']?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
-		[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
+		[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;session_pk=<?= $PK?>" 
 			title="Delete this proposal"
 			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]
 	</li>
