@@ -186,6 +186,7 @@ switch ($filter_track){
  	case "Implementors": $filter_track_sql = " and track='Implementors' "; break;
  	case "Technology": $filter_track_sql = " and track='Technology' "; break;
  	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
+  	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
  	case "BOF": $filter_track_sql = " and track='BOF' "; break;
  	case "Demo": $filter_track_sql = " and track='Demo' "; break;
 	case ""; // show all items
@@ -307,6 +308,7 @@ if (!$_REQUEST["export"]) {
 			<option value="Implementors">Implementors</option>
 			<option value="Technology">Technology</option>
 			<option value="Tool Overview">Tool Overview</option>
+			<option value="Multiple Audiences">Multiple Audiences</option>
 			<option value="BOF">BOF</option>
 			<option value="Demo">Demo</option>
 			<option value="show all tracks">show all tracks</option>
