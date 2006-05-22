@@ -267,7 +267,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 <?php } ?>
 		</td>
 		<td class="small_text">
-			<label title="<?= stripslashes($conf_proposal['abstract']) ?>">
+			<label title="<?= mysql_real_escape_string($conf_proposal['abstract']) ?>">
 				<?= $conf_proposal['title'] ?>
 			</label>
 		</td>
