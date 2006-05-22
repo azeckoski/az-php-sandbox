@@ -64,7 +64,7 @@ $conf_sessions = array();
 while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
-$sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.URL, " .
+$sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.URL, CP.wiki_url," .
 		"CP.type, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'";
@@ -280,7 +280,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 							str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">" .
 							htmlspecialchars($proposal['title'])."</label>";
 					if ($isAdmin) {
-						echo "&nbsp;<a href='delete_session.php?pk=".$session_pk."'>x</a>";
+						echo "&nbsp;<a href='delete_session.php?pk=".$session_pk ."&amp;type=" .$proposal['type'] ." '>x</a>";
 					}
 					echo "</div>\n";
 					if($proposal['speaker']) {
@@ -291,9 +291,9 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
                      }
 					//echo "</div>\n";
 					if($proposal['type']=="BOF") {
-					  if ($proposal['URL']) { /* a project URL was provided */
-					  	$url=$proposal['URL'];
-						echo"<div align=left><br/><strong>info: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
+					  if ($proposal['wiki_url']) { /* a project URL was provided */
+					  	$url=$proposal['wiki_url'];
+						echo"<div align=left><br/><strong> info: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
 					}
 					}
 					echo "</td></tr>";

@@ -30,14 +30,22 @@ if (!$User->checkPerm("admin_conference")) {
 	$allowed = 1;
 }
 
-
+$type = $_REQUEST["type"]; // grab the proposal type
+echo $type;
 // remove this session so we can put this proposal somewhere else
 if ($_REQUEST['pk'] && $allowed) {
 	$session_pk = $_REQUEST['pk'];
 
 	if ($_REQUEST['confirm']) {
+		if ($type=="BOF"){
+			
+		$sql = "UPDATE conf_sessions set proposals_pk='0' where pk = '$session_pk'";
+		$result = mysql_query($sql) or die("Sessions remove failed ($sql): " . mysql_error());
+		
+		}  else {
 		$sql = "DELETE from conf_sessions where pk = '$session_pk'";
 		$result = mysql_query($sql) or die("Sessions remove failed ($sql): " . mysql_error());
+		} 
 		$Message = "Removed proposal from timeslot/room";
 		if ($Message) {
 			$msg = "?msg=".$Message;
@@ -48,7 +56,7 @@ if ($_REQUEST['pk'] && $allowed) {
 	} else {
 		$Message = "<div style='border:3px solid #9999FF;padding:3px;text-align:center;'>" .
 			"Are you sure you want to remove this session?<br/>" .
-			"<a href='".$_SERVER['PHP_SELF']."?confirm=1&amp;pk=".$session_pk."'>yes</a> " .
+			"<a href='".$_SERVER['PHP_SELF']."?confirm=1&amp;pk=".$session_pk ."&amp;type=$type" ."'>yes</a> " .
 			"&nbsp; <a href='schedule.php'>no</a></div>";
 	}
 } else {

@@ -29,7 +29,6 @@ if (!$User->checkPerm("admin_conference")) {
 } else {
 	$allowed = true;
 }
-
 // this restricts the viewing by date
 $viewing = false;
 $EXTRA_LINKS .= "<div class='date_message'>";
@@ -260,6 +259,10 @@ if (!$_REQUEST["export"]) {
 ?>
 
 <?= $Message ?>
+
+<?= $msg ?>
+
+
 
 <form name="voteform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
@@ -530,12 +533,13 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){
 	
 }
 	?>
-		( <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1" ?>">edit</a> | 
+		( <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1" ?>">edit</a>
+		<!--	 | 
 		 
-		<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
+	<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;type=<?=$item['type']?>" 
 			title="Delete this proposal"
-			onClick="return confirm('Are you sure you want to delete this proposal?');" >delete</a> )
-		</div>
+			onClick="return confirm('Are you sure you want to delete this proposal?');" >delete</a> --> )  
+			</div>
 	<?php
 		
 	echo "<div style='margin:6px;'></div>";
