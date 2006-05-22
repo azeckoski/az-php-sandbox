@@ -836,10 +836,10 @@ if ($PK) {
 	while($item=mysql_fetch_assoc($result)) {
 ?>
 	<li><a href="edit_proposal.php?pk=<?= $item['pk']?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
-		[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;session_pk=<?= $PK?>" 
+		<!-- [<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
 			title="Delete this proposal"
-			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]
-	</li>
+			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]  -->
+		</li>
 <?php
 		} // end while
 		echo "<li>[ <a title='Create a new proposal' href='index.php'>new proposal</a> ]</li>";
