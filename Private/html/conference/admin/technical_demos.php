@@ -107,14 +107,14 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 $recipient = $this_email;
 $subject= "Your Sakai Vancouver Conference Technical Demo";
 //send the mail to attendee
-mail($recipient, $subject, $msg, $headers);
+//mail($recipient, $subject, $msg, $headers);
 
 		
 //set up mail for the susan
 $recipient = "shardin@umich.edu";
 $subject= "Your Sakai Vancouver Conference Technical Demo ";
 //send the mail to attendee
-mail($recipient, $subject, $msg, $headers);
+//mail($recipient, $subject, $msg, $headers);
 
 
 
@@ -142,9 +142,9 @@ function orderBy(newOrder) {
 
 
 <?= $Message ?>
-<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
+<!-- <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="send" value="1"/>
-<table>
+<table> -->
 
 
 <?php 
