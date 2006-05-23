@@ -276,8 +276,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 								
 						
 							}
-						//echo "<tr><td valign='top' class='grid_event break' >";
-					//<div class='break' align>$break_time break</div><tr></td>";
+						echo "<tr><td valign='top' class='grid_event break' >" .
+					" <div class='break' align>$break_time break</div><tr></td>";
 					
 					}
 					
