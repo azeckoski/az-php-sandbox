@@ -355,17 +355,39 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			// TODO - try to get the sessions to fill the cells
 			// session check here
 			$total_length = 0;
+			
+				//clear any previous time set for second timeslot 
+				
+			
 			if (is_array($room)) {
 				$counter = 0;
-
+							
+				
+				
+		
+						
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
-
+			
+			
 					$proposal = $conf_proposals[$session['proposals_pk']];
 				if ($proposal){
 					$total_length += $proposal['length'];
 
-					//echo "<div class='list_event'>\n";
+		
+					 //get the start and end time for this timeslot
+				$start_time=date('g:i a',strtotime($timeslot['start_time']) );				 
+				$end_time=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] ) *60));
+	
+				if ($counter >1){	 //more than one session in this room block
+						
+					$start_time=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+					//must calculate both previous session and length of this curent session plus break to get end time
+					$end_time=date('g:i a',strtotime($timeslot['start_time']) + (($proposal['length'] * 2 +10) *60));
+						//print the break block	
+					
+					}
+				//echo "<div class='list_event'>\n";
 						//echo "<tr><td align='left' colspan='".count($conf_rooms)."'>".$timeslot['title']."</td></tr>";
 						
 					$trackclass = str_replace(" ","_",strtolower($proposal['track']));
@@ -379,10 +401,11 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				echo "</div</td>\n";
 				?>
 				<td class="list_time" nowrap='y'>
-				<?=  date('l',strtotime($timeslot['start_time'])) ?><br/>
-				<?= date('g:i a',strtotime($timeslot['start_time'])) ?>
-						 -  
-				<?= date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
+					<?php
+							echo $start_time ." to " .$end_time;
+						
+					
+					?>
 			<br/><span class="list_room"><?= $conf_room['title'] ?></span>
 			
 			</td>
