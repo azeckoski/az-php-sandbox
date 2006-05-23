@@ -254,6 +254,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
+					$start_time2="";  //for calculatulating second session in same timeslot
 
 					$proposal = $conf_proposals[$session['proposals_pk']];
 
@@ -261,12 +262,39 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
                      if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
                      	
 					//echo "<div class='grid_event'>\n";
-					echo "<tr><td valign='top' class='grid_event'>";
-					if($proposal['track']) { 
-						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
-						echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>\n";
+					
+					if ($counter >1){	
+							$start_time1=date('g:i a',strtotime($timeslot['start_time']) );
+					
+							if ($proposal['track']=="Tool Overview"){  
+								$break_time="10 min. ";
+										$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+								
+							} else {  
+								$break_time="15 min. ";
+							     $start_time2=date('g:i a',strtotime($timeslot['start_time']) + (40 *60));
+								
+						
+							}
+						//echo "<tr><td valign='top' class='grid_event break' >";
+					//<div class='break' align>$break_time break</div><tr></td>";
+					
 					}
 					
+					echo "<tr><td valign='top' class='grid_event'>";
+					
+					if($proposal['track']) { 
+					 
+						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
+					
+					
+						echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>\n";
+						if  ($start_time2) {
+						echo "<strong> " . $start_time2 ."</strong>";
+					}
+						
+					}
+						
 					
 					if($proposal['type']=="BOF") { //don't list the type on the schedule
 						$typeclass = "";
@@ -275,6 +303,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
 						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
+					
 					echo "<div class='grid_event_text $typeclass'>" .
 							"<label title=\"".
 							str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">" .
