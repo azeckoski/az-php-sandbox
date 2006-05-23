@@ -1,13 +1,5 @@
 <?php
 /*
- * Created on May 19, 2006
- * Susan Hardin 
- * for web presentation in conference site
- * Window - Preferences - PHPeclipse - PHP - Code Templates
- */
-?>
-<?php
-/*
  * file: schedule.php
  * Created on May 09, 8:00 PM by @author aaronz
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
@@ -16,14 +8,39 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Scheduling";
+$PAGE_NAME = "Technical Demo info and email";
 $Message = "";
 
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 
+// check authentication
+require $ACCOUNTS_PATH.'include/check_authentic.php';
 
+// login if not autheticated - not required
+//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
+// THIS PAGE IS ACCESSIBLE BY ANYONE
+// Make sure user is authorized for admin perms
+$isAdmin = false; // assume user is NOT allowed unless otherwise shown
+$hide_bof_rooms = false; // flag to hide the BOF rooms
+if (!$User->checkPerm("admin_conference")) {
+	$isAdmin = false;
+	$hide_bof_rooms = true;
+} else {
+	$isAdmin = true;
+	$hide_bof_rooms = false;
+}
+
+// get the passed message if there is one
+if($_GET['msg']) {
+	$Message = "<div class='message'>".$_GET['msg']."</div>";
+}
+
+// get the passed message if there is one
+if($_REQUEST['hbr']) {
+	$hide_bof_rooms = true;
+}
 // First get the list of proposals and related users for the current conf 
 // (maybe limit this using a search later on)
 $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
@@ -49,23 +66,6 @@ $DATE_FORMAT = "M d, Y h:i A";
 
 	if ($_REQUEST['send'])   {
 		echo "DONE";
-	
-
-// First get the list of proposals and related users for the current conf 
-// (maybe limit this using a search later on)
-$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
-	"U1.firstname||' '||U1.lastname as fullname, CV.vote, " .
-	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
-	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
-	"and CV.users_pk='$User->pk' " .
-	"where CP.confID = '$CONF_ID'" . $sqlsorting . $mysql_limit;
-
-//print "SQL=$sql<br/>";
-$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-$items = array();
-
-// put all of the query results into an array first
-while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
 
 //echo "<pre>",print_r($items),"</pre>"; 
 	
@@ -91,10 +91,6 @@ $msg .="We will be posting the Technical Demo details to the site later today.  
 	 	 $msg.="\r\nThank You\r\n      Susan Hardin\r\nwww.sakaiproject.org webmaster\r\n";
 	 	
  
-	 
-//echo $msg;
-	
-//	echo "<br/><br/><br/>";
 	
 // This is a better set of mail headers -AZ
 ini_set(SMTP, $MAIL_SERVER);
