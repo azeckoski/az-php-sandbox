@@ -226,15 +226,29 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 ?>
 <tr class="<?= $linestyle ?>">
 	<td class="time" nowrap='y'>
-		<?= date('g:i a',strtotime($timeslot['start_time'])) ?>
+	<?php 
+	if (($timeslot['type']!="lunch") && ($timeslot['type']!="break") ){ ?>
+		<?=  date('g:i a',strtotime($timeslot['start_time'])) ?>
 		 -<br/>
 		<?= date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
+	<?php }
+	
+	?>
 	</td>
 
 
 <?php
+
 	if ($timeslot['type'] != "event") {
-		echo "<td align='center' colspan='".count($conf_rooms)."'>".$timeslot['title']."</td>";
+		
+	if (($timeslot['type']=="lunch") || ($timeslot['type']=="break") ){ 
+		
+		echo "<td align='center' colspan='".count($conf_rooms)."'><div style='font-size:.9em;'>".$timeslot['title']."</div></td>";
+	
+	} else {
+	echo "<td align='center' colspan='".count($conf_rooms)."'><div style='font-size:.9em;'><strong>".$timeslot['title']."</strong></div></td>";
+		
+	}
 	} else {
 		// print the grid selector
 		foreach ($rooms as $room_pk=>$room) {
@@ -254,8 +268,12 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
-					$start_time2="";  //for calculatulating second session in same timeslot
-
+					//get the starttime for this timeslot
+					$start_time1=date('g:i a',strtotime($timeslot['start_time']) );
+					
+					//clear any previous time set for second timeslot 
+					$start_time2="";
+					  
 					$proposal = $conf_proposals[$session['proposals_pk']];
 
 					$total_length += $proposal['length'];
@@ -263,35 +281,29 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
                      	
 					//echo "<div class='grid_event'>\n";
 					
-					if ($counter >1){	
-							$start_time1=date('g:i a',strtotime($timeslot['start_time']) );
-					
-							if ($proposal['track']=="Tool Overview"){  
-								$break_time="10 min. ";
-										$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
-								
-							} else {  
-								$break_time="15 min. ";
-							     $start_time2=date('g:i a',strtotime($timeslot['start_time']) + (40 *60));
-								
-						
-							}
-						echo "<tr><td valign='top' class='grid_event break' >" .
-					" <div class='break' align>$break_time break</div><tr></td>";
+					if ($counter >1){	 //more than one session in this room block
+						$break_time="10 min. ";
+						$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+					//print the break block	
+						echo "<tr><td valign='top'><div style='padding: 2px 0px;'><div class='grid_event break'>" .
+					" <div class='break' align=center> break</div></div><tr></td>";
 					
 					}
 					
 					echo "<tr><td valign='top' class='grid_event'>";
-					
+							if  ($start_time2) {  //there is a second session so print that start time
+						echo "<strong> "  . $start_time2 ."</strong>";
+						} else { 
+						//	echo "<strong> "  . $conf_room['title'] ." " .  $start_time1 ."</strong>";
+						
+					}
 					if($proposal['track']) { 
 					 
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
 					
 					
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>\n";
-						if  ($start_time2) {
-						echo "<strong> " . $start_time2 ."</strong>";
-					}
+				
 						
 					}
 						
@@ -301,7 +313,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					}
 					 else if($proposal['type']) {
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
-						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
+					//	echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
 					if ($isAdmin) { //let the admins link to the edit page
 					?>
