@@ -131,7 +131,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, " .
-		"CP.type, CP.length, CP.URL, CP.wiki_url from conf_proposals CP " .
+		"CP.type, CP.length, CP.URL, CP.approved,  CP.wiki_url, CP.track from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
@@ -195,15 +195,17 @@ foreach($conf_timeslots as $conf_timeslot) {
 
 //echo "<pre>",print_r($items),"</pre><br/>";
 // Define the array of items to validate and the validation strings
-$vItems = array();
-$vItems['title'] = "required";
-$vItems['abstract'] = "required";
-$vItems['desc'] = "required";
-$vItems['speaker'] = "required";
-$vItems['bio'] = "required";
-$vItems['type'] = "required";
-$vItems['layout'] = "required";
-$vItems['length'] = "required";
+/****
+ * $vItems = array();
+ * $vItems['title'] = "required";
+ * $vItems['abstract'] = "required";
+ * $vItems['desc'] = "required";
+ * $vItems['speaker'] = "required";
+ * $vItems['bio'] = "required";
+ * $vItems['type'] = "required";
+ * $vItems['layout'] = "required";
+ * $vItems['length'] = "required";
+ */
 
 
 //echo "<pre>",print_r($_POST),"</pre>";
@@ -211,14 +213,14 @@ $vItems['length'] = "required";
 if ($_POST['save']) { 
 // DO SERVER SIDE VALIDATION
 	$errors = 0;
-	$validationOutput = ServerValidate($vItems, "return");
+	//$validationOutput = ServerValidate($vItems, "return");
 	if ($validationOutput) {
 		$errors++;
 		$Message = "<fieldset><legend>Validation Errors</legend>".
 			"<b style='color:red;'>Please fix the following errors:</b><br/>".
 			$validationOutput."</fieldset>";
 	}
-
+	$errors=0;  //override the validation for admin_conference 
 	if ($errors == 0) {
 	// saving the form
 		
@@ -242,15 +244,13 @@ if ($_POST['save']) {
 		if ($PK)  { 
 			
 			   $track=""; // tracks are determined after the voting process - except for Demos and BOFs
-	    if ($type=="demo") {
-	    	 $track="Demo";
-	    } else  if ($type=="BOF") {
-	    	 $track="BOF";
-	    }
-	    $approved="";
+	 
+	    
 	    if ($type=="demo") {
 	    	 $approved="Y";
+	    	  	 $track="Demo";
 	    } else  if ($type=="BOF") {
+	    	 $track="BOF";
 	    	 $approved="Y";
 	    	 $length="90";
 	    } //this proposal has been edited
