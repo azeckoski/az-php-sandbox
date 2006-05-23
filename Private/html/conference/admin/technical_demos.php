@@ -83,9 +83,10 @@ $DATE_FORMAT = "M d, Y h:i A";
 	$msg.="Description: " . $item['description'] ."\r\n";
 	$msg.="Presenter(s): " . $item['speaker'] ."\r\n";
 	
-	$msg.="Technical Demos are schedule for:  Thursday, June 1st, from 5:30 pm to 7:30 pm:\r\n";
+	$msg.="Technical Demos are schedule for:  Thursday, June 1st, from 5:30 pm to 7:30 pm in Rooms JR ABCD\r\n\r\n";
 	
-$msg .="We will be posting the Technical Demo details to the site later today.  The draft schedule for the Sakai Vancouver conference Presentation is also now available at https://www.sakaiproject.org/conference/admin/schedule.php. " .
+$msg .=" Technical Demo details can be seen at http://sakaiproject.org/index.php?option=com_content&task=blogcategory&id=173&Itemid=523. \r\n\r\n" .
+		" The draft schedule for the Sakai Vancouver conference Presentation is also now available at https://www.sakaiproject.org/conference/admin/schedule.php. \r\n\r\n " .
 		"  Please email Wende Morgaine at wendemm@gmail.com or Susan Hardin at shardin@umich.edu with any corrections or comments regarding this information.  \r\n";
 	 
 	 	 $msg.="\r\nThank You\r\n      Susan Hardin\r\nwww.sakaiproject.org webmaster\r\n";
@@ -111,7 +112,7 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 		
 //set up mail for the susan
 $recipient = "shardin@umich.edu";
-$subject= "Your Sakai Vancouver Conference Technical Demo";
+$subject= "Your Sakai Vancouver Conference Technical Demo $this_email";
 //send the mail to attendee
 mail($recipient, $subject, $msg, $headers);
 
