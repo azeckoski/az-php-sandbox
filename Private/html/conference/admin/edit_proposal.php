@@ -249,7 +249,9 @@ if ($_POST['save']) {
 	    if ($type=="demo") {
 	    	 $approved="Y";
 	    	  	 $track="Demo";
-	    } else  if ($type=="BOF") {
+	    } 
+	    
+	    if ($type=="BOF") {
 	    	 $track="BOF";
 	    	 $approved="Y";
 	    	 $length="90";
