@@ -303,7 +303,12 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
 						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
-					
+					if ($isAdmin) { //let the admins link to the edit page
+					?>
+						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1">edit </a>) </div>
+					<?php 
+						
+					}
 					echo "<div class='grid_event_text $typeclass'>" .
 							"<label title=\"".
 							str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">" .
