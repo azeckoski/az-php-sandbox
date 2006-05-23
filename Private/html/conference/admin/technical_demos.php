@@ -104,15 +104,15 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 	
 			
 //set up mail for the speaker
-//$recipient = $this_email;
-//$subject= "Your Sakai Vancouver Conference Technical Demo";
+$recipient = $this_email;
+$subject= "Your Sakai Vancouver Conference Technical Demo";
 //send the mail to attendee
-//mail($recipient, $subject, $msg, $headers);
+mail($recipient, $subject, $msg, $headers);
 
 		
 //set up mail for the susan
 $recipient = "shardin@umich.edu";
-$subject= "Your Sakai Vancouver Conference Technical Demo $this_email";
+$subject= "Your Sakai Vancouver Conference Technical Demo ";
 //send the mail to attendee
 mail($recipient, $subject, $msg, $headers);
 
