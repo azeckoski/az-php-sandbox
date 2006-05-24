@@ -425,7 +425,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					echo " with ";
 					echo htmlspecialchars($proposal['co_speaker']);	
 				}
-				if ($proposal['bio']) {
+				if (trim($proposal['bio'])) {
 					echo "<br/><br/><strong>Bio: </strong>" .$proposal['bio'];
 				}
 				echo "</div></td><td width=30% class='list_event_text'><div><span style='color:#000;'><strong>Abstract: </strong></span>";
@@ -433,7 +433,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				if (!$proposal['abstract']) {
 				echo " not available";
 				}else {
-					echo htmlspecialchars($proposal['abstract']);
+					echo nl2br(trim(htmlspecialchars($proposal['abstract'])));
 							
 				}
 				if($proposal['type']=="BOF") {
