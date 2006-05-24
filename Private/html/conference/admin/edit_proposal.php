@@ -39,6 +39,10 @@ if($_GET['msg']) {
 
 $PK = $_REQUEST["pk"]; // grab the pk
 $type = $_REQUEST["type"]; // grab the proposal type
+
+$location = $_REQUEST["location"]; //find out which page admin is editing from 
+
+
 $error = false; // preset the error flag to no errors
 $allowed = false; // assume user is NOT allowed unless otherwise shown
 
@@ -98,6 +102,8 @@ if (!$PK) {
 				$msg = "Deleted item ($PK) and related data";
 				$PK = 0; // clear the PK
 				// redirect to the index page
+				
+				
 				header("Location:proposals_results.php?msg=$msg");
 			}
 		}
@@ -317,7 +323,13 @@ if ($_POST['save']) {
 			}
 		}
 	//return to previous anchor row
-	header("Location:proposals_results.php#anchor$PK");
+	echo $location;
+	if (!$location) {
+			header("Location:proposals_results.php#anchor$PK");
+	} else {
+		header("Location:schedule.php#anchor$PK");
+	
+	}
 	
 	}
 }
@@ -408,6 +420,7 @@ if ($PK) {
   <form name="form1" id="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
    <input type="hidden" name="save" value="1" />
    <input type="hidden" name="pk" value="<?= $PK ?>" />
+      <input type="hidden" name="location" value="<?= $location ?>" />
 
 
    	<table width="100%"  cellpadding="0" cellspacing="0">

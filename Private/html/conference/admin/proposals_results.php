@@ -533,7 +533,7 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){
 	
 }
 	?>
-		( <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1" ?>">edit</a>
+		( <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1&amp;location=0" ?>">edit</a>
 		<!--	 | 
 		 
 	<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;type=<?=$item['type']?>" 

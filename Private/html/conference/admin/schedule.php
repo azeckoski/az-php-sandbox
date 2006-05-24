@@ -317,7 +317,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					}
 					if ($isAdmin) { //let the admins link to the edit page
 					?>
-						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1">edit </a>) </div>
+						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=1">edit </a>) </div>
 					<?php 
 						
 					}
