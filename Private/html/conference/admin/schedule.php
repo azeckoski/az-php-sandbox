@@ -294,7 +294,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
 					//print the break block	
 						echo "<tr><td valign='top'><div style='padding: 2px 0px;'><div class='grid_event break'>" .
-					" <div class='break' align=center> break</div></div><tr></td>";
+					" <div class='break' align=center> $break_time break</div></div><tr></td>";
 					
 					}
 					
