@@ -234,17 +234,14 @@ if ($_POST['save']) {
 		$track=$_POST['track'];
 		$url=$_POST['URL'];
 		$wiki_url=mysql_real_escape_string($_POST['wiki_url']);
-		
+	
 		
 		$type=$_POST['type'];
 		$layout=$_POST['layout'];
 		$length=$_POST['Length'];
 		$conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
 		$approved=$_POST['approved'];
-		if ($PK)  { 
-			
-			   $track=""; // tracks are determined after the voting process - except for Demos and BOFs
-	 
+	
 	    
 	    if ($type=="demo") {
 	    	 $approved="Y";
@@ -291,7 +288,7 @@ if ($_POST['save']) {
 		 	 
 		 	}
 		 	}
-		}  // finished handling proposal edits
+		 // finished handling proposal edits
 
 	// go through all the POST values and add any topics or audience items
 		// to the appropriate tables
