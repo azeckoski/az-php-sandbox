@@ -152,7 +152,7 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 	<tr>
 		<td nowrap="y"><b style="font-size:1.1em;">Conference schedule:</b></td>
 		<td nowrap="y" colspan="5">
-			<div style="float:left; padding-right: 30px;"><a href="schedule_details.php"><strong>List View  <img src="../include/images/arrow.gif" border=0 height=9 width=9/></a>
+			<div style="float:left; padding-right: 30px;"><a href="schedule_details.php"><strong>List View  <img src="../include/images/arrow.gif" border=0 height=9 width=9/></strong></a>
 			</div><div style="float:left;">
 				<strong><?= $CONF_NAME ?></strong>
 <?php $confDateFormat = "g:i a, l, M j, Y"; ?>
@@ -265,7 +265,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			if ($conf_room && $conf_room['BOF'] == 'Y' && $hide_bof_rooms) { continue; }
 
 			// TODO - try to get the sessions to fill the cells
-			echo "<td valign='top' class='grid' style='height:30%;'>";
+			echo "<td valign='top' class='grid' style='height:10%;'>";
 			// try tables instead of divs
 			echo "<table style='width:100%;height:100%;' cellpadding='0' cellspacing='0'>";
 
@@ -293,8 +293,13 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$break_time="10 min. ";
 						$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
 					//print the break block	
-						echo "<tr><td valign='top'><div style='padding: 2px 0px;'><div class='grid_event break'>" .
-					" <div class='break' align=center> $break_time break</div></div><tr></td>";
+						echo "<tr><td valign='top'>";
+					?>
+						
+						 <a name="anchor<?= $proposal['pk'] ?>"></a>
+						<?php
+						echo "<div class='grid_event break'>" .
+					"break</div></td></tr>";
 					
 					}
 					
@@ -310,7 +315,9 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
 					
 					
-						echo "<div class='grid_event_header $trackclass'>".$proposal['track']."</div>\n";
+						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
+			
+						echo "</div>\n";
 				
 						
 					}
@@ -320,6 +327,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$typeclass = "";
 					}
 					 else if($proposal['type']) {
+					 	$typeclass = "";
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
 						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
@@ -350,7 +358,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						echo"<div align=left><br/><strong> info: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
 					}
 					}
-					echo "</td></tr>";
+					
 				}
 				
 			}
@@ -387,14 +395,16 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 the unused time available in that cell.</div>
 <div>When no more time remains in an event timeslot, the number and + will not be shown.</div>
 <div>
+<ul>
 <li><strong>Adding sessions to the schedule:</strong> Clicking on the 
 <strong><a href="" class="grid" style="font-size:1.1em;">+</a></strong> will take you to 
 a screen with a list of the currently approved proposals.</li>
 <li><strong>Removing sessions form the schedule:</strong> 
 Clicking on the <strong><a href="" class="grid" style="font-size:1.1em;">x</a></strong>
 to the right of a session title will take you to a delete confirmation screen.
-</div>
 </li>
+</ul>
+</div>
 </div>
 </div>
 <?php } ?>
