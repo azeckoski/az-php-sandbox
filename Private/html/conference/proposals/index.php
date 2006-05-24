@@ -112,7 +112,8 @@ if ($_POST['save']) { // saving the form
 			</div>
 				<div><input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />&nbsp;&nbsp;<strong>Technology Demo</strong><br/>
 					<div style="padding: 0px 40px;">
-					Technology Demos will take place on Thursday, June 1st. Sign up early to guarantee space and equipment availability. 
+					Technology Demos will take place on Thursday, June 1st.<br/><br/><strong> PLEASE NOTE:</strong>  We have filled our space/equipment allocations for the technical demos.  However, you may still submit
+					a Tech Demo Proposal-  we will put your name on the demo list -- but Can Not guarantee a space at this time.  Please check with the registration desk when you arrive.  If more space becomes available or others cancel their demo, we may be able to accomodate you at the last minute.
 					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]<br/><br/>
 				</div>
 			</div>
