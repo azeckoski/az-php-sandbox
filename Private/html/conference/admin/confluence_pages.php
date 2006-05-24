@@ -355,61 +355,78 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
-
+			
+					//clear any previous time set for second timeslot 
+					$start_time2="";
+					  
 					$proposal = $conf_proposals[$session['proposals_pk']];
+					$day=date('l',strtotime($timeslot['start_time']) );
+					
 				if ($proposal){ 
 				//this is for the confluence pages
-?>
-
-<div style="padding: 20px 10px; border-bottom:1px solid #336699;">
-<?php 				
-				echo "h2." .$proposal['title'] ."<br/><br/>";   
-
-echo  $proposal['speaker'] . $proposal['co_speaker'] . "<br/><br/>";   
-
-echo date('l',strtotime($timeslot['start_time'])) ."<br/>";
-
-
-
-echo date('g:i a',strtotime($timeslot['start_time'])) ." - " .date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ."<br/>";
-echo "Room: " .  $conf_room['title'] ." <br/><br/>";
-
-echo "h2. Session Abstract <br/><br/>"; 
-
-echo "{excerpt}<br/>" .$proposal['abstract'] ."<br/>{excerpt}<br/><br/>";   
-
-echo "h2. Presentation Materials <br/><br/>";
-
-echo "* Session leaders are encouraged to post their presentation materials as Attachments to this Page.  (See Attachments tab above.)<br/><br/>";
-
-
-echo "h2. Podcasts <br/><br/>";
-
-echo "* Session leaders are encouraged to post their podcasts on the main Vancouver Podcasts page (a central repository of podcasts) and may also choose to link to them from their session page.  See the main Vancouver conference wiki page for more details.  <br/><br/>";
-
-
-
-echo "h2. Additional Information<br/><br/>";
-
-echo "* Session leaders are also encouraged to appoint a session convener, a podcast recorder and/or a note-taker and post the minutes of their session on a Page (see Add Page link near top-right.)<br/><br/>";
-
-echo "* Participants and Session Leaders are encouraged to post Comments (see Comment form below) or create additional Pages as needed to facilitate collaboration (see Add Page link near top-right.) )<br/><br/>";
-
-echo "** Child Pages for this session (Added Pages will automatically appear in this list)<br/><br/>";
-
+						//get the starttime for this timeslot
+					$start_time1=date('g:i a',strtotime($timeslot['start_time']) );
+					$end_time=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] ) *60));
+	
+							
+				?>
 				
-	?>
-	</div>
-	<?php			
+				<div style="padding: 20px 10px; border-bottom:1px solid #336699;">
+				<?php 				
+								echo "h2." .$proposal['title'] ."<br/><br/>";   
 				
-				}
-			
-		}
+				echo  $proposal['speaker'] . $proposal['co_speaker'] . "<br/><br/>";   
+				echo $day ."<br/>";
+				if ($counter >1){	 //more than one session in this room block
+								
+					$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+					}
+				if  ($start_time2) {  //there is a second session so print that start time
+						echo $start_time2 ." - ";
+					}
+				else {
+						echo $start_time1 ." - ";
+					}
+					echo $end_time . "<br/>";
 		
-	}
-  }
-} 
-?>
+		echo "Room: " .  $conf_room['title'] ." <br/><br/>";
+		
+		echo "h2. Session Abstract <br/><br/>"; 
+		
+		echo "{excerpt}<br/>" .$proposal['abstract'] ."<br/>{excerpt}<br/><br/>";   
+		
+		echo "h2. Presentation Materials <br/><br/>";
+		
+		echo "* Session leaders are encouraged to post their presentation materials as Attachments to this Page.  (See Attachments tab above.)<br/><br/>";
+		
+		
+		echo "h2. Podcasts <br/><br/>";
+		
+		echo "* Session leaders are encouraged to post their podcasts on the main Vancouver Podcasts page (a central repository of podcasts) and may also choose to link to them from their session page.  See the main Vancouver conference wiki page for more details.  <br/><br/>";
+		
+		
+		
+		echo "h2. Additional Information<br/><br/>";
+		
+		echo "* Session leaders are also encouraged to appoint a session convener, a podcast recorder and/or a note-taker and post the minutes of their session on a Page (see Add Page link near top-right.)<br/><br/>";
+		
+		echo "* Participants and Session Leaders are encouraged to post Comments (see Comment form below) or create additional Pages as needed to facilitate collaboration (see Add Page link near top-right.) )<br/><br/>";
+		
+		echo "** Child Pages for this session (Added Pages will automatically appear in this list)<br/><br/>";
+		
+						
+			?>
+			</div>
+			<?php			
+						
+						}
+					
+				}
+				
+			}
+		  }
+		} 
+		?>
 
 </table>
 </form>
