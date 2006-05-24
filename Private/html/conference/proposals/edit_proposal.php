@@ -391,7 +391,11 @@ if ($PK) {
   </tr>
   <tr>
 	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
-	 <?php 
+	  <?php
+	   if ($Message) {  echo $Message;  
+	 	    
+	 }
+	 
 	  if ($is_scheduled) {
 	    	 ?>
 	 	 <div style="background: #fff; border: 1px solid orange; padding:10px;">  	 
@@ -402,7 +406,7 @@ if ($PK) {
 			</div>			
 	    <br/>
 		<? 
-		 } if ($Message) {  echo $Message;  
+		 } if ($Message) { 
 	 	    
 	 }
 	 else {  ?>
