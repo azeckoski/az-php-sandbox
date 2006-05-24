@@ -243,10 +243,18 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		
 	if (($timeslot['type']=="lunch") || ($timeslot['type']=="break") ){ 
 		
-		echo "<td align='center' colspan='".count($conf_rooms)."'><div style='font-size:.9em;'>".$timeslot['title']."</div></td>";
-	
+		echo "<td align='center'  colspan='".count($conf_rooms)."'><div style='font-size:.9em; padding: 3px;'>";
+			if ($isAdmin) {
+				echo 	"<br/>";
+			}
+			echo $timeslot['title']."</div></td>";
+		    
 	} else {
-	echo "<td align='center' colspan='".count($conf_rooms)."'><div style='font-size:.9em;'><strong>".$timeslot['title']."</strong></div></td>";
+	echo "<td align='center' colspan='".count($conf_rooms)."'><div style='font-size:.9em;  padding: 3px;'>";
+		if ($isAdmin) {
+				echo 	"<br/>";
+			}
+			echo "<strong>".$timeslot['title']."</strong></div></td>";
 		
 	}
 	} else {
@@ -344,19 +352,24 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					}
 					echo "</td></tr>";
 				}
+				
 			}
 			echo "</table>";
-
+			
 			// time check here
 			$remaining_time = $timeslot['length_mins'] - $total_length;
 			if ($remaining_time > 0 && $isAdmin) {
-				echo "<span class='remaining'>$remaining_time</span>";
-				echo "&nbsp;<a href='add_session.php?room=$room_pk&amp;time=$timeslot_pk'>+</a>";
+				echo "<span  class='remaining'>$remaining_time</span>";
+				echo "&nbsp;<a href='add_session.php?room=$room_pk&amp;time=$timeslot_pk'>+</a><br/>";
 			}
+			
 			echo "</td>";
+			
 		}
+		
 		echo "</tr>";
 	}
+	
 } 
 ?>
 
