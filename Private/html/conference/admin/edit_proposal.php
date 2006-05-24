@@ -809,11 +809,9 @@ if ($PK) {
      </td>
      <td>
 		<div class="small">Times are not guaranteed. We will do our best to match each session with an appropriate time block</div><br/>
-          <input name="Length" type="radio" value="30" <?php if ($_POST['length']=="30") { echo "checked"; } ?> /> 30 minutes  <br/>
-          <input name="Length" type="radio" value="60" <?php if ($_POST['length']=="60") { echo "checked"; } ?> /> 60 minutes  <br/>
-          <input name="Length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
-          <input name="Length" type="radio" value="120" <?php if ($_POST['length']=="120") { echo "checked"; } ?> /> 120 minutes  <br/>
-		<input type="hidden" id="LengthValidate" value="<?= $vItems['Length'] ?>" />
+          <input name="Length" type="radio" value="30" <?php if ($_POST['length']=="40") { echo "checked"; } ?> /> 40 minutes  <br/>
+           <input name="Length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
+    	<input type="hidden" id="LengthValidate" value="<?= $vItems['Length'] ?>" />
 		<span id="LengthMsg"></span>
      </td>
   </tr>
