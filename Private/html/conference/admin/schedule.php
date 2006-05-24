@@ -321,7 +321,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					}
 					 else if($proposal['type']) {
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
-					//	echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
+						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
 					if ($isAdmin) { //let the admins link to the edit page
 					?>

@@ -411,8 +411,15 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			</td>
 			<?php
 			
-				echo "<td valign=top class='list_event_speaker'><div> <strong>" .
-						htmlspecialchars($proposal['title'])."</strong><br/><br/></div><div><strong>Speakers:</strong>  ".
+				echo "<td valign=top class='list_event_speaker'><div> <strong>";
+				if ($isAdmin) { //let the admins link to the edit page
+					?>
+						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=2">edit </a>) </div>
+					<?php 
+						
+					}
+					
+					echo htmlspecialchars($proposal['title'])."</strong><br/><br/></div><div><strong>Speakers:</strong>  ".
 						htmlspecialchars($proposal['speaker']);
 				if ($proposal['co_speaker']) {
 					echo " with ";

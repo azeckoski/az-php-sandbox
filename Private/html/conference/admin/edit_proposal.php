@@ -323,11 +323,15 @@ if ($_POST['save']) {
 			}
 		}
 	//return to previous anchor row
-	echo $location;
-	if (!$location) {
+	
+	if ($location == 0) {
 			header("Location:proposals_results.php#anchor$PK");
-	} else {
+	} else if ($location == 1){
 		header("Location:schedule.php#anchor$PK");
+	
+	}
+	 else if ($location == 2){
+		header("Location:schedule_details.php#anchor$PK");
 	
 	}
 	
