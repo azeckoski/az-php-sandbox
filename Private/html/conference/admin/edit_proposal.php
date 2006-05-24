@@ -655,21 +655,17 @@ if ($PK) {
    </td>
 </tr>
 
-<?php if ($type!="BOF") { ?>
 <tr>
     <td><strong>Project URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
 </tr>
-<?php } else   {
-	?>
+
 	
 <tr>
-    <td><strong>BOF wiki page URL </strong></td>
+    <td><strong>Wiki page URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="wiki_url" size="35" value="<?= $_POST['wiki_url']  ?>" maxlength="100" /></td>
 </tr>
 
-<?php } //bof check
-?>
 
 <?php if (($type!="demo") && ($type!="BOF")){ ?>
 <tr>
