@@ -352,11 +352,11 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				 
                      }
 					//echo "</div>\n";
-					if($proposal['type']=="BOF") {
+					
 					  if ($proposal['wiki_url']) { /* a project URL was provided */
 					  	$url=$proposal['wiki_url'];
 						echo"<div align=left><br/><strong> info: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
-					}
+					
 					}
 					
 				}
