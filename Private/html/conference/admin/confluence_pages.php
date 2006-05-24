@@ -380,6 +380,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				if ($counter >1){	 //more than one session in this room block
 								
 					$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+					//must calculate both previous session and length of this curent session plus break to get end time
+					$end_time=date('g:i a',strtotime($timeslot['start_time']) + (($proposal['length'] * 2 +10) *60));
 					}
 				if  ($start_time2) {  //there is a second session so print that start time
 						echo $start_time2 ." - ";
