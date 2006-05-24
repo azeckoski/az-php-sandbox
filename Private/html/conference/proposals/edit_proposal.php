@@ -116,7 +116,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, " .
-		"CP.type, CP.length, CP.URL, CP.wiki_url from conf_proposals CP " .
+		"CP.type, CP.length, CP.approved, CP.URL, CP.wiki_url from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
@@ -771,10 +771,8 @@ if ($PK) {
      </td>
      <td>
 		<div class="small">Times are not guaranteed. We will do our best to match each session with an appropriate time block</div><br/>
-          <input name="Length" type="radio" value="30" <?php if ($_POST['length']=="30") { echo "checked"; } ?> /> 30 minutes  <br/>
-          <input name="Length" type="radio" value="60" <?php if ($_POST['length']=="60") { echo "checked"; } ?> /> 60 minutes  <br/>
+          <input name="Length" type="radio" value="40" <?php if ($_POST['length']=="40") { echo "checked"; } ?> /> 40 minutes  <br/>
           <input name="Length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
-          <input name="Length" type="radio" value="120" <?php if ($_POST['length']=="120") { echo "checked"; } ?> /> 120 minutes  <br/>
 		<input type="hidden" id="LengthValidate" value="<?= $vItems['Length'] ?>" />
 		<span id="LengthMsg"></span>
      </td>
@@ -823,7 +821,7 @@ if ($PK) {
 
 <?php 
 	$sql = "select CP.title, CP.approved, CP.pk from conf_proposals CP  " .
-		"where CP.users_pk='$User->pk' and CP.confID = '$CONF_ID' ";
+		"where CP.users_pk='$User->pk' and CP.confID = '$CONF_ID' and approved='Y' ";
 	//print "SQL=$sql<br/>";
 	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 
