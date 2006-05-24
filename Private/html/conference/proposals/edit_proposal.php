@@ -399,10 +399,8 @@ if ($PK) {
 	  if ($is_scheduled) {
 	    	 ?>
 	 	 <div style="background: #fff; border: 1px solid orange; padding:10px;">  	 
-			<div><strong>This session is currently scheduled for:</strong> <br/></div>
-			<div style="padding-left: 30px;">
-			<strong>Date/Time : </strong><?= $this_start_time . " - " .$this_end_time ?>
-			<br/><strong>Room:</strong> <?= $this_room_name  ?>  (capacity= <?=$this_room_size ?>)</div>
+			<div><strong>This session has been scheduled - please see the <a href="../admin/schedule.php">master schedule </a> for details. </strong>
+			 <br/></div>
 			</div>			
 	    <br/>
 		<? 
