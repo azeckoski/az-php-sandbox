@@ -84,8 +84,8 @@ if ($_REQUEST['sessions_pk'] && $User->pk) {
 }
 
 // fetch the proposals
-$sql = "select CP.*, CS.pk as sessions_pk, CS.convenor_pk, CS.recorder_pk, CT.start_time, " .
-	"CR.title as room_title from conf_proposals CP " .
+$sql = "select CP.*, CS.timeslots_pk, CS.pk as sessions_pk, CS.convenor_pk, CS.recorder_pk, " .
+	"CT.start_time, CR.title as room_title from conf_proposals CP " .
 	"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 	"join conf_timeslots CT on CT.pk = CS.timeslots_pk and CT.start_time is not null " .
 	"left join conf_rooms CR on CR.pk = CS.rooms_pk " .
@@ -97,6 +97,17 @@ $conf_proposals = array();
 while($row=mysql_fetch_assoc($result)) { $conf_proposals[$row['pk']] = $row; }
 
 //echo "<pre>",print_r($conf_proposals),"</pre>";
+
+// fetch the list of sessions for this user to stop time conflicts
+$user_conf_sessions = array();
+if ($User->pk) {
+	$sql = "select distinct(timeslots_pk) as pk from conf_sessions " .
+			"where (recorder_pk = '$User->pk' or convenor_pk='$User->pk') " .
+			"and confID='$CONF_ID'";
+	$result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
+	while($row=mysql_fetch_assoc($result)) { $user_conf_sessions[$row['pk']] = $row; }
+	//echo "<pre>",print_r($user_conf_sessions),"</pre>";
+}
 
 
 // custom CSS file
@@ -217,6 +228,11 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 			$linestyle = "convenor_user";
 		} else if ($conf_proposal['recorder_pk'] == $User->pk) {
 			$linestyle = "recorder_user";
+		}
+		if (array_key_exists($conf_proposal['timeslots_pk'],$user_conf_sessions) &&
+			$conf_proposal['length'] > 45) {
+			$disabledC = "disabled='y'";
+			$disabledR = "disabled='y'";	
 		}
 	}
 
