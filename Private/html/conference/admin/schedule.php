@@ -294,10 +294,9 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
 					//print the break block	
 						echo "<tr><td valign='top'>";
-					?>
-						
-						 <a name="anchor<?= $proposal['pk'] ?>"></a>
-						<?php
+?>
+					<a name="anchor<?= $proposal['pk'] ?>"></a>
+<?php
 						echo "<div class='grid_event break'>" .
 					"break</div></td></tr>";
 					
@@ -311,40 +310,41 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						
 					}
 					if($proposal['track']) { 
-					 
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
-					
-					
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
-			
 						echo "</div>\n";
-				
-						
 					}
-						
-					
+
 					if($proposal['type']=="BOF") { //don't list the type on the schedule
 						$typeclass = "";
-					}
-					 else if($proposal['type']) {
+					} else if($proposal['type']) {
 					 	$typeclass = "";
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
 						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
 					if ($isAdmin) { //let the admins link to the edit page
-					?>
+?>
 						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=1">edit </a>) </div>
-					<?php 
+<?php 
 						
 					}
-					echo "<div class='grid_event_text $typeclass'>" .
-							"<label title=\"".
-							str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">" .
-							htmlspecialchars($proposal['title'])."</label>";
+
+					echo "<div class='grid_event_text $typeclass'>";
+					echo "<label title=\"".str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">";
+					if ($proposal['wiki_url']) { /* a project URL was provided */
+						echo "<a href='".$proposal['wiki_url']."'>" .
+							htmlspecialchars($proposal['title']) .
+							"</a>";
+					} else {
+						echo htmlspecialchars($proposal['title']);
+					}
+					echo "</label>";
+
 					if ($isAdmin) {
 						echo "&nbsp;<a href='delete_session.php?pk=".$session_pk ."&amp;type=" .$proposal['type'] ." '>x</a>";
 					}
 					echo "</div>\n";
+
 					if($proposal['speaker']) {
 						echo "<div class='grid_event_speaker'>".
 							htmlspecialchars($proposal['speaker'])."</div>\n";
@@ -352,13 +352,6 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				 
                      }
 					//echo "</div>\n";
-					
-					  if ($proposal['wiki_url']) { /* a project URL was provided */
-					  	$url=$proposal['wiki_url'];
-						echo"<div align=left><br/><strong> info: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
-					
-					}
-					
 				}
 				
 			}

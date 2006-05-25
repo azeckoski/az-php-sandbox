@@ -1,6 +1,6 @@
 <?php
 /*
- * file: schedule.php
+ * file: schedule_details.php
  * Created on May 09, 8:00 PM by @author aaronz
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
@@ -8,7 +8,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Scheduling Listings";
+$PAGE_NAME = "Schedule Detailed View";
 $Message = "";
 
 // connect to database
@@ -286,7 +286,7 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 		
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
 		&nbsp;&nbsp;&nbsp;
-		<?= count($conf_proposals) ?> proposals shown &nbsp;&nbsp;&nbsp;
+		<?= count($conf_proposals) ?> sessions shown &nbsp;&nbsp;&nbsp;
 	
 <input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
        </td>
@@ -314,20 +314,16 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 		// create a blank line if after first one
 		if ($line > 1) {
-			echo "<tr><td style='page-break-before: always;'>&nbsp;</td></tr>\n";
+			echo "<tr><td>&nbsp;</td></tr>\n";
 		}
 
 		// print date header
 		echo "<tr>\n";
-		echo "<td class='list_date_header' nowrap='y' colspan='" .
-				(count($conf_rooms) + 1) . "'>" .
+		echo "<td class='list_date_header' nowrap='y' colspan='12'>" .
 				"Conference day $conference_day - " .
 				date('l, M j, Y',strtotime($timeslot['start_time'])) .
 				"</td>\n";
 		echo "</tr>\n\n";
-		
-		
-	
 	}
 	$last_date = $current_date;
 
@@ -343,112 +339,111 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		case "demo": $linestyle = "demo"; break;
 		default: $linestyle = "event";
 	}
-?>	</td></tr>
-	
-	<?php
-		// print the grid selector
-		foreach ($rooms as $room_pk=>$room) {
 
-			$conf_room = $conf_rooms[$room_pk];
-			if ($conf_room && $conf_room['BOF'] == 'Y' && $hide_bof_rooms) { continue; }
 
-			// TODO - try to get the sessions to fill the cells
-			// session check here
-			$total_length = 0;
-			
-				//clear any previous time set for second timeslot 
-				
-			
-			if (is_array($room)) {
-				$counter = 0;
-							
-				
-				
+	// print the list
+	foreach ($rooms as $room_pk=>$room) {
+
+		$conf_room = $conf_rooms[$room_pk];
+		if ($conf_room && $conf_room['BOF'] == 'Y' && $hide_bof_rooms) { continue; }
+
+		// TODO - try to get the sessions to fill the cells
+		// session check here
+		$total_length = 0;
+
+		if (is_array($room)) {
+			$counter = 0;
+
+			foreach ($room as $session_pk=>$session) {
+				$counter++;
 		
-						
-				foreach ($room as $session_pk=>$session) {
-					$counter++;
-			
-			
-					$proposal = $conf_proposals[$session['proposals_pk']];
+				$proposal = $conf_proposals[$session['proposals_pk']];
 				if ($proposal){
 					$total_length += $proposal['length'];
-
 		
 					 //get the start and end time for this timeslot
-				$start_time=date('g:i a',strtotime($timeslot['start_time']) );				 
-				$end_time=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] ) *60));
-	
-				if ($counter >1){	 //more than one session in this room block
-						
-					$start_time=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
-					//must calculate both previous session and length of this curent session plus break to get end time
-					$end_time=date('g:i a',strtotime($timeslot['start_time']) + (($proposal['length'] * 2 +10) *60));
+					$start_time=date('g:i A',strtotime($timeslot['start_time']) );				 
+					$end_time=date('g:i A',strtotime($timeslot['start_time']) + (( $proposal['length'] ) *60));
+
+					if ($counter >1) {	 //more than one session in this room block
+
+						$start_time=date('g:i A',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+						//must calculate both previous session and length of this curent session plus break to get end time
+						$end_time=date('g:i A',strtotime($timeslot['start_time']) + (($proposal['length'] * 2 +10) *60));
 						//print the break block	
-					
+
 					}
-				//echo "<div class='list_event'>\n";
-						//echo "<tr><td align='left' colspan='".count($conf_rooms)."'>".$timeslot['title']."</td></tr>";
-						
 					$trackclass = str_replace(" ","_",strtolower($proposal['track']));
-					
-					echo "<tr class='list'><td valign=top>";
-					echo "<div class='list_event_header $trackclass'>".$proposal['track']."</div>";
-					
-				?>
-				
-			<?php
-				echo "</div</td>\n";
-				?>
-				<td class="list_time" nowrap='y'>
-					<?php
-							echo $start_time ." to " .$end_time;
+					$typeclass = str_replace(" ","_",strtolower($proposal['type']));
+?>
 						
-					
-					?>
-			<br/><span class="list_room"><?= $conf_room['title'] ?></span>
-			
-			</td>
-			<?php
-			
-				echo "<td valign=top class='list_event_speaker'><div> <strong>";
-				if ($isAdmin) { //let the admins link to the edit page
-					?>
-						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=2">edit </a>) </div>
-					<?php 
-						
+			<tr class='list'>
+				<td valign=top>
+					<div class='list_event_header <?= $trackclass ?>'>
+						<?= $proposal['track'] ?>
+					</div>
+					<div class='list_time'>
+						<?php echo $start_time ." <em>to</em> " .$end_time; ?>
+					</div>
+					<div class="list_room">
+						<?= $conf_room['title'] ?>
+					</div>
+				</td>
+
+				<td valign="top" class='list_event_speaker'>
+					<div class='<?= $typeclass ?>' style="padding:3px;">
+					<strong>
+						<?= ucwords($proposal['type']) ?>:
+<?php
+					if ($proposal['wiki_url']) { /* a project URL was provided */
+						echo "<a href='".$proposal['wiki_url']."'>" .
+							htmlspecialchars($proposal['title']) .
+							"</a>";
+					} else {
+						echo htmlspecialchars($proposal['title']);
 					}
-					
-					echo htmlspecialchars($proposal['title'])."</strong><br/><br/></div><div><strong>Speakers:</strong>  ".
-						htmlspecialchars($proposal['speaker']);
+?>
+<?php if ($isAdmin) { /* let the admins link to the edit page */ ?>
+						&nbsp;[<a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=2">edit</a>]
+<?php } ?>
+					</strong>
+					</div><br/>
+
+					<strong>Speakers:</strong>
+						<?= htmlspecialchars($proposal['speaker']); ?>
+<?php
 				if ($proposal['co_speaker']) {
-					echo " with ";
-					echo htmlspecialchars($proposal['co_speaker']);	
+					echo " with " . htmlspecialchars($proposal['co_speaker']);	
 				}
+
 				if (trim($proposal['bio'])) {
 					echo "<br/><br/><strong>Bio: </strong>" .$proposal['bio'];
 				}
-				echo "</div></td><td width=30% class='list_event_text'><div><span style='color:#000;'><strong>Abstract: </strong></span>";
-				
+?>
+				</td>
+				<td width=30% class='list_event_text'>
+					<div>
+						<span style='color:#000;'>
+							<strong>Abstract: </strong>
+						</span>
+<?php
 				if (!$proposal['abstract']) {
-				echo " not available";
-				}else {
+					echo " not available";
+				} else {
 					echo nl2br(trim(htmlspecialchars($proposal['abstract'])));
-							
 				}
+
 				if($proposal['type']=="BOF") {
 					  if ($proposal['wiki_url']) { /* a project URL was provided */
 					  	$url=$proposal['wiki_url'];
 						echo"<div align=left><br/><strong> info: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
 					}
-					}
-				
-					//echo "</div>\n";
-					echo "</div></td>\n</td></tr>";
+				}
+
+				//echo "</div>\n";
+				echo "</div></td>\n</td></tr>";
 			}
-			
 		}
-				
 		echo "</td></tr>";
 	}
   }
@@ -458,27 +453,5 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 </table>
 </form>
 
-<?php if($isAdmin) { ?>
-<br/>
-<div class="right">
-<div class="rightheader">How to use the scheduling grid</div>
-<div style="padding:3px;">
-<div style="padding:3px 0px;"><span class="schedule_header">Rooms</span> are shown across the top of the grid, 
-<span class="bof_header">BOF rooms</span> are indicated.</div>
-<div>The numbers in each <span class="event">event cell</span> indicate
-the unused time available in that cell.</div>
-<div>When no more time remains in an event timeslot, the number and + will not be shown.</div>
-<div>
-<li><strong>Adding sessions to the schedule:</strong> Clicking on the 
-<strong><a href="" class="grid" style="font-size:1.1em;">+</a></strong> will take you to 
-a screen with a list of the currently approved proposals.</li>
-<li><strong>Removing sessions form the schedule:</strong> 
-Clicking on the <strong><a href="" class="grid" style="font-size:1.1em;">x</a></strong>
-to the right of a session title will take you to a delete confirmation screen.
-</div>
-</li>
-</div>
-</div>
-<?php } ?>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>

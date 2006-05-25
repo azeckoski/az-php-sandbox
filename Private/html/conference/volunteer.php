@@ -90,7 +90,7 @@ $sql = "select CP.*, CS.timeslots_pk, CS.pk as sessions_pk, CS.convenor_pk, CS.r
 	"join conf_timeslots CT on CT.pk = CS.timeslots_pk and CT.start_time is not null " .
 	"left join conf_rooms CR on CR.pk = CS.rooms_pk " .
 	"where CP.confID = '$CONF_ID' and CP.approved='Y' and CP.type != 'demo' " .
-	"and CP.type != 'bof' order by start_time, track";
+	"and CP.type != 'BOF' order by start_time, track";
 //echo "$sql<br/>"; 
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $conf_proposals = array();
