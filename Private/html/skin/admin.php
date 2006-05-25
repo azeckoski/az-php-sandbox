@@ -178,7 +178,7 @@ foreach ($skin_entries as $skin_pk=>$skin_entry) {
 <?php } ?>
 		</td>
 		<td valign="top">
-			<?= $skin_entry['description'] ?><br/>
+			<?= nl2br($skin_entry['description']) ?><br/>
 <?php 
 if ($skin_entry['url']) {
 	echo "<a href='".$skin_entry['url']."' target='new'>url</a>: ";

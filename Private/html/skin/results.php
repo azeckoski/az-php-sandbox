@@ -415,8 +415,9 @@ while($itemrow=mysql_fetch_assoc($result)) {
 
 		<td>
 			<strong><?= $itemrow["title"] ?></strong><br/>
-			<div class="description"><?= $itemrow["description"] ?></div>
+			<div class="description"><?= nl2br($itemrow["description"]) ?></div>
 		</td>
+
 		<td nowrap='y'>
 			<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $itemrow['skin_zip'] ?>">Download skin</a>
 		</td>

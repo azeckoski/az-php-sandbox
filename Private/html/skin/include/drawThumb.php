@@ -24,13 +24,21 @@ $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 
 if (!empty($thisImage['thumb'])) {
 	// Output the MIME header
-	header("Content-Type: {$thisImage['thumbtype']}");
+	header("Content-Type: ".$thisImage['thumbtype']);
+	header("Content-disposition: inline; filename=".$thisImage['name']."\n\n");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0"); 
+
 	// Output the image
 	echo $thisImage['thumb'];
 } else if (!empty($thisImage['content'])) {
 	// if no thumb then output the actual image instead
 	// Output the MIME header
-	header("Content-Type: {$thisImage['type']}");
+	header("Content-Type: ".$thisImage['type']);
+	header("Content-disposition: inline; filename=".$thisImage['name']."\n\n");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0"); 
+
 	// Output the image
 	echo $thisImage['content'];
 }

@@ -487,7 +487,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 		<div style="margin:3px;">
 			<strong style="font-size:.9em;">Description:</strong>
 			<span style="font-size:.8em;">
-				<?= $item['description'] ?>
+				<?= nl2br($item['description']) ?>
 			</span>
 		</div>
 	</td>

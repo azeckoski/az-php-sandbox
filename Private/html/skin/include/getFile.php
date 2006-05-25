@@ -24,8 +24,12 @@ $thisFile = mysql_fetch_assoc($result); // first result is all we care about
 
 if (!empty($thisFile['content'])) {
 	// Output the MIME header
-	header("Content-Type: {$thisFile['type']}");
-	// Output the image
+	header("Content-Type: {".$thisFile['type']."}");
+	header("Content-disposition: inline; filename=".$thisFile['name']."\n\n");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Expires: 0"); 
+
+	// Output the data
 	echo $thisFile['content'];
 }
 ?>
