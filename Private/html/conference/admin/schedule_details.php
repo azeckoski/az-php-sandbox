@@ -31,17 +31,22 @@ if (!$User->checkPerm("admin_conference")) {
 	$isAdmin = true;
 	$hide_bof_rooms = false;
 }
-	//opening up the bof room viewing one week before the conference
-	$hide_bof_rooms = false;
+
+//opening up the bof room viewing one week before the conference
+$hide_bof_rooms = false;
 
 // get the passed message if there is one
 if($_GET['msg']) {
 	$Message = "<div class='message'>".$_GET['msg']."</div>";
 }
 
-// get the passed message if there is one
+// hide BOF rooms
 if($_REQUEST['hbr']) {
 	$hide_bof_rooms = true;
+}
+// show BOF rooms
+if($_REQUEST['sbr']) {
+	$hide_bof_rooms = false;
 }
 
 // Day  Filter
@@ -213,12 +218,12 @@ if ($User && $isAdmin) {
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
-
+<!--
 <div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
 <strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
 Check back closer to the conference for the final schedule, contact <a href="mailto:wendemm@gmail.com">Wende Morgaine</a> with questions
 </div>
-
+-->
 
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
