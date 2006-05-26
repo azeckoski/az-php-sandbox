@@ -237,37 +237,39 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 ?>
 <tr class="<?= $linestyle ?>">
 	<td class="time" nowrap='y'>
-	<?php 
-	if (($timeslot['type']!="lunch") && ($timeslot['type']!="break") ){ ?>
+<?php 
+	if (($timeslot['type']!="lunch") && ($timeslot['type']!="break") ){ 
+?>
 		<?=  date('g:i a',strtotime($timeslot['start_time'])) ?>
 		 -<br/>
 		<?= date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
-	<?php }
-	
-	?>
+<?php } else { ?>
+	&nbsp;
+<?php } ?>	
 	</td>
 
 
 <?php
-
 	if ($timeslot['type'] != "event") {
-		
-	if (($timeslot['type']=="lunch") || ($timeslot['type']=="break") ){ 
-		
-		echo "<td align='center'  colspan='".count($conf_rooms)."'><div style='font-size:.9em; padding: 3px;'>";
-			if ($isAdmin) {
-				echo 	"<br/>";
-			}
-			echo $timeslot['title']."</div></td>";
-		    
-	} else {
-	echo "<td align='center' colspan='".count($conf_rooms)."'><div style='font-size:.9em;  padding: 3px;'>";
-		if ($isAdmin) {
-				echo 	"<br/>";
-			}
-			echo "<strong>".$timeslot['title']."</strong></div></td>";
-		
-	}
+		if (($timeslot['type']=="lunch") || ($timeslot['type']=="break") ){ 
+			
+			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
+					"<div style='font-size:.9em; padding: 3px;'>";
+				if ($isAdmin) { echo 	"<br/>"; }
+				echo "<strong>".$timeslot['title'].":</strong> <span style='font-size:.9em;'>" .
+					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
+					date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
+					"</span>: <span style='font-size:.8em;'>".
+						date('l, M j',strtotime($timeslot['start_time'])) .
+						"</span></div></td>";
+			    
+		} else {
+			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
+					"<div style='font-size:.9em;  padding: 3px;'>";
+			if ($isAdmin) {	echo 	"<br/>"; }
+			echo "<strong>".$timeslot['title']."</strong>" .
+					"</div></td>";
+		}
 	} else {
 		// print the grid selector
 		foreach ($rooms as $room_pk=>$room) {
@@ -303,14 +305,15 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					if ($counter >1){	 //more than one session in this room block
 						$break_time="10 min. ";
 						$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+
 					//print the break block	
-						echo "<tr><td valign='top'>";
 ?>
-					<a name="anchor<?= $proposal['pk'] ?>"></a>
+				<tr>
+					<td valign='top'>
+						<div class='grid_event break'>break</div>
+					</td>
+				</tr>
 <?php
-						echo "<div class='grid_event break'>" .
-					"break</div></td></tr>";
-					
 					}
 					
 					echo "<tr><td valign='top' class='grid_event'>";

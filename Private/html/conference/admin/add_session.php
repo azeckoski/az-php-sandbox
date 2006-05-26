@@ -287,7 +287,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 			<input type="submit" <?= $disabled ?> name="add" value="add" onClick="setConfProposal('<?= $conf_proposal['pk'] ?>');" />
 		</td>
 		<td class="proposal_title">
-			<label title="<?= mysql_real_escape_string($conf_proposal['abstract']) ?>">
+			<label title="<?= str_replace("\"","'",htmlspecialchars($proposal['abstract'])) ?>">
 				<?= $conf_proposal['title'] ?>
 			</label>
 		</td>

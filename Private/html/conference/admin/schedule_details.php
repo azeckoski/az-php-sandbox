@@ -366,7 +366,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				if ($proposal){
 					$total_length += $proposal['length'];
 		
-					 //get the start and end time for this timeslot
+					//get the start and end time for this timeslot
+					$start_date = date('D, M j',strtotime($timeslot['start_time']) );
 					$start_time=date('g:i A',strtotime($timeslot['start_time']) );				 
 					$end_time=date('g:i A',strtotime($timeslot['start_time']) + (( $proposal['length'] ) *60));
 
@@ -386,6 +387,9 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				<td valign=top>
 					<div class='list_event_header <?= $trackclass ?>'>
 						<?= $proposal['track'] ?>
+					</div>
+					<div style="padding:5px;">
+						<?= $start_date ?>
 					</div>
 					<div class='list_time'>
 						<?php echo $start_time ." <em>to</em> " .$end_time; ?>
