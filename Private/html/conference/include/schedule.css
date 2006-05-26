@@ -264,6 +264,9 @@ tr,td {
 	font-style: italic;
 }
 
+.bof A {
+	color: #DDDDFF;
+}
 .lunch {
 	background:#FFCCFF; 
 	color:#000;

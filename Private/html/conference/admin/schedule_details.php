@@ -417,16 +417,16 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					<strong>Speakers:</strong>
 						<?= htmlspecialchars($proposal['speaker']); ?>
 <?php
-				if ($proposal['co_speaker']) {
-					echo " with " . htmlspecialchars($proposal['co_speaker']);	
+				if (trim($proposal['co_speaker'])) {
+					echo " with " . htmlspecialchars(trim($proposal['co_speaker']));
 				}
 
 				if (trim($proposal['bio'])) {
-					echo "<br/><br/><strong>Bio: </strong>" .$proposal['bio'];
+					echo "<br/><br/><strong>Bio: </strong>" . htmlspecialchars(trim($proposal['bio']));
 				}
 ?>
 				</td>
-				<td width=30% class='list_event_text'>
+				<td width="30%" class='list_event_text'>
 					<div>
 						<span style='color:#000;'>
 							<strong>Abstract: </strong>
