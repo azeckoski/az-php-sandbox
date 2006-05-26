@@ -232,7 +232,7 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 		<td nowrap="y" colspan="5">
 		<div style="float:left; padding-right: 30px;"><a href="schedule.php"><strong>Table View <img src="../include/images/arrow.gif" border=0 height=9 width=9/></a>
 			</div>	<div style="float:left;">
-				<strong><?= $CONF_NAME ?></strong>
+				<strong><a href="<?= $CONF_URL ?>"><?= $CONF_NAME ?></a></strong>
 <?php $confDateFormat = "g:i a, l, M j, Y"; ?>
 				(<?= date($confDateFormat,strtotime($CONF_START_DATE)) ?> - <?= date($confDateFormat,strtotime($CONF_END_DATE)) ?>)
 			</div>
