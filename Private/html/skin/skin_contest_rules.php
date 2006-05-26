@@ -94,8 +94,8 @@ predefined in css files in the <a href="http://bugs.sakaiproject.org/confluence/
 <ol>
 
 	<li>Anyone can submit a skin: individuals, organizations, institutions, etc. (i.e. skins do not have to be the official skin of a Sakai partner institution)</li>
-	<li>Participants can submit one skin only.</li>
-<!--	<li>Participants can submit as many skins as they want - but each should be quite different (no variations on a theme, please)</li> -->
+<!--	<li>Participants can submit one skin only.</li> -->
+	<li>Participants can submit as many skins as they want - but each should be quite different (no minor variations on a theme, please)</li>
 	<li>The skin must be submitted as an archive file (zip or tar.gz) which includes all materials in the original default starting skin and in the same directory structure, the archive file name should include the participant email address and the name of their institution and if more than one, numbered - e.g. aaronz_at_vt.edu_virginiatech1.zip, aaronz_at_vt.edu_virginiatech2.zip, aaronz_at_vt.edu_virginiatech3.zip. The skin will be refered to by the skin name supplied in the readme detailed below to preserve anonimity.</li>
 	<li>Please use the <a href="http://www.sakaiproject.org/images/stories/conferenceLogos/logoslate160x89.jpg" target="_new">sakai logo</a> in your skin and not your institutional logo</li>
 	<li>All images should be original artwork or represent no copyright problems</li>
