@@ -116,6 +116,11 @@ $EXTRA_LINKS =
 	"<a href='proposals.php'>Proposals</a> - " .
 	"<a href='check_in.php'>Check In</a> - " .
 	"<a href='schedule.php'><strong>Schedule</strong></a> " .
+		"(<em>" .
+		"<a href='schedule.php'>Table</a>, " .
+		"<a href='schedule_details.php'>List</a>" .
+		"</em>) - " .
+	"<a href='volunteers.php'>Volunteers</a> " .
 	"</span>";
 ?>
 

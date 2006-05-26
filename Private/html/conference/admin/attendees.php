@@ -30,6 +30,19 @@ if (!$User->checkPerm("admin_conference")) {
 	$allowed = 1;
 }
 
+
+// handle activation/deactivation controls
+if ($allowed) {
+	if ($_REQUEST['activate']) {
+		$sql = "update conferences set activated='Y' where id='".$_REQUEST['activate']."'";
+		$result = mysql_query($sql) or die("Update query failed ($sql): " . mysql_error());
+	} else if ($_REQUEST['deactivate']) {
+		$sql = "update conferences set activated='N' where id='".$_REQUEST['deactivate']."'";
+		$result = mysql_query($sql) or die("Update query failed ($sql): " . mysql_error());
+	}
+}
+
+
 // Roles Filter
 $filter_roles_default = "show all Roles";
 $filter_roles = "";
@@ -48,7 +61,7 @@ if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
 	$sqlsearch = " and (U1.username like '%$searchtext%' or U1.firstname like '%$searchtext%' or " .
-		"U1.lastname like '%$searchtext%' or U1.email like '%$searchtext%' or I1.name like '%$searchtext%') ";
+		"U1.lastname like '%$searchtext%' or U1.email like '%$searchtext%' or U1.institution like '%$searchtext%') ";
 }
 
 // sorting
@@ -57,8 +70,7 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all items
-$from_sql = " from users U1 join conferences C1 on U1.pk=C1.users_pk " . 
-		"left join institution I1 on U1.institution_pk=I1.pk where confID='$CONF_ID' " ;
+$from_sql = " from users U1 join conferences C1 on U1.pk=C1.users_pk where confID='$CONF_ID' " ;
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
@@ -98,8 +110,8 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main fetching query
-$sql = "select U1.firstname, U1.lastname, U1.email, U1.primaryRole, U1.institution as otherInst,  " .
-		"I1.name as institution, U1.institution_pk, C1.* " .
+$sql = "select U1.username, U1.firstname, U1.lastname, U1.email, " .
+		"U1.primaryRole, U1.institution, U1.institution_pk, C1.* " .
 	$from_sql . $sqlsearch . $filter_roles_sql . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
@@ -107,7 +119,7 @@ $items_displayed = mysql_num_rows($result);
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
-$DATE_FORMAT = "M d, Y h:i A";
+$DATE_FORMAT = "M d, Y h:i a";
 
 
 // Do the export as requested by the user
@@ -143,10 +155,13 @@ if ($_REQUEST["export"] && $allowed) {
 $EXTRA_LINKS = 
 	"<br/><span style='font-size:9pt;'>" .
 	"<a href='index.php'>Admin:</a> " .
-	"<a href='attendees.php'><strong>Attendees</strong></a> " .
+	"<a href='attendees.php'><strong>Attendees</strong></a> - " .
 	"<a href='proposals.php'>Proposals</a> - " .
-	"<a href='check_in.php'>Check In</a> " .
+	"<a href='check_in.php'>Check In</a> - " .
+	"<a href='schedule.php'>Schedule</a> - " .
+	"<a href='volunteers.php'>Volunteers</a> " .
 	"</span>";
+
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
@@ -159,6 +174,14 @@ function orderBy(newOrder) {
 		document.adminform.sortorder.value = newOrder;
 	}
 	document.adminform.submit();
+	return false;
+}
+
+function doConfirm(item, type, action) {
+	var response = window.confirm("Are you sure you want to "+action+" this "+type+" ("+item+")?");
+	if (response) {
+		return true;
+	}
 	return false;
 }
 // -->
@@ -176,7 +199,7 @@ function orderBy(newOrder) {
 ?>
 
 
-<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
+<form name="adminform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
 <div class="filterarea">
@@ -283,12 +306,13 @@ function orderBy(newOrder) {
 
 <table border="0" cellspacing="0" width="100%">
 <tr class='tableheader'>
+<td>&nbsp;&nbsp;&nbsp;</td>
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('email');">Email</a></td>
 <td><a href="javascript:orderBy('primaryRole');">Primary Role</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
 <td align="center"><a href="javascript:orderBy('date_created');">Date</a></td>
-<td>#</td>
+<td align="center">#</td>
 </tr>
 
 <?php
@@ -299,9 +323,11 @@ $line = 0;
 $row_num=$total_items;
 while($row=mysql_fetch_assoc($result)) {
 	$line++;
-	
-	if (strlen($row["institution"]) > 38) {
-		$row["institution"] = substr($row["institution"],0,40) . "...";
+
+	//echo "<pre>",print_r($row),"</pre>"; 
+
+	if (strlen($row["institution"]) > 33) {
+		$row["institution"] = substr($row["institution"],0,35) . "...";
 	}
 
 	$rowstyle = "";
@@ -320,22 +346,45 @@ while($row=mysql_fetch_assoc($result)) {
 ?>
 
 <tr class="<?= $linestyle ?>" <?= $rowstyle ?> >
+	<td>
+<?php if ($row['activated'] == 'Y') { ?>
+		<a title="Deactivate this user" 
+			onClick="return confirm('Are you sure you want to deactivate this user (<?= $row['username'] ?>)')"
+			href="<?= $_SERVER['PHP_SELF'] ?>?deactivate=<?= $row['id'] ?>">x</a>
+<?php } else { ?>
+		<a title="Activate this user" 
+			onClick="return confirm('Are you sure you want to activate this user (<?= $row['username'] ?>)')"
+			href="<?= $_SERVER['PHP_SELF'] ?>?activate=<?= $row['id'] ?>">+</a>	
+<?php } ?>
+	</td>
 	<td class="line"><?= $row["firstname"] ?> <?= $row["lastname"] ?></td>
 	<td class="line"><?= $row["email"] ?></td>
-		<td class="line"><?= $row['primaryRole'] ?> </td>
-	<?php if ($row["institution"]=="Other (non-Member)"){ ?>
-		<td class="line"><?= $row["otherInst"] ?></td>
-	<?php }else {  ?>
+	<td class="line"><?= $row['primaryRole'] ?> </td>
 	<td class="line"><?= $row["institution"] ?></td>
-<?php 	} ?>
-	<td class="line" align="center"><?= date($DATE_FORMAT,strtotime($row["date_created"])) ?></td>
-	<td class="line"><?= $row_num ?> </td>
+	<td class="line" align="center" nowrap="y" style="font-size:.8em;"><?= date($DATE_FORMAT,strtotime($row["date_created"])) ?></td>
+	<td class="line"><?= $row_num ?></td>
 </tr>
 
-<?php $row_num--;  
+<?php 
+	$row_num--;  
 }   ?>
 
 </table>
 </form>
+
+<br/>
+<div class="definitions">
+<div class="defheader">How to use attendees page</div>
+<div style="padding:3px;">
+The attendees page is primarily for viewing a report of attendees.<br/>
+Use the export button to generate a spreadsheet of all attendees.<br/>
+<span style="color:red;">Non-member users</span> are color coded and indicate 
+anyone is not part of a Sakai partner institution.<br/>
+<span style="color:#990099;">Inactive users</span> are color coded 
+and represent anyone who has not paid the registration fee yet.<br/>
+To activate a user even if they have not paid, use the <strong>+</strong> link to the left of their name.<br/>
+To deactivate a user (basically disables their registration), use the <strong>x</strong> link to the left of their name.<br/>
+</div>
+</div>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>

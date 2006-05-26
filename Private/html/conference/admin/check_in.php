@@ -199,7 +199,9 @@ $EXTRA_LINKS =
 	"<a href='check_in.php'><strong>Check In</strong></a> " .
 		"(<em>" .
 		"<a href='create_badge.php?USERS_PK[]=all' target='new'>All Badges [pdf]</a>" .
-		"</em>)" .
+		"</em>) - " .
+	"<a href='schedule.php'>Schedule</a> - " .
+	"<a href='volunteers.php'>Volunteers</a> " .
 	"</span>";
 ?>
 
@@ -360,6 +362,12 @@ function unCheckInUser(num) {
 		    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
 			&nbsp;&nbsp;
 		</td>
+		<td>
+			<strong>Badges:</strong>
+			<a href='one_badge.php' target='new'>Create special badge</a>
+			-
+			<a href='create_badge.php?USERS_PK[]=all' target='new'>Print all Badges [pdf]</a>
+		</td>
 	</tr>
 	
 
@@ -466,6 +474,8 @@ To undo a check-in, click on the <strong>X</strong> button (only visible if the 
 <div>If a badge has not been printed for a user yet then a <font color="green">green</font> printer image <image width="20" height="20" src="../include/images/printer_g.gif" alt="not printed yet" /> will appear in the badge column.  If a badge has been printed, a <font color="red">red</font> printer image <image width="20" height="20" src="../include/images/printer_r.gif" alt="already printed " /> will appear in the badge column.  </div>
 <div>To print badges for every activated and registered person, click the <strong>(All Badges [pdf])</strong> link at the top</div>
 <div>To print badges for a select group of users, check the box(es) in the badge column and click the <strong>Print Badges</strong> button at the bottom of the page</div>
+<div>To create a special badge for a key-note speaker or guest who is not a registered attendee, use the <strong>Create special badge</strong> link at the top</div>
+</div>
 </div>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>
