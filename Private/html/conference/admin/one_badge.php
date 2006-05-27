@@ -124,10 +124,10 @@ $vItems['secondaryRole'] = "";
 	<tr>
 		<td class="account"><b>Institution:</b></td>
 		<td nowrap="y">
-			<img id="emailImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="email" value="" size="50" maxlength="80"/>
-			<input type="hidden" id="emailValidate" value="<?= $vItems['institution'] ?>" />
-			<span id="emailMsg"></span>
+			<img id="institutionImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+			<input type="text" name="institution" value="" size="50" maxlength="80"/>
+			<input type="hidden" id="institutionValidate" value="<?= $vItems['institution'] ?>" />
+			<span id="institutionMsg"></span>
 		</td>
 	</tr>
 
