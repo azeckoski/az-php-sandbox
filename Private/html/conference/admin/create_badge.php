@@ -65,47 +65,87 @@ $logo_width               = 72;
 $logo_height              = 72;
 
 
-$USERS_PK = $_REQUEST["USERS_PK"];
-if (!isset($USERS_PK) || !is_array($USERS_PK)) {
-	die("Can't continue without a value for USERS_PK.");
-}
+/* one or more PKs for badges pulled from the database */
+$USERS_PK      = $_REQUEST["USERS_PK"];
 
+/* variables for a custom badge */
+$firstname      = $_REQUEST["firstname"];
+$lastname       = $_REQUEST["lastname"];
+$institution    = $_REQUEST["institution"];
+$primaryRole    = $_REQUEST["primaryRole"];
+$secondaryRole  = $_REQUEST["secondaryRole"];
 
+$primaryColor   = $_REQUEST["primaryColor"];
+if (!isset($primaryColor) || $primaryColor == "") { $primaryColor = "#000000"; }
 
-$where_clause = "";
-if ($USERS_PK[0] != "all") {
-	$where_clause= "where U.pk in ('" . join("','", $USERS_PK) . "') ";
-}
+$secondaryColor = $_REQUEST["secondaryColor"];
+if (!isset($secondaryColor) || $secondaryColor == "") { $secondaryColor = "#000000"; }
 
-$select_statement = 
-		"select U.firstname as FIRSTNAME, " .
-		"U.lastname as LASTNAME, " .
-		"U.institution as INSTITUTION, " .
-		"R1.role_name as PRIMARY_ROLE, " .
-		"R1.color as PRIMARY_COLOR, " .
-		"R2.role_name as SECONDARY_ROLE, " .
-		"R2.color as SECONDARY_COLOR " .
-		"from users U " .
-		"join conferences C on C.users_pk=U.pk and C.activated='Y' ".
-		"left join roles R1 on R1.role_name=U.primaryRole " .
-		"left join roles R2 on R2.role_name=U.secondaryRole " .
-		$where_clause .
-		"order by U.lastname, U.firstname";
-
-$result = mysql_query($select_statement) or die("Fetch query failed ($select_statement): " . mysql_error());
-
-if (mysql_num_rows($result) < 1) {
-	die("No information found for user $USERS_PK.");
-} else {
-	// update the badge printing tracker
-	$users_sql = "";
+/* pull badge data from the database */
+if (isset($USERS_PK) && is_array($USERS_PK)) {
+	$where_clause = "";
 	if ($USERS_PK[0] != "all") {
-		$users_sql = "and U.pk in ('" . join("','", $USERS_PK) . "') ";
+		$where_clause= "where U.pk in ('" . join("','", $USERS_PK) . "') ";
 	}
-	$sql = "update conferences CONF join users U on U.pk = CONF.users_pk " . $users_sql .
-		"set CONF.printed_badge = 'Y' where CONF.confID = '$CONF_ID' and CONF.activated = 'Y'";
-	mysql_query($sql) or die("Update query failed ($sql): " . mysql_error());
+	
+	$select_statement = 
+			"select U.firstname as FIRSTNAME, " .
+			"U.lastname as LASTNAME, " .
+			"U.institution as INSTITUTION, " .
+			"R1.role_name as PRIMARY_ROLE, " .
+			"R1.color as PRIMARY_COLOR, " .
+			"R2.role_name as SECONDARY_ROLE, " .
+			"R2.color as SECONDARY_COLOR " .
+			"from users U " .
+			"join conferences C on C.users_pk=U.pk and C.activated='Y' ".
+			"left join roles R1 on R1.role_name=U.primaryRole " .
+			"left join roles R2 on R2.role_name=U.secondaryRole " .
+			$where_clause .
+			"order by U.lastname, U.firstname";
+	
+	$result = mysql_query($select_statement) or die("Fetch query failed ($select_statement): " . mysql_error());
+	
+	if (mysql_num_rows($result) < 1) {
+		die("No information found for user $USERS_PK.");
+	} else {
+		// update the badge printing tracker
+		$users_sql = "";
+		if ($USERS_PK[0] != "all") {
+			$users_sql = "and U.pk in ('" . join("','", $USERS_PK) . "') ";
+		}
+		$sql = "update conferences CONF join users U on U.pk = CONF.users_pk " . $users_sql .
+			"set CONF.printed_badge = 'Y' where CONF.confID = '$CONF_ID' and CONF.activated = 'Y'";
+		mysql_query($sql) or die("Update query failed ($sql): " . mysql_error());
+	}
+
+	/* build an array of user records */
+	while ($person = mysql_fetch_assoc($result)) {
+		$people[]=$person;		
+	}
 }
+/* create a custom record for a single badge */
+elseif (isset($firstname) && $firstname != "" &&
+        isset($lastname) && $lastname != "" && 
+        isset($institution) && $institution != "" &&
+        isset($primaryRole) && $primaryRole != "") {
+	/* create a single user record from the supplied data */
+	$person["FIRSTNAME"]       = $firstname;
+	$person["LASTNAME"]        = $lastname;
+	$person["INSTITUTION"]     = $institution;
+	$person["PRIMARY_ROLE"]    = $primaryRole;
+	$person["SECONDARY_ROLE"]  = $secondaryRole;	
+	$person["PRIMARY_COLOR"]   = $primaryColor;
+	$person["SECONDARY_COLOR"] = $secondaryColor;	
+
+	$people[0]=$person;
+}
+else {
+	die("Can't continue without a value for USERS_PK or a custom user record.");
+}
+
+
+
+
 
 // this is the closest predefined page size matching the labels
 $pdf = new Cezpdf('LETTER','portrait');
@@ -121,7 +161,7 @@ $pdf->addInfo("CreationDate", localtime());
 $pageCount = 0;
 $offsetRow = 2;
 
-while ($person = mysql_fetch_assoc($result)) {
+foreach ($people as $person) {
 	if ($pageCount > 0 && $offsetRow == 2) { 
 		$pdf->ezNewPage(); 
 	}
