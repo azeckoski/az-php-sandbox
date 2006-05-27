@@ -501,7 +501,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 		<tr>
 		<td nowrap="y" width="10%">
 			<strong>Usability</strong>
-			(<a style="text-decoration:underline;font-size:.9em;" href="" target="new">suggested criteria</a>)
+			(<a style="text-decoration:underline;font-size:.9em;" href="http://bugs.sakaiproject.org/confluence/x/kDQ" target="new">suggested criteria</a>)
 			&nbsp;&nbsp;
 		</td>
 		<td nowrap="y" width="50%">
@@ -550,28 +550,28 @@ foreach ($items as $item) { // loop through all of the proposal items
 	<td colspan="3" style="padding:4px;font-size:.9em;">
 		<div style="display:inline;float:left;padding:3px;">
 			<strong>Portal screenshot</strong><br/>
-			<a href="include/drawImage.php?pk=<?= $item['image1'] ?>" target="_new">
+			<a href="include/drawImage.php?pk=<?= $item['image1'] ?>" target="new">
 				<img src="include/drawThumb.php?pk=<?= $item['image1'] ?>" alt="Portal image" />
 			</a>
 		</div>
 
 		<div style="display:inline;float:left;padding:3px;">
 			<strong>Workspace screenshot</strong><br/>
-			<a href="include/drawImage.php?pk=<?= $item['image2'] ?>" target="_new">
+			<a href="include/drawImage.php?pk=<?= $item['image2'] ?>" target="new">
 				<img src="include/drawThumb.php?pk=<?= $item['image2'] ?>" alt="Workspace image" />
 			</a>
 		</div>
 
 		<div style="display:inline;float:left;padding:3px;">
 			<strong>Resources screenshot</strong><br/>
-			<a href="include/drawImage.php?pk=<?= $item['image3'] ?>" target="_new">
+			<a href="include/drawImage.php?pk=<?= $item['image3'] ?>" target="new">
 				<img src="include/drawThumb.php?pk=<?= $item['image3'] ?>" alt="Resources image" />
 			</a>
 		</div>
 
 		<div style="display:inline;float:left;padding:3px;">
 			<strong>Gradebook screenshot</strong><br/>
-			<a href="include/drawImage.php?pk=<?= $item['image4'] ?>" target="_new">
+			<a href="include/drawImage.php?pk=<?= $item['image4'] ?>" target="new">
 				<img src="include/drawThumb.php?pk=<?= $item['image4'] ?>" alt="Gradebook image" />
 			</a>
 		</div>

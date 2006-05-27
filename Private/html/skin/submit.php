@@ -372,6 +372,8 @@ if ($User->checkPerm("admin_skin")) { $allowed = true; }
 
 <div class="required" style="float:right;" id="requiredMessage"></div>
 </div>
+<br/>
+
 <table border="0" class="padded">
 	<tr>
 		<td nowrap="y">
