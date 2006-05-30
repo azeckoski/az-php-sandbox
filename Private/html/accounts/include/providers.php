@@ -1103,7 +1103,7 @@ class User {
 
 		$update_sql = "";
 		if ($this->username || $setBlanks) { $update_sql .= " username='".mysql_real_escape_string($this->username)."', "; }
-		if ($this->password || $setBlanks) { $update_sql .= " password=PASSWORD('".mysql_real_escape_string($this->password)."'), "; }
+		if ($this->password) { $update_sql .= " password=PASSWORD('".mysql_real_escape_string($this->password)."'), "; }
 		if ($this->email || $setBlanks) { $update_sql .= " email='".mysql_real_escape_string($this->email)."', "; }
 		if ($this->firstname || $setBlanks) { $update_sql .= " firstname='".mysql_real_escape_string($this->firstname)."', "; }
 		if ($this->lastname || $setBlanks) { $update_sql .= " lastname='".mysql_real_escape_string($this->lastname)."', "; }
