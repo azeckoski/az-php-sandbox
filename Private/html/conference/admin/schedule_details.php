@@ -407,7 +407,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					if ($proposal['wiki_url']) { /* a project URL was provided */
 						echo "<a href='".$proposal['wiki_url']."'>" .
 							htmlspecialchars($proposal['title']) .
-							"<img src='../include/images/arrow.png' /></a>";
+							"<img src='../include/images/arrow.png' border=0 /></a>";
 					} else {
 						echo htmlspecialchars($proposal['title']);
 					}
