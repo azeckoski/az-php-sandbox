@@ -345,10 +345,10 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 					echo "<div class='grid_event_text $typeclass'>";
 					echo "<label title=\"".str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">";
-					if ($proposal['wiki_url']) { /* a project URL was provided */
+					if ($proposal['wiki_url']) { /* a wiki URL was provided */
 						echo "<a href='".$proposal['wiki_url']."'>" .
 							htmlspecialchars($proposal['title']) .
-							"</a>";
+							"<img src='../include/images/arrow.png' /></a>";
 					} else {
 						echo htmlspecialchars($proposal['title']);
 					}
