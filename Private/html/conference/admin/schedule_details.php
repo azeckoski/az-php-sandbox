@@ -430,19 +430,19 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						<span style='color:#000;'>
 							<strong>Abstract: </strong>
 						</span>
-<?php
-				if (!$proposal['abstract']) {
-					echo " not available";
-				} else {
-					echo nl2br(trim(htmlspecialchars($proposal['abstract'])));
-				}
-
+<?php            
 				if($proposal['type']=="BOF") {
 					  if ($proposal['wiki_url']) { /* a project URL was provided */
 					  	$url=$proposal['wiki_url'];
 						echo"<div align=left><br/><strong> Wiki Page: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
 					}
 				}
+				if (!$proposal['abstract']) {
+					echo " not available";
+				} else {
+					echo nl2br(trim(htmlspecialchars($proposal['abstract'])));
+				}
+
 
 				//echo "</div>\n";
 				echo "</div></td>\n</td></tr>";
