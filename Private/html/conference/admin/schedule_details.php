@@ -404,20 +404,22 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					<strong>
 						<?= ucwords($proposal['type']) ?>:
 <?php
-					if ($proposal['wiki_url']) { /* a project URL was provided */
-						echo "<a href='".$proposal['wiki_url']."'>" .
-							htmlspecialchars($proposal['title']) .
-							"<img src='../include/images/arrow.png' border=0 /></a>";
-					} else {
+				
 						echo htmlspecialchars($proposal['title']);
-					}
+					
 ?>
 <?php if ($isAdmin) { /* let the admins link to the edit page */ ?>
 						&nbsp;[<a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=2">edit</a>]
 <?php } ?>
 					</strong>
 					</div><br/>
-
+<?php
+					if ($proposal['wiki_url']) { /* a project URL was provided */
+						echo "<a href='".$proposal['wiki_url']."'>" .
+							"<strong> Session Wiki page: </strong>"  .
+							"<img src='../include/images/arrow.png' border=0 /></a><br/><br/>";
+					} 
+?>
 					<strong>Speakers:</strong>
 						<?= htmlspecialchars($proposal['speaker']); ?>
 <?php
