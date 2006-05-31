@@ -413,14 +413,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 <?php } ?>
 					</strong>
 					</div><br/>
-<?php
-					if ($proposal['wiki_url']) { /* a project URL was provided */
-						echo "<a href='".$proposal['wiki_url']."'>" .
-							"<strong> Session Wiki page: </strong>"  .
-							"<img src='../include/images/arrow.png' border=0 /></a><br/><br/>";
-					} 
-?>
-					<strong>Speakers:</strong>
+				<strong>Speakers:</strong>
 						<?= htmlspecialchars($proposal['speaker']); ?>
 <?php
 				if (trim($proposal['co_speaker'])) {
@@ -447,7 +440,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				if($proposal['type']=="BOF") {
 					  if ($proposal['wiki_url']) { /* a project URL was provided */
 					  	$url=$proposal['wiki_url'];
-						echo"<div align=left><br/><strong> info: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
+						echo"<div align=left><br/><strong> Wiki Page: </strong><a href=\"$url\"><img src=\"../include/images/arrow.png\" border=0 width=10px height=10px title=\"visit project site\"></a><br/><br/></div>";
 					}
 				}
 
