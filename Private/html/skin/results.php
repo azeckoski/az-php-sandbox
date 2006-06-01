@@ -85,7 +85,7 @@ mysql_free_result($result);
 // the SQL to fetch the requirements and related votes
 $from_sql = "from skin_entries D left join skin_vote V on " .
 	"skin_entries_pk = D.pk and V.users_pk='$User->pk' " .
-	"and V.round='$ROUND' where D.round='$ROUND' ";
+	"and V.round='$ROUND' where D.round='$ROUND' and approved='Y'";
 
 // Voting Filter
 $filter_items_default = "show all items";
