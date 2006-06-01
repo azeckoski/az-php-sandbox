@@ -79,8 +79,8 @@ while($row = mysql_fetch_array($result)) {
 }
 mysql_free_result($result);
 
-echo "<pre>",print_r($allvotesU),"</pre>";
-echo "<pre>",print_r($allvotesA),"</pre>";
+//echo "<pre>",print_r($allvotesU),"</pre>";
+//echo "<pre>",print_r($allvotesA),"</pre>";
 
 // the SQL to fetch the requirements and related votes
 $from_sql = "from skin_entries D left join skin_vote V on " .
@@ -235,11 +235,11 @@ if ($_REQUEST["export"] && $allowed) {
 	</td>
 
 	<td nowrap="y" align="right">
-		<input class="filter" type="submit" name="clearall" value="Clear All Filters" title="Reset all filters">
+		<input class="filter" type="submit" name="clearall" value="Clear All Filters" title="Reset all filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
-        	length="20" title="Enter search text here">
+        	length="20" title="Enter search text here" />
         <script>document.adminform.searchtext.focus();</script>
-        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements">
+        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
 	</td>
 	</tr>
 	
@@ -397,7 +397,7 @@ while($itemrow=mysql_fetch_assoc($result)) {
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 			<div <?= $checked_asthetic[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
 <?php	} ?>
-			<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $itemrow["vote"] ?>">
+			<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $itemrow["vote"] ?>" />
 			<div style="margin:6px;"></div>
 			&nbsp;<label title="Total number of votes for this item">Total:</label>&nbsp;<br />
 			<div style="margin:12px;"></div>
