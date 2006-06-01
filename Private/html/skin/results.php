@@ -19,7 +19,7 @@ require 'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // add in the help link
-$EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
+$EXTRA_LINKS = " - <a style='font-size:.8em;' href='$HELP_LINK' target='HELP'>Help</a><br/>";
 
 // add in the display to let people know how long they have to vote
 $EXTRA_LINKS .= "<div class='date_message'>";
@@ -198,10 +198,6 @@ if ($_REQUEST["export"] && $allowed) {
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
-<script>
-<!--
-// -->
-</script>
 <?php include 'include/header.php'; ?>
 
 <?= $Message ?>
@@ -231,14 +227,14 @@ if ($_REQUEST["export"] && $allowed) {
 			<option value="show all unvoted items">show all unvoted items</option>
 		</select>
 		&nbsp;
-	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
+	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 	</td>
 
 	<td nowrap="y" align="right">
 		<input class="filter" type="submit" name="clearall" value="Clear All Filters" title="Reset all filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
-        	length="20" title="Enter search text here" />
-        <script>document.adminform.searchtext.focus();</script>
+        		size="20" title="Enter search text here" />
+        <script type="text/javascript">document.adminform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
 	</td>
 	</tr>
@@ -373,7 +369,7 @@ while($itemrow=mysql_fetch_assoc($result)) {
 ?>
 
 	<tr class="<?= $linestyle ?>" valign="top">
-		<td id="vb<?= $pk ?>" <?= $tdstyle_usability ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
+		<td id="vb<?= $pk ?>" <?= $tdstyle_usability ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;'>
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 			<div <?= $checked_usability[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
 <?php	} ?>
@@ -382,7 +378,7 @@ while($itemrow=mysql_fetch_assoc($result)) {
 			<div style="margin:12px;"></div>
 		</td>
 
-		<td nowrap="y" style='border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
+		<td nowrap="y" style='border-right:1px dotted #ccc;border-bottom:1px solid black;'>
 			<div style="margin-left:6px;">
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 				<?= $votes_usability[$vi] ?> (<?= $percents_usability[$vi] ?>%)<br/>
@@ -392,7 +388,7 @@ while($itemrow=mysql_fetch_assoc($result)) {
 			</div>
 		</td>
 
-		<td id="vb2<?= $pk ?>" <?= $tdstyle_asthetic ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
+		<td id="vb2<?= $pk ?>" <?= $tdstyle_asthetic ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;'>
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 			<div <?= $checked_asthetic[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
 <?php	} ?>
@@ -401,7 +397,7 @@ while($itemrow=mysql_fetch_assoc($result)) {
 			<div style="margin:12px;"></div>
 		</td>
 
-		<td nowrap="y" style='border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
+		<td nowrap="y" style='border-right:1px dotted #ccc;border-bottom:1px solid black;'>
 			<div style="margin-left:6px;">
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 				<?= $votes_asthetic[$vi] ?> (<?= $percents_asthetic[$vi] ?>%)<br/>
@@ -414,9 +410,7 @@ while($itemrow=mysql_fetch_assoc($result)) {
 		<td>
 			<strong><?= $itemrow["title"] ?></strong><br/>
 			<div class="description"><?= nl2br($itemrow["description"]) ?></div>
-		</td>
-
-		<td nowrap='y'>
+			<br/>
 			<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $itemrow['skin_zip'] ?>">Download skin</a>
 		</td>
 	</tr>
