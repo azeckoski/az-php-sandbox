@@ -377,7 +377,6 @@ while($itemrow=mysql_fetch_assoc($result)) {
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 			<div <?= $checked_usability[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
 <?php	} ?>
-			<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $itemrow["vote"] ?>">
 			<div style="margin:6px;"></div>
 			&nbsp;<label title="Total number of votes for this item">Total:</label>&nbsp;<br />
 			<div style="margin:12px;"></div>
@@ -393,11 +392,10 @@ while($itemrow=mysql_fetch_assoc($result)) {
 			</div>
 		</td>
 
-		<td id="vb<?= $pk ?>" <?= $tdstyle_asthetic ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
+		<td id="vb2<?= $pk ?>" <?= $tdstyle_asthetic ?> nowrap='y' style='text-align:right;border-right:1px dotted #ccc;border-bottom:1px solid black;' rowspan="2">
 <?php	for ($vi = count($VOTE_TEXT)-1; $vi >= 0; $vi--) { ?>
 			<div <?= $checked_asthetic[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
 <?php	} ?>
-			<input id="vh<?= $pk ?>" type="hidden" name="cur<?= $pk ?>" value="<?= $itemrow["vote"] ?>" />
 			<div style="margin:6px;"></div>
 			&nbsp;<label title="Total number of votes for this item">Total:</label>&nbsp;<br />
 			<div style="margin:12px;"></div>
