@@ -325,7 +325,7 @@ $searchtext = "";
 if ($_REQUEST["searchtext"] && (!$_REQUEST["clearall"]) ) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " and (title like '%$searchtext%' OR abstract like '%$searchtext%' " .
+	$sqlsearch = " and (title like '%$searchtext%' " .
 		"OR firstname like '%$searchtext%' OR lastname like '%$searchtext%'" .
 		"OR institution like '%$searchtext%') ";
 }
