@@ -119,9 +119,7 @@ predefined in css files in the <a href="http://bugs.sakaiproject.org/confluence/
 	<li>Anyone voting for a skin will be referred to as a voter</li>
 </ul>
 <ol>
-	<li>Each voter may submit 1 vote only for their top choice</li>
 	<li>All votes must be in by the final voting date (see Dates above)</li>
-
 	<li>Users may change their vote up until the final voting date</li>
 </ol>
 
