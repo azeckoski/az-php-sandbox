@@ -408,17 +408,15 @@ while($itemrow=mysql_fetch_assoc($result)) {
 		</td>
 
 		<td>
-
-		<td>
 			<div style="margin:3px;">
-				Title: <strong><?= $item['title'] ?></strong>
+				Title: <strong><?= $itemrow['title'] ?></strong>
 <?php if ($item['url']) { ?>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<a style="text-decoration:underline;" href="<?= $item['url'] ?>">View skin in action</a>
+				<a style="text-decoration:underline;" href="<?= $itemrow['url'] ?>">View skin in action</a>
 <?php } ?>
 <?php if ($item['allow_download'] == 'Y') { ?>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $item['skin_zip'] ?>">Download skin</a>
+				<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $itemrow['skin_zip'] ?>">Download skin</a>
 <?php } ?>
 			</div>
 			<br/>
