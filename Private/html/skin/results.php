@@ -253,8 +253,7 @@ if ($_REQUEST["export"] && $allowed) {
 <td width='10%'>&nbsp;Results</td>
 <td width='10%' align="right">Asthetic&nbsp;</td>
 <td width='10%'>&nbsp;Results</td>
-<td width='40%'>Title / Description</td>
-<td width='20%'></td>
+<td width='60%'>Title / Description</td>
 </tr>
 
 <?php } // end export else 
