@@ -408,10 +408,21 @@ while($itemrow=mysql_fetch_assoc($result)) {
 		</td>
 
 		<td>
-			<strong><?= $itemrow["title"] ?></strong><br/>
-			<div class="description"><?= nl2br($itemrow["description"]) ?></div>
+
+		<td>
+			<div style="margin:3px;">
+				Title: <strong><?= $item['title'] ?></strong>
+<?php if ($item['url']) { ?>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<a style="text-decoration:underline;" href="<?= $item['url'] ?>">View skin in action</a>
+<?php } ?>
+<?php if ($item['allow_download'] == 'Y') { ?>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $item['skin_zip'] ?>">Download skin</a>
+<?php } ?>
+			</div>
 			<br/>
-			<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $itemrow['skin_zip'] ?>">Download skin</a>
+			<div class="description"><?= nl2br($itemrow["description"]) ?></div>
 		</td>
 	</tr>
 <?php
