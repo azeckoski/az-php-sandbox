@@ -410,11 +410,11 @@ while($itemrow=mysql_fetch_assoc($result)) {
 		<td>
 			<div style="margin:3px;">
 				Title: <strong><?= $itemrow['title'] ?></strong>
-<?php if ($item['url']) { ?>
+<?php if ($itemrow['url']) { ?>
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a style="text-decoration:underline;" href="<?= $itemrow['url'] ?>">View skin in action</a>
 <?php } ?>
-<?php if ($item['allow_download'] == 'Y') { ?>
+<?php if ($itemrow['allow_download'] == 'Y') { ?>
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $itemrow['skin_zip'] ?>">Download skin</a>
 <?php } ?>
