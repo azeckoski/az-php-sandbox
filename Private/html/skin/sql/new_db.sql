@@ -31,8 +31,11 @@ CREATE TABLE skin_entries (
 	approved			enum('Y','N') default 'N',
 	tested				enum('Y','N') default 'N',
 	allow_download		enum('Y','N') default 'N',
+	score				int(10) not null default 0;
     PRIMARY KEY(pk)
 );
+
+// alter table skin_entries add score int(10) not null default 0;
 
 // table for storing skin votes
 CREATE TABLE skin_vote (

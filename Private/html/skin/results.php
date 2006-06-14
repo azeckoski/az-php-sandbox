@@ -128,7 +128,7 @@ if ($searchtext) {
 }
 
 // set sorting
-$sorting_default = "SCORE";
+$sorting_default = "SCORE desc";
 $sorting = "";
 if ($_REQUEST["sorting"] && (!$_REQUEST["clearall"]) ) { $sorting = $_REQUEST["sorting"]; }
 
