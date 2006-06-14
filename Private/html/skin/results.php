@@ -1,6 +1,6 @@
 <?php
 /*
- * file: results2.php
+ * file: results.php
  * Created on May 18, 2006 by @author az
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  * copyright 2006 Virginia Tech
@@ -85,7 +85,8 @@ mysql_free_result($result);
 // the SQL to fetch the requirements and related votes
 $from_sql = "from skin_entries D left join skin_vote V on " .
 	"skin_entries_pk = D.pk and V.users_pk='$User->pk' " .
-	"and V.round='$ROUND' where D.round='$ROUND' and approved='Y'";
+	"and V.round='$ROUND' join users on users.pk = D.users_pk " .
+	"where D.round='$ROUND' and approved='Y'";
 
 // Voting Filter
 $filter_items_default = "show all items";
@@ -127,7 +128,7 @@ if ($searchtext) {
 }
 
 // set sorting
-$sorting_default = "DATE_CREATED";
+$sorting_default = "SCORE";
 $sorting = "";
 if ($_REQUEST["sorting"] && (!$_REQUEST["clearall"]) ) { $sorting = $_REQUEST["sorting"]; }
 
@@ -137,7 +138,7 @@ if ($sorting == "Date") {
 } else if ($sorting == "Date (reverse)") {
 	$sqlsorting = " order by DATE_CREATED desc ";
 } else {
-	$sorting = "Date";
+	$sorting = "Score";
 	$sqlsorting = " order by $sorting_default ";
 }
 
@@ -178,8 +179,9 @@ $end_item = $limitvalue + $num_limit;
 if ($end_item > $total_items) { $end_item = $total_items; }
 
 // fetching all data items and votes for user
-$sql="select D.*, V.vote_usability, V.vote_asthetic " . $from_sql .
-		$sqlfilters . $sqlsearch . $sqlsorting . $mysql_limit;
+$sql="select D.*, V.vote_usability, V.vote_asthetic, " .
+	"users.username, users.firstname, users.lastname, users.email " . 
+		$from_sql .	$sqlfilters . $sqlsearch . $sqlsorting . $mysql_limit;
 //print "Query=$sql<br>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $items_displayed = mysql_num_rows($result);
@@ -278,10 +280,12 @@ while($itemrow=mysql_fetch_assoc($result)) {
 	$votes_usability = array();
 	$percents_usability = array();
 	$numerator_usability = 0;
+	$usability_score = 0;
 	if ($total_usability) {
 		for ($i=0; $i<count($VOTE_TEXT); $i++) {
 			$num = $VOTE_SCORE[$i];
 			$votes_usability[$i] = $allvotesU["$pk:$num"]+0;
+			$usability_score += ($num * $votes_usability[$i]);
 			$itemrow[$VOTE_TEXT[$i]] = $votes_usability[$i];
 			$percents_usability[$i] = round(($votes_usability[$i]/$total_usability)*100,1);
 			$itemrow[$VOTE_TEXT[$i]."%"] = $percents_usability[$i];
@@ -292,10 +296,12 @@ while($itemrow=mysql_fetch_assoc($result)) {
 	$votes_asthetic = array();
 	$percents_asthetic = array();
 	$numerator_asthetic = 0;
+	$asthetic_score = 0;
 	if ($total_asthetic) {
 		for ($i=0; $i<count($VOTE_TEXT); $i++) {
 			$num = $VOTE_SCORE[$i];
 			$votes_asthetic[$i] = $allvotesA["$pk:$num"]+0;
+			$asthetic_score += ($num * $votes_asthetic[$i]);
 			$itemrow[$VOTE_TEXT[$i]] = $votes_asthetic[$i];
 			$percents_asthetic[$i] = round(($votes_asthetic[$i]/$total_asthetic)*100,1);
 			$itemrow[$VOTE_TEXT[$i]."%"] = $percents_asthetic[$i];
@@ -315,6 +321,9 @@ while($itemrow=mysql_fetch_assoc($result)) {
 	$checked_asthetic[$itemrow["Average Asthetic"]] = " class='avgvote' ";
 	// array_search(max($votes),$votes)
 
+	$itemrow["Usability Score"] = $usability_score;
+	$itemrow["Asthetic Score"] = $asthetic_score;
+	$itemrow["Score"] = $usability_score + $asthetic_score;
 
 	if ($_REQUEST["export"]) {
 		// print out EXPORT format instead of display
@@ -417,6 +426,16 @@ while($itemrow=mysql_fetch_assoc($result)) {
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a style="text-decoration:underline;" href="include/getFile.php?pk=<?= $itemrow['skin_zip'] ?>">Download skin</a>
 <?php } ?>
+			</div>
+			<div style="margin:3px;">
+				Author: <?= $itemrow["firstname"]." ".$itemrow["lastname"] ?>
+				(<a href="mailto:<?= $itemrow["email"] ?>"><?= $itemrow["email"] ?></a>)
+			</div>
+			<div style="margin:3px;">
+				Score: <?= $itemrow["Score"] ?>
+				<span style="font-size:.9em;">
+					(Usability: <?= $itemrow["Usability Score"] ?>, Asthetic: <?= $itemrow["Asthetic Score"] ?>)
+				</span>
 			</div>
 			<br/>
 			<div class="description"><?= nl2br($itemrow["description"]) ?></div>
