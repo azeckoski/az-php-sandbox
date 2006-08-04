@@ -21,12 +21,12 @@ $CSS_FILE = $TOOL_URL."/include/template_css.css";
 $CSS_FILE2 = $TOOL_URL."/include/template_CFPform_css.css";
 //$HELP_LINK = "include/help.php";
 
-$CONF_ID = "Jun2006";
-$CONF_LOC = "Vancouver";
-$CONF_NAME = "Sakai Vancouver";
+$CONF_ID = "Dec2006";
+$CONF_LOC = "Atlanta";
+$CONF_NAME = "Sakai Atlanta";
 $CONF_URL = "http://www.sakaiproject.org/index.php?option=com_content&task=view&id=319&Itemid=527";
-$CONF_START_DATE = "2006/05/30 8:00";
-$CONF_END_DATE = "2006/06/02 17:00";
+$CONF_START_DATE = "2006/12/05 8:00";
+$CONF_END_DATE = "2006/12/08 17:00";
 
 // date format for display
 $DATE_FORMAT = "l, F dS, Y g:i A";

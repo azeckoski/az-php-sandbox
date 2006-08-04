@@ -26,11 +26,18 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 // bring in inst and conf data
 require 'include/getInstConf.php';
 
+$error = false;
+
 // get the passed message if there is one
 if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
 
+// check for past registration date (end of conference)
+if(strtotime($CONF_END_DATE) < time()) {
+	$Message = "This conference registration period has passed.";
+	$error = true;
+}
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
@@ -53,7 +60,7 @@ $vItems['delegate'] = "email";
 // writing data and other good things happen here
 $completed = false;
 $thisUser = $User;
-if ($_POST['save']) { // saving the form
+if ($_POST['save'] && !$error) { // saving the form
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -191,6 +198,8 @@ if ($_POST['save']) { // saving the form
 			// already registered and not a partner that has not paid
 			require 'include/member_confirmation.php';
 		}
+	} else if ($error) {
+		// do nothing except stop the user from loading the form
 	} else { // show registration form
 ?>
 
