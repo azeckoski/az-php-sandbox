@@ -74,7 +74,7 @@ if ($_POST['save']) { // saving the form
 	  <tr>
 	    <td valign="top"><div class="componentheading">Call for Proposals</div></td>
 	  </tr>
-	  <tr>
+	<!--  <tr>
 		  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
 		  	<span class="pathway">
 		  		<img src="../include/images/arrow.png" height="12" width="12" alt="arrow" />
@@ -83,7 +83,7 @@ if ($_POST['save']) { // saving the form
 		  	 	</span>
 		  	 
 		  </td>
-	  </tr>
+	  </tr> -->
 	</table>
 
 	<div id="cfp"><!-- start form section -->
@@ -104,25 +104,35 @@ if ($_POST['save']) { // saving the form
 	   </tr>
 	   <tr>
 	     <td colspan=3 valign="top">
-	      	<div><input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>
-				<div style="padding: 0px 40px;">
-					BOFs are self-formed meetings set up by any conference attendee to discuss a Sakai-related topic during the conference. BOFs may take place during the main conference sessions, as well as before or after the normal conference scheduled session - based on room availablity.
-					[<a href="http://sakaiproject.org/index.php?option=com_content&task=blogcategory&id=178&Itemid=524" target=blank>more information</a>]<br/><br/>
-				</div>
-			</div>
+	      
 				<div><input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />&nbsp;&nbsp;<strong>Technology Demo</strong><br/>
 					<div style="padding: 0px 40px;">
-					Technology Demos will take place on Thursday, June 1st.<br/><br/><strong> PLEASE NOTE:</strong>  We have filled our space/equipment allocations for the technical demos.  However, you may still submit
-					a Tech Demo Proposal-  we will put your name on the demo list -- but Can Not guarantee a space at this time.  Please check with the registration desk when you arrive.  If more space becomes available or others cancel their demo, we may be able to accomodate you at the last minute.
-					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]<br/><br/>
-				</div>
+				 	Technology Demos will take place on Thursday, December 7th.<br/><br/>
+				
+				<!-- <br/><strong> PLEASE NOTE:</strong>  We have filled our space/equipment allocations for 
+					the technical demos.  However, you may still submit
+					a Tech Demo Proposal-  we will put your name on the demo
+					 list,  but Can Not guarantee a space at this time. 
+					  Please check with the registration desk when you arrive. 
+					   If more space becomes available or others cancel their demo, 
+					   we may be able to accomodate you at the last minute.
+					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]<br/><br/> 
+				--> </div>
 			</div>
 			<div><input name="type" type="radio" value="presentation" <?php if ($_POST['type']=="presentation") echo "checked" ?> />&nbsp;&nbsp;<strong>Conference Presentation</strong>
 				<div style="padding: 0px 40px;">
-					<strong>Please Note:</strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
+				<!-- <strong>Please Note:</strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
 					 <br/><br/> Presentation formats include: panel, workshop, discussion, and lecture. 
+					-->
 					Presentations will take place at the conference hotel, during the conference's 
-					daytime schedule for May 30 through June 2nd.<br/><br/>
+					normal daytime schedule for December 5-8.<br/><br/>
+				</div>
+			</div>
+				<div><!-- <input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> /> -->  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>
+				<div style="padding: 0px 40px;">
+					BOF proposals will be accepted in mid-November, after the main schedule is published. 
+					BOFs are self-formed meetings set up by any conference attendee to discuss a Sakai-related topic during the conference. BOFs may take place during the main conference sessions, as well as before or after the normal conference scheduled session - based on room availablity.
+				<!--	[<a href="http://sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=178&amp;itemid=524" target=blank>more information</a>]<br/><br/> -->
 				</div>
 			</div>
 	        
@@ -139,58 +149,7 @@ if ($_POST['save']) { // saving the form
 </div> <!-- end cfp -->
 	
          <div style="margin:16px;"></div> <!-- SPACER -->
+
+
 	
-      </div> <!-- end  content_main  -->
-   </div> <!-- end container-inner -->
-</div> <!--end of outer left -->
-
-	 <div id=outerright><!-- start outerright -->
-		 <div id=rightcol> <!--start rightcol -->
-		
-<?php 
-	$sql = "select CP.title, CP.pk from conf_proposals CP " .
-		"where CP.users_pk='$User->pk' and CP.confID = '$CONF_ID'";
-	//print "SQL=$sql<br/>";
-	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-
-	if(mysql_num_rows($result) > 0) {
-		// print the nice header
-?>
-	<div style="padding:3px; margin:0px;border:2px solid black;background:white;">
-		<div class="componentheading"><strong>Your&nbsp;Proposals:</strong></div>
-<?php
-	while($item=mysql_fetch_assoc($result)) {
-?>
-	<li><a href="edit_proposal.php?pk=<?= $item['pk'] ?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
-		<!-- [<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
-			title="Delete this proposal"
-			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]  -->
-	</li>
-<?php
-		} // end while
-		echo "<li>[ <a title='Create a new proposal' href='index.php'>new proposal</a> ]</li>";
-		echo "</div>";
-	} // end if
-?>
-
-	<br/>
-		 <div class="componentheading"><hr><br/></div>
-		   <div class="componentheading">More Info...</div>
-		   <div class="contentheading">What will you need to provide?</div>
-		   <div class="contentpaneopen">
-	 	     <div><a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519" target=blank> PROPOSAL SUBMISSION GUIDELINES </a><br /> <br />
-	 	    	</div>
-	 	    	<p>Preview a <a href="http://sakaiproject.org/vancouver/sakai_vancouverCFP.pdf" title="not available yet...">sample proposal form</a> and instructions for completing this Call for Proposal submission process. </p>
-	 	  </div>  
-	 	  <div class="contentheading">Review Previous Conference Sessions</div>
-	 	  <div class="contentpaneopen"><a title="" href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=161&amp;Itemid=497" target="blank"> 
-	 	    	  <img style="margin: 0px 10px 0px 0px;" width="100" height="61" border="1" title="" alt="" src="../include/images/agenda.gif" /><br />
-	 	 	  </a> Review the sessions offered at the Sakai Austin Conference (December 2005)<br />
-	 	  </div>
-	     </div> <!--end rightcol -->
-	  </div> <!-- end outerright -->
-	  
-</div><!-- end containerbg -->
-
-
 <?php include '../include/footer.php'; // Include the FOOTER ?>
