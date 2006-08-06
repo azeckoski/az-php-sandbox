@@ -407,9 +407,10 @@ if ($PK) {
 		<? 
 		 } if ($Message) { 
 	 	    
-	 } ?>
-	   </td>
+	?>  </td>
   </tr>
+  <?php  } ?>
+	  
 </table>
 
 <?php
