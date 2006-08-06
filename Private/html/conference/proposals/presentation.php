@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
  <tr>
     <td><div class="componentheading">Call for Proposals - Submission Form</div></td>
   </tr>
-  <tr>
+ <!-- <tr>
 	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
 	  	<span class="pathway">
 	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Start &nbsp; &nbsp; &nbsp;
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
 	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Confirmation
 	  	</span>
 	  </td>
-  </tr>
+  </tr> -->
 </table>
 
 <!-- <?= $Message ?> -->
@@ -303,49 +303,5 @@ presenter(s)<br/>CANNOT present due to a travel conflict</div>
   </form>
 </div>
 <!-- end cfp -->
-</div>
-<!-- end  content_main  -->
-</div>
-<!-- end container-inner -->
-</div>
-<!--end of outer left -->
-<!-- start outerright -->
-<div id=outerright>
-  <!-- start of rightcol_top -->
-  <!-- end of rightcol_top-->
-  <!--end rightcol -->
-  <div id=rightcol>
-<!--    <div id=gettrack class="componentheading">Conference Tracks</div>
-    <div class="contentheading"> Teaching, Learning, and Assessment </div>
-    <div class="contentpaneopen">The Teaching, Learning, and Assessment track will offer opportunities to share experiences with and plans for using Sakai or OSP for teaching and learning. These sessions will include presentations on the impact of OSP (or portfolios in general) on teaching practices; discussions regarding the value of a Collaborative Learning Environment (CLE) and its integrated toolset for students and the learning process; assessment management systems for tracking student progress toward learning goals; online learning using Sakai/OSP; and supporting reflective practices.</div>
-    <div class="contentheading"> Management & Campus Implementation </div>
-    <div class="contentpaneopen">This track highlights issues of concern to those managing current or upcoming pilot implementations; campus impact and implications; project assessment implications; training; coordination and leadership; and institutional change. This is appropriate for implementations of Sakai, OSP, or any interest regarding other strategies for integration of Sakai tools.</div>
-    <div class="contentheading"> Research and Collaboration </div>
-    <div class="contentpaneopen">The Research and Collaboration track will focus on using the Sakai Collaboration and Learning Environment (CLE) and its tools such as OSP or Melete, can be used to support research collaborations. We are looking for existing examples, current or upcoming projects, uses cases, and plans.</div>
-    <div class="contentheading"> Sakai Foundation, Community Source & Governance </div>
-    <div class="contentpaneopen">These sessions will focus on the transition from the current organization to the Sakai Foundation as the operational, governance, and legal framework for Sakai and OSPI. Issues and process around open and community source licensing and copyright will also be covered here.</div>
-    <div class="contentheading"> Technology and User Interface</div>
-    <div class="contentpaneopen">The Technology and User Interface track will offer sessions, panels, and round-tables that cover features and requirements; technical challenges and lessons learned for installing and implementing Sakai and integrated tools such as OSP, Samigo, and Melete; contributing code; tech support; commercial tech support; future releases; usability, user-interface design, and user-testing.</div>
-    <div id=barRight> </div>
-    <br/>
-    <br/>-->
-    <div id=getformat class="componentheading">Presentation Formats</div>
-    <div class="contentheading"> Discussion </div>
-    <div class="contentpaneopen"> This type of session involves a very brief presentation of a topic and immediately opens for discussion of the topic by attendees.</div>
-    <div class="contentheading"> Lecture </div>
-    <div class="contentpaneopen">This type of session consists mostly of presenting information to the attendees. Sufficient time for follow-up questions must be included. </div>
-    <div class="contentheading"> Panel </div>
-    <div class="contentpaneopen">This type of session typically brings together panelists from diverse background to address a topic from multiple points of view.</div>
-    <div class="contentheading"> Workshop (How-to) </div>
-    <div class="contentpaneopen"> This type of session is highly interactive, relaying skills as well as information to attendees.</div>
-    <div class="contentheading"> Showcase/Poster </div>
-    <div class="contentpaneopen"> Please note that we will <strong>not</strong> be soliciting proposals for Showcase/Poster sessions using this call for proposals form. We do, however, encourage you to create a poster that showcases your campus implementation or toolset. You can use the template we will provide (sometime in March) or use your own design. We will provide more details in March. </div>
-  </div>
-
-  <!--end rightcol -->
-</div>
-<!-- end outerright -->
-
-</div><!-- end containerbg -->
 
 <?php include '../include/footer.php'; // Include the FOOTER ?>
