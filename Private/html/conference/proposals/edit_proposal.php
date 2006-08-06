@@ -406,11 +406,12 @@ if ($PK) {
 	    <br/>
 		<? 
 		 } if ($Message) { 
-	 	    
-	?>  </td>
-  </tr>
-  <?php  } ?>
-	  
+	 ?>	    
+	 </td>
+  </tr> 
+  
+  <?php } ?>
+	   
 </table>
 
 <?php
@@ -790,7 +791,9 @@ if ($PK) {
   </tr>
 
 <?php 	} else { /* is demo check */ ?>
-	<input type="hidden" name="type" value="<?= $type ?>" />
+	<tr>
+        <td >&nbsp;</td>
+        <td><input type="hidden" name="type" value="<?= $type ?>" /></td</tr>
 <?php } ?>
 
     <tr>
