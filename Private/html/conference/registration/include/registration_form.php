@@ -189,7 +189,7 @@
   </td>
 </tr>
 
-<tr>
+<!-- <tr>
   <td colspan=2>
 	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Community Source Week Conferences:</strong><br />
@@ -202,7 +202,7 @@
     <input type="hidden" id="jasigValidate" value="<?= $vItems['jasig'] ?>"/>
 	<span id="jasigMsg"></span>
   </td>
-</tr>
+</tr> -->
 
 <tr>
   <td colspan=2>
