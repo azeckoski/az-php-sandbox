@@ -389,15 +389,16 @@ if ($PK) {
  <tr>
     <td><div class="componentheading">Call for Proposals</div></td>
   </tr>
-  <tr>
-	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
-	  <?php
+   <?php
 	   if ($Message) {  echo $Message;  
 	 	    
 	 }
 	 
 	  if ($is_scheduled) {
 	    	 ?>
+  <tr>
+	  
+	 <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
 	 	 <div style="background: #fff; border: 1px solid orange; padding:10px;">  	 
 			<div><strong>This session has been scheduled - please see the <a href="../admin/schedule.php">master schedule </a> for details. </strong>
 			 <br/></div>
@@ -406,13 +407,7 @@ if ($PK) {
 		<? 
 		 } if ($Message) { 
 	 	    
-	 }
-	 else {  ?>
-    <span class="pathway">
-	 	<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Start &nbsp; &nbsp; &nbsp;
-	  		<img src="../include/images/arrow.png" height="12" width="12" alt="arrow" /><span class="activestep">Proposal Details &nbsp; &nbsp; &nbsp;</span> 
-	    	</span>
-	 <?php }	?>
+	 } ?>
 	   </td>
   </tr>
 </table>
@@ -444,8 +439,9 @@ if ($PK) {
     <td colspan=2>
     		<div><strong> Technical Demo Proposal </strong></div>
     		<div style="padding:0px 10px;">
-					Technology Demos will take place on Thursday, June 1st. 
-					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]
+					Technology Demos will take place on Thursday, December 7th. 
+				<!--	[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]
+				-->
 				</div>
     </td>
 </tr>
@@ -808,64 +804,6 @@ if ($PK) {
 
 </div>
 <!-- end cfp -->
-</div>
-<!-- end  content_main  -->
-</div>
-<!-- end container-inner -->
-</div>
-<!--end of outer left -->
-<!-- start outerright -->
-<div id=outerright>
-  <!-- start of rightcol_top -->
-  <!-- end of rightcol_top-->
-  <!--end rightcol -->
-  <div id=rightcol>
 
-<?php 
-	$sql = "select CP.title, CP.approved, CP.pk from conf_proposals CP  " .
-		"where CP.users_pk='$User->pk' and CP.confID = '$CONF_ID' and approved='Y' ";
-	//print "SQL=$sql<br/>";
-	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
-
-	if(mysql_num_rows($result) > 0) {
-		// print the nice header
-?>
-	<div style="padding:3px; margin:0px;border:2px solid black;background:white;">
-		<div class="componentheading"><strong>Your&nbsp;Proposals:</strong></div>
-<?php
-	while($item=mysql_fetch_assoc($result)) {
-?>
-	<li><a href="edit_proposal.php?pk=<?= $item['pk']?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
-		<!-- [<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
-			title="Delete this proposal"
-			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]  -->
-		</li>
-<?php
-		} // end while
-		echo "<li>[ <a title='Create a new proposal' href='index.php'>new proposal</a> ]</li>";
-		echo "</div>";
-	} // end if
-?>
-	<br/>
-	
-<?php if (($type!="demo") && ($type!="BOF")){ ?>
-    <div id="getformat" class="componentheading">Presentation Formats</div>
-    <div class="contentheading"> Discussion </div>
-    <div class="contentpaneopen"> This type of session involves a very brief presentation of a topic and immediately opens for discussion of the topic by attendees.</div>
-    <div class="contentheading"> Lecture </div>
-    <div class="contentpaneopen">This type of session consists mostly of presenting information to the attendees. Sufficient time for follow-up questions must be included. </div>
-    <div class="contentheading"> Panel </div>
-    <div class="contentpaneopen">This type of session typically brings together panelists from diverse background to address a topic from multiple points of view.</div>
-    <div class="contentheading"> Workshop (How-to) </div>
-    <div class="contentpaneopen"> This type of session is highly interactive, relaying skills as well as information to attendees.</div>
-    <div class="contentheading"> Showcase/Poster </div>
-    <div class="contentpaneopen"> Please note that we will <strong>not</strong> be soliciting proposals for Showcase/Poster sessions using this call for proposals form. We do, however, encourage you to create a poster that showcases your campus implementation or toolset. You can use the template we will provide (sometime in March) or use your own design. We will provide more details in March. </div>
-  </div>
-<?php  } ?> 
-  <!--end rightcol -->
-</div>
-<!-- end outerright -->
-
-</div><!-- end containerbg -->
 
 <?php include '../include/footer.php'; // Include the FOOTER ?>
