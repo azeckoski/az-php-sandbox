@@ -105,7 +105,7 @@ if ($_POST['save']) { // saving the form
  <tr>
     <td><div class="componentheading">Call for Proposals - Submission Form</div></td>
   </tr>
-  <tr>
+ <!--  <tr>
 	  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
 	  	<span class="pathway">
 	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Start &nbsp; &nbsp; &nbsp;
@@ -114,7 +114,7 @@ if ($_POST['save']) { // saving the form
 	  		<img src="../include/images/arrow.png" height="8" width="8" alt="arrow" />Confirmation
 	  	</span>
 	  </td>
-  </tr>
+  </tr> -->
 </table>
 
 <!-- <?= $Message ?> -->
@@ -177,29 +177,6 @@ if ($_POST['save']) { // saving the form
   </form>
 </div>
 <!-- end cfp -->
-</div>
-<!-- end  content_main  -->
-</div>
-<!-- end container-inner -->
-</div>
-<!--end of outer left -->
-<!-- start outerright -->
-<div id=outerright>
-  <!-- start of rightcol_top -->
-  <!-- end of rightcol_top-->
-  <!--end rightcol -->
 
- <div id=rightcol>
-    <div class="componentheading">More Info...</div>
-    <div class="contentheading">Technical Demos</div>
-    <div class="contentpaneopen">As in the past, we plan to provide each demonstrator with table space and, if equipment resources allow, an overhead projector and screen to project your demonstration. This event has become one of the most exciting events of the conference. Space is very limited, so get your demo requests in early. <br />
-      <br />
-      [<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]</div>
-  </div>
-<!--end rightcol -->
-</div>
-<!-- end outerright -->
-
-</div><!-- end containerbg -->
 
 <?php include '../include/footer.php'; // Include the FOOTER ?>
