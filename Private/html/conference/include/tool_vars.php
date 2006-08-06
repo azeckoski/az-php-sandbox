@@ -17,8 +17,10 @@ $TOOL_URL = "/conference";
 $TOOL_PATH = $_SERVER["DOCUMENT_ROOT"].$TOOL_URL.'/';
 $TOOL_NAME = "Conference";
 $TOOL_SHORT = "conf";
-$CSS_FILE = $TOOL_URL."/include/template_css.css";
-$CSS_FILE2 = $TOOL_URL."/include/template_CFPform_css.css";
+
+$CSS_FILE2 = $TOOL_URL."/include/template/css/template_css.css";
+$CSS_FILE3 = $TOOL_URL."/include/template/css/header.css";
+$CSS_FILE4 = $TOOL_URL."/include/template/css/footer.css";
 //$HELP_LINK = "include/help.php";
 
 $CONF_ID = "Dec2006";
