@@ -31,7 +31,7 @@
 		<?php } ?>
 		<br/>
 		<strong>shirt size:</strong> <?= $CONF['shirt'] ?><br/>
-		<strong>attending jasig:</strong> <?= $CONF['jasig'] ?><br/>
+		<!-- <strong>attending jasig:</strong> <?= $CONF['jasig'] ?><br/> -->
 		<strong>staying at conference hotel:</strong> <?= $CONF['confHotel'] ?><br/>
 		<strong>publish name on attendee list:</strong> <?= $CONF['publishInfo'] ?><br/>
 		<?php if ($CONF['special']) { echo "Special needs: $CONF[special]<br/>"; } ?>
@@ -39,13 +39,13 @@
 		<br/>
 	</td>
 </tr>
-<tr>
+<!-- <tr>
     <td colspan=2><blockquote style="background:#fff; border: 1px solid #ffcc33; padding: 5px;">
     <strong>Special announcements and reminders:</strong>
         <ul>
-          <li><strong>Visit the Sakai Conference Facebook</strong> to see who else is attending -- and add your photo while you're there! (see sidebar for more information)</li>
+          <li><strong>Visit the Sakai Conference Facebook</strong> to see who else is attending,  and add your photo while you're there! (see sidebar for more information)</li>
           <li><strong>Call for Proposals Deadline is March 31st.</strong> [ <a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519">more information</a> ]</li>
         </ul>
       </blockquote></td>
-  </tr>
+  </tr> -->
 </table>
