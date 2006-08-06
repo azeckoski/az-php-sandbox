@@ -53,5 +53,5 @@ Registration will open in early September<br/><br/>
 	Click here to volunteer to be a convener or recorder for the upcoming Sakai conference<br/>
 -->
 </div>
-<div class="padding"><br/><br/></div>
+<div style="height:60px;"><br/><br/></div>
 <?php require 'include/footer.php'; // Include the FOOTER ?>
