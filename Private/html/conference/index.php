@@ -23,6 +23,7 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 <?php require $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <style type="text/css">
+
 #activity{
 color:#000;
 }
@@ -38,15 +39,19 @@ color:#000;
 <?php require 'include/header.php'; ?>
 
 <div style="text-align:left;">
-From here you can:<br/>
-<a style="font-size:12pt;" href="registration/">Register for the conference</a> - 
+
+<a style="font-size:11pt;" href="proposals/">Propose a session for the conference</a> -
+	Click here to enter a proposal for the upcoming Sakai conference<br/><br/>
+<span style="font-size:11pt;" href="registration/">Register for the conference</span> - 
+Registration will open in early September<br/><br/>
+<!-- 	<a style="font-size:12pt;" href="registration/">Register for the conference</a> - 
 	Click here to register for the upcoming Sakai conference<br/>
-<a style="font-size:12pt;" href="proposals/">Propose a session for the conference</a> -
-	Click here to enter a proposal for the upcoming Sakai conference<br/>
-<a style="font-size:12pt;" href="volunteer.php">Volunteer to help at the conference</a> -
+	-->
+	<span style="font-size:11pt;" href="volunteer.php">Volunteer to help at the conference</span> -
 	Click here to volunteer to be a convener or recorder for the upcoming Sakai conference<br/>
+<!-- <a style="font-size:12pt;" href="volunteer.php">Volunteer to help at the conference</a> -
+	Click here to volunteer to be a convener or recorder for the upcoming Sakai conference<br/>
+-->
 </div>
-
-<?php require 'include/outer_right.php'; // Include right column ?>
-
+<div class="padding"><br/><br/></div>
 <?php require 'include/footer.php'; // Include the FOOTER ?>
