@@ -40,7 +40,7 @@ color:#000;
 
 <div style="text-align:left;">
 
-<span style="font-size:11pt;"><a href="proposals/">Propose a session for the conference</a> -
+<span style="font-size:11pt;"><a href="proposals/">Propose a session for the conference</a></span> -
 	Click here to enter a proposal for the upcoming Sakai conference<br/><br/>
 <span style="font-size:11pt;">Register for the conference</span> - 
 Registration will open in early September<br/><br/>
