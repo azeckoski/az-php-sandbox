@@ -26,7 +26,7 @@
                         <?php } ?>
                         <?= $EXTRA_MESSAGE ?>
                      
-                        <a style="font-size:9pt;" href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=415&amp;Itemid=312">Conference Home</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>
+                        <a style="font-size:9pt;" href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=566">Conference Home</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>
                         <?= $EXTRA_LINKS ?>
                       </div></td>
                   </tr>
@@ -45,10 +45,10 @@
                   	</div>
                       <table width="100%" border="0" cellpadding="0" cellspacing="0">
                         <tr align="left">
-                          <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=415&amp;Itemid=312" class="mainlevel" >Conference home</a></td>
+                          <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=566" class="mainlevel" >Conference home</a></td>
                         </tr>
                         <tr align="left">
-                          <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=415&amp;Itemid=312" class="mainlevel" >Help?</a></td>
+                          <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=420&amp;Itemid=572" class="mainlevel" >Help?</a></td>
                         </tr>
                         
                         <tr><td>
