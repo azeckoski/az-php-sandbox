@@ -45,10 +45,11 @@
                   	</div>
                       <table width="100%" border="0" cellpadding="0" cellspacing="0">
                         <tr align="left">
-                          <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=566" class="mainlevel" >Conference home</a></td>
+                          <td><a href="http://sakaitest.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=566" class="mainlevel" >Conference home</a></td>
                         </tr>
                         <tr align="left">
-                          <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=420&amp;Itemid=572" class="mainlevel" >Help?</a></td>
+                        
+                          <td><a href="http://sakaitest.org/index.php?option=com_content&amp;task=view&amp;id=420&amp;Itemid=572" class="mainlevel" >Help?</a></td>
                         </tr>
                         
                         <tr><td>
