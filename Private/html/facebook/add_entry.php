@@ -7,7 +7,7 @@
 <?php
 require_once 'include/tool_vars.php';
 
-$PAGE_NAME = "Facebook Entry";
+$PAGE_NAME = "Logo Entry";
 $Message = "";
 
 // connect to database
@@ -24,10 +24,8 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['image'] = "required";
-$vItems['url'] = "focus";
-$vItems['interests'] = "";
-$vItems['viewable'] = "required";
+$vItems['image'] = "";
+$vItems['themes'] = "";
 
 $PK = 0;
 
@@ -37,8 +35,7 @@ if ($_REQUEST["save"]) {
 
 	$file = $_FILES["image"];
 	$image = $_FILES["image"]['name'];
-	$url = mysql_real_escape_string($_POST["url"]);
-	$interests = mysql_real_escape_string($_POST["interests"]);
+	$themes = mysql_real_escape_string($_POST["themes"]);
 	$viewable = mysql_real_escape_string($_POST["viewable"]);
 
 	// DO SERVER SIDE VALIDATION
@@ -54,8 +51,8 @@ if ($_REQUEST["save"]) {
 	if ($errors == 0) {
 		// process the file uploads
 
-		$facebook_sql = "select pk, image_pk from facebook_entries where users_pk='$User->pk'";
-		$result = mysql_query($facebook_sql) or die("facebook pk query failed: ".mysql_error().": ".$facebook_sql);
+		$logo_sql = "select pk, image_pk from logo_entries where users_pk='$User->pk'";
+		$result = mysql_query($logo_sql) or die("logo pk query failed: ".mysql_error().": ".$logo_sql);
 		$row = mysql_fetch_assoc($result); // first result is all we care about
 
 		$PK = $row['pk'];
@@ -123,7 +120,7 @@ if ($_REQUEST["save"]) {
 					$thumbSql = " thumb='$thumbContent', thumbtype='$thumbType', ";
 				}
 
-				$files_query = "UPDATE facebook_images SET name='$fileName'," . $thumbSql .
+				$files_query = "UPDATE logo_images SET name='$fileName'," . $thumbSql .
 						"size='$fileSize', type='$fileType', content='$content', " .
 						"dimensions='$fileDimensions' where pk='$image_pk'";
 				mysql_query($files_query) or die("Entry upload query failure ($files_query) :".mysql_error() );
@@ -134,7 +131,7 @@ if ($_REQUEST["save"]) {
 					$thumbSql = " '$thumbContent', '$thumbType' ";
 				}
 
-				$files_query = "INSERT INTO facebook_images (name, size, type, dimensions, content, thumb, thumbtype) ".
+				$files_query = "INSERT INTO logo_images (name, size, type, dimensions, content, thumb, thumbtype) ".
 					"VALUES ('$fileName', '$fileSize', '$fileType', '$fileDimensions', '$content', $thumbSql)";
 				mysql_query($files_query) or die("Entry upload query failure: ".mysql_error());
 				$image_pk = mysql_insert_id();
@@ -143,23 +140,23 @@ if ($_REQUEST["save"]) {
 			$Message .= "$fileName uploaded: size: $fileSize, type: $fileType <br>";
 		}
 
-		// now create or modify the facebook entry
+		// now create or modify the logo entry
 		if ($PK) {
 			$image_sql = "";
 			if ($image_pk) {
 				$image_sql = " image_pk='$image_pk', ";
 			}
 			// update old entry
-			$entry_sql = "UPDATE facebook_entries set " . $image_sql .
-				"url='$url', interests='$interests', viewable='$viewable', " .
+			$entry_sql = "UPDATE logo_entries set " . $image_sql .
+				" themes='$themes', viewable='$viewable', " .
 				"date_modified=NOW() where pk='$PK'";
 			mysql_query($entry_sql) or die("Entry update failed: ".mysql_error().": ".$entry_sql);
 			$Message .= "Updated existing entry<br>";
 		} else {
 			// new entry
-			$entry_sql = "insert into facebook_entries " .
-				"(users_pk, image_pk, url, interests, viewable, date_modified) values " .
-				"('$User->pk','$image_pk','$url','$interests', '$viewable', NOW())";
+			$entry_sql = "insert into logo_entries " .
+				"(users_pk, image_pk, themes, viewable, date_modified) values " .
+				"('$User->pk','$image_pk','$themes', '$viewable', NOW())";
 			mysql_query($entry_sql) or die("Entry query failed: ".mysql_error().": ".$entry_sql);
 			$PK = mysql_insert_id();
 			$Message .= "Saved new entry<br>";
@@ -167,14 +164,14 @@ if ($_REQUEST["save"]) {
 	} // end no errors
 } // end save
 
-// now fetch the current facebook entry
-$inst_sql = "select * from facebook_entries where users_pk='$User->pk'";
+// now fetch the current logo entry
+$inst_sql = "select * from logo_entries where users_pk='$User->pk'";
 $result = mysql_query($inst_sql) or die("Entry fetch query failed: ".mysql_error().": ".$entry_sql);
 $thisItem = mysql_fetch_assoc($result); // first result is all we care about
 $PK = $thisItem['pk'];
 
 // get image from the database
-$image_sql = "select * from facebook_images where pk='$thisItem[image_pk]'";
+$image_sql = "select * from logo_images where pk='$thisItem[image_pk]'";
 $result = mysql_query($image_sql) or die("Image fetch query failed: ".mysql_error().": ".$image_sql);
 $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 
@@ -208,7 +205,7 @@ function orderBy(newOrder) {
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 </form>
 
-<fieldset><legend>Facebook Entry</legend>
+<fieldset><legend>Logo Entry</legend>
 
 <div class="required" id="requiredMessage"></div>
 
@@ -223,7 +220,7 @@ function orderBy(newOrder) {
 		<td nowrap="y" width="15%"><b>Current Image:</b></td>
 		<td nowrap="y" class="field" width="15%">
 			<img src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="spacer"/>
-			<img src="include/drawThumb.php?pk=<?= $thisItem['image_pk'] ?>" alt="facebook image" />
+			<img src="include/drawThumb.php?pk=<?= $thisItem['image_pk'] ?>" alt="logo image" />
 		</td>
 		<td nowrap="y" width="70%">
 			<b>Name:</b> <?= $thisImage['name'] ?><br/>
@@ -247,47 +244,22 @@ function orderBy(newOrder) {
 	</tr>
 
 	<tr>
-		<td><b>Homepage&nbsp;URL:</b></td>
-		<td colspan="2" class="field">
-			<img id="urlImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="text" name="url" value="<?= $thisItem['url'] ?>" size="60" maxlength="150"/>
-			<input type="hidden" id="urlValidate" value="<?= $vItems['url'] ?>" />
-			<span id="urlMsg"></span>
-		</td>
-	</tr>
-
-	<tr>
 		<td colspan="3">
-			<b>Interests:</b>
-			<img id="interestsImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+			<b>Theme or logo idea:</b>
+			<img id="themesImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="3" class="field">
-			<textarea name="interests" rows="3" cols="80"><?= $thisItem['interests'] ?></textarea>
-			<input type="hidden" id="interestsValidate" value="<?= $vItems['interests'] ?>" />
-			<span id="interestsMsg"></span>
-		</td>
-	</tr>
-
-	<tr>
-		<td><b>Viewable&nbsp;setting:</b></td>
-		<td colspan="2" class="field">
-			<img id="viewableImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="radio" name="viewable" value="0" 
-				<?php if ($thisItem['viewable'] == "0") echo " checked='y' "; ?>
-			/> Sakai users only
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" name="viewable" value="1" 
-				<?php if ($thisItem['viewable'] == "1") echo " checked='y' "; ?>
-			/> Anyone
-			<input type="hidden" id="viewableValidate" value="<?= $vItems['viewable'] ?>" />
-			<span id="viewableMsg"></span>
+		<textarea name="themes" rows="2" cols="80"><?= $thisItem['themes'] ?></textarea>
+			<input type="hidden" id="themesValidate" value="<?= $vItems['themes'] ?>" />
+			<span id="themesMsg"></span>
 		</td>
 	</tr>
 
 	<tr>
 		<td class="field" colspan="3">
+			<input type="hidden" name="viewable" value="1" />
 			<input type="submit" name="account" value="Save information" tabindex="8">
 		</td>
 	</tr>

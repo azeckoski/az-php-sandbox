@@ -1,10 +1,10 @@
-CREATE TABLE facebook_entries ( 
+CREATE TABLE logo_entries( 
     pk          		int(10) AUTO_INCREMENT NOT NULL,
     users_pk			int(10) NOT NULL,
     image_pk			int(10) NOT NULL,
     date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    interests   		text NULL,
+    themes   		text NULL,
     url    				varchar(255) NULL,
     approved			enum('0','1') NOT NULL DEFAULT '0',
     viewable			enum('0','1') NOT NULL DEFAULT '0',
@@ -12,7 +12,7 @@ CREATE TABLE facebook_entries (
 );
 
 // table for storing uploaded files
-CREATE TABLE facebook_images (
+CREATE TABLE logo_images (
 	pk					INT(10) NOT NULL AUTO_INCREMENT,
     date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

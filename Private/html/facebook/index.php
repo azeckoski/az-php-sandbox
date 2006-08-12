@@ -5,9 +5,9 @@
  */
 ?>
 <?php
-require_once 'include/tool_vars.php';
+require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Facebook Intro";
+$PAGE_NAME = "Conference Logos Intro";
 $Message = "";
 
 // connect to database
@@ -26,8 +26,8 @@ $searchtext = "";
 if ($_REQUEST["searchtext"]) { $searchtext = $_REQUEST["searchtext"]; }
 $sqlsearch = "";
 if ($searchtext) {
-	$sqlsearch = " and (F1.url like '%$searchtext%' or " .
-		"F1.interests like '%$searchtext%' or U1.username like '%$searchtext%' or " .
+	$sqlsearch = " and (" .
+		"F1.themes like '%$searchtext%' or U1.username like '%$searchtext%' or " .
 		"U1.firstname like '%$searchtext%' or U1.lastname like '%$searchtext%' or " .
 		"U1.email like '%$searchtext%' or U1.institution like '%$searchtext%' or " .
 		"U1.primaryRole like '%$searchtext%' or U1.secondaryRole like '%$searchtext%') ";
@@ -38,8 +38,8 @@ $sortorder = "date_created";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
-// main SQL to fetch all facebook items
-$from_sql = " from facebook_entries F1 left join users U1 on U1.pk=F1.users_pk " .
+// main SQL to fetch all logo items
+$from_sql = " from logo_entries F1 left join users U1 on U1.pk=F1.users_pk " .
 		"where viewable >= '$viewable' ";
 
 // counting number of items
@@ -119,7 +119,7 @@ function orderBy(newOrder) {
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
-
+<div><h3>Conference Logo and Theme Suggestions</h3></div>
 <div class="navigation" style="width:100%;">
 	<div style="display:inline;text-align:left;">
 		<input type="hidden" name="page" value="<?= $page ?>" />
@@ -152,23 +152,15 @@ while($item=mysql_fetch_array($result)) {
 
 <div class="frame" id="tip<?= $item['pk'] ?>Activate">
 	<div style="width:<?= $MAX_THUMB_WIDTH ?>px;height:<?= $MAX_THUMB_HEIGHT ?>px;text-align:center;">
-		<img src="include/drawThumb.php?pk=<?= $item['image_pk'] ?>" alt="<?= $fullname ?> facebook image" />
+		<img src="include/drawThumb.php?pk=<?= $item['image_pk'] ?>" alt="<?= $fullname ?> logo image" />
 	</div>
 	<div class="about" style="width:<?= $MAX_THUMB_WIDTH ?>px;">
 		<div class="name">
-<?php if ($item['url']) { ?>
-			<a href='<?= $item['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
-<?php } ?>
-		<label title="<?= $item['interests'] ?>"><?= $fullname ?></label></div>
-		<div class="institute"><label title="<?= $item['institution'] ?>"><?= $short_inst_name ?></label></div>
-<!-- Popup info about the user -->
-		<input type="hidden" id="tip<?= $item['pk'] ?>Params" value="fixX;160:fixY;160:header;<?= $fullname ?>" />
-		<div id="tip<?= $item['pk'] ?>" style="display:none;width:300px;">
-		Institution: <?= $item['institution'] ?><br/>
-		Homepage: <?= $item['url'] ?><br/>
-		Interests: <?= $item['interests'] ?><br/>
-		Email: <?= $item['email'] ?><br/>
-		</div>
+<label title="<?= $item['themes'] ?>"><?= $item['themes'] ?></label>
+</div>
+		
+		<div><label title=""><?= $fullname ?></label></div>
+		
 	</div>
 </div>
 
