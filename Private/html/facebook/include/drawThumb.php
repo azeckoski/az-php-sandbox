@@ -18,7 +18,7 @@ if (!$_REQUEST['pk']) {
 $PK = $_REQUEST['pk'];
 
 // get image from the database
-$image_sql = "select type,content,thumb,thumbtype from logo_images where pk='$PK'";
+$image_sql = "select type,content,thumb,thumbtype from facebook_images where pk='$PK'";
 $result = mysql_query($image_sql) or die("Image fetch query failed: ".mysql_error().": ".$image_sql);
 $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 

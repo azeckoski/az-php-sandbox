@@ -13,14 +13,11 @@ $ACCOUNTS_PATH = $_SERVER["DOCUMENT_ROOT"].'/accounts/';
 require ($ACCOUNTS_PATH.'include/system_vars.php');
 
 // Tool variables
-$TOOL_PATH = $_SERVER["DOCUMENT_ROOT"].'/conf_logos/';
-$TOOL_URL = "/conference/conf_logos";
-$TOOL_NAME = "Conference Logos";
-$TOOL_SHORT = "logos";
-
-$CSS_FILE = $TOOL_URL."../../include/template/css/template_css.css";
-$CSS_FILE2 = $TOOL_URL."../../include/template/css/header.css";
-$CSS_FILE3 = $TOOL_URL."../../include/template/css/footer.css";
+$TOOL_PATH = $_SERVER["DOCUMENT_ROOT"].'/facebook/';
+$TOOL_URL = "/facebook";
+$TOOL_NAME = "Facebook";
+$TOOL_SHORT = "face";
+$CSS_FILE = $TOOL_URL."/include/template_facebook.css";
 $HELP_LINK = "include/help.php";
 
 $CONF_ID = "Jun2006";
