@@ -28,7 +28,8 @@ $vItems['image'] = "";
 $vItems['themes'] = "";
 
 $PK = 0;
-
+//TODO
+//allow multiple entries and display multiple entries
 // process the form
 if ($_REQUEST["save"]) {
 	// save the data
