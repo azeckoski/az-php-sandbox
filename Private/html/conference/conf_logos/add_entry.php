@@ -2,6 +2,7 @@
 /* file: add_entry.php
  * Created on Mar 19, 2006 by @author az
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
+ * modified from Aarons facebook code for the conference logo entries
  */
 ?>
 <?php
@@ -177,7 +178,7 @@ $result = mysql_query($image_sql) or die("Image fetch query failed: ".mysql_erro
 $thisImage = mysql_fetch_assoc($result); // first result is all we care about
 
 ?>
-<?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
+<?php include $ACCOUNTS_PATH.'/include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <script>
 <!--
@@ -197,7 +198,8 @@ function orderBy(newOrder) {
 // -->
 </script>
 <!-- // INCLUDE THE HEADER -->
-<?php include 'include/header.php';  ?>
+<?php include '../include/header.php';  ?>
+<?php include 'include/contest_LeftCol.php';  ?>
 
 <?= $Message ?>
 
@@ -268,4 +270,4 @@ function orderBy(newOrder) {
 </form>
 </fieldset>
 
-<?php include 'include/footer.php'; // Include the FOOTER ?>
+<?php include '../include/footer.php'; // Include the FOOTER ?>

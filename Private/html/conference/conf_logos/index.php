@@ -113,7 +113,8 @@ function orderBy(newOrder) {
 // -->
 </script>
 <!-- // INCLUDE THE HEADER -->
-<?php include 'include/header.php';  ?>
+<?php include '../include/header.php';  ?>
+<?php include 'include/contest_LeftCol.php';  ?>
 
 <?= $Message ?>
 
@@ -168,4 +169,4 @@ while($item=mysql_fetch_array($result)) {
 
 </form>
 
-<?php include 'include/footer.php'; ?>
+<?php include '../include/footer.php'; ?>
