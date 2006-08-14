@@ -14,13 +14,13 @@ require ($ACCOUNTS_PATH.'include/system_vars.php');
 
 // Tool variables
 $TOOL_PATH = $_SERVER["DOCUMENT_ROOT"].'/conf_logos/';
-$TOOL_URL = "/conference/conf_logos";
+$TOOL_URL = "/conference";
 $TOOL_NAME = "Conference Logos";
 $TOOL_SHORT = "logos";
 
-$CSS_FILE = $TOOL_URL."../../include/template/css/template_css.css";
-$CSS_FILE2 = $TOOL_URL."../../include/template/css/header.css";
-$CSS_FILE3 = $TOOL_URL."../../include/template/css/footer.css";
+$CSS_FILE = $TOOL_URL."/include/template/css/template_css.css";
+$CSS_FILE2 = $TOOL_URL."/include/template/css/header.css";
+$CSS_FILE3 = $TOOL_URL."/include/template/css/footer.css";
 $HELP_LINK = "include/help.php";
 
 $CONF_ID = "Jun2006";
