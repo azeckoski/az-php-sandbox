@@ -166,6 +166,7 @@ if ($_POST['save'] && !$error) { // saving the form
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
 <?php require '../include/header.php';  ?>
+<?php require 'include/registration_LeftCol.php';  ?>
 
 
 <table width="100%" class="blog" cellpadding="0" cellspacing="0">
