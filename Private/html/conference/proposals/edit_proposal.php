@@ -339,6 +339,8 @@ if ($_POST['save']) {
 <!-- // INCLUDE THE HEADER -->
 <?php include '../include/header.php'; ?>
 
+<?php include 'include/proposals_LeftCol.php'; ?>
+
 
 <?php
 // if a PK was supplied, we are editing

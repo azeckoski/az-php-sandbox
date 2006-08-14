@@ -67,6 +67,7 @@ if ($_POST['save']) { // saving the form
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <!-- // INCLUDE THE HEADER -->
 <?php include '../include/header.php';  ?>
+<?php include 'include/proposals_LeftCol.php';  ?>
 
 <?= $Message ?>
 
