@@ -22,10 +22,10 @@
 			<input type="text" name="username" value="<?= $thisUser['username'] ?>" size="40" maxlength="50" />
 			<input type="hidden" id="usernameValidate" value="<?= $vItems['username'] ?>"/>
 			<span id="usernameMsg"></span>
+			<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<i style="font-size:.7em;">Email address required for username</i>
 <?php } ?>
-		<br/>
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		<i style="font-size:.7em;">Email address required for username</i>
 		</td>
 	</tr>
 
