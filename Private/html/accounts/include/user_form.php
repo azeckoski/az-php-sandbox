@@ -23,6 +23,9 @@
 			<input type="hidden" id="usernameValidate" value="<?= $vItems['username'] ?>"/>
 			<span id="usernameMsg"></span>
 <?php } ?>
+		<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<i style="font-size:.7em;">Email address required for username</i>
 		</td>
 	</tr>
 
