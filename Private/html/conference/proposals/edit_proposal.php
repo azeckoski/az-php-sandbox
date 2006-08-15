@@ -187,7 +187,7 @@ $vItems['speaker'] = "required";
 $vItems['bio'] = "required";
 $vItems['type'] = "required";
 $vItems['layout'] = "required";
-$vItems['length'] = "required";
+$vItems['plength'] = "required";
 
 //echo "<pre>",print_r($_POST),"</pre>";
 
@@ -218,7 +218,7 @@ if ($_POST['save']) {
 		$type = $_POST['type'];
 		$layout = $_POST['layout'];
 		// NOTE: You cannot use length as an identifier, it is a reserved word in AJAX -AZ
-		$length = $_POST['Length'];
+		$length = $_POST['plength'];
 		if ($type == "BOF") {
 			$approved = "Y";
 			$length = "90";
@@ -797,15 +797,15 @@ if ($Message) {
 
   <tr>
      <td>
-     	<img id="LengthImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />
+     	<img id="plengthImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" />
      	<strong>Presentation Length</strong>
      </td>
      <td>
 		<div class="small">Times are not guaranteed. We will do our best to match each session with an appropriate time block</div><br/>
-          <input name="Length" type="radio" value="40" <?php if ($_POST['length']=="40") { echo "checked"; } ?> /> 40 minutes  <br/>
-          <input name="Length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
-		<input type="hidden" id="LengthValidate" value="<?= $vItems['Length'] ?>" />
-		<span id="LengthMsg"></span>
+          <input name="plength" type="radio" value="40" <?php if ($_POST['plength']=="40") { echo "checked"; } ?> /> 40 minutes  <br/>
+          <input name="plength" type="radio" value="90" <?php if ($_POST['plength']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
+		<input type="hidden" id="plengthValidate" value="<?= $vItems['plength'] ?>" />
+		<span id="plengthMsg"></span>
      </td>
   </tr>
 
