@@ -1,16 +1,18 @@
 <?php
+
 /*
  * Created on March 16, 2006 by @author aaronz
  * Modified from code by Susan Hardin (shardin@umich.edu)
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
- 
- // TODO
- // figure out the audience and  topic display code
- // add proper validation to this code
- //add a warning prior to deleting a proposal
+
+// TODO
+// figure out the audience and  topic display code
+// add proper validation to this code
+//add a warning prior to deleting a proposal
 ?>
 <?php
+
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Call for Proposals";
@@ -20,20 +22,20 @@ $Message = "";
 require '../sql/mysqlconnect.php';
 
 // check authentication
-require $ACCOUNTS_PATH.'include/check_authentic.php';
+require $ACCOUNTS_PATH . 'include/check_authentic.php';
 
 // login if not autheticated
 $AUTH_MESSAGE = "You must login to register or submit a proposal for the $CONF_NAME conference. If you do not have an account, please create one.";
-require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+require $ACCOUNTS_PATH . 'include/auth_login_redirect.php';
 
 // bring in the form validation code
-require $ACCOUNTS_PATH.'ajax/validators.php';
+require $ACCOUNTS_PATH . 'ajax/validators.php';
 
 // bring in inst and conf data
 require '../registration/include/getInstConf.php';
 
 // get the passed message if there is one
-if($_GET['msg']) {
+if ($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
 
@@ -48,46 +50,43 @@ $allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$PK) {
 	// no PK set so we must be adding a new item
 	$Message = "";
-	$allowed = true;	
+	$allowed = true;
 } else {
 	// pk is set, see if it is valid for this user
 	$check_sql = "select pk, users_pk from conf_proposals where pk='$PK'";
-	$result = mysql_query($check_sql) or die("check query failed ($check_sql): ".mysql_error());
+	$result = mysql_query($check_sql) or die("check query failed ($check_sql): " . mysql_error());
 	if (mysql_num_rows($result) > 0) {
 		$row = mysql_fetch_assoc($result);
-		if ( ($row['users_pk'] != $User->pk) && !$User->checkPerm("admin_conference")) {
+		if (($row['users_pk'] != $User->pk) && !$User->checkPerm("admin_conference")) {
 			// this item is not owned by current user and current user is not an admin
 			$error = true;
 			$allowed = false;
 			$Message = "You may not access someone else's conference proposal entry " .
-				"unless you have the (admin_conference) permission.";
+			"unless you have the (admin_conference) permission.";
 		} else {
 			$allowed = true;
 			// entry is owned by current user or they are an admin
 			if ($_REQUEST["delete"]) {
 				// if delete was passed then wipe out this item and related items
 				$delete_sql = "delete from conf_proposals where pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
-		
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+
 				//now delete the audiences for this proposal
 				$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
-		
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+
 				//now delete the topic ranking for this proposal
 				$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
 				// NOTE: Don't forget to handle the deletion below as needed
 
-				
-			
-		 
 				$msg = "Deleted item ($PK) and related data";
 				$PK = 0; // clear the PK
 				// redirect to the index page
 				header("Location:index.php?msg=$msg");
 			}
 		}
-		
+
 	} else {
 		// PK does not match, invalid PK set to this page
 		$error = true;
@@ -95,92 +94,92 @@ if (!$PK) {
 	}
 }
 
-
 // fetch the conference rooms
 $sql = "select * from conf_rooms where confID = '$CONF_ID'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
-$conf_rooms = array();
-while($row=mysql_fetch_assoc($result)) { $conf_rooms[$row['pk']] = $row; }
+$conf_rooms = array ();
+while ($row = mysql_fetch_assoc($result)) {
+	$conf_rooms[$row['pk']] = $row;
+}
 
 // fetch the conference timeslots
 $sql = "select * from conf_timeslots where confID = '$CONF_ID'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
-$conf_timeslots = array();
-while($row=mysql_fetch_assoc($result)) { $conf_timeslots[$row['pk']] = $row; }
+$conf_timeslots = array ();
+while ($row = mysql_fetch_assoc($result)) {
+	$conf_timeslots[$row['pk']] = $row;
+}
 
 // fetch the conf sessions
 $sql = "select * from conf_sessions where confID = '$CONF_ID' order by ordering";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
-$conf_sessions = array();
-while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
+$conf_sessions = array ();
+while ($row = mysql_fetch_assoc($result)) {
+	$conf_sessions[$row['pk']] = $row;
+}
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, " .
-		"CP.type, CP.length, CP.approved, CP.URL, CP.wiki_url from conf_proposals CP " .
-		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
-		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
+"CP.type, CP.length, CP.approved, CP.URL, CP.wiki_url from conf_proposals CP " .
+"join conf_sessions CS on CS.proposals_pk = CP.pk " .
+"where CP.confID = '$CONF_ID'" . $sqlsearch .
+$filter_type_sql . $filter_days_sql . $filter_track_sql . $sqlsorting . $mysql_limit;
 
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
-$conf_proposals = array();
-while($row=mysql_fetch_assoc($result)) { $conf_proposals[$row['pk']] = $row; }
-
+$conf_proposals = array ();
+while ($row = mysql_fetch_assoc($result)) {
+	$conf_proposals[$row['pk']] = $row;
+}
 
 // now put these together into a 3D array
-$timeslots = array();
-foreach($conf_timeslots as $conf_timeslot) {
-	$rooms = array();
+$timeslots = array ();
+foreach ($conf_timeslots as $conf_timeslot) {
+	$rooms = array ();
 	if ($conf_timeslot['type'] != 'event') {
 		// we don't need all the rooms inserted for rows that don't use them
 		$rooms['0'] = '0'; // placeholder
 	} else {
-		foreach($conf_rooms as $conf_room) {
-			$sessions = array();
-			foreach($conf_sessions as $conf_session) {
-				
-				if ($conf_session['timeslots_pk'] == $conf_timeslot['pk'] &&
-					$conf_session['rooms_pk'] == $conf_room['pk']) {
-						$sessions[$conf_session['pk']] = $conf_session; 
-						if($conf_session['proposals_pk']==$PK) {
-						  $is_scheduled=true;
-						  if ($conf_session['proposals_pk']==NULL) {
-						  	$is_scheduled=false;
-						  	
-						  }
-							 //get the current schedule information for this session
-							
-							$this_session_pk= $conf_session['pk'];
-							$this_room_pk= $conf_session['rooms_pk'];
-							$this_room_name= $conf_room['title'];
-							$this_timeslot_pk= $conf_timeslot['pk'];
-							$this_start_time= date('D, M d, g:i a',strtotime($conf_timeslot['start_time']));
-							$this_end_time= date('g:i a',strtotime($conf_timeslot['start_time']) + ($conf_timeslot['length_mins']*60));
-							$this_room_size=$conf_room['capacity'];
-							
-						} 
-				
+		foreach ($conf_rooms as $conf_room) {
+			$sessions = array ();
+			foreach ($conf_sessions as $conf_session) {
+
+				if ($conf_session['timeslots_pk'] == $conf_timeslot['pk'] && $conf_session['rooms_pk'] == $conf_room['pk']) {
+					$sessions[$conf_session['pk']] = $conf_session;
+					if ($conf_session['proposals_pk'] == $PK) {
+						$is_scheduled = true;
+						if ($conf_session['proposals_pk'] == NULL) {
+							$is_scheduled = false;
+
+						}
+						//get the current schedule information for this session
+
+						$this_session_pk = $conf_session['pk'];
+						$this_room_pk = $conf_session['rooms_pk'];
+						$this_room_name = $conf_room['title'];
+						$this_timeslot_pk = $conf_timeslot['pk'];
+						$this_start_time = date('D, M d, g:i a', strtotime($conf_timeslot['start_time']));
+						$this_end_time = date('g:i a', strtotime($conf_timeslot['start_time']) + ($conf_timeslot['length_mins'] * 60));
+						$this_room_size = $conf_room['capacity'];
+
 					}
-						
-				
-			
-			$rooms[$conf_room['pk']] = $sessions;
-			
-			}		
-		  
-			
+
+				}
+
+				$rooms[$conf_room['pk']] = $sessions;
+
+			}
+
 		}
 	}
 	$timeslots[$conf_timeslot['pk']] = $rooms;
-	
- 
+
 }
-						
+
 //echo "<pre>",print_r($conf_session['proposals_pk'] ),"</pre><br/>";
-					
 
 //echo "<pre>",print_r($items),"</pre><br/>";
 // Define the array of items to validate and the validation strings
-$vItems = array();
+$vItems = array ();
 $vItems['title'] = "required";
 $vItems['abstract'] = "required";
 $vItems['desc'] = "required";
@@ -190,141 +189,143 @@ $vItems['type'] = "required";
 $vItems['layout'] = "required";
 $vItems['length'] = "required";
 
-
 //echo "<pre>",print_r($_POST),"</pre>";
 
-if ($_POST['save']) { 
-// DO SERVER SIDE VALIDATION
+if ($_POST['save']) {
+	// DO SERVER SIDE VALIDATION
 	$errors = 0;
 	$validationOutput = ServerValidate($vItems, "return");
 	if ($validationOutput) {
 		$errors++;
-		$Message = "<fieldset><legend>Validation Errors</legend>".
-			"<b style='color:red;'>Please fix the following errors:</b><br/>".
-			$validationOutput."</fieldset>";
+		$Message = "<fieldset><legend>Validation Errors</legend>" .
+		"<b style='color:red;'>Please fix the following errors:</b><br/>" .
+		$validationOutput . "</fieldset>";
 	}
 
 	if ($errors == 0) {
-	// saving the form
+		// saving the form
 
-		$title=mysql_real_escape_string($_POST['title']);
-		$abstract=mysql_real_escape_string($_POST['abstract']);
-		$desc=mysql_real_escape_string($_POST['desc']);
-		$speaker=mysql_real_escape_string($_POST['speaker']);
-		$bio=mysql_real_escape_string($_POST['bio']);
-		$co_speaker=mysql_real_escape_string($_POST['co_speaker']);
-		$co_bio=mysql_real_escape_string($_POST['co_bio']);
-		$url=mysql_real_escape_string($_POST['URL']);
-		$wiki_url=mysql_real_escape_string($_POST['wiki_url']);
+		$title = mysql_real_escape_string($_POST['title']);
+		$abstract = mysql_real_escape_string($_POST['abstract']);
+		$desc = mysql_real_escape_string($_POST['desc']);
+		$speaker = mysql_real_escape_string($_POST['speaker']);
+		$bio = mysql_real_escape_string($_POST['bio']);
+		$co_speaker = mysql_real_escape_string($_POST['co_speaker']);
+		$co_bio = mysql_real_escape_string($_POST['co_bio']);
+		$url = mysql_real_escape_string($_POST['URL']);
+		$wiki_url = mysql_real_escape_string($_POST['wiki_url']);
 
-		$type=$_POST['type'];
-		$layout=$_POST['layout'];
+		$type = $_POST['type'];
+		$layout = $_POST['layout'];
 		// NOTE: You cannot use length as an identifier, it is a reserved word in AJAX -AZ
-		$length=$_POST['Length'];	
-		if ($type=="BOF") {
-	    	 $approved="Y";
-	    	 $length="90";
-	    }
-		$conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
+		$length = $_POST['Length'];
+		if ($type == "BOF") {
+			$approved = "Y";
+			$length = "90";
+		}
+		$conflict = trim($_POST['conflict_tue'] . " " . $_POST['conflict_wed'] . " " . $_POST['conflict_thu'] . " " . $_POST['conflict_fri']);
 
 		$msg = "";
-		if ($PK)  {  //this proposal has been edited
+		if ($PK) { //this proposal has been edited
 			// update proposal information  --all data except role and topic data
-			$proposal_sql="UPDATE conf_proposals" .
-					" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
-						" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio' , `layout`='$layout', " .
-						"`length`='$length' , `conflict`='$conflict' ," .
-						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `wiki_url` ='$wiki_url' where pk= '$PK'   ";
+			$proposal_sql = "UPDATE conf_proposals" .
+			" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
+			" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio' , `layout`='$layout', " .
+			"`length`='$length' , `conflict`='$conflict' ," .
+			" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `wiki_url` ='$wiki_url' where pk= '$PK'   ";
 
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
-				" form submission. Please try to submit the registration again. " .
-				"If you continue to have problems, please report the problem to the " .
-				"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
+			" form submission. Please try to submit the registration again. " .
+			"If you continue to have problems, please report the problem to the " .
+			"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>.");
 
 			$msg = "Updated $type: $title";
 
 			//now delete the audiences for this proposal
 			$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
-			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
-	//now update the conf_session table if they selected a timeslot for the BOF
-		 	 	//if timeslot was selected for a BOF-  update the conf_sessions table
-		 	$bof_timeslot=$_POST['bof_selection'];
-		 	if ($bof_timeslot)  { //user selected a timeslot for the BOF
-		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$bof_timeslot' ";
-		 	 $result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): ".mysql_error());
-		 	 
-		 	}
-		 	
-		} else {  //this is a new  proposal so add this to the conf_proposals table
-	  
-	    $track=""; // tracks are determined after the voting process - except for Demos and BOFs
-	    if ($type=="demo") {
-	    	 $track="Demo";
-	    } else  if ($type=="BOF") {
-	    	 $track="BOF";
-	    }
-	    $approved="";
-	    if ($type=="demo") {
-	    	 $approved="Y";
-	    } else  if ($type=="BOF") {
-	    	 $approved="Y";
-	    	 $length="90";
-	    }
-	    
-	    
+			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+			//now update the conf_session table if they selected a timeslot for the BOF
+			//if timeslot was selected for a BOF-  update the conf_sessions table
+			$bof_timeslot = $_POST['bof_selection'];
+			if ($bof_timeslot) { //user selected a timeslot for the BOF
+				$update_session_sql = "update conf_sessions set proposals_pk = '$PK' where pk='$bof_timeslot' ";
+				$result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): " . mysql_error());
+
+			}
+
+		} else { //this is a new  proposal so add this to the conf_proposals table
+
+			$track = ""; // tracks are determined after the voting process - except for Demos and BOFs
+			if ($type == "demo") {
+				$track = "Demo";
+			} else
+				if ($type == "BOF") {
+					$track = "BOF";
+				}
+			$approved = "";
+			if ($type == "demo") {
+				$approved = "Y";
+			} else
+				if ($type == "BOF") {
+					$approved = "Y";
+					$length = "90";
+				}
+
 			//first add presentation information into --all data except role and topic data
-			$proposal_sql="INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, " .
-					"`title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` ," .
-					" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url` )
-				VALUES ( NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', " .
-				"'$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' ," .
-				" '$co_speaker' , '$co_bio' , '$approved', '$track', '$wiki_url')";
-			
+			$proposal_sql = "INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, " .
+			"`title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` ," .
+			" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url` )
+							VALUES ( NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', " .
+			"'$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' ," .
+			" '$co_speaker' , '$co_bio' , '$approved', '$track', '$wiki_url')";
+
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
-				"registration form submission. Please try to submit the registration again. " .
-				"If you continue to have problems, please report the problem to the " .
-				"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>." );
+			"registration form submission. Please try to submit the registration again. " .
+			"If you continue to have problems, please report the problem to the " .
+			"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>.");
 
 			$PK = mysql_insert_id(); //get this proposal_pk
-			
+
 			//now update the conf_session table if they selected a timeslot for the BOF
-		 	 	//if timeslot was selected for a BOF-  update the conf_sessions table
-		 	$bof_timeslot=$_POST['bof_selection'];
-		 	if ($bof_timeslot)  { //user selected a timeslot for the BOF
-		 	 $update_session_sql="update conf_sessions set proposals_pk = '$PK' where pk='$bof_timeslot' ";
-		 	 $result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): ".mysql_error());
-		 	 
-		 	}
+			//if timeslot was selected for a BOF-  update the conf_sessions table
+			$bof_timeslot = $_POST['bof_selection'];
+			if ($bof_timeslot) { //user selected a timeslot for the BOF
+				$update_session_sql = "update conf_sessions set proposals_pk = '$PK' where pk='$bof_timeslot' ";
+				$result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): " . mysql_error());
+
+			}
 			$msg = "Created new $type: $title";
 
-
-		}  // finished handling new proposal submission
+		} // finished handling new proposal submission
 
 		// go through all the POST values and add any topics or audience items
 		// to the appropriate tables
-		foreach(array_keys($_POST) as $key) {
-			if ($_POST[$key] == "") { continue; } // skip blank values
+		foreach (array_keys($_POST) as $key) {
+			if ($_POST[$key] == "") {
+				continue;
+			} // skip blank values
 
-			$check = strpos($key,'audience_');
-			$check2 = strpos($key,'topic_');
-			if ( $check !== false && $check == 0 ) {
+			$check = strpos($key, 'audience_');
+			$check2 = strpos($key, 'topic_');
+			if ($check !== false && $check == 0) {
 				$itemPk = substr($key, 9);
 				$newValue = $_POST[$key];
 
-				$insert_sql="INSERT INTO `proposals_audiences` " .
-						"(`date_created` , `proposals_pk` , `roles_pk` , `choice` )" .
-						"VALUES (NOW(), '$PK', '$itemPk', '$newValue')";
+				$insert_sql = "INSERT INTO `proposals_audiences` " .
+				"(`date_created` , `proposals_pk` , `roles_pk` , `choice` )" .
+				"VALUES (NOW(), '$PK', '$itemPk', '$newValue')";
 				$result = mysql_query($insert_sql) or die("Query failed ($insert_sql): " . mysql_error());
 
-			} else if ($check2 !== false && $check2 == 0 ) {
-				$itemPk = substr($key, 6);
-				$newValue = $_POST[$key];
-		
-				$insert_sql="INSERT INTO `proposals_topics` " .
-						"(`date_created` , `proposals_pk` , `topics_pk` , `choice` ) " .
-						"VALUES(NOW(), '$PK', '$itemPk', '$newValue')";
-				$result = mysql_query($insert_sql) or die("Query failed ($insert_sql): " . mysql_error());
-			}
+			} else
+				if ($check2 !== false && $check2 == 0) {
+					$itemPk = substr($key, 6);
+					$newValue = $_POST[$key];
+
+					$insert_sql = "INSERT INTO `proposals_topics` " .
+					"(`date_created` , `proposals_pk` , `topics_pk` , `choice` ) " .
+					"VALUES(NOW(), '$PK', '$itemPk', '$newValue')";
+					$result = mysql_query($insert_sql) or die("Query failed ($insert_sql): " . mysql_error());
+				}
 		}
 
 		// redirect back to the index page
@@ -343,44 +344,47 @@ if ($_POST['save']) {
 
 
 <?php
+
 // if a PK was supplied, we are editing
 if ($PK) {
 	$sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
-		"U1.firstname||' '||U1.lastname as fullname,  " .
-		"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
-		"where CP.confID = '$CONF_ID' and CP.pk=$PK";
+	"U1.firstname||' '||U1.lastname as fullname,  " .
+	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
+	"where CP.confID = '$CONF_ID' and CP.pk=$PK";
 	$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 	$item = mysql_fetch_assoc($result); // put first item into an array
 
-	if(mysql_num_rows($result) > 0) {
+	if (mysql_num_rows($result) > 0) {
 		// update the type
 		$type = $item['type'];
-		
+
 		// refer to the item array by name $_POST (this might not be a good idea) -AZ
-		foreach($item as $key=>$value) {
+		foreach ($item as $key => $value) {
 			$_POST[$key] = $value;
 		}
-		if ($type=="demo") {
-			$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" 
-			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname']."</div><div><br/></div></td></tr>";
-		} else if ($type=="BOF"){
-			$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing BOF session: </strong>"  
-			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div></td></tr>";
-		}
-		 else {
-			$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>"  
-			. $_POST['title'] . "<br/><strong>Submitted by: </strong>".	 $item['firstname'] ." " . $item['lastname'] ."</div><div><br/></div></td></tr>";
-		}
-		
-		
-		
+		if ($type == "demo") {
+			$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" . $_POST['title'] . "<br/><strong>Submitted by: </strong>" . $item['firstname'] . " " . $item['lastname'] . "</div><div><br/></div></td></tr>";
+		} else
+			if ($type == "BOF") {
+				$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing BOF session: </strong>" . $_POST['title'] . "<br/><strong>Submitted by: </strong>" . $item['firstname'] . " " . $item['lastname'] . "</div><div><br/></div></td></tr>";
+			} else {
+				$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Presentation: </strong>" . $_POST['title'] . "<br/><strong>Submitted by: </strong>" . $item['firstname'] . " " . $item['lastname'] . "</div><div><br/></div></td></tr>";
+			}
 
 		// get the dates when a presenter cannot be available
-		$conflict=$_POST['conflict'];
-		if (preg_match("/Tue/", $conflict)) { $_POST['conflict_tue']="Tue";  }
-		if (preg_match("/Wed/", $conflict)) { $_POST['conflict_wed']="Wed";}
-		if (preg_match("/Thu/", $conflict)) { $_POST['conflict_thu']="Thu"; }
-		if (preg_match("/Fri/", $conflict)) { $_POST['conflict_fri']="Fri"; }
+		$conflict = $_POST['conflict'];
+		if (preg_match("/Tue/", $conflict)) {
+			$_POST['conflict_tue'] = "Tue";
+		}
+		if (preg_match("/Wed/", $conflict)) {
+			$_POST['conflict_wed'] = "Wed";
+		}
+		if (preg_match("/Thu/", $conflict)) {
+			$_POST['conflict_thu'] = "Thu";
+		}
+		if (preg_match("/Fri/", $conflict)) {
+			$_POST['conflict_fri'] = "Fri";
+		}
 	} else {
 		$Message = "ERROR: Could not get information for: $PK";
 	}
@@ -392,12 +396,14 @@ if ($PK) {
     <td><div class="componentheading">Call for Proposals</div></td>
   </tr>
    <?php
-	   if ($Message) {  echo $Message;  
-	 	    
-	 }
-	 
-	  if ($is_scheduled) {
-	    	 ?>
+
+if ($Message) {
+	echo $Message;
+
+}
+
+if ($is_scheduled) {
+?>
   <tr>
 	  
 	 <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">
@@ -408,9 +414,11 @@ if ($PK) {
 	    <br/>
 	     </td>
   </tr> 
-		<? 
-		 } if ($Message) { 
-	 ?>	    
+		<?
+
+}
+if ($Message) {
+?>	    
 	
   
   <?php } ?>
@@ -418,10 +426,11 @@ if ($PK) {
 </table>
 
 <?php
+
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
 		echo "<a href='index.php'>Back to Proposals</a>";
-		include $ACCOUNTS_PATH.'include/footer.php';
+		include $ACCOUNTS_PATH . 'include/footer.php';
 		exit;
 	}
 ?>
@@ -451,9 +460,11 @@ if ($PK) {
     </td>
 </tr>
 
-<?php } else  if ($type=="BOF") { 
-	
-	?>
+<?php
+
+} else
+	if ($type == "BOF") {
+?>
  	<tr>
     <td colspan=2>
     		<div><strong>Birds of a Feather (BOF) session </strong></div>
@@ -469,9 +480,10 @@ if ($PK) {
 			
     </td>
 </tr>
-<?php 
-    if (!$is_scheduled){  //show the list of open bof rooms
-      ?>
+<?php
+
+		if (!$is_scheduled) { //show the list of open bof rooms
+?>
 <tr><td colspan=2>
        
       <div><strong>Select a room/timeslot: </strong><br/><br/>
@@ -481,44 +493,45 @@ if ($PK) {
       </div>
  		<div align=center><br/>
  		<?php
- 		// create the grid
-		$line = 0;
-		$last_date = 0;
-		$conference_day = 0;
-		
- 		?>
+
+			// create the grid
+			$line = 0;
+			$last_date = 0;
+			$conference_day = 0;
+?>
  		
 		<select name="bof_selection">
 		<option value=""> -- select a room/time --</option> 
 		<?php
-		foreach ($timeslots as $timeslot_pk=>$rooms) {
-			$line++;
-			$timeslot = $conf_timeslots[$timeslot_pk];
-		
-			//
-			foreach ($rooms as $room_pk=>$room) {
-				
-				$conf_room = $conf_rooms[$room_pk];
-				
-				if (is_array($room)) {
-					$counter = 0;
-					foreach ($room as $session_pk=>$session) {
-						$counter++;
-		
-						$bof_session_check = $conf_proposals[$session['proposals_pk']];
-			
-						if ($bof_session_check==0){    //get only the list of open BOF slots
-						echo "<option value=" .$session['pk']. ">" . 
-							 date('l',strtotime($timeslot['start_time']))  . " " .
-				 		date('g:i a',strtotime($timeslot['start_time'])) . " - " .
-			     		 date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) . 
-			    			 " "  . $conf_room['title'] ." (capacity: " .  $conf_room['capacity'] .")"   . "</option>";
+
+			foreach ($timeslots as $timeslot_pk => $rooms) {
+				$line++;
+				$timeslot = $conf_timeslots[$timeslot_pk];
+
+				//
+				foreach ($rooms as $room_pk => $room) {
+
+					$conf_room = $conf_rooms[$room_pk];
+
+					if (is_array($room)) {
+						$counter = 0;
+						foreach ($room as $session_pk => $session) {
+							$counter++;
+
+							$bof_session_check = $conf_proposals[$session['proposals_pk']];
+
+							if ($bof_session_check == 0) { //get only the list of open BOF slots
+								echo "<option value=" . $session['pk'] . ">" .
+								date('l', strtotime($timeslot['start_time'])) . " " .
+								date('g:i a', strtotime($timeslot['start_time'])) . " - " .
+								date('g:i a', strtotime($timeslot['start_time']) + ($timeslot['length_mins'] * 60)) .
+								" " . $conf_room['title'] . " (capacity: " . $conf_room['capacity'] . ")" . "</option>";
+							}
 						}
-					}	
+					}
 				}
-		  	}
-		}  
-		?>
+			}
+?>
 		</select>
 				</div>
 	 
@@ -562,28 +575,6 @@ if ($PK) {
    	</td>
 </tr>
 
-
-<tr>
- 	<td>
-<?php if ($type == "demo") { ?>
- 	    <img id="title2Img" src="/accounts/ajax/images/required.gif" width="16" height="16" />
- 	    <strong>Product or Tool Name</strong>
-<?php } else  if ($type == "BOF") { ?>
- 	    <img id="title2Img" src="/accounts/ajax/images/required.gif" width="16" height="16" />
- 	    <strong>BOF Title</strong>
-<?php } else  { ?>
- 		<img id="title2Img" src="/accounts/ajax/images/required.gif" width="16" height="16" />
- 		<strong>Presentation Title</strong>
-<?php } ?>
-  	</td>
-   	<td>
-   		<input type="text" name="title2" size="40" maxlength="75" value="<?= $_POST['title'] ?>" /> <br/>(75 max chars)
-    	<input type="hidden" id="title2Validate" value="<?= $vItems['title'] ?>" />
-    	<span id="title2Msg"></span>
-   	</td>
-</tr>
-
-
 <tr>
     <td colspan=2><img id="abstractImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
 <?php if ($type == "demo") {?>
@@ -598,20 +589,21 @@ if ($PK) {
    		<br/>
    		<textarea name="abstract" cols="75" rows="6"><?= $_POST['abstract'] ?></textarea>
        	<input type="hidden" id="abstractValidate" value="<?= $vItems['abstract'] ?>" />
-       	<span id="abstract"></span>
+       	<span id="abstractMsg"></span>
        	<br/>
     </td>
 </tr>
 
 <?php if (($type!="demo") && ($type!="BOF")) {?> 
 <tr>
-   <td colspan=2><img id="descImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>Presentation Description: </strong>( 150 word max.)
-     <br/>This description is used by the program committee for a more in-depth review of your session. <br/>
-   	 <textarea name="desc" cols="75" rows="6" ><?= $_POST['desc']  ?></textarea>
-   	 <input type="hidden" id="descValidate" value="<?= $vItems['desc'] ?>" />
-   	 <span id="desc"></span>
-    </td>
-  </tr>
+	<td colspan=2>
+		<img id="descImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>Presentation Description: </strong>( 150 word max.)
+		<br/>This description is used by the program committee for a more in-depth review of your session. <br/>
+		<textarea name="desc" cols="75" rows="6" ><?= $_POST['desc']  ?></textarea>
+		<input type="hidden" id="descValidate" value="<?= $vItems['desc'] ?>" />
+		<span id="descMsg"></span>
+	</td>
+</tr>
 <?php } ?>
 
 <tr>
@@ -623,7 +615,7 @@ if ($PK) {
     	(lead presenter and main contact for this proposal)<br/>
     	<input type="text" name="speaker" size="40" value="<?= $_POST['speaker']  ?>" maxlength="100"/>
 		<input type="hidden" id="speakerValidate" value="<?= $vItems['speaker'] ?>" />
-		<span id="speaker"></span>
+		<span id="speakerMsg"></span>
     </td>
 </tr>
 
@@ -635,7 +627,8 @@ if ($PK) {
     	<br/>
       	(for primary presenter only - for online and print program. (50 word max.)<br/><br/>
       	<textarea name="bio" cols="75" rows="4" ><?= $_POST['bio']  ?></textarea>
-     	<input type="hidden" id="bioValidate" value="<?= $vItems['bio'] ?>" /><span id="bio"></span>
+     	<input type="hidden" id="bioValidate" value="<?= $vItems['bio'] ?>" />
+     	<span id="bioMsg"></span>
     </td>
 </tr>
 <?php } ?>
@@ -654,15 +647,19 @@ if ($PK) {
     <td><strong>Project URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="URL" size="35" value="<?= $_POST['URL']  ?>" maxlength="100" /></td>
 </tr>
-<?php } else   {
-	?>
+<?php
+
+		} else {
+?>
 	
 <tr>
     <td><strong>BOF wiki page URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="wiki_url" size="35" value="<?= $_POST['wiki_url']  ?>" maxlength="100" /></td>
 </tr>
 
-<?php } //bof check
+<?php
+
+		} //bof check
 ?>
 
 <?php if (($type!="demo") && ($type!="BOF")){ ?>
@@ -693,14 +690,15 @@ if ($PK) {
 			<div class="topic_type_header">TOPIC AREAS</div>
 		</div>
 	     
-<?php           
-	 //populate form with topic information
+<?php
+
+		//populate form with topic information
 		$list_sql = "select PT.pk, PT.proposals_pk, T.topic_name, T.pk, PT.choice from topics T " .
-			"left join proposals_topics PT on PT.topics_pk = T.pk and PT.proposals_pk='$PK' " .
-			"order by T.topic_order";
+		"left join proposals_topics PT on PT.topics_pk = T.pk and PT.proposals_pk='$PK' " .
+		"order by T.topic_order";
 		$result = mysql_query($list_sql) or die(mysql_error());
-		
-		while($list_items=mysql_fetch_array($result)) {
+
+		while ($list_items = mysql_fetch_array($result)) {
 			$itemID = "topic_" . $list_items['pk'];
 ?>
 		<div class="list_row">
@@ -741,14 +739,15 @@ if ($PK) {
 		</div>
 
 		<?php
-		//populate form with audience information
-		$list_sql = "select PA.pk, PA.proposals_pk, R.role_name, R.pk, PA.choice from roles R " .
+
+			//populate form with audience information
+			$list_sql = "select PA.pk, PA.proposals_pk, R.role_name, R.pk, PA.choice from roles R " .
 			"left join proposals_audiences PA on PA.roles_pk = R.pk and PA.proposals_pk='$PK' " .
 			"order by R.role_order";
-		$result = mysql_query($list_sql) or die(mysql_error());
-		
-		while($list_items=mysql_fetch_array($result)) {
-			$itemID = "audience_" . $list_items['pk'];
+			$result = mysql_query($list_sql) or die(mysql_error());
+
+			while ($list_items = mysql_fetch_array($result)) {
+				$itemID = "audience_" . $list_items['pk'];
 ?>
 		<div class="list_row">
 			<div class="topic_vote">
@@ -822,7 +821,10 @@ if ($PK) {
      </td>
   </tr>
 
-<?php 	} else { /* is demo check */ ?>
+<?php
+
+			} else { /* is demo check */
+?>
 	<tr>
         <td >&nbsp;</td>
         <td><input type="hidden" name="type" value="<?= $type ?>" /></td</tr>
@@ -842,4 +844,7 @@ if ($PK) {
 <!-- end cfp -->
 
 
-<?php include '../include/footer.php'; // Include the FOOTER ?>
+<?php
+
+		include '../include/footer.php';
+?>
