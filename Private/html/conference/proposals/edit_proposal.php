@@ -554,25 +554,51 @@ if ($PK) {
  		<strong>Presentation Title</strong>
 <?php } ?>
   	</td>
-   	<td><input type="text" name="title" size="40" maxlength="75" value="<?= $_POST['title'] ?>" /> <br/>(75 max chars)
-    	 <input type="hidden" id="titleValidate" value="<?= $vItems['title'] ?>" /><span id="titleMsg"></span>
+   	<td>
+   		<input type="text" name="title" size="40" maxlength="75" value="<?= $_POST['title'] ?>" /> <br/>(75 max chars)
+    	<input type="hidden" id="titleValidate" value="<?= $vItems['title'] ?>" />
+    	<span id="titleMsg"></span>
    	</td>
- </tr>
+</tr>
 
- <tr>
+
+<tr>
+ 	<td>
+<?php if ($type == "demo") { ?>
+ 	    <img id="title2Img" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+ 	    <strong>Product or Tool Name</strong>
+<?php } else  if ($type == "BOF") { ?>
+ 	    <img id="title2Img" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+ 	    <strong>BOF Title</strong>
+<?php } else  { ?>
+ 		<img id="title2Img" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+ 		<strong>Presentation Title</strong>
+<?php } ?>
+  	</td>
+   	<td>
+   		<input type="text" name="title2" size="40" maxlength="75" value="<?= $_POST['title'] ?>" /> <br/>(75 max chars)
+    	<input type="hidden" id="title2Validate" value="<?= $vItems['title'] ?>" />
+    	<span id="title2Msg"></span>
+   	</td>
+</tr>
+
+
+<tr>
     <td colspan=2><img id="abstractImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
 <?php if ($type == "demo") {?>
-		<strong>Demo  Description </strong> ( 50 word max.)  <br/>
+		<strong>Demo Description</strong> ( 50 word max.)  <br/>
 		This will appear on the conference program.
 <?php } else if ($type == "BOF") {?>
 		<strong>Description </strong> ( 50 word max.)  <br/>
-		
 <?php } else { ?>
     	<strong>Presentation Summary </strong> ( 50 word max.)  <br/>
     	This summary will appear on the conference program.
 <?php } ?>
-   		<br/><textarea name="abstract" cols="75" rows="6"><?= $_POST['abstract'] ?></textarea>
-       	<input type="hidden" id="abstractValidate" value="<?= $vItems['abstract'] ?>" /><span id="abstract"></span> <br/>
+   		<br/>
+   		<textarea name="abstract" cols="75" rows="6"><?= $_POST['abstract'] ?></textarea>
+       	<input type="hidden" id="abstractValidate" value="<?= $vItems['abstract'] ?>" />
+       	<span id="abstract"></span>
+       	<br/>
     </td>
 </tr>
 
@@ -581,7 +607,8 @@ if ($PK) {
    <td colspan=2><img id="descImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>Presentation Description: </strong>( 150 word max.)
      <br/>This description is used by the program committee for a more in-depth review of your session. <br/>
    	 <textarea name="desc" cols="75" rows="6" ><?= $_POST['desc']  ?></textarea>
-   	 <input type="hidden" id="descValidate" value="<?= $vItems['desc'] ?>" /><span id="desc"></span>
+   	 <input type="hidden" id="descValidate" value="<?= $vItems['desc'] ?>" />
+   	 <span id="desc"></span>
     </td>
   </tr>
 <?php } ?>
@@ -591,9 +618,11 @@ if ($PK) {
     	<img id="speakerImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
     	<strong>Presenter's name</strong>
     </td>
-    <td>(lead presenter and main contact for this proposal)<br/>
-    		<input type="text" name="speaker" size="40" value="<?= $_POST['speaker']  ?>" maxlength="100"/>
-    		 <input type="hidden" id="speakerValidate" value="<?= $vItems['speaker'] ?>" /><span id="speaker"></span>
+    <td>
+    	(lead presenter and main contact for this proposal)<br/>
+    	<input type="text" name="speaker" size="40" value="<?= $_POST['speaker']  ?>" maxlength="100"/>
+		<input type="hidden" id="speakerValidate" value="<?= $vItems['speaker'] ?>" />
+		<span id="speaker"></span>
     </td>
 </tr>
 
