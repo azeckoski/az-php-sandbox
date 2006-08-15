@@ -406,11 +406,12 @@ if ($PK) {
 			 <br/></div>
 			</div>			
 	    <br/>
+	     </td>
+  </tr> 
 		<? 
 		 } if ($Message) { 
 	 ?>	    
-	 </td>
-  </tr> 
+	
   
   <?php } ?>
 	   
