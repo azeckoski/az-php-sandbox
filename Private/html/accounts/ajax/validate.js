@@ -269,6 +269,7 @@ function attachValidateHandlers() {
 					thisElement.tabIndex = 50;
 				}
 			} else {
+				//alert("item:" + thisElement.name);
 				var validateItem = document.getElementById(thisElement.name + "Validate");
 				if (validateItem != null) {
 					// if the validation value is blank then skip this item

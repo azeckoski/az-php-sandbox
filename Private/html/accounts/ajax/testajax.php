@@ -1,4 +1,6 @@
 <?php
+
+
 /*
  * file: testvalid.php
  * Created on Mar 11, 2006 4:30:06 PM by @author aaronz
@@ -10,6 +12,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <title>Ajax Testing Form</title>
 
 <script type="text/javascript" src="validate.js"></script>
@@ -19,12 +23,14 @@
 <body>
 
 <?php
+
+
 if ($_REQUEST["submit"]) {
 	print "<b>Form submitted sucessfully</b><br><br>Form Items Received:<br>";
-	foreach ($_REQUEST as $key=>$value) {
+	foreach ($_REQUEST as $key => $value) {
 		print "$key:$value<br>";
 	}
-	exit();
+	exit ();
 }
 ?>
 
@@ -32,14 +38,14 @@ if ($_REQUEST["submit"]) {
 <legend>AJAX Demo Form</legend>
 
 <div id="requiredMessage"></div>
-<form method="post" action="<?= $_SERVER["PHP_SELF"] ?>" style="margin:0px;">
+<form name="yousuck" method="post" action="<?= $_SERVER["PHP_SELF"] ?>" style="margin:0px;">
 <table>
 	<tr>
 		<td>Username</td>
 		<td>
 			<img id="usernameImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="text" name="username" />
-			<input type="hidden" name="usernameValidate" value="required:focus:alphanum:uniquesql;username;users"/>
+			<input type="hidden" id="usernameValidate" value="required:focus:alphanum:uniquesql;username;users"/>
 			<span id="usernameMsg"></span>
 		</td>
 	</tr>
@@ -49,7 +55,7 @@ if ($_REQUEST["submit"]) {
 		<td>
 			<img id="emailImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="text" name="email" />
-			<input type="hidden" name="emailValidate" value="required:email:uniquesql;email;users"/>
+			<input type="hidden" id="emailValidate" value="required:email:uniquesql;email;users"/>
 			<span id="emailMsg"></span>
 		</td>
 	</tr>
@@ -58,8 +64,8 @@ if ($_REQUEST["submit"]) {
 		<td>Other</td>
 		<td>
 			<img id="otherImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<input type="text" name="other" tabindex="3"/>
-			<input type="hidden" name="otherValidate" value="required:nospaces"/>
+			<input type="text" name="other" />
+			<input type="hidden" id="otherValidate" value="required:nospaces"/>
 			<span id="otherMsg"></span>
 		</td>
 	</tr>	
@@ -69,7 +75,7 @@ if ($_REQUEST["submit"]) {
 		<td>
 			<img id="areaImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<textarea name="area"></textarea><br/>
-			<input type="hidden" name="areaValidate" value="required:nospaces"/>
+			<input type="hidden" id="areaValidate" value="required:nospaces"/>
 			<span id="areaMsg"></span>
 		</td>
 	</tr>	
@@ -79,11 +85,11 @@ if ($_REQUEST["submit"]) {
 		<td>Drop-down List Box Test</td>
 		<td>
 			<img id="dropDownImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<select name="dropDown" tabindex="4">
+			<select name="dropDown">
 			  <option value="" selected>blank value</option>
 			  <option value="non-blank">non-blank value</option>
 			</select>
-			<input type="hidden" name="dropDownValidate" value="required"/>
+			<input type="hidden" id="dropDownValidate" value="required"/>
 			<span id="dropDownMsg"></span>
 		</td>
 	</tr>	
@@ -93,10 +99,10 @@ if ($_REQUEST["submit"]) {
 		<td valign="top">
 			<img id="radioImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<div style="vertical-align:top;">
-				<input type="radio" name="radio" value="" tabindex="5" /> blank<br/>
-				<input type="radio" name="radio" value="non-blank" tabindex="6" /> non-blank<br/>
-				<input type="radio" name="radio" value="also non-blank" tabindex="7" /> also non-blank
-				<input type="hidden" name="radioValidate" value="required:nospaces"/>
+				<input type="radio" name="radio" value="" /> blank<br/>
+				<input type="radio" name="radio" value="non-blank" /> non-blank<br/>
+				<input type="radio" name="radio" value="also non-blank" /> also non-blank
+				<input type="hidden" id="radioValidate" value="required:nospaces"/>
 			</div>
 			<div style="vertical-align:top;" id="radioMsg"></div>
 		</td>
@@ -106,8 +112,8 @@ if ($_REQUEST["submit"]) {
 		<td valign="top">Checkbox Test</td>
 		<td valign="top">
 			<img id="checkboxImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<input type="checkbox" name="checkbox" value="non-blank" tabindex="8"/> check this box to continue
-			<input type="hidden" name="checkboxValidate" value="required"/>
+			<input type="checkbox" name="checkbox" value="non-blank" /> check this box to continue
+			<input type="hidden" id="checkboxValidate" value="required"/>
 			<span id="checkboxMsg"></span>
 		</td>
 	</tr>	
@@ -117,14 +123,14 @@ if ($_REQUEST["submit"]) {
 		<td valign="top">Auxillary</td>
 		<td valign="top">
 			<img src="images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<input type="text" name="aux" tabindex="9"/>
+			<input type="text" name="aux" />
 			<i>No validation</i>
 		</td>
 	</tr>	
 
 	<tr>
 		<td colspan="2">
-			<input type="submit" name="submit" value="Save Information" tabindex="10" />
+			<input type="submit" name="submit" value="Save Information" />
 			<div id="errorMessage"></div>
 		</td>
 	</tr> 
