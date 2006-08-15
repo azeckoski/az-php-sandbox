@@ -9,7 +9,7 @@
  */
 
 // config variables
-var ajaxPath = "/accounts/ajax/"; // must the relative path from the web root
+var ajaxPath = "/accounts/ajax/"; // must be the relative path from the web root
 var ajaxValidateUrl = ajaxPath + "validate.php?ajax=1"; // url is the relative processor page 
 // processor will do the validation (include ?ajax=1 if using my php processor)
 // Processor should return a string: passId|elementId|textMessage
@@ -40,7 +40,7 @@ var useRequiredMessage = true;
 // validation rules shown are "required", "email", and "unique sql check"
 // rules enforced in this script: required, focus, nospaces, password, match;elementID
 /******
-	<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16"/>
+	<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation" />
 	<input type="text" name="email" tabindex="2"/>
 	<input type="hidden" name="emailValidate" value="required:email:uniquesql;users;email"/>
 	<span id="emailMsg"></span>

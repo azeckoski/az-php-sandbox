@@ -12,7 +12,7 @@
 <head>
 <title>Ajax Testing Form</title>
 
-<script type="text/javascript" src="ajax/validate.js"></script>
+<script type="text/javascript" src="validate.js"></script>
 
 </head>
 
@@ -37,8 +37,8 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td>Username</td>
 		<td>
-			<img id="usernameImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<input type="text" name="username" tabindex="1"/>
+			<img id="usernameImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<input type="text" name="username" />
 			<input type="hidden" name="usernameValidate" value="required:focus:alphanum:uniquesql;username;users"/>
 			<span id="usernameMsg"></span>
 		</td>
@@ -47,8 +47,8 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td>Email</td>
 		<td>
-			<img id="emailImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<input type="text" name="email" tabindex="2"/>
+			<img id="emailImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<input type="text" name="email" />
 			<input type="hidden" name="emailValidate" value="required:email:uniquesql;email;users"/>
 			<span id="emailMsg"></span>
 		</td>
@@ -57,7 +57,7 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td>Other</td>
 		<td>
-			<img id="otherImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<img id="otherImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="text" name="other" tabindex="3"/>
 			<input type="hidden" name="otherValidate" value="required:nospaces"/>
 			<span id="otherMsg"></span>
@@ -65,10 +65,21 @@ if ($_REQUEST["submit"]) {
 	</tr>	
 
 	<tr>
+		<td>Textarea</td>
+		<td>
+			<img id="areaImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<textarea name="area"></textarea><br/>
+			<input type="hidden" name="areaValidate" value="required:nospaces"/>
+			<span id="areaMsg"></span>
+		</td>
+	</tr>	
+
+
+	<tr>
 		<td>Drop-down List Box Test</td>
 		<td>
-			<img id="dropDownImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<select name="dropDown" tabindex="4"">
+			<img id="dropDownImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<select name="dropDown" tabindex="4">
 			  <option value="" selected>blank value</option>
 			  <option value="non-blank">non-blank value</option>
 			</select>
@@ -80,11 +91,11 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td valign="top">Radio Button Test</td>
 		<td valign="top">
-			<img id="radioImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<img id="radioImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<div style="vertical-align:top;">
-				<input type="radio" name="radio" value="" tabindex="5"> blank<br/>
-				<input type="radio" name="radio" value="non-blank" tabindex="6"> non-blank<br/>
-				<input type="radio" name="radio" value="also non-blank" tabindex="7"> also non-blank
+				<input type="radio" name="radio" value="" tabindex="5" /> blank<br/>
+				<input type="radio" name="radio" value="non-blank" tabindex="6" /> non-blank<br/>
+				<input type="radio" name="radio" value="also non-blank" tabindex="7" /> also non-blank
 				<input type="hidden" name="radioValidate" value="required:nospaces"/>
 			</div>
 			<div style="vertical-align:top;" id="radioMsg"></div>
@@ -94,7 +105,7 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td valign="top">Checkbox Test</td>
 		<td valign="top">
-			<img id="checkboxImg" src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<img id="checkboxImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="checkbox" name="checkbox" value="non-blank" tabindex="8"/> check this box to continue
 			<input type="hidden" name="checkboxValidate" value="required"/>
 			<span id="checkboxMsg"></span>
@@ -105,7 +116,7 @@ if ($_REQUEST["submit"]) {
 	<tr>
 		<td valign="top">Auxillary</td>
 		<td valign="top">
-			<img src="ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<img src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<input type="text" name="aux" tabindex="9"/>
 			<i>No validation</i>
 		</td>
