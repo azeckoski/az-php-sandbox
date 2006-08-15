@@ -11,9 +11,9 @@
                   	</div>
                       <table width="100%" border="0" cellpadding="0" cellspacing="0">
                         <tr align="left">
-                          <td><a href="http://www.sakaiproject.org/index.php?option=com_content&task=view&id=418&Itemid=567" class="mainlevel" >Conference home</a></td>
+                          <td><a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=567" class="mainlevel" >Conference home</a></td>
                         </tr>
-                      
+                       
                         <tr><td>
                         <?php 
 	$sql = "select CP.title, CP.pk from conf_proposals CP " .
@@ -40,7 +40,7 @@
 		echo "</div>";
 	} // end if
 ?>
-
+ <div style="padding:30px 0px"></div>
                         
                         </td>
                         </tr>
@@ -55,3 +55,4 @@
 <div class="componentheading"><br/> 6th Sakai Conference - 
                         December 5-8, 2006  -
                         Atlanta, Georgia </div>
+                        
