@@ -71,10 +71,10 @@ if ($_REQUEST["submit"]) {
 	</tr>	
 
 	<tr>
-		<td>Textarea</td>
+		<td>Textarea Test</td>
 		<td>
 			<img id="areaImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
-			<textarea name="area"></textarea><br/>
+			<textarea name="area" cols="60" rows="4"></textarea><br/>
 			<input type="hidden" id="areaValidate" value="required:nospaces"/>
 			<span id="areaMsg"></span>
 		</td>
