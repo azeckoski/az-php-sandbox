@@ -22,6 +22,7 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 ?>
 
 <?php require $ACCOUNTS_PATH.'include/top_header.php'; ?>
+
 <style type="text/css">
 
 #activity{
@@ -37,6 +38,7 @@ color:#000;
 // -->
 </script>
 <?php require 'include/header.php'; ?>
+<?php include 'include/conference_LeftCol.php'?>
 
 <div style="text-align:left;">
 
