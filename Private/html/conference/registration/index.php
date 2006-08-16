@@ -34,19 +34,17 @@ if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
 
-// check for past registration date (end of conference)
+// check for date restrictions
 if(strtotime($CONF_END_DATE) < time()) {
-	$Message = "This conference registration period has passed.";
+	$Message = "This conference registration period has passed.<br>" .
+			"Ended on " . date($DATE_FORMAT,strtotime($CONF_END_DATE));
+	$error = true;
+} elseif (strtotime($REG_START_DATE) > time()) {
+	$Message = "This conference registration period has not yet begun.<br>" .
+			"Begins on " . date($DATE_FORMAT,strtotime($REG_START_DATE));
 	$error = true;
 }
 
-
-// check for too early for registration date (end of conference)
-if(strtotime($REGIST_START_DATE) > time()) {
-	$Message = "Conference Registration for the Atlanta conference will open <strong>September 1, 2006</strong>.";
-	$error = true;
-	$showRegistration=false;
-}
 // Define the array of items to validate and the validation strings
 $vItems = array();
 $vItems['primaryRole'] = "required";
@@ -179,7 +177,7 @@ if ($_POST['save'] && !$error) { // saving the form
 
 <table width="100%" class="blog" cellpadding="0" cellspacing="0">
   <tr>
-    <td valign="top"><div class="componentheading">Sakai Conference Registration</div></td>
+    <td valign="top"><div class="componentheading"><?= $CONF_NAME ?> Conference Registration</div></td>
   </tr>
 </table>
 
@@ -258,12 +256,7 @@ if ($_POST['save'] && !$error) { // saving the form
 	</td>
 </tr>
 
-
-
-<?php if ($showRegistration) {  //registration is open
-?>
 <?php require('include/registration_form.php'); ?>
-
 
 <?php if ($isPartner) { ?>
     <tr>
@@ -283,7 +276,5 @@ if ($_POST['save'] && !$error) { // saving the form
 <!--end of unique form info for form1 -->
 </div> <!-- end cfp -->
 <?php } ?>
-
-<?php } // end show reg form ?>
 
 <?php require '../include/footer.php'; // Include the FOOTER ?>
