@@ -13,12 +13,9 @@
                         <tr align="left">
                           <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=567" class="mainlevel" >Conference home</a></td>
                         </tr>
-                  <tr align="left">
-                          <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=567" class="mainlevel" >Conference home</a></td>
-                        </tr>
-                  		<tr align="left">
+                  	<tr align="left">
                           <td><a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=420&Itemid=593" class="mainlevel" >Help</a></td>
-                        
+                        </tr>
                         <tr><td>
                         <?php 
 	$sql = "select CP.title, CP.pk from conf_proposals CP " .
