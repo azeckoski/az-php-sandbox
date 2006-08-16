@@ -30,6 +30,8 @@ $CONF_URL = "http://sakaiproject.org/index.php?option=com_content&task=view&id=4
 $CONF_START_DATE = "2006/12/05 8:00";
 $CONF_END_DATE = "2006/12/08 17:00";
 
+$REGIST_START_DATE="2006/09/01 5:00";
+
 // date format for display
 $DATE_FORMAT = "l, F dS, Y g:i A";
 $MED_DATE_FORMAT = "M d, Y (g A)";
