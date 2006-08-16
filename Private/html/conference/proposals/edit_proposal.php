@@ -672,12 +672,9 @@ if ($Message) {
     		<input type="hidden" id="topicValidate" value="<?= $vItems['topic'] ?>" />
     		<span id="topic"></span>
      	</div>
-     	<div>Although in the last Call for Proposals (for the 4th Sakai conference in Austin) presenters were asked to categorize their proposal 
-	          within one of five tracks, for the Vancouver conference, presenters are being asked to rank the relevance of their proposal to a list of
-	          topic areas. Once the deadline for submitting proposals has passed, the Vancouver Program Committee will review all the proposals and see 
-	          which topic areas have emerged as most relevant for the Sakai community.  Those topic areas will become the tracks for the 5th Sakai 
-	          conference (part of Community Source Week) in Vancouver.<br/><br/>Rank <strong>at least one</strong> of the topics below on their
-	          relationship to your proposed presentation. <br/><br/>
+     	<div>Presenters are asked to categorize their proposal by ranking the relevance of their proposal to a list of
+	          topic areas. Once the deadline for submitting proposals has passed, the Conference Program Committee will review all the proposals and see 
+	          which topic areas have emerged as most relevant for the Sakai community for this conference.  <br/><br/>
 	     </div>
 
 		<div class="list_header">
