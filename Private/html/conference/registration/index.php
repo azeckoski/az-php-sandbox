@@ -27,6 +27,7 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 require 'include/getInstConf.php';
 
 $error = false;
+$showRegistration=true;
 
 // get the passed message if there is one
 if($_GET['msg']) {
@@ -39,6 +40,13 @@ if(strtotime($CONF_END_DATE) < time()) {
 	$error = true;
 }
 
+
+// check for too early for registration date (end of conference)
+if(strtotime($REGIST_START_DATE) > time()) {
+	$Message = "Conference Registration for the Atlanta conference will open <strong>September 1, 2006</strong>.";
+	$error = true;
+	$showRegistration=false;
+}
 // Define the array of items to validate and the validation strings
 $vItems = array();
 $vItems['primaryRole'] = "required";
@@ -176,7 +184,6 @@ if ($_POST['save'] && !$error) { // saving the form
 </table>
 
 <?php echo $Message; ?>
-
 <?php
 	// this should never happen but just in case
 	if (!$User->institution_pk) {
@@ -252,6 +259,9 @@ if ($_POST['save'] && !$error) { // saving the form
 </tr>
 
 
+
+<?php if ($showRegistration) {  //registration is open
+?>
 <?php require('include/registration_form.php'); ?>
 
 
@@ -272,6 +282,7 @@ if ($_POST['save'] && !$error) { // saving the form
 </form>
 <!--end of unique form info for form1 -->
 </div> <!-- end cfp -->
+<?php } ?>
 
 <?php } // end show reg form ?>
 
