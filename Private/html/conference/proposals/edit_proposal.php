@@ -488,7 +488,7 @@ if ($Message) {
        
       <div><strong>Select a room/timeslot: </strong><br/><br/>
        Please select the room that has a capacity which best matches
-      your expected BOF group size. Contact Mary Miles at mmiles@umich.edu 
+      your expected BOF group size. Contact Mary Miles at mmiles@sakaifoundation.org 
       if you cannot find a timeslot or room that fits your group's needs.<br/>
       </div>
  		<div align=center><br/>
@@ -674,7 +674,7 @@ if ($Message) {
      	</div>
      	<div>Presenters are asked to categorize their proposal by ranking the relevance of their proposal to a list of
 	          topic areas. Once the deadline for submitting proposals has passed, the Conference Program Committee will review all the proposals and see 
-	          which topic areas have emerged as most relevant for the Sakai community for this conference.  <br/><br/>
+	          which topic areas or tracks have emerged as most relevant for the Sakai community for this conference.  <br/><br/>
 	     </div>
 
 		<div class="list_header">
