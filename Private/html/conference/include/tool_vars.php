@@ -26,7 +26,7 @@ $CSS_FILE4 = $TOOL_URL."/include/template/css/footer.css";
 $CONF_ID = "Dec2006";
 $CONF_LOC = "Atlanta";
 $CONF_NAME = "Sakai Atlanta";
-$CONF_URL = "http://sakaiproject.org/index.php?option=com_content&task=view&id=415&Itemid=312";
+$CONF_URL = "http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=567";
 $REG_START_DATE = "2006/09/01 8:00";
 $CONF_START_DATE = "2006/12/05 8:00";
 $CONF_END_DATE = "2006/12/08 17:00";
