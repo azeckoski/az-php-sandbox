@@ -177,7 +177,7 @@
 	<img id="confHotelImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Hotel Information:</strong><br />
     <div style="padding-left: 40px;">
-    	Will you be staying at the conference hotel, the Sheraton Vancouver Wall Centre, 
+    	Will you be staying at the conference hotel, the Atlanta Marriot Marquis, 
     	where the conference is being held?<br />
       <input type="radio" name="confHotel" value="Y" <?php if ($CONF['confHotel']=="Y") echo "checked='y'" ?> />
       <strong>Yes </strong>
