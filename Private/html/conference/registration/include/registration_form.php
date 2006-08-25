@@ -192,7 +192,8 @@
  <tr>
   <td colspan=2>
 	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
-  	<strong>Community Source Week Conferences:</strong><br />
+  	<!-- <strong>Community Source Week Conferences:</strong><br /> -->  <!-- for summer only -->
+  	 <strong>JA-Sig/uPortal Conference:</strong><br /> 
     <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Atlanta Dec 3-5, 2006?<br />
       <input type="radio" name="jasig" value="Y" <?php if ($CONF['jasig']=="Y") echo "checked='y'" ?> />
       <strong>Yes </strong>
