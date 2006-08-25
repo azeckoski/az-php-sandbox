@@ -62,6 +62,8 @@ if ($ResultCode== '0') {
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <?php include '../include/header.php'; ?>
+<?php include 'include/registration_LeftCol.php'; // Include left column ?>
+
 
 <?php 
 if ($Message) {
@@ -78,9 +80,9 @@ if ($Message) {
   </tr>
   <tr>
     <td  colspan=2 style=" padding:5px;"><strong>Registration Complete</strong>: <br />
-      Thank you for registering for the Sakai Vancouver conference. 
+      Thank you for registering for the Sakai Atlanta conference. 
       You will receive a registration confirmation email and a payment confirmation email shortly. 
-      See you in Vancouver! <br />
+      See you in Atlanta! <br />
       <br />
       -- Sakai Conference Committee</td>
   </tr>
@@ -89,8 +91,8 @@ if ($Message) {
     <td colspan=2><blockquote style="background:#fff; border: 1px solid #ffcc33; padding: 5px;">
     <strong>Special announcements and reminders:</strong>
         <ul>
-          <li><strong>Visit the Sakai Conference Facebook</strong> to see who else is attending -- and add your photo while you're there! (see sidebar for more information)</li>
-          <li><strong>Call for Proposals Deadline is March 31st.</strong> [ <a href=" http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=170&amp;Itemid=519">more information</a> ]</li>
+      <!--    <li><strong>Visit the Sakai Conference Facebook</strong> to see who else is attending - and add your photo while you're there! (see sidebar for more information)</li>
+      -->    <li><strong>Call for Proposals Deadline is September 30, 2006.</strong> [ <a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=420&Itemid=593">more information</a> ]</li>
         </ul>
       </blockquote><div><br />
   <br />
@@ -125,6 +127,5 @@ if ($Message) {
 	include('include/email_confirmation.php');
 ?>
 
-<?php include '../include/outer_right.php'; // Include right column ?>
 
 <?php require '../include/footer.php'; ?>
