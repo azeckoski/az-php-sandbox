@@ -158,7 +158,7 @@ if (!$isPartner){
 // $amount='1.00';
 ?>
           <input type="hidden" name="AMOUNT" value="<?php echo $amount; ?>"/>
-          <input type="hidden" name="DESCRIPTION" value="Sakai -Vancover Conference registration"/>
+          <input type="hidden" name="DESCRIPTION" value="Sakai -Atlanta Conference registration"/>
           <input type="submit" name="submit" value="pay by credit card >>" />
         </td>
       </tr>
