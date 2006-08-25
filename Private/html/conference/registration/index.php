@@ -212,7 +212,7 @@ if ($_POST['save'] && !$error) { // saving the form
 ?>
 
 <!-- start of the form td -->
-<div id=form1> <!-- start form section -->
+<div> <!-- start form section -->
 <form name="form1" id="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="save" value="1" />
 <table width="500"  cellpadding="0" cellspacing="0">
