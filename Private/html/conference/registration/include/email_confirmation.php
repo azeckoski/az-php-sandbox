@@ -15,11 +15,12 @@ $publish=$CONF["publishInfo"];
 $fee=$CONF["fee"];
 $title=$CONF["title"];
 $co_registrant=$CONF["delegate"];
+$attending=$CONF["attending"];
 
 $today = date("F j, Y"); 
 
 //set up cleaner mail message -AZ
-$msg ="Thank you for your registration to the Sakai Vancouver Conference, scheduled for May 30 to June 2, 2006 in Vancouver B.C.\r\n";
+$msg ="Thank you for your registration to the Sakai Atlanta Conference, scheduled for December 5 to December 8, 2006 in Atlanta, Georgia. \r\n";
 $msg.=" If you have any questions about your registration information please contact kreister@umich.edu. \r\n \r\nThank You\r\n      Sakai Staff\r";
 $msg.="-------------------------------------------- \r\n\r\n";
 $msg.="Date Submitted: $today \r\n\r\n";
@@ -40,6 +41,8 @@ if ($special) {
 }
 $msg.="Attending JA-SIG:   $jasig \r\n\r\n";
 $msg.="Staying at Conf. Hotel:   $confHotel \r\n\r\n";
+$msg.="Dates Attending Conference:   $attending \r\n\r\n";
+
 if ($publish){
 	$msg.="Publish name on Attendee list:  $publish ";
 }
@@ -68,7 +71,7 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 //set up mail for Susan
 $recipient = "shardin@umich.edu";
-$subject= "COPY-Vancouver Reg-$User->firstname $User->lastname";
+$subject= "COPY-Atlanta Reg-$User->firstname $User->lastname";
 //send the mail to susan
 @mail($recipient, $subject, $msg, $headers);
 
@@ -92,7 +95,7 @@ $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 $recipient = $User->email;
-$subject= "Sakai Conference Registration";
+$subject= "Sakai Atlanta Conference Registration";
 //send the mail to registrant
 @mail($recipient, $subject, $msg, $headers);
 ?>
