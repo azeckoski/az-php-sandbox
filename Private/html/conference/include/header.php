@@ -26,7 +26,7 @@
                         <br/>
                         <?= $EXTRA_MESSAGE ?>
                      
-                        <a style="font-size:9pt;" href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=420&amp;Itemid=593">Conference Home</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>
+                        <a style="font-size:9pt;" href="<?=$CONF_URL ?>">Conference Home</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>
                         <?= $EXTRA_LINKS ?>
                       </div></td>
                   </tr>
