@@ -34,7 +34,10 @@ if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
 
-$REG_START_DATE="2006/08/01 8:00";
+if ($User->checkPerm("admin_conference")) {
+	$REG_START_DATE="2006/08/01 8:00"; //only admins can see this before start date
+}
+
 // check for date restrictions
 if(strtotime($CONF_END_DATE) < time()) {
 	$Message = "This conference registration period has passed.<br>" .
