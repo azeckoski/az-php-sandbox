@@ -189,11 +189,11 @@
   </td>
 </tr>
 
-<!-- <tr>
+ <tr>
   <td colspan=2>
 	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Community Source Week Conferences:</strong><br />
-    <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Vancouver June 4-6, 2005?<br />
+    <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Atlanta Dec 3-5, 2006?<br />
       <input type="radio" name="jasig" value="Y" <?php if ($CONF['jasig']=="Y") echo "checked='y'" ?> />
       <strong>Yes </strong>
       <input type="radio" name="jasig" value="N" <?php if ($CONF['jasig']=="N") echo "checked='y'" ?>/>
@@ -202,7 +202,7 @@
     <input type="hidden" id="jasigValidate" value="<?= $vItems['jasig'] ?>"/>
 	<span id="jasigMsg"></span>
   </td>
-</tr> -->
+</tr> 
 
 <tr>
   <td colspan=2>
@@ -260,7 +260,17 @@
 	    </div></td>
     
 </tr>
-
+ <tr>
+     <td><strong>Dates Attending:</strong></td>
+     <td><div> Please check the days that you WILL ATTEND the Atlanta conference. This information helps us save money, by providing a more accurate head count when ordering banquet services.</div>
+        <br/> <strong> I WILL ATTEND on the following days:</strong><br/>
+          <input name="attending_tue" type="checkbox" value="Tue" <?php if ($_POST['attending_tue']=="Tue") { echo "checked"; } ?> /> Tuesday, Dec. 5 <br/>
+          <input name="attending_wed" type="checkbox" value="Wed" <?php if ($_POST['attending_wed']=="Wed")  { echo "checked"; } ?> /> Wednesday, Dec. 6 <br/>
+          <input name="attending_thu" type="checkbox" value="Thu" <?php if ($_POST['attending_thu']=="Thu")  { echo "checked"; } ?> /> Thursday, Dec. 7 <br/>
+          <input name="attending_fri" type="checkbox" value="Fri" <?php if ($_POST['attending_fri']=="Fri") { echo "checked"; } ?> /> Friday, Dec. 2 <br/>
+        <br/>
+     </td>
+  </tr>
 <tr>
   <td colspan=2><strong>Registration delegate contact email:</strong> (optional)<br />
     <div style="padding-left: 40px;">

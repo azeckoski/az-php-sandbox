@@ -34,6 +34,7 @@ if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
 
+$REG_START_DATE="2006/08/01 8:00";
 // check for date restrictions
 if(strtotime($CONF_END_DATE) < time()) {
 	$Message = "This conference registration period has passed.<br>" .
@@ -102,6 +103,7 @@ if ($_POST['save'] && !$error) { // saving the form
 	$publishInfo = mysql_real_escape_string($_POST["publish"]);
 	$delegate = mysql_real_escape_string($_POST["delegate"]);
 	$expectations = mysql_real_escape_string($_POST["expectations"]);
+	$attending = trim($_POST['attending_tue'] ." ". $_POST['attending_wed'] ." ". $_POST['attend_thu'] ." ". $_POST['attend_fri']);
 
 	if (!$publishInfo) { $publishInfo = 'Y'; }
 	
@@ -126,17 +128,17 @@ if ($_POST['save'] && !$error) { // saving the form
 			}
 
 			// insert a new entry for the conference
-			$confsql = "INSERT INTO conferences (confID, shirt, special, confHotel, jasig, " .
+			$confsql = "INSERT INTO conferences (confID, attending, shirt, special, confHotel, jasig, " .
 				"publishInfo, date_created, fee, delegate, expectations, activated, " .
 				"users_pk) VALUES " .
-				"('$CONF_ID', '$shirt', '$special', '$confHotel', '$jasig', " .
+				"('$CONF_ID', '$attending','$shirt', '$special', '$confHotel', '$jasig', " .
 				"'$publishInfo', NOW(), '$fee', '$delegate', '$expectations', '$activated', " .
 				"'$thisUser->pk')";
 			$result = mysql_query($confsql) or die('Conf insert query failed: ('.$confsql.')' . mysql_error());
 			$new_req = true;
 		} else {
 			// update the existing entry
-			$confsql = "UPDATE conferences SET shirt='$shirt', special='$special', " .
+			$confsql = "UPDATE conferences SET attending='$attending', shirt='$shirt', special='$special', " .
 				"confHotel='$confHotel', jasig='$jasig', expectations='$expectations', " .
 				"delegate='$delegate', publishInfo='$publishInfo' WHERE " .
 				"users_pk='$thisUser->pk' and confID='$CONF_ID'";

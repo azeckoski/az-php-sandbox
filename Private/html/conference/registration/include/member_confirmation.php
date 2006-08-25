@@ -31,11 +31,12 @@
 		<?php } ?>
 		<br/>
 		<strong>shirt size:</strong> <?= $CONF['shirt'] ?><br/>
-		<!-- <strong>attending jasig:</strong> <?= $CONF['jasig'] ?><br/> -->
+		<strong>attending jasig:</strong> <?= $CONF['jasig'] ?><br/>
 		<strong>staying at conference hotel:</strong> <?= $CONF['confHotel'] ?><br/>
 		<strong>publish name on attendee list:</strong> <?= $CONF['publishInfo'] ?><br/>
-		<?php if ($CONF['special']) { echo "Special needs: $CONF[special]<br/>"; } ?>
-		<?php if ($CONF['expectations']) { echo "Expectations: $CONF[expectations]<br/>"; } ?>
+		<?php if ($CONF['special']) { echo "<strong>Special needs: </strong> $CONF[special]<br/>"; } ?>
+		<?php if ($CONF['expectations']) { echo "<strong>Expectations:</strong> $CONF[expectations]<br/>"; } ?>
+		<?php if ($CONF['attending']) { echo "<strong>Attending: </strong> $CONF[attending]<br/>"; } ?>
 		<br/>
 	</td>
 </tr>
