@@ -75,16 +75,6 @@ $subject= "COPY-Atlanta Reg-$User->firstname $User->lastname";
 //send the mail to susan
 @mail($recipient, $subject, $msg, $headers);
 
-/*******	 
- //set up mail for Susan with the old mail method
- $recipient = "shardin@umich.edu";
- $subject= "COPY-Vancouver Registration";
- $mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
- $mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
- $mailheaders .="Reply-To: $email";
- //send the mail to Susan
- mail($recipient, $subject, $msg, $mailheaders);
-********/
 
 //set up mail for registrant
 $headers  = 'From: ' . $HELP_EMAIL . "\n";
