@@ -103,7 +103,7 @@ if ($_POST['save'] && !$error) { // saving the form
 	$publishInfo = mysql_real_escape_string($_POST["publish"]);
 	$delegate = mysql_real_escape_string($_POST["delegate"]);
 	$expectations = mysql_real_escape_string($_POST["expectations"]);
-	$attending = trim($_POST['attending_tue'] ." ". $_POST['attending_wed'] ." ". $_POST['attend_thu'] ." ". $_POST['attend_fri']);
+	$attending = trim($_POST['attending_tue'] ." ". $_POST['attending_wed'] ." ". $_POST['attending_thu'] ." ". $_POST['attending_fri']);
 
 	if (!$publishInfo) { $publishInfo = 'Y'; }
 	
