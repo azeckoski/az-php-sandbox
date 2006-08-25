@@ -11,7 +11,7 @@
                   	</div>
                       <table width="100%" border="0" cellpadding="0" cellspacing="0">
                         <tr align="left">
-                          <td><a href="<?= $CONF_URL ?>" class="mainlevel" >Conference homes</a></td>
+                          <td><a href="<?= $CONF_URL ?>" class="mainlevel" >Conference home</a></td>
                         </tr>
                       
                         <tr><td>
