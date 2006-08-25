@@ -46,7 +46,7 @@ $VOTE_HELP = array(
 $VOTE_SCORE = array("2", "1", "0");
 
 // dates below in format: YYYY/MM/DD HH24:MI
-$VOTE_OPEN_DATE = "2006/09/1 8:00";
+$VOTE_OPEN_DATE = "2006/09/15 8:00";
 $VOTE_CLOSE_DATE = "2006/10/5 5:00";
 
 // conference attendee reports
