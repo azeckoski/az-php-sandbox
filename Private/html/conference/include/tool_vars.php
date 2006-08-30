@@ -52,7 +52,7 @@ $VOTE_CLOSE_DATE = "2006/10/5 5:00";
 // conference attendee reports
 $CONF_REPORT_PATH = realpath($_SERVER["DOCUMENT_ROOT"]."/../reports/");
 if ($ENVIRONMENT == "prod") {
-	$CONF_REPORT_TO = "hardin@umich.edu,wendemm@gmail.com,mmiles@umich.edu";
+	$CONF_REPORT_TO = "hardin@umich.edu,BCassidy@sefas.com,mmiles@umich.edu";
 	$CONF_REPORT_CC = "shardin@umich.edu,kreister@umich.edu";
 } elseif ($ENVIRONMENT == "test") {
 	// TESTING
