@@ -139,6 +139,8 @@ if (!$isPartner){
 			<input type="hidden" name="USER1" value="<?php echo $User->pk ?>"/>
 			<input type="hidden" name="USER2" value="<?php echo $registrant ?>"/>
 			<input type="hidden" name="USER3" value="<?php echo $CONF['delegate'] ?>"/>
+			<input type="hidden" name="COMMENT1" value="Registrant: <?= $User->firstname."&nbsp;".$User->lastname ?>, <?= $User->institution ?>"/>
+			
 			<!--  
 			<input type="hidden" name="ORDERFORM" value="TRUE" >
 			<input type="hidden" name="ECHODATA" value="TRUE" >
