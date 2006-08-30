@@ -114,12 +114,6 @@ if ($Message) {
 </div>
 
 <!-- end  spacer  -->
-</div>
-<!-- end  content_main  -->
-</div>
-<!-- end container-inner -->
-</div>
-<!--end of outer left -->
 
 <?php
 	// include('confirm_reg_data.php');
