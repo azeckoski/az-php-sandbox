@@ -40,7 +40,7 @@ if ($special) {
 	$msg.="Special needs:  none \r\n\r\n";
 }
 $msg.="Attending JA-SIG:   $jasig \r\n\r\n";
-$msg.="Staying at Conf. Hotel:   $confHotel \r\n\r\n";
+$msg.="Staying at Conf. Hotel:   $hotel \r\n\r\n";
 $msg.="Dates Attending Conference:   $attending \r\n\r\n";
 
 if ($publish){
