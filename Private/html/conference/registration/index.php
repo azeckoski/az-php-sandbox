@@ -65,6 +65,10 @@ $vItems['confHotel'] = "required";
 $vItems['jasig'] = "required";
 $vItems['shirt'] = "required";
 $vItems['delegate'] = "email";
+$vItems['attending_tue'] ="required";
+$vItems['attending_wed'] ="required";
+$vItems['attending_thu'] ="required";
+$vItems['attending_fri'] ="required";
 
 
 // writing data and other good things happen here
@@ -108,8 +112,15 @@ if ($_POST['save'] && !$error) { // saving the form
 	$expectations = mysql_real_escape_string($_POST["expectations"]);
 	$attending = trim($_POST['attending_tue'] ." ". $_POST['attending_wed'] ." ". $_POST['attending_thu'] ." ". $_POST['attending_fri']);
 
-	if (!$publishInfo) { $publishInfo = 'Y'; }
-	
+//$attending=serialize($_POST['attending']); //takes the data from a post operation...
+//$attending = implode(' ',$_POST['attending']).' ';
+
+if (!$publishInfo) { $publishInfo = 'Y'; }
+
+if (!$attending){
+	$errors=1;
+	$Message="Please tell us if which days you will be attending";
+}
 	// SAVE THE CURRENT DATA IN THE DATABASE
 	if ($errors == 0) {
 		// update the user information first
