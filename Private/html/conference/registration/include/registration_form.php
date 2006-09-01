@@ -261,18 +261,40 @@
 	    </div></td>
     
 </tr>
- <tr>
-     <td><strong>Dates Attending:</strong></td>
+     <tr>
+     <td> 	
+ <strong>Dates Attending:</strong></td>
      <td><div> Please check the days that you WILL ATTEND the Atlanta conference. This information helps us save money, by providing a more accurate head count when ordering banquet services.</div>
-        <br/> <strong> I WILL ATTEND on the following days:</strong><br/>
-          <input name="attending_tue" type="checkbox" value="Tue" <?php if ($_POST['attending_tue']=="Tue") { echo "checked"; } ?> /> Tuesday, Dec. 5 <br/>
-          <input name="attending_wed" type="checkbox" value="Wed" <?php if ($_POST['attending_wed']=="Wed")  { echo "checked"; } ?> /> Wednesday, Dec. 6 <br/>
-          <input name="attending_thu" type="checkbox" value="Thu" <?php if ($_POST['attending_thu']=="Thu")  { echo "checked"; } ?> /> Thursday, Dec. 7 <br/>
-          <input name="attending_fri" type="checkbox" value="Fri" <?php if ($_POST['attending_fri']=="Fri") { echo "checked"; } ?> /> Friday, Dec. 2 <br/>
+        <br/> <strong> I WILL ATTEND</strong> on the following days:
         <br/>
+        <img id="attending_tueImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+  	<strong>Tue, Dec. 5th</strong>
+      <input type="radio" name="attending_tue" value="TUE"  <?php if ($_POST['attending_tue']=="TUE") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No<br><br/>
+     <input type="hidden" id="attending_tueValidate" value="<?= $vItems['attending_tue'] ?>"/>
+	<span id="attending_tueMsg"></span> 
+	
+	<img id="attending_wedImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+ 	 <strong>Wed, Dec. 6th</strong>
+      <input type="radio" name="attending_wed" value="WED"  <?php if ($_POST['attending_wed']=="WED") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_wed" value=" " /> No<br><br/>
+     <input type="hidden" id="attending_wedValidate" value="<?= $vItems['attending_wed'] ?>"/>
+	<span id="attending_wedMsg"></span> 
+	
+	
+	<img id="attending_thuImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+  <strong>Thur, Dec. 7th</strong>
+      <input type="radio" name="attending_thu" value="THU"  <?php if ($_POST['attending_thu']=="THU") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_thu" value=" " /> No<br><br/>
+     <input type="hidden" id="attending_thuValidate" value="<?= $vItems['attending_thu'] ?>"/>
+	<span id="attending_thuMsg"></span> 
+	
+	<img id="attending_friImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+  <strong>Fri, Dec. 8th</strong>
+      <input type="radio" name="attending_fri" value="FRI"  <?php if ($_POST['attending_fri']=="FRI") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_fri" value=" " /> No<br><br/>
+     <input type="hidden" id="attending_friValidate" value="<?= $vItems['attending_fri'] ?>"/>
+	<span id="attending_friMsg"></span> 
+	
      </td>
   </tr>
-<tr>
+
   <td colspan=2><strong>Registration delegate contact email:</strong> (optional)<br />
     <div style="padding-left: 40px;">
       If you are completing this registration for someone else, please enter your email address below
