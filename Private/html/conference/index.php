@@ -42,13 +42,12 @@ color:#000;
 
 <div style="text-align:left;">
 
-<span style="font-size:11pt;"><a href="proposals/">Propose a session for the conference</a></span> -
-	Click here to enter a proposal for the upcoming Sakai conference<br/><br/>
-<span style="font-size:11pt;">Register for the conference</span> - 
-Registration will open in early September<br/><br/>
-<!-- 	<a style="font-size:12pt;" href="registration/">Register for the conference</a> - 
-	Click here to register for the upcoming Sakai conference<br/>
-	-->
+<span style="font-size:11pt;"><a href="proposals/">Propose a session</a></span>  for the Atlanta conference
+	<br/><br/>
+<span style="font-size:11pt;">
+<a style="font-size:11pt;" href="registration/">Register</a> </span>for the Atlanta conference
+	<br/>
+	
 	<!-- <span style="font-size:11pt;">Volunteer to help at the conference</span> -
 	Click here to volunteer to be a convener or recorder for the upcoming Sakai conference<br/>
     -->
