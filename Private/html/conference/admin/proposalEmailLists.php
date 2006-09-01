@@ -274,11 +274,11 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 	
 			
 //set up mail for the speaker
-//$recipient = $this_email;
+$recipient = $this_email;
 //$recipient - "shardin@umich.edu";
-//$subject= "Your past Sakai Vancouver Conference Presentation";
+$subject= "Survey on your Sakai Vancouver Conference Presentation";
 //send the mail to attendee
-//mail($recipient, $subject, $msg, $headers);
+mail($recipient, $subject, $msg, $headers);
 
 		
 //set up mail for the susan
