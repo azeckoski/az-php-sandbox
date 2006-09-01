@@ -217,9 +217,9 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				$total_length += $proposal['length'];
 				
 	//for email
-	if ($proposal['pk']) {
+	if ($proposal['pk']=='243') {
 //$msg ="The draft schedule for the Sakai Vancouver conference Presentation is now available at https://www.sakaiproject.org/conference/admin/schedule.php .  Your session details are shown below. \r\n";
-	$msg ="Thank you for your participation in the Sakai Vancouver Conference.\r\n\r\n  To help us plan our space usage for the Atlanta conference, we would like to gather more information on how well our space was used during the Vancouver conference.  Please reply to this message (to mmiles@umich.edu) with your answers to the questions below.     \r\n\r\n";
+	$msg ="Thank you for your participation in the Sakai Vancouver Conference.\r\n\r\n  To help us plan our space usage for the Atlanta conference, we would like to gather more information on how well our space was used during the Vancouver conference.  Please reply to this message with your answers to the questions below.     \r\n\r\n";
 
 	 	 
  $this_email=$proposal['email'];
@@ -242,7 +242,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	
  	
 	 $msg .="\r\nThank you for your efforts in helping us to make each conference  a rewarding experience for all. \r\n\r\n  " .
-	 		"    Mary Miles\r\n Sakai Conference Coordinator \r\n";
+	 		"    Mary Miles\r\n Sakai Conference Coordinator \r\nmmiles@umich.edu";
 	
 ?>
 <?php
