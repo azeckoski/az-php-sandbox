@@ -218,28 +218,29 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	//for email
 	
 //$msg ="The draft schedule for the Sakai Vancouver conference Presentation is now available at https://www.sakaiproject.org/conference/admin/schedule.php .  Your session details are shown below. \r\n";
-	$msg ="Thank you for your participation in the Sakai Vancouver Conference.\r\n  To help us plan our space usage for the Atlanta conference, we would like to gather more information on how well our space was used during the Vancouver conference.  Please reply to this message (to mmiles@umich.edu) with your answers to the questions below.       \r\n";
+	$msg ="Thank you for your participation in the Sakai Vancouver Conference.\r\n\r\n  To help us plan our space usage for the Atlanta conference, we would like to gather more information on how well our space was used during the Vancouver conference.  Please reply to this message (to mmiles@umich.edu) with your answers to the questions below.     \r\n\r\n";
+
 	 	 
  $this_email=$proposal['email'];
 	 
-	$msg .="------------------------------------\r\n<br/>";
+	$msg .="------------------------------------\r\n";
 	$msg.="Proposal submitted by: "	. $proposal['firstname'] . ' ' .$proposal['lastname'] ."($this_email)"."\r\n";
 
 	$msg.="Title: " . $proposal['title'] ."\r\n";
 	$msg.="Date: " . $current_date . ": " .date('g:i',strtotime($timeslot['start_time']))."\r\n";
 	$msg.="Length: " . $proposal['length'] ." minutes"."\r\n";
 	$msg.="Type: " . $proposal['type']."\r\n";
-	$msg.="Track: " . $proposal['track']."\r\n\r\n";
-	 $msg .="------------------------------------\r\n<br/>";
+	$msg.="Track: " . $proposal['track']."\r\n";
+	 $msg .="------------------------------------\r\n\r\n";
 	
 	 
-	$msg .="1. Was the room too crowded (standing room only),  just full (all seats taken), or half filled? \r\n";
-	$msg .="2. Was the time slot long enough for your presentation? \r\n";
-	$msg .="3. If you happened to have taken note of the number of people attending your session, please provide that information. (an estimate is ok) \r\n";
-	$msg .="4. Do you have any suggestions/comments regarding your session which will may help us to provide speakers or  attendees a better experience in Atlanta? \r\n";
+	$msg .="1. Was the room too crowded (standing room only),  just full (all seats taken), or half filled? \r\n\r\n";
+	$msg .="2. Was the time slot long enough for your presentation? \r\n\r\n";
+	$msg .="3. If you happened to have taken note of the number of people attending your session, please provide that information. (an estimate is ok) \r\n\r\n";
+	$msg .="4. Do you have any suggestions/comments regarding your session which will may help us to provide speakers or  attendees a better experience in Atlanta? \r\n\r\n";
 	
  	
-	 $msg .="\r\nThank you for your efforts in helping us to make each conference  a rewarding experience for all. \r\n  " .
+	 $msg .="\r\nThank you for your efforts in helping us to make each conference  a rewarding experience for all. \r\n\r\n  " .
 	 		"    Mary Miles\r\n Sakai Conference Coordinator \r\n";
 	
 ?>
