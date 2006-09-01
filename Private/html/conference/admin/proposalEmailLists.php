@@ -217,7 +217,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				$total_length += $proposal['length'];
 				
 	//for email
-	if ($proposal['pk']=='243') {
+	if ($proposal['pk']) {
 //$msg ="The draft schedule for the Sakai Vancouver conference Presentation is now available at https://www.sakaiproject.org/conference/admin/schedule.php .  Your session details are shown below. \r\n";
 	$msg ="Thank you for your participation in the Sakai Vancouver Conference.\r\n\r\n  To help us plan our space usage for the Atlanta conference, we would like to gather more information on how well our space was used during the Vancouver conference.  Please reply to this message with your answers to the questions below.     \r\n\r\n";
 
@@ -225,7 +225,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
  $this_email=$proposal['email'];
 	 
 	$msg .="------------------------------------\r\n";
-	$msg.="Proposal submitted by: "	. $proposal['firstname'] . ' ' .$proposal['lastname'] ."($this_email)"."\r\n";
+	$msg.="Proposal submitted by: "	. $proposal['firstname'] . ' ' .$proposal['lastname'] ." ($this_email)"."\r\n";
 
 	$msg.="Title: " . $proposal['title'] ."\r\n";
 	$msg.="Date: " . $current_date . ": " .date('g:i',strtotime($timeslot['start_time']))."\r\n";
