@@ -48,9 +48,7 @@
 			<tr><td><br/>&nbsp;&nbsp;&nbsp;<strong>Display by:</strong>
 				<ul>
 				<li><a href="javascript:orderBy('date_created desc');">Recent Entry</a></li>
-				<li><a href="javascript:orderBy('lastname');">Last Name</a></li>
-				<li><a href="javascript:orderBy('institution');">Institution</a></li>
-				<li><a href="javascript:orderBy('date_modified desc');">Recent Update</a></li>
+				<!- -<li><a href="javascript:orderBy('lastname');">Last Name</a></li>>--   
 				</ul>
        		  </td></tr> 
              
@@ -64,7 +62,7 @@
 			<tr><td>
 				<ul>
                  <li> <a href="add_entry.php">Submit New Entry</a> </li>
-               	<li> <a href="add_entry.php">Edit Your Entry</a><br/> </li>
+         -      	<li> <a href="add_entry.php">Edit Your Entry</a><br/> </li>
                </ul>
                	
               </td>

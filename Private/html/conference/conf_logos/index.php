@@ -130,7 +130,7 @@ function orderBy(newOrder) {
 		<input class="filter" type="submit" name="paging" value="next" title="Go to the next page" />
 		<input class="filter" type="submit" name="paging" value="last" title="Go to the last page" />
 		&nbsp;-&nbsp;
-		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
+		Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items 
 	</div>
 	&nbsp;--&nbsp;
 	<div style="display:inline;text-align:right;">
@@ -152,12 +152,21 @@ while($item=mysql_fetch_array($result)) {
 ?>
 
 <div class="frame" id="tip<?= $item['pk'] ?>Activate">
-	<div style="width:<?= $MAX_THUMB_WIDTH ?>px;height:<?= $MAX_THUMB_HEIGHT ?>px;text-align:center;">
+	<div style="width:120; height:100px; text-align:center;">
+	<?php if (!$item['image_pk']) {
+		echo "<img src='include/blank_transparent.png' >";
+	}  else { ?>
 		<img src="include/drawThumb.php?pk=<?= $item['image_pk'] ?>" alt="<?= $fullname ?> logo image" />
+	<?php  }  ?>  
 	</div>
 	<div class="about" style="width:<?= $MAX_THUMB_WIDTH ?>px;">
 		<div class="name">
+		<?php if (!$item['themes']) {
+		echo "<br/>";
+		}  else { ?>
+		
 <label title="<?= $item['themes'] ?>"><?= $item['themes'] ?></label>
+<?php  }  ?>
 </div>
 		
 		<div><label title=""><?= $fullname ?></label></div>

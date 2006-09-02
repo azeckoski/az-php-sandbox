@@ -10,32 +10,25 @@
                      <div id=confLogo>
                   	</div>
  	<table cellpadding="0" cellspacing="0" class="moduletable">
-			<tr> <th>View Options</th> </tr>
-			<tr><td><br/>&nbsp;&nbsp;&nbsp;<strong>Display by:</strong>
+					
+			<tr><td>
 				<ul>
-				<li><a href="javascript:orderBy('date_created desc');">Recent Entry</a></li>
-				<li><a href="javascript:orderBy('lastname');">Last Name</a></li>
-				<li><a href="javascript:orderBy('institution');">Institution</a></li>
-				<li><a href="javascript:orderBy('date_modified desc');">Recent Update</a></li>
-				</ul>
-       		  </td></tr> 
-             
+                	<li><a href="javascript:orderBy('date_created desc');">View Logo Entries</a><br/><br/></li>
+		 <li> <br/><br/><a href="add_entry.php">Submit New Entry</a> </li>
+                </ul>
+               	
+              </td>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+          
+           
              <tr><td>&nbsp;</td>
            </tr>
          </table>
              
              
 		<table cellpadding="0" cellspacing="0" class="moduletable">
-			<tr><th valign="top" align="left">&nbsp;&nbsp;&nbsp;Contest Entry</th></tr>
-			<tr><td>
-				<ul>
-                 <li> <a href="add_entry.php">Submit New Entry</a> </li>
-               	<li> <a href="add_entry.php">Edit Your Entry</a><br/> </li>
-               </ul>
-               	
-              </td>
-			</tr>
-				
+			
 			<tr><td valign=top>
             <br /><div id=help>
 			<p><strong>Need help?</strong><br />If you experience problems adding or editing your logo or theme, 
