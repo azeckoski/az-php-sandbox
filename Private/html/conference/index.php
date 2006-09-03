@@ -46,7 +46,8 @@ color:#000;
 	<br/><br/>
 <span style="font-size:11pt;">
 <a style="font-size:11pt;" href="registration/">Register</a> </span>for the Atlanta conference
-	<br/>
+	<br/><br/>
+	
 <span style="font-size:11pt;"><a href="logos/">Submit a Logo or theme</a></span>  for the Atlanta logo contest
 	<br/><br/>
 	
