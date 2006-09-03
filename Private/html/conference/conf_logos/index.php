@@ -169,11 +169,11 @@ while($item=mysql_fetch_array($result)) {
 		echo "<br/><br/>";
 		}  else { ?>
 	<div style="width:120px;">	
-<label title="<?= $item['themes'] ?>"><?= $item['themes'] ?></label></div>
+<label title="<?= $item['themes'] ?>"><?= $item['themes'] ?></label><br/><br/></div>
 <?php  }  ?>
 </div>
 		
-		<div><label title=""><?= $fullname ?></label></div>
+		<div><label title=""><?= $fullname ?><br/><br/></label></div>
 		
 	</div>
 </div>
