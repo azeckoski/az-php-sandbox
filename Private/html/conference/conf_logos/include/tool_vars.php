@@ -23,7 +23,7 @@ $CSS_FILE2 = $TOOL_URL."/include/template/css/header.css";
 $CSS_FILE3 = $TOOL_URL."/include/template/css/footer.css";
 $HELP_LINK = "include/help.php";
 
-$CONF_ID = "Jun2006";
+$CONF_ID = "Dec2006";
 $CONF_URL = "http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=567";
 
 // date format for display
