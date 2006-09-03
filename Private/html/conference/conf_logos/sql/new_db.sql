@@ -4,7 +4,7 @@ CREATE TABLE logo_entries(
     image_pk			int(10) NOT NULL,
     date_created		timestamp NULL default '0000-00-00 00:00:00',
     date_modified		timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    themes   		text NULL,
+    themes   			varchar(100) NULL,
     url    				varchar(255) NULL,
     approved			enum('0','1') NOT NULL DEFAULT '0',
     viewable			enum('0','1') NOT NULL DEFAULT '0',
