@@ -5,7 +5,7 @@
  */
 ?>
 <?php
-require_once '../include/tool_vars.php';
+require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Conference Logos Intro";
 $Message = "";
@@ -152,7 +152,7 @@ while($item=mysql_fetch_array($result)) {
 ?>
 
 <div class="frame" id="tip<?= $item['pk'] ?>Activate">
-	<div style="width:120; height:100px; text-align:center;">
+	<div style="width:120px; height:100px; text-align:center;">
 	<?php if (!$item['image_pk']) {
 		echo "<img src='include/blank_transparent.png' >";
 	}  else { ?>
@@ -162,10 +162,10 @@ while($item=mysql_fetch_array($result)) {
 	<div class="about" style="width:<?= $MAX_THUMB_WIDTH ?>px;">
 		<div class="name">
 		<?php if (!$item['themes']) {
-		echo "<br/>";
+		echo "<br/><br/>";
 		}  else { ?>
-		
-<label title="<?= $item['themes'] ?>"><?= $item['themes'] ?></label>
+	<div style="width:120px;">	
+<label title="<?= $item['themes'] ?>"><?= $item['themes'] ?></label></div>
 <?php  }  ?>
 </div>
 		
