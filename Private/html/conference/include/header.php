@@ -26,7 +26,7 @@
                         <br/>
                         <?= $EXTRA_MESSAGE ?>
                      
-                        <a style="font-size:9pt;" href="<?=$CONF_URL ?>">Conference Home</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>
+                        <a style="font-size:9pt;" href="<?=$CONF_URL ?>">Conference Home</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a>  - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>- <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/logos/">Logo Contest</a>
                         <?= $EXTRA_LINKS ?>
                       </div></td>
                   </tr>
