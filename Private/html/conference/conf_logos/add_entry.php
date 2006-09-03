@@ -183,12 +183,12 @@ function orderBy(newOrder) {
 <?php }  ?>
 	<tr>
 		<td colspan="3">
-			<b>Theme or logo idea:</b>
+			<b>Theme or logo idea:</b> (100 characters, max.)
 	</td>
 	</tr>
 	<tr>
 		<td colspan="3" class="field">
-		<textarea name="themes" rows="2" cols="80"><?= $thisItem['themes'] ?></textarea>
+		<input type="text" name="themes" size="60" maxlength="100"><?= $thisItem['themes'] ?></textarea>
 		<br/><br/>
 		</td>
 	</tr>
