@@ -154,7 +154,7 @@ while($item=mysql_fetch_array($result)) {
 <div class="frame" id="tip<?= $item['pk'] ?>Activate">
 	<div style="width:120px; height:100px; text-align:center;">
 	<?php if (!$item['image_pk']) {
-		echo "<img src='include/blank_transparent.png' >";
+		echo "<img src='include/blank_transparent.png' />";
 	}  else { ?>
 		<img src="include/drawThumb.php?pk=<?= $item['image_pk'] ?>" alt="<?= $fullname ?> logo image" />
 	<?php  }  ?>  

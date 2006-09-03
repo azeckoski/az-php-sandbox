@@ -45,7 +45,7 @@ if ($_REQUEST["save"]) {
 		$errors=1;
 		$Message = "<fieldset>".
 			"<span style='color:red;'>" .
-			"You must enter a theme or an image</span><br/>";
+			"You must enter a theme or an image</span><br/></fieldset>";
 		
 	}
 	if ($errors == 0) {
@@ -139,7 +139,7 @@ if ($_REQUEST["save"]) {
 ?>
 <?php include $ACCOUNTS_PATH.'/include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<script>
+<script type="text/javascript">
 <!--
 function orderBy(newOrder) {
 	if (document.adminform.sortorder.value == newOrder) {
@@ -206,7 +206,7 @@ function orderBy(newOrder) {
    	<tr>
 		<td class="field" colspan="3">
 			
-			<input type="submit" name="account" value="Save information" tabindex="8">
+			<input type="submit" name="account" value="Save information" tabindex="8" />
 		</td>
 	</tr>
 </table>
