@@ -54,7 +54,7 @@ $row = mysql_fetch_array($result);
 $total_items = $row[0];
 
 // pagination control
-$num_limit = 15;
+$num_limit = 12;
 if ($_REQUEST["num_limit"]) { $num_limit = $_REQUEST["num_limit"]; }
 
 $total_pages = ceil($total_items / $num_limit);
@@ -168,8 +168,8 @@ while($item=mysql_fetch_array($result)) {
 		<?php if (!$item['themes']) {
 		echo "<br/><br/>";
 		}  else { ?>
-	<div style="width:120px;">	
-<label title="<?= $item['themes'] ?>"><?= $item['themes'] ?></label><br/><br/></div>
+	<div style="width:130px;">	
+<label title="<?= $item['themes'] ?>"><?= $item['themes'] ?></label></div>
 <?php  }  ?>
 </div>
 		
