@@ -16,6 +16,10 @@ require 'sql/mysqlconnect.php';
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
+// login if not autheticated
+$AUTH_MESSAGE = "You must login to submit a logo or theme for the $CONF_NAME conference. If you do not have an account, please create one.";
+require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+
 $viewable = 1;
 if ($User->pk) {
 	$viewable = 0;
