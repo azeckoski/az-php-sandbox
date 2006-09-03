@@ -47,6 +47,9 @@ color:#000;
 <span style="font-size:11pt;">
 <a style="font-size:11pt;" href="registration/">Register</a> </span>for the Atlanta conference
 	<br/>
+<span style="font-size:11pt;"><a href="logos/">Submit a Logo or theme</a></span>  for the Atlanta logo contest
+	<br/><br/>
+	
 	
 	<!-- <span style="font-size:11pt;">Volunteer to help at the conference</span> -
 	Click here to volunteer to be a convener or recorder for the upcoming Sakai conference<br/>
