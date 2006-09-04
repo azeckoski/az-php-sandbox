@@ -281,7 +281,7 @@ function orderBy(newOrder) {
 			<input type="radio" name="viewable" value="1" 
 				<?php if ($thisItem['viewable'] == "1") echo " checked='y' "; ?>
 			/> Anyone
-			<input type="hidden" id="viewableValidate" value="1" />
+			<input type="hidden" id="viewableValidate" value="<?= $vItems['viewable'] ?>" />
 			<span id="viewableMsg"></span>
 		</td>
 	</tr>
