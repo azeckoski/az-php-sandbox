@@ -20,10 +20,6 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 //$AUTH_MESSAGE = "You must login to submit a logo or theme for the $CONF_NAME conference. If you do not have an account, please create one.";
 //require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
-$viewable = 1;
-if ($User->pk) {
-	$viewable = 0;
-}
 
 // get the search
 $searchtext = "";
@@ -43,8 +39,7 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all logo items
-$from_sql = " from logo_entries F1 left join users U1 on U1.pk=F1.users_pk " .
-		"where viewable >= '$viewable' ";
+$from_sql = " from logo_entries F1 left join users U1 on U1.pk=F1.users_pk ";
 
 // counting number of items
 // **************** NOTE - APPLY THE FILTERS TO THE COUNT AS WELL
