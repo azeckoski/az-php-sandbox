@@ -209,8 +209,7 @@ function orderBy(newOrder) {
 
    	<tr>
 		<td class="field" colspan="3">
-		<input type="hidden" id="viewableValidate" value="1" />
-			
+		<input type="hidden" name="viewable" value="1" />	
 			<input type="submit" name="account" value="Save information" tabindex="8" />
 		</td>
 	</tr>
