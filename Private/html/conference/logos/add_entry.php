@@ -130,7 +130,7 @@ if ($_REQUEST["save"]) {
 		
 			$entry_sql = "insert into logo_entries " .
 				"(users_pk, image_pk, themes, viewable, date_modified) values " .
-				"('$User->pk','$image_pk','$themes', $viewable, NOW())";
+				"('$User->pk','$image_pk','$themes', '$viewable',  NOW())";
 			mysql_query($entry_sql) or die("Entry query failed: ".mysql_error().": ".$entry_sql);
 			$PK = mysql_insert_id();
 			$Message .= "<span style='color:red;'>" ."Saved new entry<br></span>";
@@ -209,7 +209,8 @@ function orderBy(newOrder) {
 
    	<tr>
 		<td class="field" colspan="3">
-		<input type="hidden" name="viewable" value="1" />	
+		<input type="hidden" id="viewableValidate" value="1" />
+			
 			<input type="submit" name="account" value="Save information" tabindex="8" />
 		</td>
 	</tr>
