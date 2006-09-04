@@ -129,8 +129,8 @@ if ($_REQUEST["save"]) {
 		// now create logo theme entry
 		
 			$entry_sql = "insert into logo_entries " .
-				"(users_pk, image_pk, themes, date_modified) values " .
-				"('$User->pk','$image_pk','$themes', NOW())";
+				"(users_pk, image_pk, themes, viewable, date_modified) values " .
+				"('$User->pk','$image_pk','$themes', $viewable, NOW())";
 			mysql_query($entry_sql) or die("Entry query failed: ".mysql_error().": ".$entry_sql);
 			$PK = mysql_insert_id();
 			$Message .= "<span style='color:red;'>" ."Saved new entry<br></span>";
