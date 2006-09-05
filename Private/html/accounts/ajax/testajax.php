@@ -1,6 +1,4 @@
 <?php
-
-
 /*
  * file: testvalid.php
  * Created on Mar 11, 2006 4:30:06 PM by @author aaronz
@@ -13,18 +11,12 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
 <title>Ajax Testing Form</title>
-
 <script type="text/javascript" src="validate.js"></script>
-
 </head>
 
 <body>
-
 <?php
-
-
 if ($_REQUEST["submit"]) {
 	print "<b>Form submitted sucessfully</b><br><br>Form Items Received:<br>";
 	foreach ($_REQUEST as $key => $value) {
@@ -127,6 +119,20 @@ if ($_REQUEST["submit"]) {
 			<i>No validation</i>
 		</td>
 	</tr>	
+
+	<tr>
+		<td valign="top">Multiple checkboxes Test</td>
+		<td valign="top">
+			<img id="multiCheckImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
+			<br/>
+			<input type="checkbox" name="multiCheck" value="non-blank" /> checkbox 1 <br/>
+			<input type="checkbox" name="multiCheck" value="non-blank" /> checkbox 2 <br/>
+			<input type="checkbox" name="multiCheck" value="non-blank" /> checkbox 3 <br/>
+			<input type="checkbox" name="multiCheck" value="non-blank" /> checkbox 4 <br/>
+			<input type="hidden" id="multiCheckValidate" value="required:multiple;2"/>
+			<span id="multiCheckMsg"></span>
+		</td>
+	</tr>
 
 	<tr>
 		<td colspan="2">

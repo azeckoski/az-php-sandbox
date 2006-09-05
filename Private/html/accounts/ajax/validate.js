@@ -56,6 +56,22 @@ var vOtherCode = "-other-";
 <input style="display:none;" type="text" id="emailOther" size="30" maxlength="100" value="" />
 ******/
 
+// SPECIAL CASE: Multiple checkboxes
+// if you want to add a rule to validate that a certain number of checkboxes are
+// selected in a group of checkboxes, you can associate them by name (like radio buttons)
+// and then add the "multiple;#" rule where # is a natural number
+// NOTE: this can only be used on checkboxes and "required" must be included
+// Example shows a set of 4 checkboxes which will validate if at least 2 are checked
+/******
+	<img id="multiCheckImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
+	<input type="checkbox" name="multiCheck" value="1" /> checkbox 1 <br/>
+	<input type="checkbox" name="multiCheck" value="2" /> checkbox 2 <br/>
+	<input type="checkbox" name="multiCheck" value="3" /> checkbox 3 <br/>
+	<input type="checkbox" name="multiCheck" value="4" /> checkbox 4 <br/>
+	<input type="hidden" id="multiCheckValidate" value="required:multiple;2"/>
+	<span id="multiCheckMsg"></span>
+******/
+
 // POPUP DIVS
 var ajaxTipsDataUrl = ajaxPath + "tips.php?ajax=1"; // url is the relative processor page 
 var defaultPopWidth = 240; // default pixels width of popup divs
@@ -287,11 +303,13 @@ function attachValidateHandlers() {
 							validateItem.value = "";
 						}
 					}
-					
-					// handle the different element types
-					if (thisElement.type.toLowerCase() == "radio") {
+
+					// handle the different element types & check for multiple checkbox validation
+					if (thisElement.type.toLowerCase() == "radio" || 
+							validateItem.value.match(gSeparator+"multiple"+iSeparator)) {
 						// have to handle radiobuttons in a special way
-						
+						// multiple checkboxes are marked the same way
+
 						// if this is the first button in this set then process, otherwise skip it
 						var thisItems = document.getElementsByName(thisElement.name);
 						if (thisElement == thisItems[0]) {
@@ -658,16 +676,48 @@ function validateObject(objInput) {
 		(objInput.type.toLowerCase() == "checkbox" && !objInput.checked) || 
 		(objInput.type.toLowerCase() == "radio" && !objInput.checked) ) {
 		isBlank = true;
-	}	
+	}
 
-	// now do a required check
+	// setup the isReq variable
 	var isRequired = validateItem.value.match(gSeparator + "required" + gSeparator);
+	var reqMessage = "Required";
+
+	// special multiple checkbox handling if there are multiple items
+	if (validateItem.value.match(gSeparator+"multiple"+iSeparator)) {
+		isRequired = true;
+		var thisItems = document.getElementsByName(objInput.name);
+		if (thisItems.length > 1) {
+			// get the required number of items checked
+			var startSub = validateItem.value.indexOf(gSeparator+"multiple"+iSeparator) + 
+				(gSeparator+"multiple"+iSeparator).length;
+			var multiValue = validateItem.value.substring(startSub, 
+				validateItem.value.indexOf(gSeparator, startSub));
+
+			// make sure this is a natural number or reassign it
+			if (multiValue.match(/^[0-9]*$/) == null) { multiValue = 1; }
+
+			// multiple items so loop through them
+			var k=0;
+			for (var j=0; j<thisItems.length; j++) {
+				if (thisItems[j].checked) { k++; }
+			}
+
+			reqMessage = "Select at least " + multiValue;
+			if (k < multiValue) {
+				isBlank = true;
+			} else {
+				isBlank = false;
+			}
+		}
+	}
+
+	// now do the required check
 	if (isBlank) {
 		if (isRequired) {
 			if(gRequiredText) {
 				markField(gFail, objInput.id, textReq, true, gInitialCheck);
 			} else {
-				markField(gFail, objInput.id, "Required", false, gInitialCheck);
+				markField(gFail, objInput.id, reqMessage, false, gInitialCheck);
 			}
 			return; // exit, no need to do more validation
 		} else {
