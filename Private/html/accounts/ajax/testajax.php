@@ -32,6 +32,7 @@ if ($_REQUEST["submit"]) {
 <div id="requiredMessage"></div>
 <form name="yousuck" method="post" action="<?= $_SERVER["PHP_SELF"] ?>" style="margin:0px;">
 <table>
+
 	<tr>
 		<td>Username</td>
 		<td>
@@ -98,7 +99,7 @@ if ($_REQUEST["submit"]) {
 			</div>
 			<div style="vertical-align:top;" id="radioMsg"></div>
 		</td>
-	</tr>	
+	</tr>
 
 	<tr>
 		<td valign="top">Checkbox Test</td>
@@ -108,8 +109,7 @@ if ($_REQUEST["submit"]) {
 			<input type="hidden" id="checkboxValidate" value="required"/>
 			<span id="checkboxMsg"></span>
 		</td>
-	</tr>	
-
+	</tr>
 
 	<tr>
 		<td valign="top">Auxillary</td>
@@ -130,6 +130,7 @@ if ($_REQUEST["submit"]) {
 			<input type="checkbox" name="multiCheck" value="3" /> checkbox 3 <br/>
 			<input type="checkbox" name="multiCheck" value="4" /> checkbox 4 <br/>
 			<input type="hidden" id="multiCheckValidate" value="required:multiple;2"/>
+			<input type="hidden" id="multiCheckRename" value="one:two:three:four"/>
 			<span id="multiCheckMsg"></span>
 		</td>
 	</tr>

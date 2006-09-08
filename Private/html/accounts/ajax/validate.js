@@ -70,9 +70,10 @@ var vOtherCode = "-other-";
 	<input type="checkbox" name="multiCheck" value="3" /> checkbox 3 <br/>
 	<input type="checkbox" name="multiCheck" value="4" /> checkbox 4 <br/>
 	<input type="hidden" id="multiCheckValidate" value="required:multiple;2"/>
+	<input type="hidden" id="multiCheckRename" value="one:two:three:four"/>
 	<span id="multiCheckMsg"></span>
 ******/
-var multipleCheckItems=new Array(); // global array to hold the list of root multipleCheck item names
+var multipleCheckItems=new Array(); // global array to hold the list of root multipleCheck item
 
 // POPUP DIVS
 var ajaxTipsDataUrl = ajaxPath + "tips.php?ajax=1"; // url is the relative processor page 
@@ -877,8 +878,29 @@ function validate(formObj) {
 		for (var k in multipleCheckItems) {
 			var thisItems = document.getElementsByName(multipleCheckItems[k]);
 			if (thisItems.length > 1) {
-				for (var j=1; j<thisItems.length; j++) {
-					thisItems[j].name = thisItems[j].name + j;
+				var itemsRenames = new Array();
+
+				// put the items ids in an array first
+				var itemsArray = new Array();
+				for (var j=0; j<thisItems.length; j++) {
+					itemsArray.push(thisItems[j].id);
+					itemsRenames.push(j + 1); // default rename values
+				}
+
+				// try to get the rename elements and put them in the array
+				var renameObject = document.getElementById(multipleCheckItems[k] + "Rename");
+				if (renameObject != null) {
+					var splitResult = renameObject.value.split(gSeparator);
+					for (var x=0; x<itemsArray.length; x++) {
+						itemsRenames[x] = splitResult[x];
+					}
+				}
+
+				// we have to have an extra array like this because the items are removed
+				// from the elements array when they are renamed in firefox
+				for (var x in itemsArray) {
+					var itemToRename = document.getElementById(itemsArray[x]);
+					itemToRename.name = itemToRename.name + itemsRenames[x];
 				}
 			}
 		}
