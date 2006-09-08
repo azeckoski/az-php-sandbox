@@ -62,6 +62,8 @@ var vOtherCode = "-other-";
 // and then add the "multiple;#" rule where # is a natural number
 // NOTE: This can only be used on checkboxes and "required" must be included
 // NOTE: The form will submit with these checkboxes named <name># (e.g. multiCheck1 for the first one)
+// Optional: You can set the values that will be appended to the <name> of each checkbox
+// using multiCheckRename as shown below (use ':' as a separator)
 // Example shows a set of 4 checkboxes which will validate if at least 2 are checked
 /******
 	<img id="multiCheckImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
