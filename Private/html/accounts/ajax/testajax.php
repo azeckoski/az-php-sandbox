@@ -125,10 +125,10 @@ if ($_REQUEST["submit"]) {
 		<td valign="top">
 			<img id="multiCheckImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<br/>
-			<input type="checkbox" name="multiCheck" value="non-blank" /> checkbox 1 <br/>
-			<input type="checkbox" name="multiCheck" value="non-blank" /> checkbox 2 <br/>
-			<input type="checkbox" name="multiCheck" value="non-blank" /> checkbox 3 <br/>
-			<input type="checkbox" name="multiCheck" value="non-blank" /> checkbox 4 <br/>
+			<input type="checkbox" name="multiCheck" value="1" /> checkbox 1 <br/>
+			<input type="checkbox" name="multiCheck" value="2" /> checkbox 2 <br/>
+			<input type="checkbox" name="multiCheck" value="3" /> checkbox 3 <br/>
+			<input type="checkbox" name="multiCheck" value="4" /> checkbox 4 <br/>
 			<input type="hidden" id="multiCheckValidate" value="required:multiple;2"/>
 			<span id="multiCheckMsg"></span>
 		</td>

@@ -60,7 +60,8 @@ var vOtherCode = "-other-";
 // if you want to add a rule to validate that a certain number of checkboxes are
 // selected in a group of checkboxes, you can associate them by name (like radio buttons)
 // and then add the "multiple;#" rule where # is a natural number
-// NOTE: this can only be used on checkboxes and "required" must be included
+// NOTE: This can only be used on checkboxes and "required" must be included
+// NOTE: The form will submit with these checkboxes named <name># (e.g. multiCheck1 for the first one)
 // Example shows a set of 4 checkboxes which will validate if at least 2 are checked
 /******
 	<img id="multiCheckImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
@@ -71,6 +72,7 @@ var vOtherCode = "-other-";
 	<input type="hidden" id="multiCheckValidate" value="required:multiple;2"/>
 	<span id="multiCheckMsg"></span>
 ******/
+var multipleCheckItems=new Array(); // global array to hold the list of root multipleCheck item names
 
 // POPUP DIVS
 var ajaxTipsDataUrl = ajaxPath + "tips.php?ajax=1"; // url is the relative processor page 
@@ -318,6 +320,11 @@ function attachValidateHandlers() {
 								// only one so set the id and move on
 								thisElement.id = thisElement.name;
 							} else {
+								// put this in the multipleCheckItems array if it multiple
+								if (validateItem.value.match(gSeparator+"multiple"+iSeparator)) {
+									multipleCheckItems.push(thisElement.name);
+								}
+
 								// multiple items so set id by position encountered
 								for (var j=0; j<thisItems.length; j++) {
 									thisItems[j].id = thisElement.name + j;
@@ -866,6 +873,16 @@ function validate(formObj) {
 			countErrors + " invalid fields indicated)");
 		return false;
 	} else {
+		// no errors so rename the multiple checkboxes
+		for (var k in multipleCheckItems) {
+			var thisItems = document.getElementsByName(multipleCheckItems[k]);
+			if (thisItems.length > 1) {
+				for (var j=1; j<thisItems.length; j++) {
+					thisItems[j].name = thisItems[j].name + j;
+				}
+			}
+		}
+		// submit the form
 		return true;
 	}
 }
