@@ -93,18 +93,18 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 <?php
 	// fetch helpful information about this tool
 	$data_sql = "select count(*) from requirements_data where round='$ROUND'";
-	$result = mysql_query($data_sql) or warn('Query failed: ' . mysql_error());
+	$result = mysql_query($data_sql) or die('Query failed: ' . mysql_error());
 	$req_round_data = mysql_fetch_row($result);
 	mysql_free_result($result);
 
 	$vote_sql = "select count(*) from requirements_vote where round='$ROUND'";
-	$result = mysql_query($vote_sql) or warn('Query failed: ' . mysql_error());
+	$result = mysql_query($vote_sql) or die('Query failed: ' . mysql_error());
 	$req_round_votes = mysql_fetch_row($result);
 	mysql_free_result($result);
 
 	$vote_types = "select count(pk) from requirements_vote where round='$ROUND' " .
 		"group by vote order by vote asc";
-	$result = mysql_query($vote_types) or warn('Query failed: ' . mysql_error());
+	$result = mysql_query($vote_types) or die('Query failed: ' . mysql_error());
 	$votes = array();
 	$counter=0;
 	while ($row=mysql_fetch_row($result)) {
@@ -114,7 +114,7 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 	mysql_free_result($result);
 
 	$vote_users_sql = "select count(distinct(users_pk)) from requirements_vote where round='$ROUND'";
-	$result = mysql_query($vote_users_sql) or warn('Query failed: ' . mysql_error());
+	$result = mysql_query($vote_users_sql) or die('Query failed: ' . mysql_error());
 	$req_round_users = mysql_fetch_row($result);
 	mysql_free_result($result);
 ?>
