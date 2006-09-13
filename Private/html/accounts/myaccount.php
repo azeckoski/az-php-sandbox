@@ -85,7 +85,7 @@ if ($_POST["save"]) {
 		}
 
 		$User->save(); // save the new values
-		$Message = "<b>Updated user information</b><br/>";
+		$Message = "<div style=\"border:2px solid darkgreen;padding:3px;background:lightgreen;font-weight:bold;\"><b>Updated user information</b></div><br/>";
 	}
 }
 ?>
