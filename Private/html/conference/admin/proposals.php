@@ -50,10 +50,13 @@ $EXTRA_LINKS =
 
 // this restricts the voting by date
 $voting = false;
+$commenting = true;
+
 $EXTRA_LINKS .= "<div class='date_message'>";
 if (strtotime($VOTE_CLOSE_DATE) < time()) {
 	// No one can access after the close date
 	$voting = false;
+	$commenting = false;
 	$Message = "Voting closed on " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 	$EXTRA_LINKS .= "Voting closed " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 } else if (strtotime($VOTE_OPEN_DATE) > time()) {
@@ -604,8 +607,11 @@ if ($item['type']!='demo')  { ?>
 	<td colspan="2" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
 		<div>
 			Reviewer Comments (<?= count($item['comments']) ?>):
+<?php if ($commenting)  { ?>
 			<a id="onComment<?= $pk ?>" href="<?= $_SERVER['PHP_SELF'] ?>" onClick="showAddComment('<?= $pk ?>');return false;" title="Reveal a comment box so you can enter comments">Add Comment</a>
 			<br/>
+<?php } ?>
+
 <?php
 	if (!empty($item['comments'])) {
 		$cline = 0;
