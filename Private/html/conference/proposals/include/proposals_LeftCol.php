@@ -48,7 +48,34 @@
                         </tr>
                       </table>
                     </div>
-                    <div class="moduletable"> </div></td>
+  <?php if ($type=="presentation") { 
+  	?>
+  
+                    <div class="moduletable"><div name="format_desc" id="format_desc"></div> <br/><br/><br/><p><strong>PRESENTATION FORMATS:</strong>&nbsp;</p>
+<ul>
+<li><strong>Panel Session</strong> - This type of session typically brings
+together panelists from diverse background to address a topic from
+multiple points of view.&nbsp; <br />
+<br />
+</li>
+<li><strong>Workshop</strong> - This type of session is highly interactive, relaying skills as well as information to attendees.<br />
+<br />
+</li>
+
+<li><strong>Discussion/Roundtable</strong>- This type of session involves a very
+brief presentation of a topic and immediately opens for discussion of
+the topic by attendees.<br />
+<br />
+</li>
+<li><strong>Lecture/Presentation</strong>- This type of session consists mostly
+of presenting information to the attendees. Sufficient time for
+follow-up questions is included.<br />
+<br />
+</li>
+<li><strong>Showcase/Poster session</strong>- We are not soliciting proposals for Showcase/Poster sessions at this time.  We do, however, encourage you to create a poster  that showcases your campus implementation or toolset. You can use the template we will provide (sometime in October) or use your own design. We will provide more details in October. </li></ul><br />
+<p>&nbsp;</p></div>
+     <?php }  ?>               
+                    </td>
                   <td class="mainbody" width="100%">
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="contentpane">
                       <tr>
