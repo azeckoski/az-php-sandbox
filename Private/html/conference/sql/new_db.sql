@@ -52,6 +52,7 @@ CREATE TABLE conf_proposals (
 
 //changes to conf_proposals
 ALTER TABLE `conf_proposals` ADD `track` VARCHAR( 50 ) NOT NULL;
+ALTER TABLE `conf_proposals` ADD `wiki_url` VARCHAR ( 150 );
 
 
 CREATE TABLE conf_proposals_vote ( 
