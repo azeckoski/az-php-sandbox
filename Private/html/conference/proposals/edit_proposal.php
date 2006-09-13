@@ -362,6 +362,9 @@ if ($PK) {
 		foreach ($item as $key => $value) {
 			$_POST[$key] = $value;
 		}
+		
+		$_POST['plength']= $_POST['length']; //changed for proper validation
+		
 		if ($type == "demo") {
 			$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" . $_POST['title'] . "<br/><strong>Submitted by: </strong>" . $item['firstname'] . " " . $item['lastname'] . "</div><div><br/></div></td></tr>";
 		} else
