@@ -41,7 +41,9 @@ This page allows you to create an account to access the following tools:<br/>
 <a href="/conference/volunteer.php">Conference Volunteering</a><br/>
 <a href="/facebook/">Facebook</a><br/>
 <a href="/requirements/">Requirements Voting</a><br/>
+<!-- no skin voting this time
 <a href="/skin/">Default Skin Submission and Voting</a><br/>
+-->
 <br/>
 <?php if($User->pk) { ?>
 You can <a href="<?= $ACCOUNTS_PAGE ?>">manage your account settings</a> and change your password if you would like.<br/>
