@@ -244,6 +244,12 @@ if ($_POST['save']) {
 			//now delete the audiences for this proposal
 			$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
 			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+	
+			//now delete the topics for this proposal
+			$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
+			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+
+
 			//now update the conf_session table if they selected a timeslot for the BOF
 			//if timeslot was selected for a BOF-  update the conf_sessions table
 			$bof_timeslot = $_POST['bof_selection'];
