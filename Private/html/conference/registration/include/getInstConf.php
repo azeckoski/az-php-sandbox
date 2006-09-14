@@ -18,7 +18,7 @@ if ($CONF) {
 	$isRegistered = true;
 	$transID = $CONF['transID'];
 	$fee= $CONF['fee'];
-	$Message = "<span style='color:red;'>You have already filled out a registration for this conference.</span>";
+	$Message = "<span style='color:red;'>You have already filled out a registration form for this conference.</span>";
 	if (!$isPartner) {
 	    if ($transID) { //non-member payment transaction received from Verisign
 	    	$Message  .="<span style='color:red;'><br />Your payment confirmation number is: $transID </span><br/>" .
