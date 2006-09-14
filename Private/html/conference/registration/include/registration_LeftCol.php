@@ -51,7 +51,7 @@
 	</p>
 <?php
 		} // end while
-		echo "<hr/><p>[ <a title='Create a new proposal' href='<?= $TOOL_URL ?>/proposals/'>add a proposal</a> ]</p>";
+		echo "<hr/><p>[ <a title='Create a new proposal' href='$TOOL_URL/proposals/'>add a proposal</a> ]</p>";
 		echo "</div>";
 	} // end if
 ?>
