@@ -26,10 +26,32 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 
 
 // get the passed message if there is one
+$borderColor = "white";
+$backgroundColor="white";
+
+
 if($_GET['msg']) {
+	$msg = $_GET['msg'];
+
+	if (preg_match("/^([A-Z]+):/",$msg, $matches)) {
+		$msg = preg_replace("/^([A-Z]+):/","",$msg);
+	
+	    if ($matches[0] == "GREEN:") {
+			$borderColor = "darkgreen";
+			$backgroundColor="lightgreen";
+	    }
+	    elseif ($matches[0] == "YELLOW:") {
+			$borderColor = "darkyellow";
+			$backgroundColor="lightyellow";
+	    }
+	    elseif ($matches[0] == "RED:") {
+			$borderColor = "darkred";
+			$backgroundColor="lightred";
+	    }
+	}
+
 	$Message = 
-	"<div style='border:2px solid darkgreen;padding:3px;background:lightgreen;font-weight:bold;'>" . 
-	$_GET['msg'] . "</div>";
+	"<div style='margin-bottom:18px;background-color:$backgroundColor;border:2px solid $borderColor;padding:3px;font-weight:bold;'>$msg</div>";
 }
 
 
@@ -73,7 +95,7 @@ if ($_POST['save']) { // saving the form
 
 	<table width="100%" class="blog" cellpadding="0" cellspacing="0">
 	  <tr>
-	    <td valign="top"><div class="componentheading">Call for Proposals</div></td>
+	    <td valign="top"><div class="componentheading">Call for Proposals - Add a New Proposal</div></td>
 	  </tr>
 	<!--  <tr>
 		  <td height="25" bgcolor="#ffffff" style=" border-top: 5px solid #FFFFFF;">

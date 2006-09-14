@@ -67,21 +67,34 @@ if (!$PK) {
 			$allowed = true;
 			// entry is owned by current user or they are an admin
 			if ($_REQUEST["delete"]) {
-				// if delete was passed then wipe out this item and related items
-				$delete_sql = "delete from conf_proposals where pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+				// get the title for this proposal for clarity of display and to confirm it exists
+		        $select_sql = "select title from conf_proposals where pk='$PK'";
+		        $result = mysql_query($select_sql) or die("title select failed ($select_sql): " . mysql_error());			        
 
-				//now delete the audiences for this proposal
-				$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+				if (mysql_num_rows($result) > 0) {
+					$row = mysql_fetch_assoc($result);
+					$title = $row['title'];
+		        
+					// if delete was passed then wipe out this item and related items
+					$delete_sql = "delete from conf_proposals where pk='$PK'";
+					$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
 
-				//now delete the topic ranking for this proposal
-				$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
-				// NOTE: Don't forget to handle the deletion below as needed
-
-				$msg = "Deleted item ($PK) and related data";
-				$PK = 0; // clear the PK
+					//now delete the audiences for this proposal
+					$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
+					$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+	
+					//now delete the topic ranking for this proposal
+					$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
+					$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+					// NOTE: Don't forget to handle the deletion below as needed
+	
+					$msg = "GREEN:Deleted proposal entitled $title.";
+					$PK = 0; // clear the PK
+				}
+				else { 
+					$msg = "RED:Can't delete proposal $PK because it doesn't seem to exist.";
+					$PK = 0; // clear the PK				
+				}
 				// redirect to the index page
 				header("Location:index.php?msg=$msg");
 			}
@@ -239,7 +252,7 @@ if ($_POST['save']) {
 			"If you continue to have problems, please report the problem to the " .
 			"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>.");
 
-			$msg = "Updated $type: $title";
+			$msg = "GREEN:Saved changes to $type entitled $title.";
 
 			//now delete the audiences for this proposal
 			$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
@@ -300,7 +313,7 @@ if ($_POST['save']) {
 				$result = mysql_query($update_session_sql) or die("delete query failed ($update_session_sql): " . mysql_error());
 
 			}
-			$msg = "Created new $type: $title";
+			$msg = "GREEN:Created new $type entitled $title.";
 
 		} // finished handling new proposal submission
 
