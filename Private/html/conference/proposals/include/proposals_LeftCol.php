@@ -32,9 +32,9 @@
 	while($item=mysql_fetch_assoc($result)) {
 ?>
 	<p><a href="edit_proposal.php?pk=<?= $item['pk'] ?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
-		<!-- [<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
+		[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
 			title="Delete this proposal"
-			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]  -->
+			onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]
 	</p>
 <?php
 		} // end while
