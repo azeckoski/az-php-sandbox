@@ -14,7 +14,7 @@ require ($ACCOUNTS_PATH.'include/system_vars.php');
 
 // Tool variables
 $TOOL_PATH = "/requirements";
-$TOOL_NAME = "Requirements Voting";
+$TOOL_NAME = "Requirements Polling";
 $TOOL_SHORT = "reqs";
 $CSS_FILE = "include/requirements_vote.css";
 $HELP_LINK = "include/help.php";
@@ -32,7 +32,7 @@ $SCORE_MOD = array(0.5, 1, 2, 4);
 // IMPORTANT: If you change these values you must run "Recalculate scores" in the admin screen
 // or all scores will be inaccurate
 
-// these control the round of voting
+// these control the round of polling
 $ROUND = 1;
 // date format for display
 $DATE_FORMAT = "l, F dS, Y h:i A";

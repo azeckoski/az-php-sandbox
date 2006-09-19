@@ -16,7 +16,7 @@
 <?php } ?>
 	<br/>
 	<a style="font-size:.8em;" href="index.php">Main Page</a> -
-	<a style="font-size:.8em;" href="vote.php">Voting Form</a> -
+	<a style="font-size:.8em;" href="vote.php">Polling Form</a> -
 	<a style="font-size:.8em;" href="results.php">View Results</a>
   	<?= $EXTRA_LINKS ?>
 	</td>

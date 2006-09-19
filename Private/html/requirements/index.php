@@ -50,7 +50,7 @@ overlaps, etc. The final list of clustered requirements will be
 available for a community poll starting <b>February 27th</b>. The poll will
 close at <b>midnight (EST) on March 5</b>.<br/>
 <br/>
-You will be able to submit your individual response to the poll using the <a href="vote.php">Voting form</a>.<br/>
+You will be able to submit your individual response to the poll using the <a href="vote.php">Polling form</a>.<br/>
 <br/>
 You will be able to review (using various filters) the poll results
 by visiting <a href="results.php">View Results</a>.<br/>
@@ -62,7 +62,7 @@ prioritization and considering the resources they are able to commit
 to items they consider of the highest priority.
 <a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=104&Itemid=203#reps" target="_REPS">
 Institutional representatives</a> will submit a
-formal vote on the requirements for their institution. The voting
+formal vote on the requirements for their institution. The polling
 period will open <b>March 6</b> and close on <b>March 13 at midnight(EST)</b>.
 The results of the vote will be available by <b>TBD-date</b> at <a href=""><b>TBD</b></a>.<br/>
 <br/>
@@ -81,12 +81,12 @@ requirement, contact the Project Coordinator, <a href="mailto:knoop@umich.edu">P
 	<div class="rightheader"><?= $TOOL_NAME ?> information</div>
 	<div class="padded">
 
-	<b>Voting Round:</b> <?= $ROUND ?><br/>
-	<b>Open voting begins:</b><br/>
+	<b>Polling Round:</b> <?= $ROUND ?><br/>
+	<b>Open polling begins:</b><br/>
 	<?= date($ROUND_DATE_FORMAT,strtotime($ROUND_OPEN_DATE)) ?><br/>
-	<b>Rep voting begins:</b><br/>
+	<b>Rep polling begins:</b><br/>
 	<?= date($ROUND_DATE_FORMAT,strtotime($ROUND_SWITCH_DATE)) ?><br/>
-	<b>Voting closes:</b><br/>
+	<b>Polling closes:</b><br/>
 	<?= date($ROUND_DATE_FORMAT,strtotime($ROUND_CLOSE_DATE)) ?><br/>
 	<br/>
 
