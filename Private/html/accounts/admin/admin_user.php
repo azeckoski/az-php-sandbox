@@ -255,7 +255,7 @@ $thisUser = $opUser->toArray(); // put the user data into an array for easy acce
 			<input type="checkbox" name="voterep" tabindex="11" value="1" <?php
 				if ($opUser->isVoteRep) { echo " checked='y' "; }
 			?>/>
-			<i> - user is the voting rep for the listed institution</i>
+			<i> - user is the polling rep for the listed institution</i>
 		</td>
 	</tr>
 

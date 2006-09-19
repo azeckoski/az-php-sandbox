@@ -56,7 +56,7 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>Voting Rep:</b></td>
+		<td class="account"><b>Polling Rep:</b></td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <?php
 	if ($thisItem["repvote_pk"]) {

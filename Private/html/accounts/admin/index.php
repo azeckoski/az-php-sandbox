@@ -71,7 +71,7 @@ function orderBy(newOrder) {
     <tr>
       <td valign="top"><a href="admin_users.php">Users Control</a></td>
       <td>This allows control of user accounts and related properties<br/>
-      Edit the user to set them as an institutional rep or voting rep and to control admin privileges
+      Edit the user to set them as an institutional rep or polling rep and to control admin privileges
       </td>
     </tr>
 

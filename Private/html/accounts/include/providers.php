@@ -448,7 +448,7 @@ class User {
 
 
 	/*
-	 * Check if this user is an inst or voting rep
+	 * Check if this user is an inst or polling rep
 	 */
 	public function repCheck() {
 		if (!$this->institution_pk) {
@@ -504,7 +504,7 @@ class User {
 
 		// then set this person as the rep
 		$Inst->rep_pk = $this->pk;
-		if (!$Inst->repvote_pk) { // if no voting rep (set to the inst rep by default)
+		if (!$Inst->repvote_pk) { // if no polling rep (set to the inst rep by default)
 			$Inst->repvote_pk = $this->pk;
 			$this->isVoteRep = true;
 		}
@@ -518,7 +518,7 @@ class User {
 	}
 
 	/*
-	 * Set current user as the institutional voting rep (true or false)
+	 * Set current user as the institutional polling rep (true or false)
 	 */
 	public function setVoteRep($set=true) {
 		// TODO - make sure this works
