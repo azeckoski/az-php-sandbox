@@ -83,6 +83,9 @@ of presenting information to the attendees. Sufficient time for
 follow-up questions is included.<br />
 <br />
 </li>
+<li><strong>Tool Carousel</strong>- This type of session is a highly interactive, in-depth tutorial of a tool or set of tools.<br />
+<br />
+</li>
 <li><strong>Showcase/Poster session</strong>- We are not soliciting proposals for Showcase/Poster sessions at this time.  We do, however, encourage you to create a poster  that showcases your campus implementation or toolset. You can use the template we will provide (sometime in October) or use your own design. We will provide more details in October. </li></ul><br />
 <p>&nbsp;</p></div>
      <?php }  ?>               

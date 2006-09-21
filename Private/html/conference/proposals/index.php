@@ -148,7 +148,7 @@ if ($_POST['save']) { // saving the form
 					 <br/><br/> Presentation formats include: panel, workshop, discussion, and lecture. 
 					-->
 					Presentations will take place at the conference hotel, during the conference's 
-					normal daytime schedule for December 5-8.<br/><br/>
+					normal daytime schedule for December 5-8. You may choose from the following presentation types: Panel, Workshop, Discussion/Roundtable, Lecture/Presentation or Tool Carousel. <br/><br/>
 				</div>
 			</div>
 				<div><!-- <input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> /> -->  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>

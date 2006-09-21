@@ -793,6 +793,7 @@ if ($Message) {
           <input name="type" type="radio" value="lecture" <?php if ($_POST['type']=="lecture") { echo "checked"; } ?> /> Lecture <br/>
           <input name="type" type="radio" value="panel" <?php if ($_POST['type']=="panel") { echo "checked"; } ?> /> Panel <br/>
           <input name="type" type="radio" value="workshop" <?php if ($_POST['type']=="workshop") { echo "checked"; } ?> /> Workshop (How-to) <br/>
+	     <input name="type" type="radio" value="carousel" <?php if ($_POST['type']=="carousel") { echo "checked"; } ?> /> Tool Carousel (in-depth tool demo) <br/>
 		<input type="hidden" id="typeValidate" value="<?= $vItems['type'] ?>" />
 		<span id="typeMsg"></span>
    	 </td>
