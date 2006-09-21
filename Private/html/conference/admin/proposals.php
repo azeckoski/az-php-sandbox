@@ -419,6 +419,7 @@ foreach ($items as $item) {
 			<option value="discussion">discussion</option>
 			<option value="workshop">workshop</option>
 			<option value="panel">panel</option>
+			<option value="carousel">carousel</option>
 			<option value="show all types">show all types</option>
 		</select>
 		&nbsp;
