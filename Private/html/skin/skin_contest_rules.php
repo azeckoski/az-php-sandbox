@@ -160,7 +160,12 @@ The voting will work as follows:</p>
 	</li>
 	<li>Voters can click through to a site that is actually running the skin.<br/>
 
-Sites will be hosted here: <a href="http://garden.dmc.dc.umich.edu/portal" target="_new">http://garden.dmc.dc.umich.edu/portal</a><br>
+
+<div style="font-style:italic;margin:9px;padding:18px;background-color:#ffffcc;border:1px solid #999900">Note: The contest is not currently active, so the demo site is unavailable.  When and if there's a new contest, a demo site will be available.</div>
+
+<!-- 
+Sites will be hosted here: 
+<a href="http://garden.dmc.dc.umich.edu/portal" target="_new">http://garden.dmc.dc.umich.edu/portal</a>  --><br>
 This way we will allow the hard work beyond the image to be displayed as well. The site should have some users and content that allows better representation of the skin (the content will be created by the WG).</li>
 </ul>
 
