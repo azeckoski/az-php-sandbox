@@ -173,6 +173,20 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 			var imgObject=document.getElementById(item.name + "Img");
 			if (imgObject != null) {
 				imgObject.src = imgVal; // this is valid
+
+                var requiredImgObject=document.getElementById(item.name+"RequiredImg");
+                if (requiredImgObject==null) {
+                	requiredImgObject=document.createElement('img');
+                	requiredImgObject.setAttribute('id',item.name+"RequiredImg");
+                	requiredImgObject.setAttribute('height','16');
+                	requiredImgObject.setAttribute('width','16');
+                	requiredImgObject.setAttribute('src',imgBln);
+                	imgObject.parentNode.insertBefore(requiredImgObject,imgObject);
+                }
+				if (isRequired) {
+                    // insert the required image to the left of the validation image if it's not already there
+                	requiredImgObject.src = imgReq;
+				}
 			}
 		}
 		if(gUseText) {
@@ -201,7 +215,22 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 			var imgObject=document.getElementById(item.name + "Img");
 			if (imgObject != null) {
 				imgObject.src = imgInv;
+
+                var requiredImgObject=document.getElementById(item.name+"RequiredImg");
+                if (requiredImgObject==null) {
+                	requiredImgObject=document.createElement('img');
+                	requiredImgObject.setAttribute('id',item.name+"RequiredImg");
+                	requiredImgObject.setAttribute('height','16');
+                	requiredImgObject.setAttribute('width','16');
+                	requiredImgObject.setAttribute('src',imgBln);
+                	imgObject.parentNode.insertBefore(requiredImgObject,imgObject);
+                }
+				if (isRequired) {
+                    // insert the required image to the left of the validation image if it's not already there
+                	requiredImgObject.src = imgReq;
+				}
 			}
+
 		}
 		if(gUseText) {
 			var msgObject=document.getElementById(item.name + "Msg");
@@ -229,11 +258,25 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 		if(vUseImages) {
 			var imgObject=document.getElementById(item.name + "Img");
 			if (imgObject != null) {
-				if (isRequired) {
-					imgObject.src = imgReq;
-				} else {
-					imgObject.src = imgBln;
+				// blank out "required" images prepopulated in validation image slots
+				var imgRegExp = new RegExp(imgReq+"$");
+				if (imgRegExp.test(imgObject.src)) {
+				  imgObject.src = imgBln;
 				}
+
+                var requiredImgObject=document.getElementById(item.name+"RequiredImg");
+                if (requiredImgObject==null) {
+                	requiredImgObject=document.createElement('img');
+                	requiredImgObject.setAttribute('id',item.name+"RequiredImg");
+                	requiredImgObject.setAttribute('height','16');
+                	requiredImgObject.setAttribute('width','16');
+                	requiredImgObject.setAttribute('src',imgBln);
+                	imgObject.parentNode.insertBefore(requiredImgObject,imgObject);
+                }
+				if (isRequired) {
+                    // insert the required image to the left of the validation image if it's not already there
+                	requiredImgObject.src = imgReq;
+				} 
 			}
 		}
 		if(gUseText) {
