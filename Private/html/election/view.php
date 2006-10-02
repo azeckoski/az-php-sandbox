@@ -121,7 +121,7 @@ function orderBy(newOrder) {
 // -->
 </script>
 <!-- // INCLUDE THE HEADER -->
-<?php include '../conference/include/header.php';  ?>
+<?php include 'include/header.php';  ?>
 <?php include 'include/elections_LeftCol.php';  ?>
 <?= $Message ?>
 
@@ -149,7 +149,15 @@ while($item=mysql_fetch_array($result)) {
 
 <div class="frame"  id="tip<?= $item['pk'] ?>">
 	<div>
+	<?php if (!$item['image_pk']) { ?>
+		<a href="view.php?id=<?= $item['users_pk'] ?>"> <img src="include/images/blank_transparent.png" alt="no image provided" />
+	</a>
+	<?php
+	}
+	
+	else { ?>
 	 <img src="include/drawThumb.php?pk=<?= $item['image_pk'] ?>" alt="<?= $fullname ?> nominee image" />
+	<?php } ?>
 	</div>
 	<div class="about_fulldisplay" style="text-align:left;">
 		<div class="name">
@@ -158,11 +166,15 @@ while($item=mysql_fetch_array($result)) {
 <?php } ?>
 		<?= $fullname ?></div>
 		<div class="institute"><label title="<?= $item['institution'] ?>"><?= $short_inst_name ?></label></div>
-	<div id="tip" ><br/><strong>Platform Statement:</strong><br/>
+	<div id="tip" ><div id="statement"></a><br/><strong>PLATFORM STATEMENT:</strong> (<a href="#bio"> view Personal Bio</a>  )<br/>
 	<?php echo nl2br(trim(htmlspecialchars($item['interests'])));
 	?>
 		<br/>
-		Email: <?= $item['email'] ?><br/>
+		<hr>
+		<br/><div id="bio"></div><strong>PERSONAL BIO:</strong>  (<a href="#statement"> view Platform Statement</a>  )<br/>
+	<?php echo nl2br(trim(htmlspecialchars($item['bio'])));
+	?>
+		<br/>
 		</div>
 	</div>
 </div>

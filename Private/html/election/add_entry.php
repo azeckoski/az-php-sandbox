@@ -36,9 +36,10 @@ require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
-$vItems['image'] = "required";
+$vItems['image'] = "";
 $vItems['url'] = "focus";
 $vItems['interests'] = "required";
+$vItems['bio'] = "required";
 
 $PK = 0;
 
@@ -50,6 +51,7 @@ if ($_REQUEST["save"]) {
 	$image = $_FILES["image"]['name'];
 	$url = mysql_real_escape_string($_POST["url"]);
 	$interests = mysql_real_escape_string($_POST["interests"]);
+	$bio = mysql_real_escape_string($_POST["bio"]);
 
 	// DO SERVER SIDE VALIDATION
 	$errors = 0;
@@ -161,15 +163,15 @@ if ($_REQUEST["save"]) {
 			}
 			// update old entry
 			$entry_sql = "UPDATE elections_entries set " . $image_sql .
-				"url='$url', interests='$interests',  " .
+				"url='$url', interests='$interests', bio='$bio',  " .
 				"date_modified=NOW() where pk='$PK'";
 			mysql_query($entry_sql) or die("Entry update failed: ".mysql_error().": ".$entry_sql);
 			$Message .= "Updated existing entry<br>";
 		} else {
 			// new entry
 			$entry_sql = "insert into elections_entries " .
-				"(users_pk, electionsID, image_pk, url, interests, date_modified) values " .
-				"('$User->pk', '$ELECTIONS_ID', '$image_pk','$url','$interests',  NOW())";
+				"(users_pk, electionsID, image_pk, url, interests, bio, date_modified) values " .
+				"('$User->pk', '$ELECTIONS_ID', '$image_pk','$url','$interests', '$bio',  NOW())";
 			mysql_query($entry_sql) or die("Entry query failed: ".mysql_error().": ".$entry_sql);
 			$PK = mysql_insert_id();
 			$Message .= "Saved new entry<br>";
@@ -231,7 +233,7 @@ $EXTRA_LINKS .= "</div>";
 
 ?>
 <!-- // INCLUDE THE HEADER -->
-<?php include '../conference/include/header.php';  ?>
+<?php include 'include/header.php';  ?>
 <?php include 'include/elections_LeftCol.php';  ?>
 
 <?php if($Message) { ?>
@@ -280,12 +282,8 @@ $EXTRA_LINKS .= "</div>";
 	<tr>
 		<td nowrap="y"><b>Image:</b></td>
 		<td colspan="2" class="field">
-			<img id="imageImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
-			<input type="file" name="image" size="25" accept="image/jpg, image/gif, image/png, image/bmp"/>
-<?php if (!$thisItem['image_pk']) { ?>
-			<input type="hidden" id="imageValidate" value="<?= $vItems['image'] ?>" />
-			<span id="imageMsg"></span>
-<?php } ?>
+		<input type="file" name="image" size="25" accept="image/jpg, image/gif, image/png, image/bmp"/>
+
 		</td>
 	</tr>
 
@@ -310,6 +308,19 @@ $EXTRA_LINKS .= "</div>";
 			<textarea name="interests" rows="20" cols="80"><?= $thisItem['interests'] ?></textarea>
 			<input type="hidden" id="interestsValidate" value="<?= $vItems['interests'] ?>" />
 			<span id="interestsMsg"></span>
+		</td>
+	</tr>
+<tr>
+		<td colspan="3">
+			<b>Personal Bio:</b>
+			<img id="bioImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" class="field">
+			<textarea name="bio" rows="15" cols="80"><?= $thisItem['bio'] ?></textarea>
+			<input type="hidden" id="bioValidate" value="<?= $vItems['bio'] ?>" />
+			<span id="bioMsg"></span>
 		</td>
 	</tr>
 

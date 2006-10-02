@@ -183,12 +183,21 @@ while($item=mysql_fetch_array($result)) {
 ?>
 <div class="frame" id="tip<?= $item['users_pk'] ?>">
 	<div style="width:<?= $MAX_THUMB_WIDTH ?>px;height:<?= $MAX_THUMB_HEIGHT ?>px;text-align:center;">
+	<?php if (!$item['image_pk']) { ?>
+		<a href="view.php?id=<?= $item['users_pk'] ?>"> <img src="include/images/blank_transparent.png" alt="no image provided" />
+	</a>
+	<?php
+	}
+	
+	else { ?>
 	<a href="view.php?id=<?= $item['users_pk'] ?>"> <img src="include/drawThumb.php?pk=<?= $item['image_pk'] ?>" alt="<?= $fullname ?> nominee image" />
-	</a></div>
+	</a>
+	<?php }  ?>
+	</div>
 	<div class="about" style="width:<?= $MAX_THUMB_WIDTH ?>px;">
 		<div class="name">
 
-		<?= $fullname ?></div>
+		<a href="view.php?id=<?= $item['users_pk'] ?>"><?= $fullname ?> </a></div>
 		<div class="institute"><label title="<?= $item['institution'] ?>"><?= $short_inst_name ?></label></div>
 
 	</div>

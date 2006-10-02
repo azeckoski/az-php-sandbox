@@ -16,9 +16,7 @@
                         <?= $User->firstname."&nbsp;".$User->lastname ?>
                         </span> - 
                         <a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>">My Account</a> - 
-                        <?php if ($User->checkPerm("admin_conference")) { ?>
-                        <a style="font-size:.7em;" href="<?= $TOOL_URL ?>/admin/index.php">Tool Admin</a> -
-                        <?php } ?>
+                       
                         <a style="font-size:.7em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGOUT_PAGE ?>">Logout</a>
                         <?php } else { ?>
                         <a style="font-size:.9em;" href="<?= $ACCOUNTS_URL ?>/<?= $LOGIN_PAGE."?ref=".$_SERVER['PHP_SELF'] ?>">Login</a><br/>
