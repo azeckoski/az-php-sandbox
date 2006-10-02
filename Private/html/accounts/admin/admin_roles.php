@@ -175,6 +175,11 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<!-- these are needed for the Javascript color picker, see javascript source for attribution -->
+<script type="text/javascript" src="/accounts/ajax/AnchorPosition.js"></script>
+<script type="text/javascript" src="/accounts/ajax/PopupWindow.js"></script>
+<script type="text/javascript" src="/accounts/ajax/ColorPicker2.js"></script>
+
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -211,8 +216,10 @@ function saveRole(pk,nameField,orderField,colorField) {
 	document.adminform.editColor.value=colorField.value;
 }
 
+var cp = new ColorPicker();
 // -->
 </script>
+
 <?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
 
 <?php
@@ -331,8 +338,8 @@ while($itemrow=mysql_fetch_assoc($result)) {
 </tr>
 <tr id="edit_<?= $itemrow['pk'] ?>" class="<?= $linestyle ?>" style="display:none">
 	<td class="line"><input name="order_<?= $itemrow["pk"] ?>" type="text" size="3" value="<?= $itemrow["role_order"] ?>"></td>
-	<td class="line"><input name="color_<?= $itemrow["pk"] ?>" type="hidden" value="<?= $itemrow["color"] ?>"/>
-	<div style="width:1em;height:1em;border:1px solid #000000;background-color:#<?= $itemrow["color"] ?>;"></div></td>
+	<td class="line"><input name="color_<?= $itemrow["pk"] ?>" type="hidden" value="<?= $itemrow["color"] ?>" onChange="color_<?= $itemrow["pk"] ?>.value,document.adminform.color_<?= $itemrow["pk"] ?>.value)"/>
+	<div id="pick_<?= $itemrow["pk"] ?>" name="pick_<?= $itemrow["pk"] ?>" style="width:1em;height:1em;border:1px solid #000000;background-color:#<?= $itemrow["color"] ?>;" onClick="cp.select(document.adminform.color_<?= $itemrow["pk"] ?>,'pick_<?= $itemrow["pk"] ?>');return false;"></div></td>
 	<td class="line"><input name="name_<?= $itemrow["pk"] ?>"type="text" size="40" value="<?= $itemrow["role_name"] ?>"/></td>
 	<td class="line" align="center">
 		<input style="width:5em;" name="action" type="submit" value="Save" onClick="saveRole('<?= $itemrow['pk'] ?>',document.adminform.name_<?= $itemrow['pk']?>,document.adminform.order_<?= $itemrow['pk']?>,document.adminform.color_<?= $itemrow['pk']?>)"/>
@@ -347,5 +354,6 @@ while($itemrow=mysql_fetch_assoc($result)) {
 
 </table>
 </form>
-
+<!-- create the DIV used by the javascript color picker -->
+<SCRIPT>cp.writeDiv()</SCRIPT>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
