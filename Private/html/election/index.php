@@ -135,7 +135,7 @@ function orderBy(newOrder) {
 // -->
 </script>
 <!-- // INCLUDE THE HEADER -->
-<?php include '../conference/include/header.php';  ?>
+<?php include 'include/header.php';  ?>
 <?php include 'include/elections_LeftCol.php';  ?>
 <?= $Message ?>
 
@@ -187,9 +187,7 @@ while($item=mysql_fetch_array($result)) {
 	</a></div>
 	<div class="about" style="width:<?= $MAX_THUMB_WIDTH ?>px;">
 		<div class="name">
-<?php if ($item['url']) { ?>
-			<a href='<?= $item['url'] ?>' target="blank"><img src="include/images/weblink.png" border="0" height="10" width="10" alt="weblink"/></a>
-<?php } ?>
+
 		<?= $fullname ?></div>
 		<div class="institute"><label title="<?= $item['institution'] ?>"><?= $short_inst_name ?></label></div>
 

@@ -24,6 +24,7 @@ $CSS_FILE4 = $TOOL_URL."../../conference/include/template/css/footer.css";
 
 $HELP_LINK = "include/help.php";
 
+$CONF_URL = "http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=567";
 $ELECTIONS_ID = "Nov2005";
 
 // date format for display
