@@ -578,7 +578,7 @@ if ($Message) {
 </tr>
 
 <tr>
- 	<td>
+ 	<td style="width:15em;">
 <?php if ($type == "demo") { ?>
  	    <img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
  	    <strong>Product or Tool Name</strong>
