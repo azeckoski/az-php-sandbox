@@ -17,14 +17,14 @@ require 'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-$AUTH_MESSAGE = "You must login to complete your Sakai Board elections nominee entry. If you do not have an account, please create one.";
+$AUTH_MESSAGE = "You must login to complete your Sakai Board elections nominee entry. If you do not have an account, please create one. <br/><br/>**  only those individuals who were nominated and contacted by the elections committee may add their information.<br/><br/> ";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("elections_Nov2006")) {
 	$allowed = false;
-	$Message = "Only users with <b>elections_Nov2006</b>nominee permissions may view this page.<br/>" .
+	$Message = "Only users with <b>elections_Nov2006 </b>nominee permissions may view this page. ( only those individuals who were nominated and contacted by the elections committee may add their information.)<br/>" .
 			"Try this one out instead <a href='index.php'> $TOOL_NAME</a>" ;
 } else {
 	$allowed = true;

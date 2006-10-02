@@ -40,7 +40,7 @@ if ($searchtext) {
 }
 
 // sorting
-$sortorder = "date_created";
+$sortorder = "lastname";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
