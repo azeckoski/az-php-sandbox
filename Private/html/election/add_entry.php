@@ -24,8 +24,9 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 $allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("elections_Nov2006")) {
 	$allowed = false;
-	$Message = "Only users with <b>elections_Nov2006 </b>nominee permissions may view this page. ( only those individuals who were nominated and contacted by the elections committee may add their information.)<br/>" .
-			"Try this one out instead <a href='index.php'> $TOOL_NAME</a>" ;
+	$Message = "Sorry, but you are not authorized to view this page. Only those individuals" .
+			" who were nominated and contacted by the elections committee may add their information.<br/>" .
+			"<br />Try this one out instead <a href='index.php'> $TOOL_NAME</a>" ;
 } else {
 	$allowed = true;
 }
