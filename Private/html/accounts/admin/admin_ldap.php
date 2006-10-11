@@ -36,7 +36,7 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 	"<a href='admin_ldap.php'><strong>LDAP</strong></a> - " .
 	"<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
-	"<a href='admin_perms.php'>Permissions</a>" .
+"<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
 	"</span>";
 
 ?>

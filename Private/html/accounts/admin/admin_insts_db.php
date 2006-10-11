@@ -141,7 +141,7 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 	"<a href='index.php'>Admin</a>: " .
 	"<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
-	"<a href='admin_perms.php'>Permissions</a>" .
+"<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
 	" <strong>** WARNING: This tool is deprecated! **</strong>" .
 	"</span>";
 
