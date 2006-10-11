@@ -91,6 +91,12 @@ function pickColor(color) {
 		return;
 		}
 	ColorPicker_targetInput.value = color;
+
+    //added this code to set a swatch to the selected color
+	var thedoc = (arguments.length>1)?arguments[1]:window.document;
+	var d = thedoc.getElementById(ColorPicker_linkname);
+	d.style.backgroundColor = color;
+	
 	}
 
 // This function is the easiest way to popup the window, select a color, and
@@ -102,6 +108,10 @@ function ColorPicker_select(inputobj,linkname) {
 		return;
 		}
 	window.ColorPicker_targetInput = inputobj;
+
+	// added a new parameter to hold the picker ID
+	window.ColorPicker_linkname = linkname;
+
 	this.show(linkname);
 	}
 	

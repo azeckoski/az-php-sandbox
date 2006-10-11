@@ -78,25 +78,29 @@ if ($_REQUEST["action"] == "Save" && $allowed) {
 
 	if ($_REQUEST["editName"]) { $editName = mysql_real_escape_string($_REQUEST["editName"]); }
 	if ($_REQUEST["editOrder"]) { $editOrder = mysql_real_escape_string($_REQUEST["editOrder"]); }
-	if ($_REQUEST["editColor"]) { $editColor = mysql_real_escape_string($_REQUEST["editColor"]); }
+	if ($_REQUEST["editColor"]) { 
+		$editColor = mysql_real_escape_string($_REQUEST["editColor"]); 
+		$editColor = preg_replace("/^#/", '', $editColor);
+	}
 
 	if ($editPK && $editName && $editOrder && $editColor) {
 		$save_sql = 
 			"update roles " .
 			"set role_name='$editName', role_order='$editOrder', color='$editColor' " .
 			"where pk='$editPK'";		
+
 		$result = mysql_query($save_sql);
 		if (!$result) {
-			$message = "Error saving changes to role &quot;$editName&quot;<br/>$insert_statement<br/>" . mysql_error();
+			$message .= "Error saving changes to role &quot;$editName&quot;<br/>$insert_statement<br/>" . mysql_error();
 			$messageColor="#ff0000";
 		}
 		else {
-			$message = "Saved changes to role &quot;editName&quot;...";
+			$message .= "Saved changes to role &quot;$editName&quot;...";
 			$messageColor="#00cc00";
 		}
 	}
 	else {
-		$message = "Can't save changes, one or more required fields is blank";
+		$message .= "Can't save changes, one or more required fields is blank";
 		$messageColor="#ff0000";
 	}
 }
@@ -337,8 +341,8 @@ while($itemrow=mysql_fetch_assoc($result)) {
 	</td>
 </tr>
 <tr id="edit_<?= $itemrow['pk'] ?>" class="<?= $linestyle ?>" style="display:none">
-	<td class="line"><input name="order_<?= $itemrow["pk"] ?>" type="text" size="3" value="<?= $itemrow["role_order"] ?>"></td>
-	<td class="line"><input name="color_<?= $itemrow["pk"] ?>" type="hidden" value="<?= $itemrow["color"] ?>" onChange="color_<?= $itemrow["pk"] ?>.value,document.adminform.color_<?= $itemrow["pk"] ?>.value)"/>
+	<td class="line"><input id="order_<?= $itemrow["pk"] ?>" name="order_<?= $itemrow["pk"] ?>" type="text" size="3" value="<?= $itemrow["role_order"] ?>"></td>
+	<td class="line"><input id="color_<?= $itemrow["pk"] ?>" name="color_<?= $itemrow["pk"] ?>" type="hidden" value="<?= $itemrow["color"] ?>"/>
 	<div id="pick_<?= $itemrow["pk"] ?>" name="pick_<?= $itemrow["pk"] ?>" style="width:1em;height:1em;border:1px solid #000000;background-color:#<?= $itemrow["color"] ?>;" onClick="cp.select(document.adminform.color_<?= $itemrow["pk"] ?>,'pick_<?= $itemrow["pk"] ?>');return false;"></div></td>
 	<td class="line"><input name="name_<?= $itemrow["pk"] ?>"type="text" size="40" value="<?= $itemrow["role_name"] ?>"/></td>
 	<td class="line" align="center">
