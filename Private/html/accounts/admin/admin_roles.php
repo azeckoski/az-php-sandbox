@@ -25,7 +25,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("admin_accounts")) {
 	$allowed = 0;
-	$message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
+	$message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 	$messageColor="#ff0000";
 } else {
