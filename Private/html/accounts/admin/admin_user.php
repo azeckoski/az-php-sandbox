@@ -9,7 +9,8 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "User control";
-$Message = "";
+$Message="";
+$MessageColor="";
 
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
@@ -26,6 +27,7 @@ if (!$User->checkPerm("admin_accounts")) {
 	$allowed = false;
 	$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
+	$MessageColor = "#ff0000";
 } else {
 	$allowed = true;
 }
@@ -60,6 +62,7 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 $PK = $_REQUEST["pk"]; // if editing/removing this will be set
 if ($PK) {
 	$Message = "Edit the information below to adjust the account.<br/>";
+	$MessageColor = "#000000";
 }
 
 // create the user object from provider
@@ -67,6 +70,7 @@ $opUser = new User($PK);
 if ($PK && !$opUser->pk) {
 	$allowed = false;
 	$Message = "ERROR: User cannot be obtained from pk = $PK";
+	$MessageColor = "#FF0000";
 } else {
 	$opUser->repCheck();
 }
@@ -146,11 +150,14 @@ if ($_POST["save"]) {
 		$Message = "<fieldset><legend>Validation Errors</legend>".
 			"<span style='color:red;'>Please fix the following errors:</span><br/>".
 			$validationOutput."</fieldset>";
+		$MessageColor = "#FF0000";
 	}
 
 	// Check for password match
 	if ((strlen($PASS1) > 0 || strlen($PASS2) > 0) && ($PASS1 != $PASS2)) {
 		$Message .= "<span class='error'>Error: Passwords do not match</span><br/>";
+		$MessageColor = "#FF0000";
+
 		$errors++;
 	}
 
@@ -184,8 +191,10 @@ if ($_POST["save"]) {
 		// save the current user
 		if (!$opUser->save()) {
 			$Message = "Error: Could not save: ".$opUser->Message;
+			$MessageColor = "#FF0000";
 		} else {
-			$Message = "<strong>Saved user information</strong>";
+			$Message = "Saved user information";
+			$MessageColor = "#00CC00";
 			if (!$PK) {
 				// added a new user
 				echo "Created new user: $opUser->username<br/>" .
@@ -203,9 +212,14 @@ $thisUser = $opUser->toArray(); // put the user data into an array for easy acce
 
 ?>
 
+<?php 
+if ($MessageColor == "#000000") { $MessageBackgroundColor="#FFFFFF"; }
+else { $MessageBackgroundColor=$MessageColor; }
+?>
 
+<div align="center" style="font-weight:bold;width:99%;margin:0px;padding:0px;padding-top:18px;padding-bottom:18px;border: 1px solid <?= $MessageBackgroundColor ?>;color:<?= $MessageColor ?>;">
 <?= $Message ?>
-
+</div>
 
 <div class="required" id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
