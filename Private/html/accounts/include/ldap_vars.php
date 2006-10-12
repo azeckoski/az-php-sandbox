@@ -20,9 +20,9 @@
  * test the LDAP authentication, they cannot have a valid session
  */
 //$LDAP_SERVER = "reynolds.cc.vt.edu"; // test server 1
-$LDAP_SERVER = "bluelaser.cc.vt.edu"; // prod server 1
+$LDAP_SERVER = "ldap.scholar.vt.edu"; // prod server 1
 $LDAP_PORT = "389";
-$LDAPS_SERVER = "ldaps://bluelaser.cc.vt.edu"; // SSL prod server 1
+$LDAPS_SERVER = "ldaps://ldap.scholar.vt.edu"; // SSL prod server 1
 $LDAP_ADMIN_DN = "cn=Manager,dc=sakaiproject,dc=org";
 $LDAP_ADMIN_PW = "ldapadmin";
 $LDAP_READ_DN = "uid=!readonly,ou=users,dc=sakaiproject,dc=org";
