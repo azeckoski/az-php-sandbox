@@ -296,19 +296,22 @@ var cp = new ColorPicker();
 </div>
 
 <table border="0" cellspacing="0" width="100%">
-<tr class='tableheader'>
-<td width="5%"><a href="javascript:orderBy('role_order');">Order</a></td>
-<td width="5%"><a href="javascript:orderBy('color');">Color</a></td>
-<td width="70%"><a href="javascript:orderBy('role_name');">Role Name</a></td>
-<td width="20%" align="center"><a title="Add a new role" href="#" onClick="showHide('addForm');return false;">Add</a></td>
-</tr>
+	<tr class='tableheader'>
+		<td width="5%"><a href="javascript:orderBy('role_order');">Order</a></td>
+		<td width="5%"><a href="javascript:orderBy('color');">Color</a></td>
+		<td width="70%"><a href="javascript:orderBy('role_name');">Role Name</a></td>
+		<td width="20%" align="center"><a style="color:#ffffff;" title="Add a new role" href="#" onClick="showHide('addForm');return false;">Add a New Role</a></td>
+	</tr>
 
 <tr id="addForm" style="display:none;background-color:#ccccff;">
-<td style="padding-bottom:1em;padding-top:.25em;"><input type="text" name="newOrder" value="<?= $total_items + 1 ?>" size="3"/></td>
-<td style="padding-bottom:1em;padding-top:.25em;"><input type="hidden" name="newColor" value="#cccccc"/>
-<div style="width:1em;height:1em;background-color:#cccccc;border:1px solid #000000;">&nbsp;</div></td>
-<td style="padding-bottom:1em;padding-top:.25em;"><input type="text" name="newName" value="New Name" size="40"/></td>
-<td style="padding-bottom:1em;padding-top:.25em;" align="center"><input type="submit" name="action" value="Add"/></td>
+	<td style="padding-bottom:1em;padding-top:.25em;"><input type="text" name="newOrder" value="<?= $total_items + 1 ?>" size="3"/></td>
+	<td style="padding-bottom:1em;padding-top:.25em;"><input type="hidden" name="newColor" value="#cccccc"/>
+		<div style="width:1em;height:1em;background-color:#cccccc;border:1px solid #000000;">&nbsp;</div></td>
+	<td style="padding-bottom:1em;padding-top:.25em;"><input type="text" name="newName" value="New Name" size="40"/></td>
+	<td style="padding-bottom:1em;padding-top:.25em;" align="center">
+		<input style="width:5em;" type="submit" name="action" value="Add"/>
+		<input style="width:5em;" type="button" name="cancel" value="Cancel" onClick="showHide('addForm');"/>
+	</td>
 </tr>
 
 <?php
@@ -319,9 +322,6 @@ while($itemrow=mysql_fetch_assoc($result)) {
 
 	// display normally
 	$rowstyle = "";
-	if (!$itemrow["rep_pk"]) {
-		$rowstyle = " style = 'color:red;' ";
-	}
 	
 	$linestyle = "oddrow";
 	if ($line % 2 == 0) {
@@ -331,21 +331,26 @@ while($itemrow=mysql_fetch_assoc($result)) {
 	}
 ?>
 
-<tr id="view_<?= $itemrow['pk'] ?>" class="<?= $linestyle ?>" <?= $rowstyle ?> >
-	<td class="line"><?= $itemrow["role_order"] ?>&nbsp;</td>
-	<td class="line"><div style="width:1em;height:1em;border:1px solid #000000;background-color:#<?= $itemrow["color"] ?>;"></div></td>
-	<td class="line"><?= $itemrow["role_name"] ?></td>
-	<td class="line" align="center" style="color:black;">
+<tr id="view_<?= $itemrow['pk'] ?>" class="<?= $linestyle ?>" style="<?= $rowstyle ?>" >
+	<td valign="top" class="line"><?= $itemrow["role_order"] ?>&nbsp;</td>
+	<td valign="top" class="line">
+    	<div style="width:3em;height:1.5em;border:1px solid #000000;background-color:#<?= $itemrow["color"] ?>;"></div>
+	</td>
+	<td valign="top" class="line"><?= $itemrow["role_name"] ?></td>
+	<td valign="top" class="line" align="center" style="color:black;">
 		<input style="width:5em;" type="button" value="Edit" onClick="showHide('view_<?= $itemrow['pk'] ?>');showHide('edit_<?= $itemrow['pk'] ?>');"/> 
 		<input style="width:5em;" type="button" value="Del" onClick="deleteRole('<?= $itemrow['pk'] ?>','<?= $itemrow["role_name"] ?>');"/>
 	</td>
 </tr>
-<tr id="edit_<?= $itemrow['pk'] ?>" class="<?= $linestyle ?>" style="display:none">
-	<td class="line"><input id="order_<?= $itemrow["pk"] ?>" name="order_<?= $itemrow["pk"] ?>" type="text" size="3" value="<?= $itemrow["role_order"] ?>"></td>
-	<td class="line"><input id="color_<?= $itemrow["pk"] ?>" name="color_<?= $itemrow["pk"] ?>" type="hidden" value="<?= $itemrow["color"] ?>"/>
-	<div id="pick_<?= $itemrow["pk"] ?>" name="pick_<?= $itemrow["pk"] ?>" style="width:1em;height:1em;border:1px solid #000000;background-color:#<?= $itemrow["color"] ?>;" onClick="cp.select(document.adminform.color_<?= $itemrow["pk"] ?>,'pick_<?= $itemrow["pk"] ?>');return false;"></div></td>
-	<td class="line"><input name="name_<?= $itemrow["pk"] ?>"type="text" size="40" value="<?= $itemrow["role_name"] ?>"/></td>
-	<td class="line" align="center">
+<tr id="edit_<?= $itemrow['pk'] ?>" class="<?= $linestyle ?>" style="display:none;background-color:#ffffdd;">
+	<td valign="top" class="line"><input id="order_<?= $itemrow["pk"] ?>" name="order_<?= $itemrow["pk"] ?>" type="text" size="3" value="<?= $itemrow["role_order"] ?>"></td>
+	<td valign="top" class="line">
+	    <input id="color_<?= $itemrow["pk"] ?>" name="color_<?= $itemrow["pk"] ?>" type="hidden" value="<?= $itemrow["color"] ?>"/>
+        <div id="pick_<?= $itemrow["pk"] ?>" name="pick_<?= $itemrow["pk"] ?>" style="width:3em;height:1.5em;border:1px solid #000000;background-color:#<?= $itemrow["color"] ?>;"></div>
+        <a href="#" onClick="cp.select(document.adminform.color_<?= $itemrow["pk"] ?>,'pick_<?= $itemrow["pk"] ?>');return false;">change</a>
+	</td>
+	<td valign="top" class="line"><input name="name_<?= $itemrow["pk"] ?>"type="text" size="40" value="<?= $itemrow["role_name"] ?>"/></td>
+	<td valign="top" class="line" align="center">
 		<input style="width:5em;" name="action" type="submit" value="Save" onClick="saveRole('<?= $itemrow['pk'] ?>',document.adminform.name_<?= $itemrow['pk']?>,document.adminform.order_<?= $itemrow['pk']?>,document.adminform.color_<?= $itemrow['pk']?>)"/>
 		<input style="width:5em;" type="button" value="Cancel" onClick="showHide('view_<?= $itemrow['pk'] ?>');showHide('edit_<?= $itemrow['pk'] ?>');"/>
 	</td>
@@ -358,6 +363,19 @@ while($itemrow=mysql_fetch_assoc($result)) {
 
 </table>
 </form>
+
+<div class="right">
+	<div class="rightheader">How to use the Role Management Tool</div>
+	<div style="padding:.5em;">
+		<ul>
+			<li><strong>Adding a new role:</strong>  Click &quot;Add a New Role&quot;, enter the new information, then click &quot;Add&quot;.</li>
+			<li><strong>Editing a role:</strong>  Click &quot;Edit&quot; to the right of the record you wish to edit.  To change the color for a given role, click &quot;change&quot; beneath the color swatch.  When you have finished making changes, click &quot;Save&quot;.</li>
+			<li><strong>Removing a role:</strong>  Click &quot;Del&quot; to the right of the record you wish to edit.</li>
+		</ul>
+	</div>
+</div>
+
+
 <!-- create the DIV used by the javascript color picker -->
 <SCRIPT>cp.writeDiv()</SCRIPT>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
