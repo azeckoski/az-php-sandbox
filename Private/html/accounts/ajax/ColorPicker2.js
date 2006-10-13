@@ -71,7 +71,7 @@ NOTES:
 */ 
 ColorPicker_targetInput = null;
 function ColorPicker_writeDiv() {
-	document.writeln("<DIV ID=\"colorPickerDiv\" STYLE=\"position:absolute;visibility:hidden;\"> </DIV>");
+	document.writeln("<DIV ID=\"colorPickerDiv\" STYLE=\"position:absolute;background-color:#ffffff;visibility:hidden;\"> </DIV>");
 	}
 
 function ColorPicker_show(anchorname) {
