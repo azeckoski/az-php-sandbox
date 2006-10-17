@@ -281,7 +281,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			echo "<td valign='top' class='grid' style='height:10%;'>";
 			// try tables instead of divs
 			echo "<table style='width:100%;height:100%;' cellpadding='0' cellspacing='0'>";
-
+				
 			// session check here
 			$total_length = 0;
 			if (is_array($room)) {
@@ -290,13 +290,14 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
 					//get the starttime for this timeslot
-					$start_time1=date('g:i a',strtotime($timeslot['start_time']) );
+					$start_time1=date('g:i',strtotime($timeslot['start_time']) );
 					
 					//clear any previous time set for second timeslot 
 					$start_time2="";
 					  
 					$proposal = $conf_proposals[$session['proposals_pk']];
-
+					$end_time1=date('g:i',strtotime($timeslot['start_time']) + (($proposal['length']) *60));
+				
 					$total_length += $proposal['length'];
                      if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
                      	
@@ -304,24 +305,28 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					
 					if ($counter >1){	 //more than one session in this room block
 						$break_time="10 min. ";
-						$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));
 
 					//print the break block	
 ?>
 				<tr>
 					<td valign='top'>
-						<div class='grid_event break'>break</div>
+						<div class='grid_event break'><?php echo $break_time;?> break</div>
 					</td>
 				</tr>
 <?php
 					}
 					
 					echo "<tr><td valign='top' class='grid_event'>";
-							if  ($start_time2) {  //there is a second session so print that start time
-						echo "<strong> "  . $start_time2 ."</strong>";
+					if  ($start_time2) {  //there is a second session so print that start time
+						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp;";
+					
 						} else { 
 						//	echo "<strong> "  . $conf_room['title'] ." " .  $start_time1 ."</strong>";
-						
+							echo "&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."</strong>&nbsp;";
+					
+							
 					}
 					if($proposal['track']) { 
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
