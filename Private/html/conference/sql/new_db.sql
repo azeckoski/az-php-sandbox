@@ -314,6 +314,45 @@ INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mi
 INSERT INTO conf_timeslots(date_created, confID, ordering, start_time, length_mins, type, title) 
   VALUES(NOW(), 'Jun2006', 41, '2006-06-02 16:00', 60, 'keynote', 'Conference Feedback');
 
+//  timeslots for the Dec2006 conference
+
+
+INSERT INTO `conf_timeslots` VALUES (100, NULL, '2006-10-13 17:00:33', 'Dec2006', 100, 'Conference Overview and Announcements', 'keynote', '2006-12-05 08:00:00', 60);
+INSERT INTO `conf_timeslots` VALUES (102, NULL, '2006-10-13 17:00:33', 'Dec2006', 102, '', 'event', '2006-12-05 09:00:00', 90);
+INSERT INTO `conf_timeslots` VALUES (104, NULL, '2006-10-13 16:25:20', 'Dec2006', 104, 'break', 'break', '2006-12-05 10:30:00', 15);
+INSERT INTO `conf_timeslots` VALUES (106, '2006-10-13 16:33:00', '2006-10-13 16:25:20', 'Dec2006', 106, '', 'event', '2006-12-05 10:45:00', 90);
+INSERT INTO `conf_timeslots` VALUES (108, '2006-10-13 16:34:33', '2006-10-13 16:25:20', 'Dec2006', 108, 'lunch', 'lunch', '2006-12-05 12:15:00', 75);
+INSERT INTO `conf_timeslots` VALUES (110, NULL, '2006-10-13 16:25:20', 'Dec2006', 110, '', 'event', '2006-12-05 13:30:00', 90);
+INSERT INTO `conf_timeslots` VALUES (112, '2006-10-13 16:35:33', '2006-10-13 16:25:20', 'Dec2006', 112, 'break', 'break', '2006-12-05 15:00:00', 15);
+INSERT INTO `conf_timeslots` VALUES (114, '2006-10-13 16:36:21', '2006-10-13 16:25:20', 'Dec2006', 114, '', 'event', '2006-12-05 15:15:00', 90);
+INSERT INTO `conf_timeslots` VALUES (116, NULL, '2006-10-13 16:25:20', 'Dec2006', 116, 'Welcome Reception', 'special', '2006-12-05 17:30:00', 120);
+INSERT INTO `conf_timeslots` VALUES (118, NULL, '2006-10-13 16:25:20', 'Dec2006', 118, 'Guitar Hero and other games - tbd', 'special', '2006-12-05 19:30:00', 120);
+INSERT INTO `conf_timeslots` VALUES (120, NULL, '2006-10-13 16:25:20', 'Dec2006', 120, 'Coffee', 'coffee', '2006-12-06 07:30:00', 60);
+INSERT INTO `conf_timeslots` VALUES (122, NULL, '2006-10-13 16:25:20', 'Dec2006', 122, 'Eben Moglen keynote', 'keynote', '2006-12-06 08:30:00', 75);
+INSERT INTO `conf_timeslots` VALUES (124, NULL, '2006-10-13 16:25:20', 'Dec2006', 123, 'break', 'break', '2006-12-06 09:45:00', 15);
+INSERT INTO `conf_timeslots` VALUES (126, '2006-10-17 11:02:16', '2006-10-13 16:25:20', 'Dec2006', 126, '', 'event', '2006-12-06 10:00:00', 90);
+INSERT INTO `conf_timeslots` VALUES (128, '2006-10-17 11:09:02', '2006-10-13 16:25:20', 'Dec2006', 128, 'lunch', 'lunch', '2006-12-06 11:30:00', 120);
+INSERT INTO `conf_timeslots` VALUES (130, '2006-10-17 11:09:12', '2006-10-13 16:25:20', 'Dec2006', 130, '', 'event', '2006-12-06 13:30:00', 90);
+INSERT INTO `conf_timeslots` VALUES (132, '2006-10-17 11:09:36', '2006-10-13 16:25:20', 'Dec2006', 132, 'break', 'break', '2006-12-06 15:00:00', 15);
+INSERT INTO `conf_timeslots` VALUES (134, '2006-10-17 11:09:54', '2006-10-13 16:25:20', 'Dec2006', 134, '', 'event', '2006-12-06 15:15:00', 90);
+INSERT INTO `conf_timeslots` VALUES (136, NULL, '2006-10-13 16:25:20', 'Dec2006', 136, 'Coffee', 'coffee', '2006-12-07 07:30:00', 60);
+INSERT INTO `conf_timeslots` VALUES (138, NULL, '2006-10-13 16:25:20', 'Dec2006', 138, 'A.G. Booth keynote', 'keynote', '2006-12-07 08:30:00', 75);
+INSERT INTO `conf_timeslots` VALUES (140, NULL, '2006-10-13 16:25:20', 'Dec2006', 140, 'break', 'break', '2006-12-07 09:45:00', 15);
+INSERT INTO `conf_timeslots` VALUES (142, '2006-10-17 10:56:42', '2006-10-13 16:25:20', 'Dec2006', 142, '', 'event', '2006-12-07 10:00:00', 90);
+INSERT INTO `conf_timeslots` VALUES (144, '2006-10-17 10:57:42', '2006-10-13 16:25:20', 'Dec2006', 144, 'lunch', 'lunch', '2006-12-07 11:30:00', 60);
+INSERT INTO `conf_timeslots` VALUES (146, '2006-10-17 10:58:26', '2006-10-13 16:25:20', 'Dec2006', 146, '', 'event', '2006-12-07 12:30:00', 90);
+INSERT INTO `conf_timeslots` VALUES (148, '2006-10-17 10:59:03', '2006-10-13 16:25:20', 'Dec2006', 148, 'break', 'break', '2006-12-07 14:00:00', 15);
+INSERT INTO `conf_timeslots` VALUES (150, '2006-10-17 10:59:28', '2006-10-13 16:25:20', 'Dec2006', 150, '', 'event', '2006-12-07 14:15:00', 90);
+INSERT INTO `conf_timeslots` VALUES (152, '2006-10-17 11:25:01', '2006-10-13 16:25:20', 'Dec2006', 152, 'break', 'break', '2006-12-07 15:45:00', 15);
+INSERT INTO `conf_timeslots` VALUES (153, '2006-10-17 11:52:58', '2006-10-13 16:25:20', 'Dec2006', 153, '', 'event', '2006-12-07 16:00:00', 75);
+INSERT INTO `conf_timeslots` VALUES (154, '2006-10-17 11:21:44', '2006-10-13 16:25:20', 'Dec2006', 154, 'Tech Demos', 'special', '2006-12-07 17:30:00', 120);
+INSERT INTO `conf_timeslots` VALUES (156, '2006-10-17 11:21:32', '2006-10-13 16:25:20', 'Dec2006', 156, 'Coffee', 'coffee', '2006-12-08 07:30:00', 60);
+INSERT INTO `conf_timeslots` VALUES (158, '2006-10-17 11:21:21', '2006-10-13 16:25:20', 'Dec2006', 158, '', 'event', '2006-12-08 08:30:00', 90);
+INSERT INTO `conf_timeslots` VALUES (160, '2006-10-17 11:54:12', '2006-10-13 16:25:20', 'Dec2006', 160, 'break', 'break', '2006-12-08 10:00:00', 15);
+INSERT INTO `conf_timeslots` VALUES (162, '2006-10-17 11:20:31', '2006-10-13 16:25:20', 'Dec2006', 162, '', 'event', '2006-12-08 10:15:00', 90);
+INSERT INTO `conf_timeslots` VALUES (170, '2006-10-17 11:57:06', '2006-10-13 16:25:20', 'Dec2006', 170, 'Conference Closes', 'special', '2006-12-08 11:45:00', 0);
+
+
 CREATE TABLE conf_sessions ( 
     pk           	int(10) AUTO_INCREMENT NOT NULL,
     date_modified	timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -397,3 +436,31 @@ VALUES
 (NULL , NOW( ) , NULL , 'Jun2006', '13', '20', '0'  ),
 (NULL , NOW( ) , NULL , 'Jun2006', '14', '20', '0'  )
 ;
+
+
+//for the Dec2006 conference rooms
+
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 1', '99', '1', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 2', '100', '2', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 3', '108', '3', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 4', '160', '4', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 5', '168', '5', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 6', '168', '6', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 7', '168', '7', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 8', '168', '8', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 9', '168', '9', 'N', NULL);
+INSERT INTO conf_rooms(pk, date_modified, date_created, confID, title, capacity, ordering, BOF, room_style)
+  VALUES('', '', NOW(), 'Dec2006', 'INTL 10', '168', '10', 'N', NULL);
+  
+  
+//for the Dec2006 conference timeslots
+  
