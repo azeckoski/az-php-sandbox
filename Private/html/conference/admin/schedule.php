@@ -56,7 +56,7 @@ $conf_rooms = array();
 while($row=mysql_fetch_assoc($result)) { $conf_rooms[$row['pk']] = $row; }
 
 // fetch the conference timeslots
-$sql = "select * from conf_timeslots where confID = '$CONF_ID'";
+$sql = "select * from conf_timeslots where confID = '$CONF_ID' order by ordering";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $conf_timeslots = array();
 while($row=mysql_fetch_assoc($result)) { $conf_timeslots[$row['pk']] = $row; }
