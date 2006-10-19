@@ -77,6 +77,39 @@ var vOtherCode = "-other-";
 ******/
 var multipleCheckItems=new Array(); // global array to hold the list of root multipleCheck item
 
+// SPECIAL CASE #2: Multiple radio groups
+// If you want to add a rule to validate that a certain number of radio buttons are
+// selected in related groups of radio buttons, you can associate them by name (like radio buttons)
+// and then add the "multirad;#" rule where # is a natural number
+// The example below shows 2 groups of related radio buttons which will validate if a button
+// is checked in at least one group.
+//
+// NOTE #1: The radio button groups must be named {field}_1, {field}_2, etc.
+//
+// NOTE #2: You *must* have an object with an id equal to {field} as well.  Among other things,
+// this is used for highlighting, so a div surrounding the radio groups is a good place
+// for this.
+/******
+	<img id="multiradImg" src="images/blank.gif" width="16" height="16" alt="validation indicator" />
+	Select your group's lunch choices:<br/>
+	<div id="multirad">
+		Sandwiches<br/>
+		<input type="radio" name="multirad_1" value="" /> n/a <br/>
+		<input type="radio" name="multirad_1" value="1" /> 1 <br/>
+		<input type="radio" name="multirad_1" value="2" /> 2 <br/>
+		<input type="radio" name="multirad_1" value="3" /> 3 <br/>
+	
+		Salads<br/>
+		<input type="radio" name="multirad_2" value="" /> n/a <br/>
+		<input type="radio" name="multirad_2" value="1" /> 1 <br/>
+		<input type="radio" name="multirad_2" value="2" /> 2 <br/>
+		<input type="radio" name="multirad_2" value="3" /> 3 <br/>
+	
+		<input type="hidden" id="multiradCheckValidate" value="required:multirad;1"/>
+		<span id="multiradMsg"></span>
+    </div>
+******/
+
 // POPUP DIVS
 var ajaxTipsDataUrl = ajaxPath + "tips.php?ajax=1"; // url is the relative processor page 
 var defaultPopWidth = 240; // default pixels width of popup divs
@@ -153,23 +186,31 @@ function markField(passId, elementId, textMessage, changeMessage, sweepCheck) {
 	//alert("doing check:"+elementId);
 	var item = document.getElementById(elementId); // the item being validated
 	if (item == null) { // failed to retrieve item
-		alert("ERROR: Failed to get item by id:" + elementId);
+		alert("ERROR: Can't mark item with code " + passId + ": Failed to get item by id:" + elementId);
 		return false;
 	}
+
+	if (!item.name) { item.name=item.id; }
+	
 	var validateItem = document.getElementById(item.name + "Validate");
 
 	// add a second check to support fields of the type field_1, field_2, etc.
 	if (validateItem == null) {
+		//alert('item.name:'+item.name+';elementId:'+elementId);
+		
 		var fieldRegexp = /^([a-zA-Z0-9_]+)_[0-9]+/;
 		var fieldRootMatches = fieldRegexp.exec(item.name);
 		
 		if (fieldRootMatches && fieldRootMatches[1]) {
 			validateItem = document.getElementById(fieldRootMatches[1] + "Validate");
 		}
+		else {
+			alert('ERROR: cannot extract ID from item name:'+item.name);
+		}
 	}
 
 	if (validateItem == null) { // items without a validator should not be sent here
-		alert("ERROR: Failed to get validate item for name while marking field:" + item.name);
+		alert("ERROR: Failed to get validate item for name while marking field:" + item.name+' (id:'+elementId+')');
 		return false;
 	}
 
@@ -379,7 +420,9 @@ function attachValidateHandlers() {
 
 					
 					if (validateItem.value.match(gSeparator+"multirad"+iSeparator)) {
-						alert('multirad:'+thisElement.name);
+						//alert('AttachValidateHandlers - multirad:'+thisElement.name);
+						//thisElement.id = thisElement.name.replace(/_[0-9]+$/,'');
+						thisElement.id = thisElement.name;
 					}
 					// handle the different element types & check for multiple checkbox validation
 					else {
@@ -387,7 +430,7 @@ function attachValidateHandlers() {
 								validateItem.value.match(gSeparator+"multiple"+iSeparator)) {
 							// have to handle radiobuttons in a special way
 							// multiple checkboxes are marked the same way
-							alert('multi '+thisElement.name + " - " + validateItem.value);
+							//alert('multi '+thisElement.name + " - " + validateItem.value);
 		
 							// if this is the first button in this set then process, otherwise skip it
 							var thisItems = document.getElementsByName(thisElement.name);
@@ -714,6 +757,8 @@ function validateObject(objInput) {
 	var localCheck = false;
 	var localText = "";
 	//alert("valuecheck: "+objInput.id+" ("+objInput.id+") = "+objInput.value);
+	
+	var updateObjId = objInput.id;
 
 	// do the "other" checking first
 	if (vUseOther) {
@@ -780,7 +825,50 @@ function validateObject(objInput) {
 	var reqMessage = "Required";
 
 	if (validateItem.value.match(gSeparator+"multirad"+iSeparator)) {
-		alert('multirad:'+thisElement.name);
+		//alert('ValidateObject - multirad:'+objInput.name +';'+objInput.id);
+
+		isRequired = true;
+
+		var nameRegexp = /^(.+)_[0-9]+$/;
+		var nameRootMatches = nameRegexp.exec(objInput.name);
+					
+		if (nameRootMatches && nameRootMatches[1]) {
+		    updateObjId = nameRootMatches[1];
+			
+			var startSub = validateItem.value.indexOf(gSeparator+"multirad"+iSeparator) + 
+				(gSeparator+"multirad"+iSeparator).length;
+			var multiValue = validateItem.value.substring(startSub, 
+				validateItem.value.indexOf(gSeparator, startSub));
+							    
+			// count of items that have been filled out
+			var k = 0;
+			
+		    // iterate through the maximum possible list of items
+		    var itemName = '';
+	
+		    for (var j=1; j<50; j++) {
+				itemName = updateObjId + '_' + j;		    
+				//if (j==1) { alert('searching for name ' + itemName); }
+				
+				var thisItems = document.getElementsByName(itemName);
+				if (thisItems.length > 1) {
+					for (var l = 0; l < thisItems.length; l++) {	
+						if (thisItems[l].value.length > 0 && thisItems[l].checked) { k++; }
+					}
+				}
+		    }
+		
+			if (multiValue > 1) { reqMessage = "Select at least " + multiValue; }
+	
+			if (k < multiValue) {
+				isBlank = true;
+			} else {
+				isBlank = false;
+			}
+		}
+		else { 
+			alert('ERROR: cannot make sense of id: ' + objInput.id);
+		}
 	}
 	else {
 		// special multiple checkbox handling if there are multiple items
@@ -803,8 +891,9 @@ function validateObject(objInput) {
 				for (var j=0; j<thisItems.length; j++) {
 					if (thisItems[j].checked) { k++; }
 				}
-	
-				reqMessage = "Select at least " + multiValue;
+
+				if (multiValue > 1) { reqMessage = "Select at least " + multiValue; }
+
 				if (k < multiValue) {
 					isBlank = true;
 				} else {
@@ -818,13 +907,16 @@ function validateObject(objInput) {
 	if (isBlank) {
 		if (isRequired) {
 			if(gRequiredText) {
-				markField(gFail, objInput.id, textReq, true, gInitialCheck);
+				// this *must* be the objInput.id
+				markField(gFail, updateObjId, textReq, true, gInitialCheck);
 			} else {
-				markField(gFail, objInput.id, reqMessage, false, gInitialCheck);
+				// this *must* be the objInput.id
+				markField(gFail, updateObjId, reqMessage, false, gInitialCheck);
 			}
 			return; // exit, no need to do more validation
 		} else {
 			// reset the field to clear happy state, only change msg text if outside the initial stage
+			// this *must* be the objInput.id
 			markField(gClear, objInput.id, "", !gInitialCheck, false);
 			return; // no need to continue, the field is empty
 		}
@@ -834,7 +926,7 @@ function validateObject(objInput) {
 			localCheck = true; // passed the local check
 			localText = textVal;
 		} else {
-			//alert("non-req:" + objInput.id +":"+ objInput.value);
+			//alert("non-req:" + updateObjId +":"+ objInput.value);
 		}
 	}
 
@@ -896,9 +988,9 @@ function validateObject(objInput) {
 		}
 		return;
 	}
-
+	
 	//sends the rules and value to be validated
-	var vUrl = ajaxValidateUrl + "&id=" + objInput.id + "&val="+ vVal + vParams;
+	var vUrl = ajaxValidateUrl + "&id=" + updateObjId + "&val="+ vVal + vParams;
 	//alert("sending: " + vUrl);
 	var http = createRequestObject(); // create the http object
 	http.open("GET", vUrl, true);
