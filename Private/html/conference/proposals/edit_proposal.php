@@ -201,6 +201,8 @@ $vItems['bio'] = "required";
 $vItems['type'] = "required";
 $vItems['layout'] = "required";
 $vItems['plength'] = "required";
+$vItems['audience'] = "required:multirad;1";
+$vItems['topic'] = "required:multirad;1";
 
 //echo "<pre>",print_r($_POST),"</pre>";
 
@@ -692,44 +694,47 @@ if ($Message) {
 			<img id="topicImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
     		<strong>Topic Areas </strong>
     		<input type="hidden" id="topicValidate" value="<?= $vItems['topic'] ?>" />
-    		<span id="topic"></span>
      	</div>
      	<div>Presenters are asked to categorize their proposal by ranking the relevance of their proposal to a list of
 	          topic areas. Once the deadline for submitting proposals has passed, the Conference Program Committee will review all the proposals and see 
 	          which topic areas or tracks have emerged as most relevant for the Sakai community for this conference.  <br/><br/>
 	     </div>
 
-		<div class="list_header">
-			<div class="topic_vote_header">
-	   		 	<span>&nbsp;n/a&nbsp;&nbsp;&nbsp;</span>
-	   		 	<span>low&nbsp;&nbsp;</span>
-	   		 	<span>med&nbsp;&nbsp;</span>
-				<span>high&nbsp;&nbsp;&nbsp;</span>
+   		<div id="topicMsg"></div>
+
+		<div id="topic">
+			<div class="list_header">
+				<div class="topic_vote_header">
+		   		 	<span>&nbsp;n/a&nbsp;&nbsp;&nbsp;</span>
+		   		 	<span>low&nbsp;&nbsp;</span>
+		   		 	<span>med&nbsp;&nbsp;</span>
+					<span>high&nbsp;&nbsp;&nbsp;</span>
+				</div>
+				<div class="topic_type_header">TOPIC AREAS</div>
 			</div>
-			<div class="topic_type_header">TOPIC AREAS</div>
-		</div>
-	     
-<?php
-
-		//populate form with topic information
-		$list_sql = "select PT.pk, PT.proposals_pk, T.topic_name, T.pk, PT.choice from topics T " .
-		"left join proposals_topics PT on PT.topics_pk = T.pk and PT.proposals_pk='$PK' " .
-		"order by T.topic_order";
-		$result = mysql_query($list_sql) or die(mysql_error());
-
-		while ($list_items = mysql_fetch_array($result)) {
-			$itemID = "topic_" . $list_items['pk'];
-?>
-		<div class="list_row">
-			<div class="topic_vote">
-		     <span><input name="<?= $itemID ?>" type="radio" value="" <?php if (!$list_items['choice']) { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name="<?= $itemID ?>" type="radio" value="1" <?php if ($list_items['choice']=="1") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name="<?= $itemID ?>" type="radio" value="2" <?php if ($list_items['choice']=="2") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name="<?= $itemID ?>" type="radio" value="3" <?php if ($list_items['choice']=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
-		    </div>
-			<div class="topic_type"><?= $list_items['topic_name'] ?></div>
-		 </div>
-<?php } ?>
+		     
+	<?php
+	
+			//populate form with topic information
+			$list_sql = "select PT.pk, PT.proposals_pk, T.topic_name, T.pk, PT.choice from topics T " .
+			"left join proposals_topics PT on PT.topics_pk = T.pk and PT.proposals_pk='$PK' " .
+			"order by T.topic_order";
+			$result = mysql_query($list_sql) or die(mysql_error());
+	
+			while ($list_items = mysql_fetch_array($result)) {
+				$itemID = "topic_" . $list_items['pk'];
+	?>
+			<div class="list_row">
+				<div class="topic_vote">
+			     <span><input name="<?= $itemID ?>" type="radio" value="" <?php if (!$list_items['choice']) { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+			     <span><input name="<?= $itemID ?>" type="radio" value="1" <?php if ($list_items['choice']=="1") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+			     <span><input name="<?= $itemID ?>" type="radio" value="2" <?php if ($list_items['choice']=="2") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+			     <span><input name="<?= $itemID ?>" type="radio" value="3" <?php if ($list_items['choice']=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			    </div>
+				<div class="topic_type"><?= $list_items['topic_name'] ?></div>
+			 </div>
+	<?php } ?>
+		</div> <!-- end topic -->
 	</div> <!-- end topic info -->
   </td>
 </tr>
@@ -740,44 +745,46 @@ if ($Message) {
 			<img id="audienceImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
 			<strong>Intended Audience(s)</strong>
 			<input type="hidden" id="audienceValidate" value="<?= $vItems['audience'] ?>" />
-			<span id="audience"></span>
 	    </div>
         <div> Please indicate your intended audience by selecting an interest level <strong>for at least one </strong>of the audience groups listed below. 
            For example, a session on your campus implementation might be of high interest to Implementors and of medium 
            interest to Senior Administration, etc. <br/><br/>
         </div>
 
-		<div class="list_header">
-			<div class="topic_vote_header">
-	   		 	<span>&nbsp;n/a&nbsp;&nbsp;&nbsp;</span>
-	   		 	<span>low&nbsp;&nbsp;</span>
-	   		 	<span>med&nbsp;&nbsp;</span>
-				<span>high&nbsp;&nbsp;&nbsp;</span>
+		<div id="audienceMsg"></div>
+		<div id="audience">
+			<div class="list_header">
+				<div class="topic_vote_header">
+		   		 	<span>&nbsp;n/a&nbsp;&nbsp;&nbsp;</span>
+		   		 	<span>low&nbsp;&nbsp;</span>
+		   		 	<span>med&nbsp;&nbsp;</span>
+					<span>high&nbsp;&nbsp;&nbsp;</span>
+				</div>
+				<div class="topic_type_header">AUDIENCE</div>
 			</div>
-			<div class="topic_type_header">AUDIENCE</div>
-		</div>
-
-		<?php
-
-			//populate form with audience information
-			$list_sql = "select PA.pk, PA.proposals_pk, R.role_name, R.pk, PA.choice from roles R " .
-			"left join proposals_audiences PA on PA.roles_pk = R.pk and PA.proposals_pk='$PK' " .
-			"order by R.role_order";
-			$result = mysql_query($list_sql) or die(mysql_error());
-
-			while ($list_items = mysql_fetch_array($result)) {
-				$itemID = "audience_" . $list_items['pk'];
-?>
-		<div class="list_row">
-			<div class="topic_vote">
-		     <span><input name="<?= $itemID ?>" type="radio" value="" <?php if (!$list_items['choice']) { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name="<?= $itemID ?>" type="radio" value="1" <?php if ($list_items['choice']=="1") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name="<?= $itemID ?>" type="radio" value="2" <?php if ($list_items['choice']=="2") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
-		     <span><input name="<?= $itemID ?>" type="radio" value="3" <?php if ($list_items['choice']=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
-		    </div>
-			<div class="topic_type"><?= $list_items['role_name'] ?></div>
-		 </div>
-<?php } ?>
+	
+			<?php
+	
+				//populate form with audience information
+				$list_sql = "select PA.pk, PA.proposals_pk, R.role_name, R.pk, PA.choice from roles R " .
+				"left join proposals_audiences PA on PA.roles_pk = R.pk and PA.proposals_pk='$PK' " .
+				"order by R.role_order";
+				$result = mysql_query($list_sql) or die(mysql_error());
+	
+				while ($list_items = mysql_fetch_array($result)) {
+					$itemID = "audience_" . $list_items['pk'];
+	?>
+			<div class="list_row">
+				<div class="topic_vote">
+			     <span><input name="<?= $itemID ?>" type="radio" value="" <?php if (!$list_items['choice']) { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+			     <span><input name="<?= $itemID ?>" type="radio" value="1" <?php if ($list_items['choice']=="1") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+			     <span><input name="<?= $itemID ?>" type="radio" value="2" <?php if ($list_items['choice']=="2") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
+			     <span><input name="<?= $itemID ?>" type="radio" value="3" <?php if ($list_items['choice']=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			    </div>
+				<div class="topic_type"><?= $list_items['role_name'] ?></div>
+			 </div>
+	<?php } ?>
+		</div> <!-- end audience -->
   	</div>   <!-- end audienceinfo-->
    </td>
  </tr>
