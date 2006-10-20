@@ -22,9 +22,9 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = false; // assume user is NOT allowed unless otherwise shown
-if (!$User->checkPerm("proposals_Dec2006")) {
+if (!$User->checkPerm("proposals_dec2006")) {
 	$allowed = false;
-	$Message = "Only admins with <b>proposals_Dec2006</b> may view this page.<br/>" .
+	$Message = "Only admins with <b>proposals_dec2006</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
 	$allowed = true;
@@ -414,12 +414,13 @@ foreach ($items as $item) {
 		<strong>Type:</strong>
 		<select name="filter_type" title="Filter the items by type">
 			<option value="<?= $filter_type ?>" selected><?= $filter_type ?></option>
-			<option value="demo">demo</option>
 			<option value="lecture">lecture</option>
 			<option value="discussion">discussion</option>
 			<option value="workshop">workshop</option>
-			<option value="panel">panel</option>
+			<option value="panel">panel</option
 			<option value="carousel">carousel</option>
+			<option value="demo">demo</option>
+			<option value="poster">poster</option>
 			<option value="show all types">show all types</option>
 		</select>
 		&nbsp;
@@ -497,8 +498,12 @@ foreach ($items as $item) { // loop through all of the proposal items
 		$demo++;
 		$tdstyle = " class='demo' ";
 	}
+	if ($item['type']=='poster'){
+		$poster++;
+		$tdstyle = " class='poster' ";
+	}
 	if ($item['type']=='BOF'){
-		$demo++;
+		$bof++;
 		$tdstyle = " class='bof' ";
 	}  else {
 		$presentation++;
@@ -512,9 +517,13 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 <tr class="<?= $linestyle ?>" valign="top">
 	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;'>
-<?php if ( ($item['type']=='demo') || ($item['type']=='BOF'))  {
-		echo "<strong>Demo:</strong><br/>No voting<br/>on demos or BOFs";
-	} else {
+<?php if ($item['type']=='demo')  {
+		echo "<strong>Demo:</strong><br/>No voting<br/>on demos, posters<br/> or BOFs";
+	} else if ($item['type']=='poster')  {
+		echo "<strong>Poster:</strong><br/>No voting<br/>on demos, posters<br/> or BOFs";
+	} else if ($item['type']=='BOF')  {
+		echo "<strong>BOF:</strong><br/>No voting<br/>on BOFs";
+	} else  {
 ?>
 		<a name="anchor<?= $pk ?>"></a>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>

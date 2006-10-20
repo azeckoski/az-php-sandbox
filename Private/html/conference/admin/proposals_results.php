@@ -188,7 +188,8 @@ switch ($filter_track){
   	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
  	case "BOF": $filter_track_sql = " and track='BOF' "; break;
  	case "Demo": $filter_track_sql = " and track='Demo' "; break;
-	case ""; // show all items
+	case "Poster": $filter_track_sql = " and track='Poster' "; break;
+		case ""; // show all items
 		$filter_track = $filter_track_default;
 		$filter_track_sql = "";
 		break;
@@ -294,12 +295,14 @@ if (!$_REQUEST["export"]) {
 		<strong>Type:</strong>
 		<select name="filter_type" title="Filter the items by type">
 			<option value="<?= $filter_type ?>" selected><?= $filter_type ?></option>
-			<option value="demo">demo</option>
+	
 			<option value="lecture">lecture</option>
 			<option value="discussion">discussion</option>
 			<option value="workshop">workshop</option>
 			<option value="panel">panel</option>
 			<option value="carousel">carousel</option>
+			<option value="demo">demo</option>
+			<option value="poster">poster</option>
 			<option value="show all types">show all types</option>
 		</select>
 		&nbsp;
@@ -315,6 +318,7 @@ if (!$_REQUEST["export"]) {
 			<option value="Multiple Audiences">Multiple Audiences</option>
 			<option value="BOF">BOF</option>
 			<option value="Demo">Demo</option>
+			<option value="Poster">Poster</option>
 			<option value="show all tracks">show all tracks</option>
 		</select>
 		
@@ -433,6 +437,8 @@ foreach ($items as $item) { // loop through all of the proposal items
 		$tdstyle = " class='demo' ";
 	} else if ($item['type']=='BOF'){
 		$tdstyle = " class='bof' ";
+	} else if ($item['type']=='poster'){
+		$tdstyle = " class='poster' ";
 	} else  if ($item["approved"] == "Y") {
 		$tdstyle = " class='approved' ";
 	} else if ($item["red"]) {
@@ -483,11 +489,13 @@ foreach ($items as $item) { // loop through all of the proposal items
 <tr class="<?= $linestyle ?>" valign="top">
 	<td <?= $tdstyle ?> nowrap='y' style="text-align:right;">
 		<a name="anchor<?= $pk ?>"></a>
-<?php if ($item['type']=='demo') {
-		echo "<strong>Demo:</strong><br/>No voting<br/>on demos";
-	} else  if  ($item['type']=='BOF') {
+<?php if ($item['type']=='demo')  {
+		echo "<strong>Demo:</strong><br/>No voting<br/>on demos, posters<br/> or BOFs";
+	} else if ($item['type']=='poster')  {
+		echo "<strong>Poster:</strong><br/>No voting<br/>on demos, posters<br/> or BOFs";
+	} else if ($item['type']=='BOF')  {
 		echo "<strong>BOF:</strong><br/>No voting<br/>on BOFs";
-	} else {
+	} else  {
 ?>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
 		<div <?= $checked[$vi] ?> >&nbsp;<label title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label>&nbsp;</div>
