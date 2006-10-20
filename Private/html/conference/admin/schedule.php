@@ -259,9 +259,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				echo "<strong>".$timeslot['title'].":</strong> <span style='font-size:.9em;'>" .
 					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
 					date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
-					"</span>: <span style='font-size:.8em;'>".
-						date('l, M j',strtotime($timeslot['start_time'])) .
-						"</span></div></td>";
+					"</span></div></td>";
 			    
 		} else {
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
