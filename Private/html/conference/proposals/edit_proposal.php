@@ -204,6 +204,8 @@ $vItems['plength'] = "required";
 $vItems['audience'] = "required:multirad;1";
 $vItems['topic'] = "required:multirad;1";
 
+$vItems['posters'] = "required";
+
 //echo "<pre>",print_r($_POST),"</pre>";
 
 if ($_POST['save']) {
@@ -229,6 +231,7 @@ if ($_POST['save']) {
 		$co_bio = mysql_real_escape_string($_POST['co_bio']);
 		$url = mysql_real_escape_string($_POST['URL']);
 		$wiki_url = mysql_real_escape_string($_POST['wiki_url']);
+		$num_posters=$_POST['posters'];
 
 		$type = $_POST['type'];
 		$layout = $_POST['layout'];
@@ -238,6 +241,7 @@ if ($_POST['save']) {
 			$approved = "Y";
 			$length = "90";
 		}
+		
 		$conflict = trim($_POST['conflict_tue'] . " " . $_POST['conflict_wed'] . " " . $_POST['conflict_thu'] . " " . $_POST['conflict_fri']);
 
 		$msg = "";
@@ -247,10 +251,10 @@ if ($_POST['save']) {
 			" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
 			" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio' , `layout`='$layout', " .
 			"`length`='$length' , `conflict`='$conflict' ," .
-			" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `wiki_url` ='$wiki_url' where pk= '$PK'   ";
+			" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `wiki_url` ='$wiki_url', `approved`='$approved', `poster`='$num_posters' where pk= '$PK'   ";
 
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
-			" form submission. Please try to submit the registration again. " .
+			" form submission. Please try to submit the form again. " .
 			"If you continue to have problems, please report the problem to the " .
 			"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>.");
 
@@ -280,11 +284,17 @@ if ($_POST['save']) {
 			if ($type == "demo") {
 				$track = "Demo";
 			} else
+			if ($type == "poster") {
+				$track = "Poster";
+			} else
 				if ($type == "BOF") {
 					$track = "BOF";
 				}
 			$approved = "";
 			if ($type == "demo") {
+				$approved = "Y";
+			} else
+				if ($type == "poster") {
 				$approved = "Y";
 			} else
 				if ($type == "BOF") {
@@ -295,10 +305,10 @@ if ($_POST['save']) {
 			//first add presentation information into --all data except role and topic data
 			$proposal_sql = "INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, " .
 			"`title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` ," .
-			" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url` )
+			" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url`, `poster`)
 							VALUES ( NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', " .
 			"'$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' ," .
-			" '$co_speaker' , '$co_bio' , '$approved', '$track', '$wiki_url')";
+			" '$co_speaker' , '$co_bio' , '$approved', '$track', '$wiki_url', '$num_posters')";
 
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 			"registration form submission. Please try to submit the registration again. " .
@@ -389,6 +399,9 @@ if ($PK) {
 		if ($type == "demo") {
 			$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Technical Demo: </strong>" . $_POST['title'] . "<br/><strong>Submitted by: </strong>" . $item['firstname'] . " " . $item['lastname'] . "</div><div><br/></div></td></tr>";
 		} else
+		if ($type == "poster") {
+			$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing Poster Session: </strong>" . $_POST['title'] . "<br/><strong>Submitted by: </strong>" . $item['firstname'] . " " . $item['lastname'] . "</div><div><br/></div></td></tr>";
+		} else
 			if ($type == "BOF") {
 				$Message = "<tr><td><div style='text-align: left; padding: 5px; background: #ffcc33; color:#000;'><strong>Editing BOF session: </strong>" . $_POST['title'] . "<br/><strong>Submitted by: </strong>" . $item['firstname'] . " " . $item['lastname'] . "</div><div><br/></div></td></tr>";
 			} else {
@@ -478,6 +491,20 @@ if ($Message) {
     		<div><strong> Technical Demo Proposal </strong></div>
     		<div style="padding:0px 10px;">
 					Technology Demos will take place on Thursday, December 7th. 
+				<!--	[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]
+				-->
+				</div>
+    </td>
+</tr>
+
+<?php
+
+} else
+if ($type=="poster") { ?>
+  	<tr>
+    <td colspan=2>
+    		<div><strong> Poster Session </strong></div>
+    		<div style="padding:0px 10px;">
 				<!--	[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]
 				-->
 				</div>
@@ -587,6 +614,10 @@ if ($Message) {
 <?php } else  if ($type == "BOF") { ?>
  	    <img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
  	    <strong>BOF Title</strong>
+
+<?php } else  if ($type == "poster") { ?>
+ 	    <img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
+ 	    <strong>Poster Title/Topic</strong>
 <?php } else  { ?>
  		<img id="titleImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
  		<strong>Presentation Title</strong>
@@ -604,6 +635,9 @@ if ($Message) {
 <?php if ($type == "demo") {?>
 		<strong>Demo Description</strong> ( 50 word max.)  <br/>
 		This will appear on the conference program.
+<?php } else if ($type == "poster") {?>
+		<strong>Poster Description</strong> ( 50 word max.)  <br/>
+		This will appear on the conference program.
 <?php } else if ($type == "BOF") {?>
 		<strong>Description </strong> ( 50 word max.)  <br/>
 <?php } else { ?>
@@ -618,7 +652,7 @@ if ($Message) {
     </td>
 </tr>
 
-<?php if (($type!="demo") && ($type!="BOF")) {?> 
+<?php if (($type!="demo") && ($type!="BOF") && ($type!="poster")) {?> 
 <tr>
 	<td colspan=2>
 		<img id="descImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>Presentation Description: </strong>( 150 word max.)
@@ -629,6 +663,22 @@ if ($Message) {
 	</td>
 </tr>
 <?php } ?>
+
+<?php if ($type == "poster") { ?>
+ 	<tr>
+	<td colspan=2>
+		<img id="postersImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>How many posters will you present on this topic?</strong>
+	<input type="text" name="posters" size="3" value="<?= $_POST['poster']  ?>" /> <br/><br/>	<strong>Please Note:</strong>   We will provide one easel/stand for each poster you plan to submit.
+				 	Maximum poster size we can accomodate is 24 x 36 inches.  You may bring more than one poster for a given topic. However, if you plan to present on multiple projects or topics, please complete a separate submission form for each additional topics. 
+				
+		<input type="hidden" id="postersValidate" value="<?= $vItems['posters'] ?>" />
+		<span id="postersMsg"></span>
+	</td>
+</tr>
+ 	
+<?php } ?>
+ 	
+ 
 
 <tr>
     <td nowrap="y">
@@ -643,7 +693,7 @@ if ($Message) {
     </td>
 </tr>
 
-<?php if (($type!="demo") && ($type!="BOF")){?>
+<?php if (($type!="demo") && ($type!="BOF") && ($type!="poster")){?>
 <tr>
     <td colspan=2>
     	<img id="bioImg" src="/accounts/ajax/images/required.gif" width="16" height="16" />
@@ -686,7 +736,7 @@ if ($Message) {
 		} //bof check
 ?>
 
-<?php if (($type!="demo") && ($type!="BOF")){ ?>
+<?php if (($type!="demo") && ($type!="BOF") && ($type!="poster")){ ?>
 <tr>
    <td colspan=2>
      <div id="topicInfo">

@@ -127,7 +127,15 @@ if ($_POST['save']) { // saving the form
 	   </tr>
 	   <tr>
 	     <td colspan=3 valign="top">
-	      
+	      	<div>
+	      	<input name="type" type="radio" value="poster" <?php if ($_POST['type']=="poster") echo "checked" ?> />&nbsp;&nbsp;<strong>Poster session</strong><span style="color:red"><strong>&nbsp;&nbsp; NEW! </strong></span><br/>
+					<div style="padding: 0px 40px;">
+				 	Posters will be displayed during the conference in the main dining/gathering hall.  &nbsp;Posters will also be displayed during the 
+				 	Technical Demonstrations on Thursday evening, December 7th.  <br/><br/> 
+				
+			</div>
+				
+				
 				<div><input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />&nbsp;&nbsp;<strong>Technology Demo</strong><br/>
 					<div style="padding: 0px 40px;">
 				 	Technology Demos will take place on Thursday, December 7th.<br/><br/>
