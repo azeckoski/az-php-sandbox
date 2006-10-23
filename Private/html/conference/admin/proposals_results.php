@@ -22,7 +22,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = false; // assume user is NOT allowed unless otherwise shown
-if (!$User->checkPerm("admin_conference")) {
+if (!$User->checkPerm("proposals_dec2006")) {
 	$allowed = false;
 	$Message = "Only admins with <b>admin_conference</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
