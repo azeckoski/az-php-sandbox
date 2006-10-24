@@ -469,14 +469,18 @@ if ($PK) {
 			<option value="Technology">Technical</option>
 			<option value="Multiple Audiences">Multiple Audiences</option>
 			<option value="Tool Overview">Tool Overview</option>
-		</select>
+			<option value="Poster">Poster</option>
+			<option value="Demo">Demo</option>
+			<option value="BOF">BOF</option>
+			</select>
 		
 			<br/><br/>
 			<strong>Select/change subtrack for this proposal:  </strong> 
 	
 		<select name="sub_track" title="conference sub tracks">
 			<option value="<?= $_POST['sub_track'] ?>" selected><?= $_POST['sub_track'] ?></option>
-			<option value="OSP">OSP</option>
+			<option value=""""></option>
+			<option value="OSP"></option>
 			<option value="Commercial Offerings">Commercial Offerings</option>
 			<option value="UI Development">UI Development</option>
 			<option value="Library">Library</option>
