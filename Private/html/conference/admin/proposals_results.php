@@ -204,7 +204,7 @@ $special_filter = "";
 $filter_sub_track_sql = "";
 switch ($filter_sub_track){
    	case "OSP": $filter_sub_track_sql = " and sub_track='OSP' "; break;
-  	case "Commercial Offerings": $filter_sub_track_sql = " and sub_track='Pedagogy' "; break;
+  	case "Commercial Offerings": $filter_sub_track_sql = " and sub_track='Commercial Offerings' "; break;
  	case "UI Development": $filter_sub_track_sql = " and sub_track='UI Development' "; break;
  	case "Library": $filter_sub_track_sql = " and sub_track='Library' "; break;
  	case "Cool New Tool": $filter_sub_track_sql = " and sub_track='Cool New Tool' "; break;
