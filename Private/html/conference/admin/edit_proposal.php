@@ -479,8 +479,8 @@ if ($PK) {
 	
 		<select name="sub_track" title="conference sub tracks">
 			<option value="<?= $_POST['sub_track'] ?>" selected><?= $_POST['sub_track'] ?></option>
-			<option value=""""></option>
-			<option value="OSP"></option>
+			<option value=""></option>
+			<option value="OSP">OSP</option>
 			<option value="Commercial Offerings">Commercial Offerings</option>
 			<option value="UI Development">UI Development</option>
 			<option value="Library">Library</option>
