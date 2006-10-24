@@ -22,4 +22,7 @@ CREATE TABLE `conf_proposals` (
   PRIMARY KEY  (`id`)
 )
 
+ALTER TABLE `conf_proposals` ADD `sub_track` VARCHAR( 20 ) NOT NULL AFTER `track` ;
+
+
 
