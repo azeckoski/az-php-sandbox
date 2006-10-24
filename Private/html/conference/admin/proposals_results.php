@@ -300,7 +300,7 @@ if (!$_REQUEST["export"]) {
 			<option value="discussion">discussion</option>
 			<option value="workshop">workshop</option>
 			<option value="panel">panel</option>
-			<option value="carousel">carousel</option>
+			<option value="Tool Overview">Tool Overview</option>
 			<option value="demo">demo</option>
 			<option value="poster">poster</option>
 			<option value="show all types">show all types</option>
@@ -542,12 +542,17 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){
 	
 }
 	?>
-		( <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1&amp;location=0" ?>">edit</a>
+	<?php if ($User->checkPerm("admin_conference")) {
+		
+	 ?>	( <a href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1&amp;location=0" ?>">edit</a>  )
+	
+	<?php  } ?>
+
 		<!--	 | 
 		 
 	<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;type=<?=$item['type']?>" 
 			title="Delete this proposal"
-			onClick="return confirm('Are you sure you want to delete this proposal?');" >delete</a> --> )  
+			onClick="return confirm('Are you sure you want to delete this proposal?');" >delete</a> --> 
 			</div>
 	<?php
 		
@@ -608,8 +613,12 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  { ?>
 			 }
 			 else {
 			  echo "<span style='color: #666666;'>not set </span>";  
-			 } ?> (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" >edit</a>)
-
+			 } 
+			  if ($User->checkPerm("admin_conference")) {
+		?>
+	 (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" >edit</a>)
+		<?php	 }
+		?>
 	    </div>
 	    <div>
 	  <br>
