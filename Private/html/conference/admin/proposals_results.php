@@ -182,7 +182,7 @@ $filter_track_sql = "";
 switch ($filter_track){
    	case "Community": $filter_track_sql = " and track='Community' "; break;
   	case "Pedagogy": $filter_track_sql = " and track='Pedagogy' "; break;
- 	case "Implementors": $filter_track_sql = " and track='Implementors' "; break;
+ 	case "Implemtation": $filter_track_sql = " and track='Implementation' "; break;
  	case "Technology": $filter_track_sql = " and track='Technology' "; break;
  	case "Tool Carousel": $filter_track_sql = " and track='Tool Carousel' "; break;
   	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
@@ -331,7 +331,7 @@ if (!$_REQUEST["export"]) {
 			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
 			<option value="Community">Community</option>
 			<option value="Pedagogy">Pedagogy</option>
-			<option value="Implementors">Implementors</option>
+			<option value="Implementation">Implementation</option>
 			<option value="Technology">Technology</option>
 			<option value="Tool Carousel">Tool Carousel</option>
 			<option value="Multiple Audiences">Multiple Audiences</option>
