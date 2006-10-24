@@ -182,7 +182,7 @@ $filter_track_sql = "";
 switch ($filter_track){
    	case "Community": $filter_track_sql = " and track='Community' "; break;
   	case "Pedagogy": $filter_track_sql = " and track='Pedagogy' "; break;
- 	case "Implemtation": $filter_track_sql = " and track='Implementation' "; break;
+ 	case "Implementation": $filter_track_sql = " and track='Implementation' "; break;
  	case "Technology": $filter_track_sql = " and track='Technology' "; break;
  	case "Tool Carousel": $filter_track_sql = " and track='Tool Carousel' "; break;
   	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
