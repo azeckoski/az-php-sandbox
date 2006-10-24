@@ -468,7 +468,7 @@ if ($PK) {
 			<option value="Implementation">Implementation</option>
 			<option value="Technology">Technology</option>
 			<option value="Multiple Audiences">Multiple Audiences</option>
-			<option value="Tool Overview">Tool Overview</option>
+			<option value="Tool Carousel">Tool Carousel</option>
 			<option value="Poster">Poster</option>
 			<option value="Demo">Demo</option>
 			<option value="BOF">BOF</option>
