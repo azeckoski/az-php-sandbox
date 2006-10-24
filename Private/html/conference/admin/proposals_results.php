@@ -181,10 +181,10 @@ $special_filter = "";
 $filter_track_sql = "";
 switch ($filter_track){
    	case "Community": $filter_track_sql = " and track='Community' "; break;
-  	case "Faculty": $filter_track_sql = " and track='Faculty' "; break;
+  	case "Pedagogy": $filter_track_sql = " and track='Pedagogy' "; break;
  	case "Implementors": $filter_track_sql = " and track='Implementors' "; break;
  	case "Technology": $filter_track_sql = " and track='Technology' "; break;
- 	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
+ 	case "Tool Carousel": $filter_track_sql = " and track='Tool Carousel' "; break;
   	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
  	case "BOF": $filter_track_sql = " and track='BOF' "; break;
  	case "Demo": $filter_track_sql = " and track='Demo' "; break;
@@ -192,6 +192,26 @@ switch ($filter_track){
 		case ""; // show all items
 		$filter_track = $filter_track_default;
 		$filter_track_sql = "";
+		break;
+}
+
+// SubTrack Filter
+$filter_sub_track_default = "show all subtracks";
+$filter_sub_track = "";
+if ($_REQUEST["filter_sub_track"] && (!$_REQUEST["clearall"]) ) { $filter_sub_track = $_REQUEST["filter_sub_track"]; }
+
+$special_filter = "";
+$filter_sub_track_sql = "";
+switch ($filter_sub_track){
+   	case "OSP": $filter_sub_track_sql = " and sub_track='OSP' "; break;
+  	case "Commercial Offerings": $filter_sub_track_sql = " and sub_track='Pedagogy' "; break;
+ 	case "UI Development": $filter_sub_track_sql = " and sub_track='UI Development' "; break;
+ 	case "Library": $filter_sub_track_sql = " and sub_track='Library' "; break;
+ 	case "Cool New Tool": $filter_sub_track_sql = " and sub_track='Cool New Tool' "; break;
+ 	
+		case ""; // show all items
+		$filter_sub_track = $filter_sub_track_default;
+		$filter_sub_track_sql = "";
 		break;
 }
   
@@ -209,7 +229,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql . $filter_items_sql . $filter_status_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
+	$filter_type_sql . $filter_items_sql . $filter_status_sql . $filter_track_sql .$filter_sub_track_sql .$sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -291,7 +311,7 @@ if (!$_REQUEST["export"]) {
 			<option value="show all status">show all status</option>
 		</select>
 		&nbsp;
-		&nbsp;	
+		&nbsp;	<br/><br/>
 		<strong>Type:</strong>
 		<select name="filter_type" title="Filter the items by type">
 			<option value="<?= $filter_type ?>" selected><?= $filter_type ?></option>
@@ -300,7 +320,6 @@ if (!$_REQUEST["export"]) {
 			<option value="discussion">discussion</option>
 			<option value="workshop">workshop</option>
 			<option value="panel">panel</option>
-			<option value="Tool Overview">Tool Overview</option>
 			<option value="demo">demo</option>
 			<option value="poster">poster</option>
 			<option value="show all types">show all types</option>
@@ -311,15 +330,28 @@ if (!$_REQUEST["export"]) {
 		<select name="filter_track" title="Filter the items by track">
 			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
 			<option value="Community">Community</option>
-			<option value="Faculty">Faculty</option>
+			<option value="Pedagogy">Pedagogy</option>
 			<option value="Implementors">Implementors</option>
 			<option value="Technology">Technology</option>
-			<option value="Tool Overview">Tool Overview</option>
+			<option value="Tool Carousel">Tool Carousel</option>
 			<option value="Multiple Audiences">Multiple Audiences</option>
 			<option value="BOF">BOF</option>
 			<option value="Demo">Demo</option>
 			<option value="Poster">Poster</option>
 			<option value="show all tracks">show all tracks</option>
+		</select>
+		
+			&nbsp;
+		&nbsp;
+		<strong>SubTrack:</strong>
+		<select name="filter_sub_track" title="Filter the items by subtrack">
+			<option value="<?= $filter_sub_track ?>" selected><?= $filter_sub_track ?></option>
+		<option value="OSP">OSP</option>
+			<option value="Commercial Offerings">Commercial Offerings</option>
+			<option value="UI Development">UI Development</option>
+			<option value="Library">Library</option>
+			<option value="Cool New Tool">Cool New Tool</option>
+			<option value="show all subtracks">show all subtracks</option>
 		</select>
 		
 			&nbsp;
@@ -614,11 +646,19 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  { ?>
 			 else {
 			  echo "<span style='color: #666666;'>not set </span>";  
 			 } 
-			  if ($User->checkPerm("admin_conference")) {
-		?>
-	 (<a style="color:#336699;" href="<?= "edit_proposal.php" . "?pk=" . $item['pk'] . "&amp;edit=1" ."&amp;type=". $item['type'] ; ?>" >edit</a>)
-		<?php	 }
-		?>
+	
+		?></span>
+		 <span style="padding-right: 20px;"><strong>Sub Track:</strong>
+	 <?php  
+	 if ($item['sub_track']) {
+			 	 echo $item['sub_track'];
+			 }
+			 else {
+			  echo "<span style='color: #666666;'>not set </span>";  
+			 } 
+
+		?></span>
+		
 	    </div>
 	    <div>
 	  <br>
