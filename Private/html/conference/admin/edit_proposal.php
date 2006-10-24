@@ -238,6 +238,7 @@ if ($_POST['save']) {
 		$co_speaker=mysql_real_escape_string($_POST['co_speaker']);
 		$co_bio=mysql_real_escape_string($_POST['co_bio']);
 		$track=$_POST['track'];
+		$sub_track=$_POST['sub_track'];
 		$url=$_POST['URL'];
 		$wiki_url=mysql_real_escape_string($_POST['wiki_url']);
 		$num_posters=$_POST['posters'];
@@ -270,7 +271,7 @@ if ($_POST['save']) {
 					" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
 						" `speaker`='$speaker' , `URL` ='$url',  `bio`='$bio' , `layout`='$layout', " .
 						"`length`='$length' , `conflict`='$conflict' ," .
-						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', `track`='$track',  `wiki_url` ='$wiki_url',  `poster`='$num_posters' where pk= '$PK'   ";
+						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', `track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url',  `poster`='$num_posters' where pk= '$PK'   ";
 						
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				" form submission. Please try to submit the form again. " .
@@ -461,15 +462,25 @@ if ($PK) {
 	
 		<select name="track" title="conference tracks">
 			<option value="<?= $_POST['track'] ?>" selected><?= $_POST['track'] ?></option>
+			<option value=""></option>
 			<option value="Community">Community</option>
-			<option value="Faculty">Faculty</option>
-			<option value="Implementation">Implementation</option>
-			<option value="Technical">Technical</option>
+			<option value="Pedagogy">Pedagogy</option>
+			<option value="Implementors">Implementors</option>
+			<option value="Technology">Technical</option>
 			<option value="Multiple Audiences">Multiple Audiences</option>
 			<option value="Tool Overview">Tool Overview</option>
-			<option value="BOF">BOF</option>
-			<option value="Demo">Demo</option>
-			
+		</select>
+		
+			<br/><br/>
+			<strong>Select/change subtrack for this proposal:  </strong> 
+	
+		<select name="sub_track" title="conference sub tracks">
+			<option value="<?= $_POST['sub_track'] ?>" selected><?= $_POST['sub_track'] ?></option>
+			<option value="OSP">OSP</option>
+			<option value="Commercial Offerings">Commercial Offerings</option>
+			<option value="UI Development">UI Development</option>
+			<option value="Library">Library</option>
+			<option value="Cool New Tool">Cool New Tool</option>
 		</select>
 		</td>
 </tr> 
