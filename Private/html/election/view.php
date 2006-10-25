@@ -29,6 +29,10 @@ if (!$User->checkPerm("elections_nov2006")) {
 
 $PK = $_REQUEST["id"]; // grab the pk
 
+// sorting
+$sortorder = "lastname";
+if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
+$sqlsorting = " order by $sortorder ";
 
 // main SQL to fetch all elections items
 $from_sql = " from elections_entries E1 left join users U1 on U1.pk=E1.users_pk where E1.users_pk='$PK'";
