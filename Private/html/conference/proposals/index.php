@@ -152,18 +152,20 @@ if ($_POST['save']) { // saving the form
 			</div>
 			<div><input name="type" type="radio" value="presentation" <?php if ($_POST['type']=="presentation") echo "checked" ?> />&nbsp;&nbsp;<strong>Conference Presentation</strong>
 				<div style="padding: 0px 40px;">
-				<!-- <strong>Please Note:</strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
-					 <br/><br/> Presentation formats include: panel, workshop, discussion, and lecture. 
-					-->
-					Presentations will take place at the conference hotel, during the conference's 
+				<strong>Please Note:</strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
+				<!--	 <br/><br/> Presentation formats include: panel, workshop, discussion, and lecture. 
+				
+				<br/><br/>	Presentations will take place at the conference hotel, during the conference's 
 					normal daytime schedule for December 5-8. You may choose from the following presentation types: Panel, Workshop, Discussion/Roundtable, Lecture/Presentation or Tool Carousel. <br/><br/>
+				-->
+				<br/><br/>
 				</div>
 			</div>
-				<div><!-- <input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> /> -->  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>
+				<div><!-- <input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  --> &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>
 				<div style="padding: 0px 40px;">
 					BOF proposals will be accepted in mid-November, after the main schedule is published. 
 					BOFs are self-formed meetings set up by any conference attendee to discuss a Sakai-related topic during the conference. BOFs may take place during the main conference sessions, as well as before or after the normal conference scheduled session - based on room availablity.
-				<!--	[<a href="http://sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=178&amp;itemid=524" target=blank>more information</a>]<br/><br/> -->
+				[<a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=419&Itemid=569" target=blank>more information</a>]<br/><br/>
 				</div>
 			</div>
 	        
