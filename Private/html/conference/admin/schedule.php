@@ -353,7 +353,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 							htmlspecialchars($proposal['title']) .
 							"<img src='../include/images/arrow.png' border=0 /></a>";
 					} else {
-						echo htmlspecialchars($proposal['title']);
+						echo "<strong>"  .htmlspecialchars($proposal['title']) . "</strong>";
 					}
 					echo "</label>";
 
