@@ -25,13 +25,13 @@ $list_result = mysql_query($users_sql) or die('User query failed: ' . mysql_erro
      	</div>
       
    <table cellpadding="0" cellspacing="0" class="moduletable">
-     <tr><td><br/><strong>Display:</strong><br/>
+     <tr><td><br/><strong>2006 Candidates</strong><br/>
      
   
-	      <a href="index.php">View Thumbnails</a>
+	      <a href="index.php">View Photos</a>
 	    </td></tr>
 	<?php if (($PAGE_NAME=="Candidate Info") || ($PAGE_NAME=="Elections Intro"))  {   ?>
-	 <tr><td><br/><strong>2006 Candidates</strong>
+	 <tr><td><br/><strong>View Candidate Bio and<br/> Platform Statements</strong>
 			
 <?php 
 $line = 0;
@@ -54,17 +54,21 @@ while($item=mysql_fetch_array($list_result)) {
       </td></tr> 
         <tr><td>&nbsp;</td>   </tr>
     </table>
-    <table cellpadding="0" cellspacing="0" class="moduletable">
+ 
+  	  <table cellpadding="0" cellspacing="0" class="moduletable">
 		<tr><td>&nbsp;</td></tr>
-	
-		<tr><td valign="top" style="text-align:left"><strong>Nominee Entry</strong></td></tr>
+	 <?php  if($allowed) {  
+  	?>
+		<tr><td valign="top" style="text-align:left"><strong>Candidates Only</strong></td></tr>
 			<tr><td>
 				<ul>
-                 <li> <a href="add_entry.php">Submit/Edit Entry</a> </li>
+                 <li> <a href="add_entry.php">Edit Your Entry</a> </li>
                </ul>
                	
               </td>
 			</tr>
+			
+	<?php	 } ?>
 			<?php   
 			if (($allowed) && ($PAGE_NAME=='Candidate Entry')) {	 ?>
 				
