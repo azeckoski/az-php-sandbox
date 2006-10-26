@@ -566,12 +566,13 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){
 	if ($item['approved'] == "Y") {
 		echo "<div style='width:100%;background-color:blue;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
 				"APPROVED</div>";
-	} else if ($item['approved'] == "N") {
+	}
+	 else if ($item['approved'] == "P"){
+		echo "<div style='width:100%;background-color:#000;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
+				"PENDING</div>";
+	} else {
 		echo "<div style='width:100%;background-color:red;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
 				"UNAPPROVED</div>";
-	} else {
-		echo "<div style='width:100%;background-color:black;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
-				"PENDING</div>";
 	}
 	echo "<div style='text-align:center;'>";
 	
