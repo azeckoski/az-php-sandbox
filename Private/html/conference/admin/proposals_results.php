@@ -167,6 +167,7 @@ $filter_status_sql = "";
 switch ($filter_status){
    	case "approved": $filter_status_sql = " and approved ='Y' "; break;
   	case "not approved": $filter_status_sql = " and approved ='N' "; break;
+  	case "pending": $filter_status_sql = " and approved ='P' "; break;
 	case ""; // show all items
 		$filter_status = $filter_status_default;
 		$filter_status_sql = "";
@@ -307,6 +308,7 @@ if (!$_REQUEST["export"]) {
 		<select name="filter_status" title="Filter the items by approval status">
 			<option value="<?= $filter_status ?>" selected><?= $filter_status ?></option>
 			<option value="approved">approved</option>
+			<option value="pending">pending</option>
 			<option value="not approved">not approved</option>
 			<option value="show all status">show all status</option>
 		</select>
@@ -473,6 +475,8 @@ foreach ($items as $item) { // loop through all of the proposal items
 		$tdstyle = " class='poster' ";
 	} else  if ($item["approved"] == "Y") {
 		$tdstyle = " class='approved' ";
+	} else  if ($item["approved"] == "P") {
+		$tdstyle = " class='pending' ";
 	} else if ($item["red"]) {
 		if ($item["approved"] == "N") {
 			$tdstyle = " class='saved_red unapproved' ";
@@ -562,9 +566,12 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){
 	if ($item['approved'] == "Y") {
 		echo "<div style='width:100%;background-color:blue;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
 				"APPROVED</div>";
-	} else {
+	} else if ($item['approved'] == "N") {
 		echo "<div style='width:100%;background-color:red;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
 				"UNAPPROVED</div>";
+	} else {
+		echo "<div style='width:100%;background-color:black;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
+				"PENDING</div>";
 	}
 	echo "<div style='text-align:center;'>";
 	
@@ -779,6 +786,9 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  { ?>
 		&nbsp;
 		<div class="approved" style='display:inline;'>&nbsp;Approved&nbsp;</div>
 		&nbsp;
+		<div class="pending" style='display:inline;'>&nbsp;Pending&nbsp;</div>
+		&nbsp;
+	
 		<div class="demo" style='display:inline;'>&nbsp;Demo&nbsp;</div>
 		&nbsp;
 		<div class="saved_green" style='display:inline;'>&nbsp;Green&nbsp;</div>

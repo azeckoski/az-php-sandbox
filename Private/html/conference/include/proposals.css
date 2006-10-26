@@ -75,6 +75,10 @@ textarea {
 .unapproved {
 	border: 3px solid red;
 }
+.pending {
+	background:black;
+	color:white;
+}
 
 .myvote {
 	background: white;

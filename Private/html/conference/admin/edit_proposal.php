@@ -492,7 +492,8 @@ if ($PK) {
 	 <tr>
 	<td><strong>Proposal Status: </strong> </td>
 	<td><input name="approved" type="radio" value="Y" <?php if ($_POST['approved']=="Y") { echo "checked"; } ?> /> Approved &nbsp;&nbsp;&nbsp;&nbsp;
-			<input name="approved" type="radio" value="N" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved <br/>
+			<input name="approved" type="radio" value="N" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved&nbsp;&nbsp;&nbsp;&nbsp;
+			<input name="approved" type="radio" value="P" <?php if ($_POST['approved']=="P") { echo "checked"; } ?> /> Pending <br/>
 		
 		
 		</td>
