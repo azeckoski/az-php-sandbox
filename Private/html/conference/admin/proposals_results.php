@@ -562,7 +562,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 	<td width="25%">
 <?php
-if (($item['type'] != 'demo') && ($item['type'] != 'BOF')){ 
+if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'poster')){ 
 	if ($item['approved'] == "Y") {
 		echo "<div style='width:100%;background-color:blue;color:white;padding:2px;font-weight:bold;text-align:center;'>" .
 				"APPROVED</div>";
