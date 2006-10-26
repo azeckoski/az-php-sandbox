@@ -166,7 +166,7 @@ $special_filter = "";
 $filter_status_sql = "";
 switch ($filter_status){
    	case "approved": $filter_status_sql = " and approved ='Y' and type!='demo' and type!='poster' and type !='BOF'"; break;
-  	case "not approved": $filter_status_sql = " and approved ='N' and approved='' and type!='demo' and type!='poster' and type !='BOF' "; break;
+  	case "not approved": $filter_status_sql = " and approved !='Y' and approved !='P' "; break;
   	case "pending": $filter_status_sql = " and approved ='P' "; break;
 	case ""; // show all items
 		$filter_status = $filter_status_default;
