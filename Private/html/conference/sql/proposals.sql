@@ -22,7 +22,9 @@ CREATE TABLE `conf_proposals` (
   PRIMARY KEY  (`id`)
 )
 
-ALTER TABLE `conf_proposals` ADD `sub_track` VARCHAR( 20 ) NOT NULL AFTER `track` ;
+ALTER TABLE `conf_proposals` ADD `sub_track` VARCHAR( 30 ) NOT NULL AFTER `track` ;
 
+//added Pending option
+ALTER TABLE `conf_proposals` CHANGE `approved` `approved` ENUM( 'Y', 'N', 'P' ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'N'
 
 
