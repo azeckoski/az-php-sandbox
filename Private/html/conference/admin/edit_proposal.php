@@ -481,10 +481,10 @@ if ($PK) {
 			<option value="<?= $_POST['sub_track'] ?>" selected><?= $_POST['sub_track'] ?></option>
 			<option value=""></option>
 			<option value="OSP">OSP</option>
-			<option value="Commercial Offerings">Commercial Offerings</option>
+			<option value="Cool Commercial Offerings">Cool Commercial Offerings</option>
 			<option value="UI Development">UI Development</option>
 			<option value="Library">Library</option>
-			<option value="Cool New Tool">Cool New Tool</option>
+			<option value="Cool New Tools">Cool New Tools</option>
 		</select>
 		</td>
 </tr> 
