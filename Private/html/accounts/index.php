@@ -37,7 +37,7 @@ You may access the following tools:<br/>
 This page allows you to create an account to access the following tools:<br/>
 <?php } ?>
 <a href="/conference/registration/">Conference Registration</a><br/>
-<a href="/conference/admin/schedule.php">Conference Schedule</a><br/>
+<!-- <a href="/conference/admin/schedule.php">Conference Schedule</a><br/> -->
 <a href="/conference/volunteer.php">Conference Volunteering</a><br/>
 <a href="/facebook/">Facebook</a><br/>
 <a href="/requirements/">Requirements Polling</a><br/>
