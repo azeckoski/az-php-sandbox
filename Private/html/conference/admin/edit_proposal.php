@@ -482,7 +482,7 @@ if ($PK) {
 			<option value=""></option>
 			<option value="OSP">OSP</option>
 			<option value="Cool Commercial Offerings">Cool Commercial Offerings</option>
-			<option value="UI Development">UI Development</option>
+			<option value="User Experience">User Experience</option>
 			<option value="Library">Library</option>
 			<option value="Cool New Tools">Cool New Tools</option>
 		</select>
@@ -505,7 +505,7 @@ if ($PK) {
     <td colspan=2>
     		<div><strong> Technical Demo Proposal </strong></div>
     		<div style="padding:0px 10px;">
-					Technology Demos will take place on Thursday, June 1st. 
+					Technology Demos will take place on Thursday, Dec 7th. 
 					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]
 				</div>
     </td>
