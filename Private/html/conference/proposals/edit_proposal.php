@@ -671,7 +671,8 @@ if ($type=="poster") { ?>
 	<td colspan=2>
 		<img id="postersImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>How many posters will you present on this topic?</strong>
 	<input type="text" name="posters" size="3" value="<?= $_POST['poster']  ?>" /> <br/><br/>	<strong>Please Note:</strong>   We will provide one easel/stand for each poster you plan to submit.
-				 	The maximum poster size we can accomodate is 24 x 36 inches.  You may bring more than one poster for a given topic. However, if you plan to present on multiple projects or topics, please complete a separate submission form for each additional topic. 
+				 	The maximum poster size we can accomodate is 24 x 36 inches. You may bring more than one poster for a given topic. However, if you plan to present on multiple projects or topics, please complete a separate submission form for each additional topic. <br/><br/>
+				 	  <strong>Poster Designs: </strong> You may design your own poster or use the simple PowerPoint poster template we have created for you. <br/><blockquote> [ <a href="http://sakaiproject.org/conference/sakai_poster_templateAtlanta06.ppt">download template now </a>] </blockquote>
 				
 		<input type="hidden" id="postersValidate" value="<?= $vItems['posters'] ?>" />
 		<span id="postersMsg"></span>
