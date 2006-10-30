@@ -166,7 +166,7 @@ tr,td {
 	color: #333;
 }
 
-.technical {
+.technology {
 	background: #993333;
 }
 
@@ -175,16 +175,21 @@ tr,td {
 }
 
 .faculty {
-	background: #999933;
+	background: #CC00FF;
 }
 
 .pedagogy {
-	background: #999933;
+	background: #CC00FF;
 }
 
 .implementation {
 	background: #339933;
 }
+
+.tool_carousel {
+	background: #999933;
+}
+
 
 .tool_overview {
 	background: #339999;

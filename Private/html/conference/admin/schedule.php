@@ -148,12 +148,12 @@ if ($User && $isAdmin) {
 
 <?= $Message ?>
 
-<!--
+
 <div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
 <strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
-Check back closer to the conference for the final schedule, contact <a href="mailto:wendemm@gmail.com">Wende Morgaine</a> with questions
+Check back closer to the conference for the final schedule, contact <a href="mailto:mmiles@gmail.com">Mary Miles</a> with questions about this schedule.
 </div>
--->
+
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
