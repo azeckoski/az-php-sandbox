@@ -18,7 +18,7 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated - not required
-//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // THIS PAGE IS ACCESSIBLE BY ANYONE
 // Make sure user is authorized for admin perms
@@ -31,6 +31,16 @@ if (!$User->checkPerm("admin_conference")) {
 	$isAdmin = true;
 	$hide_bof_rooms = false;
 }
+
+// Make sure user is authorized
+$allowed = false; // assume user is NOT allowed unless otherwise shown
+if (!$User->checkPerm("proposals_dec2006")) {
+	$allowed = false;
+	$Message = "Only the Conference Committee </b> may view this page at this time.  The full conference schedule will be available after November 3rd. .<br/>" ;
+} else {
+	$allowed = true;
+}
+
 
 //opening up the bof room viewing one week before the conference
 $hide_bof_rooms = false;
@@ -187,8 +197,6 @@ $EXTRA_LINKS =
 ?>
 
 
-<?= $Message ?>
-
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
@@ -214,16 +222,18 @@ if ($User && $isAdmin) {
 
 <?= $Message ?>
 
+<?php if ($allowed){  ?>
+	
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
-<!--
+
 <div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
 <strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
 Check back closer to the conference for the final schedule, contact <a href="mailto:wendemm@gmail.com">Wende Morgaine</a> with questions
 </div>
--->
+
 
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -459,5 +469,5 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 </table>
 </form>
 
-
+<?php }  ?>
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>

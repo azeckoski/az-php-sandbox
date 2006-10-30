@@ -18,7 +18,7 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated - not required
-//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // THIS PAGE IS ACCESSIBLE BY ANYONE
 // Make sure user is authorized for admin perms
@@ -31,7 +31,14 @@ if (!$User->checkPerm("admin_conference")) {
 	$isAdmin = true;
 	$hide_bof_rooms = false;
 }
-
+// Make sure user is authorized
+$allowed = false; // assume user is NOT allowed unless otherwise shown
+if (!$User->checkPerm("proposals_dec2006")) {
+	$allowed = false;
+	$Message = "Only the Conference Committee </b> may view this page at this time.  The full conference schedule will be available after November 3rd. .<br/>" ;
+} else {
+	$allowed = true;
+}
 //opening up the bof viewing to all a week before the conference
 $hide_bof_rooms = false;
 
@@ -68,7 +75,7 @@ $conf_sessions = array();
 while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
-$sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.URL, CP.wiki_url," .
+$sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.sub_track, CP.speaker, CP.URL, CP.wiki_url," .
 		"CP.type, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'";
@@ -149,6 +156,8 @@ if ($User && $isAdmin) {
 <?= $Message ?>
 
 
+<?php if ($allowed) {
+	?>
 <div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
 <strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
 Check back closer to the conference for the final schedule, contact <a href="mailto:mmiles@gmail.com">Mary Miles</a> with questions about this schedule.
@@ -331,6 +340,10 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
 						echo "</div>\n";
 					}
+					if($proposal['sub_track']) { 
+						echo "<div class='grid_event_header $trackclass'>" ."(" .$proposal['sub_track'] .")";
+						echo "</div>\n";
+					}
 
 					if($proposal['type']=="BOF") { //don't list the type on the schedule
 						$typeclass = "";
@@ -339,6 +352,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
 						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
+					
 					if ($isAdmin) { //let the admins link to the edit page
 ?>
 						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=1">edit </a>) </div>
@@ -417,6 +431,7 @@ to the right of a session title will take you to a delete confirmation screen.
 </div>
 </div>
 </div>
+<?php } ?>
 <?php } ?>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>
