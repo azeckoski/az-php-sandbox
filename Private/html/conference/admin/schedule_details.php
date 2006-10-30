@@ -141,7 +141,7 @@ $conf_sessions = array();
 while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
-$sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, CP.URL, CP.wiki_url, " .
+$sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.sub_track, CP.speaker, CP.co_speaker, CP.bio, CP.URL, CP.wiki_url, " .
 		"CP.type, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
@@ -397,6 +397,11 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				<td valign=top width="100">
 					<div class='list_event_header <?= $trackclass ?>'>
 						<?= $proposal['track'] ?>
+					<?php		if($proposal['sub_track']) { 
+						echo "<div class='grid_event_header $trackclass'>" ."(" .$proposal['sub_track'] .")";
+						echo "</div>\n";
+					
+				}?>
 					</div>
 					<div style="padding:5px;">
 						<?= $start_date ?>
