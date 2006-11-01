@@ -17,9 +17,6 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
-// login if not autheticated - not required
-require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
-
 // THIS PAGE IS ACCESSIBLE BY ANYONE
 // Make sure user is authorized for admin perms
 $isAdmin = false; // assume user is NOT allowed unless otherwise shown
@@ -30,15 +27,6 @@ if (!$User->checkPerm("admin_conference")) {
 } else {
 	$isAdmin = true;
 	$hide_bof_rooms = false;
-}
-
-// Make sure user is authorized
-$allowed = false; // assume user is NOT allowed unless otherwise shown
-if (!$User->checkPerm("proposals_dec2006")) {
-	$allowed = false;
-	$Message = "Only the Conference Committee </b> may view this page at this time.  The full conference schedule will be available after November 3rd. .<br/>" ;
-} else {
-	$allowed = true;
 }
 
 
@@ -222,7 +210,6 @@ if ($User && $isAdmin) {
 
 <?= $Message ?>
 
-<?php if ($allowed){  ?>
 	
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
@@ -231,7 +218,7 @@ if ($User && $isAdmin) {
 
 <div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
 <strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
-Check back closer to the conference for the final schedule, contact <a href="mailto:wendemm@gmail.com">Wende Morgaine</a> with questions
+Check back closer to the conference for the final schedule, contact <a href="mailto:mmiles@umich.edu">Mary Miles</a> with questions
 </div>
 
 
@@ -474,5 +461,4 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 </table>
 </form>
 
-<?php }  ?>
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>
