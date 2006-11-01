@@ -248,10 +248,9 @@ if ($_POST['save']) {
 		if ($PK) { //this proposal has been edited
 			// update proposal information  --all data except role and topic data
 			$proposal_sql = "UPDATE conf_proposals" .
-			" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
-			" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio' , `layout`='$layout', " .
-			"`length`='$length' , `conflict`='$conflict' ," .
-			" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `wiki_url` ='$wiki_url', `poster`='$num_posters' where pk= '$PK'   ";
+			" set  `title`='$title' , `abstract`='$abstract', " .
+			" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio',"  .
+			" `co_speaker`='$co_speaker' ,  `wiki_url` ='$wiki_url', `poster`='$num_posters' where pk= '$PK'   ";
 
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 			" form submission. Please try to submit the form again. " .
@@ -259,14 +258,18 @@ if ($_POST['save']) {
 			"<a href='mailto:$HELP_EMAIL'>sakaiproject.org webmaster</a>.");
 
 			$msg = "GREEN:Saved changes to $type entitled $title.";
-
+			//TODO
+			//add a cutoff date for editing proposal information such as Topics and Audiences
+			//note:  no longer allowing edits of Topics and Audiences 
+			//this is better handled by an editing cutoff date 
+			
 			//now delete the audiences for this proposal
-			$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
-			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+			//$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
+			//$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
 	
 			//now delete the topics for this proposal
-			$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
-			$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+			//$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
+			//$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
 
 
 			//now update the conf_session table if they selected a timeslot for the BOF
@@ -326,9 +329,6 @@ if ($_POST['save']) {
 
 			}
 			$msg = "GREEN:Created new $type entitled $title.";
-
-		} // finished handling new proposal submission
-
 		// go through all the POST values and add any topics or audience items
 		// to the appropriate tables
 		foreach (array_keys($_POST) as $key) {
@@ -359,6 +359,9 @@ if ($_POST['save']) {
 				}
 		}
 
+		} // finished handling new proposal submission
+
+		
 		// redirect back to the index page
 		header("Location:index.php?msg=$msg");
 	}
@@ -589,7 +592,10 @@ if ($type=="poster") { ?>
 		</td>
 	</tr>
 	   <?php } ?>
-<?php } else { ?>
+<?php } else {
+	if(!$PK)  {  //user is editing so no need to show this info
+	
+ ?>
 <tr>
     <td colspan=2>	
     <div style="padding:5px; border: 1px solid #ffcc33; background:#fff;"><strong><span style="color:#660000;">Please Note:</span></strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
@@ -601,7 +607,8 @@ if ($type=="poster") { ?>
          </div>
     </td>
 </tr>
-<?php } ?>
+<?php }
+	} ?>
 
 <tr>
 	<td valign="top" colspan="2" style="padding:0px;"><div id="requiredMessage"></div>
@@ -654,8 +661,10 @@ if ($type=="poster") { ?>
     </td>
 </tr>
 
-<?php if (($type!="demo") && ($type!="BOF") && ($type!="poster")) {?> 
-<tr>
+<?php if (($type!="demo") && ($type!="BOF") && ($type!="poster")) { 
+if(!$PK)  {  //user is editing so no need to show the description
+?>
+	<tr>
 	<td colspan=2>
 		<img id="descImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>Presentation Description: </strong>( 150 word max.)
 		<br/>This description is used by the program committee for a more in-depth review of your session. <br/>
@@ -664,7 +673,8 @@ if ($type=="poster") { ?>
 		<span id="descMsg"></span>
 	</td>
 </tr>
-<?php } ?>
+<?php }
+} ?>
 
 <?php if ($type == "poster") { ?>
  	<tr>
@@ -739,7 +749,9 @@ if ($type=="poster") { ?>
 		} //bof check
 ?>
 
-<?php if (($type!="demo") && ($type!="BOF") && ($type!="poster")){ ?>
+<?php if (($type!="demo") && ($type!="BOF") && ($type!="poster")){ 
+	if(!$PK)  {  //user is editing so no need to show the rest of this info
+	?>
 <tr>
    <td colspan=2>
      <div id="topicInfo">
@@ -903,7 +915,8 @@ if ($type=="poster") { ?>
 
 <?php
 
-			} else { /* is demo check */
+	}
+	} else { /* is demo check */
 ?>
 	<tr>
         <td >&nbsp;</td>
