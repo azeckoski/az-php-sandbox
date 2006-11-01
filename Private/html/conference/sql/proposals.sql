@@ -27,4 +27,6 @@ ALTER TABLE `conf_proposals` ADD `sub_track` VARCHAR( 30 ) NOT NULL AFTER `track
 //added Pending option
 ALTER TABLE `conf_proposals` CHANGE `approved` `approved` ENUM( 'Y', 'N', 'P' ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'N'
 
+ALTER TABLE `conf_proposals` ADD `email_sent` ENUM( 'Y', 'N' ) NOT NULL DEFAULT 'N'
+
 
