@@ -277,9 +277,10 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 			<label title="Volunteer to convene this session">
 				<input class="filter" type="submit" <?= $disabledC ?> name="C" value="Conv" onClick="setSessions('<?= $conf_proposal['sessions_pk'] ?>');" />
 			</label>
-			<label title="Volunteer to record this session">
+		<!---	<label title="Volunteer to record this session">
 				<input class="filter" type="submit" <?= $disabledR ?> name="R" value="Rec" onClick="setSessions('<?= $conf_proposal['sessions_pk'] ?>');" />
 			</label>
+		-->
 <?php } ?>
 		</td>
 		<td class="small_text">
@@ -327,12 +328,13 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 <li><strong>Timekeeping</strong> - Attempt to start the session they are convening on time.  It is also the responsibility of the Session Convenor to end the session on time.  (It often works well to signal the presenter(s) when they have 5 minutes left and then assertively end the session on time.)</li> 
 <li><strong>Evaluations</strong> - Distribute session evaluations to attendees at the beginning of the session and encourage attendees to put their completed evaluations in the Evaluation Collection Boxes at the door.  The convenor should pick up any completed session evaluations from the box and bring them to the registration table after the session is over.</li> 
 </ul>
+<!--
 <li>Click the <strong>Rec</strong> button to the left of a session volunteer to record it</li>
 <li><strong>Recorder responsibilities</strong></li>
 <ul>
 <li><strong>Recording audio</strong> - Bring their own iPods (or check out an iPod from the registration table if available) and record the entire session.</li> 
 <li><strong>Posting recording</strong> - Immediately following the session, recorders will take their iPod to the registration table and Sakai staff or volunteers will download the session recording and post it to the appropriate session page in confluence.</li>
-</ul>
+</ul>  -->
 <li>Click the <strong>X</strong> button to the left of a session remove yourself as a volunteer for it</li>
 </ul>
 </div>
