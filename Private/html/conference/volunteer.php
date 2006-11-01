@@ -162,9 +162,7 @@ function setSessions(pk) {
 		</td>
 
 		<td nowrap="y">
-			<div style="float:right;">
-				<em>Helpful instructions available at the bottom of this page</em>&nbsp;
-			</div>
+			
 		</td>
 	</tr>
 
@@ -178,15 +176,20 @@ function setSessions(pk) {
 	<?php if($User->pk) { ?>
 		<div class="convenor_user" style='display:inline;'>&nbsp;You are the convenor&nbsp;</div>
 		&nbsp;
-		<div class="recorder_user" style='display:inline;'>&nbsp;You are the recorder&nbsp;</div>
-		&nbsp;
+	<!--	<div class="recorder_user" style='display:inline;'>&nbsp;You are the recorder&nbsp;</div>
+		&nbsp; 
+		 -->
 	<?php } ?>
 		<div class="convenor_exists" style='display:inline;'>&nbsp;Convenor set&nbsp;</div>
 		&nbsp;
-		<div class="recorder_exists" style='display:inline;'>&nbsp;Recorder set&nbsp;</div>
+	<!--<div class="recorder_exists" style='display:inline;'>&nbsp;Recorder set&nbsp;</div>
 		&nbsp;
 		<div class="recorder_convenor_exist" style='display:inline;'>&nbsp;Covenor and Recorder set&nbsp;</div>
 		&nbsp;
+		-->
+		<div style='display:inline;''>
+				&nbsp; &nbsp;<em>Helpful instructions available at the bottom of this page</em>&nbsp;
+			</div>
 	</div>
 </div>
 
@@ -319,7 +322,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 <div class="defheader">How to use the volunteer page</div>
 <div style="padding:3px;">
 <ul style="margin:2px 20px;">
-<li>This page contains a full listing of all sessions that need to be convened or recorded. Sessions are listed by dates in the order they will occur.</li>
+<li>This page contains a full listing of all sessions that need to be convened<!-- or recorded-->. Sessions are listed by dates in the order they will occur.</li>
 <li>You must be logged in to volunteer yourself, if you do not see any buttons on the page then login using the <strong>login</strong> link in the upper right.</li>
 <li>Click the <strong>Conv</strong> button to the left of a session volunteer to convene it</li>
 <li><strong>Convenor responsibilities</strong></li>
