@@ -188,7 +188,7 @@ function setSessions(pk) {
 		&nbsp;
 		-->
 		<div style='display:inline;''>
-				&nbsp; &nbsp;<em>Helpful instructions available at the bottom of this page</em>&nbsp;
+				&nbsp; &nbsp;<a href="http://localhost/conference/volunteer.php#help"><img src="include/images/question_red.png" border="0" width="12" height="12"/><em> Help</em></a>&nbsp;
 			</div>
 	</div>
 </div>
@@ -318,7 +318,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 </form>
 
 <br/>
-<div class="definitions">
+<div class="definitions" id="help">
 <div class="defheader">How to use the volunteer page</div>
 <div style="padding:3px;">
 <ul style="margin:2px 20px;">
