@@ -251,7 +251,7 @@ if ($_POST['save']) {
 			" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
 			" `speaker`='$speaker' , `URL` ='$url', `bio`='$bio' , `layout`='$layout', " .
 			"`length`='$length' , `conflict`='$conflict' ," .
-			" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `wiki_url` ='$wiki_url', `approved`='$approved', `poster`='$num_posters' where pk= '$PK'   ";
+			" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `wiki_url` ='$wiki_url', `poster`='$num_posters' where pk= '$PK'   ";
 
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 			" form submission. Please try to submit the form again. " .
