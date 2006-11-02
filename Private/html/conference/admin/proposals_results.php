@@ -322,6 +322,7 @@ if (!$_REQUEST["export"]) {
 			<option value="discussion">discussion</option>
 			<option value="workshop">workshop</option>
 			<option value="panel">panel</option>
+			<option value="tool carousel">tool carousel</option>
 			<option value="demo">demo</option>
 			<option value="poster">poster</option>
 			<option value="show all types">show all types</option>

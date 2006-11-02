@@ -73,17 +73,40 @@ $special_filter = "";
 $filter_track_sql = "";
 switch ($filter_track){
    	case "Community": $filter_track_sql = " and track='Community' "; break;
-  	case "Faculty": $filter_track_sql = " and track='Faculty' "; break;
+  	case "Pedagogy": $filter_track_sql = " and track='Pedagogy' "; break;
  	case "Implementation": $filter_track_sql = " and track='Implementation' "; break;
- 	case "Technical": $filter_track_sql = " and track='Technical' "; break;
- 	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
- 	case "Tool Overview": $filter_track_sql = " and track='Tool Overview' "; break;
+ 	case "Technology": $filter_track_sql = " and track='Technology' "; break;
+ 	case "Tool Carousel": $filter_track_sql = " and track='Tool Carousel' "; break;
+  	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
  	case "BOF": $filter_track_sql = " and track='BOF' "; break;
- 	case ""; // show all items
+ 	case "Demo": $filter_track_sql = " and track='Demo' "; break;
+	case "Poster": $filter_track_sql = " and track='Poster' "; break;
+		case ""; // show all items
 		$filter_track = $filter_track_default;
 		$filter_track_sql = "";
 		break;
 }
+
+// SubTrack Filter
+$filter_sub_track_default = "show all subtracks";
+$filter_sub_track = "";
+if ($_REQUEST["filter_sub_track"] && (!$_REQUEST["clearall"]) ) { $filter_sub_track = $_REQUEST["filter_sub_track"]; }
+
+$special_filter = "";
+$filter_sub_track_sql = "";
+switch ($filter_sub_track){
+   	case "OSP": $filter_sub_track_sql = " and sub_track='OSP' "; break;
+  	case "Cool Commercial Offerings": $filter_sub_track_sql = " and sub_track='Cool Commercial Offerings' "; break;
+ 	case "User Experience": $filter_sub_track_sql = " and sub_track='User Experience' "; break;
+ 	case "Library": $filter_sub_track_sql = " and sub_track='Library' "; break;
+ 	case "Cool New Tools": $filter_sub_track_sql = " and sub_track='Cool New Tools' "; break;
+ 	
+		case ""; // show all items
+		$filter_sub_track = $filter_sub_track_default;
+		$filter_sub_track_sql = "";
+		break;
+}
+  
   
 
 ?>
@@ -269,21 +292,33 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 		
 		?>
 		
-		<strong>Track:</strong>
+			<strong>Track:</strong>
 		<select name="filter_track" title="Filter the items by track">
 			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
 			<option value="Community">Community</option>
-			<option value="Faculty">Faculty</option>
+			<option value="Pedagogy">Pedagogy</option>
 			<option value="Implementation">Implementation</option>
-			<option value="Technical">Technical</option>
+			<option value="Technology">Technology</option>
+			<option value="Tool Carousel">Tool Carousel</option>
 			<option value="Multiple Audiences">Multiple Audiences</option>
-			<option value="Tool Overview">Tool Overview</option>			
 			<option value="BOF">BOF</option>
-			
-
+			<option value="Demo">Demo</option>
+			<option value="Poster">Poster</option>
 			<option value="show all tracks">show all tracks</option>
 		</select>
 		
+			&nbsp;
+		&nbsp;
+		<strong>SubTrack:</strong>
+		<select name="filter_sub_track" title="Filter the items by subtrack">
+			<option value="<?= $filter_sub_track ?>" selected><?= $filter_sub_track ?></option>
+		<option value="OSP">OSP</option>
+			<option value="Cool Commercial Offerings">Cool Commercial Offerings</option>
+			<option value="User Experience">User Experience</option>
+			<option value="Library">Library</option>
+			<option value="Cool New Tools">Cool New Tools</option>
+			<option value="show all subtracks">show all subtracks</option>
+		</select>
 			&nbsp;
 		
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
