@@ -236,64 +236,12 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 </div>
 
 
-<div style="background:#ECECEC;border:1px solid #ccc;padding:3px;margin-bottom:10px;">
-	<table border=0 cellspacing=0 cellpadding=0 width="100%">
-	<tr>
-	<td nowrap="y">
-	<strong>Filters:</strong>&nbsp;&nbsp;
-	</td>
-	<td nowrap="y" style="font-size:0.9em;">
-	<?php 
-	
-	//TODO  fix the filter by day
-	/*
-	 * 
-	 *	 		<strong>By Day:</strong>
-	 *		<select name="filter_days" title="Filter the items by day">
-	 *			<option value="<?= $filter_days ?>" selected><?= $filter_days ?></option>
-	 *		<option value="Tuesday">Tuesday</option>
-	 *		<option value="Wednesday">Wednesday</option>
-	 *		<option value="Thursday">Thursday</option>
-	 *		<option value="Friday">Friday</option>
-	 *		<option value="show all days">show all days</option>
-	 *	</select>
-	 *		&nbsp;
-	 *	&nbsp;
-	 */
-	 
-		
-		?>
-		
-		<strong>Track:</strong>
-		<select name="filter_track" title="Filter the items by track">
-			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
-			<option value="Community">Community</option>
-			<option value="Faculty">Faculty</option>
-			<option value="Implementation">Implementation</option>
-			<option value="Technical">Technical</option>
-			<option value="Multiple Audiences">Multiple Audiences</option>
-			<option value="Tool Overview">Tool Overview</option>
-			<option value="Technical Demos-Event">Technical Demos-Event</option>
-			<option value="show all tracks">show all tracks</option>
-		</select>
-		
-			&nbsp;
-		
-	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
-		&nbsp;&nbsp;&nbsp;
-		<?= count($conf_proposals) ?> proposals shown &nbsp;&nbsp;&nbsp;
-	
-<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
-       </td>
-	</tr>
-	</table>
-</div>
-
 <table border="0" cellspacing="0" style='font-size:.9em; width:100%;height:100%;'>
 
 <?php
 // create the list
 $line = 0;
+$count_sessions = 0;
 $last_date = 0;
 $conference_day = 0;
 foreach ($timeslots as $timeslot_pk=>$rooms) {
@@ -312,14 +260,6 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			echo "<tr><td style='page-break-before: always;'>&nbsp;</td></tr>\n";
 		}
 
-		// print date header
-		echo "<tr>\n";
-		echo "<td class='list_date_header' nowrap='y' colspan='" .
-				(count($conf_rooms) + 1) . "'>" .
-				"Conference day $conference_day - " .
-				date('l, M j, Y',strtotime($timeslot['start_time'])) .
-				"</td>\n";
-		echo "</tr>\n\n";
 		
 		
 	
@@ -355,7 +295,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
-			
+					$count_sessions++;
 					//clear any previous time set for second timeslot 
 					$start_time2="";
 					  
@@ -370,13 +310,20 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	
 							
 				?>
+				<div style="padding: 5px 10px; border:1px solid #336699; background:#ffcc33;">
+				<strong><?=$count_sessions?></strong>
 				
-				<div style="padding: 20px 10px; border-bottom:1px solid #336699;">
+				</div>
+				<div style="padding: 20px 10px;">
 				<?php 				
-								echo "h2." .$proposal['title'] ."<br/><br/>";   
+				echo "h2." .$proposal['title'] ."<br/><br/>";   
 				
-				echo  $proposal['speaker'] . $proposal['co_speaker'] . "<br/><br/>";   
-				echo $day ."<br/>";
+				echo  "*Speaker(s):* " .$proposal['speaker'];   
+				if ($proposal['co_speaker']) {
+					echo  ", " .$proposal['co_speaker']; 
+				}
+			  
+				echo  "<br/><br/>" ."*Date:* " .$day ." ";
 				if ($counter >1){	 //more than one session in this room block
 								
 					$start_time2=date('g:i a',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
@@ -384,14 +331,14 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					$end_time=date('g:i a',strtotime($timeslot['start_time']) + (($proposal['length'] * 2 +10) *60));
 					}
 				if  ($start_time2) {  //there is a second session so print that start time
-						echo $start_time2 ." - ";
+						echo  $start_time2 ." - ";
 					}
 				else {
 						echo $start_time1 ." - ";
 					}
 					echo $end_time . "<br/>";
 		
-		echo "Room: " .  $conf_room['title'] ." <br/><br/>";
+		echo "*Room:* " .  $conf_room['title'] ." <br/><br/>";
 		
 		echo "h2. Session Abstract <br/><br/>"; 
 		
@@ -404,7 +351,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		
 		echo "h2. Podcasts <br/><br/>";
 		
-		echo "* Session leaders are encouraged to post their podcasts on the main Vancouver Podcasts page (a central repository of podcasts) and may also choose to link to them from their session page.  See the main Vancouver conference wiki page for more details.  <br/><br/>";
+		echo "* Session leaders are encouraged to post their podcasts on the main Atlanta Podcasts page (a central repository of podcasts) and may also choose to link to them from their session page.  See the main Atlanta conference wiki page for more details.  <br/><br/>";
 		
 		
 		
@@ -412,7 +359,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		
 		echo "* Session leaders are also encouraged to appoint a session convener, a podcast recorder and/or a note-taker and post the minutes of their session on a Page (see Add Page link near top-right.)<br/><br/>";
 		
-		echo "* Participants and Session Leaders are encouraged to post Comments (see Comment form below) or create additional Pages as needed to facilitate collaboration (see Add Page link near top-right.) )<br/><br/>";
+		echo "* Participants and Session Leaders are encouraged to post Comments (see Comment form below) or create additional Pages as needed to facilitate collaboration (see Add Page link near top-right.) <br/><br/>";
 		
 		echo "** Child Pages for this session (Added Pages will automatically appear in this list)<br/><br/>";
 		
@@ -432,28 +379,5 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 </table>
 </form>
-
-<?php if($isAdmin) { ?>
-<br/>
-<div class="right">
-<div class="rightheader">How to use the scheduling grid</div>
-<div style="padding:3px;">
-<div style="padding:3px 0px;"><span class="schedule_header">Rooms</span> are shown across the top of the grid, 
-<span class="bof_header">BOF rooms</span> are indicated.</div>
-<div>The numbers in each <span class="event">event cell</span> indicate
-the unused time available in that cell.</div>
-<div>When no more time remains in an event timeslot, the number and + will not be shown.</div>
-<div>
-<li><strong>Adding sessions to the schedule:</strong> Clicking on the 
-<strong><a href="" class="grid" style="font-size:1.1em;">+</a></strong> will take you to 
-a screen with a list of the currently approved proposals.</li>
-<li><strong>Removing sessions form the schedule:</strong> 
-Clicking on the <strong><a href="" class="grid" style="font-size:1.1em;">x</a></strong>
-to the right of a session title will take you to a delete confirmation screen.
-</div>
-</li>
-</div>
-</div>
-<?php } ?>
 
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>
