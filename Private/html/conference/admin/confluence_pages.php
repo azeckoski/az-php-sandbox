@@ -18,18 +18,16 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated - not required
-//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
-// THIS PAGE IS ACCESSIBLE BY ANYONE
-// Make sure user is authorized for admin perms
-$isAdmin = false; // assume user is NOT allowed unless otherwise shown
-$hide_bof_rooms = false; // flag to hide the BOF rooms
+// Make sure user is authorized
+$allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("admin_conference")) {
-	$isAdmin = false;
-	$hide_bof_rooms = true;
+	$allowed = false;
+	$Message = "Only admins with <b>admin_conference</b> may view this page.<br/>" .
+		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
-	$isAdmin = true;
-	$hide_bof_rooms = false;
+	$allowed = true;
 }
 
 // get the passed message if there is one
@@ -197,11 +195,12 @@ function orderBy(newOrder) {
 // -->
 </script>
 <?php 
-if ($User && $isAdmin) {
-	include $TOOL_PATH.'include/admin_header.php';
-} else {
-	echo "</head><body>";
-}
+	// Put in footer and stop the rest of the page from loading if not allowed -AZ
+	if (!$allowed) {
+		echo $Message;
+		include $TOOL_PATH.'include/admin_footer.php';
+		exit;
+	} 
 ?>
 
 <?= $Message ?>
@@ -211,10 +210,7 @@ if ($User && $isAdmin) {
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
 
-<div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
-<strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
-Check back closer to the conference for the final schedule, contact <a href="mailto:wendemm@gmail.com">Wende Morgaine</a> with questions
-</div>
+
 
 
 <div class="filterarea">
