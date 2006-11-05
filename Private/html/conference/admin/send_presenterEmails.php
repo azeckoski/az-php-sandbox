@@ -241,7 +241,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 				$total_length += $proposal['length'];
 				
-			if ($proposal['email']=="shardin@umich.edu")  {
+			if ($proposal['pk']=="550")  {
 			
 				//formatting stuff here
 				$line++;		
@@ -302,19 +302,25 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			<?php 	
 			//the variables are from the old code and will need to be changed
 	$msg ="Incorrect contact information was sent with the previous email regarding your presentation at the upcoming Sakai Atlanta Conference- correct details are below:\r\n\r\n";
-		$msg.= "If you have questions regarding your presentation, please contact Mary Miles at mmiles@umich.edu. \r\n\r\n";
-	$msg.="------------------------------------\r\n\r\n";
-		
+	
+	$msg.= "If you have questions regarding your presentation, please contact Mary Miles at mmiles@umich.edu. \r\n\r\n";
 
+	$msg.="----------Important Reminders ---------\r\n";
+	$msg.="The conference hotel discount rate ends June 6th. Reserve your hotel room now - see http://sakaiproject.org/conference/hotel.html \r\n\r\n";
+	
+	$msg.="Have you registered for the conference?  If not, please do so now at  http://sakaiproject.org/conference/register.html \r\n\r\n";
+	$msg.="The full conference schedule is available at https://sakaiproject.org/conference/admin/schedule.php. \r\n\r\n";
+	$msg.="---------Your Session Information-----------\r\n\r\n";
+		
 	$msg.="Title: " . $proposal['title'] ."\r\n";
 	$msg.="Speaker: " . $proposal['speaker'] ."\r\n";
 	$msg.="Scheduled for: " . $current_date . ": " .date('g:i a',strtotime($timeslot['start_time']))."\r\n";
 	$msg.="Session Length: " . $proposal['length'] ." minutes"."\r\n";
 	$msg.="Session Type: " . $proposal['type']."\r\n";
 	$msg.="Track: " . $proposal['track']."\r\n\r\n";
-	$msg.="------------------------------------\r\n";
 	
-$msg.="A wiki page for your session has been created on the Sakai Atlanta conference confluence site at http://bugs.sakaiproject.org/confluence/display/CONF06/Conference+Sessions. We strongly encourage you to begin adding presentation material and other information regarding your session to your wiki page as soon as possible. The full conference schedule is available at https://sakaiproject.org/conference/admin/schedule.php.\r\n\r\n";
+	$msg.="A wiki page for your session has been created on the Sakai Atlanta conference confluence site at http://bugs.sakaiproject.org/confluence/display/CONF06/Conference+Sessions. We strongly encourage you to begin adding presentation material and other information regarding your session to your wiki page as soon as possible. \r\n\r\n";
+
 	$msg.="\r\nThank You\r\n\r\n    Mary Miles \r\n Sakai Conference Coordinator\r\n";
 	 	
 	$this_email=$proposal['email'];
