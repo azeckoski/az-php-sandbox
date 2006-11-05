@@ -241,7 +241,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 				$total_length += $proposal['length'];
 				
-			if ($proposal['pk']=="550")  {
+		
 			
 				//formatting stuff here
 				$line++;		
@@ -299,17 +299,18 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						<input type="hidden" name="Proposals_email[]" value="<?= $proposal['email'] ?>"/>
 						</td>
 			</tr>
+			<tr><td colspan=6>
 			<?php 	
 			//the variables are from the old code and will need to be changed
 	$msg ="Incorrect contact information was sent with the previous email regarding your presentation at the upcoming Sakai Atlanta Conference- correct details are below:\r\n\r\n";
 	
 	$msg.= "If you have questions regarding your presentation, please contact Mary Miles at mmiles@umich.edu. \r\n\r\n";
 
-	$msg.="----------Important Reminders ---------\r\n";
-	$msg.="The conference hotel discount rate ends June 6th. Reserve your hotel room now - see http://sakaiproject.org/conference/hotel.html \r\n\r\n";
+	$msg.="----------Important Reminders ---------\r\n\r\n";
+	$msg.="- The conference hotel discount rate ends June 6th. Reserve your hotel room now. See http://sakaiproject.org/conference/hotel.html \r\n\r\n";
 	
-	$msg.="Have you registered for the conference?  If not, please do so now at  http://sakaiproject.org/conference/register.html \r\n\r\n";
-	$msg.="The full conference schedule is available at https://sakaiproject.org/conference/admin/schedule.php. \r\n\r\n";
+	$msg.="- Have you registered for the conference?  If not, please do so now at http://sakaiproject.org/conference/register.html \r\n\r\n";
+	$msg.="- The full conference schedule is available at https://sakaiproject.org/conference/admin/schedule.php. \r\n\r\n\r\n";
 	$msg.="---------Your Session Information-----------\r\n\r\n";
 		
 	$msg.="Title: " . $proposal['title'] ."\r\n";
@@ -341,7 +342,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		$recipient = $this_email;
 		$subject= "Correction: Your Sakai Conference Presentation schedule";
 		//send the mail to attendee
-		mail($recipient, $subject, $msg, $headers);
+		@mail($recipient, $subject, $msg, $headers);
 		
 				
 		//set up mail for susan
@@ -354,10 +355,10 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		$recipient = "shardin@umich.edu";
 		$subject= "Copy-Correction:  Your Sakai Conference Presentation schedule";
 		//send the mail to attendee
-		mail($recipient, $subject, $msg, $headers);
+		@mail($recipient, $subject, $msg, $headers);
 
 		echo $this_email ."<br/><br/>";
-		echo $msg ."<br/><br/>";	}
+		echo $msg ."<br/><br/>";	
 			}  //end foreach session 
 	
 		}  //end room array check
@@ -366,7 +367,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	}  
 } //end foreach timeslot check 
 ?>
-
+</td></tr>
 <tr>
 
 <td colspan="2"><input type="submit" value="Check All"/>
