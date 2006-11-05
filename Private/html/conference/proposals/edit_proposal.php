@@ -524,12 +524,12 @@ if ($type=="poster") { ?>
     		<div><strong>Birds of a Feather (BOF) session </strong></div>
     		<div style="padding:0px 10px;">
 					BOFs may take place at any time during the conference. 
-					We have a group of rooms and timeslots which you may choose from. 
+					We have a limited group of rooms and timeslots which you may choose from. 
 					 When rooms are filled, we will do our best to locate 
 					'community areas' within the hotel where you may gather for impromptu BOFS.   <br/><br />
-					We encourage you to create your BOF wiki pages in our <a href="http://bugs.sakaiproject.org/confluence/display/Conf2006Vancouver/Birds+of+a+Feather+BOF+meetings">Conference Wiki</a> 
-					then enter wiki page's URL into this form so we can easily link to your BOF page.' 
-					[<a href="http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=178&Itemid=524" target=blank>more information</a>]
+					We encourage you to create your BOF wiki pages in our <a href="http://bugs.sakaiproject.org/confluence/display/CONF06/BOF+-Birds+of+a+Feather+meetings" target=blank>Conference Wiki</a> 
+					then enter wiki page's URL into this form so we can easily link to your BOF page from our main schedule. <br/><br/>
+					[<a href="http://www.sakaiproject.org/conference/bof.html" target=blank>more information on BOF sessions</a>]
 				</div>
 			
     </td>

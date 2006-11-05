@@ -134,7 +134,12 @@ if ($_POST['save']) { // saving the form
 				 	Technical Demonstrations on Thursday evening, December 7th.  <br/><br/> 
 				
 			</div>
-				
+							<div> <input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><span style="color:red"><strong>&nbsp;&nbsp; NEW! </strong></span><br/>
+				<div style="padding: 0px 40px;">
+					BOFs are self-formed meetings set up by any conference attendee to discuss a Sakai-related topic during the conference. BOFs may take place during the main conference sessions, as well as before or after the normal conference scheduled session - based on room availablity.
+				<br/><br/>
+				</div>
+			</div>
 				
 				<div><input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />&nbsp;&nbsp;<strong>Technology Demo</strong><br/>
 					<div style="padding: 0px 40px;">
@@ -161,13 +166,7 @@ if ($_POST['save']) { // saving the form
 				<br/><br/>
 				</div>
 			</div>
-				<div><!-- <input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  --> &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><br/>
-				<div style="padding: 0px 40px;">
-					BOF proposals will be accepted in mid-November, after the main schedule is published. 
-					BOFs are self-formed meetings set up by any conference attendee to discuss a Sakai-related topic during the conference. BOFs may take place during the main conference sessions, as well as before or after the normal conference scheduled session - based on room availablity.
-				[<a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=419&Itemid=569" target=blank>more information</a>]<br/><br/>
-				</div>
-			</div>
+	
 	        
 			
 		</td>
