@@ -544,7 +544,7 @@ if ($type=="poster") { ?>
        Please select the room that has a capacity which best matches
       your expected BOF group size. Contact Mary Miles at mmiles@sakaifoundation.org 
       if you cannot find a timeslot or room that fits your group's needs.<br/><br/>
-      <strong>NOTE:  You may submit this form without selecting a timeslot.  You may return later and select from the available rooms. <br/>
+      <strong>NOTE:   </strong>You may submit this form without selecting a timeslot.  You may return later and select from the available rooms.<br/>
       </div>
  		<div align=center><br/>
  		<?php
