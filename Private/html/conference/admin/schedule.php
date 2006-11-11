@@ -20,6 +20,9 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 // login if not autheticated - not required
 //require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
+//comment testing strange behavior in updating on live server
+
+
 // THIS PAGE IS ACCESSIBLE BY ANYONE
 // Make sure user is authorized for admin perms
 $isAdmin = false; // assume user is NOT allowed unless otherwise shown
