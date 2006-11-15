@@ -712,7 +712,7 @@ if ($PK) {
 <?php if (($type!="demo")  && ($type!="poster")){ ?>
 <tr>
     <td><strong>Wiki page URL </strong></td>
-    <td>http://www.example.com<br/><input type="text" name="wiki_url" size="35" value="<?= $_POST['wiki_url']  ?>" maxlength="100" /></td>
+    <td>http://www.example.com<br/><input type="text" name="wiki_url" size="35" value="<?= $_POST['wiki_url']  ?>" maxlength="300" /></td>
 </tr>
 <?php } ?>
 
