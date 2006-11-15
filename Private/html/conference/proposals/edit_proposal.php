@@ -545,7 +545,7 @@ if ($type=="poster") { ?>
       your expected BOF group size. Contact Mary Miles at mmiles@sakaifoundation.org 
       if you cannot find a timeslot or room that fits your group's needs.<br/><br/>
       <strong>NOTE:   </strong>You may submit this form without selecting a timeslot.  You may return later and select from the available rooms.<br/>
-      </div>
+<br/><strong>Special Timeslot: </strong> Thursday, December 7th from 4:30 -5:30 pm.  <br/> These 60 minute blocks must be scheduled manually by our staff.  To reserve a BOF meeting room during this timeslot, please contact shardin@umich.edu.        </div>
  		<div align=center><br/>
  		<?php
 
@@ -742,7 +742,7 @@ if(!$PK)  {  //user is editing so no need to show the description
 	
 <tr>
     <td><strong>BOF wiki page URL </strong></td>
-    <td>http://www.example.com<br/><input type="text" name="wiki_url" size="35" value="<?= $_POST['wiki_url']  ?>" maxlength="100" /></td>
+    <td>http://www.example.com<br/><input type="text" name="wiki_url" size="" value="<?= $_POST['wiki_url']  ?>" maxlength="255" /></td>
 </tr>
 
 <?php
