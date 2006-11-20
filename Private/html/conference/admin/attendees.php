@@ -103,7 +103,10 @@ if ($page > $total_pages) { $page = $total_pages; }
 if ($page <= 0) { $page = 1; }
 
 $limitvalue = $page * $num_limit - ($num_limit);
-$mysql_limit = " LIMIT $limitvalue, $num_limit";
+
+// we only want to limit the number of rows if we're not doing an export
+if ($_REQUEST["export"]) {	$mysql_limit = "";	}
+else {	$mysql_limit = " LIMIT $limitvalue, $num_limit"; }
 
 $start_item = $limitvalue + 1;
 $end_item = $limitvalue + $num_limit;
