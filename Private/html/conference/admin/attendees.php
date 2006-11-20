@@ -81,11 +81,16 @@ $total_items = $row[0];
 
 // pagination control
 $num_limit = 25;
-if ($_REQUEST["num_limit"]) { $num_limit = $_REQUEST["num_limit"]; }
-if ($_REQUEST["show_all"]) { $num_limit = $total_items; }
+if ($_REQUEST["num_limit"] == "All") { 
+	$num_limit = $total_items;  
+	$total_pages = 1;
+}
+else { 
+	$num_limit = $_REQUEST["num_limit"];
+	if ($num_limit <= 0) { $num_limit = 1; }
+	$total_pages = ceil($total_items / $num_limit);
+}
 
-if ($num_limit <= 0) { $num_limit = 1; } // for division by zero
-$total_pages = ceil($total_items / $num_limit);
 
 $page = 1;
 $PAGE = $_REQUEST["page"];
@@ -249,9 +254,10 @@ function doConfirm(item, type, action) {
 	<tr>
 		<td nowrap="y" ><strong style="font-size:1.1em;">Paging:</strong></td>
 		<td nowrap="y">
-<?php if ($_REQUEST["show_all"]) { ?>
+<?php if ($_REQUEST["num_limit"] == "All") { ?>
+		<input type="hidden" name="num_limit" value="All"/>
 		<span class="keytext">
-			Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
+			Displaying all <?= $total_items ?> items
 			</span>&nbsp;&nbsp;
 				<strong>Show </strong> <input class="filter" type="submit" name="num_limit" value="25" /> per page
 <?php } else {  ?>
@@ -264,7 +270,7 @@ function doConfirm(item, type, action) {
 			<span class="keytext">&nbsp;-&nbsp;
 			Displaying <?= $start_item ?> - <?= $end_item ?> of <?= $total_items ?> items (<?= $items_displayed ?> shown)
 			</span>&nbsp;&nbsp;
-		<strong>Show </strong> 	<input class="filter" type="submit" name="show_all" value="All" />
+		<strong>Show </strong> 	<input class="filter" type="submit" name="num_limit" value="All" />
 <?php } ?>
 		</td>
 	
