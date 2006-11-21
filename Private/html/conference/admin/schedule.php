@@ -71,7 +71,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.sub_track, CP.speaker, CP.co_speaker, CP.URL, CP.wiki_url," .
 		"CP.type, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
-		"where CP.confID = '$CONF_ID'";
+		"where CP.confID = '$CONF_ID' and CP.approved='Y'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $conf_proposals = array();
 while($row=mysql_fetch_assoc($result)) { $conf_proposals[$row['pk']] = $row; }
