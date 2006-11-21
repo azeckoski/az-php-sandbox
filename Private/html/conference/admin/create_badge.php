@@ -101,7 +101,7 @@ if (isset($USERS_PK) && is_array($USERS_PK)) {
 			"R2.role_name as SECONDARY_ROLE, " .
 			"R2.color as SECONDARY_COLOR " .
 			"from users U " .
-			"join conferences C on C.users_pk=U.pk and C.activated='Y' ".
+			"join conferences C on C.users_pk=U.pk and C.activated='Y' and C.confID = '$CONF_ID' ".
 			"left join roles R1 on R1.role_name=U.primaryRole " .
 			"left join roles R2 on R2.role_name=U.secondaryRole " .
 			$where_clause .
