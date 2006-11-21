@@ -60,10 +60,14 @@ $badge_height             = 216;
 $base_width               = round(($badge_width-($margin*2))/12);
 $base_height			  = round(($badge_height-($margin*2))/12);
 
-$logo_file		          = "../../accounts/include/images/sakai-logo-6inch.png";
+// Vancouver logo
+//$logo_file		          = "../../accounts/include/images/sakai-logo-6inch.png";
+
+// Atlanta logo
+$logo_file		          = "../../accounts/include/images/atlantaBadgeLogo.png";
+
 $logo_width               = 72;
 $logo_height              = 72;
-
 
 /* one or more PKs for badges pulled from the database */
 $USERS_PK      = $_REQUEST["USERS_PK"];
