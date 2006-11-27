@@ -108,45 +108,14 @@ $CSS_FILE2 = $TOOL_URL."/include/print_schedule.css";
 $DATE_FORMAT = "M d, Y h:i A";
 
 
-// set header links
-$EXTRA_LINKS = 
-	"<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin:</a> " .
-	"<a href='attendees.php'>Attendees</a> - " .
-	"<a href='proposals.php'>Proposals</a> - " .
-	"<a href='check_in.php'>Check In</a> - " .
-	"<a href='schedule.php'><strong>Schedule</strong></a> " .
-		"(<em>" .
-		"<a href='schedule.php'>Table</a>, " .
-		"<a href='schedule_details.php'>List</a>" .
-		"</em>) - " .
-	"<a href='volunteers.php'>Volunteers</a> " .
-	"</span>";
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
-<script type="text/javascript">
-<!--
-function orderBy(newOrder) {
-	if (document.adminform.sortorder.value == newOrder) {
-		document.adminform.sortorder.value = newOrder + " desc";
-	} else {
-		document.adminform.sortorder.value = newOrder;
-	}
-	document.adminform.submit();
-	return false;
-}
-// -->
-</script>
+
 <?php 
-if ($User && $isAdmin) {
-	include $TOOL_PATH.'include/admin_header.php';
-} else {
 	echo "</head><body>";
-}
+
 ?>
-
-
 
 
 <table border="0" cellspacing="0" cellpadding="2" style='width:100%;height:100%;'>
@@ -166,7 +135,29 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	if ($line == 1 || $current_date != $last_date) {
 		// next date
 		$conference_day++;
-
+ if ($conference_day ==1) {
+				   		
+	echo "<tr><td colspan=10 align=center valign=top>" .
+			"<div style='border: 1px solid #ccc; padding: 10px 0px;'> " .
+			"<div class='page'>" .
+			"<div class='pageheader'>" .
+			"<img style='padding:0px 30px;' src='../../../accounts/include/images/atlantaBadgeLogo.png' height=70 align=left  alt='' /> <strong>6th Sakai Conference with OSPI " .
+		"Atlanta, Georgia, December 5-8, 2006</strong><br/><br/></div>" .
+		"<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
+			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
+			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
+			"<span><img src='../include/images/coolCommercialToolicon.gif' alt='' height=16 /> - Cool Commercial Tool </span>" .
+			"<span><img src='../include/images/people_icon.jpg' alt='' height=17/> - User Experience </span>" .
+				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
+				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span>" .
+				"<span class='community'>Community</span><span class='multiple_audiences'>Multiple Audiences</span>" .
+				"<span class='implementation'>Implementation</span><span class='tool_carousel'>Tool Carousel</span>" .
+				"<span class='pedagogy'>Pedagogy</span></div>" .
+				"</div>" .
+				"</div></div>" .
+		" </td></tr>";
+						
+				   }
 		// create a blank line if after first one
 		if ($line > 1) {
 			echo "<tr><td style='page-break-before: always;'>&nbsp;</td></tr>\n";
@@ -256,7 +247,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		    <?php
 		    //this is a rooms timeslot'
 			// TODO - try to get the sessions to fill the cells
-			echo "<td valign='top' class='grid'>";	
+			echo "<td  class='grid'>";	
 			
 					
 		   // try tables instead of divs
@@ -280,7 +271,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				
 					$total_length += $proposal['length'];
                      if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
-                     	
+                     
+if ($proposal['type']=='BOF') { continue; }	
 					//echo "<div class='grid_event'>";
 					
 					if ($counter >1){	 //more than one session in this room block
@@ -290,21 +282,22 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 					//print the break block	
 ?>
-				<tr>
-					<td valign='top'>
-					<div  style="padding:0px 0px;" ><hr/>
-					</div>	</td>
-				</tr>
+				
 <?php
 					}
 					
-				
+				  
 					if ($total_length=='90') {
+						if ($conference_day==1){
+						echo "<tr><td  class='grid_event_longDay1'>'";
+					
+					} else {
 						
-					echo "<tr><td valign='top' class='grid_event_long' ; >'";
+					echo "<tr><td  class='grid_event_long'>'";
+						}
 						
 					} else {
-					echo "<tr><td valign='top' class='grid_event_short'>";
+					echo "<tr><td  class='grid_event_short'>";
 					}
 					?>
 					<?php
@@ -320,39 +313,68 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					if($proposal['track']) { 
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
+					
+					
 						echo "</div>\n";
 					}
-				//	if($proposal['sub_track']) { 
-				//		echo "<div class='grid_event_header'>" ."(" .$proposal['sub_track'] .")";
-				//		echo "</div>\n";
-				//	}
 
 					if($proposal['type']=="BOF") { //don't list the type on the schedule
 						$typeclass = "";
 					} else if($proposal['type']) {
 					 	$typeclass = "";
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
-						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
-					}
-					
-					if ($isAdmin) { //let the admins link to the edit page
-?>
-						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=1">edit </a>) </div>
-<?php 
+							echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
+						}
+					else {
+							echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 						
 					}
-
+					if ($conference_day ==1) {
+						echo "<div class='grid_event_textDay1 $typeclass'>";
+					
+					} else {
+						
+					
 					echo "<div class='grid_event_text $typeclass'>";
+					}
 					echo "<label title=\"".str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">";
 					
+					if($proposal['sub_track']) { 
+						//echo "<br/> (" .$proposal['sub_track'] .")";
+						$image_file="";
+						switch ($proposal['sub_track']) {
+							case "OSP": $image_file = "ospiNEWicon.jpg' width=14"; break;
+							case "Cool New Tools": $image_file = "coolToolicon.gif' height=14 width=14"; break;
+							case "Cool Commercial Offerings": $image_file = "coolCommercialToolicon.gif' height=14 width=14"; break;
+							case "User Experience": $image_file = "people_Icon.jpg' height=14 width=14 "; break;
+							case "Library": $image_file = "book06.gif' height=14 width=14"; break;
+							
+	}
+						echo "<img style='padding: 0px 0px 10px 0px;' src='../include/images/" .$image_file ." align='left' alt=''/>";
+						
+					}
 						echo "<strong>"  .htmlspecialchars($proposal['title']) . "</strong>";
 					
 					echo "</label>";
 
-					if ($isAdmin) {
-						echo "&nbsp;<a href='delete_session.php?pk=".$session_pk ."&amp;type=" .$proposal['type'] ." '>x</a>";
-					}
+					
 					echo "</div>\n";
+					
+					
+					 if ($conference_day ==1) {
+					 	if($proposal['speaker']) {
+						echo "<div class='grid_event_speakerDay1'>".
+							htmlspecialchars($proposal['speaker']);
+					
+					if ($proposal['co_speaker']) {
+						echo ", ". htmlspecialchars($proposal['co_speaker']);
+						
+					} 
+					echo "</div>";
+					
+				}
+					 }
+					 else {
 
 					if($proposal['speaker']) {
 						echo "<div class='grid_event_speaker'>".
@@ -365,6 +387,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					echo "</div>";
 					
 				}
+					 }
 				 
                      }
 					
@@ -395,5 +418,4 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 ?>
 
 </table>
-
-<?php include $TOOL_PATH.'include/admin_footer.php'; ?>
+</body></html>

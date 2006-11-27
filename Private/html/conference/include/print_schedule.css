@@ -10,9 +10,13 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 */
 
 html,body {
+font-size:.9em;
+margin:0;
+padding:0;
 }
 
 tr,td {
+
 	
 }
 
@@ -58,42 +62,50 @@ tr,td {
 .time {
 	color: darkgreen;
 	background: white;
-	font-size: .8em;
+	font-size: .9em;
 	text-align: left;
 	font-weight: normal;
 	padding-left: 10px;
 	border-bottom: 1px dotted black;
+	
+	
 }
 .grid {
 	vertical-align: top;
 	text-align: center;
 	border:.0em solid #666;
 	padding:0px;
+	background:#ffcc33;
 	
 }
 
 
 .grid_event{
-	font-size: .7em;
 	color:#111; 
 	font-weight:normal;
 	
-	width:170px;
+	font-size: .9em;
+	width:220px;
 	padding:0px;
-	background:#fff;
 	
 }
 
-.grid_event_long{
+.grid_event_long {
 	font-size: .7em;
 	color:#111; 
 	font-weight:normal;
 	width:220px;
 	background:#fff;
-	
 	border:1px solid #666666;
-	border-bottom:0px;
-	padding:1px;
+	padding-bottom: 90px;
+}
+.grid_event_longDay1{
+font-size: .7em;
+	color:#111; 
+	font-weight:normal;
+	width:220px;
+	background:#fff;
+	border:1px solid #666666;
 }
 .grid_event_short{
 	font-size: .7em;
@@ -106,50 +118,117 @@ tr,td {
 }
 .grid_event_break{
 height:10px;	
-border: 2px solid #666666;
-
+border: 1px solid #666666;
+font-size: .9em;
 	
 }
 .grid_event_header {
-	font-size: 1.1em;
+	font-size: 1em;
 	font-weight: bold;
 	background-color: #339933;
 	color: white;
 	padding-top:2px;
 	
-	height:20px;
+	height:1.3em;
 	
 }
 
 .grid_event_type {
-	font-size: 1em;
 	font-weight: normal;
 	font-style: italic;
 	border-bottom: 1px dashed black;
 	
 }
 
-.grid_event_text {
-	padding: 4px;
-	height: 40px;
+.grid_event_text, .grid_event_textDay1 {
+	padding: 2px 2px;
+	height: 35px;
 }
 
-.grid_event_speaker {
+.grid_event_long .grid_event_text {
+	padding: 2px 1px;
+	height: 45px;
+}
+
+
+.grid_event_textDay1 {
+	height: 19px;
+}
+
+.grid_event_speaker, .grid_event_speakerDay1 {
 	border-top: 0px dotted #AAAAAA;
 	font-style: italic;
 	background: white;
 	padding:4px;
 	
-	height:30px;
+	height:40px;
+}
+
+.grid_event_long .grid_event_speaker {
+	border-top: 0px dotted #AAAAAA;
+	font-style: italic;
+	background: white;
+	padding:4px;
+	
+	height:60px;
+}
+
+.grid_event_speakerDay1 {
+	height:21px;
+}
+
+.page {
+width:100%;
+page-break-after:always;
+padding:5px 0px;
+}
+
+.pageheader{
+font-size:1.2em;
+padding:0px;
+padding-left: 5px;
+}
+
+.program_legend{
+font-size:.75em;
+}
+
+.program_legend div{
+padding: 0px 5px 4px 0px;
+
+}
+.graphic_legend, .color_legend {
+padding:0px 5px;
+
 }
 
 
+.graphic_legend span  {
+padding: 0px 5px;
+}
+.color_legend span {
+margin-left: 10px;
+padding: 0px 5px;
+color: #fff;
+border: 1px solid #666;
+}
+
+.column {
+float:left;
+padding:0px 5px;
+border-left:1px dotted #ccc;
+width:19%;
+
+border-right:1px dotted #ccc;
+}
+
 .list {
-	vertical-align: top;
 	text-align: left;
-	padding: 0px;
+	padding: 0px 0px ;
 	font-style:normal;
-	font-size: 1em;
+	font-size: .8em;
+	width:100%;
+	height:148px;
 }
 
 .list_date_header {
@@ -166,43 +245,48 @@ border: 2px solid #666666;
 }
 
 .list_event_header {
+
 	font-size: 1em;
 	font-weight: bold;
 	background-color: #339933;
 	color: white;
 	padding: 2px;
 	height:20px;
+	
+	
 }
 
 .list_event_type {
-	font-weight: normal;
+	font-size: 1em;
+	font-weight: bold;
 	font-style: normal;
-	border-top: 1px dotted #AAAAAA;
+	padding:2px 3px;
+	color:#fff;
+	border: 1px solid #000000;
+	
 }
 
 .list_event_text {
-	vertical-align: top;
 	color:#000;
-	padding:5px 5px;
-	border-top: 1px dotted #AAAAAA;
+	padding:2px 3px;
+	
+	
 }
 
 .list_event_speaker {
-	border-top: 1px dotted #AAAAAA;
 	font-style: normal;
 	background: white;
-	padding:3px 3px;
+	padding:5px 5px;
 }
 
 
 .list_time, .list_room {
-	border-top: 1px dotted #AAAAAA;
 	color: darkgreen;
 	background: white;
 	font-size: 1em;
-	text-align: left;
+	text-align: center;
 	font-weight: normal;
-	padding:5px 10px;
+	padding:3px 0px 3px 0px;
 }
 .list_room {
 	color: #333;
@@ -250,12 +334,10 @@ border: 2px solid #666666;
 .tool_overview {
 	background: #339999;
 	
-	height:25px;
 }
 
 .multiple_audiences {
 	background: #993399;
-	height:20px;
 }
 
 
@@ -293,16 +375,16 @@ border: 2px solid #666666;
 
 .session_date {
 	text-align: center;
-	font-size: .8em;
+	font-size: .6em;
 }
 
 .small_text {
-	font-size: .8em;
+	font-size: .6em;
 }
 
 .small_centered {
 	text-align: center;
-	font-size: .8em;
+	font-size: .6em;
 }
 
 .message {
@@ -340,40 +422,41 @@ border: 2px solid #666666;
 	background:#FFCCFF; 
 	color:#000;
 	
-	font-size:.9em
+	font-size:.9em;
 }
 
 .break {
 	background:#CCCCFF; 
 	color:#000;
 	
-	font-size:.9em
+	font-size:.9em;
 }
 .short_break {
 
 background:#CCCCFF; 
 	color:#000;
 	
-	font-size:.7em
+	font-size:.8em;
 }
 .keynote {
 	background:yellow; 
 	color:#000;
 	
-	font-size:.9em
+	font-size:.9em;
 }
 
 .closed {
 	background:#666;
 	
-	font-size:.9em
+	font-size:.9em;
 }
 
 .coffee {
 	background:tan;
 	color: #000;
+	font-size:.9em;
 	
-	font-size:.9em
+	
 }
 
 .convenor_exists {
