@@ -345,13 +345,22 @@ if ($proposal['type']=='BOF') { continue; }
 		$trackclass = str_replace(" ","_",strtolower($proposal['track']));
 		$count++;
 if ($count==1)  {
-echo "<div class='page'><div class='pageheader'><strong>Sakai Atlanta Conference Session Details</strong><span class=list_legend> ( Page $page )</span><br/>" .
-			"<span class='list_legend'><strong>Special Interest: </strong>" .
+	
+	
+echo "<div class='page'><div class='pageheader'><strong>Sakai Atlanta Conference Session Details</strong><span class=program_legend> ( Page $page )</span>" .
+			"" ;
+	if ($page==1) {
+		
+			echo "<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
 			"<span><img src='../include/images/coolCommercialToolicon.gif' alt='' height=16 /> - Cool Commercial Tool </span>" .
 			"<span><img src='../include/images/people_icon.jpg' alt='' height=17/> - User Experience </span>" .
-				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></span></div>" ;
+				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
+				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span><span class='community'>Community</span>" .
+				"<span class='multiple_audiences'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='tool_carousel'>Tool Carousel</span><span class='pedagogy'>Pedagogy</span></div></div>" ;
+		} 
+echo "</div>";
 
 } 
  if (($count==1) || ($count==6)|| ($count==11)   ){
@@ -396,7 +405,7 @@ echo "<div class=list>";
 						<?= htmlspecialchars($proposal['speaker']); ?>
 <?php
 				if (trim($proposal['co_speaker'])) {
-					echo " with " . htmlspecialchars(trim($proposal['co_speaker']));
+					echo ", " . htmlspecialchars(trim($proposal['co_speaker']));
 				}
 
 				
@@ -428,6 +437,6 @@ echo "<div class=list>";
 }
 ?>
 	</div>
-	</div></div><div><strong>LEGEND</strong></div>
+	</div></div>
 	</body>
 </html>
