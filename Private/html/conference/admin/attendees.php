@@ -119,7 +119,7 @@ if ($end_item > $total_items) { $end_item = $total_items; }
 
 // the main fetching query
 $sql = "select U1.username, U1.firstname, U1.lastname, U1.email, " .
-		"U1.primaryRole, U1.institution, U1.institution_pk, C1.* " .
+		"U1.primaryRole, U1.institution, U1.institution_pk, U1.address, U1.city, U1.state, U1.zipcode, U1.country,  U1.phone,  C1.* " .
 	$from_sql . $sqlsearch . $filter_roles_sql . $sqlsorting . $mysql_limit;
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
