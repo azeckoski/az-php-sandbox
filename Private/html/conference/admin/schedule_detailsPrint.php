@@ -331,6 +331,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 if ( $conf_proposal['pk']==$proposal['pk']) {
 	
 	
+if ($proposal['type']=='BOF') { continue; }
 
 		
 
