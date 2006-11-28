@@ -205,7 +205,7 @@ $special_filter = "";
 $filter_sub_track_sql = "";
 switch ($filter_sub_track){
    	case "OSP": $filter_sub_track_sql = " and sub_track='OSP' "; break;
-  	case "Cool Commercial Offerings": $filter_sub_track_sql = " and sub_track='Cool Commercial Offerings' "; break;
+  	case "Cool Commercial Tool": $filter_sub_track_sql = " and sub_track='Cool Commercial Tool' "; break;
  	case "User Experience": $filter_sub_track_sql = " and sub_track='User Experience' "; break;
  	case "Library": $filter_sub_track_sql = " and sub_track='Library' "; break;
  	case "Cool New Tools": $filter_sub_track_sql = " and sub_track='Cool New Tools' "; break;
@@ -350,7 +350,7 @@ if (!$_REQUEST["export"]) {
 		<select name="filter_sub_track" title="Filter the items by subtrack">
 			<option value="<?= $filter_sub_track ?>" selected><?= $filter_sub_track ?></option>
 		<option value="OSP">OSP</option>
-			<option value="Cool Commercial Offerings">Cool Commercial Offerings</option>
+			<option value="Cool Commercial Tool">Cool Commercial Tool</option>
 			<option value="User Experience">User Experience</option>
 			<option value="Library">Library</option>
 			<option value="Cool New Tools">Cool New Tools</option>

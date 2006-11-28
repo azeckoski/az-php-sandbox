@@ -96,7 +96,7 @@ $special_filter = "";
 $filter_sub_track_sql = "";
 switch ($filter_sub_track){
    	case "OSP": $filter_sub_track_sql = " and sub_track='OSP' "; break;
-  	case "Cool Commercial Offerings": $filter_sub_track_sql = " and sub_track='Cool Commercial Offerings' "; break;
+  	case "Cool Commercial Tool": $filter_sub_track_sql = " and sub_track='Cool Commercial Tool' "; break;
  	case "User Experience": $filter_sub_track_sql = " and sub_track='User Experience' "; break;
  	case "Library": $filter_sub_track_sql = " and sub_track='Library' "; break;
  	case "Cool New Tools": $filter_sub_track_sql = " and sub_track='Cool New Tools' "; break;
@@ -153,7 +153,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.sub_track, CP.speaker, CP.co_speaker, CP.bio, CP.URL, CP.wiki_url, " .
-		"CP.type, CP.length from conf_proposals CP " .
+		"CP.type, CP.length, CP.print from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql .  $filter_days_sql . $filter_track_sql.  "order by CP.title" . $mysql_limit;
@@ -261,18 +261,6 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		// next date
 		$conference_day++;
 
-		// create a blank line if after first one
-		if ($line > 1) {
-	//		echo "<tr><td>&nbsp;</td></tr>\n";
-		}
-
-		// print date header
-	//	echo "<tr>\n";
-	//	echo "<td class='list_date_header' nowrap='y' colspan='12'>" .
-	//			"Conference day $conference_day - " .
-	//			date('l, M j, Y',strtotime($timeslot['start_time'])) .
-	//			"</td>\n";
-	//	echo "</tr>\n\n";
 	}
 	$last_date = $current_date;
 
@@ -330,8 +318,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 if ( $conf_proposal['pk']==$proposal['pk']) {
 	
-	
-if ($proposal['type']=='BOF') { continue; }
+	//do not print BOFs or proposals not intended to be printed in program
+if (($proposal['type']=='BOF') || ($proposal['print']=='N')) { continue; }
 
 		
 
@@ -388,7 +376,7 @@ echo "<div class=list>";
 								switch ($proposal['sub_track']) {
 							case "OSP": $image_file = "ospiNEWicon2.jpg' height=15"; break;
 							case "Cool New Tools": $image_file = "coolToolicon.gif' height=17 width=17"; break;
-							case "Cool Commercial Offerings": $image_file = "coolCommercialToolicon.gif' height=17 width=17"; break;
+							case "Cool Commercial Tool": $image_file = "coolCommercialToolicon.gif' height=17 width=17"; break;
 							case "User Experience": $image_file = "people_icon.jpg' height=17 width=17"; break;
 							case "Library": $image_file = "book06.gif' height=17 width=17"; break;
 							

@@ -96,7 +96,7 @@ $special_filter = "";
 $filter_sub_track_sql = "";
 switch ($filter_sub_track){
    	case "OSP": $filter_sub_track_sql = " and sub_track='OSP' "; break;
-  	case "Cool Commercial Offerings": $filter_sub_track_sql = " and sub_track='Cool Commercial Offerings' "; break;
+  	case "Cool Commercial Tool": $filter_sub_track_sql = " and sub_track='Cool Commercial Tool' "; break;
  	case "User Experience": $filter_sub_track_sql = " and sub_track='User Experience' "; break;
  	case "Library": $filter_sub_track_sql = " and sub_track='Library' "; break;
  	case "Cool New Tools": $filter_sub_track_sql = " and sub_track='Cool New Tools' "; break;
@@ -156,7 +156,7 @@ $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.sub_track, CP.speaker,
 		"CP.type, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
+	$filter_type_sql .  $filter_days_sql . $filter_track_sql.  $filter_sub_track_sql . $sqlsorting . $mysql_limit;
 
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $conf_proposals = array();
@@ -313,7 +313,7 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 		<select name="filter_sub_track" title="Filter the items by subtrack">
 			<option value="<?= $filter_sub_track ?>" selected><?= $filter_sub_track ?></option>
 		<option value="OSP">OSP</option>
-			<option value="Cool Commercial Offerings">Cool Commercial Offerings</option>
+			<option value="Cool Commercial Tool">Cool Commercial Tool</option>
 			<option value="User Experience">User Experience</option>
 			<option value="Library">Library</option>
 			<option value="Cool New Tools">Cool New Tools</option>

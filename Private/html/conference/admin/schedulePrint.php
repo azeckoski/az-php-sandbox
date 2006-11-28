@@ -345,7 +345,7 @@ if ($proposal['type']=='BOF') { continue; }
 						switch ($proposal['sub_track']) {
 							case "OSP": $image_file = "ospiNEWicon.jpg' width=14"; break;
 							case "Cool New Tools": $image_file = "coolToolicon.gif' height=14 width=14"; break;
-							case "Cool Commercial Offerings": $image_file = "coolCommercialToolicon.gif' height=14 width=14"; break;
+							case "Cool Commercial Tool": $image_file = "coolCommercialToolicon.gif' height=14 width=14"; break;
 							case "User Experience": $image_file = "people_Icon.jpg' height=14 width=14 "; break;
 							case "Library": $image_file = "book06.gif' height=14 width=14"; break;
 							

@@ -137,7 +137,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, " .
-		"CP.type, CP.length, CP.URL, CP.approved,  CP.wiki_url, CP.track from conf_proposals CP " .
+		"CP.type, CP.length, CP.URL, CP.approved,  CP.wiki_url, CP.track, CP.print from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
@@ -250,7 +250,7 @@ if ($_POST['save']) {
 		$length=$_POST['Length'];
 		$conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
 		$approved=$_POST['approved'];
-	
+		$print=$_POST['print'];
 	    
 	    if ($type=="demo") {
 	    	 $approved="Y";
@@ -271,7 +271,7 @@ if ($_POST['save']) {
 					" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
 						" `speaker`='$speaker' , `URL` ='$url',  `bio`='$bio' , `layout`='$layout', " .
 						"`length`='$length' , `conflict`='$conflict' ," .
-						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', `track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url',  `poster`='$num_posters' where pk= '$PK'   ";
+						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', `track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url',  `poster`='$num_posters', `print`='$print' where pk= '$PK'   ";
 						
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				" form submission. Please try to submit the form again. " .
@@ -481,7 +481,7 @@ if ($PK) {
 			<option value="<?= $_POST['sub_track'] ?>" selected><?= $_POST['sub_track'] ?></option>
 			<option value=""></option>
 			<option value="OSP">OSP</option>
-			<option value="Cool Commercial Offerings">Cool Commercial Offerings</option>
+			<option value="Cool Commercial Tool">Cool Commercial Tool</option>
 			<option value="User Experience">User Experience</option>
 			<option value="Library">Library</option>
 			<option value="Cool New Tools">Cool New Tools</option>
@@ -495,6 +495,15 @@ if ($PK) {
 			<input name="approved" type="radio" value="N" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved&nbsp;&nbsp;&nbsp;&nbsp;
 			<input name="approved" type="radio" value="P" <?php if ($_POST['approved']=="P") { echo "checked"; } ?> /> Pending <br/>
 		
+		
+		</td>
+
+ </tr>
+  <tr>
+	<td><strong>Include in Printed Program? </strong> </td>
+	<td><input name="print" type="radio" value="Y" <?php if ($_POST['print']=="Y") { echo "checked"; } ?> /> Yes &nbsp;&nbsp;&nbsp;&nbsp;
+			<input name="print" type="radio" value="N" <?php if ($_POST['print']=="N") { echo "checked"; } ?> /> No &nbsp;&nbsp;&nbsp;&nbsp;
+			
 		
 		</td>
 
