@@ -147,6 +147,30 @@ function setSessions(pk) {
 <?= $Message ?>
 
 
+<div class="definitions" id="help">
+<div class="defheader">How to use the volunteer page</div>
+<div style="padding:3px;">
+<ul style="margin:2px 20px;">
+<li>This page contains a full listing of all sessions that need to be convened<!-- or recorded-->. Sessions are listed by dates in the order they will occur.</li>
+<li><strong>You must be logged in to volunteer yourself</strong>, if you do not see any buttons on the page then login using the <strong>login</strong> link in the upper right.</li>
+<li>Click the <strong>Conv</strong> button to the left of a session volunteer to convene it</li>
+<li>Click the <strong>X</strong> button to the left of a session remove yourself as a volunteer for it<br/><br/></li>
+<li><strong>Convenor responsibilities</strong></li>
+<ul>
+<li><strong>Introductions</strong> - Introduce the presenters for each session.</li> 
+<li><strong>Timekeeping</strong> - Attempt to start the session they are convening on time.  It is also the responsibility of the Session Convenor to end the session on time.  (It often works well to signal the presenter(s) when they have 5 minutes left and then assertively end the session on time.)</li> 
+<li><strong>Evaluations</strong> - Distribute session evaluations to attendees at the beginning of the session and encourage attendees to put their completed evaluations in the Evaluation Collection Boxes at the door.  The convenor should pick up any completed session evaluations from the box and bring them to the registration table after the session is over.</li> 
+</ul>
+<!--
+<li>Click the <strong>Rec</strong> button to the left of a session volunteer to record it</li>
+<li><strong>Recorder responsibilities</strong></li>
+<ul>
+<li><strong>Recording audio</strong> - Bring their own iPods (or check out an iPod from the registration table if available) and record the entire session.</li> 
+<li><strong>Posting recording</strong> - Immediately following the session, recorders will take their iPod to the registration table and Sakai staff or volunteers will download the session recording and post it to the appropriate session page in confluence.</li>
+</ul>  -->
+</ul>
+</div>
+</div>
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sessions_pk" value=""/>
 
@@ -318,28 +342,4 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 </form>
 
 <br/>
-<div class="definitions" id="help">
-<div class="defheader">How to use the volunteer page</div>
-<div style="padding:3px;">
-<ul style="margin:2px 20px;">
-<li>This page contains a full listing of all sessions that need to be convened<!-- or recorded-->. Sessions are listed by dates in the order they will occur.</li>
-<li>You must be logged in to volunteer yourself, if you do not see any buttons on the page then login using the <strong>login</strong> link in the upper right.</li>
-<li>Click the <strong>Conv</strong> button to the left of a session volunteer to convene it</li>
-<li><strong>Convenor responsibilities</strong></li>
-<ul>
-<li><strong>Introductions</strong> - Introduce the presenters for each session.</li> 
-<li><strong>Timekeeping</strong> - Attempt to start the session they are convening on time.  It is also the responsibility of the Session Convenor to end the session on time.  (It often works well to signal the presenter(s) when they have 5 minutes left and then assertively end the session on time.)</li> 
-<li><strong>Evaluations</strong> - Distribute session evaluations to attendees at the beginning of the session and encourage attendees to put their completed evaluations in the Evaluation Collection Boxes at the door.  The convenor should pick up any completed session evaluations from the box and bring them to the registration table after the session is over.</li> 
-</ul>
-<!--
-<li>Click the <strong>Rec</strong> button to the left of a session volunteer to record it</li>
-<li><strong>Recorder responsibilities</strong></li>
-<ul>
-<li><strong>Recording audio</strong> - Bring their own iPods (or check out an iPod from the registration table if available) and record the entire session.</li> 
-<li><strong>Posting recording</strong> - Immediately following the session, recorders will take their iPod to the registration table and Sakai staff or volunteers will download the session recording and post it to the appropriate session page in confluence.</li>
-</ul>  -->
-<li>Click the <strong>X</strong> button to the left of a session remove yourself as a volunteer for it</li>
-</ul>
-</div>
-</div>
 <?php include $TOOL_PATH.'include/admin_footer.php'; ?>
