@@ -194,7 +194,12 @@ foreach ($people as $person) {
 		$institutionString = $person["INSTITUTION"];
 		$institutionSize = 18;
 	
-		while ($pdf->getTextWidth($institutionSize, $institutionString) > 568) {
+//		while ($pdf->getTextWidth($institutionSize, $institutionString) > 568) {
+//			$institutionSize-=2;	
+//		}
+
+		// new "guesstimated" cutoff width for resizing text
+		while ($pdf->getTextWidth($institutionSize, $institutionString) > 300) {
 			$institutionSize-=2;	
 		}
 	
@@ -225,7 +230,8 @@ foreach ($people as $person) {
 			}
 	
 			$institutionX = $center-($pdf->getTextWidth($institutionSize,$institutionString1)/2);
-			$pdf->addText($institutionX,$institutionY,$institutionSize,$institutionString1);
+//			$pdf->addText($institutionX,$institutionY,$institutionSize, $pdf->getTextWidth($institutionSize, $institutionString) . ":" . $institutionString1);
+			$pdf->addText($institutionX,$institutionY,$institutionSize, $institutionString1);
 	
 	
 			$institutionX2 = $center-($pdf->getTextWidth($institutionSize,$institutionString2)/2);
