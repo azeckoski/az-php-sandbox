@@ -240,7 +240,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 <?php 
 	if (($timeslot['type']!="lunch") && ($timeslot['type']!="break") ){ 
 ?>
-		<?=  date('g:i a',strtotime($timeslot['start_time'])) ?>
+		
+		 <?=  date('g:i a',strtotime($timeslot['start_time'])) ?>
 		 -<br/>
 		<?= date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
 <?php } else { ?>
@@ -257,6 +258,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					"<div style='font-size:.9em; padding: 3px;'>";
 				if ($isAdmin) { echo 	"<br/>"; }
 				echo "<strong>".$timeslot['title'].":</strong> <span style='font-size:.9em;'>" .
+					 date('l',strtotime($timeslot['start_time'])) . ", " .
 					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
 					date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
 					"</span></div></td>";
