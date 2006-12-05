@@ -150,7 +150,7 @@ if ($User && $isAdmin) {
 
 <div style="padding: 10px;">
 <div style="text-align:left;padding: 5px 50px; font-style:normal;font-size:.9em;border:2px solid red;">
-<strong><span style="color:#660000;">LAST UPDATED: </span>December 4th, 7:00pm  </strong><br/><br/> <strong>Please note: </strong> Some times and sessions have changed since the conference programs were printed. 
+<strong><span style="color:#660000;">LAST UPDATED: </span>December 5th, 1:00pm  </strong><br/><br/> <strong>Please note: </strong> Some times and sessions have changed since the conference programs were printed. 
  Please refer to this online schedule and the schedule posters at the registration desk for the most up-to-date schedule information.
 </div></div>
 
