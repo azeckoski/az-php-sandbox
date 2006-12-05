@@ -357,8 +357,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					echo "<label title=\"".str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">";
 					if ($proposal['wiki_url']) { /* a wiki URL was provided */
 						echo "<a href='".$proposal['wiki_url']."'>" .
-							htmlspecialchars($proposal['title']) .
-							"<img src='../include/images/arrow.png' border=0 /></a>";
+							htmlspecialchars($proposal['title']) . "</a>";
 					} else {
 						echo "<strong>"  .htmlspecialchars($proposal['title']) . "</strong>";
 					}
