@@ -148,11 +148,11 @@ if ($User && $isAdmin) {
 
 <?= $Message ?>
 
-
-<div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
-<strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
-Check back closer to the conference for the final schedule, contact <a href="mailto:mmiles@gmail.com">Mary Miles</a> with questions about this schedule.
-</div>
+<div style="padding: 10px;">
+<div style="text-align:left;padding: 5px 50px; font-style:normal;font-size:.9em;border:2px solid red;">
+<strong><span style="color:#660000;">LAST UPDATED: </span>December 4th, 7:00pm  </strong><br/><br/> <strong>Please note: </strong> Some times and sessions have changed since the conference programs were printed. 
+ Please refer to this online schedule and the schedule posters at the registration desk for the most up-to-date schedule information.
+</div></div>
 
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
