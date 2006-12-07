@@ -380,7 +380,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					}
 				if ($proposal['slides_url']) { /* a wiki URL was provided */
 						echo "<a href='".$proposal['slides_url']."' title='download presentation materials'>" .
-							"<img src='../include/images/pptIcon.jpg' border=0 height=18 width=20 style='padding: 0px 5px;'  /></a>";
+							"<img src='../include/images/pptIcon.jpg' border=0 height=18 width=20 style='padding: 5px 5px;'  /></a>";
 					}
 					
 				 
