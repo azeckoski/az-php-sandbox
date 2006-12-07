@@ -376,11 +376,11 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				}
 				if ($proposal['podcast_url']) { /* a wiki URL was provided */
 						echo "<a href='".$proposal['podcast_url'] ."' title='listen to the podcast'>" .
-							"<img src='../include/images/soundIcon-1.jpg' border=0 height=18 width=20 style='padding: 0px 5px;'  /></a>";
+							"<img src='../include/images/soundIcon-1.jpg' border=0 height=17 width=19 style='padding: 5px 10px;'  /></a>";
 					}
 				if ($proposal['slides_url']) { /* a wiki URL was provided */
 						echo "<a href='".$proposal['slides_url']."' title='download presentation materials'>" .
-							"<img src='../include/images/pptIcon.jpg' border=0 height=18 width=20 style='padding: 5px 5px;'  /></a>";
+							"<img src='../include/images/pptIcon.jpg' border=0 height=15 width=18 style='padding: 5px 10px;'  /></a>";
 					}
 					
 				 
