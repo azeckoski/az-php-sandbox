@@ -137,7 +137,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, " .
-		"CP.type, CP.length, CP.URL, CP.approved,  CP.wiki_url, CP.track, CP.print from conf_proposals CP " .
+		"CP.type, CP.length, CP.URL, CP.approved,  CP.wiki_url, CP.podcast_url, CP.slides_url, CP.track, CP.print from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
@@ -241,6 +241,8 @@ if ($_POST['save']) {
 		$sub_track=$_POST['sub_track'];
 		$url=$_POST['URL'];
 		$wiki_url=mysql_real_escape_string($_POST['wiki_url']);
+			$slides_url=mysql_real_escape_string($_POST['slides_url']);
+			$podcast_url=mysql_real_escape_string($_POST['podcast_url']);
 		$num_posters=$_POST['posters'];
 		
 	
@@ -271,7 +273,7 @@ if ($_POST['save']) {
 					" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
 						" `speaker`='$speaker' , `URL` ='$url',  `bio`='$bio' , `layout`='$layout', " .
 						"`length`='$length' , `conflict`='$conflict' ," .
-						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', `track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url',  `poster`='$num_posters', `print`='$print' where pk= '$PK'   ";
+						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', `track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url', `podcast_url` ='$podcast_url', `slides_url` ='$slides_url',  `poster`='$num_posters', `print`='$print' where pk= '$PK'   ";
 						
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				" form submission. Please try to submit the form again. " .
@@ -722,6 +724,14 @@ if ($PK) {
 <tr>
     <td><strong>Wiki page URL </strong></td>
     <td>http://www.example.com<br/><input type="text" name="wiki_url" size="35" value="<?= $_POST['wiki_url']  ?>" maxlength="300" /></td>
+</tr>
+<tr>
+    <td><strong>Podcast URL </strong></td>
+    <td>http://www.example.com<br/><input type="text" name="podcast_url" size="35" value="<?= $_POST['podcast_url']  ?>" maxlength="300" /></td>
+</tr>
+<tr>
+    <td><strong>Presentation (.ppt slides) URL </strong></td>
+    <td>http://www.example.com<br/><input type="text" name="slides_url" size="35" value="<?= $_POST['slides_url']  ?>" maxlength="300" /></td>
 </tr>
 <?php } ?>
 
