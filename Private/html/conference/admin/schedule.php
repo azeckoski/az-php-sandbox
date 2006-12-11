@@ -148,10 +148,9 @@ if ($User && $isAdmin) {
 
 <?= $Message ?>
 
-<div style="padding: 10px;">
+<div style="padding: 10px; font-size:.9em; color: #000;">
 <div style="text-align:left;padding: 5px 50px; font-style:normal;font-size:.9em;border:2px solid red;">
-<strong><span style="color:#660000;">LAST UPDATED: </span>December 5th, 1:00pm  </strong><br/><br/> <strong>Please note: </strong> Some times and sessions have changed since the conference programs were printed. 
- Please refer to this online schedule and the schedule posters at the registration desk for the most up-to-date schedule information.
+<img src='../include/template/images/officialAtlantaSakaiLogo_sm.png' height=52px width=60px border=0 align=left  /><strong>Sakai Atlanta Conference podcasts and presentation materials: </strong><br/>  Click on the speaker icons <img src='../include/images/soundIcon-1.jpg' border=0 height=15 width=17   /> &nbsp; or the presentation icons <img src='../include/images/pptIcon.jpg' border=0 height=13 width=15  />&nbsp;  below to quickly access a session's presentation media. <br/><br/>Click on the session title to view sessions notes or comments (if provided by session presenters).  </strong>
 </div></div>
 
 
