@@ -148,9 +148,9 @@ if ($User && $isAdmin) {
 
 <?= $Message ?>
 
-<div style="padding: 10px; font-size:.9em; color: #000;">
-<div style="text-align:left;padding: 5px 50px; font-style:normal;font-size:.9em;border:2px solid red;">
-<img src='../include/template/images/officialAtlantaSakaiLogo_sm.png' height=52px width=60px border=0 align=left  /><strong>Sakai Atlanta Conference podcasts and presentation materials: </strong><br/>  Click on the speaker icons <img src='../include/images/soundIcon-1.jpg' border=0 height=15 width=17   /> &nbsp; or the presentation icons <img src='../include/images/pptIcon.jpg' border=0 height=13 width=15  />&nbsp;  below to quickly access a session's presentation media. <br/><br/>Click on the session title to view sessions notes or comments (if provided by session presenters).  </strong>
+<div style="padding: 10px;">
+<div style="text-align: left; padding: 5px 50px; font-style:normal; font-size:.9em; border:2px solid red;">
+<img src='../include/template/images/officialAtlantaSakaiLogo_sm.png' height=52 width=60 border=0 align=left alt="atlanta logo"  /><strong>Sakai Atlanta Conference podcasts and presentation materials: </strong><br/>  Click on the speaker icons <img src='../include/images/soundIcon-1.jpg' border=0 height=15 width=17  alt="speaker icon" /> &nbsp; or the presentation icons <img src='../include/images/pptIcon.jpg' border=0 height=13 width=15  alt="presentation icon" />&nbsp;  below to quickly access a session's presentation media. <br/><br/>Click on the session title to view sessions notes or comments (if provided by session presenters).  
 </div></div>
 
 
@@ -162,7 +162,7 @@ if ($User && $isAdmin) {
 	<tr>
 		<td nowrap="y"><b style="font-size:1.1em;">Conference schedule:</b></td>
 		<td nowrap="y" colspan="5">
-			<div style="float:left; padding-right: 30px;"><a href="schedule_details.php"><strong>List View  <img src="../include/images/arrow.gif" border=0 height=9 width=9/></strong></a>
+			<div style="float:left; padding-right: 30px;"><a href="schedule_details.php"><strong>List View  <img src="../include/images/arrow.gif" border=0 height=9 width=9 alt="link image"/></strong></a>
 			</div><div style="float:left;">
 				<strong><a href="<?= $CONF_URL ?>"><?= $CONF_NAME ?></a></strong>
 <?php $confDateFormat = "g:i a, l, M j, Y"; ?>
@@ -377,11 +377,11 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				
 				if ($proposal['slides_url']) { /* a wiki URL was provided */
 						echo "<a href='".$proposal['slides_url']."' title='download presentation materials'>" .
-							"<img src='../include/images/pptIcon.jpg' border=0 height=13 width=15 style='padding: 7px 10px;'  /></a>";
+							"<img src='../include/images/pptIcon.jpg' border=0 height=13 width=15 style='padding: 7px 10px;' alt='link to presentation' /></a>";
 					}
 				if ($proposal['podcast_url']) { /* a wiki URL was provided */
 						echo "<a href='".$proposal['podcast_url'] ."' title='listen to the podcast'>" .
-							"<img src='../include/images/soundIcon-1.jpg' border=0 height=15 width=17 style='padding: 5px 10px;'  /></a>";
+							"<img src='../include/images/soundIcon-1.jpg' alt='link to podcast' border=0 height=15 width=17 style='padding: 5px 10px;'  /></a>";
 					}
 					echo "</div>";
 				 
