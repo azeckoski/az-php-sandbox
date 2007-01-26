@@ -25,7 +25,7 @@
                         </tr> -->
                        
 	                  	<tr align="left">
-                          <td><a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=420&Itemid=593" class="mainlevel" >Help</a></td>
+                          <td><a href="http://www.sakaiproject.org/index.php?option=com_content&task=view&id=498&Itemid=610" class="mainlevel" >Help</a></td>
                         </tr>
 
                       
