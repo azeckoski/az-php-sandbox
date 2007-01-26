@@ -31,3 +31,8 @@ ALTER TABLE `conf_proposals` CHANGE `approved` `approved` ENUM( 'Y', 'N', 'P' ) 
 UPDATE `conf_proposals` SET sub_track = 'Cool Commercial Tool' WHERE sub_track = 'Cool Commercial Offerings';
 
 ALTER TABLE `conf_proposals` ADD `print` ENUM( 'Y', 'N' ) NOT NULL AFTER `poster` ;
+
+//for podcast and presentation urls
+ALTER TABLE `conf_proposals` ADD `podcast_url` VARCHAR( 255 ) NOT NULL AFTER `wiki_url` ,
+ADD `slides_url` VARCHAR( 255 ) NOT NULL AFTER `podcast_url` ;
+

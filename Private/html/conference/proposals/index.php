@@ -55,6 +55,19 @@ if($_GET['msg']) {
 }
 
 
+
+
+// check for date restrictions
+if(strtotime($CONF_END_DATE) < time()) {
+	$Message = "This Call for Proposal period has passed.<br>" .
+			"Ended on " . date($DATE_FORMAT,strtotime($CONF_END_DATE));
+	$error = true;
+} elseif (strtotime($CFP_START_DATE) > time()) {
+	$Message = "This Call for Proposal period has not yet begun.<br>" .
+			"Call for Proposals will be accepted starting on " . date($DATE_FORMAT,strtotime($CFP_START_DATE));
+	$error = true;
+}
+
 // Define the array of items to validate and the validation strings
 $vItems = array();
 $vItems['type'] = "required";
@@ -93,7 +106,18 @@ if ($_POST['save']) { // saving the form
 
 <?= $Message ?>
 
-	<table width="100%" class="blog" cellpadding="0" cellspacing="0">
+<?php
+	// this should never happen but just in case
+	if (!$User->institution_pk) {
+		print "<b style='color:red;'>Fatal Error: You must use the My Account link to set " .
+			"your institution before you can fill out your conference registration.</strong>";
+	}
+	else if ($error) {
+		// do nothing except stop the user from loading the form
+	?>	 <div style="padding:110px 0px;"></div> <!-- SPACER -->
+	<?php  } else { // show registration form
+	?>
+		<table width="100%" class="blog" cellpadding="0" cellspacing="0">
 	  <tr>
 	    <td valign="top"><div class="componentheading">Call for Proposals - Add a New Proposal</div></td>
 	  </tr>
@@ -180,7 +204,7 @@ if ($_POST['save']) { // saving the form
    </form>
 </div> <!-- end cfp -->
 	
-         <div style="margin:16px;"></div> <!-- SPACER -->
+     <?  }  ?>    <div style="margin:16px;"></div> <!-- SPACER -->
 
 
 	

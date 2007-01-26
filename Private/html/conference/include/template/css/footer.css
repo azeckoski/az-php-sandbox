@@ -1,7 +1,7 @@
 /* dark footer */
 
 #footer {
-	background: #485269 url(../images/footer-bg.png) repeat-x;
+	background: #a9a27f url(../images/footer-bgs.png) repeat-x;
 }
 
 #footer li {
@@ -23,7 +23,3 @@
 #footer a:hover {
 	color: #ccc;
 }
-
-#the-footer a {
-	color:#FC631D;
-	}

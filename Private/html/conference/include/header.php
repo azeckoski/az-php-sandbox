@@ -6,8 +6,8 @@
       <div id="mainbg-3">
         <div id="mainbg-4">
           <div id="mainbg-5">
-            <div id="header"> <a href="http://sakaiproject.org" title=""><span id="logo">&nbsp;</span></a>
-              <div id="top">
+          	<div id="header"><div><a href="http://sakaiproject.org" title=""><span id="logo"> &nbsp; </span></a><span id="confTitle">7th Sakai Conference<br/>Amsterdam, The Netherlands<br/>June 12-14, 2007</span></div><div><span class=headerimages><img src="template/images/amsterdam_004.jpg" align=right /><img src="template/images/magerebrug1.jpg" align=right /></span></div>
+			          		   <div id="top">
                 <table class="contentpaneopen">
                   <tr>
                     <td valign="top" colspan="2"><div align="right" style="padding:4px;background:#eee;font-size:12pt;color:#000;">
@@ -26,7 +26,7 @@
                         <br/>
                         <?= $EXTRA_MESSAGE ?>
                      
-                        <a style="font-size:9pt;" href="<?=$CONF_URL ?>">Conference Home</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a>  - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>- <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/logos/">Logo Contest</a>
+                        <a style="font-size:9pt;" href="<?=$CONF_URL ?>">Conference</a> - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/registration/">Registration</a>  - <a style="font-size:9pt;" href="<?= $TOOL_URL ?>/proposals/">Proposals</a>
                         <?= $EXTRA_LINKS ?>
                       </div></td>
                   </tr>

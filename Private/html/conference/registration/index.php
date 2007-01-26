@@ -193,7 +193,7 @@ if (!$attending){
 
 <table width="100%" class="blog" cellpadding="0" cellspacing="0">
   <tr>
-    <td valign="top"><div class="componentheading"><?= $CONF_NAME ?> Conference Registration</div></td>
+    <td valign="top"><div class="componentheading"> Conference Registration</div></td>
   </tr>
 </table>
 
@@ -222,6 +222,9 @@ if (!$attending){
 		}
 	} else if ($error) {
 		// do nothing except stop the user from loading the form
+		?>
+			 <div style="padding:110px 0px;"></div> <!-- SPACER -->
+    <?
 	} else { // show registration form
 ?>
 

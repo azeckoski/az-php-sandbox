@@ -27,8 +27,8 @@ span.pathway {
 	line-height: 16px;
 	vertical-align: middle;
 	margin-top: 5px;
-	margin-bottom: 10px;
-	font-weight: bold;
+	margin-bottom: 20px;
+	font-weight: normal;
 }
 
 span.pathway img {
@@ -55,7 +55,7 @@ a.readon {
 body {
 		line-height: 125%;
 		font-family: "Lucida Grande", Tahoma, Helvetica, sans-serif;
-		color: #444;
+		color: #333;
 }
 
 /* size attributes */
@@ -73,17 +73,28 @@ body.f-larger {
 }
 
 a {
-	color: #B23B03;
+	color: #00a4e4;
+	font-weight:normal;
+	
 }
 
 a:hover {
-	color: #000;
+	color: #336600;
 }
 
+
+td.left a.mainlevel  {
+	color: #000;
+	font-weight:normal;
+}
+
+td.left a.mainlevel:hover  {
+	color: #00a4e4;
+}
 td.left a.mainlevel#active_menu {
-	color: #000;
+	color: #00a4e4;
+	font-weight:bold;
 }
-
 
 .small,
 .modifydate,
@@ -101,7 +112,7 @@ div.moduletable h3,
 .contentheading,
 .componentheading {
 	font-size: 130%;
-	color: #222;
+	color: #2D2B20;
 }
 
 .componentheading {
@@ -234,14 +245,14 @@ h4 {
 
 .small {
 	font-weight: bold;
-	color: #999;
+	color: #ccc;
 }
 
 .modifydate {
 	height: 20px;
 	vertical-align: bottom;
 	font-weight: bold;
-	color: #999;
+	color: #8C876B;
 }
 
 .createdate {
@@ -251,7 +262,7 @@ h4 {
 	vertical-align: top;
 	padding-bottom: 5px;
 	padding-top: 0px;
-	color: #999;
+	color: #8C876B;
 }
 
 /** some joomla class stuff */
@@ -278,20 +289,20 @@ table.mainbody td.mainbody td.sectiontableheader {
   font-weight: bold;
   padding: 4px;
   line-height: 20px;
-  background: #e0e5ed;
-  border-bottom: 1px solid #cad1d8;
+  background: #edece9;
+  border-bottom: 1px solid #dfdedc;
 }
 
 table.mainbody td.mainbody tr.sectiontableentry1 td, 
 table.mainbody td.mainbody tr.sectiontableentry2 td {
   padding: 4px;
-  border-bottom: 1px solid #e0e5ed;
+  border-bottom: 1px solid #edece9;
 }
 
 table.mainbody td.mainbody td.sectiontableentry1, 
 table.mainbody td.mainbody td.sectiontableentry2{
   padding: 4px;
-  border-bottom: 1px solid #e0e5ed;
+  border-bottom: 1px solid #edece9;
 }
 
 table.contentpaneopen, table.contentpane {
@@ -337,9 +348,8 @@ table.adminform textarea {
 
 /* showcase */
 #showcase {
-	border-bottom: 1px solid #BCC0C7;
-	background: #DCE0E8 url(../images/showcase-bg.png) repeat-x;
-	color: #444;
+	border-bottom: 1px solid #d5c9ba;
+	background: #e7e4dc url(../images/showcase-bg.png) repeat-x;
 }
 
 
@@ -349,7 +359,7 @@ table.adminform textarea {
 	height: 100%; 
 	padding: 0;
 	margin-bottom: 1px;
-	background: #DCE0E8;
+	background: #c3bda4;
 }
 
 #mainbg {
@@ -374,7 +384,7 @@ table.adminform textarea {
 }
 
 #mainft-2 {
-	background: #dce0e8 url(../images/footer-shadow-tr.png) 100% 0 no-repeat;
+	background: #c3bda4 url(../images/footer-shadow-tr.png) 100% 0 no-repeat;
 }
 
 #mainft-3 {
@@ -401,7 +411,7 @@ td.right ul,
 td.left li,
 td.right li,
 #footer li {
-		border-bottom: 1px dotted #b7bbc7;
+		border-bottom: 1px dotted #8e8a6e;
 		padding-bottom: 0;
 		margin-bottom: 2px;
 }
@@ -434,17 +444,17 @@ td.right li,
 
 #the-footer {
 	text-align: center;
-	background: #323C53;
+	background: #938c69;
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
 	border-bottom: 1px solid #fff;
-	color: #8B93A7;
+	color: #C4BD99;
 }
 
 #the-footer .padding {
 	padding: 10px 0;
 	width: 100%;
-	border-top: 1px solid #636D84;	
+	border-top: 1px solid #c4bd9a;	
 	
 }
 
@@ -482,18 +492,18 @@ table.headlines td.headlines {
 }
 
 table.mainbody td.mainbody {
-	padding: 10px;
-	background: #e6eaf2 url(../images/content-bg.png) repeat-x;
+	padding: 0;
+	background: #fff url(../images/content-bg1.png) repeat-x;
 }
 
 td.mainbody .padding {
-	padding: 0px 15px;
+	padding: 0 15px;
 }
 
 table.mainbody td.left,
 table.mainbody td.right {
 	width: 18%;
-	background: #DCE0E8 url(../images/side-bg.png) repeat-x;
+	background: #e7e4dc url(../images/side-bg2.png) repeat-x;
 	padding-top: 5px;
 }
 
@@ -506,7 +516,7 @@ table.mainbody td.right {
 }
 
 table.headlines td.headlines {
-	background: #E9EDF5;
+	background: #f4f1ea;
 }
 
 /* toolbar */
@@ -527,11 +537,22 @@ form {
 	border: 0;
 	margin: 0;
 	padding: 0;
+	font-size:10px;
 }
+
+form textarea, form input {
+font-size: 10px;
+}
+form submit {
+padding:1px; 
+
+}
+
 
 table.blog span.article_seperator {
 	display: block;
 	height: 20px;
+	
 }
 
 table.pollstableborder td {
@@ -551,6 +572,11 @@ table#adminform #toolbar {
 	background: none;
 }
 
+
+
+
+
+/*Custom stuff here */
 #form1 {
 	background: #F8F8EC;
 	padding:0px 0px;
@@ -576,140 +602,30 @@ table#adminform #toolbar {
 	font-size: 11px;
 }
 
-.vote{
-text-align:left;
-}
+.topic_item {
+width: 400px;
+background: #b0cc99;
+color:#000;
+padding: 2px 20px;
+margin-top: 10px;
 
-.list_header {
-	line-height:20px;
-	padding:2px 20px;
-	background:#ccc;
-	width: 80%;
-}
-
-.list_row {
-	border-bottom:1px solid #ccc;
-	padding:2px 20px;
-	width: 80%;
-}
-
-.audience_type, .topic_type, .topic_type_header{
-	text-align:left;
-	font-weight: bold;
-	display:inline;
-}
-
-.vote, .topic_vote_header, .topic_vote{
-	text-align:right;
-	display:inline;
-}
-
-.topic_vote_header span{
+margin-bottom: 10px;
 font-weight:bold;
-text-align:center;
-line-height:20px;
 }
 
-.topic_vote span, .vote span{
-text-align:left;
-}
-
-.activestep {
-color: #336699;
-}
-
-textarea, select {
-font-size: 11px;
-}
-
-
-.about{
-	padding:0px;
-	margin:0px;
-	text-align:center;
-	height: 40px;
-}
-
-
-
-.about_fulldisplay{
-	padding:5px;
-	margin:0px;
-	text-align:left;
-	color: #333;
-	
-}
-
-.name {
-	line-height: 1.4;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 8pt;
-	color:#000;
-	font-weight: bold;
-}
-
-.institute{
-	line-height: 1.2;
-	font-size: 7pt;
-	font-weight: bold;
-	color:#666;
-	padding: 0px 0px;
-}
-
-.interests {
-	line-height: 1.2;
-	font-size: 7pt;
-	font-style: italic;
-	padding: 0px 0px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-#photos {
-width: 740px;
-padding:10px;
-margin-top: 0px;
-margin-left: 0px;
-text-align:left;
+.demo_list {
+padding:5px;
+border: 2px solid rgb(204, 204, 153);
+background: #b0cc99;
 
 }
+.demo_list ul{
+padding-left:5px;
 
-#photos a, #photos a:link, #photos a:visited{
-font-weight: normal;
-color: #4E6483;
-
-
+display:block;
 }
-#photos a:hover{
-font-weight: normal;
-color: #ffcc33;
-
-}
-
-#help p, #help2 p{
-border: 1px solid #eee;
-background:#ffffff;
-font-size: 10px;
-padding: 3px 10px 3px 10px;
-margin:10px;
-
-}
-
-	
-.frame{
-float: left;
-text-align: left;
-padding: 5px;
-margin: 5px;
-font-size: 10px;
-border: 0px solid tan;
-}
-
-.frame img {
-padding: 0px;
-vertical-align:middle;
-border: 0px solid #e3e3e3;
-}
-
-.filter {
-	font-size:9px;
+.demo_list li{
+list-style:none;
+color: #333;
+padding: 4px 5px;
 }

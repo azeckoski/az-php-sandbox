@@ -42,13 +42,13 @@ color:#000;
 
 <div style="text-align:left;">
 
-<span style="font-size:11pt;"><a href="proposals/">Propose a session</a></span>  for the Atlanta conference
+<span style="font-size:11pt;"><a href="proposals/">Propose a session</a></span>  for the Amsterdam conference
 	<br/><br/>
 <span style="font-size:11pt;">
-<a style="font-size:11pt;" href="registration/">Register</a> </span>for the Atlanta conference
+<a style="font-size:11pt;" href="/">Register</a> </span>for the Amsterdam conference
 	<br/><br/>
 	
-<span style="font-size:11pt;"><a href="logos/">Submit a Logo or theme</a></span>  for the Atlanta logo contest
+<span style="font-size:11pt;"><a href="logos/">Submit a Logo or theme</a></span>  for the Amsterdam logo contest
 	<br/><br/>
 	
 	

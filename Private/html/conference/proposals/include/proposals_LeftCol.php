@@ -20,12 +20,12 @@
                         <tr align="left">
                           <td><a href="<?= $TOOL_URL ?>/proposals/" class="mainlevel" >Proposals</a></td>
                         </tr>
-                        <tr align="left">
+                      <!--   <tr align="left">
                           <td><a href="<?= $TOOL_URL ?>/logos/" class="mainlevel" >Logo Contest</a></td>
-                        </tr>
+                        </tr>  -->
 
 	                  	<tr align="left">
-                          <td><a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=420&Itemid=593" class="mainlevel" >Help</a></td>
+                          <td><a href="http://www.sakaiproject.org/index.php?option=com_content&task=view&id=499&Itemid=611" class="mainlevel" >Help</a></td>
                         </tr>
                         <tr><td>
                         <?php 
@@ -95,6 +95,4 @@ follow-up questions is included.<br />
                       <tr>
                         <td width="100%" valign="top" class="contentdescription" colspan="2">
  
-<div class="componentheading"><br/> 6th Sakai Conference - 
-                        December 5-8, 2006  -
-                        Atlanta, Georgia </div>
+<div class="componentheading"><br/><?=$CONF_NAME ?> </div>
