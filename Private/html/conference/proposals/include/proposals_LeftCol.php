@@ -11,7 +11,7 @@
                   	</div>
                       <table width="100%" border="0" cellpadding="0" cellspacing="0">
                         <tr align="left">
-                          <td><a href="http://sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=418&amp;Itemid=567" class="mainlevel" >Conference home</a></td>
+                          <td><a href="http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=190&Itemid=615" class="mainlevel" >Conference home</a></td>
                         </tr>
 
                         <tr align="left">

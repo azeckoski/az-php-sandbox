@@ -448,13 +448,17 @@ td.right li,
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
 	border-bottom: 1px solid #fff;
-	color: #C4BD99;
+	color: #333;
 }
 
 #the-footer .padding {
 	padding: 10px 0;
 	width: 100%;
-	border-top: 1px solid #c4bd9a;	
+	border-top: 1px solid #555;	
+	
+}
+#the-footer a {
+color:#336699;
 	
 }
 
