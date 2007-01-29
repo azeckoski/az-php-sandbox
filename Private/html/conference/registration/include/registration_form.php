@@ -177,8 +177,7 @@
 	<img id="confHotelImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
   	<strong>Hotel Information:</strong><br />
     <div style="padding-left: 40px;">
-    	Will you be staying at the conference hotel, the Atlanta Marriot Marquis, 
-    	where the conference is being held?<br />
+    	Will you be staying at the conference hotel, the Amsterdam Movenpick Hotel?<br />
       <input type="radio" name="confHotel" value="Y" <?php if ($CONF['confHotel']=="Y") echo "checked='y'" ?> />
       <strong>Yes </strong>
       <input type="radio" name="confHotel" value="N" <?php if ($CONF['confHotel']=="N") echo "checked='y'" ?> />
@@ -188,13 +187,13 @@
 	<span id="confHotelMsg"></span>
   </td>
 </tr>
-
+<!--
  <tr>
   <td colspan=2>
 	<img id="jasigImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />  
-  	<!-- <strong>Community Source Week Conferences:</strong><br /> -->  <!-- for summer only -->
+  	 <strong>Community Source Week Conferences:</strong><br /> 
   	 <strong>JA-Sig/uPortal Conference:</strong><br /> 
-    <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference in Atlanta Dec 3-5, 2006?<br />
+    <div style="padding-left: 40px;"> Will you also be attending the JA-SIG/uPortal conference?<br />
       <input type="radio" name="jasig" value="Y" <?php if ($CONF['jasig']=="Y") echo "checked='y'" ?> />
       <strong>Yes </strong>
       <input type="radio" name="jasig" value="N" <?php if ($CONF['jasig']=="N") echo "checked='y'" ?>/>
@@ -204,6 +203,7 @@
 	<span id="jasigMsg"></span>
   </td>
 </tr> 
+-->
 
 <tr>
   <td colspan=2>
@@ -259,35 +259,40 @@
 	    <div style="padding-left: 40px;">
 	      <textarea name="expectations" cols=60 rows=2><?php echo $CONF['expectations'];?></textarea>
 	    </div></td>
-    
+   
 </tr>
      <tr>
      <td> 	
  <strong>Dates Attending:</strong></td>
-     <td><div> Please check the days that you WILL ATTEND the Atlanta conference. This information helps us save money, by providing a more accurate head count when ordering banquet services.</div>
+     <td><div> Please check the days that you WILL ATTEND the Amsterdam conference. This information helps us save money, by providing a more accurate head count when ordering banquet services.</div>
         <br/> <strong> I WILL ATTEND</strong> on the following days:
         <br/>
-        <img id="attending_tueImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-  	<strong>Tue, Dec. 5th</strong>
+         <img id="attending_monImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+  	<strong>Tue, Jun. 11th  (Pre-Conference sessions)</strong>
+      <input type="radio" name="attending_mon" value="MON"  <?php if ($_POST['attending_mon']=="MON") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No<br><br/>
+     <input type="hidden" id="attending_monValidate" value="<?= $vItems['attending_mon'] ?>"/>
+	<span id="attending_monMsg"></span> 
+	     <img id="attending_tueImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
+  	<strong>Tue, Jun. 12th</strong>
       <input type="radio" name="attending_tue" value="TUE"  <?php if ($_POST['attending_tue']=="TUE") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No<br><br/>
      <input type="hidden" id="attending_tueValidate" value="<?= $vItems['attending_tue'] ?>"/>
 	<span id="attending_tueMsg"></span> 
 	
 	<img id="attending_wedImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
- 	 <strong>Wed, Dec. 6th</strong>
+ 	 <strong>Wed, Jun. 13th</strong>
       <input type="radio" name="attending_wed" value="WED"  <?php if ($_POST['attending_wed']=="WED") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_wed" value=" " /> No<br><br/>
      <input type="hidden" id="attending_wedValidate" value="<?= $vItems['attending_wed'] ?>"/>
 	<span id="attending_wedMsg"></span> 
 	
 	
 	<img id="attending_thuImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-  <strong>Thur, Dec. 7th</strong>
+  <strong>Thur, Jun. 14th</strong>
       <input type="radio" name="attending_thu" value="THU"  <?php if ($_POST['attending_thu']=="THU") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_thu" value=" " /> No<br><br/>
      <input type="hidden" id="attending_thuValidate" value="<?= $vItems['attending_thu'] ?>"/>
 	<span id="attending_thuMsg"></span> 
 	
 	<img id="attending_friImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-  <strong>Fri, Dec. 8th</strong>
+  <strong>Fri, Jun. 15th  (possible BOF meetings and other community arranged meetings)</strong>
       <input type="radio" name="attending_fri" value="FRI"  <?php if ($_POST['attending_fri']=="FRI") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_fri" value=" " /> No<br><br/>
      <input type="hidden" id="attending_friValidate" value="<?= $vItems['attending_fri'] ?>"/>
 	<span id="attending_friMsg"></span> 
