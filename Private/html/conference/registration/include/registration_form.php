@@ -266,34 +266,37 @@
  <strong>Dates Attending:</strong></td>
      <td><div> Please check the days that you WILL ATTEND the Amsterdam conference. This information helps us save money, by providing a more accurate head count when ordering banquet services.</div>
         <br/> <strong> I WILL ATTEND</strong> on the following days:
-        <br/>
+        <br/><br/>
          <img id="attending_monImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-  	<strong>Tue, Jun. 11th  (Pre-Conference sessions)</strong>
-      <input type="radio" name="attending_mon" value="MON"  <?php if ($_POST['attending_mon']=="MON") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No<br><br/>
-     <input type="hidden" id="attending_monValidate" value="<?= $vItems['attending_mon'] ?>"/>
+  	
+      <input type="radio" name="attending_mon" value="MON"  <?php if ($_POST['attending_mon']=="MON") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No &nbsp;&nbsp;&nbsp;
+       <strong>Mon, Jun. 11th (Pre-Conference sessions)</strong><br><br/>
+     <input type="hidden" id="attending_monValidate" value="<?= $vItems['attending_mon'] ?>"/> 
 	<span id="attending_monMsg"></span> 
 	     <img id="attending_tueImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-  	<strong>Tue, Jun. 12th</strong>
-      <input type="radio" name="attending_tue" value="TUE"  <?php if ($_POST['attending_tue']=="TUE") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No<br><br/>
+  	
+      <input type="radio" name="attending_tue" value="TUE"  <?php if ($_POST['attending_tue']=="TUE") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No &nbsp;&nbsp;&nbsp;
+     <strong>Tue, Jun. 12th</strong><br><br/>
      <input type="hidden" id="attending_tueValidate" value="<?= $vItems['attending_tue'] ?>"/>
 	<span id="attending_tueMsg"></span> 
 	
 	<img id="attending_wedImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
- 	 <strong>Wed, Jun. 13th</strong>
-      <input type="radio" name="attending_wed" value="WED"  <?php if ($_POST['attending_wed']=="WED") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_wed" value=" " /> No<br><br/>
-     <input type="hidden" id="attending_wedValidate" value="<?= $vItems['attending_wed'] ?>"/>
+ 	
+      <input type="radio" name="attending_wed" value="WED"  <?php if ($_POST['attending_wed']=="WED") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_wed" value=" " /> No &nbsp;&nbsp;&nbsp;
+     <strong>Wed, Jun. 13th</strong><br><br/>
+      <input type="hidden" id="attending_wedValidate" value="<?= $vItems['attending_wed'] ?>"/>
 	<span id="attending_wedMsg"></span> 
 	
 	
 	<img id="attending_thuImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-  <strong>Thur, Jun. 14th</strong>
-      <input type="radio" name="attending_thu" value="THU"  <?php if ($_POST['attending_thu']=="THU") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_thu" value=" " /> No<br><br/>
-     <input type="hidden" id="attending_thuValidate" value="<?= $vItems['attending_thu'] ?>"/>
+      <input type="radio" name="attending_thu" value="THU"  <?php if ($_POST['attending_thu']=="THU") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_thu" value=" " /> No &nbsp;&nbsp;&nbsp;
+     	<strong>Thur, Jun. 14th</strong><br><br/>
+     	<input type="hidden" id="attending_thuValidate" value="<?= $vItems['attending_thu'] ?>"/>
 	<span id="attending_thuMsg"></span> 
 	
 	<img id="attending_friImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
-  <strong>Fri, Jun. 15th  (possible BOF meetings and other community arranged meetings)</strong>
-      <input type="radio" name="attending_fri" value="FRI"  <?php if ($_POST['attending_fri']=="FRI") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_fri" value=" " /> No<br><br/>
+      <input type="radio" name="attending_fri" value="FRI"  <?php if ($_POST['attending_fri']=="FRI") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_fri" value=" " /> No &nbsp;&nbsp;&nbsp;
+     <strong>Fri, Jun. 15th  (Post-Conference meetings)</strong><br><br/>
      <input type="hidden" id="attending_friValidate" value="<?= $vItems['attending_fri'] ?>"/>
 	<span id="attending_friMsg"></span> 
 	

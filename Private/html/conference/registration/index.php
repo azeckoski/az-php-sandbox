@@ -65,6 +65,7 @@ $vItems['confHotel'] = "required";
 $vItems['jasig'] = "required";
 $vItems['shirt'] = "required";
 $vItems['delegate'] = "email";
+$vItems['attending_mon'] ="required";
 $vItems['attending_tue'] ="required";
 $vItems['attending_wed'] ="required";
 $vItems['attending_thu'] ="required";
