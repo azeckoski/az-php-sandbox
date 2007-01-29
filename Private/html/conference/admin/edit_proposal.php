@@ -266,7 +266,7 @@ if ($_POST['save']) {
 	    if ($type=="BOF") {
 	    	 $track="BOF";
 	    	 $approved="Y";
-	    	 $length="90";
+	    	 $length="60";
 	    } //this proposal has been edited
 			  // update proposal information  --all data except role and topic data
 			$proposal_sql="UPDATE conf_proposals" .
@@ -874,8 +874,8 @@ if ($PK) {
      </td>
      <td>
 		<div class="small">Times are not guaranteed. We will do our best to match each session with an appropriate time block</div><br/>
-          <input name="Length" type="radio" value="40" <?php if ($_POST['length']=="40") { echo "checked"; } ?> /> 40 minutes  <br/>
-           <input name="Length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
+          <input name="Length" type="radio" value="30" <?php if ($_POST['length']=="30") { echo "checked"; } ?> /> 30 minutes  <br/>
+           <input name="Length" type="radio" value="60" <?php if ($_POST['length']=="60") { echo "checked"; } ?> /> 60 minutes  <br/>
     	<input type="hidden" id="LengthValidate" value="<?= $vItems['Length'] ?>" />
 		<span id="LengthMsg"></span>
      </td>
@@ -885,10 +885,11 @@ if ($PK) {
      <td><strong>Availability</strong></td>
      <td><div class=small> Please check the days that the presenter(s)<br/>CANNOT present due to a travel conflict</div>
         <br/> <strong> I am NOT available:</strong><br/>
-          <input name="conflict_tue" type="checkbox" value="Tue" <?php if ($_POST['conflict_tue']=="Tue") { echo "checked"; } ?> /> Tuesday, May 30 <br/>
-          <input name="conflict_wed" type="checkbox" value="Wed" <?php if ($_POST['conflict_wed']=="Wed")  { echo "checked"; } ?> /> Wednesday, May 31 <br/>
-          <input name="conflict_thu" type="checkbox" value="Thu" <?php if ($_POST['conflict_thu']=="Thu")  { echo "checked"; } ?> /> Thursday, May 1 <br/>
-          <input name="conflict_fri" type="checkbox" value="Fri" <?php if ($_POST['conflict_fri']=="Fri") { echo "checked"; } ?> /> Friday, May 2 <br/>
+          <input name="conflict_tue" type="checkbox" value="Tue" <?php if ($_POST['conflict_tue']=="Tue") { echo "checked"; } ?> /> Tuesday, June 12 <br/>
+          <input name="conflict_wed" type="checkbox" value="Wed" <?php if ($_POST['conflict_wed']=="Wed")  { echo "checked"; } ?> /> Wednesday, June 13 <br/>
+          <input name="conflict_thu" type="checkbox" value="Thu" <?php if ($_POST['conflict_thu']=="Thu")  { echo "checked"; } ?> /> Thursday, June 14 <br/>
+        <!--  <input name="conflict_fri" type="checkbox" value="Fri" <?php if ($_POST['conflict_fri']=="Fri") { echo "checked"; } ?> /> Friday, May 2 <br/>
+        --> 
         <br/>
      </td>
   </tr>

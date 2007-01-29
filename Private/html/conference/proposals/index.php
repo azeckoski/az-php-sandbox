@@ -66,6 +66,10 @@ if(strtotime($CONF_END_DATE) < time()) {
 	$Message = "This Call for Proposal period has not yet begun.<br>" .
 			"Call for Proposals will be accepted starting on " . date($DATE_FORMAT,strtotime($CFP_START_DATE));
 	$error = true;
+	if (($User->pk) && $User->checkPerm("admin_conference")) {
+			// this item is not owned by current user and current user is not an admin
+			$error = false;
+	}
 }
 
 // Define the array of items to validate and the validation strings
@@ -151,23 +155,28 @@ if ($_POST['save']) { // saving the form
 	   </tr>
 	   <tr>
 	     <td colspan=3 valign="top">
-	      	<div>
-	      	<input name="type" type="radio" value="poster" <?php if ($_POST['type']=="poster") echo "checked" ?> />&nbsp;&nbsp;<strong>Poster session</strong><span style="color:red"><strong>&nbsp;&nbsp; NEW! </strong></span><br/>
-					<div style="padding: 0px 40px;">
-				 	Posters will be displayed during the conference in the main dining/gathering hall.  &nbsp;Posters will also be displayed during the 
-				 	Technical Demonstrations on Thursday evening, December 7th.  <br/><br/> 
+	      	<div><input name="type" type="radio" value="presentation" <?php if ($_POST['type']=="presentation") echo "checked" ?> />&nbsp;&nbsp;<strong>Conference Presentation</strong>
+				<div style="padding: 0px 40px;">
+				<!-- <strong>Please Note:</strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
+				-->	 
+					Presentations will take place at the conference hotel, during the conference's 
+					normal daytime schedule for June 12-14. You may choose from the following presentation types: Panel, Workshop, Discussion/Roundtable, Lecture/Presentation or Tool Carousel. <br/><br/>
 				
+				
+				</div>
 			</div>
-							<div> <input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><span style="color:red"><strong>&nbsp;&nbsp; NEW! </strong></span><br/>
+			
+		
+				<!--			<div> <input name="type" type="radio" value="BOF" <?php if ($_POST['type']=="BOF") echo "checked" ?> />  &nbsp;&nbsp;<strong>Birds of a Feather (BOF) meetings</strong><span style="color:red"><strong>&nbsp;&nbsp; NEW! </strong></span><br/>
 				<div style="padding: 0px 40px;">
 					BOFs are self-formed meetings set up by any conference attendee to discuss a Sakai-related topic during the conference. BOFs may take place during the main conference sessions, as well as before or after the normal conference scheduled session - based on room availablity.
 				<br/><br/>
 				</div>
-			</div>
+			</div>-->
 				
 				<div><input name="type" type="radio" value="demo" <?php if ($_POST['type']=="demo") echo "checked" ?> />&nbsp;&nbsp;<strong>Technology Demo</strong><br/>
 					<div style="padding: 0px 40px;">
-				 	Technology Demos will take place on Thursday, December 7th.<br/><br/>
+				 	Technology Demos will take place on Wednesday evening, June 13th.<br/><br/>
 				
 				<!-- <br/><strong> PLEASE NOTE:</strong>  We have filled our space/equipment allocations for 
 					the technical demos.  However, you may still submit
@@ -179,16 +188,12 @@ if ($_POST['save']) { // saving the form
 					[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]<br/><br/> 
 				--> </div>
 			</div>
-			<div><input name="type" type="radio" value="presentation" <?php if ($_POST['type']=="presentation") echo "checked" ?> />&nbsp;&nbsp;<strong>Conference Presentation</strong>
-				<div style="padding: 0px 40px;">
-				<strong>Please Note:</strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
-				<!--	 <br/><br/> Presentation formats include: panel, workshop, discussion, and lecture. 
+				<div>
+	      	<input name="type" type="radio" value="poster" <?php if ($_POST['type']=="poster") echo "checked" ?> />&nbsp;&nbsp;<strong>Poster session</strong><span style="color:red"><strong>&nbsp;&nbsp; </strong></span><br/>
+					<div style="padding: 0px 40px;">
+				 	Posters will be displayed during the conference in the main dining/gathering hall.  &nbsp;Posters will also be displayed during the 
+				 	Technical Demonstrations on Wednesday evening, June 13th.  <br/><br/> 
 				
-				<br/><br/>	Presentations will take place at the conference hotel, during the conference's 
-					normal daytime schedule for December 5-8. You may choose from the following presentation types: Panel, Workshop, Discussion/Roundtable, Lecture/Presentation or Tool Carousel. <br/><br/>
-				-->
-				<br/><br/>
-				</div>
 			</div>
 	
 	        

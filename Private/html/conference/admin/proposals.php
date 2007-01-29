@@ -549,7 +549,9 @@ foreach ($items as $item) { // loop through all of the proposal items
 
 	<td style="border-bottom:1px solid black;" rowspan="2" width="40%">
 		<div class="description"><strong>Abstract:</strong><br/><?= $item['abstract'] ?><br/><br/></div>
-		<?php if ($item['URL']) { /* a project URL was provided */
+		<?php if ($item['URL']) {
+			$url=$item['URL'];
+		 /* a project URL was provided */
 			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
 		}
 		

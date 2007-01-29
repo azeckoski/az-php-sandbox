@@ -302,7 +302,7 @@ if ($_POST['save']) {
 			} else
 				if ($type == "BOF") {
 					$approved = "Y";
-					$length = "90";
+					$length = "60";
 				}
 
 			//first add presentation information into --all data except role and topic data
@@ -493,7 +493,29 @@ if ($Message) {
     <td colspan=2>
     		<div><strong> Technical Demo Proposal </strong></div>
     		<div style="padding:0px 10px;">
-					Technology Demos will take place on Thursday, December 7th. 
+					Technology Demos will take place on Wednesday evening, June 13th. <br/><br/>
+					<blockquote>
+<p><strong>We will provide the following for your demonstration:</strong></p></blockquote>
+<blockquote>
+<ul>
+<li>One 6-foot table, 2 chairs <br />
+</li>
+<li>One projection screen and projector</li>
+<li>One power strip <br />
+</li>
+<li>A small sign with the title of your demonstration<br />
+
+<br />
+</li></ul></blockquote>
+<blockquote>
+<p><strong>You will need to provide the following (if needed):</strong></p></blockquote>
+<blockquote>
+<ul>
+<li>Additional power strips and/or Eruopean power adapters  </li>
+
+<li>Pre-printed material to hand out.&nbsp;&nbsp; Copy services are not provided by the conference.&nbsp;&nbsp; You will need to arrange with the hotel or a local company to provide printed material.&nbsp; <br />
+
+</li></ul></blockquote>
 				<!--	[<a href="http://www.sakaiproject.org/index.php?option=com_content&amp;task=blogcategory&amp;id=173&amp;Itemid=523" target=blank>more information</a>]
 				-->
 				</div>
@@ -599,8 +621,11 @@ if ($type=="poster") { ?>
  ?>
 <tr>
     <td colspan=2>	
-    <div style="padding:5px; border: 1px solid #ffcc33; background:#fff;"><strong><span style="color:#660000;">Please Note:</span></strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
+   <?php  if (strtotime($CFP_END_DATE) < time()) {  ?>
+   	
+   <div style="padding:5px; border: 1px solid #ffcc33; background:#fff;"><strong><span style="color:#660000;">Please Note:</span></strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
 		</div>	
+   <?php } ?>
     	<br/><br>	<div><strong> Proposal for Conference Presentation </strong></div>
          <div>Select the most appropriate Presentation Topic Areas, Intend Audiences, and Format for your presentation from the options provided below.
          	 Please note that these classifications and titles will be used by the program commitee for the proposal review and conference
@@ -683,7 +708,7 @@ if(!$PK)  {  //user is editing so no need to show the description
 		<img id="postersImg" src="/accounts/ajax/images/required.gif" width="16" height="16" /> <strong>How many posters will you present on this topic?</strong>
 	<input type="text" name="posters" size="3" value="<?= $_POST['poster']  ?>" /> <br/><br/>	<strong>Please Note:</strong>   We will provide one easel/stand for each poster you plan to submit.
 				 	The maximum poster size we can accomodate is 24 x 36 inches. You may bring more than one poster for a given topic. However, if you plan to present on multiple projects or topics, please complete a separate submission form for each additional topic. <br/><br/>
-				 	  <strong>Poster Designs: </strong> You may design your own poster or use the simple PowerPoint poster template we have created for you. <br/><blockquote> [ <a href="http://sakaiproject.org/conference/sakai_poster_templateAtlanta06.ppt">download template now </a>] </blockquote>
+				 	  <strong>Poster Designs: </strong> You may design your own poster or use the simple PowerPoint poster template we will provide sometime in March, once we have an official conference logo. <br/>
 				
 		<input type="hidden" id="postersValidate" value="<?= $vItems['posters'] ?>" />
 		<span id="postersMsg"></span>
@@ -775,8 +800,9 @@ if(!$PK)  {  //user is editing so no need to show the description
 		   		 	<span>low&nbsp;&nbsp;</span>
 		   		 	<span>med&nbsp;&nbsp;</span>
 					<span>high&nbsp;&nbsp;&nbsp;</span>
+					<span class="topic_type_header">TOPIC AREAS</span>
 				</div>
-				<div class="topic_type_header">TOPIC AREAS</div>
+				
 			</div>
 		     
 	<?php
@@ -796,8 +822,9 @@ if(!$PK)  {  //user is editing so no need to show the description
 			     <span><input name="<?= $itemID ?>" type="radio" value="1" <?php if ($list_items['choice']=="1") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
 			     <span><input name="<?= $itemID ?>" type="radio" value="2" <?php if ($list_items['choice']=="2") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
 			     <span><input name="<?= $itemID ?>" type="radio" value="3" <?php if ($list_items['choice']=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			  <span class="topic_type"><?= $list_items['topic_name'] ?></span>
 			    </div>
-				<div class="topic_type"><?= $list_items['topic_name'] ?></div>
+				
 			 </div>
 	<?php } ?>
 		</div> <!-- end topic -->
@@ -825,8 +852,9 @@ if(!$PK)  {  //user is editing so no need to show the description
 		   		 	<span>low&nbsp;&nbsp;</span>
 		   		 	<span>med&nbsp;&nbsp;</span>
 					<span>high&nbsp;&nbsp;&nbsp;</span>
+					<span class="topic_type_header">AUDIENCE</span>
 				</div>
-				<div class="topic_type_header">AUDIENCE</div>
+				
 			</div>
 	
 			<?php
@@ -846,8 +874,9 @@ if(!$PK)  {  //user is editing so no need to show the description
 			     <span><input name="<?= $itemID ?>" type="radio" value="1" <?php if ($list_items['choice']=="1") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
 			     <span><input name="<?= $itemID ?>" type="radio" value="2" <?php if ($list_items['choice']=="2") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;</span>
 			     <span><input name="<?= $itemID ?>" type="radio" value="3" <?php if ($list_items['choice']=="3") { echo "checked"; }?> />&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			     <span class="topic_type"><?= $list_items['role_name'] ?></span>
 			    </div>
-				<div class="topic_type"><?= $list_items['role_name'] ?></div>
+				
 			 </div>
 	<?php } ?>
 		</div> <!-- end audience -->
@@ -895,8 +924,8 @@ if(!$PK)  {  //user is editing so no need to show the description
      </td>
      <td>
 		<div class="small">Times are not guaranteed. We will do our best to match each session with an appropriate time block</div><br/>
-          <input name="plength" type="radio" value="40" <?php if ($_POST['plength']=="40") { echo "checked"; } ?> /> 40 minutes  <br/>
-          <input name="plength" type="radio" value="90" <?php if ($_POST['plength']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
+          <input name="plength" type="radio" value="30" <?php if ($_POST['plength']=="30") { echo "checked"; } ?> /> 30 minutes  <br/>
+          <input name="plength" type="radio" value="60" <?php if ($_POST['plength']=="60") { echo "checked"; } ?> /> 60 minutes  <br/>
 		<input type="hidden" id="plengthValidate" value="<?= $vItems['plength'] ?>" />
 		<span id="plengthMsg"></span>
      </td>
@@ -906,10 +935,11 @@ if(!$PK)  {  //user is editing so no need to show the description
      <td><strong>Availability</strong></td>
      <td><div class=small> Please check the days that the presenter(s)<br/>CANNOT present due to a travel conflict</div>
         <br/> <strong> I am NOT available:</strong><br/>
-          <input name="conflict_tue" type="checkbox" value="Tue" <?php if ($_POST['conflict_tue']=="Tue") { echo "checked"; } ?> /> Tuesday, Dec. 5 <br/>
-          <input name="conflict_wed" type="checkbox" value="Wed" <?php if ($_POST['conflict_wed']=="Wed")  { echo "checked"; } ?> /> Wednesday, Dec. 6 <br/>
-          <input name="conflict_thu" type="checkbox" value="Thu" <?php if ($_POST['conflict_thu']=="Thu")  { echo "checked"; } ?> /> Thursday, Dec. 7 <br/>
-          <input name="conflict_fri" type="checkbox" value="Fri" <?php if ($_POST['conflict_fri']=="Fri") { echo "checked"; } ?> /> Friday, Dec. 8 <br/>
+          <input name="conflict_tue" type="checkbox" value="Tue" <?php if ($_POST['conflict_tue']=="Tue") { echo "checked"; } ?> /> Tuesday, June 12 <br/>
+          <input name="conflict_wed" type="checkbox" value="Wed" <?php if ($_POST['conflict_wed']=="Wed")  { echo "checked"; } ?> /> Wednesday, June 13 <br/>
+          <input name="conflict_thu" type="checkbox" value="Thu" <?php if ($_POST['conflict_thu']=="Thu")  { echo "checked"; } ?> /> Thursday, June 14 <br/>
+        <!--  <input name="conflict_fri" type="checkbox" value="Fri" <?php if ($_POST['conflict_fri']=="Fri") { echo "checked"; } ?> /> Friday, May 2 <br/>
+        --> 
         <br/>
      </td>
   </tr>
