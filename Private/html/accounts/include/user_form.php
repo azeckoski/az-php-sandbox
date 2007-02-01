@@ -24,7 +24,7 @@
 			<span id="usernameMsg"></span>
 			<br/>
 			&nbsp;&nbsp;&nbsp;&nbsp;
-			<i style="font-size:.7em;">Email address required for username</i>
+			<i style="font-size:.7em; color:red; padding-left: 10px;">Email address required for username</i>
 <?php } ?>
 		</td>
 	</tr>
@@ -124,8 +124,12 @@ if ($submitButtonName) {
 <!-- Column Two -->
 <fieldset><legend>Location</legend>
 <table border="0" cellpadding="2" cellspacing="0">
+	<tr><td class="account" colspan=2 style="padding-bottom: 10px;"> <b>Organization:</b><br/>Select your organization from the Sakai Partner list below.  If your organization is not a Sakai Partner, select 'Other' from the list then enter the organization name into the box provided. 
+	  <span style="font-size: .9em; color: #333;"> <br/><br/>(If your Sakai Partner organization is not listed below, please contact <a mailto:mmiles@umich.edu">mmiles@umich.edu).</a></span>
+	</td>
+	</tr>
 	<tr>
-		<td class="account"><b>Institution:</b></td>
+		<td class="account"> </td>
 		<td nowrap="y">
 			<img id="institution_pkImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="institution_pk">
@@ -140,7 +144,7 @@ if ($submitButtonName) {
 			</select><br/>
 			<input style="display:none;" type="text" id="institution_pkOther" value="<?= $thisUser['institution'] ?>" size="40" maxlength="100" />
 			<input type="hidden" id="institution_pkValidate" value="<?= $vItems['institution_pk'] ?>" />
-			<span id="institution_pkMsg"></span>
+			<span id="institution_pkMsg"></span><br/><br/>
 		</td>
 	</tr>
 
