@@ -623,10 +623,10 @@ if ($type=="poster") { ?>
     <td colspan=2>	
    <?php  if (strtotime($CFP_END_DATE) < time()) {  ?>
    	
-   <div style="padding:5px; border: 1px solid #ffcc33; background:#fff;"><strong><span style="color:#660000;">Please Note:</span></strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
-		</div>	
+  <!-- <div style="padding:5px; border: 1px solid #ffcc33; background:#fff;"><strong><span style="color:#660000;">Please Note:</span></strong>  At this time our schedule cannot accomodate any new presentations.  This option is available only for those who need to submit/resubmit a presentation as requested by the conference committe.
+		</div>	-->
    <?php } ?>
-    	<br/><br>	<div><strong> Proposal for Conference Presentation </strong></div>
+    	<div><strong> Proposal for Conference Presentation </strong></div>
          <div>Select the most appropriate Presentation Topic Areas, Intend Audiences, and Format for your presentation from the options provided below.
          	 Please note that these classifications and titles will be used by the program commitee for the proposal review and conference
           	planning process, and may not be the classifications or titles used for the final conference program. 
