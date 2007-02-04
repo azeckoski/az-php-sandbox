@@ -45,13 +45,16 @@ if (strtotime($VOTE_CLOSE_DATE) < time()) {
 $EXTRA_LINKS .= "</div>";
 
 // Do the export as requested by the user
-if ($_REQUEST["export"] && $allowed && $viewing) {
+if ($_REQUEST["export"] && $allowed) {
 	$date = date("Ymd-Hi",time());
 	$filename = "proposal_results-" . $date . ".csv";
 	header("Content-type: text/x-csv");
 	header("Content-disposition: inline; filename=$filename\n\n");
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 	header("Expires: 0"); 
+	$exportMsg = "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
+		$exportMsg.= "\"Voting end date:\",\"" . date($DATE_FORMAT,strtotime($ROUND_END_DATE)) . "\"\n";	
+		
 } else { 
 	// display the page normally
 
@@ -515,10 +518,9 @@ foreach ($items as $item) { // loop through all of the proposal items
 			$value = str_replace("\"", "\"\"", $value); // fix for double quotes
 			$item[$name] = '"' . $value . '"'; // put quotes around each item
 		}
-		print join(',', $item) . "\n";
+		print join(',', $item);
 
-		print "\n\"Exported on:\",\"" . date($DATE_FORMAT,time()) . "\"\n";
-		print "\"Voting end date:\",\"" . date($DATE_FORMAT,strtotime($ROUND_END_DATE)) . "\"\n";		
+			
 	} else {
 		// normal display
 ?>
