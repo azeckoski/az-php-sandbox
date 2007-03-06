@@ -1,1 +1,0 @@
-<?phpif ($_POST['url'] =='join')	  header("Location:../index.php?option=com_content&task=view&id=217&Itemid=436");else 	  header("Location:$_POST[url]");?>

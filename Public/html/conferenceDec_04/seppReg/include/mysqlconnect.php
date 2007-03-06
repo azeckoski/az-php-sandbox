@@ -1,1 +1,0 @@
-<?php$dbhost = "mysql6.webcontrolcenter.com";$dbname = "sakai";$dbuser = "sakai";$dbpass = "sakaiboard"; $db = mysql_connect("$dbhost", "$dbuser", "$dbpass");mysql_select_db("$dbname",$db);?>
