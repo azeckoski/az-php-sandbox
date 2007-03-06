@@ -1,0 +1,62 @@
+/** IE6 is a hunk of crap!!! don't ask me why this is needed **/
+
+#mainbg-2 {
+	float: left;
+}
+
+#mainbg-3 {
+	float: left;
+}
+
+#mainbg-4 {
+	float: left;
+}
+
+#mainbg-5 {
+	float: left;
+}
+
+#mainft-2 {
+	float: left;
+}
+
+#mainft-3 {
+	float: left;
+}
+
+
+.w-fluid #mainbg-2 {
+	float: none;
+}
+
+.w-fluid #mainbg-3 {
+	float: none;
+}
+
+.w-fluid #mainbg-4 {
+	float: none;
+}
+
+.w-fluid #mainbg-5 {
+	float: none;
+}
+
+.w-fluid #mainft-2 {
+	float: none;
+}
+
+.w-fluid #mainft-3 {
+	float: none;
+}
+
+.w-fluid #access {
+	margin-right: 20px;
+}
+
+#selectors {
+	margin-right: 4px;
+}
+
+#access a {
+	cursor: hand;
+}

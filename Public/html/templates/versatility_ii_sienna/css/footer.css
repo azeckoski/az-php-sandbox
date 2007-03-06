@@ -1,0 +1,25 @@
+/* dark footer */
+
+#footer {
+	background: #485269 url(../images/footer-bg.png) repeat-x;
+}
+
+#footer li {
+	border-bottom: 1px dotted #636D84;
+}
+
+#footer div.moduletable {
+	color: #ccc;
+}
+
+#footer h3 {
+	color: #fff;
+}
+
+#footer a {
+  color: #fff;
+}
+
+#footer a:hover {
+	color: #ccc;
+}

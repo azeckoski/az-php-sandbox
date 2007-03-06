@@ -1,0 +1,89 @@
+/*****************************
+ ****       splitmenu     ****
+ *****************************/
+
+
+
+#nav li.active_menu a {
+	background: url(../images/toolbar-select.png) 50% 0 no-repeat;
+}
+
+
+#nav {
+	background: url(../images/toolbar-div.png) 0 0 no-repeat;
+}
+
+#nav li {
+	background: url(../images/toolbar-div.png) 100% 0 no-repeat;
+}
+
+#nav li a {
+	color: #fff;
+}
+
+#nav a:hover {
+	color: #d1d5dd;
+}
+
+#nav {
+	margin: 0 0 0 20px;
+	padding: 0;
+	height: 31px;
+	overflow: hidden;
+}
+
+#nav ul {
+	padding: 0;
+	margin: 0;
+	margin-left: 2px;
+}
+
+#nav li {
+	margin: 0;
+	padding: 0;
+	float: left;
+	display: block;
+}
+
+#nav a {
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#nav li.on li.on a {
+	text-decoration: underline;
+}
+
+#nav li a {
+	display: block;
+	float: left;
+	height: 31px;
+	line-height: 31px;
+	padding: 0 15px;
+}
+
+ul.subemenu {
+	padding: 0;
+	margin: 0;
+}
+
+ul.submenu li {
+	border: 0;
+	margin: 0px;
+	height: 16px;
+	line-height: 15px;
+	padding: 0;
+	padding-left: 20px;
+	background: url(../images/play.png) no-repeat;
+}
+
+ul.submenu ul li {
+  margin-left: 10px;
+  background: none;
+}
+
+ul.submenu ul ul li {
+  margin-left: 20px;
+  background: none;
+}

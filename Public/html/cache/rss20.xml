@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- generator="FeedCreator 1.7.2" -->
+<rss version="2.0">
+    <channel>
+        <title>Sakai Project News</title>
+        <description>Sakai Project News Syndication</description>
+        <link>http://www.sakaiproject.org</link>
+        <lastBuildDate>Tue, 06 Mar 2007 05:29:01 +0100</lastBuildDate>
+        <generator>FeedCreator 1.7.2</generator>
+        <item>
+            <title>JA-SIG Summer Conference Proposals Due Wednesday, March 7</title>
+            <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=528&amp;Itemid=312</link>
+            <description>JA-SIG With Altitude!
+June 24-27, 2007
+Denver CO, USA
+
+The deadline for submitting a proposal for a presentation, a
+birds-of-feather session, or a kiosk at the JA-SIG Summer conference in
+Denver is Wednesday, 07 March 2007.  The committee welcomes proposals
+from all attendees.  We...</description>
+        </item>
+        <item>
+            <title>Sakai Newsletter February 22, 2007</title>
+            <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=527&amp;Itemid=533</link>
+            <description>1.  7th Sakai Community Conference Updates
+2.  Agora -- Online Meeting Tool for Sakai
+3.  TransformAble Now Part of Sakai
+4.  2.1.x-ers: Important WebDAV Security Patch for /dav/attachment/*
+5.  Sakai 2.3.1 Released
+6.  Sakai 2.2.3 Released
+7.  Improving the...</description>
+        </item>
+        <item>
+            <title>Sakai Newsletter February 8, 2007</title>
+            <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=526&amp;Itemid=533</link>
+            <description>1.  7th Sakai Conference in Amsterdam Updates
+2.  Sakai Version 2.3 Accessibility Review
+3.  Last Call for Sakai 2.4 Tool Promotions
+4.  JA-SIG Summer 2007 Conference
+5.  Sakai Track at the JA-SIG Summer 2007 Conference
+6.  Sakai Documents from...</description>
+        </item>
+        <item>
+            <title>Thomson Learning Adopts Sakai Open Source CLE</title>
+            <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=525&amp;Itemid=312</link>
+            <description>STAMFORD, CT, February 26, 2007 Ã¢â‚¬â€œ Thomson Learning, one of the largest academic publishers in higher education, has adopted the Sakai open source collaboration and learning environment for supporting the delivery of world-class learning products and services.  In becoming...</description>
+        </item>
+        <item>
+            <title>Improving the Sakai User Experience</title>
+            <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=524&amp;Itemid=312</link>
+            <description>Members of the Sakai community,
+
+If the Sakai user experience is important to your organization please read on. The Sakai leadership team has decided to establish a new Foundation staff position to lead community effort toward an ever-improving user experience. The...</description>
+        </item>
+        <item>
+            <title>Sakai 2.3.1 Released</title>
+            <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=521&amp;Itemid=312</link>
+            <description>The Sakai Foundation announces the release of the Sakai Collaboration
+and Learning Environment, version 2.3.1.
+
+Sakai 2.3.1 is a security update that addresses two critical security
+vulnerabilities in the Sakai 2.3.0 maintenance release.  Anyone running
+unpatched versions of 2.3.0 should upgrade to 2.3.1...</description>
+        </item>
+        <item>
+            <title>Sakai 2.2.3 Released</title>
+            <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=522&amp;Itemid=312</link>
+            <description>The Sakai Foundation announces the release of the Sakai Collaboration and Learning Environment, version 2.2.3.
+
+Sakai 2.2.3 is a security update that addresses two critical security vulnerabilities in the Sakai 2.2.x maintenance releases.  Anyone running unpatched versions of 2.2.x should...</description>
+        </item>
+        <item>
+            <title>Press Release: Sakai Foundation's Response to Blackboard's Patent Pledge</title>
+            <link>http://www.sakaiproject.org/index.php?option=com_content&amp;task=view&amp;id=519&amp;Itemid=312</link>
+            <description>The Boards of Directors of the Sakai Foundation and of EDUCAUSE recognize the patent pledge announced on February 1, 2007 by Blackboard as a step in a more positive direction for the community, to the extent that it offers some...</description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall version="1.0" type="template">
+   <!-- <name>rt_versatility_ii_sienna</name> -->
+   <!-- was rt_versatility_ii_sienna:  modified by Susan Hardin for Sakai Atlanta Conference -->
+   <name>AmsterdamConference07</name>
+    <version>1.0.1</version>
+    <creationDate>06/29/06</creationDate>
+    <author>rhuk</author>
+    <authorEmail>support@rockettheme.com</authorEmail>
+    <authorUrl>http://www.rockettheme.com</authorUrl>
+    <copyright>Copyright 2005-2006 - RocketTheme.com</copyright>
+    <license></license>
+    <description>
+<![CDATA[
+<h1>RocketTheme Versatility II - Sienna</h1>
+
+<img src="../templates/rt_versatility_ii_sienna/template_thumbnail.png" align="left" hspace="10" />rt_versatility_ii is the July 2006 template for the RocketTheme template club.  It is not free or public.  This is template is for members of the RocketTheme Template Club only.  For installation help check out the 'Versatility' Overview Page at <a href="http://www.rockettheme.com/blogcategory/Template_Club/">RocketTheme Template Club</a>
+
+<h3>Changelog</h3>
+
+<b>1.0.1</b><br />
+<ul>
+<li>Fixed vanishing header in fluid width on IE<li>
+<li>Code Cleanup and fixed left menu selected color</li>
+</ul>
+
+<b>1.0</b><br />
+<ul>
+<li>Initial Release</li>
+</ul>
+
+]]>    	
+    </description>
+    <files>
+      <filename>css/index.html</filename>
+      <filename>css/template_css.css</filename>
+      <filename>css/template_ie.css</filename>
+      <filename>css/editor_content.css</filename>
+      <filename>css/splitmenu.css</filename>
+      <filename>css/suckerfish.css</filename>
+      <filename>css/supersucker.css</filename>
+      <filename>css/module.css</filename>
+      <filename>css/header.css</filename>
+      <filename>css/footer.css</filename>
+      <filename>images/index.html</filename>
+      <filename>images/indent4.png</filename>
+      <filename>images/indent1.png</filename>
+      <filename>images/indent2.png</filename>
+      <filename>images/indent3.png</filename>
+      <filename>images/emailButton.png</filename>
+      <filename>images/printButton.png</filename>
+      <filename>images/pdf_button.png</filename>
+      <filename>images/arrow.png</filename>
+      <filename>images/access-fluid.png</filename>
+      <filename>images/access-lrg.png</filename>
+      <filename>images/access-med.png</filename>
+      <filename>images/access-select.png</filename>
+      <filename>images/access-sml.png</filename>
+      <filename>images/access-thin.png</filename>
+      <filename>images/access-wide.png</filename>
+      <filename>images/body-bg.png</filename>
+      <filename>images/body-shadow-bl.png</filename>
+      <filename>images/body-shadow-br.png</filename>
+      <filename>images/body-shadow-tl.png</filename>
+      <filename>images/body-shadow-tr.png</filename>
+      <filename>images/play.png</filename>
+      <filename>images/content-bg.png</filename>
+      <filename>images/footer-bg.png</filename>
+      <filename>images/header-bg.png</filename>
+      <filename>images/logo.png</filename>
+      <filename>images/showcase-bg.png</filename>
+      <filename>images/side-bg.png</filename>
+      <filename>images/toolbar-bg.png</filename>
+      <filename>images/toolbar-div.png</filename>
+      <filename>images/toolbar-select.png</filename>
+      <filename>images/footer-shadow-tl.png</filename>
+      <filename>images/footer-shadow-tr.png</filename>
+      <filename>images/toolbar-select2.png</filename>
+      <filename>images/toolbar-select3.png</filename>
+      <filename>images/toolbar-select4.png</filename>
+      <filename>images/toolbar-div2.png</filename>
+      <filename>index.php</filename>
+      <filename>templateDetails.xml</filename>
+      <filename>template_thumbnail.png</filename>
+      <filename>buildxml.php</filename>
+      <filename>rt_splitmenu.php</filename>
+      <filename>rt_styleswitcher.php</filename>
+      <filename>rt_styleloader.php</filename>
+      <filename>rt_suckerfish.php</filename>
+      <filename>js/ie.js</filename>
+      <filename>js/index.html</filename>
+      <filename>rt_supersucker.php</filename>
+</files>
+    <params/>
+</mosinstall>

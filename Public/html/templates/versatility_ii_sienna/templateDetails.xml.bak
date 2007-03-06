@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall version="1.0" type="template">
+    <name>rt_versatility_ii_sienna</name>
+    <version>1.0</version>
+    <creationDate>06/29/06</creationDate>
+    <author>rhuk</author>
+    <authorEmail>support@rockettheme.com</authorEmail>
+    <authorUrl>http://www.rockettheme.com</authorUrl>
+    <copyright>Copyright 2005-2006 - RocketTheme.com</copyright>
+    <license></license>
+    <description>
+<![CDATA[
+<h1>RocketTheme Versatility II - Sienna</h1>
+
+<img src="../templates/rt_versatility_ii_sienna/template_thumbnail.png" align="left" hspace="10" />rt_versatility_ii is the July 2006 template for the RocketTheme template club.  It is not free or public.  This is template is for members of the RocketTheme Template Club only.  For installation help check out the 'Versatility' Overview Page at <a href="http://www.rockettheme.com/blogcategory/Template_Club/">RocketTheme Template Club</a>
+
+<h3>Changelog</h3>
+
+<b>1.0</b><br />
+<ul>
+<li>Initial Release</li>
+</ul>
+
+]]>    	
+    </description>
+    <files>
+      <filename>css/index.html</filename>
+      <filename>css/template_css.css</filename>
+      <filename>css/template_ie.css</filename>
+      <filename>css/editor_content.css</filename>
+      <filename>css/toolbar_orange.css</filename>
+      <filename>css/footer_dark.css</filename>
+      <filename>css/header_light.css</filename>
+      <filename>css/header_dark.css</filename>
+      <filename>css/toolbar_blue.css</filename>
+      <filename>css/toolbar_red.css</filename>
+      <filename>css/toolbar_green.css</filename>
+      <filename>css/footer_orange.css</filename>
+      <filename>css/footer_blue.css</filename>
+      <filename>css/footer_red.css</filename>
+      <filename>css/footer_green.css</filename>
+      <filename>images/index.html</filename>
+      <filename>images/indent4.png</filename>
+      <filename>images/indent1.png</filename>
+      <filename>images/indent2.png</filename>
+      <filename>images/indent3.png</filename>
+      <filename>images/emailButton.png</filename>
+      <filename>images/printButton.png</filename>
+      <filename>images/pdf_button.png</filename>
+      <filename>images/toolbar/blue/toolbar-bg.png</filename>
+      <filename>images/toolbar/blue/toolbar-div.png</filename>
+      <filename>images/toolbar/blue/toolbar-select-dark.png</filename>
+      <filename>images/toolbar/blue/toolbar-select-light.png</filename>
+      <filename>images/toolbar/green/toolbar-bg.png</filename>
+      <filename>images/toolbar/green/toolbar-div.png</filename>
+      <filename>images/toolbar/green/toolbar-select-dark.png</filename>
+      <filename>images/toolbar/green/toolbar-select-light.png</filename>
+      <filename>images/toolbar/orange/toolbar-bg.png</filename>
+      <filename>images/toolbar/orange/toolbar-div.png</filename>
+      <filename>images/toolbar/orange/toolbar-select-dark.png</filename>
+      <filename>images/toolbar/orange/toolbar-select-light.png</filename>
+      <filename>images/toolbar/red/toolbar-bg.png</filename>
+      <filename>images/toolbar/red/toolbar-div.png</filename>
+      <filename>images/toolbar/red/toolbar-select-dark.png</filename>
+      <filename>images/toolbar/red/toolbar-select-light.png</filename>
+      <filename>images/header/dark/access-fluid.png</filename>
+      <filename>images/header/dark/access-lrg.png</filename>
+      <filename>images/header/dark/access-med.png</filename>
+      <filename>images/header/dark/access-select.png</filename>
+      <filename>images/header/dark/access-sml.png</filename>
+      <filename>images/header/dark/access-thin.png</filename>
+      <filename>images/header/dark/access-wide.png</filename>
+      <filename>images/header/dark/header-bg.png</filename>
+      <filename>images/header/dark/logo.png</filename>
+      <filename>images/header/light/access-fluid.png</filename>
+      <filename>images/header/light/access-lrg.png</filename>
+      <filename>images/header/light/access-med.png</filename>
+      <filename>images/header/light/access-select.png</filename>
+      <filename>images/header/light/access-sml.png</filename>
+      <filename>images/header/light/access-thin.png</filename>
+      <filename>images/header/light/access-wide.png</filename>
+      <filename>images/header/light/header-bg.png</filename>
+      <filename>images/header/light/logo.png</filename>
+      <filename>images/footer/blue/footer-bg.png</filename>
+      <filename>images/footer/dark/footer-bg.png</filename>
+      <filename>images/footer/green/footer-bg.png</filename>
+      <filename>images/footer/orange/footer-bg.png</filename>
+      <filename>images/footer/red/footer-bg.png</filename>
+      <filename>images/default/body-bg.png</filename>
+      <filename>images/default/body-shadow-bl.png</filename>
+      <filename>images/default/body-shadow-br.png</filename>
+      <filename>images/default/body-shadow-tl.png</filename>
+      <filename>images/default/body-shadow-tr.png</filename>
+      <filename>images/default/showcase-bg.png</filename>
+      <filename>images/default/play.png</filename>
+      <filename>images/default/search.png</filename>
+      <filename>images/arrow.png</filename>
+      <filename>index.php</filename>
+      <filename>templateDetails.xml</filename>
+      <filename>template_thumbnail.png</filename>
+      <filename>buildxml.php</filename>
+      <filename>rt_splitmenu.php</filename>
+      <filename>rt_styleswitcher.php</filename>
+      <filename>rt_styleloader.php</filename>
+</files>
+    <params/>
+</mosinstall>

@@ -1,0 +1,88 @@
+/*****************************
+ ****       module menu     ****
+ *****************************/
+
+#nav table.moduletable{
+	width: 100%;
+	color: #fff;
+	background: url(../images/toolbar-div.png) 100% 0 no-repeat;
+}
+
+#nav span.mainlevel {
+	padding-left: 5px;
+}
+
+#nav a.mainlevel:link,
+#nav a.mainlevel:visited {
+	display: inline;
+	line-height: 31px;
+	background: none;
+	padding-right: 5px;
+	color: #fff;
+	
+}
+
+#nav a.mainlevel:hover {
+	color: #ccc;
+}
+
+#nav a#active_menu {
+	background: url(../images/toolbar-select.png) 50% 0 no-repeat;
+	color: #fff;
+}
+
+
+#nav {
+	background: url(../images/toolbar-div.png) 0 0 no-repeat;
+}
+
+#nav li {
+	background: url(../images/toolbar-div.png) 100% 0 no-repeat;
+}
+
+#nav li a {
+	color: #fff;
+}
+
+#nav a:hover {
+	color: #d1d5dd;
+}
+
+#nav {
+	margin: 0 20px 0 20px;
+	padding: 0;
+	height: 31px;
+	overflow: hidden;
+}
+
+#nav ul {
+	padding: 0;
+	margin: 0;
+	margin-left: 2px;
+}
+
+#nav li {
+	margin: 0;
+	padding: 0;
+	float: left;
+	display: block;
+}
+
+#nav a {
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#nav li.on li.on a {
+	text-decoration: underline;
+}
+
+#nav ul#mainlevel a.mainlevel {
+	display: block;
+	float: left;
+	height: 31px;
+	line-height: 31px;
+	padding: 0 15px;
+}
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<mosinstall version="4.5.3" type="mambot" group="editors">
+    <name>none</name>
+    <version></version>
+    <creationDate>Dec 2005</creationDate>
+    <author></author>
+    <authorEmail>N/A</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>http://www.gnu.org/copyleft/gpl.html GNU/GPL</copyright>
+    <license>LGPL</license>
+    <description>This loads a basic text entry field</description>
+	<files>
+		<filename mambot="none">none.php</filename>
+	</files>
+	<params/>
+</mosinstall>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="mambot" group="content" version="4.5.1">
+	<name>Imbed PHP</name>
+	<creationDate>30/09/2004</creationDate>
+	<author>Konlong</author>
+	<copyright>(C) 2004 John Long</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<description>Allows for the placement of PHP code in content items</description>
+	<files>
+		<filename mambot="kl_php">kl_php.php</filename>
+	</files>
+    <params>
+    <param name="ob" type="radio" default="1" label="Use Output Buffering" description="Useful if you doing an include of code which uses print or echo for output">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </param>
+    <param name="entities" type="radio" default="1" label="Decode HTML_entities" description="Useful if you use a WYSIWYG editor to place the mambot">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </param>
+    <param name="span" type="radio" default="0" label="Wrap the results in a span" description="">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </param>
+    <param name="@spacer" type="spacer" default="" label="" description="" />
+    <param name="debug" type="radio" default="0" label="debug" description="Feature not always available.">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </param>
+    </params>
+</mosinstall>
