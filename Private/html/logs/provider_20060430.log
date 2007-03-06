@@ -1,0 +1,33 @@
+ajax;20060430 21:40:15;/accounts/ajax/validate.php;validate:uniqueuserp:janq
+ajax;20060430 21:40:15;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060430 21:40:31;/accounts/ajax/validate.php;validate:email:janq@csufresno.edu
+ajax;20060430 21:40:31;/accounts/ajax/validate.php;validate:uniqueuserp:janq@csufresno.edu
+ajax;20060430 21:40:31;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:required:janq
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:nospaces:janq
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:uniqueuserp:janq
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:required:sakai
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:password:sakai
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:required:sakai
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:password:sakai
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:match:sakai
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:required:Max J.
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:required:Tsai
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:required:janq@csufresno.edu
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:email:janq@csufresno.edu
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:uniqueuserp:janq@csufresno.edu
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate::System Administrator
+ajax;20060430 21:41:30;/accounts/createaccount.php;validate:required:59
+janq;20060430 21:41:31;/accounts/createaccount.php;user added (ldap): Max J. Tsai (janq@csufresno.edu) [571]
+69.110.90.138;20060430 21:41:31;/accounts/createaccount.php;created account: janq (janq@csufresno.edu) Tsai,Max J.: inst=59
+janq;20060430 21:41:52;/accounts/activate.php;user modified (ldap): Max J. Tsai (janq@csufresno.edu) [571]
+janq;20060430 21:42:01;/accounts/login.php;user logged in (ldap):69.110.90.138:https://sakaiproject.org/accounts/login.php
+ajax;20060430 21:43:27;/accounts/ajax/validate.php;validate:email:janq@csufresno.edu
+ajax;20060430 21:43:27;/accounts/ajax/validate.php;validate:uniquesql:janq@csufresno.edu
+ajax;20060430 21:43:27;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060430 21:43:49;/accounts/ajax/validate.php;validate:email:janq@csufresno.edu
+ajax;20060430 21:43:49;/accounts/ajax/validate.php;validate:uniquesql:janq@csufresno.edu
+ajax;20060430 21:43:49;/accounts/ajax/validate.php;return=ok|email|
+janq;20060430 21:43:56;/accounts/login.php;user logged in (ldap):69.110.90.138:https://sakaiproject.org/accounts/login.php
+janq;20060430 22:55:31;/accounts/login.php;user logged in (ldap):69.110.90.138:https://sakaiproject.org/accounts/login.php

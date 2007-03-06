@@ -1,0 +1,17 @@
+hmtruscott;20070226 06:17:44;/accounts/login.php;user logged in (internal):131.111.21.21:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+HMTruscott;20070226 06:17:44;/accounts/login.php;user added (ldap): Harriet Truscott (hmt24@cam.ac.uk) [47]
+ajax;20070226 06:17:51;/conference/proposals/index.php;validate:required:presentation
+bkirschn;20070226 10:54:47;/accounts/login.php;user logged in (ldap):141.212.51.145:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20070226 10:54:53;/conference/proposals/index.php;validate:required:presentation
+ajax;20070226 11:07:19;/conference/proposals/edit_proposal.php;validate:required:Sakai I18N
+ajax;20070226 11:07:19;/conference/proposals/edit_proposal.php;validate:required:Review of internationalization and localization efforts with Sakai
+
+ajax;20070226 11:07:19;/conference/proposals/edit_proposal.php;validate:required:Sakai has made a lot of progress in internationalization and localization. This session will review the progress to date and the outstanding issues. Discussions with the audience will include specific problems facing international institutions, specific successes, and a ranking of issues to address in the next release.
+ajax;20070226 11:07:19;/conference/proposals/edit_proposal.php;validate:required:Beth Kirschner
+ajax;20070226 11:07:19;/conference/proposals/edit_proposal.php;validate:required:Beth Kirschner has been active in the Sakai project for several years and has been involved in efforts with research & collaboration, Open Source Portfolio (OSP), and internationalization.
+ajax;20070226 11:07:19;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20070226 11:07:19;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20070226 11:07:19;/conference/proposals/edit_proposal.php;validate:required:30
+ajax;20070226 11:07:36;/conference/proposals/index.php;validate:required:presentation
+francesatkinson;20070226 12:16:42;/accounts/forgot_password.php;user added (ldap): Frances Atkinson (frances@sfu.ca) [645]
+142.58.1.16;20070226 12:16:42;/accounts/forgot_password.php;password reset: frances@sfu.ca

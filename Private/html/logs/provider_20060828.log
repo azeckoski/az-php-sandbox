@@ -1,0 +1,11 @@
+ajax;20060828 21:58:18;/accounts/ajax/validate.php;validate:namespaces:TN
+ajax;20060828 21:58:18;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060828 21:59:38;/accounts/ajax/validate.php;validate:email:lingle555
+ajax;20060828 21:59:38;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060828 21:59:38;/accounts/ajax/validate.php;validate:email:lingle555@hotmail.com
+ajax;20060828 21:59:38;/accounts/ajax/validate.php;validate:uniqueuserp:lingle555@hotmail.com
+ajax;20060828 21:59:38;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060828 21:59:40;/accounts/ajax/validate.php;validate:namespaces:Chattanooga 
+ajax;20060828 21:59:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060828 21:59:40;/accounts/ajax/validate.php;validate:zipcode:37045
+ajax;20060828 21:59:40;/accounts/ajax/validate.php;return=ok|zipcode|

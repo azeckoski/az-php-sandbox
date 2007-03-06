@@ -1,0 +1,137 @@
+ajax;20060917 01:29:12;/accounts/ajax/validate.php;validate:email:Leorist
+ajax;20060917 01:29:12;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060917 01:29:19;/accounts/ajax/validate.php;validate:email:josh_hauser@hotmail.comLeorist
+ajax;20060917 01:29:19;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060917 01:29:25;/accounts/ajax/validate.php;validate:email:josh_hauser@hotmail.com
+ajax;20060917 01:29:25;/accounts/ajax/validate.php;validate:uniqueuserp:josh_hauser@hotmail.com
+ajax;20060917 01:29:25;/accounts/ajax/validate.php;validate:uniqueuserp:josh_hauser@hotmail.com
+ajax;20060917 01:29:25;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060917 21:24:32;/accounts/ajax/validate.php;validate:email:edwatson@vt.edu
+ajax;20060917 21:24:33;/accounts/ajax/validate.php;validate:uniqueuserp:edwatson@vt.edu
+ajax;20060917 21:24:33;/accounts/ajax/validate.php;validate:uniqueuserp:edwatson@vt.edu
+ajax;20060917 21:24:33;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060917 21:24:46;/accounts/ajax/validate.php;validate:email:edwatson@vt.edu
+ajax;20060917 21:24:46;/accounts/ajax/validate.php;validate:uniqueuserp:edwatson@vt.edu
+ajax;20060917 21:24:46;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060917 21:25:54;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20060917 21:25:54;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060917 21:26:03;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060917 21:26:03;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060917 21:26:07;/accounts/ajax/validate.php;validate:zipcode:24138
+ajax;20060917 21:26:07;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060917 21:26:09;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060917 21:26:09;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060917 21:26:13;/accounts/ajax/validate.php;validate:phone:540-231-4234
+ajax;20060917 21:26:13;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060917 21:26:18;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20060917 21:26:18;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:required:edwatson@vt.edu
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:email:edwatson@vt.edu
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:uniqueuserp:edwatson@vt.edu
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:uniqueuserp:edwatson@vt.edu
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:required:16days
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:password:16days
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:required:16days
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:password:16days
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:match:16days
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:required:Charles
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:required:Watson
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:required:edwatson@vt.edu
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:email:edwatson@vt.edu
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:uniqueuserp:edwatson@vt.edu
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:required:Faculty Development
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:required:88
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate::3009 Torgersen Hall (0232)
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:namespaces:Blacksburg
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:namespaces:VA
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:zipcode:24138
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:phone:540-231-4234
+ajax;20060917 21:26:39;/accounts/createaccount.php;validate:phone:540-231-5922
+70.110.15.27;20060917 21:26:39;/accounts/createaccount.php;created account: edwatson@vt.edu (edwatson@vt.edu) Watson,Charles: inst=88
+edwatson@vt.edu;20060917 21:27:48;/accounts/login.php;user logged in (internal):70.110.15.27:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;validate:zipcode:24138
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;validate:phone:540-231-4234
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20060917 21:27:49;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;validate:email:edwatson@vt.edu
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;validate:uniquesql:edwatson@vt.edu
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;validate:zipcode:24138
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;validate:phone:540-231-4234
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20060917 21:28:04;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:required:C. Edward
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:required:Watson
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:required:edwatson@vt.edu
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:email:edwatson@vt.edu
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:uniquesql:edwatson@vt.edu
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:required:Faculty Development
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate::Instructional Technologist
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:required:88
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate::3009 Torgersen Hall (0232)
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:namespaces:Blacksburg
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:namespaces:VA
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:zipcode:24138
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:phone:540-231-4234
+ajax;20060917 21:28:15;/accounts/myaccount.php;validate:phone:540-231-5922
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;validate:email:edwatson@vt.edu
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;validate:uniquesql:edwatson@vt.edu
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;validate:zipcode:24138
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;validate:phone:540-231-4234
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20060917 21:28:16;/accounts/ajax/validate.php;return=ok|fax|
+edwatson@vt.edu;20060917 21:28:36;/accounts/login.php;user logged in (internal):70.110.15.27:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;validate:zipcode:24138
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;validate:phone:540-231-4234
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20060917 21:28:37;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:Faculty Development
+ajax;20060917 21:30:01;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:Blacksburg
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:VA
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:namespaces:VA
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:zipcode:24138
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:US
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:namespaces:US
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:540-231-4234
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:phone:540-231-4234
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:phone:540-231-5922
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:Y
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:N
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:Large
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:TUE
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:WED
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:THU
+ajax;20060917 21:30:01;/conference/registration/index.php;validate:required:FRI

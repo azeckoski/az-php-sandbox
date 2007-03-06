@@ -1,0 +1,34 @@
+ajax;20060416 10:36:53;/accounts/ajax/validate.php;validate:uniqueuserp:jlounge
+ajax;20060416 10:36:53;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060416 10:37:10;/accounts/ajax/validate.php;validate:email:lounge_j@fortlewis.edu
+ajax;20060416 10:37:10;/accounts/ajax/validate.php;validate:uniqueuserp:lounge_j@fortlewis.edu
+ajax;20060416 10:37:10;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:required:jlounge
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:nospaces:jlounge
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:uniqueuserp:jlounge
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:required:sakaibroca
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:password:sakaibroca
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:required:sakaibroca
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:password:sakaibroca
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:match:sakaibroca
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:required:Joe
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:required:Lounge
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:required:lounge_j@fortlewis.edu
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:email:lounge_j@fortlewis.edu
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:uniqueuserp:lounge_j@fortlewis.edu
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:required:Faculty Development
+ajax;20060416 10:37:45;/accounts/createaccount.php;validate:required:Fort Lewis College
+jlounge;20060416 10:37:45;/accounts/createaccount.php;user added (ldap): Joe Lounge (lounge_j@fortlewis.edu) [461]
+67.142.183.58;20060416 10:37:45;/accounts/createaccount.php;created account: jlounge (lounge_j@fortlewis.edu) Lounge,Joe: inst=1
+jlounge;20060416 11:12:39;/accounts/activate.php;user modified (ldap): Joe Lounge (lounge_j@fortlewis.edu) [461]
+jlounge;20060416 11:13:37;/accounts/login.php;user logged in (ldap):67.142.183.58:https://sakaiproject.org/accounts/login.php
+wendemm;20060416 12:36:25;/accounts/login.php;user logged in (internal):131.252.169.220:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+wendemm;20060416 12:36:25;/accounts/login.php;user modified (ldap): Wende Morgaine (wendemm@gmail.com) [56]
+hardin;20060416 13:22:32;/accounts/forgot_password.php;user modified (ldap): Joseph Hardin (hardin@umich.edu) [191]
+141.213.39.113;20060416 13:22:32;/accounts/forgot_password.php;password reset: hardin@umich.edu
+hardin;20060416 13:23:19;/accounts/login.php;user logged in (ldap):141.213.39.113:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+aaronz;20060416 14:39:40;/accounts/login.php;user logged in (ldap):128.173.39.70:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20060416 16:33:55;/conference/proposals/index.php;validate:required:presentation
+shardin;20060416 16:53:44;/accounts/login.php;user logged in (ldap):141.213.120.69:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+aaronz;20060416 21:35:18;/accounts/login.php;user logged in (ldap):70.110.7.9:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20060416 23:31:05;/accounts/login.php;user logged in (ldap):198.111.226.76:https://www.sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php

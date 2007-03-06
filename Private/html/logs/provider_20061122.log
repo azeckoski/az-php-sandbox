@@ -1,0 +1,311 @@
+emgibson;20061122 01:05:55;/accounts/login.php;user logged in (internal):216.102.117.153:https://sakaiproject.org/accounts/login.php?ref=/election/index.php
+emgibson;20061122 01:05:55;/accounts/login.php;user added (ldap): Elizabeth Gibson (emgibson@ucdavis.edu) [195]
+ajax;20061122 08:01:46;/accounts/ajax/validate.php;validate:email:kthompso@mail.ucf.edu
+ajax;20061122 08:01:46;/accounts/ajax/validate.php;validate:uniqueuserp:kthompso@mail.ucf.edu
+ajax;20061122 08:01:46;/accounts/ajax/validate.php;validate:uniqueuserp:kthompso@mail.ucf.edu
+ajax;20061122 08:01:46;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061122 08:04:31;/accounts/ajax/validate.php;validate:email:kthompson
+ajax;20061122 08:04:31;/accounts/ajax/validate.php;return=error|email|Invalid email address
+ajax;20061122 08:04:48;/accounts/ajax/validate.php;validate:email:kthompson@mail.ucf.edu
+ajax;20061122 08:04:48;/accounts/ajax/validate.php;validate:uniqueuserp:kthompson@mail.ucf.edu
+ajax;20061122 08:04:48;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061122 08:15:22;/accounts/ajax/validate.php;validate:namespaces:Orlando
+ajax;20061122 08:15:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061122 08:15:25;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20061122 08:15:25;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061122 08:22:07;/accounts/ajax/validate.php;validate:zipcode:32826
+ajax;20061122 08:22:07;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 08:22:11;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061122 08:22:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061122 08:25:38;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20061122 08:25:38;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061122 08:26:04;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20061122 08:26:04;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061122 08:32:11;/accounts/ajax/validate.php;validate:zipcode:32826-8119
+ajax;20061122 08:32:11;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:required:kthompso@mail.ucf.edu
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:email:kthompso@mail.ucf.edu
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:uniqueuserp:kthompso@mail.ucf.edu
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:uniqueuserp:kthompso@mail.ucf.edu
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:required:cdws
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:password:cdws
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:required:cdws
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:password:cdws
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:match:cdws
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:required:Kelvin
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:required:Thompson
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:required:kthompson@mail.ucf.edu
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:email:kthompson@mail.ucf.edu
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:uniqueuserp:kthompson@mail.ucf.edu
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:required:University Administration
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:required:University of Central Florida
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate::PII
+3100 Technology Pkwy,
+Suite 233
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:namespaces:Orlando
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:namespaces:FL
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:zipcode:32826-8119
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:phone:407-823-3718
+ajax;20061122 08:32:12;/accounts/createaccount.php;validate:phone:407-823-3511
+kthompso@mail.ucf.edu;20061122 08:32:13;/accounts/createaccount.php;user added (ldap): Kelvin Thompson (kthompson@mail.ucf.edu) [1019]
+132.170.155.144;20061122 08:32:13;/accounts/createaccount.php;created account: kthompso@mail.ucf.edu (kthompson@mail.ucf.edu) Thompson,Kelvin: inst=1
+ajax;20061122 10:18:46;/accounts/ajax/validate.php;validate:email:rickilee
+ajax;20061122 10:18:48;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061122 10:18:50;/accounts/ajax/validate.php;validate:email:rickilee3mp1r3
+ajax;20061122 10:18:50;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061122 10:18:57;/accounts/ajax/validate.php;validate:email:rickilee@shsu.edu
+ajax;20061122 10:18:57;/accounts/ajax/validate.php;validate:uniqueuserp:rickilee@shsu.edu
+ajax;20061122 10:18:57;/accounts/ajax/validate.php;validate:uniqueuserp:rickilee@shsu.edu
+ajax;20061122 10:18:57;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061122 10:19:13;/accounts/ajax/validate.php;validate:email:rickilee@shsu.edu
+ajax;20061122 10:19:13;/accounts/ajax/validate.php;validate:uniqueuserp:rickilee@shsu.edu
+ajax;20061122 10:19:13;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061122 10:19:15;/conference/proposals/edit_proposal.php;validate:required:The University of Michigan Build Process
+ajax;20061122 10:19:15;/conference/proposals/edit_proposal.php;validate:required:The University of Michigan has developed a process for production builds that is easy to use and repeatable.  This talk will describe that process. 
+ajax;20061122 10:19:15;/conference/proposals/edit_proposal.php;validate:required:David Haines
+ajax;20061122 10:19:15;/conference/proposals/edit_proposal.php;validate:required:David Haines  has been a developer for Sakai at the University of Michigan from the beginning of the Sakai project.  He currently has responsiblity for keeping CTools (the Michigan production instance of Sakai) up to date and running correctly.  His current interests include unit testing in Sakai development and automating the Sakai build process.
+
+ajax;20061122 10:19:35;/conference/proposals/edit_proposal.php;validate:required:Refactoring and Testing in Sakai  Development
+ajax;20061122 10:19:35;/conference/proposals/edit_proposal.php;validate:required:This workshop will illustrate in detail an example of working with
+existing Sakai code to clarify, simplify, and add testing to make
+the code easier to work with and more general.
+ajax;20061122 10:19:35;/conference/proposals/edit_proposal.php;validate:required:David Haines
+ajax;20061122 10:19:35;/conference/proposals/edit_proposal.php;validate:required:David Haines  has been a developer for Sakai at the University of Michigan from the beginning of the Sakai project.  He currently has responsiblity for keeping CTools (the Michigan production instance of Sakai) up to date and running correctly.  His current interests include unit testing in Sakai development and automating the Sakai build process.
+
+ajax;20061122 10:21:14;/accounts/ajax/validate.php;validate:namespaces:Huntsville
+ajax;20061122 10:21:14;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061122 10:21:15;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20061122 10:21:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061122 10:21:18;/accounts/ajax/validate.php;validate:zipcode:77341
+ajax;20061122 10:21:18;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 10:21:21;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061122 10:21:21;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:required:rickilee@shsu.edu
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:email:rickilee@shsu.edu
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:uniqueuserp:rickilee@shsu.edu
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:uniqueuserp:rickilee@shsu.edu
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:required:mu3mp1r3
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:password:mu3mp1r3
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:required:mu3mp1r3
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:password:mu3mp1r3
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:match:mu3mp1r3
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:required:Ricki
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:required:Hodges
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:required:rickilee@shsu.edu
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:email:rickilee@shsu.edu
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:uniqueuserp:rickilee@shsu.edu
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:required:User Support
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate::System Administrator
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:required:Sam Houston State University
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate::1803 Ave I
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:namespaces:Huntsville
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:namespaces:TX
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:zipcode:77341
+ajax;20061122 10:21:27;/accounts/createaccount.php;validate:namespaces:US
+rickilee@shsu.edu;20061122 10:21:28;/accounts/createaccount.php;user added (ldap): Ricki Hodges (rickilee@shsu.edu) [1020]
+158.135.13.200;20061122 10:21:28;/accounts/createaccount.php;created account: rickilee@shsu.edu (rickilee@shsu.edu) Hodges,Ricki: inst=1
+rickilee@shsu.edu;20061122 11:02:51;/accounts/activate.php;user modified (ldap): Ricki Hodges (rickilee@shsu.edu) [1020]
+rickilee@shsu.edu;20061122 11:03:06;/accounts/login.php;user logged in (ldap):158.135.13.200:https://sakaiproject.org/accounts/login.php
+ajax;20061122 11:03:10;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20061122 11:03:10;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061122 11:03:10;/accounts/ajax/validate.php;validate:zipcode:77341
+ajax;20061122 11:03:10;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 11:03:10;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061122 11:03:10;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061122 11:03:55;/accounts/ajax/validate.php;validate:phone:936-294-1851
+ajax;20061122 11:03:55;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:User Support
+ajax;20061122 11:04:59;/conference/registration/index.php;validate::System Administrator
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:Sam Houston State University
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:Huntsville
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:TX
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:namespaces:TX
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:zipcode:77341
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:US
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:namespaces:US
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:936-294-1851
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:phone:936-294-1851
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:Y
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:N
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:Medium
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:TUE
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:WED
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:THU
+ajax;20061122 11:04:59;/conference/registration/index.php;validate:required:FRI
+rickilee@shsu.edu;20061122 11:04:59;/conference/registration/index.php;user modified (ldap): Ricki Hodges (rickilee@shsu.edu) [1020]
+jlayne@unicon.net;20061122 12:10:57;/accounts/activate.php;user modified (ldap): Jim Layne (jlayne@unicon.net) [1009]
+jlayne@unicon.net;20061122 12:12:07;/accounts/login.php;user logged in (ldap):12.164.139.3:https://sakaiproject.org/accounts/login.php
+vsinou;20061122 12:15:09;/accounts/login.php;user logged in (ldap):24.5.128.159:https://sakaiproject.org/accounts/login.php?ref=/election/index.php
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;validate:namespaces:Chandler
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;validate:email:jlayne@unicon.net
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;validate:uniquesql:jlayne@unicon.net
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;validate:zipcode:85225
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;validate:phone:480-926-2368
+ajax;20061122 12:19:24;/accounts/ajax/validate.php;return=ok|phone|
+sakai;20061122 12:45:39;/accounts/login.php;user logged in (ldap):18.152.6.153:https://sakaiproject.org/accounts/login.php
+ajax;20061122 13:43:03;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061122 13:43:03;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061122 13:43:11;/accounts/ajax/validate.php;validate:zipcode:48109-2094
+ajax;20061122 13:43:11;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 13:43:14;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061122 13:43:14;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061122 13:43:43;/accounts/ajax/validate.php;validate:phone:734-763-9949
+ajax;20061122 13:43:43;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061122 13:44:31;/accounts/ajax/validate.php;validate:email:tbray@umich.edu
+ajax;20061122 13:44:31;/accounts/ajax/validate.php;validate:uniqueuserp:tbray@umich.edu
+ajax;20061122 13:44:31;/accounts/ajax/validate.php;validate:uniqueuserp:tbray@umich.edu
+ajax;20061122 13:44:32;/accounts/ajax/validate.php;return=ok|username|
+ian.goh@jhu.edu;20061122 13:44:46;/accounts/login.php;user logged in (ldap):128.220.160.1:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061122 13:44:50;/conference/proposals/index.php;validate:required:BOF
+ajax;20061122 13:49:16;/conference/proposals/edit_proposal.php;validate:required:WebCT to Sakai Migration
+ajax;20061122 13:49:16;/conference/proposals/edit_proposal.php;validate:required:Institutions and partners interested in migrating from WebCT to Sakai.
+ajax;20061122 13:49:16;/conference/proposals/edit_proposal.php;validate:required:Ian Goh
+ajax;20061122 13:49:16;/conference/proposals/edit_proposal.php;validate:required:BOF
+ajax;20061122 13:52:45;/accounts/ajax/validate.php;validate:email:kthompso@mail.ucf.edu
+ajax;20061122 13:52:45;/accounts/ajax/validate.php;validate:uniqueuserp:kthompso@mail.ucf.edu
+ajax;20061122 13:52:46;/accounts/ajax/validate.php;return=error|username|username already used
+ajax;20061122 13:55:04;/accounts/ajax/validate.php;validate:email:Tom.Bray@umich.edu
+ajax;20061122 13:55:04;/accounts/ajax/validate.php;validate:uniqueuserp:Tom.Bray@umich.edu
+ajax;20061122 13:55:04;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061122 13:55:16;/accounts/ajax/validate.php;validate:email:tbray@umich.edu
+ajax;20061122 13:55:16;/accounts/ajax/validate.php;validate:uniqueuserp:tbray@umich.edu
+ajax;20061122 13:55:16;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:required:tbray@umich.edu
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:email:tbray@umich.edu
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:uniqueuserp:tbray@umich.edu
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:uniqueuserp:tbray@umich.edu
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:required:sakai
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:password:sakai
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:required:sakai
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:password:sakai
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:match:sakai
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:required:Tom
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:required:Bray
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:required:tbray@umich.edu
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:email:tbray@umich.edu
+ajax;20061122 13:55:22;/accounts/createaccount.php;validate:uniqueuserp:tbray@umich.edu
+ajax;20061122 13:55:23;/accounts/createaccount.php;validate:required:User Support
+ajax;20061122 13:55:23;/accounts/createaccount.php;validate:required:76
+ajax;20061122 13:55:23;/accounts/createaccount.php;validate::1315 Duderstadt Center
+2281 Bonisteel Blvd.
+ajax;20061122 13:55:23;/accounts/createaccount.php;validate:namespaces:Ann Arbor
+ajax;20061122 13:55:23;/accounts/createaccount.php;validate:namespaces:MI
+ajax;20061122 13:55:23;/accounts/createaccount.php;validate:zipcode:48109-2094
+ajax;20061122 13:55:23;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061122 13:55:23;/accounts/createaccount.php;validate:phone:734-763-9949
+tbray@umich.edu;20061122 13:55:23;/accounts/createaccount.php;user added (ldap): Tom Bray (tbray@umich.edu) [1021]
+141.213.32.93;20061122 13:55:23;/accounts/createaccount.php;created account: tbray@umich.edu (tbray@umich.edu) Bray,Tom: inst=76
+ajax;20061122 13:56:05;/accounts/ajax/validate.php;validate:email:kreinemu@mail.ucf.edu
+ajax;20061122 13:56:05;/accounts/ajax/validate.php;validate:uniqueuserp:kreinemu@mail.ucf.edu
+ajax;20061122 13:56:05;/accounts/ajax/validate.php;validate:uniqueuserp:kreinemu@mail.ucf.edu
+ajax;20061122 13:56:05;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061122 13:59:25;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061122 13:59:25;/accounts/ajax/validate.php;return=ok|city|
+khancock;20061122 15:24:02;/accounts/login.php;user logged in (ldap):149.166.143.234:https://sakaiproject.org/accounts/login.php
+ajax;20061122 15:24:24;/conference/proposals/index.php;validate:required:poster
+ajax;20061122 15:25:50;/conference/proposals/edit_proposal.php;validate:required:Usage at IU
+ajax;20061122 15:25:50;/conference/proposals/edit_proposal.php;validate:required:Sakai is Oncourse CL at Indiana University, a founding member of the Sakai project.  Oncourse CL has been the production course management system at IU for the past three semesters, supporting over 100,000 users since it’s inception.
+ajax;20061122 15:25:50;/conference/proposals/edit_proposal.php;validate:required:1
+ajax;20061122 15:25:50;/conference/proposals/edit_proposal.php;validate:required:Megan May
+ajax;20061122 15:25:50;/conference/proposals/edit_proposal.php;validate:required:poster
+ajax;20061122 15:25:54;/conference/proposals/index.php;validate:required:poster
+ajax;20061122 15:26:41;/conference/proposals/edit_proposal.php;validate:required:IU Adoption
+ajax;20061122 15:26:41;/conference/proposals/edit_proposal.php;validate:required:At Indiana University we are using many different resources to communicate the migration from original Oncourse, our legacy course management system, to Oncourse CL, our implementation of Sakai.
+ajax;20061122 15:26:41;/conference/proposals/edit_proposal.php;validate:required:1
+ajax;20061122 15:26:41;/conference/proposals/edit_proposal.php;validate:required:Megan May
+ajax;20061122 15:26:41;/conference/proposals/edit_proposal.php;validate:required:poster
+ajax;20061122 15:26:45;/conference/proposals/index.php;validate:required:poster
+ajax;20061122 15:27:19;/conference/proposals/edit_proposal.php;validate:required:Podcasts
+ajax;20061122 15:27:19;/conference/proposals/edit_proposal.php;validate:required:Indiana University’s Podcasts tool gives site owners the opportunity to make lectures and other course content available for students to download and listen to on their portable media player. This technology enables students to review lectures in their dorm or on their way to and from class.
+ajax;20061122 15:27:19;/conference/proposals/edit_proposal.php;validate:required:1
+ajax;20061122 15:27:19;/conference/proposals/edit_proposal.php;validate:required:Megan May
+ajax;20061122 15:27:19;/conference/proposals/edit_proposal.php;validate:required:poster
+michael@mfeldstein.com;20061122 18:57:30;/accounts/login.php;user logged in (ldap):69.205.34.125:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061122 18:58:07;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20061122 18:58:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061122 18:58:07;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061122 18:58:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061122 18:58:10;/accounts/ajax/validate.php;validate:zipcode:01229
+ajax;20061122 18:58:10;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 18:58:14;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061122 18:58:14;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061122 18:58:17;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061122 18:58:17;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061122 18:58:25;/accounts/ajax/validate.php;validate:phone:917-921-8895
+ajax;20061122 18:58:25;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061122 18:59:19;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061122 18:59:19;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061122 18:59:26;/accounts/ajax/validate.php;validate:zipcode:N9B 3P4
+ajax;20061122 18:59:26;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 19:00:26;/accounts/ajax/validate.php;validate:phone:519-971-3693
+ajax;20061122 19:00:26;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20061122 19:00:33;/conference/registration/index.php;validate::UI/Interaction Designer
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:Glendale 
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:MA
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:namespaces:MA
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:zipcode:01229
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:US
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:namespaces:US
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:917-921-8895
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:phone:917-921-8895
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:Y
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:N
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:Medium
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:TUE
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:WED
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:THU
+ajax;20061122 19:00:33;/conference/registration/index.php;validate:required:FRI
+michael@mfeldstein.com;20061122 19:00:33;/conference/registration/index.php;user modified (ldap): Michael Feldstein (michael@mfeldstein.com) [871]
+ajax;20061122 19:00:54;/accounts/ajax/validate.php;validate:email:tcollins@uwindsor.ca
+ajax;20061122 19:00:54;/accounts/ajax/validate.php;validate:uniqueuserp:tcollins@uwindsor.ca
+ajax;20061122 19:00:54;/accounts/ajax/validate.php;validate:uniqueuserp:tcollins@uwindsor.ca
+ajax;20061122 19:00:55;/accounts/ajax/validate.php;return=error|username|username already used
+tcollins;20061122 19:01:25;/accounts/forgot_password.php;user modified (ldap): Teresa Collins (tcollins@uwindsor.ca) [629]
+137.207.200.36;20061122 19:01:25;/accounts/forgot_password.php;password reset: tcollins@uwindsor.ca
+tcollins;20061122 19:02:37;/accounts/login.php;user logged in (ldap):137.207.200.36:https://sakaiproject.org/accounts/login.php
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;validate:email:tcollins@uwindsor.ca
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;validate:uniquesql:tcollins@uwindsor.ca
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;validate:zipcode:N9B 3P4
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;validate:phone:519-253-3000
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;validate:phone:519-971-3693
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061122 19:02:40;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:password:tranch22
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:password:tranch22
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:match:tranch22
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:required:Teresa
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:required:Collins
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:required:tcollins@uwindsor.ca
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:email:tcollins@uwindsor.ca
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:uniquesql:tcollins@uwindsor.ca
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:required:System Administrator
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate::Implementor
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:required:119
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate::University of Windsor
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:namespaces:Windsor
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:namespaces:ON
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:zipcode:N9B 3P4
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:phone:519-253-3000
+ajax;20061122 19:03:09;/accounts/myaccount.php;validate:phone:519-971-3693
+tcollins;20061122 19:03:09;/accounts/myaccount.php;user modified (ldap): Teresa Collins (tcollins@uwindsor.ca) [629]
+tcollins;20061122 19:18:03;/accounts/login.php;user logged in (ldap):137.207.200.36:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20061122 19:19:16;/facebook/add_entry.php;validate::Support Implementations, Streaming Media, Flash Learning Objects, Programming, Development and Music (Journey),
+ajax;20061122 19:19:16;/facebook/add_entry.php;validate:required:1

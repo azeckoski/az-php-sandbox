@@ -1,0 +1,57 @@
+bob-taylor;20060604 10:30:48;/accounts/login.php;user logged in (internal):69.211.108.70:https://sakaiproject.org/accounts/login.php
+bob-taylor;20060604 10:30:48;/accounts/login.php;user modified (ldap): Bob Taylor (bob-taylor@northwestern.edu) [141]
+tcollins;20060604 12:10:01;/accounts/login.php;user logged in (ldap):24.57.82.108:https://www.sakaiproject.org/accounts/login.php
+kostia;20060604 13:46:00;/accounts/login.php;user logged in (ldap):154.20.37.195:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php
+slonn;20060604 14:06:40;/accounts/login.php;user logged in (ldap):24.16.123.164:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php
+kirkpatr;20060604 17:08:40;/accounts/login.php;user logged in (ldap):70.95.132.149:https://www.sakaiproject.org/accounts/login.php
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;validate:email:kirkpatr@hawaii.edu
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;validate:uniquesql:kirkpatr@hawaii.edu
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;validate:namespaces:Honolulu
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;validate:namespaces:HI
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;validate:zipcode:96816
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;validate:phone:808 734-9331
+ajax;20060604 17:09:03;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060604 17:09:04;/accounts/ajax/validate.php;validate:phone:808 734-9111
+ajax;20060604 17:09:04;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:password:hokuhoku
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:password:hokuhoku
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:match:hokuhoku
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:required:Judith
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:required:Kirkpatrick
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:required:kirkpatr@hawaii.edu
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:email:kirkpatr@hawaii.edu
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:uniquesql:kirkpatr@hawaii.edu
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:required:Faculty Development
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate::Faculty
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:required:71
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate::Kapi'olani Community College
+University of Hawai'i
+4303 Diamond Head Road
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:namespaces:Honolulu
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:namespaces:HI
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:zipcode:96816
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:phone:808 734-9331
+ajax;20060604 17:09:23;/accounts/myaccount.php;validate:phone:808 734-9111
+kirkpatr;20060604 17:09:24;/accounts/myaccount.php;user modified (ldap): Judith Kirkpatrick (kirkpatr@hawaii.edu) [365]
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;validate:email:kirkpatr@hawaii.edu
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;validate:uniquesql:kirkpatr@hawaii.edu
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;validate:namespaces:HI
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;validate:namespaces:Honolulu
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;validate:zipcode:96816
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;validate:phone:808 734-9331
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;validate:phone:808 734-9111
+ajax;20060604 17:09:25;/accounts/ajax/validate.php;return=ok|fax|

@@ -1,0 +1,122 @@
+amorrone;20061015 16:16:56;/accounts/login.php;user logged in (internal):156.56.74.226:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+amorrone;20061015 16:16:56;/accounts/login.php;user modified (ldap): Anastasia Morrone (amorrone@iupui.edu) [217]
+sayeedmd;20061015 16:18:16;/accounts/login.php;user logged in (ldap):72.85.20.39:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+colin.clark@utoronto.ca;20061015 19:00:06;/accounts/login.php;user logged in (ldap):70.48.46.196:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+urauch;20061015 21:17:10;/accounts/login.php;user logged in (ldap):142.103.93.50:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+dalev;20061015 22:50:15;/accounts/forgot_password.php;user modified (ldap): Dale Voorhees (dvoorhee@mail.ucf.edu) [576]
+65.33.234.249;20061015 22:50:16;/accounts/forgot_password.php;password reset: dvoorhee@mail.ucf.edu
+dalev;20061015 22:50:23;/accounts/forgot_password.php;user modified (ldap): Dale Voorhees (dvoorhee@mail.ucf.edu) [576]
+65.33.234.249;20061015 22:50:23;/accounts/forgot_password.php;password reset: dvoorhee@mail.ucf.edu
+dalev;20061015 22:51:57;/accounts/login.php;user logged in (ldap):65.33.234.249:https://sakaiproject.org/accounts/login.php
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;validate:namespaces:orlando
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;validate:email:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;validate:uniquesql:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;validate:zipcode:32816
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20061015 22:52:05;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:password:stella
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:password:stella
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:match:stella
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:required:Dale
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:required:Voorhees
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:required:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:email:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:uniquesql:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:required:Faculty Development
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate::Faculty
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:required:University of Central Florida
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate::4000 Central Florida Blvd
+Bldg-2 LIB-107  +2810
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:namespaces:orlando
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:namespaces:FL
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:zipcode:32816
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:namespaces:US
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:phone:407-823-3718
+ajax;20061015 22:52:14;/accounts/myaccount.php;validate:phone:407-823-3511
+dalev;20061015 22:52:15;/accounts/myaccount.php;user modified (ldap): Dale Voorhees (dvoorhee@mail.ucf.edu) [576]
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;validate:email:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;validate:uniquesql:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;validate:namespaces:orlando
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;validate:zipcode:32816
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20061015 22:52:15;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:required:Dale
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:required:Voorhees
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:required:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:email:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:uniquesql:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:required:Faculty Development
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate::Faculty
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:required:University of Central Florida
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate::4000 Central Florida Blvd
+Bldg-2 LIB-107  +2810
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:namespaces:orlando
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:namespaces:FL
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:zipcode:32816
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:namespaces:US
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:phone:407-823-3718
+ajax;20061015 22:52:19;/accounts/myaccount.php;validate:phone:407-823-3511
+dalev;20061015 22:52:20;/accounts/myaccount.php;user modified (ldap): Dale Voorhees (dvoorhee@mail.ucf.edu) [576]
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;validate:email:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;validate:namespaces:orlando
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;validate:uniquesql:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;validate:zipcode:32816
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20061015 22:52:20;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:email:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:uniquesql:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:namespaces:orlando
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:zipcode:32816
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:email:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:uniquesql:dvoorhee@mail.ucf.edu
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;validate:namespaces:orlando
+ajax;20061015 22:52:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;validate:zipcode:32816
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20061015 22:52:23;/accounts/ajax/validate.php;return=ok|fax|

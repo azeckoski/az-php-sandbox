@@ -1,0 +1,82 @@
+24.5.128.159;20060325 02:12:13;/accounts/forgot_password.php;password reset: sinouvivian@foothill.edu
+vsinou;20060325 02:12:47;/accounts/login.php;user logged in (internal):24.5.128.159:https://sakaiproject.org/accounts/login.php
+ajax;20060325 02:13:59;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060325 02:13:59;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060325 02:14:03;/accounts/ajax/validate.php;validate:zipcode:94022
+ajax;20060325 02:14:03;/accounts/ajax/validate.php;return=ok|zip|
+ajax;20060325 02:14:07;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060325 02:14:07;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060325 02:14:18;/accounts/ajax/validate.php;validate:phone:650.949.7109
+ajax;20060325 02:14:18;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060325 02:14:25;/accounts/ajax/validate.php;validate:phone:650.949.7134
+ajax;20060325 02:14:25;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;validate:email:SinouVivian@foothill.edu
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;validate:uniquesql:SinouVivian@foothill.edu
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;validate:namespaces:Los Altos Hills
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;validate:zipcode:94022
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;validate:phone:650.949.7134
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;validate:phone:650.949.7109
+ajax;20060325 02:16:40;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060325 02:16:58;/accounts/ajax/validate.php;validate:password:tsipiana1
+ajax;20060325 02:16:58;/accounts/ajax/validate.php;return=ok|password1|
+ajax;20060325 02:17:03;/accounts/ajax/validate.php;validate:password:tsipiana1
+ajax;20060325 02:17:03;/accounts/ajax/validate.php;return=ok|password2|
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:password:tsipiana1
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:password:tsipiana1
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:required:Vivie
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:required:Sinou
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:required:SinouVivian@foothill.edu
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:email:SinouVivian@foothill.edu
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:uniquesql:SinouVivian@foothill.edu
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:required:University Administration
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate::Instructional Technologist
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:required:18
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate::12345 El Monte Road
+
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:namespaces:Los Altos Hills
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:zipcode:94022
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:phone:650.949.7109
+ajax;20060325 02:17:05;/accounts/myaccount.php;validate:phone:650.949.7134
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;validate:email:SinouVivian@foothill.edu
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;validate:uniquesql:SinouVivian@foothill.edu
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;validate:namespaces:Los Altos Hills
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;validate:zipcode:94022
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;validate:phone:650.949.7109
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;validate:phone:650.949.7134
+ajax;20060325 02:17:07;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060325 02:17:10;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060325 02:17:11;/accounts/ajax/validate.php;return=ok|country|
+vsinou;20060325 02:19:02;/accounts/login.php;user logged in (internal):24.5.128.159:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+wendemm;20060325 14:09:55;/accounts/login.php;user logged in (internal):131.252.169.220:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+aaronz;20060325 14:26:08;/accounts/login.php;user logged in (internal):128.173.39.80:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;validate:email:aaronz@vt.edu
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;validate:uniquesql:aaronz@vt.edu
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;validate:zipcode:24061
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;validate:phone:540-231-8053
+ajax;20060325 14:26:19;/accounts/ajax/validate.php;return=ok|phone|
+wemoen;20060325 14:34:52;/accounts/login.php;user logged in (internal):4.131.87.31:https://sakaiproject.org/accounts/login.php
+shardin;20060325 15:56:52;/accounts/login.php;user logged in (internal):198.111.226.95:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php

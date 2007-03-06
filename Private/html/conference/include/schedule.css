@@ -1,0 +1,346 @@
+/* ---------------------schedule css--------------------- */
+/* 
+It is better to NOT use px sizes for fonts:
+IE users cannot resize a font size that is specified using px and that
+is an accessibility issue for people with poor eyesight.
+Here is a page that let's you compare sizes on browsers.
+em and % are the best ones to use in my opinion but I also use 
+pt a lot as it seems to offer better control.
+http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
+*/
+
+html,body {
+	height: 100%;
+}
+
+tr,td {
+	height: 1%;
+}
+
+.schedule_header {
+	background:#336699;
+	padding:.2em;
+	font-weight:bold;
+	text-align: center;
+	color:white;
+	border: 1px solid white;
+}
+
+.bof_header {
+	background:#336699;
+	padding:.2em;
+	font-weight:bold;
+	text-align: center;
+	color: yellow;
+	border: 1px solid white;
+}
+
+.date_header, .list_date_header {
+	padding: 4px;
+	font-size: 1.2em;
+	background: #CCC;
+	text-align: center;
+	font-weight:bold;
+	color:black;
+}
+
+.time_header {
+	margin: 0px;
+	padding: 0px;
+	font-size: 1em;
+	background: #CCC;
+	text-align: center;
+	font-weight:bold;
+	color:black;
+}
+
+.time {
+	color: darkgreen;
+	background: white;
+	font-size: .8em;
+	text-align: left;
+	font-weight: normal;
+	padding-left: 10px;
+	border-bottom: 1px dotted black;
+}
+.grid {
+	vertical-align: top;
+	text-align: center;
+	padding: 0px;
+}
+
+
+.grid_event {
+	font-size: .7em;
+	color:#111; 
+	font-weight:normal;
+	background: white;
+	border: 2px solid #666666;
+}
+
+.grid_event_header {
+	font-size: 1.1em;
+	font-weight: bold;
+	background-color: #339933;
+	color: white;
+}
+
+.grid_event_type {
+	font-size: 1em;
+	font-weight: normal;
+	font-style: italic;
+	border-bottom: 1px dashed black;
+}
+
+.grid_event_text {
+	padding: 2px;
+}
+
+.grid_event_speaker {
+	border-top: 2px dotted #AAAAAA;
+	font-style: italic;
+	background: white;
+}
+
+
+.list {
+	vertical-align: top;
+	text-align: left;
+	padding: 0px;
+	font-style:normal;
+	font-size: 1em;
+}
+
+.list_date_header {
+	text-align: left;
+	padding-left: 120px;
+	}
+
+.list_event {
+	color:#111; 
+	font-weight:normal;
+	background: white;
+	border: 1px solid #666666;
+	
+}
+
+.list_event_header {
+	font-size: 1em;
+	font-weight: bold;
+	background-color: #339933;
+	color: white;
+	padding: 2px;
+}
+
+.list_event_type {
+	font-weight: normal;
+	font-style: normal;
+	border-top: 1px dotted #AAAAAA;
+}
+
+.list_event_text {
+	vertical-align: top;
+	color:#000;
+	padding:5px 5px;
+	border-top: 1px dotted #AAAAAA;
+}
+
+.list_event_speaker {
+	border-top: 1px dotted #AAAAAA;
+	font-style: normal;
+	background: white;
+	padding:3px 3px;
+}
+
+
+.list_time, .list_room {
+	border-top: 1px dotted #AAAAAA;
+	color: darkgreen;
+	background: white;
+	font-size: 1em;
+	text-align: left;
+	font-weight: normal;
+	padding:5px 10px;
+}
+.list_room {
+	color: #333;
+}
+
+.technology {
+	background: #993333;
+}
+
+.community {
+	background: #333399;
+}
+
+.faculty {
+	background: #CC00FF;
+}
+
+.pedagogy {
+	background: #CC00FF;
+}
+
+.implementation {
+	background: #339933;
+}
+
+.tool_carousel {
+	background: #999933;
+}
+
+.tool_demo {
+	background: #cadd99;
+}
+
+
+
+.tool_overview {
+	background: #339999;
+}
+
+.multiple_audiences {
+	background: #993399;
+}
+
+
+.workshop {
+	background: #FFDDDD;
+}
+
+.discussion {
+	background: #FFFFCC;
+}
+
+.panel {
+	background: #CCFFCC;
+}
+
+.lecture {
+	background: #CCEEFF;
+}
+
+.remaining {
+	font-size: .7em;
+	font-style: italic;
+	vertical-align: middle;
+}
+
+.session_exists {
+	background: #FFCCCC;
+	color: #666666;
+}
+
+.proposal_title {
+	font-size: 1em;
+}
+
+.session_date {
+	text-align: center;
+	font-size: .8em;
+}
+
+.small_text {
+	font-size: .8em;
+}
+
+.small_centered {
+	text-align: center;
+	font-size: .8em;
+}
+
+.message {
+	border: 3px solid darkblue;
+	color: black;
+	background: #CCCCFF;
+	font-size: 1.1em;
+	text-align: left;
+	padding: 3px;
+	margin:3px;
+}
+
+.blackbar {
+	background: #000000;
+	color:#fff;
+}
+
+
+.event {
+	background:#ffcc33; 
+	color:#000; 
+	font-weight:bold;
+}
+
+.bof {
+	background:#336699;
+	color: yellow;
+	font-style: italic;
+}
+
+.bof A {
+	color: #DDDDFF;
+}
+.lunch {
+	background:#FFCCFF; 
+	color:#000;
+}
+
+.break {
+	background:#CCCCFF; 
+	color:#000;
+}
+
+.keynote {
+	background:yellow; 
+	color:#000;
+}
+
+.closed {
+	background:#666;
+}
+
+.coffee {
+	background:tan;
+	color: #000;
+}
+
+.convenor_exists {
+	background: #AAFFAA;
+	color: #000;
+}
+
+.recorder_exists {
+	background: #AACCFF;
+	color: #000;
+}
+
+.recorder_convenor_exist {
+	background: #AAFFFF;
+	color: #000;
+}
+
+.convenor_user {
+	background: #009933;
+	color: white;
+}
+
+.recorder_user {
+	background: #333399;
+	color: white;
+}
+
+.no_convenor {
+	background: #999933;
+	color: white;
+}
+
+.no_recorder {
+	background: #996633;
+	color: white;
+}
+
+.no_recorder_convenor {
+	background: #993333;
+	color: white;
+}

@@ -1,0 +1,27 @@
+To transform an XML file created by JIRA's export, you need to know the following:
+
+1) JIRA's XML export only exports the first 25 records by default.
+   You'll need to edit the URL behind the "XML" link and change the
+   maxTemp param to a number greater than or equal to the number of
+   issues being exported.
+
+2) JIRA's XML export often generates files that aren't complete.  In
+   fact, you may see errors attempting to open the URL.  You'll have
+   to view the source, save the source to a file, edit the file, and
+   complete the closing </rss> tag to get a usable file.
+
+3) You need an XSLT processor to transform the XML into SQL (duh!).  I
+   used xsltproc under cygwin.   The syntax there was something like:
+
+   xsltproc -o sakai_requirements_data_20060223.sql jira2sql.xsl sakai_requirements_data20060223.xml
+
+
+Feel free to modify the XSL as needed, just be kind and give me a
+little credit... :)
+
+
+Anthony Atkins
+<anthony.atkins@vt.edu>
+Lead Systems Integrator, Educational Technologies at Virginia Tech
+
+Last updated:  02/23/2006 -- ABA

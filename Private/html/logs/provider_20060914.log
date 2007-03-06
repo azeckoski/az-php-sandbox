@@ -1,0 +1,269 @@
+psg3a@virginia.edu;20060914 08:15:35;/accounts/login.php;user logged in (internal):128.143.60.15:https://sakaiproject.org/accounts/login.php
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;validate:zipcode:22904
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;validate:phone:434-243-5465
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;validate:phone:434-982-2777
+ajax;20060914 08:15:54;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:User Support
+ajax;20060914 08:17:27;/conference/registration/index.php;validate::Manager
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:Charlottesville
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:VA
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:namespaces:VA
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:zipcode:22904
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:US
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:namespaces:US
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:434-243-5465
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:phone:434-243-5465
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:phone:434-982-2777
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:Y
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:N
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:Medium
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:TUE
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:WED
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:THU
+ajax;20060914 08:17:27;/conference/registration/index.php;validate:required:FRI
+anthony.atkins@vt.edu;20060914 08:34:55;/accounts/login.php;user logged in (internal):128.173.53.41:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060914 08:35:02;/conference/proposals/index.php;validate:required:presentation
+ajax;20060914 08:35:39;/conference/proposals/edit_proposal.php;validate:required:testing topic fix
+ajax;20060914 08:35:39;/conference/proposals/edit_proposal.php;validate:required:test
+ajax;20060914 08:35:39;/conference/proposals/edit_proposal.php;validate:required:test
+ajax;20060914 08:35:39;/conference/proposals/edit_proposal.php;validate:required:Tony
+ajax;20060914 08:35:39;/conference/proposals/edit_proposal.php;validate:required:Assistant lizard wrangler.
+ajax;20060914 08:35:39;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20060914 08:35:39;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20060914 08:35:39;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20060914 08:36:07;/conference/proposals/edit_proposal.php;validate:required:Some Assembly Required - Configuring Sakai for the Real World
+ajax;20060914 08:36:07;/conference/proposals/edit_proposal.php;validate:required:This talk will cover what the implementation team at Virginia Tech has learned regarding tomcat, Java, and performance tuning.  This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.
+ajax;20060914 08:36:07;/conference/proposals/edit_proposal.php;validate:required:This talk will cover what the implementation team at Virginia Tech has learned regarding tomcat, Java, and performance tuning.  This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.
+ajax;20060914 08:36:07;/conference/proposals/edit_proposal.php;validate:required:Anthony Atkins
+ajax;20060914 08:36:07;/conference/proposals/edit_proposal.php;validate:required:As Lead Systems Integrator, I'm responsible for the care and feeding of our Sakai instance at Virginia Tech and collab.sakaiproject.org.  
+ajax;20060914 08:36:07;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20060914 08:36:07;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20060914 08:36:07;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20060914 08:36:17;/conference/proposals/edit_proposal.php;validate:required:Some Assembly Required - Configuring Sakai for the Real World
+ajax;20060914 08:36:17;/conference/proposals/edit_proposal.php;validate:required:This talk will cover what the implementation team at Virginia Tech has learned regarding tomcat, Java, and performance tuning.  This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.
+ajax;20060914 08:36:17;/conference/proposals/edit_proposal.php;validate:required:This talk will cover what the implementation team at Virginia Tech has learned regarding tomcat, Java, and performance tuning.  This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.
+ajax;20060914 08:36:17;/conference/proposals/edit_proposal.php;validate:required:Anthony Atkins
+ajax;20060914 08:36:17;/conference/proposals/edit_proposal.php;validate:required:As Lead Systems Integrator, I'm responsible for the care and feeding of our Sakai instance at Virginia Tech and collab.sakaiproject.org.  
+ajax;20060914 08:36:17;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20060914 08:36:17;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20060914 08:36:17;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20060914 08:36:33;/conference/proposals/edit_proposal.php;validate:required:Some Assembly Required - Configuring Sakai for the Real World
+ajax;20060914 08:36:33;/conference/proposals/edit_proposal.php;validate:required:This talk will cover what the implementation team at Virginia Tech has learned regarding tomcat, Java, and performance tuning.  This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.
+ajax;20060914 08:36:33;/conference/proposals/edit_proposal.php;validate:required:This talk will cover what the implementation team at Virginia Tech has learned regarding tomcat, Java, and performance tuning.  This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.
+ajax;20060914 08:36:33;/conference/proposals/edit_proposal.php;validate:required:Anthony Atkins
+ajax;20060914 08:36:33;/conference/proposals/edit_proposal.php;validate:required:As Lead Systems Integrator, I'm responsible for the care and feeding of our Sakai instance at Virginia Tech and collab.sakaiproject.org.  
+ajax;20060914 08:36:33;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20060914 08:36:33;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20060914 08:36:33;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20060914 08:37:20;/conference/proposals/edit_proposal.php;validate:required:Some Assembly Required - Configuring Sakai for the Real World
+ajax;20060914 08:37:20;/conference/proposals/edit_proposal.php;validate:required:This talk will cover what the implementation team at Virginia Tech has learned regarding tomcat, Java, and performance tuning.  This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.
+ajax;20060914 08:37:20;/conference/proposals/edit_proposal.php;validate:required:This talk will cover what the implementation team at Virginia Tech has learned regarding tomcat, Java, and performance tuning.  This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.
+ajax;20060914 08:37:20;/conference/proposals/edit_proposal.php;validate:required:Anthony Atkins
+ajax;20060914 08:37:20;/conference/proposals/edit_proposal.php;validate:required:As Lead Systems Integrator, I'm responsible for the care and feeding of our Sakai instance at Virginia Tech and collab.sakaiproject.org.  
+ajax;20060914 08:37:20;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20060914 08:37:20;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20060914 08:37:20;/conference/proposals/edit_proposal.php;validate:required:90
+148.100.213.165;20060914 10:28:13;/accounts/forgot_password.php;password reset: josh.baron@marist.edu
+josh.baron@marist.edu;20060914 10:29:42;/accounts/login.php;user logged in (internal):148.100.213.165:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060914 10:29:56;/conference/proposals/index.php;validate:required:presentation
+128.42.47.131;20060914 14:51:25;/accounts/forgot_password.php;password reset: adehart@rice.edu
+angdehart;20060914 14:52:51;/accounts/login.php;user logged in (internal):128.42.47.131:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060914 14:52:53;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060914 14:52:53;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060914 14:52:53;/accounts/ajax/validate.php;validate:zipcode:77459
+ajax;20060914 14:52:53;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060914 14:52:53;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060914 14:52:53;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060914 14:52:53;/accounts/ajax/validate.php;validate:phone:713-348-8220
+ajax;20060914 14:52:53;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:Houston
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:TX
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:namespaces:TX
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:zipcode:77459
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:US
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:namespaces:US
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:713-348-8220
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:phone:713-348-8220
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:N
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:N
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:Large
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:TUE
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:WED
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:THU
+ajax;20060914 14:58:21;/conference/registration/index.php;validate:required:FRI
+ajax;20060914 14:58:38;/conference/proposals/index.php;validate:required:presentation
+ajax;20060914 15:05:06;/accounts/ajax/validate.php;validate:email:dshunt
+ajax;20060914 15:05:06;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060914 15:05:28;/accounts/ajax/validate.php;validate:email:darren.hunt@carnegie.gatech.edu
+ajax;20060914 15:05:28;/accounts/ajax/validate.php;validate:uniqueuserp:darren.hunt@carnegie.gatech.edu
+ajax;20060914 15:05:28;/accounts/ajax/validate.php;return=ok|email|
+bkirschn;20060914 16:19:40;/accounts/login.php;user logged in (internal):141.212.48.159:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+demonner;20060914 16:53:02;/accounts/login.php;user logged in (internal):141.213.113.208:https://sakaiproject.org/accounts/login.php
+ajax;20060914 16:53:06;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20060914 16:53:06;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060914 16:53:07;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060914 16:53:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060914 16:53:07;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060914 16:53:07;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060914 16:53:07;/accounts/ajax/validate.php;validate:phone:734 615-9765
+ajax;20060914 16:53:07;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:User Support
+ajax;20060914 16:55:01;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:Ann Arbor
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:MI
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:namespaces:MI
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:zipcode:48109
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:US
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:namespaces:US
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:734 615-9765
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:phone:734 615-9765
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:Y
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:N
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:Large
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:TUE
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:WED
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:THU
+ajax;20060914 16:55:01;/conference/registration/index.php;validate:required:FRI
+ajax;20060914 16:59:42;/conference/proposals/edit_proposal.php;validate:required:Some Assembly Required - Configuring Sakai for the Real World
+ajax;20060914 16:59:42;/conference/proposals/edit_proposal.php;validate:required:This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.  
+ajax;20060914 16:59:42;/conference/proposals/edit_proposal.php;validate:required:In this talk, the implementation lead at Virginia Tech (who currently run collab) will talk new implementers through customizing and hardening a stock copy of Sakai for production use. 
+
+Topics covered will include customization, setting up SSL, performance tuning, best practices for mail configuration, and much more.
+ajax;20060914 16:59:42;/conference/proposals/edit_proposal.php;validate:required:Tony Atkins
+ajax;20060914 16:59:42;/conference/proposals/edit_proposal.php;validate:required:As Lead Systems Integrator at Virginia tech, Tony Atkins leads the team responsible for the care and feeding of the Sakai instance at Virginia Tech and collab.sakaiproject.org.  
+ajax;20060914 16:59:42;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20060914 16:59:42;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20060914 16:59:42;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20060914 17:02:28;/accounts/ajax/validate.php;validate:email:max@nyu.edu
+ajax;20060914 17:02:28;/accounts/ajax/validate.php;validate:uniqueuserp:max@nyu.edu
+ajax;20060914 17:02:28;/accounts/ajax/validate.php;validate:uniqueuserp:max@nyu.edu
+ajax;20060914 17:02:28;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060914 17:02:44;/accounts/ajax/validate.php;validate:email:max@nyu.edu
+ajax;20060914 17:02:45;/accounts/ajax/validate.php;validate:uniqueuserp:max@nyu.edu
+ajax;20060914 17:02:45;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060914 17:03:21;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20060914 17:03:21;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060914 17:03:31;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060914 17:03:31;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060914 17:03:35;/accounts/ajax/validate.php;validate:zipcode:10012
+ajax;20060914 17:03:35;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060914 17:03:37;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060914 17:03:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:required:max@nyu.edu
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:email:max@nyu.edu
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:uniqueuserp:max@nyu.edu
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:uniqueuserp:max@nyu.edu
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:required:jack999
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:password:jack999
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:required:jack999
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:password:jack999
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:match:jack999
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:required:Max
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:required:Whitney
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:required:max@nyu.edu
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:email:max@nyu.edu
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:uniqueuserp:max@nyu.edu
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:required:33
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate::251 Mercer St. 
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:namespaces:New York
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:namespaces:NY
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:zipcode:10012
+ajax;20060914 17:04:04;/accounts/createaccount.php;validate:namespaces:US
+128.122.50.241;20060914 17:04:04;/accounts/createaccount.php;created account: max@nyu.edu (max@nyu.edu) Whitney,Max: inst=33
+128.122.50.241;20060914 17:09:46;/accounts/forgot_password.php;password reset: max@nyu.edu
+max@nyu.edu;20060914 17:11:48;/accounts/login.php;user logged in (internal):128.122.50.241:https://sakaiproject.org/accounts/login.php
+ajax;20060914 17:11:49;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060914 17:11:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060914 17:11:50;/accounts/ajax/validate.php;validate:zipcode:10012
+ajax;20060914 17:11:50;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060914 17:11:50;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060914 17:11:50;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060914 17:12:05;/accounts/ajax/validate.php;validate:phone:9178615989
+ajax;20060914 17:12:05;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:New York
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:NY
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:namespaces:NY
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:zipcode:10012
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:US
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:namespaces:US
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:9178615989
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:phone:9178615989
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:Y
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:Y
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:Small
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:TUE
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:WED
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:THU
+ajax;20060914 17:13:31;/conference/registration/index.php;validate:required:FRI
+max@nyu.edu;20060914 17:16:15;/accounts/login.php;user logged in (internal):128.122.50.241:https://sakaiproject.org/accounts/login.php
+ajax;20060914 22:34:16;/accounts/ajax/validate.php;validate:email:pfarber
+ajax;20060914 22:34:16;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060914 22:34:30;/accounts/ajax/validate.php;validate:email:pfarber@umich.edu
+ajax;20060914 22:34:30;/accounts/ajax/validate.php;validate:uniqueuserp:pfarber@umich.edu
+ajax;20060914 22:34:30;/accounts/ajax/validate.php;validate:uniqueuserp:pfarber@umich.edu
+ajax;20060914 22:34:30;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060914 22:35:18;/accounts/ajax/validate.php;validate:email:pfarber@umich.edu 
+ajax;20060914 22:35:18;/accounts/ajax/validate.php;return=error|email|Invalid email address
+ajax;20060914 22:35:48;/accounts/ajax/validate.php;validate:email:pfarber@umich.edu
+ajax;20060914 22:35:48;/accounts/ajax/validate.php;validate:uniqueuserp:pfarber@umich.edu
+ajax;20060914 22:35:48;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:required:pfarber@umich.edu
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:email:pfarber@umich.edu
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:uniqueuserp:pfarber@umich.edu
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:uniqueuserp:pfarber@umich.edu
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:required:Phillip
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:required:Farber
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:required:pfarber@umich.edu
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:email:pfarber@umich.edu
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:uniqueuserp:pfarber@umich.edu
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate::User Support
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:required:76
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:namespaces:Ann Arbor
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:namespaces:MI
+ajax;20060914 22:37:05;/accounts/createaccount.php;validate:namespaces:US
+75.0.89.127;20060914 22:37:05;/accounts/createaccount.php;created account: pfarber@umich.edu (pfarber@umich.edu) Farber,Phillip: inst=76
+75.0.89.127;20060914 22:38:51;/accounts/forgot_password.php;password reset: pfarber@umich.edu
+pfarber@umich.edu;20060914 22:39:38;/accounts/login.php;user logged in (internal):75.0.89.127:https://sakaiproject.org/accounts/login.php
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;validate:email:pfarber@umich.edu
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;validate:uniquesql:pfarber@umich.edu
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060914 22:39:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:password:E711sakai
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:password:E711sakai
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:match:E711sakai
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:required:Phillip
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:required:Farber
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:required:pfarber@umich.edu
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:email:pfarber@umich.edu
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:uniquesql:pfarber@umich.edu
+ajax;20060914 22:40:02;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20060914 22:40:03;/accounts/myaccount.php;validate::User Support
+ajax;20060914 22:40:03;/accounts/myaccount.php;validate:required:76
+ajax;20060914 22:40:03;/accounts/myaccount.php;validate:namespaces:Ann Arbor
+ajax;20060914 22:40:03;/accounts/myaccount.php;validate:namespaces:MI
+ajax;20060914 22:40:03;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060914 22:40:05;/accounts/ajax/validate.php;validate:email:pfarber@umich.edu
+ajax;20060914 22:40:05;/accounts/ajax/validate.php;validate:uniquesql:pfarber@umich.edu
+ajax;20060914 22:40:05;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060914 22:40:05;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060914 22:40:05;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060914 22:40:06;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20060914 22:40:06;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060914 22:40:06;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060914 22:40:06;/accounts/ajax/validate.php;return=ok|country|
+pfarber@umich.edu;20060914 22:40:30;/accounts/login.php;user logged in (internal):75.0.89.127:https://sakaiproject.org/accounts/login.php

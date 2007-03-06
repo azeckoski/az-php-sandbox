@@ -1,0 +1,193 @@
+shardin;20060901 04:19:21;/accounts/login.php;user logged in (internal):210.82.92.40:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060901 04:19:24;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060901 04:19:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060901 04:19:25;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20060901 04:19:25;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060901 04:19:25;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060901 04:19:25;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060901 04:19:25;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20060901 04:19:25;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060901 04:21:36;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060901 04:21:36;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060901 04:21:37;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060901 04:21:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060901 04:21:37;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20060901 04:21:37;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060901 04:21:37;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20060901 04:21:37;/accounts/ajax/validate.php;return=ok|phone|
+shardin;20060901 04:21:45;/accounts/login.php;user logged in (internal):210.82.92.40:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060901 04:21:46;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060901 04:21:46;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20060901 04:21:46;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060901 04:21:46;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060901 04:21:47;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060901 04:21:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060901 04:21:47;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20060901 04:21:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:Ann Arbor
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:MI
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:namespaces:MI
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:zipcode:48109
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:US
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:namespaces:US
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:734-904-0437
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:phone:734-904-0437
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:Y
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:N
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:Medium
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:TUE
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:WED
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:THU
+ajax;20060901 04:23:07;/conference/registration/index.php;validate:required:FRI
+shardin;20060901 04:44:41;/accounts/login.php;user logged in (internal):210.82.92.40:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060901 07:51:24;/accounts/ajax/validate.php;validate:email:gdoyle@its.uct.ac.za
+ajax;20060901 07:51:24;/accounts/ajax/validate.php;validate:uniqueuserp:gdoyle@its.uct.ac.za
+ajax;20060901 07:51:24;/accounts/ajax/validate.php;validate:uniqueuserp:gdoyle@its.uct.ac.za
+ajax;20060901 07:51:24;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060901 07:51:36;/accounts/ajax/validate.php;validate:email:gdoyle@its.uct.ac.za
+ajax;20060901 07:51:36;/accounts/ajax/validate.php;validate:uniqueuserp:gdoyle@its.uct.ac.za
+ajax;20060901 07:51:36;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060901 07:52:05;/accounts/ajax/validate.php;validate:namespaces:Cape Town
+ajax;20060901 07:52:05;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060901 07:52:15;/accounts/ajax/validate.php;validate:namespaces:Western Province
+ajax;20060901 07:52:15;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060901 07:52:17;/accounts/ajax/validate.php;validate:zipcode:7800
+ajax;20060901 07:52:17;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20060901 07:52:31;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20060901 07:52:31;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060901 07:52:34;/accounts/ajax/validate.php;validate:phone:27216504425
+ajax;20060901 07:52:34;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060901 07:52:41;/accounts/ajax/validate.php;validate:phone:27216505045
+ajax;20060901 07:52:41;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060901 07:52:56;/accounts/ajax/validate.php;validate:namespaces:Western Province
+ajax;20060901 07:52:56;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060901 07:53:04;/accounts/ajax/validate.php;validate:namespaces:Western Cape
+ajax;20060901 07:53:04;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060901 07:53:08;/accounts/ajax/validate.php;validate:zipcode:78001
+ajax;20060901 07:53:08;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:required:gdoyle@its.uct.ac.za
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:email:gdoyle@its.uct.ac.za
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:uniqueuserp:gdoyle@its.uct.ac.za
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:uniqueuserp:gdoyle@its.uct.ac.za
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:required:spider
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:password:spider
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:required:spider
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:password:spider
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:match:spider
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:required:Greg
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:required:Doyle
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:required:gdoyle@its.uct.ac.za
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:email:gdoyle@its.uct.ac.za
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:uniqueuserp:gdoyle@its.uct.ac.za
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:required:User Support
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate::System Administrator
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:required:66
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate::Private Bag
+Rondebosch
+
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:namespaces:Cape Town
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:namespaces:Western Cape
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:zipcode:78001
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:namespaces:ZA
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:phone:27216504425
+ajax;20060901 07:53:12;/accounts/createaccount.php;validate:phone:27216505045
+137.158.128.105;20060901 07:53:12;/accounts/createaccount.php;created account: gdoyle@its.uct.ac.za (gdoyle@its.uct.ac.za) Doyle,Greg: inst=66
+gdoyle@its.uct.ac.za;20060901 07:57:49;/accounts/login.php;user logged in (internal):137.158.128.106:https://sakaiproject.org/accounts/login.php
+ajax;20060901 08:00:46;/accounts/ajax/validate.php;validate:namespaces:Western Cape
+ajax;20060901 08:00:46;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060901 08:00:47;/accounts/ajax/validate.php;validate:zipcode:78001
+ajax;20060901 08:00:47;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060901 08:00:47;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20060901 08:00:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060901 08:00:47;/accounts/ajax/validate.php;validate:phone:27216504425
+ajax;20060901 08:00:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060901 08:00:48;/accounts/ajax/validate.php;validate:phone:27216505045
+ajax;20060901 08:00:48;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:User Support
+ajax;20060901 08:02:29;/conference/registration/index.php;validate::System Administrator
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:Cape Town
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:Western Cape
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:namespaces:Western Cape
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:zipcode:78001
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:ZA
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:namespaces:ZA
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:27216504425
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:phone:27216504425
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:phone:27216505045
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:Y
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:N
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:Medium
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:TUE
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:WED
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:THU
+ajax;20060901 08:02:29;/conference/registration/index.php;validate:required:FRI
+jdhall;20060901 09:14:10;/accounts/login.php;user logged in (internal):192.189.65.56:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060901 16:03:48;/accounts/ajax/validate.php;validate:email:conradk@mac.com
+ajax;20060901 16:03:48;/accounts/ajax/validate.php;validate:uniqueuserp:conradk@mac.com
+ajax;20060901 16:03:48;/accounts/ajax/validate.php;validate:uniqueuserp:conradk@mac.com
+ajax;20060901 16:03:48;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060901 16:04:09;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060901 16:04:09;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060901 16:04:09;/accounts/ajax/validate.php;validate:email:conradk@mac.com
+ajax;20060901 16:04:09;/accounts/ajax/validate.php;validate:uniqueuserp:conradk@mac.com
+ajax;20060901 16:04:09;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060901 16:04:09;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060901 16:04:09;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060901 16:04:14;/accounts/ajax/validate.php;validate:email:conradk
+ajax;20060901 16:04:14;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060901 16:05:17;/accounts/ajax/validate.php;validate:email:conradk@mac.com
+ajax;20060901 16:05:17;/accounts/ajax/validate.php;validate:uniqueuserp:conradk@mac.com
+ajax;20060901 16:05:17;/accounts/ajax/validate.php;validate:uniqueuserp:conradk@mac.com
+ajax;20060901 16:05:17;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:required:conradk@mac.com
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:email:conradk@mac.com
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:uniqueuserp:conradk@mac.com
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:uniqueuserp:conradk@mac.com
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:required:gremlinx
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:password:gremlinx
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:required:gremlinx
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:password:gremlinx
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:match:gremlinx
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:required:Conrad
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:required:Klahn
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:required:conradk@mac.com
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:email:conradk@mac.com
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:uniqueuserp:conradk@mac.com
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:required:Instructional Designer
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:required:101
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate::12545 Riata Vista Circle
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:namespaces:Austin
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:namespaces:TX
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:zipcode:78727-6524
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060901 16:05:20;/accounts/createaccount.php;validate:phone:512 674-8612
+70.113.35.163;20060901 16:05:20;/accounts/createaccount.php;created account: conradk@mac.com (conradk@mac.com) Klahn,Conrad: inst=101
+conradk@mac.com;20060901 16:06:45;/accounts/login.php;user logged in (internal):70.113.35.163:https://sakaiproject.org/accounts/login.php
+ajax;20060901 16:06:52;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060901 16:06:52;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060901 16:06:52;/accounts/ajax/validate.php;validate:zipcode:78727-6524
+ajax;20060901 16:06:52;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060901 16:06:52;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060901 16:06:52;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060901 16:06:52;/accounts/ajax/validate.php;validate:phone:512 674-8612
+ajax;20060901 16:06:52;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:Instructional Designer
+ajax;20060901 16:08:04;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:Austin
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:TX
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:namespaces:TX
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:zipcode:78727-6524
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:US
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:namespaces:US
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:512 674-8612
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:phone:512 674-8612
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:N
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:N
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:X-Large
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:TUE
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:WED
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:THU
+ajax;20060901 16:08:04;/conference/registration/index.php;validate:required:FRI
+mayumi;20060901 16:56:32;/accounts/login.php;user logged in (internal):58.188.43.241:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.

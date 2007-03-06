@@ -1,0 +1,20 @@
+ajax;20060401 09:15:26;/conference/proposals/index.php;validate:required:presentation
+ajax;20060401 09:16:57;/conference/proposals/index.php;validate:required:demo
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:Implementor
+ajax;20060401 12:09:49;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:Centre for Educational Technology
+Hlanganani Building, Upper Campus
+University of Cape Town
+Rondebosch
+Cape Town
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:South Africa
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:Western Cape
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:namespaces:Western Cape
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:zipcode:99999
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:ZA
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:namespaces:ZA
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:+27-21-650-5037
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:phone:+27-21-650-5037
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:Y
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:N
+ajax;20060401 12:09:49;/conference/registration/index.php;validate:required:XX-Large

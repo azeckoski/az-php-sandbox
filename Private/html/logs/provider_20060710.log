@@ -1,0 +1,32 @@
+mb198;20060710 12:33:50;/accounts/activate.php;user modified (ldap): Melissa Bachman (melissa.bachman@cetl.gatech.edu) [702]
+mb198;20060710 12:35:57;/accounts/login.php;user logged in (ldap):130.207.46.23:https://sakaiproject.org/accounts/login.php?ref=/accounts/myaccount.php
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;validate:namespaces:Atlanta
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;validate:email:melissa.bachman@cetl.gatech.edu
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;validate:uniquesql:melissa.bachman@cetl.gatech.edu
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;validate:zipcode:30332-0383
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;validate:phone:404-894-4475
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;validate:phone:404-894-7569
+ajax;20060710 12:35:58;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;validate:email:melissa.bachman@cetl.gatech.edu
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;validate:uniquesql:melissa.bachman@cetl.gatech.edu
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;validate:namespaces:Atlanta
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;validate:phone:404-894-7569
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;validate:zipcode:30332-0383
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;validate:phone:404-894-4475
+ajax;20060710 12:38:06;/accounts/ajax/validate.php;return=ok|fax|

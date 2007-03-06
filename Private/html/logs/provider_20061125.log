@@ -1,0 +1,85 @@
+tbray@umich.edu;20061125 00:49:47;/accounts/activate.php;user modified (ldap): Tom Bray (tbray@umich.edu) [1021]
+goodwaa@unisa.ac.za;20061125 09:49:08;/accounts/forgot_password.php;user added (ldap): Alice Goodwin-Davey (goodwaa@unisa.ac.za) [830]
+163.200.81.4;20061125 09:49:08;/accounts/forgot_password.php;password reset: goodwaa@unisa.ac.za
+goodwaa@unisa.ac.za;20061125 10:03:21;/accounts/login.php;user logged in (ldap):163.200.81.4:https://sakaiproject.org/accounts/login.php
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;validate:namespaces:Pretoria
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;validate:email:goodwaa@unisa.ac.za
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;validate:uniquesql:goodwaa@unisa.ac.za
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;validate:namespaces:SOUTH AFRICA
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061125 10:03:54;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061125 10:03:55;/accounts/ajax/validate.php;validate:phone: 27-12-429-6701
+ajax;20061125 10:03:55;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061125 10:03:55;/accounts/ajax/validate.php;validate:phone: 27-12-429-3551
+ajax;20061125 10:03:55;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:password:12gata
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:password:12gata
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:match:12gata
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:required:Alice
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:required:Goodwin-Davey
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:required:goodwaa@unisa.ac.za
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:email:goodwaa@unisa.ac.za
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:uniquesql:goodwaa@unisa.ac.za
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:required:Faculty Development
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate::Instructional Designer
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:required:82
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate::Unisa, TvW 4-67
+PO Box 392
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:namespaces:Pretoria
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:namespaces:SOUTH AFRICA
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:namespaces:ZA
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:phone:+27-12-429-6701
+ajax;20061125 10:04:08;/accounts/myaccount.php;validate:phone:+27-12-429-3551
+goodwaa@unisa.ac.za;20061125 10:04:09;/accounts/myaccount.php;user modified (ldap): Alice Goodwin-Davey (goodwaa@unisa.ac.za) [830]
+shardin;20061125 10:42:28;/accounts/login.php;user logged in (internal):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+shardin;20061125 10:42:29;/accounts/login.php;user modified (ldap): Susan Hardin (shardin@umich.edu) [2]
+tbray@umich.edu;20061125 15:54:32;/accounts/activate.php;user modified (ldap): Tom Bray (tbray@umich.edu) [1021]
+tbray@umich.edu;20061125 15:54:52;/accounts/login.php;user logged in (ldap):141.213.32.93:https://sakaiproject.org/accounts/login.php
+ajax;20061125 15:55:13;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061125 15:55:13;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061125 15:55:13;/accounts/ajax/validate.php;validate:zipcode:48109-2094
+ajax;20061125 15:55:13;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061125 15:55:13;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061125 15:55:13;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061125 15:55:13;/accounts/ajax/validate.php;validate:phone:734-763-9949
+ajax;20061125 15:55:13;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061125 15:56:47;/accounts/ajax/validate.php;validate:email:kreister@umich.edu
+ajax;20061125 15:56:47;/accounts/ajax/validate.php;return=ok|delegate|
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:User Support
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:Ann Arbor
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:MI
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:namespaces:MI
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:zipcode:48109-2094
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:US
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:namespaces:US
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:734-763-9949
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:phone:734-763-9949
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:Y
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:N
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:Large
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:TUE
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:WED
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:THU
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:required:FRI
+ajax;20061125 15:57:24;/conference/registration/index.php;validate:email:kreister@umich.edu
+tbray@umich.edu;20061125 15:57:24;/conference/registration/index.php;user modified (ldap): Tom Bray (tbray@umich.edu) [1021]
+kreister;20061125 17:21:26;/accounts/login.php;user logged in (ldap):141.213.32.93:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+kreister;20061125 17:24:04;/accounts/login.php;user logged in (ldap):141.213.32.93:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;validate:email:kreister@umich.edu
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;validate:uniquesql:kreister@umich.edu
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;validate:zipcode:48109-2094
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;validate:phone:734-936-3107
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;validate:phone:734-763-0606
+ajax;20061125 17:25:49;/accounts/ajax/validate.php;return=ok|phone|

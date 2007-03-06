@@ -1,0 +1,221 @@
+mmiles@umich.edu;20060501 09:38:44;/accounts/login.php;user logged in (ldap):141.213.113.211:https://sakaiproject.org/accounts/login.php?ref=/accounts/login.php
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;validate:email:mmiles@umich.edu
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;validate:uniquesql:mmiles@umich.edu
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;validate:zipcode:48109-2094
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;validate:phone:734-764-3614
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;validate:phone:734-763-7829
+ajax;20060501 09:38:49;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;validate:zipcode:48109-2094
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;validate:phone:734-764-3614
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;validate:phone:734-763-7829
+ajax;20060501 09:39:23;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060501 10:37:11;/accounts/ajax/validate.php;validate:uniqueuserp:swatkins
+ajax;20060501 10:37:12;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060501 10:37:35;/accounts/ajax/validate.php;validate:email:swatkins@ncsu.edu
+ajax;20060501 10:37:35;/accounts/ajax/validate.php;validate:uniqueuserp:swatkins@ncsu.edu
+ajax;20060501 10:37:35;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060501 10:39:32;/accounts/ajax/validate.php;validate:namespaces:Raleigh
+ajax;20060501 10:39:32;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060501 10:39:38;/accounts/ajax/validate.php;validate:namespaces:NC
+ajax;20060501 10:39:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060501 10:39:48;/accounts/ajax/validate.php;validate:zipcode:27695-7113
+ajax;20060501 10:39:48;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060501 10:39:50;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060501 10:39:50;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060501 10:39:58;/accounts/ajax/validate.php;validate:phone:919-513-1330
+ajax;20060501 10:39:58;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060501 10:40:05;/accounts/ajax/validate.php;validate:phone:919-513-4005
+ajax;20060501 10:40:05;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060501 10:40:23;/accounts/createaccount.php;validate:required:swatkins
+ajax;20060501 10:40:23;/accounts/createaccount.php;validate:nospaces:swatkins
+ajax;20060501 10:40:23;/accounts/createaccount.php;validate:uniqueuserp:swatkins
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:required:jenny
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:password:jenny
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:required:jenny
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:password:jenny
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:match:jenny
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:required:Scott
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:required:Watkins
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:required:swatkins@ncsu.edu
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:email:swatkins@ncsu.edu
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:uniqueuserp:swatkins@ncsu.edu
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate::Faculty Development
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:required:North Carolina State University
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate::900 Main Campus Dr., Ste. 267
+Campus Box 7113
+
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:namespaces:Raleigh
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:namespaces:NC
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:zipcode:27695-7113
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:phone:919-513-1330
+ajax;20060501 10:40:24;/accounts/createaccount.php;validate:phone:919-513-4005
+swatkins;20060501 10:40:24;/accounts/createaccount.php;user added (ldap): Scott Watkins (swatkins@ncsu.edu) [572]
+152.14.62.171;20060501 10:40:24;/accounts/createaccount.php;created account: swatkins (swatkins@ncsu.edu) Watkins,Scott: inst=1
+swatkins;20060501 10:40:53;/accounts/activate.php;user modified (ldap): Scott Watkins (swatkins@ncsu.edu) [572]
+swatkins;20060501 10:41:04;/accounts/login.php;user logged in (ldap):152.14.62.171:https://sakaiproject.org/accounts/login.php
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;validate:namespaces:NC
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;validate:zipcode:27695-7113
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;validate:phone:919-513-1330
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;validate:phone:919-513-4005
+ajax;20060501 10:41:11;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060501 10:42:44;/accounts/ajax/validate.php;validate:email:jenny_mccall@ncsu.edu
+ajax;20060501 10:42:44;/accounts/ajax/validate.php;return=ok|delegate|
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20060501 10:42:45;/conference/registration/index.php;validate::Faculty Development
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:North Carolina State Universit
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:Raleigh
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:NC
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:namespaces:NC
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:zipcode:27695-7113
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:US
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:namespaces:US
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:919-513-1330
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:phone:919-513-1330
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:phone:919-513-4005
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:Y
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:N
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:required:X-Large
+ajax;20060501 10:42:45;/conference/registration/index.php;validate:email:jenny_mccall@ncsu.edu
+swatkins;20060501 10:42:45;/conference/registration/index.php;user modified (ldap): Scott Watkins (swatkins@ncsu.edu) [572]
+ajax;20060501 11:43:41;/accounts/ajax/validate.php;validate:uniqueuserp:jdhall
+ajax;20060501 11:43:41;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060501 11:43:51;/accounts/ajax/validate.php;validate:email:jdhall@dana.edu
+ajax;20060501 11:43:51;/accounts/ajax/validate.php;validate:uniqueuserp:jdhall@dana.edu
+ajax;20060501 11:43:51;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060501 11:45:26;/accounts/createaccount.php;validate:required:jdhall
+ajax;20060501 11:45:26;/accounts/createaccount.php;validate:nospaces:jdhall
+ajax;20060501 11:45:26;/accounts/createaccount.php;validate:uniqueuserp:jdhall
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:required:r89tupa4
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:password:r89tupa4
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:required:r89tupa4
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:password:r89tupa4
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:match:r89tupa4
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:required:JD
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:required:Hall
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:required:jdhall@dana.edu
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:email:jdhall@dana.edu
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:uniqueuserp:jdhall@dana.edu
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:required:System Administrator
+ajax;20060501 11:45:27;/accounts/createaccount.php;validate:required:Dana College
+jdhall;20060501 11:45:27;/accounts/createaccount.php;user added (ldap): JD Hall (jdhall@dana.edu) [573]
+198.207.10.95;20060501 11:45:27;/accounts/createaccount.php;created account: jdhall (jdhall@dana.edu) Hall,JD: inst=1
+jdhall;20060501 11:45:39;/accounts/activate.php;user modified (ldap): JD Hall (jdhall@dana.edu) [573]
+jdhall;20060501 11:45:53;/accounts/login.php;user logged in (ldap):198.207.10.95:https://sakaiproject.org/accounts/login.php
+jshepher;20060501 12:16:47;/accounts/login.php;user logged in (internal):154.20.210.236:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+jshepher;20060501 12:16:47;/accounts/login.php;user modified (ldap): James Shepherd (jshepher@stat.ubc.ca) [431]
+ajax;20060501 12:22:23;/accounts/ajax/validate.php;validate:uniqueuserp:jeffn@media.berkeley.edu
+ajax;20060501 12:22:23;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060501 12:22:39;/accounts/ajax/validate.php;validate:email:jeffn@media.berkeley.edu
+ajax;20060501 12:22:39;/accounts/ajax/validate.php;validate:uniqueuserp:jeffn@media.berkeley.edu
+ajax;20060501 12:22:39;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060501 12:22:41;/accounts/ajax/validate.php;validate:uniqueuserp:jeffn
+ajax;20060501 12:22:41;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:required:jeffn
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:nospaces:jeffn
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:uniqueuserp:jeffn
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:required:narvana
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:password:narvana
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:required:narvana
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:password:narvana
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:match:narvana
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:required:Jeffrey
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:required:Narvid
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:required:jeffn@media.berkeley.edu
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:email:jeffn@media.berkeley.edu
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:uniqueuserp:jeffn@media.berkeley.edu
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:required:Instructional Designer
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060501 12:23:11;/accounts/createaccount.php;validate:required:60
+jeffn;20060501 12:23:11;/accounts/createaccount.php;user added (ldap): Jeffrey Narvid (jeffn@media.berkeley.edu) [574]
+169.229.212.35;20060501 12:23:11;/accounts/createaccount.php;created account: jeffn (jeffn@media.berkeley.edu) Narvid,Jeffrey: inst=60
+jeffn;20060501 12:23:21;/accounts/activate.php;user modified (ldap): Jeffrey Narvid (jeffn@media.berkeley.edu) [574]
+jeffn;20060501 12:23:31;/accounts/login.php;user logged in (ldap):169.229.212.35:https://sakaiproject.org/accounts/login.php
+ajax;20060501 12:25:32;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060501 12:25:32;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060501 12:25:44;/accounts/ajax/validate.php;validate:zipcode:94720-2535
+ajax;20060501 12:25:44;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060501 12:25:45;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060501 12:25:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060501 12:25:54;/accounts/ajax/validate.php;validate:phone:415-652-3533
+ajax;20060501 12:25:54;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:required:Instructional Designer
+ajax;20060501 12:28:02;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:required:Berkeley
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:required:CA
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:zipcode:94720-2535
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:required:US
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:namespaces:US
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:required:415-652-3533
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:phone:415-652-3533
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:required:Y
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:required:N
+ajax;20060501 12:28:02;/conference/registration/index.php;validate:required:Large
+jeffn;20060501 12:28:02;/conference/registration/index.php;user modified (ldap): Jeffrey Narvid (jeffn@media.berkeley.edu) [574]
+ajax;20060501 20:09:27;/accounts/ajax/validate.php;validate:uniqueuserp:ggilbert
+ajax;20060501 20:09:28;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060501 20:09:44;/accounts/ajax/validate.php;validate:email:ggilbert@unicon.net
+ajax;20060501 20:09:44;/accounts/ajax/validate.php;validate:uniqueuserp:ggilbert@unicon.net
+ajax;20060501 20:09:45;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:required:ggilbert
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:nospaces:ggilbert
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:uniqueuserp:ggilbert
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:required:hurley
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:password:hurley
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:required:hurley
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:password:hurley
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:match:hurley
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:required:Gary
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:required:Gilbert
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:required:ggilbert@unicon.net
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:email:ggilbert@unicon.net
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:uniqueuserp:ggilbert@unicon.net
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20060501 20:10:04;/accounts/createaccount.php;validate:required:95
+ggilbert;20060501 20:10:05;/accounts/createaccount.php;user added (ldap): Gary Gilbert (ggilbert@unicon.net) [575]
+24.147.44.202;20060501 20:10:05;/accounts/createaccount.php;created account: ggilbert (ggilbert@unicon.net) Gilbert,Gary: inst=95
+ggilbert;20060501 21:21:35;/accounts/activate.php;user modified (ldap): Gary Gilbert (ggilbert@unicon.net) [575]
+ggilbert;20060501 21:21:49;/accounts/login.php;user logged in (ldap):24.147.44.202:https://sakaiproject.org/accounts/login.php
+ajax;20060501 21:25:14;/accounts/ajax/validate.php;validate:namespaces:NH
+ajax;20060501 21:25:14;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060501 21:25:16;/accounts/ajax/validate.php;validate:zipcode:03110
+ajax;20060501 21:25:16;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060501 21:25:19;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060501 21:25:19;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060501 21:25:25;/accounts/ajax/validate.php;validate:phone:603-488-2252
+ajax;20060501 21:25:25;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:required:Bedford
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:required:NH
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:namespaces:NH
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:zipcode:03110
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:required:US
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:namespaces:US
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:required:603-488-2252
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:phone:603-488-2252
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:required:N
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:required:N
+ajax;20060501 21:26:05;/conference/registration/index.php;validate:required:X-Large
+ggilbert;20060501 21:26:05;/conference/registration/index.php;user modified (ldap): Gary Gilbert (ggilbert@unicon.net) [575]

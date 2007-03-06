@@ -1,0 +1,1064 @@
+ajax;20060424 05:07:45;/accounts/ajax/validate.php;validate:uniqueuserp:skoch
+ajax;20060424 05:07:46;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 05:08:10;/accounts/ajax/validate.php;validate:email:skoch@ulrik.uio.no
+ajax;20060424 05:08:10;/accounts/ajax/validate.php;validate:uniqueuserp:skoch@ulrik.uio.no
+ajax;20060424 05:08:11;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 05:10:31;/accounts/ajax/validate.php;validate:zipcode:0316
+ajax;20060424 05:10:31;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20060424 05:10:51;/accounts/ajax/validate.php;validate:namespaces:Oslo
+ajax;20060424 05:10:51;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 05:11:10;/accounts/ajax/validate.php;validate:namespaces:NO
+ajax;20060424 05:11:10;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 05:11:20;/accounts/ajax/validate.php;validate:phone:4791345516
+ajax;20060424 05:11:20;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:required:skoch
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:nospaces:skoch
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:uniqueuserp:skoch
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:required:Johannes330
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:password:Johannes330
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:required:Johannes330
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:password:Johannes330
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:match:Johannes330
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:required:Susanne
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:required:Koch
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:required:skoch@ulrik.uio.no
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:email:skoch@ulrik.uio.no
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:uniqueuserp:skoch@ulrik.uio.no
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:required:Faculty Development
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate::User Support
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:required:109
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate::
+Universitetet of Oslo
+USIT
+PO Box 1059 Blindern
+0316 OSLO 
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:namespaces:Oslo
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:namespaces:NO
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:phone:4791345516
+ajax;20060424 05:11:47;/accounts/createaccount.php;validate:phone:4722852730
+skoch;20060424 05:11:48;/accounts/createaccount.php;user added (ldap): Susanne Koch (skoch@ulrik.uio.no) [511]
+129.240.200.54;20060424 05:11:48;/accounts/createaccount.php;created account: skoch (skoch@ulrik.uio.no) Koch,Susanne: inst=109
+skoch;20060424 05:12:07;/accounts/activate.php;user modified (ldap): Susanne Koch (skoch@ulrik.uio.no) [511]
+skoch;20060424 05:13:32;/accounts/login.php;user logged in (ldap):129.240.200.54:https://sakaiproject.org/accounts/login.php
+ajax;20060424 05:13:43;/accounts/ajax/validate.php;validate:namespaces:NO
+ajax;20060424 05:13:43;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 05:13:43;/accounts/ajax/validate.php;validate:phone:4791345516
+ajax;20060424 05:13:43;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 05:13:43;/accounts/ajax/validate.php;validate:phone:4722852730
+ajax;20060424 05:13:43;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 05:13:56;/accounts/ajax/validate.php;validate:namespaces:NO
+ajax;20060424 05:13:56;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 05:13:56;/accounts/ajax/validate.php;validate:phone:4722852730
+ajax;20060424 05:13:56;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 05:13:56;/accounts/ajax/validate.php;validate:phone:4791345516
+ajax;20060424 05:13:56;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 05:18:39;/facebook/add_entry.php;validate::At work: pedagogy for e-learning, blog, wikiweb accessibility.
+At home: search engine optimization, web design, cooking, travelling
+ajax;20060424 05:18:39;/facebook/add_entry.php;validate:required:1
+ajax;20060424 05:19:00;/facebook/add_entry.php;validate::At work: pedagogy for e-learning, blog, wikiweb accessibility.
+At home: search engine optimization, web design, cooking, travelling.
+ajax;20060424 05:19:00;/facebook/add_entry.php;validate:required:1
+ajax;20060424 05:19:17;/facebook/add_entry.php;validate::At work: pedagogy for e-learning, blog, wikiweb accessibility.
+At home: search engine optimization, web design, cooking, travelling.
+ajax;20060424 05:19:17;/facebook/add_entry.php;validate:required:1
+skoch;20060424 05:20:27;/accounts/login.php;user logged in (ldap):129.240.200.54:https://www.sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060424 05:20:31;/accounts/ajax/validate.php;validate:namespaces:NO
+ajax;20060424 05:20:31;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 05:20:31;/accounts/ajax/validate.php;validate:phone:4791345516
+ajax;20060424 05:20:31;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 05:20:32;/accounts/ajax/validate.php;validate:phone:4722852730
+ajax;20060424 05:20:32;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 05:20:55;/accounts/ajax/validate.php;validate:namespaces:Oslo
+ajax;20060424 05:20:55;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060424 05:21:08;/accounts/ajax/validate.php;validate:namespaces:NO
+ajax;20060424 05:21:08;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:required:Faculty Development
+ajax;20060424 05:23:54;/conference/registration/index.php;validate::User Support
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:required:Oslo
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:required:Oslo
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:namespaces:Oslo
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:required:NO
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:namespaces:NO
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:required:4791345516
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:phone:4791345516
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:phone:4722852730
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:required:Y
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:required:N
+ajax;20060424 05:23:54;/conference/registration/index.php;validate:required:Medium
+skoch;20060424 05:23:54;/conference/registration/index.php;user modified (ldap): Susanne Koch (skoch@ulrik.uio.no) [511]
+ajax;20060424 10:51:47;/accounts/ajax/validate.php;validate:uniqueuserp:hosier
+ajax;20060424 10:51:47;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 10:52:00;/accounts/ajax/validate.php;validate:email:hosier@unl.edu
+ajax;20060424 10:52:00;/accounts/ajax/validate.php;validate:uniqueuserp:hosier@unl.edu
+ajax;20060424 10:52:00;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:required:hosier
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:nospaces:hosier
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:uniqueuserp:hosier
+ajax;20060424 10:52:30;/accounts/ajax/validate.php;validate:uniqueuserp:LaurieGR1
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:required:p1call
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:password:p1call
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:required:p1call
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:password:p1call
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:match:p1call
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:required:Aaron
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:required:Hosier
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:required:hosier@unl.edu
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:email:hosier@unl.edu
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:uniqueuserp:hosier@unl.edu
+ajax;20060424 10:52:30;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:required:System Administrator
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate::Manager
+ajax;20060424 10:52:30;/accounts/createaccount.php;validate:required:79
+hosier;20060424 10:52:31;/accounts/createaccount.php;user added (ldap): Aaron Hosier (hosier@unl.edu) [512]
+129.93.35.98;20060424 10:52:31;/accounts/createaccount.php;created account: hosier (hosier@unl.edu) Hosier,Aaron: inst=79
+ajax;20060424 10:52:39;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 10:52:39;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060424 10:52:39;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 10:52:39;/accounts/ajax/validate.php;return=ok|state|
+hosier;20060424 10:53:21;/accounts/activate.php;user modified (ldap): Aaron Hosier (hosier@unl.edu) [512]
+hosier;20060424 10:53:29;/accounts/login.php;user logged in (ldap):129.93.35.98:https://sakaiproject.org/accounts/login.php
+ajax;20060424 10:53:51;/accounts/ajax/validate.php;validate:email:lgreed@svsu.edu
+ajax;20060424 10:53:51;/accounts/ajax/validate.php;validate:uniqueuserp:lgreed@svsu.edu
+ajax;20060424 10:53:52;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 10:53:54;/accounts/ajax/validate.php;validate:namespaces:NE
+ajax;20060424 10:53:54;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 10:53:59;/accounts/ajax/validate.php;validate:zipcode:68588-0203
+ajax;20060424 10:53:59;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 10:54:00;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 10:54:00;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 10:54:11;/accounts/ajax/validate.php;validate:phone:(402) 472-5761
+ajax;20060424 10:54:11;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:required:System Administrator
+ajax;20060424 10:54:42;/conference/registration/index.php;validate::Manager
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:required:Lincoln
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:required:NE
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:namespaces:NE
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:zipcode:68588-0203
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:required:US
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:required:(402) 472-5761
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:phone:(402) 472-5761
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:required:Y
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:required:N
+ajax;20060424 10:54:42;/conference/registration/index.php;validate:required:XXX-Large
+hosier;20060424 10:54:43;/conference/registration/index.php;user modified (ldap): Aaron Hosier (hosier@unl.edu) [512]
+ajax;20060424 10:54:52;/accounts/ajax/validate.php;validate:namespaces:University Center
+ajax;20060424 10:54:52;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 10:55:24;/accounts/ajax/validate.php;validate:phone:989-964-2717
+ajax;20060424 10:55:24;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 10:55:35;/accounts/ajax/validate.php;validate:phone:989-964-7021
+ajax;20060424 10:55:35;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 10:55:40;/accounts/ajax/validate.php;validate:zipcode:48710
+ajax;20060424 10:55:40;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:required:LaurieGR1
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:nospaces:LaurieGR1
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:uniqueuserp:LaurieGR1
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:required:Alma92
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:password:Alma92
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:required:Alma92
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:password:Alma92
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:match:Alma92
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:required:Laurie
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:required:Reed 
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:required:lgreed@svsu.edu
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:email:lgreed@svsu.edu
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:uniqueuserp:lgreed@svsu.edu
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate::Faculty Development
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:required:Saginaw Valley State University
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate::Physics Dept
+7400 Bay Road
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:namespaces:University Center
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:namespaces:MI
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:zipcode:48710
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:phone:989-964-7021
+ajax;20060424 10:56:08;/accounts/createaccount.php;validate:phone:989-964-2717
+lauriegr1;20060424 10:56:09;/accounts/createaccount.php;user added (ldap): Laurie Reed  (lgreed@svsu.edu) [513]
+155.138.25.52;20060424 10:56:09;/accounts/createaccount.php;created account: lauriegr1 (lgreed@svsu.edu) Reed ,Laurie: inst=1
+lauriegr1;20060424 10:57:14;/accounts/activate.php;user modified (ldap): Laurie Reed  (lgreed@svsu.edu) [513]
+lauriegr1;20060424 10:57:28;/accounts/login.php;user logged in (ldap):155.138.25.52:https://sakaiproject.org/accounts/login.php
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;validate:zipcode:48710
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;validate:phone:989-964-7021
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;validate:phone:989-964-2717
+ajax;20060424 10:57:32;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:Faculty
+ajax;20060424 10:59:13;/conference/registration/index.php;validate::Faculty Development
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:Saginaw Valley State University
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:University Center
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:MI
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:namespaces:MI
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:zipcode:48710
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:US
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:989-964-7021
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:phone:989-964-7021
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:phone:989-964-2717
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:N
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:N
+ajax;20060424 10:59:13;/conference/registration/index.php;validate:required:X-Large
+lauriegr1;20060424 10:59:13;/conference/registration/index.php;user modified (ldap): Laurie Reed (lgreed@svsu.edu) [513]
+ericks;20060424 11:08:51;/accounts/login.php;user logged in (internal):129.10.118.227:https://sakaiproject.org/accounts/login.php
+ericks;20060424 11:08:51;/accounts/login.php;user modified (ldap): Mark Erickson (ericks@ccs.neu.edu) [342]
+ajax;20060424 11:16:31;/accounts/ajax/validate.php;validate:uniqueuserp:47689218y
+ajax;20060424 11:16:31;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 11:17:51;/accounts/ajax/validate.php;validate:email:durano_87@hotmail.com
+ajax;20060424 11:17:51;/accounts/ajax/validate.php;validate:uniqueuserp:durano_87@hotmail.com
+ajax;20060424 11:17:51;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 11:20:15;/accounts/ajax/validate.php;validate:namespaces:almacelles
+ajax;20060424 11:20:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 11:20:51;/accounts/ajax/validate.php;validate:namespaces:lleida
+ajax;20060424 11:20:51;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060424 11:21:18;/accounts/ajax/validate.php;validate:namespaces:ES
+ajax;20060424 11:21:18;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 11:21:33;/accounts/createaccount.php;validate:required:47689218y
+ajax;20060424 11:21:33;/accounts/createaccount.php;validate:nospaces:47689218y
+ajax;20060424 11:21:33;/accounts/createaccount.php;validate:uniqueuserp:47689218y
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:required:durano_87
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:password:durano_87
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:required:durano_87
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:password:durano_87
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:match:durano_87
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:required:durano
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:required:gascón
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:required:durano_87@hotmail.com
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:email:durano_87@hotmail.com
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:uniqueuserp:durano_87@hotmail.com
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:required:udl
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate::republica argentina,36
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:namespaces:almacelles
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:namespaces:lleida
+ajax;20060424 11:21:34;/accounts/createaccount.php;validate:namespaces:ES
+47689218y;20060424 11:21:34;/accounts/createaccount.php;user added (ldap): durano gascón (durano_87@hotmail.com) [514]
+83.43.229.47;20060424 11:21:34;/accounts/createaccount.php;created account: 47689218y (durano_87@hotmail.com) gascón,durano: inst=1
+ajax;20060424 11:22:07;/accounts/ajax/validate.php;validate:namespaces:lleida
+ajax;20060424 11:22:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:required:47689218y
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:nospaces:47689218y
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:uniqueuserp:47689218y
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:required:durano_87
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:password:durano_87
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:required:durano_87
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:password:durano_87
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:match:durano_87
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:required:durano
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:required:gascón
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:required:durano_87@hotmail.com
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:email:durano_87@hotmail.com
+ajax;20060424 11:22:46;/accounts/createaccount.php;validate:uniqueuserp:durano_87@hotmail.com
+ajax;20060424 11:22:47;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060424 11:22:47;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060424 11:22:47;/accounts/createaccount.php;validate:required:udl
+ajax;20060424 11:22:47;/accounts/createaccount.php;validate::republica argentina,36
+ajax;20060424 11:22:47;/accounts/createaccount.php;validate:namespaces:almacelles
+ajax;20060424 11:22:47;/accounts/createaccount.php;validate:namespaces:lleida
+ajax;20060424 11:22:47;/accounts/createaccount.php;validate:namespaces:ES
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:required:47689218y
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:nospaces:47689218y
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:uniqueuserp:47689218y
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:required:durano
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:password:durano
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:required:durano
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:password:durano
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:match:durano
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:required:durano
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:required:gascón
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:required:durano_87@hotmail.com
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:email:durano_87@hotmail.com
+ajax;20060424 11:23:27;/accounts/createaccount.php;validate:uniqueuserp:durano_87@hotmail.com
+ajax;20060424 11:23:28;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060424 11:23:28;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060424 11:23:28;/accounts/createaccount.php;validate:required:udl
+ajax;20060424 11:23:28;/accounts/createaccount.php;validate::republica argentina,36
+ajax;20060424 11:23:28;/accounts/createaccount.php;validate:namespaces:almacelles
+ajax;20060424 11:23:28;/accounts/createaccount.php;validate:namespaces:lleida
+ajax;20060424 11:23:28;/accounts/createaccount.php;validate:namespaces:ES
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:required:47689218y
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:nospaces:47689218y
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:uniqueuserp:47689218y
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:required:durano_8725
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:password:durano_8725
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:required:durano_8725
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:password:durano_8725
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:match:durano_8725
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:required:durano
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:required:gascón
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:required:durano_87@hotmail.com
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:email:durano_87@hotmail.com
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:uniqueuserp:durano_87@hotmail.com
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:required:udl
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate::republica argentina,36
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:namespaces:almacelles
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:namespaces:lleida
+ajax;20060424 11:24:28;/accounts/createaccount.php;validate:namespaces:ES
+ajax;20060424 11:25:27;/accounts/createaccount.php;validate:required:47689218y
+ajax;20060424 11:25:27;/accounts/createaccount.php;validate:nospaces:47689218y
+ajax;20060424 11:25:27;/accounts/createaccount.php;validate:uniqueuserp:47689218y
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:required:250487
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:password:250487
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:required:250487
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:password:250487
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:match:250487
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:required:durano
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:required:gascón
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:required:durano_87@hotmail.com
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:email:durano_87@hotmail.com
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:uniqueuserp:durano_87@hotmail.com
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:required:udl
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate::republica argentina,36
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:namespaces:almacelles
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:namespaces:lleida
+ajax;20060424 11:25:28;/accounts/createaccount.php;validate:namespaces:ES
+rodjohnson;20060424 11:40:47;/accounts/activate.php;user modified (ldap): Rod Johnson (rod.johnson@ualberta.ca) [505]
+rodjohnson;20060424 11:41:21;/accounts/login.php;user logged in (ldap):129.128.29.242:https://sakaiproject.org/accounts/login.php?ref=/accounts/activate.php
+p.beckett@uea.ac.uk;20060424 11:42:08;/accounts/login.php;user logged in (internal):139.222.129.3:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+p.beckett@uea.ac.uk;20060424 11:42:08;/accounts/login.php;user modified (ldap): Paul Beckett (p.beckett@uea.ac.uk) [41]
+rodjohnson;20060424 11:42:30;/accounts/login.php;user logged in (ldap):129.128.29.242:https://sakaiproject.org/accounts/login.php?ref=/accounts/activate.php
+rodjohnson;20060424 11:43:21;/accounts/activate.php;user modified (ldap): Rod Johnson (rod.johnson@ualberta.ca) [505]
+rodjohnson;20060424 11:43:38;/accounts/login.php;user logged in (ldap):129.128.29.242:https://sakaiproject.org/accounts/login.php
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;validate:email:rod.johnson@ualberta.ca
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;validate:uniquesql:rod.johnson@ualberta.ca
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;validate:namespaces:Edmonton
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;validate:namespaces:AB
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;validate:zipcode:T6G 2E8
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;validate:phone:(780) 492-5077
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;validate:phone:(780) 492-1438
+ajax;20060424 11:52:03;/accounts/ajax/validate.php;return=ok|fax|
+roblake;20060424 12:02:39;/accounts/login.php;user logged in (ldap):129.128.53.170:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060424 12:02:41;/accounts/ajax/validate.php;validate:namespaces:AB
+ajax;20060424 12:02:41;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 12:02:41;/accounts/ajax/validate.php;validate:zipcode:T6G 2J9
+ajax;20060424 12:02:41;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 12:02:41;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060424 12:02:41;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 12:02:41;/accounts/ajax/validate.php;validate:phone:780.492.6643
+ajax;20060424 12:02:41;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 12:02:42;/accounts/ajax/validate.php;validate:phone:780.492.1438
+ajax;20060424 12:02:42;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 12:03:25;/accounts/ajax/validate.php;validate:email:tm2@ualberta.ca
+ajax;20060424 12:03:25;/accounts/ajax/validate.php;return=ok|delegate|
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:University Administration
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:University of Alberta
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:Edmonton
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:AB
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:namespaces:AB
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:zipcode:T6G 2J9
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:CA
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:780.492.6643
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:phone:780.492.6643
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:phone:780.492.1438
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:Y
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:N
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:required:X-Large
+ajax;20060424 12:03:36;/conference/registration/index.php;validate:email:tm2@ualberta.ca
+roblake;20060424 12:03:36;/conference/registration/index.php;user modified (ldap): Rob Lake (rob.lake@ualberta.ca) [503]
+ajax;20060424 12:13:40;/accounts/ajax/validate.php;validate:uniqueuserp:jdb53
+ajax;20060424 12:13:41;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 12:14:27;/accounts/ajax/validate.php;validate:email:jennifer.bourey@yale.edu
+ajax;20060424 12:14:27;/accounts/ajax/validate.php;validate:uniqueuserp:jennifer.bourey@yale.edu
+ajax;20060424 12:14:27;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 12:15:12;/accounts/ajax/validate.php;validate:namespaces:New Haven
+ajax;20060424 12:15:12;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 12:15:28;/accounts/ajax/validate.php;validate:namespaces:CT
+ajax;20060424 12:15:28;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 12:15:36;/accounts/ajax/validate.php;validate:zipcode:06520-8276
+ajax;20060424 12:15:36;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 12:15:37;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 12:15:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 12:15:45;/accounts/ajax/validate.php;validate:phone:(203) 432-5718
+ajax;20060424 12:15:45;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 12:15:57;/accounts/ajax/validate.php;validate:phone:(203) 436-4067
+ajax;20060424 12:15:57;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:required:jdb53
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:nospaces:jdb53
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:uniqueuserp:jdb53
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:required:j3n5422
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:password:j3n5422
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:required:j3n5422
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:password:j3n5422
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:match:j3n5422
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:required:Jennifer
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:required:Bourey
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:required:jennifer.bourey@yale.edu
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:email:jennifer.bourey@yale.edu
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:uniqueuserp:jennifer.bourey@yale.edu
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:required:91
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate::175 Whitney Ave.
+PO Box 208276
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:namespaces:New Haven
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:namespaces:CT
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:zipcode:06520-8276
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:phone:(203) 432-5718
+ajax;20060424 12:17:56;/accounts/createaccount.php;validate:phone:(203) 436-4067
+jdb53;20060424 12:17:57;/accounts/createaccount.php;user added (ldap): Jennifer Bourey (jennifer.bourey@yale.edu) [515]
+130.132.168.163;20060424 12:17:57;/accounts/createaccount.php;created account: jdb53 (jennifer.bourey@yale.edu) Bourey,Jennifer: inst=91
+jdb53;20060424 12:18:12;/accounts/activate.php;user modified (ldap): Jennifer Bourey (jennifer.bourey@yale.edu) [515]
+jdb53;20060424 12:18:20;/accounts/login.php;user logged in (ldap):130.132.168.163:https://sakaiproject.org/accounts/login.php
+roblake;20060424 12:18:56;/accounts/login.php;user logged in (ldap):129.128.53.170:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;validate:namespaces:CT
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;validate:zipcode:06520-8276
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;validate:phone:(203) 432-5718
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;validate:phone:(203) 436-4067
+ajax;20060424 12:22:09;/accounts/ajax/validate.php;return=ok|fax|
+alandavis;20060424 12:22:42;/accounts/login.php;user logged in (ldap):129.128.53.170:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;validate:namespaces:AB
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;validate:phone:(780) 492-3667
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;validate:zipcode:T6G 2G5
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;validate:phone:(780) 492.1438
+ajax;20060424 12:22:43;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:required:New Haven
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:required:CT
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:namespaces:CT
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:zipcode:06520-8276
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:required:US
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:required:(203) 432-5718
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:phone:(203) 432-5718
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:phone:(203) 436-4067
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:required:Y
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:required:Y
+ajax;20060424 12:22:53;/conference/registration/index.php;validate:required:Medium
+jdb53;20060424 12:22:54;/conference/registration/index.php;user modified (ldap): Jennifer Bourey (jennifer.bourey@yale.edu) [515]
+ajax;20060424 12:23:07;/accounts/ajax/validate.php;validate:email:tm2@ualberta.ca
+ajax;20060424 12:23:07;/accounts/ajax/validate.php;return=ok|delegate|
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:University of Alberta
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:Edmonton
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:AB
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:namespaces:AB
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:zipcode:T6G 2G5
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:CA
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:(780) 492-3667
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:phone:(780) 492-3667
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:phone:(780) 492.1438
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:Y
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:N
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:required:X-Large
+ajax;20060424 12:23:28;/conference/registration/index.php;validate:email:tm2@ualberta.ca
+alandavis;20060424 12:23:28;/conference/registration/index.php;user modified (ldap): Alan Davis (alan.r.davis@ualberta.ca) [504]
+rodjohnson;20060424 12:25:19;/accounts/login.php;user logged in (ldap):129.128.53.170:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060424 12:25:20;/accounts/ajax/validate.php;validate:zipcode:T6G 2E8
+ajax;20060424 12:25:20;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 12:25:20;/accounts/ajax/validate.php;validate:phone:(780) 492-5077
+ajax;20060424 12:25:20;/accounts/ajax/validate.php;validate:phone:(780) 492-1438
+ajax;20060424 12:25:20;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 12:25:20;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:University of Alberta
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:Edmonton
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:AB
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:namespaces:AB
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:zipcode:T6G 2E8
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:CA
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:(780) 492-5077
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:phone:(780) 492-5077
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:phone:(780) 492-1438
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:Y
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:N
+ajax;20060424 12:25:28;/conference/registration/index.php;validate:required:X-Large
+rodjohnson;20060424 12:25:28;/conference/registration/index.php;user modified (ldap): Rod Johnson (rod.johnson@ualberta.ca) [505]
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:University of Alberta
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:Edmonton
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:AB
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:namespaces:AB
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:zipcode:T6G 2E8
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:CA
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:(780) 492-5077
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:phone:(780) 492-5077
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:phone:(780) 492-1438
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:Y
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:N
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:required:X-Large
+ajax;20060424 12:25:42;/conference/registration/index.php;validate:email:tm2@ualberta.ca
+rodjohnson;20060424 12:25:42;/conference/registration/index.php;user modified (ldap): Rod Johnson (rod.johnson@ualberta.ca) [505]
+ajax;20060424 12:33:59;/accounts/ajax/validate.php;validate:uniqueuserp:chmaurer@iupui.edu
+ajax;20060424 12:33:59;/accounts/ajax/validate.php;validate:email:chmaurer@iupui.edu
+ajax;20060424 12:33:59;/accounts/ajax/validate.php;validate:uniqueuserp:chmaurer@iupui.edu
+ajax;20060424 12:33:59;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 12:33:59;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:required:chmaurer@iupui.edu
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:nospaces:chmaurer@iupui.edu
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:uniqueuserp:chmaurer@iupui.edu
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:required:1298Rosemary
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:password:1298Rosemary
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:required:1298Rosemary
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:password:1298Rosemary
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:match:1298Rosemary
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:required:Chris
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:required:Maurer
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:required:chmaurer@iupui.edu
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:email:chmaurer@iupui.edu
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:uniqueuserp:chmaurer@iupui.edu
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20060424 12:34:11;/accounts/createaccount.php;validate:required:23
+chmaurer@iupui.edu;20060424 12:34:12;/accounts/createaccount.php;user added (ldap): Chris Maurer (chmaurer@iupui.edu) [516]
+149.166.143.218;20060424 12:34:12;/accounts/createaccount.php;created account: chmaurer@iupui.edu (chmaurer@iupui.edu) Maurer,Chris: inst=23
+chmaurer@iupui.edu;20060424 12:35:00;/accounts/activate.php;user modified (ldap): Chris Maurer (chmaurer@iupui.edu) [516]
+chmaurer@iupui.edu;20060424 12:35:23;/accounts/login.php;user logged in (ldap):149.166.143.210:https://sakaiproject.org/accounts/login.php
+ajax;20060424 12:35:44;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20060424 12:35:44;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 12:35:48;/accounts/ajax/validate.php;validate:zipcode:46202
+ajax;20060424 12:35:48;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 12:35:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 12:35:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 12:35:56;/accounts/ajax/validate.php;validate:phone:317-278-1755
+ajax;20060424 12:35:56;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:required:Indianapolis
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:required:IN
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:namespaces:IN
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:zipcode:46202
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:required:US
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:required:317-278-1755
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:phone:317-278-1755
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:required:Y
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:required:N
+ajax;20060424 12:41:11;/conference/registration/index.php;validate:required:Large
+chmaurer@iupui.edu;20060424 12:41:12;/conference/registration/index.php;user modified (ldap): Chris Maurer (chmaurer@iupui.edu) [516]
+shardin;20060424 13:06:44;/accounts/login.php;user logged in (ldap):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+ajax;20060424 13:13:23;/accounts/ajax/validate.php;validate:name:proposals_June2006
+ajax;20060424 13:13:23;/accounts/ajax/validate.php;validate:uniquesql:proposals_June2006
+ajax;20060424 13:13:23;/accounts/ajax/validate.php;return=ok|perm_name|
+ajax;20060424 13:14:12;/accounts/admin/admin_perm.php;validate:required:proposals_June2006
+ajax;20060424 13:14:12;/accounts/admin/admin_perm.php;validate:name:proposals_June2006
+ajax;20060424 13:14:12;/accounts/admin/admin_perm.php;validate:uniquesql:proposals_June2006
+ajax;20060424 13:14:12;/accounts/admin/admin_perm.php;validate:required:June2006 conference program committe - for proposal review and voting 
+ajax;20060424 13:14:25;/accounts/ajax/validate.php;validate:name:proposals_June2006
+ajax;20060424 13:14:25;/accounts/ajax/validate.php;validate:uniquesql:proposals_June2006
+ajax;20060424 13:14:25;/accounts/ajax/validate.php;return=error|perm_name|perm_name already used
+ajax;20060424 13:15:19;/accounts/ajax/validate.php;validate:name:registration_June2006
+ajax;20060424 13:15:19;/accounts/ajax/validate.php;validate:uniquesql:registration_June2006
+ajax;20060424 13:15:19;/accounts/ajax/validate.php;return=ok|perm_name|
+ajax;20060424 13:15:55;/accounts/admin/admin_perm.php;validate:required:registration_June2006
+ajax;20060424 13:15:55;/accounts/admin/admin_perm.php;validate:name:registration_June2006
+ajax;20060424 13:15:55;/accounts/admin/admin_perm.php;validate:uniquesql:registration_June2006
+ajax;20060424 13:15:55;/accounts/admin/admin_perm.php;validate:required:conference registration managment group control
+aaronz;20060424 13:38:38;/accounts/admin/admin_users.php;user modified (ldap): Aaron Zeckoski (aaronz@vt.edu) [1]
+amorrone;20060424 13:38:38;/accounts/admin/admin_users.php;user modified (ldap): Anastasia Morrone (amorrone@iupui.edu) [217]
+angell;20060424 13:38:39;/accounts/admin/admin_users.php;user modified (ldap): Nathan Angell (angell@pdx.edu) [460]
+brierley@stanford.edu;20060424 13:38:40;/accounts/admin/admin_users.php;user modified (ldap): Marc Brierley (brierley@stanford.edu) [109]
+chris.coppola@rsmart.com;20060424 13:38:40;/accounts/admin/admin_users.php;user modified (ldap): Chris Coppola (chris.coppola@rsmart.com) [163]
+hardin;20060424 13:38:41;/accounts/admin/admin_users.php;user modified (ldap): Joseph Hardin (hardin@umich.edu) [191]
+iandolphin;20060424 13:38:42;/accounts/admin/admin_users.php;user modified (ldap): Ian Dolphin (i.dolphin@hull.ac.uk) [487]
+jrm;20060424 13:38:43;/accounts/admin/admin_users.php;user modified (ldap): Jim Martino (jrm@jhu.edu) [226]
+khancock;20060424 13:38:43;/accounts/admin/admin_users.php;user modified (ldap): Kristol Hancock (khancock@iu.edu) [221]
+kreister;20060424 13:38:44;/accounts/admin/admin_users.php;user modified (ldap): Kathi Reister (kreister@umich.edu) [297]
+lancespeelmon;20060424 13:38:45;/accounts/admin/admin_users.php;user modified (ldap): Lance Speelmon (lance@indiana.edu) [12]
+lfernandez@weber.edu;20060424 13:38:45;/accounts/admin/admin_users.php;user modified (ldap): Luke Fernandez (lfernandez@weber.edu) [36]
+mara@media.berkeley.edu;20060424 13:38:46;/accounts/admin/admin_users.php;user modified (ldap): Mara Hancock (mara@media.berkeley.edu) [58]
+mmiles@umich.edu;20060424 13:38:47;/accounts/admin/admin_users.php;user modified (ldap): Mary Miles (mmiles@umich.edu) [184]
+rreynol;20060424 13:38:47;/accounts/admin/admin_users.php;user modified (ldap): Robert Reynolds (rreynol@indiana.edu) [218]
+shardin;20060424 13:38:48;/accounts/admin/admin_users.php;user modified (ldap): Susan Hardin (shardin@umich.edu) [2]
+urauch;20060424 13:38:49;/accounts/admin/admin_users.php;user modified (ldap): Ulrich Rauch (ulrich.rauch@ubc.ca) [169]
+vesselld;20060424 13:38:50;/accounts/admin/admin_users.php;user modified (ldap): Danna Vessell (Danna@missouri.edu) [170]
+wendemm;20060424 13:38:50;/accounts/admin/admin_users.php;user modified (ldap): Wende Morgaine (wendemm@gmail.com) [56]
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060424 13:39:36;/conference/registration/index.php;validate::Implementor
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:required:Tempe
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:required:AZ
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:namespaces:AZ
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:required:US
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:required:480-727-0868
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:phone:480-727-0868
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:required:Y
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:required:N
+ajax;20060424 13:39:36;/conference/registration/index.php;validate:required:X-Large
+joshua.ryan@asu.edu;20060424 13:39:37;/conference/registration/index.php;user modified (ldap): Joshua Ryan (joshua.ryan@asu.edu) [34]
+ajax;20060424 13:56:09;/accounts/ajax/validate.php;validate:uniqueuserp:hcbaker
+ajax;20060424 13:56:09;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 13:56:44;/accounts/ajax/validate.php;validate:email:hcbaker@us.ibm.com
+ajax;20060424 13:56:44;/accounts/ajax/validate.php;validate:uniqueuserp:hcbaker@us.ibm.com
+ajax;20060424 13:56:44;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 13:58:19;/accounts/ajax/validate.php;validate:namespaces:Poughkeepsie
+ajax;20060424 13:58:19;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 13:58:24;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060424 13:58:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 13:58:33;/accounts/ajax/validate.php;validate:zipcode:12601
+ajax;20060424 13:58:33;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 13:58:38;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 13:58:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 13:58:51;/accounts/ajax/validate.php;validate:phone:845-575-3101
+ajax;20060424 13:58:51;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 13:59:04;/accounts/ajax/validate.php;validate:phone:800-626-7593
+ajax;20060424 13:59:04;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:required:hcbaker
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:nospaces:hcbaker
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:uniqueuserp:hcbaker
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:required:ynks6win
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:password:ynks6win
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:required:ynks6win
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:password:ynks6win
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:match:ynks6win
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:required:Howard 
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:required:Baker
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:required:hcbaker@us.ibm.com
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:email:hcbaker@us.ibm.com
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:uniqueuserp:hcbaker@us.ibm.com
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:required:Manager
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate::Implementor
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:required:100
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate::2455 South Road
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:namespaces:Poughkeepsie
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:namespaces:NY
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:zipcode:12601
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:phone:845-575-3101
+ajax;20060424 13:59:05;/accounts/createaccount.php;validate:phone:800-626-7593
+hcbaker;20060424 13:59:06;/accounts/createaccount.php;user added (ldap): Howard  Baker (hcbaker@us.ibm.com) [517]
+148.100.219.189;20060424 13:59:06;/accounts/createaccount.php;created account: hcbaker (hcbaker@us.ibm.com) Baker,Howard : inst=100
+hcbaker;20060424 13:59:59;/accounts/activate.php;user modified (ldap): Howard  Baker (hcbaker@us.ibm.com) [517]
+hcbaker;20060424 14:00:15;/accounts/login.php;user logged in (ldap):148.100.219.189:https://sakaiproject.org/accounts/login.php
+ajax;20060424 14:00:32;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060424 14:00:32;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 14:00:33;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 14:00:33;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 14:00:33;/accounts/ajax/validate.php;validate:phone:845-575-3101
+ajax;20060424 14:00:33;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 14:00:33;/accounts/ajax/validate.php;validate:phone:800-626-7593
+ajax;20060424 14:00:33;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 14:00:33;/accounts/ajax/validate.php;validate:zipcode:12601
+ajax;20060424 14:00:33;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:required:Manager
+ajax;20060424 14:09:45;/conference/registration/index.php;validate::Implementor
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:required:Poughkeepsie
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:required:NY
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:namespaces:NY
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:zipcode:12601
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:required:US
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:required:845-575-3101
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:phone:845-575-3101
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:phone:800-626-7593
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:required:Y
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:required:N
+ajax;20060424 14:09:45;/conference/registration/index.php;validate:required:X-Large
+hcbaker;20060424 14:09:45;/conference/registration/index.php;user modified (ldap): Howard Baker (hcbaker@us.ibm.com) [517]
+wendemm;20060424 14:25:00;/accounts/login.php;user logged in (ldap):131.252.169.220:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+ajax;20060424 14:44:07;/accounts/ajax/validate.php;validate:uniqueuserp:fmocknbird
+ajax;20060424 14:44:07;/accounts/ajax/validate.php;return=ok|username|
+ruviwije;20060424 14:44:22;/accounts/login.php;user logged in (internal):129.219.199.102:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ruviwije;20060424 14:44:22;/accounts/login.php;user modified (ldap): Ruvi Wijesuriya (ruvi@asu.edu) [420]
+ajax;20060424 14:45:07;/accounts/ajax/validate.php;validate:email:kelvin.shivers@nyu.edu
+ajax;20060424 14:45:07;/accounts/ajax/validate.php;validate:uniqueuserp:kelvin.shivers@nyu.edu
+ajax;20060424 14:45:08;/accounts/ajax/validate.php;return=ok|email|
+alandavis;20060424 14:45:23;/accounts/login.php;user logged in (ldap):129.128.86.207:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20060424 14:45:39;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20060424 14:45:39;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 14:45:44;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060424 14:45:44;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 14:45:47;/accounts/ajax/validate.php;validate:zipcode:10003
+ajax;20060424 14:45:47;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 14:45:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 14:45:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 14:45:56;/accounts/ajax/validate.php;validate:phone:212-992-9287
+ajax;20060424 14:45:56;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 14:46:01;/accounts/ajax/validate.php;validate:phone:212-995-4630
+ajax;20060424 14:46:01;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:required:fmocknbird
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:nospaces:fmocknbird
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:uniqueuserp:fmocknbird
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:required:m0ck1ngb1rd
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:password:m0ck1ngb1rd
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:required:m0ck1ngb1rd
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:password:m0ck1ngb1rd
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:match:m0ck1ngb1rd
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:required:Kelvin
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:required:Shivers
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:required:kelvin.shivers@nyu.edu
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:email:kelvin.shivers@nyu.edu
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:uniqueuserp:kelvin.shivers@nyu.edu
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:required:User Support
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate::System Administrator
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:required:33
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate::10 Astor Place
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:namespaces:New York
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:namespaces:NY
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:zipcode:10003
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:phone:212-992-9287
+ajax;20060424 14:46:06;/accounts/createaccount.php;validate:phone:212-995-4630
+fmocknbird;20060424 14:46:07;/accounts/createaccount.php;user added (ldap): Kelvin Shivers (kelvin.shivers@nyu.edu) [518]
+128.122.105.189;20060424 14:46:07;/accounts/createaccount.php;created account: fmocknbird (kelvin.shivers@nyu.edu) Shivers,Kelvin: inst=33
+fmocknbird;20060424 14:47:01;/accounts/activate.php;user modified (ldap): Kelvin Shivers (kelvin.shivers@nyu.edu) [518]
+ajax;20060424 14:47:20;/facebook/add_entry.php;validate::educational technology, elearning, CMS, Mtn biking, Scuba, Camping
+ajax;20060424 14:47:41;/facebook/add_entry.php;validate::educational technology, elearning, CMS, Mtn biking, Scuba, Camping
+email: ruvi@asu.edu
+ajax;20060424 14:48:03;/facebook/add_entry.php;validate::educational technology, elearning, CMS, Mtn biking, Scuba, Camping
+fmocknbird;20060424 14:49:13;/accounts/login.php;user logged in (ldap):128.122.105.189:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060424 14:49:14;/facebook/add_entry.php;validate::educational technology, elearning, CMS, mtn biking, scuba, camping
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;validate:zipcode:10003
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;validate:phone:212-992-9287
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;validate:phone:212-995-4630
+ajax;20060424 14:49:15;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;validate:email:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;validate:uniquesql:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;validate:zipcode:10003
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;validate:phone:212-992-9287
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;validate:phone:212-995-4630
+ajax;20060424 14:50:00;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:required:Kelvin
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:required:Shivers
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:required:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:email:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:uniquesql:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:required:User Support
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate::System Administrator
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:required:33
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate::ITS Client Services
+10 Astor Place
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:namespaces:New York
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:namespaces:NY
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:zipcode:10003
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:phone:212-992-9287
+ajax;20060424 14:50:18;/accounts/myaccount.php;validate:phone:212-995-4630
+fmocknbird;20060424 14:50:18;/accounts/myaccount.php;user modified (ldap): Kelvin Shivers (kelvin.shivers@nyu.edu) [518]
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;validate:email:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;validate:uniquesql:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;validate:zipcode:10003
+ajax;20060424 14:50:19;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 14:50:20;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 14:50:20;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 14:50:20;/accounts/ajax/validate.php;validate:phone:212-992-9287
+ajax;20060424 14:50:20;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 14:50:20;/accounts/ajax/validate.php;validate:phone:212-995-4630
+ajax;20060424 14:50:20;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:required:Kelvin
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:required:Shivers
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:required:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:email:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:uniquesql:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:required:User Support
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate::System Administrator
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:required:33
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate::ITS Client Services
+10 Astor Place
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:namespaces:New York
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:namespaces:NY
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:zipcode:10003
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:phone:212-992-9287
+ajax;20060424 14:50:25;/accounts/myaccount.php;validate:phone:212-995-4630
+fmocknbird;20060424 14:50:26;/accounts/myaccount.php;user modified (ldap): Kelvin Shivers (kelvin.shivers@nyu.edu) [518]
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;validate:email:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;validate:uniquesql:kelvin.shivers@nyu.edu
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;validate:zipcode:10003
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;validate:phone:212-992-9287
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;validate:phone:212-995-4630
+ajax;20060424 14:50:27;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;validate:zipcode:10003
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;validate:phone:212-992-9287
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;validate:phone:212-995-4630
+ajax;20060424 14:50:38;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:required:User Support
+ajax;20060424 14:51:21;/conference/registration/index.php;validate::System Administrator
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:required:New York
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:required:NY
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:namespaces:NY
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:zipcode:10003
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:required:US
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:required:212-992-9287
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:phone:212-992-9287
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:phone:212-995-4630
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:required:Y
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:required:N
+ajax;20060424 14:51:21;/conference/registration/index.php;validate:required:XXX-Large
+fmocknbird;20060424 14:51:21;/conference/registration/index.php;user modified (ldap): Kelvin Shivers (kelvin.shivers@nyu.edu) [518]
+vesselld;20060424 15:08:32;/accounts/login.php;user logged in (ldap):128.206.68.191:https://sakaiproject.org/accounts/login.php
+ajax;20060424 15:57:54;/conference/admin/edit_proposal.php;validate:required:Configuring Sakai
+ajax;20060424 15:57:54;/conference/admin/edit_proposal.php;validate:required:Once you have Sakai up and running, there are many configurations that can be made to tailor Sakai to fit your particular institution. This session provides details on Sakai customizations. We'll talk about configuring tool selections, realms, roles, permissions, and site templates, My Workspace configuration, Gateway tools, and how to use sakai.properties to configure Sakai.
+ajax;20060424 15:57:54;/conference/admin/edit_proposal.php;validate:required:This presentation covers configuring a Sakai installation in detail. The session is intended for Sakai support personnel and sys admins (as opposed to developers, though at some institutions they may be the same people) who will need to configure Sakai with institution specific content and preferences. Most of the configurations discussed are non-java changes that can be made to customize Sakai.   We�ll talk about user types, their my workspace defaults, realms, permissions and how these affect users and worksites. We explain the site.helper realm, group permission control and how new roles and permissions can be added to Sakai.  Configuring via sakai.properties file and details on how this file is used and what it can change will be explained. It has been given in previous conferences and has been well received. It covers info not in any current documents so is useful to new users in particular. A lot of this isn't well known so getting more community members up to speed on this will be useful. Need 90 minutes as there are usually many questions.
+ajax;20060424 15:57:54;/conference/admin/edit_proposal.php;validate:required:John Leasia
+ajax;20060424 15:57:54;/conference/admin/edit_proposal.php;validate:required:John Leasia is product manager of CTools, the University of Michigan CLE built with Sakai.
+ajax;20060424 15:57:54;/conference/admin/edit_proposal.php;validate:required:lecture
+ajax;20060424 15:57:54;/conference/admin/edit_proposal.php;validate:required:class
+ajax;20060424 15:57:54;/conference/admin/edit_proposal.php;validate:required:90
+kchan;20060424 16:27:04;/accounts/forgot_password.php;user modified (ldap): Kenwrick Chan (kchan@hawaii.edu) [176]
+128.171.25.224;20060424 16:27:04;/accounts/forgot_password.php;password reset: kchan@hawaii.edu
+kchan;20060424 16:29:36;/accounts/login.php;user logged in (ldap):128.171.25.224:https://sakaiproject.org/accounts/login.php
+ajax;20060424 16:30:17;/accounts/ajax/validate.php;validate:namespaces:HI
+ajax;20060424 16:30:17;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 16:30:23;/accounts/ajax/validate.php;validate:zipcode:96822
+ajax;20060424 16:30:23;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 16:30:25;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 16:30:25;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 16:30:31;/accounts/ajax/validate.php;validate:phone:808-956-4060
+ajax;20060424 16:30:31;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 16:30:37;/accounts/ajax/validate.php;validate:phone:808-956-9966
+ajax;20060424 16:30:37;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20060424 16:31:07;/conference/registration/index.php;validate::Implementor
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:required:Honolulu
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:required:HI
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:namespaces:HI
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:zipcode:96822
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:required:US
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:required:808-956-4060
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:phone:808-956-4060
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:phone:808-956-9966
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:required:Y
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:required:N
+ajax;20060424 16:31:07;/conference/registration/index.php;validate:required:X-Large
+kchan;20060424 16:31:08;/conference/registration/index.php;user modified (ldap): Kenwrick Chan (kchan@hawaii.edu) [176]
+schrecv;20060424 16:37:09;/accounts/login.php;user logged in (internal):131.252.77.41:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+schrecv;20060424 16:37:09;/accounts/login.php;user modified (ldap): Vincent Schreck (schrecv@pdx.edu) [309]
+ajax;20060424 16:46:10;/accounts/ajax/validate.php;validate:uniqueuserp:enowtom
+ajax;20060424 16:46:10;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 16:46:22;/accounts/ajax/validate.php;validate:email:tom.wagner@sungardhe.com
+ajax;20060424 16:46:22;/accounts/ajax/validate.php;validate:uniqueuserp:tom.wagner@sungardhe.com
+ajax;20060424 16:46:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 16:46:50;/accounts/ajax/validate.php;validate:namespaces:Salt Lake City
+ajax;20060424 16:46:50;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 16:46:50;/accounts/ajax/validate.php;validate:namespaces:UT
+ajax;20060424 16:46:50;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 16:46:52;/accounts/ajax/validate.php;validate:zipcode:84101
+ajax;20060424 16:46:52;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 16:46:52;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 16:46:52;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 16:46:57;/accounts/ajax/validate.php;validate:phone:801-257-4159
+ajax;20060424 16:46:57;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 16:47:04;/accounts/ajax/validate.php;validate:phone:801-485-6606
+ajax;20060424 16:47:04;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:required:enowtom
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:nospaces:enowtom
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:uniqueuserp:enowtom
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:required:enow4172
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:password:enow4172
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:required:enow4172
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:password:enow4172
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:match:enow4172
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:required:Thomas
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:required:Wagner
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:required:tom.wagner@sungardhe.com
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:email:tom.wagner@sungardhe.com
+ajax;20060424 16:47:04;/accounts/createaccount.php;validate:uniqueuserp:tom.wagner@sungardhe.com
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate:required:Manager
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate:required:107
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate::90 South 400 West
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate:namespaces:Salt Lake City
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate:namespaces:UT
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate:zipcode:84101
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate:phone:801-257-4159
+ajax;20060424 16:47:05;/accounts/createaccount.php;validate:phone:801-485-6606
+enowtom;20060424 16:47:05;/accounts/createaccount.php;user added (ldap): Thomas Wagner (tom.wagner@sungardhe.com) [519]
+149.24.204.1;20060424 16:47:05;/accounts/createaccount.php;created account: enowtom (tom.wagner@sungardhe.com) Wagner,Thomas: inst=107
+enowtom;20060424 16:47:19;/accounts/activate.php;user modified (ldap): Thomas Wagner (tom.wagner@sungardhe.com) [519]
+dgouldin@unicon.net;20060424 16:47:24;/accounts/login.php;user logged in (internal):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+dgouldin@unicon.net;20060424 16:47:24;/accounts/login.php;user modified (ldap): Doug Gouldin (dgouldin@unicon.net) [427]
+enowtom;20060424 16:47:27;/accounts/login.php;user logged in (ldap):149.24.204.1:https://sakaiproject.org/accounts/login.php
+ajax;20060424 16:47:34;/accounts/ajax/validate.php;validate:namespaces:UT
+ajax;20060424 16:47:34;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 16:47:34;/accounts/ajax/validate.php;validate:zipcode:84101
+ajax;20060424 16:47:34;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 16:47:34;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 16:47:34;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 16:47:34;/accounts/ajax/validate.php;validate:phone:801-257-4159
+ajax;20060424 16:47:34;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 16:47:35;/accounts/ajax/validate.php;validate:phone:801-485-6606
+ajax;20060424 16:47:35;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:required:Manager
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:required:Salt Lake City
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:required:UT
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:namespaces:UT
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:zipcode:84101
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:required:US
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:required:801-257-4159
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:phone:801-257-4159
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:phone:801-485-6606
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:required:Y
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:required:N
+ajax;20060424 16:47:56;/conference/registration/index.php;validate:required:XXX-Large
+enowtom;20060424 16:47:56;/conference/registration/index.php;user modified (ldap): Thomas Wagner (tom.wagner@sungardhe.com) [519]
+ajax;20060424 17:04:00;/accounts/ajax/validate.php;validate:uniqueuserp:bsady
+ajax;20060424 17:04:00;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 17:04:05;/accounts/ajax/validate.php;validate:uniqueuserp:brycesady
+ajax;20060424 17:04:05;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060424 17:04:19;/accounts/ajax/validate.php;validate:email:bsady@bfwpub.com
+ajax;20060424 17:04:19;/accounts/ajax/validate.php;validate:uniqueuserp:bsady@bfwpub.com
+ajax;20060424 17:04:19;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:required:brycesady
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:nospaces:brycesady
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:uniqueuserp:brycesady
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:required:shangP0r
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:password:shangP0r
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:required:shangP0r
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:password:shangP0r
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:match:shangP0r
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:required:Bryce
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:required:Sady
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:required:bsady@bfwpub.com
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:email:bsady@bfwpub.com
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:uniqueuserp:bsady@bfwpub.com
+ajax;20060424 17:05:29;/accounts/createaccount.php;validate:required:Manager
+ajax;20060424 17:05:30;/accounts/createaccount.php;validate:required:Bedford, Freeman and Worth Publishing
+brycesady;20060424 17:05:30;/accounts/createaccount.php;user added (ldap): Bryce Sady (bsady@bfwpub.com) [520]
+68.163.133.124;20060424 17:05:30;/accounts/createaccount.php;created account: brycesady (bsady@bfwpub.com) Sady,Bryce: inst=1
+brycesady;20060424 17:09:45;/accounts/activate.php;user modified (ldap): Bryce Sady (bsady@bfwpub.com) [520]
+brycesady;20060424 17:10:00;/accounts/login.php;user logged in (ldap):68.163.133.124:https://sakaiproject.org/accounts/login.php
+ajax;20060424 17:10:29;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20060424 17:10:29;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 17:10:31;/accounts/ajax/validate.php;validate:zipcode:02135
+ajax;20060424 17:10:31;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 17:10:34;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 17:10:34;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 17:10:56;/accounts/ajax/validate.php;validate:phone:6173994501
+ajax;20060424 17:10:56;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:Manager
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:Bedford, Freeman and Worth Pub
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:Boston
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:MA
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:namespaces:MA
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:zipcode:02135
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:US
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:namespaces:US
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:6173994501
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:phone:6173994501
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:N
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:N
+ajax;20060424 17:11:38;/conference/registration/index.php;validate:required:Small
+brycesady;20060424 17:11:38;/conference/registration/index.php;user modified (ldap): Bryce Sady (bsady@bfwpub.com) [520]
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;validate:email:bsady@bfwpub.com
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;validate:uniquesql:bsady@bfwpub.com
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;validate:namespaces:Boston
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;validate:zipcode:02135
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;validate:phone:6173994501
+ajax;20060424 17:16:50;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:required:Bryce
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:required:Sady
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:required:bsady@bfwpub.com
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:email:bsady@bfwpub.com
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:uniquesql:bsady@bfwpub.com
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:required:Manager
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:required:Bedford, Freeman and Worth Pub
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate::75 Arlington St.
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:namespaces:Boston
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:namespaces:MA
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:zipcode:02116
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060424 17:16:56;/accounts/myaccount.php;validate:phone:6173994501
+brycesady;20060424 17:16:56;/accounts/myaccount.php;user modified (ldap): Bryce Sady (bsady@bfwpub.com) [520]
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;validate:email:bsady@bfwpub.com
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;validate:uniquesql:bsady@bfwpub.com
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;validate:namespaces:Boston
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;validate:zipcode:02116
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;validate:phone:6173994501
+ajax;20060424 17:16:57;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:required:Bryce
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:required:Sady
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:required:bsady@bfwpub.com
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:email:bsady@bfwpub.com
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:uniquesql:bsady@bfwpub.com
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:required:Manager
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:required:Bedford, Freeman and Worth Pub
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate::75 Arlington St.
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:namespaces:Boston
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:namespaces:MA
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:zipcode:02116
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060424 17:17:00;/accounts/myaccount.php;validate:phone:6173994501
+brycesady;20060424 17:17:00;/accounts/myaccount.php;user modified (ldap): Bryce Sady (bsady@bfwpub.com) [520]
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;validate:email:bsady@bfwpub.com
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;validate:uniquesql:bsady@bfwpub.com
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;validate:namespaces:Boston
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;validate:zipcode:02116
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;validate:phone:6173994501
+ajax;20060424 17:17:01;/accounts/ajax/validate.php;return=ok|phone|

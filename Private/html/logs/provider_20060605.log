@@ -1,0 +1,71 @@
+mhudas;20060605 10:26:48;/accounts/login.php;user logged in (internal):206.244.45.215:https://sakaiproject.org/accounts/login.php
+mhudas;20060605 10:26:48;/accounts/login.php;user modified (ldap): Matthew Hudas (mhudas@walsh.edu) [656]
+ajax;20060605 10:26:49;/accounts/ajax/validate.php;validate:email:mhudas@walsh.edu
+ajax;20060605 10:26:49;/accounts/ajax/validate.php;validate:uniquesql:mhudas@walsh.edu
+ajax;20060605 10:26:49;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060605 10:26:49;/accounts/ajax/validate.php;validate:namespaces:Zoar
+ajax;20060605 10:26:49;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060605 10:26:49;/accounts/ajax/validate.php;validate:namespaces:OH
+ajax;20060605 10:26:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060605 10:26:50;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060605 10:26:50;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060605 10:26:50;/accounts/ajax/validate.php;validate:phone:330-244-4656
+ajax;20060605 10:26:50;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060605 10:27:09;/accounts/ajax/validate.php;validate:namespaces:North Canton
+ajax;20060605 10:27:09;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:password:b@seb@11
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:password:b@seb@11
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:match:b@seb@11
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:required:Matthew
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:required:Hudas
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:required:mhudas@walsh.edu
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:email:mhudas@walsh.edu
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:uniquesql:mhudas@walsh.edu
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:required:User Support
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:required:Walsh University
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:namespaces:North Canton
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:namespaces:OH
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060605 10:27:16;/accounts/myaccount.php;validate:phone:330-244-4656
+mhudas;20060605 10:27:17;/accounts/myaccount.php;user modified (ldap): Matthew Hudas (mhudas@walsh.edu) [656]
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;validate:email:mhudas@walsh.edu
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;validate:uniquesql:mhudas@walsh.edu
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;validate:namespaces:OH
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;validate:namespaces:North Canton
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;validate:phone:330-244-4656
+ajax;20060605 10:27:18;/accounts/ajax/validate.php;return=ok|phone|
+mhudas;20060605 10:27:33;/accounts/login.php;user logged in (ldap):206.244.45.215:https://sakaiproject.org/accounts/login.php
+mmiles@umich.edu;20060605 10:31:02;/accounts/login.php;user logged in (ldap):141.213.113.211:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+oellard;20060605 11:46:48;/accounts/activate.php;user modified (ldap): Owen Ellard (oellard@mtholyoke.edu) [715]
+brierley@stanford.edu;20060605 12:41:39;/accounts/login.php;user logged in (ldap):71.139.161.117:https://www.sakaiproject.org/accounts/login.php?ref=/conference/admin/index.php
+brierley@stanford.edu;20060605 12:51:14;/accounts/login.php;user logged in (ldap):71.139.161.117:https://www.sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;validate:email:cort@singlemindconsulting.com
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;validate:uniquesql:cort@singlemindconsulting.com
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;validate:namespaces:Milwaukie
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;validate:namespaces:OR
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;validate:zipcode:97222
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;validate:phone:503.914.6272
+ajax;20060605 13:16:48;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060605 13:16:49;/accounts/ajax/validate.php;validate:phone:866.275.0878
+ajax;20060605 13:16:49;/accounts/ajax/validate.php;return=ok|fax|
+mayumi;20060605 13:26:20;/accounts/login.php;user logged in (internal):64.114.96.241:https://sakaiproject.org/accounts/login.php?ref=/skin/submit.php
+mayumi;20060605 13:26:20;/accounts/login.php;user modified (ldap): Mayumi Ueda (ueda@itc.nagoya-u.ac.jp) [321]
+ma287;20060605 13:38:26;/accounts/login.php;user logged in (ldap):128.59.39.140:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php
+shardin;20060605 14:11:29;/accounts/login.php;user logged in (ldap):141.213.39.148:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+pld;20060605 14:58:18;/accounts/login.php;user logged in (ldap):141.213.32.48:https://www.sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+pld;20060605 15:09:22;/accounts/login.php;user logged in (ldap):141.213.32.48:https://www.sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mmiles@umich.edu;20060605 15:10:30;/accounts/login.php;user logged in (ldap):141.213.32.48:https://www.sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mmiles@umich.edu;20060605 15:13:26;/accounts/login.php;user logged in (ldap):141.213.113.211:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20060605 16:58:44;/accounts/login.php;user logged in (ldap):198.111.226.69:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+caseyd;20060605 17:43:40;/accounts/login.php;user logged in (ldap):171.64.138.188:https://www.sakaiproject.org/accounts/login.php

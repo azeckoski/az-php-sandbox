@@ -1,0 +1,110 @@
+kostia;20060607 09:44:29;/accounts/login.php;user logged in (ldap):69.226.227.85:https://sakaiproject.org/accounts/login.php
+ahochman;20060607 12:38:46;/accounts/login.php;user logged in (ldap):169.229.212.20:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php
+colin.clark@utoronto.ca;20060607 13:51:01;/accounts/login.php;user logged in (ldap):142.150.154.149:https://sakaiproject.org/accounts/login.php?ref=/accounts/myaccount.php
+ajax;20060607 13:51:01;/accounts/ajax/validate.php;validate:email:colin.clark@utoronto.ca
+ajax;20060607 13:51:01;/accounts/ajax/validate.php;validate:uniquesql:colin.clark@utoronto.ca
+ajax;20060607 13:51:01;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;validate:zipcode:M5R 2L8
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;validate:namespaces:Toronto
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;validate:phone:416-978-7728
+ajax;20060607 13:51:02;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:required:Colin
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:required:Clark
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:required:colin.clark@utoronto.ca
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:email:colin.clark@utoronto.ca
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:uniquesql:colin.clark@utoronto.ca
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate::UI/Interaction Designer
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:required:University of Toronto, KMDI
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate::Adaptive Technology Resource Centre,
+Faculty of Information Studies
+140 St. George Street
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:namespaces:Toronto
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:namespaces:ON
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:zipcode:M5R 2L8
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20060607 13:51:13;/accounts/myaccount.php;validate:phone:416-978-7728
+colin.clark@utoronto.ca;20060607 13:51:14;/accounts/myaccount.php;user modified (ldap): Colin Clark (colin.clark@utoronto.ca) [492]
+ajax;20060607 13:51:14;/accounts/ajax/validate.php;validate:email:colin.clark@utoronto.ca
+ajax;20060607 13:51:14;/accounts/ajax/validate.php;validate:uniquesql:colin.clark@utoronto.ca
+ajax;20060607 13:51:14;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060607 13:51:14;/accounts/ajax/validate.php;validate:namespaces:Toronto
+ajax;20060607 13:51:14;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060607 13:51:15;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060607 13:51:15;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060607 13:51:15;/accounts/ajax/validate.php;validate:phone:416-978-7728
+ajax;20060607 13:51:15;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060607 13:51:15;/accounts/ajax/validate.php;validate:zipcode:M5R 2L8
+ajax;20060607 13:51:15;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060607 13:51:15;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20060607 13:51:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:password:colinsakaiproject
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:password:colinsakaiproject
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:match:colinsakaiproject
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:required:Colin
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:required:Clark
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:required:colin.clark@utoronto.ca
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:email:colin.clark@utoronto.ca
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:uniquesql:colin.clark@utoronto.ca
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate::UI/Interaction Designer
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:required:University of Toronto, KMDI
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate::Adaptive Technology Resource Centre,
+Faculty of Information Studies
+140 St. George Street
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:namespaces:Toronto
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:namespaces:ON
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:zipcode:M5R 2L8
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20060607 13:51:32;/accounts/myaccount.php;validate:phone:416-978-7728
+colin.clark@utoronto.ca;20060607 13:51:32;/accounts/myaccount.php;user modified (ldap): Colin Clark (colin.clark@utoronto.ca) [492]
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;validate:email:colin.clark@utoronto.ca
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;validate:uniquesql:colin.clark@utoronto.ca
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;validate:namespaces:Toronto
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;validate:phone:416-978-7728
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;validate:zipcode:M5R 2L8
+ajax;20060607 13:51:33;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:required:Colin
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:required:Clark
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:required:colin.clark@utoronto.ca
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:email:colin.clark@utoronto.ca
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:uniquesql:colin.clark@utoronto.ca
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate::UI/Interaction Designer
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:required:University of Toronto, KMDI
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate::Adaptive Technology Resource Centre,
+Faculty of Information Studies
+140 St. George Street
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:namespaces:Toronto
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:namespaces:ON
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:zipcode:M5R 2L8
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20060607 13:56:26;/accounts/myaccount.php;validate:phone:416-978-7728
+colin.clark@utoronto.ca;20060607 13:56:26;/accounts/myaccount.php;user modified (ldap): Colin Clark (colin.clark@utoronto.ca) [492]
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;validate:email:colin.clark@utoronto.ca
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;validate:uniquesql:colin.clark@utoronto.ca
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;validate:namespaces:Toronto
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;validate:phone:416-978-7728
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;validate:zipcode:M5R 2L8
+ajax;20060607 13:56:27;/accounts/ajax/validate.php;return=ok|zipcode|
+bodoti;20060607 14:53:32;/accounts/login.php;user logged in (ldap):64.114.134.52:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php

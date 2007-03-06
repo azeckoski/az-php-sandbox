@@ -1,0 +1,16 @@
+dvoorhee;20060903 06:43:07;/accounts/login.php;user logged in (internal):65.33.234.249:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;validate:zipcode:32816-2810
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;validate:phone:(407) 823-0464
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20060903 06:43:09;/accounts/ajax/validate.php;return=ok|fax|
+shardin;20060903 07:44:08;/accounts/login.php;user logged in (internal):210.82.92.40:https://sakaiproject.org/accounts/login.php?ref=/conference/conf_logos/index.php&msg=You+must+login+to+submit+a+logo+or+theme+for+the++conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20060903 08:22:38;/accounts/login.php;user logged in (internal):210.82.92.40:https://sakaiproject.org/accounts/login.php?ref=/conference/logos/index.php&msg=You+must+login+to+submit+a+logo+or+theme+for+the++conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20060903 17:54:09;/accounts/login.php;user logged in (internal):210.82.92.40:https://sakaiproject.org/accounts/login.php?ref=/conference/logos/index.php&msg=You+must+login+to+submit+a+logo+or+theme+for+the++conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20060903 18:14:26;/accounts/login.php;user logged in (internal):210.82.92.40:https://sakaiproject.org/accounts/login.php?ref=/conference/logos/add_entry.php&msg=You+must+login+to+submit+a+logo+or+theme+for+the++conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20060903 23:05:23;/accounts/login.php;user logged in (internal):210.82.92.40:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.

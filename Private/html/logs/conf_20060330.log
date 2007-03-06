@@ -1,0 +1,245 @@
+ajax;20060330 11:10:59;/conference/proposals/index.php;validate:required:demo
+ajax;20060330 11:11:43;/conference/proposals/next.php;validate:required:done
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:required:UI Developer
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:required:535 W. Michigan St.
+IT 347F
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:required:Indianapolis
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:required:IN
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:namespaces:IN
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:zipcode:46202
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:required:US
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:required:317 278-6047
+ajax;20060330 11:11:51;/conference/proposals/contact.php;validate:phone:317 278-6047
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:1071 Beal Avenue
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:Ann Arbor
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:MI
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:namespaces:MI
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:zipcode:48109
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:US
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:734-647-8307
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:phone:734-647-8307
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:Y
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:N
+ajax;20060330 11:12:04;/conference/registration/index.php;validate:required:Medium
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20060330 11:28:39;/conference/registration/index.php;validate::Faculty Development
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:Saginaw Valley State University
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:7400 Bay Rd.
+
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:University Center
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:MI
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:namespaces:MI
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:zipcode:48710
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:US
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:989.964.4976
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:phone:989.964.4976
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:phone:989.964.7446
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:N
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:N
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:required:XX-Large
+ajax;20060330 11:28:39;/conference/registration/index.php;validate:email:tyaros@svsu.edu
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:User Support
+ajax;20060330 11:57:17;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:021 Smith Hall
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:Newark
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:DE
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:namespaces:DE
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:zipcode:19716
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:US
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:302-831-4060
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:phone:302-831-4060
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:phone:302-831-4205
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:Y
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:N
+ajax;20060330 11:57:17;/conference/registration/index.php;validate:required:X-Large
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:Manager
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:117 Dwinelle Hall, #2535
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:Berkeley
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:CA
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:zipcode:94703
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:US
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:510-407-0543
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:phone:510-407-0543
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:Y
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:N
+ajax;20060330 12:24:23;/conference/registration/index.php;validate:required:Medium
+ajax;20060330 12:28:44;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 12:53:10;/conference/proposals/next.php;validate:required:done
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:Manager
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:03 Huntington Hall
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:Syracuse
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:NY
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:namespaces:NY
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:US
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:315-443-3450
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:phone:315-443-3450
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:Y
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:N
+ajax;20060330 13:02:54;/conference/registration/index.php;validate:required:X-Large
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:Manager
+ajax;20060330 13:35:02;/conference/registration/index.php;validate::User Support
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:345 Boyer
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:Walla Walla
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:WA
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:namespaces:WA
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:zipcode:99362
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:US
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:509-526-4712
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:phone:509-526-4712
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:phone:509-522-4433
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:Y
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:N
+ajax;20060330 13:35:02;/conference/registration/index.php;validate:required:X-Large
+ajax;20060330 13:36:28;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060330 13:38:49;/conference/registration/index.php;validate::System Administrator
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:030 Huntington Hall
+Syracuse University
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:Syracuse
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:NY
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:namespaces:NY
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:zipcode:13244
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:US
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:315-443-3450
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:phone:315-443-3450
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:Y
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:N
+ajax;20060330 13:38:49;/conference/registration/index.php;validate:required:Large
+ajax;20060330 13:45:46;/conference/proposals/next.php;validate:required:done
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:required:Faculty
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:required:1075 Beal Ave.
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:required:Ann Arbor
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:required:MI
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:namespaces:MI
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:zipcode:48109-2112
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:required:US
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060330 13:46:01;/conference/proposals/contact.php;validate:required:734-763-8124
+ajax;20060330 13:46:02;/conference/proposals/contact.php;validate:phone:734-763-8124
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:Implementor
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:302 H
+360 Huntington Ave
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:Boston
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:MA
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:namespaces:MA
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:zipcode:02115
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:US
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:6713733458
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:phone:6713733458
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:phone:6173735121
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:N
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:N
+ajax;20060330 14:54:43;/conference/registration/index.php;validate:required:Large
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:345 Boyer Ave
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:Walla Walla
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:WA
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:namespaces:WA
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:zipcode:99362
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:US
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:509-527-4941
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:phone:509-527-4941
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:Y
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:N
+ajax;20060330 15:20:14;/conference/registration/index.php;validate:required:Medium
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:Instructional Designer
+ajax;20060330 15:33:43;/conference/registration/index.php;validate::User Support
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:1204 Laurel Ave.
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:St. Paul
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:MN
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:namespaces:MN
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:zipcode:55104
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:US
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:651-642-9069
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:phone:651-642-9069
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:Y
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:N
+ajax;20060330 15:33:43;/conference/registration/index.php;validate:required:X-Large
+ajax;20060330 15:34:01;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 16:15:49;/conference/proposals/next.php;validate:required:done
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:required:Instructional Designer
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:required:1204 Laurel Ave.
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:required:St. Paul
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:required:MN
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:namespaces:MN
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:zipcode:55104
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:required:US
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:required:651-642-9069
+ajax;20060330 16:16:17;/conference/proposals/contact.php;validate:phone:651-642-9069
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:Faculty
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:Universitetsvägen 10C
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:Stockholm
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:Sw
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:namespaces:Sw
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:zipcode:10691
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:SE
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:namespaces:SE
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:+46-706545799
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:phone:+46-706545799
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:phone:+468-15 53 89
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:Y
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:N
+ajax;20060330 16:26:24;/conference/registration/index.php;validate:required:Large
+ajax;20060330 16:27:01;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 16:35:53;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 16:42:37;/conference/proposals/next.php;validate:required:done
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:required:Manager
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:required:PO Box 751
+SMC 18-D
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:required:Portland
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:required:OR
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:namespaces:OR
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:zipcode:97207
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:required:US
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:required:503-725-9116
+ajax;20060330 16:43:07;/conference/proposals/contact.php;validate:phone:503-725-9116
+ajax;20060330 17:41:08;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 17:41:21;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 17:46:38;/conference/proposals/index.php;validate:required:demo
+ajax;20060330 19:09:32;/conference/proposals/next.php;validate:required:presentation
+ajax;20060330 19:32:20;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 19:48:38;/conference/proposals/next.php;validate:required:presentation
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:University Administration
+ajax;20060330 19:50:20;/conference/registration/index.php;validate::Manager
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:Denison University
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:P. O. Box M
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:Granville
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:OH
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:namespaces:OH
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:zipcode:43022
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:US
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:namespaces:US
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:740-587-5799
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:phone:740-587-5799
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:phone:206-666-6382
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:Y
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:N
+ajax;20060330 19:50:20;/conference/registration/index.php;validate:required:Large
+ajax;20060330 22:25:48;/conference/proposals/index.php;validate:required:presentation
+ajax;20060330 23:14:52;/conference/proposals/next.php;validate:required:done
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:required:Developer/Programmer
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:required:3177 Homestead Commons Dr #5
+
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:required:Ann Arbor
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:required:MI
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:namespaces:MI
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:zipcode:48108
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:required:US
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:required:734-645-4123
+ajax;20060330 23:15:09;/conference/proposals/contact.php;validate:phone:734-645-4123

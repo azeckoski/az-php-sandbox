@@ -1,0 +1,5 @@
+shardin;20060801 08:44:23;/accounts/login.php;user logged in (internal):64.235.110.195:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/index.php
+ajax;20060801 11:42:50;/conference/proposals/index.php;validate:required:demo
+ajax;20060801 11:44:01;/conference/proposals/index.php;validate:required:presentation
+ajax;20060801 11:58:17;/conference/proposals/index.php;validate:required:demo
+ehodas@hmc.edu;20060801 19:33:28;/accounts/login.php;user logged in (internal):134.173.32.80:https://sakaiproject.org/accounts/login.php?ref=/skin/index.php

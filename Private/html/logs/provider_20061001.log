@@ -1,0 +1,208 @@
+cmbrandt@ucdavis.edu;20061001 00:10:30;/accounts/login.php;user logged in (internal):71.143.21.93:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061001 00:10:41;/conference/proposals/index.php;validate:required:presentation
+gbhatnag;20061001 01:46:47;/accounts/login.php;user logged in (internal):69.246.94.137:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061001 01:51:18;/conference/proposals/edit_proposal.php;validate:required:The OKI Repository OSID in Sakai: where can we go from here?
+ajax;20061001 01:51:18;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project has implemented the OKI Repository OSID to interface commercial metasearch engines with Sakaibrary's re-purposed version of the "Twin Peaks" Repository OSID searching tool.  How does this work lend itself to existing and future ideas of Repository OSID use within Sakai?
+ajax;20061001 01:51:18;/conference/proposals/edit_proposal.php;validate:required:The goals of this session are to:
+* gather leaders working with (or with an interest in) Sakai and the Repository OSID.
+* share a summary of the Sakaibrary Project's work implementing the Repository OSID and re-purposing "Twin Peaks" with the Sakai & Repository OSID community to lower barriers to interoperability.
+* share existing and future ideas of Repository OSID use within Sakai (this will start with the panel and then be open to the audience).
+* discuss possibilities for interoperability between ideas.
+
+In the previous Sakai Conference, there was a rather large BOF and much e-mail discussion on the topic of Repositories in general in Sakai and the intersection of the Repository OSID.  This session would act as a follow-up to that BOF/discussion, highlighting the Sakaibrary Project's work accessing "repositories" (metasearch engines) in Sakai through use of the Repository OSID.
+ajax;20061001 01:51:18;/conference/proposals/edit_proposal.php;validate:required:Gaurav Bhatnagar
+ajax;20061001 01:51:18;/conference/proposals/edit_proposal.php;validate:required:Gaurav is an Application Programmer-Analyst at the University of Michigan Library working on the Sakaibrary Project. He has been a part of the development team implementing the OKI Repository OSID to interface commercial metasearch engines with Sakaibrary's re-purposed version of the "Twin Peaks" OKI Repository OSID searching tool.
+ajax;20061001 01:51:18;/conference/proposals/edit_proposal.php;validate:required:panel
+ajax;20061001 01:51:18;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20061001 01:51:18;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061001 01:52:02;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project: Accessing Licensed Digital Content Within Sakai
+ajax;20061001 01:52:02;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project has implemented and started usability and pilot testing for a system within Sakai to search licensed electronic scholarly databases.  From search results, Citations can be managed in the form of Citation Lists within the Resources tool.  This presentation will describe and demonstrate various features of this project.
+ajax;20061001 01:52:02;/conference/proposals/edit_proposal.php;validate:required:The goals of this presentation are to:
+* share and demonstrate the functionality developed for Sakai by the Sakaibrary Project - walkthroughs of various user (faculty, student, librarian) usage of the system.
+* describe the various technologies the Sakaibrary Project employs (Metasearch engines, OpenURL Link Resolvers, OKI Repository OSID, modifications to Sakai Content).
+* share "Phase 2" project enhancements.
+* briefly describe the QA, usability and pilot testing process and results (though this is the main focus of the Sakaibrary Project Update Presentation).
+ajax;20061001 01:52:02;/conference/proposals/edit_proposal.php;validate:required:Susan Hollar
+ajax;20061001 01:52:02;/conference/proposals/edit_proposal.php;validate:required:Gaurav is an Application Programmer-Analyst at the University of Michigan Library working on the Sakaibrary Project. He has been a part of the development team implementing the OKI Repository OSID to interface commercial metasearch engines with Sakaibrary's re-purposed version of the "Twin Peaks" OKI Repository OSID searching tool.
+ajax;20061001 01:52:02;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061001 01:52:02;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061001 01:52:02;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061001 02:04:35;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project: Accessing Licensed Digital Content Within Sakai
+ajax;20061001 02:04:35;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project has implemented and started usability and pilot testing for a system within Sakai to search licensed electronic scholarly databases.  From search results, Citations can be managed in the form of Citation Lists within the Resources tool.  This presentation will describe and demonstrate various features of this project.
+ajax;20061001 02:04:35;/conference/proposals/edit_proposal.php;validate:required:The goals of this presentation are to:
+* share and demonstrate the functionality developed for Sakai by the Sakaibrary Project - walkthroughs of various user (faculty, student, librarian) usage of the system.
+* describe the various technologies the Sakaibrary Project employs (Metasearch engines, OpenURL Link Resolvers, OKI Repository OSID, modifications to Sakai Content).
+* share "Phase 2" project enhancements.
+* briefly describe the QA, usability and pilot testing process and results (though this is the main focus of the Sakaibrary Project Update Presentation).
+ajax;20061001 02:04:35;/conference/proposals/edit_proposal.php;validate:required:Susan Hollar
+ajax;20061001 02:04:35;/conference/proposals/edit_proposal.php;validate:required:Susan is a Curriculum Integration Coordinator at the University of Michigan Lirbary and co-Project Lead on the Sakaibrary Project.  Susan has lead various projects at Michigan to integrate innovative information technologies with library systems.
+ajax;20061001 02:04:35;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061001 02:04:35;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061001 02:04:35;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061001 02:09:03;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project: Accessing Licensed Digital Content Within Sakai
+ajax;20061001 02:09:03;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project has implemented and started usability and pilot testing for a system within Sakai to search licensed electronic scholarly databases.  From search results, Citations can be managed in the form of Citation Lists within the Resources tool.  This presentation will describe and demonstrate various features of this project.
+ajax;20061001 02:09:03;/conference/proposals/edit_proposal.php;validate:required:The goals of this presentation are to:
+* share and demonstrate the functionality developed for Sakai by the Sakaibrary Project - walkthroughs of various user (faculty, student, librarian) usage of the system.
+* describe the various technologies the Sakaibrary Project employs (Metasearch engines, OpenURL Link Resolvers, OKI Repository OSID, modifications to Sakai Content).
+* share "Phase 2" project enhancements.
+* briefly describe the QA, usability and pilot testing process and results (though this is the main focus of the Sakaibrary Project Update Presentation).
+ajax;20061001 02:09:04;/conference/proposals/edit_proposal.php;validate:required:Susan Hollar
+ajax;20061001 02:09:04;/conference/proposals/edit_proposal.php;validate:required:Susan is Curriculum Integration Coordinator at the University of Michigan Library and co-Project Lead on the Sakaibrary Project.  Susan has lead various projects at Michigan to integrate innovative information technologies with library systems.
+ajax;20061001 02:09:04;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061001 02:09:04;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061001 02:09:04;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061001 02:14:09;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project: Accessing Licensed Digital Content Within Sakai
+ajax;20061001 02:14:09;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project has implemented and started usability and pilot testing for a system within Sakai to search licensed electronic scholarly databases.  From search results, Citations can be managed in the form of Citation Lists within the Resources tool.  This presentation will describe and demonstrate various features of this project.
+ajax;20061001 02:14:09;/conference/proposals/edit_proposal.php;validate:required:The goals of this presentation are to:
+* share and demonstrate the functionality developed for Sakai by the Sakaibrary Project - walkthroughs of various user (faculty, student, librarian) usage of the system.
+* describe the various technologies the Sakaibrary Project employs (Metasearch engines, OpenURL Link Resolvers, OKI Repository OSID, modifications to Sakai Content).
+* share "Phase 2" project enhancements.
+* briefly describe the QA, usability and pilot testing process and results (though this is the main focus of the Sakaibrary Project Update Presentation).
+ajax;20061001 02:14:09;/conference/proposals/edit_proposal.php;validate:required:Susan Hollar
+ajax;20061001 02:14:09;/conference/proposals/edit_proposal.php;validate:required:Susan is Curriculum Integration Coordinator at the University of Michigan Library and co-Project Lead on the Sakaibrary Project.  Susan has lead various projects at Michigan to integrate innovative information technologies with library systems.
+ajax;20061001 02:14:09;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061001 02:14:09;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061001 02:14:09;/conference/proposals/edit_proposal.php;validate:required:40
+mayumi;20061001 06:24:26;/accounts/login.php;user logged in (internal):58.188.43.241:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061001 06:24:36;/conference/proposals/index.php;validate:required:demo
+124.18.88.180;20061001 09:05:50;/accounts/forgot_password.php;password reset: kajita@nagoya-u.jp
+kajita@nagoya-u.jp;20061001 09:06:46;/accounts/login.php;user logged in (internal):124.18.88.180:https://sakaiproject.org/accounts/login.php
+ajax;20061001 09:06:55;/conference/proposals/index.php;validate:required:demo
+ajax;20061001 09:27:07;/conference/proposals/edit_proposal.php;validate:required:uDesktop: Expanding Awareness in Classroom To Ubiquitous Environment
+ajax;20061001 09:27:07;/conference/proposals/edit_proposal.php;validate:required:We are now developing eclipse RCP based “uDesktop” to realize the concept of Ubiquitous Classroom that enables us to expand “the awareness among faculty and students in classroom” to ubiquitous teaching and learning environments. We will show the effectiveness of “awareness” through Sakai – uDesktop – iPod three-tiered integration for English language learning purpose.
+ajax;20061001 09:27:07;/conference/proposals/edit_proposal.php;validate:required:Shoji Kajita
+ajax;20061001 09:27:07;/conference/proposals/edit_proposal.php;validate:required:demo
+ajax;20061001 09:27:15;/conference/proposals/index.php;validate:required:demo
+ajax;20061001 09:28:04;/accounts/ajax/validate.php;validate:namespaces:Aichi
+ajax;20061001 09:28:04;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061001 09:28:04;/accounts/ajax/validate.php;validate:phone: 81-52-789-5910
+ajax;20061001 09:28:04;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061001 09:28:04;/accounts/ajax/validate.php;validate:namespaces:JP
+ajax;20061001 09:28:04;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:Faculty
+ajax;20061001 09:29:43;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:Nagoya
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:Aichi
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:namespaces:Aichi
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:JP
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:namespaces:JP
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:+81-52-789-5910
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:phone:+81-52-789-5910
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:Y
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:Y
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:Medium
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:TUE
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:WED
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:THU
+ajax;20061001 09:29:43;/conference/registration/index.php;validate:required:FRI
+m.gonzalez@lancaster.ac.uk;20061001 10:48:10;/accounts/login.php;user logged in (internal):194.80.32.8:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20061001 15:21:09;/accounts/login.php;user logged in (internal):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061001 15:39:41;/accounts/ajax/validate.php;validate:email:jsnider
+ajax;20061001 15:39:41;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061001 15:40:33;/accounts/ajax/validate.php;validate:email:jsnider@txstate.edu
+ajax;20061001 15:40:33;/accounts/ajax/validate.php;validate:uniqueuserp:jsnider@txstate.edu
+ajax;20061001 15:40:33;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061001 15:41:26;/accounts/ajax/validate.php;validate:namespaces:San Marcos
+ajax;20061001 15:41:26;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061001 15:41:33;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20061001 15:41:33;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061001 15:41:34;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20061001 15:41:34;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061001 15:41:56;/accounts/ajax/validate.php;validate:email:jsnider@txstate.edu
+ajax;20061001 15:41:56;/accounts/ajax/validate.php;validate:uniqueuserp:jsnider@txstate.edu
+ajax;20061001 15:41:56;/accounts/ajax/validate.php;validate:uniqueuserp:jsnider@txstate.edu
+ajax;20061001 15:41:57;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:required:jsnider@txstate.edu
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:email:jsnider@txstate.edu
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:uniqueuserp:jsnider@txstate.edu
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:uniqueuserp:jsnider@txstate.edu
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:required:oVxiHGOk
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:password:oVxiHGOk
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:required:oVxiHGOk
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:password:oVxiHGOk
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:match:oVxiHGOk
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:required:Jeff
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:required:Snider
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:required:jsnider@txstate.edu
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:email:jsnider@txstate.edu
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:uniqueuserp:jsnider@txstate.edu
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:required:System Administrator
+ajax;20061001 15:41:59;/accounts/createaccount.php;validate:required:51
+207.119.0.199;20061001 15:41:59;/accounts/createaccount.php;created account: jsnider@txstate.edu (jsnider@txstate.edu) Snider,Jeff: inst=51
+jsnider@txstate.edu;20061001 15:43:02;/accounts/login.php;user logged in (internal):207.119.0.199:https://sakaiproject.org/accounts/login.php
+ajax;20061001 15:43:32;/accounts/ajax/validate.php;validate:zipcode:t
+ajax;20061001 15:43:32;/accounts/ajax/validate.php;return=error|zipcode|Invalid chars, use A-Z, numbers and '-' only
+ajax;20061001 15:43:34;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20061001 15:43:34;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061001 15:43:39;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20061001 15:43:39;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061001 15:43:41;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061001 15:43:41;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061001 15:43:50;/accounts/ajax/validate.php;validate:phone:512-245-2319
+ajax;20061001 15:43:50;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:System Administrator
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:San Marcos
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:TX
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:namespaces:TX
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:zipcode:78666
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:US
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:namespaces:US
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:512-245-2319
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:phone:512-245-2319
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:Y
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:N
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:X-Large
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:TUE
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:WED
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:THU
+ajax;20061001 15:45:43;/conference/registration/index.php;validate:required:FRI
+antranig;20061001 16:51:26;/accounts/login.php;user logged in (internal):82.43.150.63:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061001 16:51:36;/conference/proposals/index.php;validate:required:presentation
+ajax;20061001 17:10:59;/conference/proposals/edit_proposal.php;validate:required:Knowledge Transfer, Integrative Learning, and ePortfolio Possibilities
+ajax;20061001 17:10:59;/conference/proposals/edit_proposal.php;validate:required:This interactive session will explore the potential use of portfolio-based learning and ePortfolio tools to address the “knowledge transfer crisis” in higher education.  It will include  an overview of relevant concepts, an interactive exercise, and a discussion of how the transfer of knowledge can be specifically supported by ePortfolio methods.
+ajax;20061001 17:10:59;/conference/proposals/edit_proposal.php;validate:required:Many businesses, higher education institutions and government organizations in the US, Canada, and the EU are facing what is called a “knowledge transfer crisis” - the approaching retirement age of millions from the baby boomer generation means these organizations risk losing a critical mass of their leadership and institutional knowledge in coming years.  This interactive session will address how knowledge transfer issues can be addressed through integrative portfolio-based learning and potentially, ePortfolio tools . The session will include an overview of definitions and concepts related to knowledge transfer, and an interactive exercise wherein participants will learn a few basic steps involved in retrieving tacit (unconscious) forms of knowledge both within themselves and others.  There will also be a discussion of the potential ways ePortfolio tools could be used to support various types of organizations in identifying and addressing knowledge transfer needs.
+ajax;20061001 17:10:59;/conference/proposals/edit_proposal.php;validate:required:Melissa   Peet
+ajax;20061001 17:10:59;/conference/proposals/edit_proposal.php;validate:required:Melissa Peet, Principal Investigator and Coordinator for the University of Michigan ePortfolio pilot, is interested in the exploring how the integrative elements of ePortfolios can be used for knowledge transfer
+ajax;20061001 17:10:59;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20061001 17:10:59;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20061001 17:10:59;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061001 17:11:14;/conference/proposals/index.php;validate:required:presentation
+ajax;20061001 17:46:10;/conference/proposals/edit_proposal.php;validate:required:Building Webapps with RSF I
+ajax;20061001 17:46:10;/conference/proposals/edit_proposal.php;validate:required:Following a recap of RSF basics, this talk will cover RSF's newer features such as the use of BeanGuards for guaranteed and transparent validation, BeanScopes for controlling bean lifetimes (for Sessions and Sakai Helpers), and the use of OTP (One True Path) for trimming away needless code from webapps that make use of ORM.
+ajax;20061001 17:46:10;/conference/proposals/edit_proposal.php;validate:required:Since successful presentations at Vancouver, RSF has moved on to cover virtually all of the use cases required for a comprehensive web framework. Billed as becoming the "PHP of Sakai" on grounds of its comparative ease of use relative to other Java frameworks, RSF nonetheless emphasises correctness and minimality in programming, encouraging designs that are easy to understand, test and maintain. This session will focus in depth on the use of RSF's EL system to provide guaranteed execution of code within the request (typically used for Validation), as well as explaining the RSF treatment of scope, essential to understand interaction with external sources of state, such as databases, Sessions and in particular Sakai Helpers.
+ajax;20061001 17:46:10;/conference/proposals/edit_proposal.php;validate:required:Antranig Basman
+ajax;20061001 17:46:10;/conference/proposals/edit_proposal.php;validate:required:Antranig Basman is based at CARET, University of Cambridge, where he has been working on Sakai fundamentals and is the lead developer of the RSF web programming framework. Current interests include modern programming techniques for the management of dependency, as most directly represented today by the Spring programming framework.
+ajax;20061001 17:46:10;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061001 17:46:10;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20061001 17:46:10;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061001 17:46:28;/conference/proposals/index.php;validate:required:presentation
+ajax;20061001 18:15:23;/conference/proposals/edit_proposal.php;validate:required:Building Webapps with RSF II
+ajax;20061001 18:15:23;/conference/proposals/edit_proposal.php;validate:required:The most long-awaited feature of RSF, "Multi-file Templates", is now ready. MFT, which on the Java side is implemented in terms of RSF "Evolvers", allows UI designers and developers to develop reusable "components" (or "widgets") by building libraries of plain HTML, rather than opaque "taglibs" or other unholy mixtures of presentation and content. This session will cover the new system, and show how easily new components can be developed in RSF, or assimilated from other (client-side) frameworks.
+ajax;20061001 18:15:23;/conference/proposals/edit_proposal.php;validate:required:MFT and Evolvers promise to break the long-term deadlock within Sakai UI between the requirements and demands of the UI team, and the near-impossibility of satisfying them with current view technologies. This session will show that by "reorganising" the functionality traditionally entangled in the "conceptual heap" that is taglibs, into three completely separate worlds, that of HTML for designers, pure POJOs for developers, and a lightweight "Evolver" structure at the interface (which may be represented in XML as well as Java), the separate teams can begin to be freed to work independently yet interactively, rather than remain at loggerheads. 
+ajax;20061001 18:15:23;/conference/proposals/edit_proposal.php;validate:required:Antranig Basman
+ajax;20061001 18:15:23;/conference/proposals/edit_proposal.php;validate:required:Antranig Basman is based at CARET, University of Cambridge, where he has been working on Sakai fundamentals and is the lead developer of the RSF web programming framework. Current interests include modern programming techniques for the management of dependency, as most directly represented today by the Spring programming framework.
+
+ajax;20061001 18:15:23;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061001 18:15:23;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20061001 18:15:23;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061001 18:15:34;/accounts/ajax/validate.php;validate:namespaces:Cambridge
+ajax;20061001 18:15:34;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061001 18:15:35;/accounts/ajax/validate.php;validate:phone: 441223-765382
+ajax;20061001 18:15:35;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061001 18:15:35;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061001 18:15:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:Cambridge
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:Cambridge
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:namespaces:Cambridge
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:GB
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:namespaces:GB
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:+441223-765382
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:phone:+441223-765382
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:Y
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:N
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:Large
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:TUE
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:WED
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:THU
+ajax;20061001 18:16:36;/conference/registration/index.php;validate:required:FRI

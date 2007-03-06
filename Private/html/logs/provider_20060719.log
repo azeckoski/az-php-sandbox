@@ -1,0 +1,37 @@
+ajax;20060719 09:49:51;/accounts/ajax/validate.php;validate:email:mangumxx
+ajax;20060719 09:49:51;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060719 09:50:05;/accounts/ajax/validate.php;validate:email:mangumxx@hotmail.com
+ajax;20060719 09:50:06;/accounts/ajax/validate.php;validate:uniqueuserp:mangumxx@hotmail.com
+ajax;20060719 09:50:06;/accounts/ajax/validate.php;return=error|username|username already used
+mangumxx@hotmail.com;20060719 09:50:28;/accounts/login.php;user logged in (ldap):158.135.1.91:https://sakaiproject.org/accounts/login.php
+mangumxx@hotmail.com;20060719 10:01:32;/accounts/login.php;user logged in (ldap):158.135.1.91:https://sakaiproject.org/accounts/login.php
+aaronz;20060719 14:08:57;/accounts/login.php;user logged in (ldap):198.82.174.173:https://www.sakaiproject.org/accounts/login.php?ref=/accounts/myaccount.php
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;validate:email:aaronz@vt.edu
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;validate:uniquesql:aaronz@vt.edu
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;validate:zipcode:24061
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060719 14:09:03;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060719 14:09:04;/accounts/ajax/validate.php;validate:phone:540-231-8053
+ajax;20060719 14:09:04;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060719 14:09:04;/accounts/ajax/validate.php;validate:phone:540-231-5992
+ajax;20060719 14:09:04;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060719 14:09:37;/accounts/ajax/validate.php;validate:email:aaronz
+ajax;20060719 14:09:37;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060719 14:09:50;/accounts/ajax/validate.php;validate:email:aaronza
+ajax;20060719 14:09:50;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060719 14:10:05;/accounts/ajax/validate.php;validate:email:aaronz1@vt.edu
+ajax;20060719 14:10:05;/accounts/ajax/validate.php;validate:uniqueuserp:aaronz1@vt.edu
+ajax;20060719 14:10:06;/accounts/ajax/validate.php;validate:uniqueuserp:aaronz1@vt.edu
+ajax;20060719 14:10:06;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060719 14:10:12;/accounts/ajax/validate.php;validate:email:aaronz@vt.edu
+ajax;20060719 14:10:12;/accounts/ajax/validate.php;validate:uniqueuserp:aaronz@vt.edu
+ajax;20060719 14:10:12;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20060719 14:10:40;/accounts/ajax/validate.php;validate:email:aaronzaas@vt.edu
+ajax;20060719 14:10:40;/accounts/ajax/validate.php;validate:uniqueuserp:aaronzaas@vt.edu
+ajax;20060719 14:10:40;/accounts/ajax/validate.php;return=ok|email|

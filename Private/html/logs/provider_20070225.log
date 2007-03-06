@@ -1,0 +1,43 @@
+ajax;20070225 23:11:57;/accounts/ajax/validate.php;validate:email:jwma
+ajax;20070225 23:11:57;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070225 23:12:00;/accounts/ajax/validate.php;validate:email:crystaljwma
+ajax;20070225 23:12:00;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070225 23:12:09;/accounts/ajax/validate.php;validate:email:jwma2000@yahoo.com
+ajax;20070225 23:12:09;/accounts/ajax/validate.php;validate:uniqueuserp:jwma2000@yahoo.com
+ajax;20070225 23:12:09;/accounts/ajax/validate.php;validate:uniqueuserp:jwma2000@yahoo.com
+ajax;20070225 23:12:09;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070225 23:12:53;/accounts/ajax/validate.php;validate:email:jwma2000@y
+ajax;20070225 23:12:53;/accounts/ajax/validate.php;return=error|email|Invalid email address
+ajax;20070225 23:13:27;/accounts/ajax/validate.php;validate:namespaces:kl
+ajax;20070225 23:13:27;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070225 23:13:32;/accounts/ajax/validate.php;validate:namespaces:MY
+ajax;20070225 23:13:32;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070225 23:13:36;/accounts/ajax/validate.php;validate:zipcode:55100
+ajax;20070225 23:13:36;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070225 23:14:10;/accounts/ajax/validate.php;validate:email:jwma2000@yahoo.com
+ajax;20070225 23:14:10;/accounts/ajax/validate.php;validate:uniqueuserp:jwma2000@yahoo.com
+ajax;20070225 23:14:10;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070225 23:14:46;/accounts/createaccount.php;validate:required:jwma2000@yahoo.com
+ajax;20070225 23:14:46;/accounts/createaccount.php;validate:email:jwma2000@yahoo.com
+ajax;20070225 23:14:46;/accounts/createaccount.php;validate:uniqueuserp:jwma2000@yahoo.com
+ajax;20070225 23:14:46;/accounts/createaccount.php;validate:uniqueuserp:jwma2000@yahoo.com
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:required:crystal
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:password:crystal
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:required:crystal
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:password:crystal
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:match:crystal
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:required:ma
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:required:jiun wah
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:required:jwma2000@yahoo.com
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:email:jwma2000@yahoo.com
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:uniqueuserp:jwma2000@yahoo.com
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:required:System Administrator
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:required:multimedia nervous system sdn bhd
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate::44,jln pandan indah 5/18
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:namespaces:kl
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:zipcode:55100
+ajax;20070225 23:14:47;/accounts/createaccount.php;validate:namespaces:MY
+jwma2000@yahoo.com;20070225 23:14:47;/accounts/createaccount.php;user added (ldap): ma jiun wah (jwma2000@yahoo.com) [1106]
+60.51.220.201;20070225 23:14:47;/accounts/createaccount.php;created account: jwma2000@yahoo.com (jwma2000@yahoo.com) jiun wah,ma: inst=1
+jwma2000@yahoo.com;20070225 23:16:26;/accounts/activate.php;user modified (ldap): ma jiun wah (jwma2000@yahoo.com) [1106]
+jwma2000@yahoo.com;20070225 23:16:49;/accounts/login.php;user logged in (ldap):60.51.220.201:https://sakaiproject.org/accounts/login.php

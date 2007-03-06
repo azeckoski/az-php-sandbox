@@ -1,0 +1,141 @@
+puys@csu.edu.au;20070206 06:45:20;/accounts/forgot_password.php;user modified (ldap): Philip Uys (puys@csu.edu.au) [822]
+58.109.3.175;20070206 06:45:20;/accounts/forgot_password.php;password reset: puys@csu.edu.au
+puys@csu.edu.au;20070206 06:46:40;/accounts/login.php;user logged in (ldap):58.109.3.175:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20070206 06:50:17;/conference/proposals/index.php;validate:required:presentation
+ajax;20070206 07:08:32;/conference/proposals/edit_proposal.php;validate:required:A Methodological Framework for Evaluating and Selecting an Open Source LMS
+ajax;20070206 07:08:32;/conference/proposals/edit_proposal.php;validate:required:Charles Sturt University followed a comprehensive evaluation process of online learning management systems during 2006 to select Sakai. The Business Readiness Rating™ (BRR) was analysed but found wanting. A methodological framework was developed for the University’s evaluation process that included an identification of features, requirements, indicators and criteria.
+ajax;20070206 07:08:32;/conference/proposals/edit_proposal.php;validate:required:Charles Sturt University (CSU) followed a comprehensive evaluation process of online learning management systems during 2006 to select Sakai. The Business Readiness Rating™ (BRR), a proposed standard for evaluation open source software, was analysed but found wanting. A methodological framework was developed for the University’s evaluation process that included an identification of features, requirements, indicators and criteria. Various roles emerged within a tight project management structure. Overarching concerns in the end led to a decision by the Online Learning Environment Steering Committee to select Sakai as CSU’s online learning management system (LMS).
+ajax;20070206 07:08:32;/conference/proposals/edit_proposal.php;validate:required:Dr Philip Uys
+ajax;20070206 07:08:32;/conference/proposals/edit_proposal.php;validate:required:Dr Uys has expertise in the strategic implementation and management of eLearning both in developing and developed settings. He has experience in project management of institution wide eLearning projects and has a solid grasp of both pedagogies of online learning and the ICT component.
+ajax;20070206 07:08:32;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20070206 07:08:32;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20070206 07:08:32;/conference/proposals/edit_proposal.php;validate:required:30
+ajax;20070206 07:09:06;/accounts/ajax/validate.php;validate:email:puys@csu.edu.au
+ajax;20070206 07:09:06;/accounts/ajax/validate.php;validate:uniquesql:puys@csu.edu.au
+ajax;20070206 07:09:06;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070206 07:09:06;/accounts/ajax/validate.php;validate:namespaces:Bathurst
+ajax;20070206 07:09:06;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070206 07:09:07;/accounts/ajax/validate.php;validate:namespaces:NSW
+ajax;20070206 07:09:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070206 07:09:07;/accounts/ajax/validate.php;validate:zipcode:27950
+ajax;20070206 07:09:07;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070206 07:09:08;/accounts/ajax/validate.php;validate:namespaces:AU
+ajax;20070206 07:09:08;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070206 07:09:08;/accounts/ajax/validate.php;validate:phone: 61 2 63384538
+ajax;20070206 07:09:08;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070206 07:09:09;/accounts/ajax/validate.php;validate:phone: 61 2 63384342
+ajax;20070206 07:09:09;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:password:2211
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:password:2211
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:match:2211
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:required:Philip
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:required:Uys
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:required:puys@csu.edu.au
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:email:puys@csu.edu.au
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:uniquesql:puys@csu.edu.au
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:required:Manager
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate::Instructional Technologist
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:required:11
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate::CELT, S16
+Panorama Avenue
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:namespaces:Bathurst
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:namespaces:NSW
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:zipcode:27950
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:namespaces:AU
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:phone:+61 2 63384538
+ajax;20070206 07:09:21;/accounts/myaccount.php;validate:phone:+61 2 63384342
+puys@csu.edu.au;20070206 07:09:21;/accounts/myaccount.php;user modified (ldap): Philip Uys (puys@csu.edu.au) [822]
+puys@csu.edu.au;20070206 07:09:52;/accounts/login.php;user logged in (ldap):58.109.3.175:https://sakaiproject.org/accounts/login.php
+anthony.atkins@vt.edu;20070206 10:42:15;/accounts/login.php;user logged in (ldap):128.173.53.41:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20070206 10:42:23;/conference/proposals/index.php;validate:required:presentation
+ajax;20070206 10:50:44;/conference/proposals/edit_proposal.php;validate:required:Configuration Viewer Tool Demo
+ajax;20070206 10:50:44;/conference/proposals/edit_proposal.php;validate:required:The Configuration Viewer is a tool that helps administrators understand the full range of configuration options available in a site's sakai.properties file.
+ajax;20070206 10:50:44;/conference/proposals/edit_proposal.php;validate:required:The Configuration Viewer provides a comprehensive catalog of the configuration options that can be configured from a site's sakai.properties file.  The list of properties was compiled from a full review of the Sakai source starting with Sakai version 2.2.x.  The Config Viewer interface offers a searchable view of the full catalog, and displays the current settings for a running instance.  
+ajax;20070206 10:50:44;/conference/proposals/edit_proposal.php;validate:required:Tony Atkins
+ajax;20070206 10:50:44;/conference/proposals/edit_proposal.php;validate:required:Tony Atkins is a Software Development Manager at the University of the Highlands and Islands.  Previously, he was Lead Systems Integrator at Virginia Tech.
+ajax;20070206 10:50:44;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20070206 10:50:44;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20070206 10:50:44;/conference/proposals/edit_proposal.php;validate:required:30
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;validate:email:anthony.atkins@vt.edu
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;validate:uniquesql:anthony.atkins@vt.edu
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;validate:zipcode:24063
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;validate:phone:540-231-3957
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20070206 10:52:07;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;validate:email:anthony.atkins@vt.edu
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;validate:uniquesql:anthony.atkins@vt.edu
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;validate:zipcode:24063
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;validate:phone:540-231-3957
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20070206 10:53:17;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070206 11:42:29;/accounts/ajax/validate.php;validate:email:anthony.atkins@vt.edu
+ajax;20070206 11:42:29;/accounts/ajax/validate.php;validate:uniquesql:anthony.atkins@vt.edu
+ajax;20070206 11:42:29;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;validate:zipcode:24063
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;validate:phone:540-231-3957
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20070206 11:42:30;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:required:Anthony
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:required:Atkins
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:required:anthony.atkins@vt.edu
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:email:anthony.atkins@vt.edu
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:uniquesql:anthony.atkins@vt.edu
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate::System Administrator
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:required:UHI
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate::3023 Torgersen Hall
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:namespaces:Blacksburg
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:namespaces:VA
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:zipcode:24063
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:namespaces:US
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:phone:540-231-3957
+ajax;20070206 11:42:55;/accounts/myaccount.php;validate:phone:540-231-5922
+anthony.atkins@vt.edu;20070206 11:42:56;/accounts/myaccount.php;user modified (ldap): Anthony Atkins (anthony.atkins@vt.edu) [77]
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;validate:email:anthony.atkins@vt.edu
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;validate:uniquesql:anthony.atkins@vt.edu
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;validate:zipcode:24063
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;validate:phone:540-231-3957
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20070206 11:42:57;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070206 23:34:26;/accounts/ajax/validate.php;validate:email:wasserman@fordham.edu
+ajax;20070206 23:34:26;/accounts/ajax/validate.php;validate:uniqueuserp:wasserman@fordham.edu
+ajax;20070206 23:34:26;/accounts/ajax/validate.php;validate:uniqueuserp:wasserman@fordham.edu
+ajax;20070206 23:34:26;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070206 23:34:48;/accounts/ajax/validate.php;validate:email:wasserman@fordham.edu
+ajax;20070206 23:34:48;/accounts/ajax/validate.php;validate:uniqueuserp:wasserman@fordham.edu
+ajax;20070206 23:34:48;/accounts/ajax/validate.php;return=ok|email|

@@ -1,0 +1,93 @@
+ajax;20060615 07:19:09;/accounts/ajax/validate.php;validate:email:jeremy.peterson@moody.edu
+ajax;20060615 07:19:09;/accounts/ajax/validate.php;validate:uniqueuserp:jeremy.peterson@moody.edu
+ajax;20060615 07:19:09;/accounts/ajax/validate.php;validate:uniqueuserp:jeremy.peterson@moody.edu
+ajax;20060615 07:19:10;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060615 07:19:24;/accounts/ajax/validate.php;validate:email:jeremy.peterson@moody.edu
+ajax;20060615 07:19:24;/accounts/ajax/validate.php;validate:uniqueuserp:jeremy.peterson@moody.edu
+ajax;20060615 07:19:24;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060615 07:20:35;/accounts/ajax/validate.php;validate:namespaces:Chicago
+ajax;20060615 07:20:35;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060615 07:20:36;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20060615 07:20:36;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060615 07:20:39;/accounts/ajax/validate.php;validate:zipcode:60610
+ajax;20060615 07:20:39;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060615 07:20:41;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060615 07:20:41;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060615 07:20:48;/accounts/ajax/validate.php;validate:phone:3123298081
+ajax;20060615 07:20:48;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:required:jeremy.peterson@moody.edu
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:email:jeremy.peterson@moody.edu
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:uniqueuserp:jeremy.peterson@moody.edu
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:uniqueuserp:jeremy.peterson@moody.edu
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:required:hardrock
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:password:hardrock
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:required:hardrock
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:password:hardrock
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:match:hardrock
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:required:Jeremy
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:required:Peterson
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:required:jeremy.peterson@moody.edu
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:email:jeremy.peterson@moody.edu
+ajax;20060615 07:20:51;/accounts/createaccount.php;validate:uniqueuserp:jeremy.peterson@moody.edu
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate:required:System Administrator
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate::Developer/Programmer
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate:required:Moody Bible Institute
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate::Education Technology Services
+820 N. LaSalle Blvd
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate:namespaces:Chicago
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate:namespaces:IL
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate:zipcode:60610
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060615 07:20:52;/accounts/createaccount.php;validate:phone:3123298081
+jeremy.peterson@moody.edu;20060615 07:20:52;/accounts/createaccount.php;user added (ldap): Jeremy Peterson (jeremy.peterson@moody.edu) [735]
+66.185.249.91;20060615 07:20:52;/accounts/createaccount.php;created account: jeremy.peterson@moody.edu (jeremy.peterson@moody.edu) Peterson,Jeremy: inst=1
+jeremy.peterson@moody.edu;20060615 07:28:43;/accounts/activate.php;user modified (ldap): Jeremy Peterson (jeremy.peterson@moody.edu) [735]
+jeremy.peterson@moody.edu;20060615 07:28:54;/accounts/login.php;user logged in (ldap):66.185.249.91:https://sakaiproject.org/accounts/login.php
+kreister;20060615 10:08:40;/accounts/login.php;user logged in (ldap):141.213.32.93:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+kmclennan;20060615 14:15:03;/accounts/login.php;user logged in (ldap):72.150.34.58:https://sakaiproject.org/accounts/login.php?ref=/facebook/index.php
+gsilver;20060615 15:31:20;/accounts/login.php;user logged in (ldap):141.213.113.51:https://sakaiproject.org/accounts/login.php?ref=/accounts/myaccount.php
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;validate:email:gsilver@umich.edu
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;validate:uniquesql:gsilver@umich.edu
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;validate:phone:734 7634669
+ajax;20060615 15:31:22;/accounts/ajax/validate.php;return=ok|phone|
+oscarman;20060615 15:52:32;/accounts/login.php;user logged in (ldap):24.7.104.102:https://sakaiproject.org/accounts/login.php?ref=/skin/results.php
+ajax;20060615 20:05:40;/accounts/ajax/validate.php;validate:email:bcollierjones
+ajax;20060615 20:05:40;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060615 20:05:44;/accounts/ajax/validate.php;validate:email:bc
+ajax;20060615 20:05:44;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060615 20:06:06;/accounts/ajax/validate.php;validate:email:bcjones@umbc.edu
+ajax;20060615 20:06:06;/accounts/ajax/validate.php;validate:uniqueuserp:bcjones@umbc.edu
+ajax;20060615 20:06:06;/accounts/ajax/validate.php;validate:uniqueuserp:bcjones@umbc.edu
+ajax;20060615 20:06:06;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060615 20:06:16;/accounts/ajax/validate.php;validate:email:bcjones@umbc.edu
+ajax;20060615 20:06:16;/accounts/ajax/validate.php;validate:uniqueuserp:bcjones@umbc.edu
+ajax;20060615 20:06:16;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060615 20:06:53;/accounts/createaccount.php;validate:required:bcjones@umbc.edu
+ajax;20060615 20:06:53;/accounts/createaccount.php;validate:email:bcjones@umbc.edu
+ajax;20060615 20:06:53;/accounts/createaccount.php;validate:uniqueuserp:bcjones@umbc.edu
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:uniqueuserp:bcjones@umbc.edu
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:required:collier
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:password:collier
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:required:collier
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:password:collier
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:match:collier
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:required:B. Collier
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:required:Jones
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:required:bcjones@umbc.edu
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:email:bcjones@umbc.edu
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:uniqueuserp:bcjones@umbc.edu
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:required:UI/Interaction Designer
+ajax;20060615 20:06:54;/accounts/createaccount.php;validate:required:University of Maryland Baltimore County
+bcjones@umbc.edu;20060615 20:06:54;/accounts/createaccount.php;user added (ldap): B. Collier Jones (bcjones@umbc.edu) [736]
+69.251.69.146;20060615 20:06:54;/accounts/createaccount.php;created account: bcjones@umbc.edu (bcjones@umbc.edu) Jones,B. Collier: inst=1
+bcjones@umbc.edu;20060615 20:07:11;/accounts/activate.php;user modified (ldap): B. Collier Jones (bcjones@umbc.edu) [736]
+bcjones@umbc.edu;20060615 20:07:20;/accounts/login.php;user logged in (ldap):69.251.69.146:https://sakaiproject.org/accounts/login.php

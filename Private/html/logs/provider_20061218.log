@@ -1,0 +1,6 @@
+ajax;20061218 14:47:11;/accounts/ajax/validate.php;validate:email:Girisha
+ajax;20061218 14:47:11;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061218 14:47:21;/accounts/ajax/validate.php;validate:email:girisha.salian@yahoo.co.in
+ajax;20061218 14:47:21;/accounts/ajax/validate.php;validate:uniqueuserp:girisha.salian@yahoo.co.in
+ajax;20061218 14:47:21;/accounts/ajax/validate.php;validate:uniqueuserp:girisha.salian@yahoo.co.in
+ajax;20061218 14:47:22;/accounts/ajax/validate.php;return=ok|username|

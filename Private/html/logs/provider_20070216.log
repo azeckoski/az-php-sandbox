@@ -1,0 +1,46 @@
+max@nyu.edu;20070216 11:04:12;/accounts/login.php;user logged in (ldap):128.122.50.212:https://sakaiproject.org/accounts/login.php
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;validate:zipcode:10012
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;validate:email:max@nyu.edu
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;validate:uniquesql:max@nyu.edu
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;validate:phone:9178615989
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070216 11:04:16;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:password:jack999
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:password:jack999
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:match:jack999
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:required:Max
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:required:Whitney
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:required:max@nyu.edu
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:email:max@nyu.edu
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:uniquesql:max@nyu.edu
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:required:33
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate::251 Mercer St.
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:namespaces:New York
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:namespaces:NY
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:zipcode:10012
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:namespaces:US
+ajax;20070216 11:04:38;/accounts/myaccount.php;validate:phone:9178615989
+max@nyu.edu;20070216 11:04:38;/accounts/myaccount.php;user modified (ldap): Max Whitney (max@nyu.edu) [782]
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;validate:email:max@nyu.edu
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;validate:uniquesql:max@nyu.edu
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;validate:phone:9178615989
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;validate:zipcode:10012
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070216 11:04:39;/accounts/ajax/validate.php;return=ok|zipcode|
+max@nyu.edu;20070216 11:04:54;/accounts/login.php;user logged in (ldap):128.122.50.212:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20070216 11:05:34;/conference/proposals/index.php;validate:required:presentation

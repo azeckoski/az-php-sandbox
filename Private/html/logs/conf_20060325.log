@@ -1,0 +1,17 @@
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:University Administration
+ajax;20060325 02:16:20;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:12345 El Monte Road
+
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:Los Altos Hills
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:CA
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:zipcode:94022
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:US
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:namespaces:US
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:650.949.7109
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:phone:650.949.7109
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:phone:650.949.7134
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:Y
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:N
+ajax;20060325 02:16:20;/conference/registration/index.php;validate:required:Large
+ajax;20060325 14:10:01;/conference/proposals/index.php;validate:required:presentation

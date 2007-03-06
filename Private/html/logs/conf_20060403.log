@@ -1,0 +1,178 @@
+ajax;20060403 00:02:58;/conference/proposals/index.php;validate:required:presentation
+ajax;20060403 00:41:52;/conference/proposals/next.php;validate:required:done
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:required:Manager
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:required:IET Mediaworks - Surge II, Hutchison Rd.
+UCDavis
+One Shields Ave.
+
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:required:Davis
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:required:CA
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:namespaces:CA
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:zipcode:95616
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:required:US
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:required:530-752-3777
+ajax;20060403 00:44:16;/conference/proposals/contact.php;validate:phone:530-752-3777
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:Implementor
+ajax;20060403 04:46:56;/conference/registration/index.php;validate::System Administrator
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:Central Computing Department
+Herengracht 182
+1016BR
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:Amsterdam
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:Noord Holland
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:namespaces:Noord Holland
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:NL
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:namespaces:NL
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:+31 20 525 3743
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:phone:+31 20 525 3743
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:Y
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:N
+ajax;20060403 04:46:56;/conference/registration/index.php;validate:required:Large
+ajax;20060403 08:03:56;/conference/proposals/index.php;validate:required:demo
+ajax;20060403 08:18:56;/conference/proposals/next.php;validate:required:done
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:required:Faculty
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:required:2-8-1, Mejirodai, Bunkyo-ku
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:required:Tokyo
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:required:Tokyo
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:namespaces:Tokyo
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:zipcode:112-8681
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:required:JP
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:namespaces:JP
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:required:+81-3-59813633
+ajax;20060403 08:22:08;/conference/proposals/contact.php;validate:phone:+81-3-59813633
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:required:Faculty
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:required:2-8-1 Mejirodai Bunkyo-ku
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:required:Tokyo
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:required:Tokyo
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:namespaces:Tokyo
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:zipcode:112-8681
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:required:JP
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:namespaces:JP
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:required:+81-3-5981-3633
+ajax;20060403 08:23:39;/conference/proposals/contact.php;validate:phone:+81-3-5981-3633
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:required:Faculty
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:required:2-8-1 Mejirodai Bunkyo-ku
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:required:Tokyo
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:required:Tokyo
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:namespaces:Tokyo
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:zipcode:112-8681
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:required:JP
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:namespaces:JP
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:required:81-3-59813633
+ajax;20060403 08:27:33;/conference/proposals/contact.php;validate:phone:81-3-59813633
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20060403 09:23:22;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:Herengracht 182
+1016 BR
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:Amsterdam
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:   
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:namespaces:   
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:NL
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:namespaces:NL
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:+31205253745
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:phone:+31205253745
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:Y
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:N
+ajax;20060403 09:23:22;/conference/registration/index.php;validate:required:Large
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:Manager
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:Universiteit van Amsterdam
+Central Computer Services
+Herengracht 182
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:Amsterdam
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:1016 BR
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:namespaces:1016 BR
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:NL
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:namespaces:NL
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:+31205252428
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:phone:+31205252428
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:phone:+31205252084
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:Y
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:N
+ajax;20060403 09:57:06;/conference/registration/index.php;validate:required:Medium
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:Manager
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:251 Mercer Street
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:New York
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:NY
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:namespaces:NY
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:zipcode:10012
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:US
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:namespaces:US
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:212-998-3038
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:phone:212-998-3038
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:Y
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:N
+ajax;20060403 11:01:15;/conference/registration/index.php;validate:required:Large
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060403 12:05:08;/conference/registration/index.php;validate::System Administrator
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:56 Bevier Rd
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:Piscataway
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:NJ
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:namespaces:NJ
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:zipcode:08854
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:US
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:namespaces:US
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:732-445-8735
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:phone:732-445-8735
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:Y
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:N
+ajax;20060403 12:05:08;/conference/registration/index.php;validate:required:Large
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060403 14:02:55;/conference/registration/index.php;validate::System Administrator
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:535 W Michigan St
+IT300
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:Indianapolis
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:IN
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:namespaces:IN
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:zipcode:46202
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:US
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:namespaces:US
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:317-270-0251
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:phone:317-270-0251
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:phone:317-274-0776
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:Y
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:N
+ajax;20060403 14:02:55;/conference/registration/index.php;validate:required:X-Large
+ajax;20060403 15:19:17;/conference/proposals/index.php;validate:required:presentation
+ajax;20060403 15:36:35;/conference/proposals/next.php;validate:required:done
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:required:Manager
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:required:1866 Main Mall
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:required:Vancouver
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:required:BC
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:namespaces:BC
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:zipcode:V6T 1Z1
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:required:CA
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:namespaces:CA
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:required:6048229790
+ajax;20060403 15:36:44;/conference/proposals/contact.php;validate:phone:6048229790
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060403 18:00:01;/conference/registration/index.php;validate::Manager
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:3140 N. Arizona Ave.
+Suite 113
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:Chandler
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:AZ
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:namespaces:AZ
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:zipcode:85225
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:US
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:namespaces:US
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:480-558-2466
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:phone:480-558-2466
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:phone:480-558-2320
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:Y
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:Y
+ajax;20060403 18:00:01;/conference/registration/index.php;validate:required:XX-Large
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:Manager
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:PO Box 870101
+
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:Tempe
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:AZ
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:namespaces:AZ
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:zipcode:85287-0101
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:US
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:namespaces:US
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:480-965-3906
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:phone:480-965-3906
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:phone:480-727-6767
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:Y
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:N
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:required:Large
+ajax;20060403 18:17:49;/conference/registration/index.php;validate:email:lesleyw@asu.edu

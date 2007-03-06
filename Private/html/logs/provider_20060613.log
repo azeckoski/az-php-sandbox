@@ -1,0 +1,53 @@
+kmclennan;20060613 11:37:06;/accounts/login.php;user logged in (ldap):129.81.209.132:https://sakaiproject.org/accounts/login.php?ref=/facebook/index.php
+erik.froese@gmail.com;20060613 12:21:29;/accounts/forgot_password.php;user modified (ldap): Erik Froese (erik.froese@gmail.com) [673]
+128.122.50.199;20060613 12:21:29;/accounts/forgot_password.php;password reset: erik.froese@gmail.com
+erik.froese@gmail.com;20060613 12:22:26;/accounts/login.php;user logged in (ldap):128.122.50.199:https://sakaiproject.org/accounts/login.php
+ajax;20060613 12:22:37;/accounts/ajax/validate.php;validate:email:erik.froese@gmail.com
+ajax;20060613 12:22:37;/accounts/ajax/validate.php;validate:uniquesql:erik.froese@gmail.com
+ajax;20060613 12:22:37;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:password:h@wkwind
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:password:h@wkwind
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:match:h@wkwind
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:required:Erik
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:required:Froese
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:required:erik.froese@gmail.com
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:email:erik.froese@gmail.com
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:uniquesql:erik.froese@gmail.com
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:required:System Administrator
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate::University Administration
+ajax;20060613 12:22:49;/accounts/myaccount.php;validate:required:33
+erik.froese@gmail.com;20060613 12:22:49;/accounts/myaccount.php;user modified (ldap): Erik Froese (erik.froese@gmail.com) [673]
+ajax;20060613 12:22:50;/accounts/ajax/validate.php;validate:email:erik.froese@gmail.com
+ajax;20060613 12:22:50;/accounts/ajax/validate.php;validate:uniquesql:erik.froese@gmail.com
+ajax;20060613 12:22:50;/accounts/ajax/validate.php;return=ok|email|
+tmccready;20060613 12:51:17;/accounts/login.php;user logged in (ldap):66.185.248.156:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php
+kemoore;20060613 15:55:18;/accounts/login.php;user logged in (ldap):168.122.34.154:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php
+ajax;20060613 17:20:54;/accounts/ajax/validate.php;validate:email:stdtam29
+ajax;20060613 17:20:54;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060613 17:21:04;/accounts/ajax/validate.php;validate:email:mangumxx@hotmail.com
+ajax;20060613 17:21:04;/accounts/ajax/validate.php;validate:uniqueuserp:mangumxx@hotmail.com
+ajax;20060613 17:21:05;/accounts/ajax/validate.php;validate:uniqueuserp:mangumxx@hotmail.com
+ajax;20060613 17:21:05;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060613 17:21:21;/accounts/ajax/validate.php;validate:email:mangumxx@hotmail.com
+ajax;20060613 17:21:21;/accounts/ajax/validate.php;validate:uniqueuserp:mangumxx@hotmail.com
+ajax;20060613 17:21:21;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060613 17:22:15;/accounts/createaccount.php;validate:required:mangumxx@hotmail.com
+ajax;20060613 17:22:15;/accounts/createaccount.php;validate:email:mangumxx@hotmail.com
+ajax;20060613 17:22:15;/accounts/createaccount.php;validate:uniqueuserp:mangumxx@hotmail.com
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:uniqueuserp:mangumxx@hotmail.com
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:required:m0nk3y1
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:password:m0nk3y1
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:required:m0nk3y1
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:password:m0nk3y1
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:match:m0nk3y1
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:required:t
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:required:m
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:required:mangumxx@hotmail.com
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:email:mangumxx@hotmail.com
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:uniqueuserp:mangumxx@hotmail.com
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:required:Implementor
+ajax;20060613 17:22:16;/accounts/createaccount.php;validate:required:Sam Houston State University
+mangumxx@hotmail.com;20060613 17:22:17;/accounts/createaccount.php;user added (ldap): t m (mangumxx@hotmail.com) [734]
+158.135.1.92;20060613 17:22:17;/accounts/createaccount.php;created account: mangumxx@hotmail.com (mangumxx@hotmail.com) m,t: inst=1
+mangumxx@hotmail.com;20060613 17:23:14;/accounts/activate.php;user modified (ldap): t m (mangumxx@hotmail.com) [734]
+mangumxx@hotmail.com;20060613 17:23:49;/accounts/login.php;user logged in (ldap):158.135.1.92:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php

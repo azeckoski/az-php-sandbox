@@ -1,0 +1,82 @@
+shardin;20060810 07:27:07;/accounts/login.php;user logged in (internal):64.235.110.195:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060810 14:40:34;/accounts/ajax/validate.php;validate:email:agmcauley
+ajax;20060810 14:40:34;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060810 14:41:25;/accounts/ajax/validate.php;validate:email:amcauley@upei.ca
+ajax;20060810 14:41:25;/accounts/ajax/validate.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:41:25;/accounts/ajax/validate.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:41:25;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060810 14:42:36;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060810 14:42:36;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060810 14:42:36;/accounts/ajax/validate.php;validate:namespaces:PE
+ajax;20060810 14:42:36;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060810 14:42:46;/accounts/ajax/validate.php;validate:email:amcauley@upei.ca
+ajax;20060810 14:42:46;/accounts/ajax/validate.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:42:46;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060810 14:44:00;/accounts/ajax/validate.php;validate:namespaces:Charlottetown
+ajax;20060810 14:44:00;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060810 14:44:12;/accounts/ajax/validate.php;validate:phone:902 894-3814
+ajax;20060810 14:44:12;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060810 14:44:23;/accounts/ajax/validate.php;validate:phone:902 566-0916
+ajax;20060810 14:44:23;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060810 14:46:04;/accounts/ajax/validate.php;validate:email:amcauley
+ajax;20060810 14:46:04;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060810 14:46:12;/accounts/ajax/validate.php;validate:email:amcauley@upei.ca
+ajax;20060810 14:46:12;/accounts/ajax/validate.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:46:12;/accounts/ajax/validate.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:46:12;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060810 14:46:29;/accounts/ajax/validate.php;validate:namespaces:PE
+ajax;20060810 14:46:29;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060810 14:46:32;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060810 14:46:32;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060810 14:46:34;/accounts/ajax/validate.php;validate:email:amcauley@upei.ca
+ajax;20060810 14:46:34;/accounts/ajax/validate.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:46:34;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060810 14:47:29;/accounts/ajax/validate.php;validate:namespaces:Charlottetown
+ajax;20060810 14:47:29;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060810 14:47:36;/accounts/ajax/validate.php;validate:zipcode:C1A 4P3
+ajax;20060810 14:47:36;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060810 14:47:57;/accounts/ajax/validate.php;validate:phone:902 894-2814
+ajax;20060810 14:47:57;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060810 14:48:06;/accounts/ajax/validate.php;validate:phone:902 566-0916
+ajax;20060810 14:48:06;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060810 14:48:08;/accounts/createaccount.php;validate:required:amcauley@upei.ca
+ajax;20060810 14:48:08;/accounts/createaccount.php;validate:email:amcauley@upei.ca
+ajax;20060810 14:48:08;/accounts/createaccount.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:required:lobbelinfrunname
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:password:lobbelinfrunname
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:required:lobbelinfrunname
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:password:lobbelinfrunname
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:match:lobbelinfrunname
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:required:Sandy
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:required:McAuley
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:required:amcauley@upei.ca
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:email:amcauley@upei.ca
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:uniqueuserp:amcauley@upei.ca
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate::Implementor
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:required:University of Prince Edward Island
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate::550 University Ave
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:namespaces:Charlottetown
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:namespaces:PE
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:zipcode:C1A 4P3
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:namespaces:CA
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:phone:902 894-2814
+ajax;20060810 14:48:09;/accounts/createaccount.php;validate:phone:902 566-0916
+142.150.139.140;20060810 14:48:09;/accounts/createaccount.php;created account: amcauley@upei.ca (amcauley@upei.ca) McAuley,Sandy: inst=1
+amcauley@upei.ca;20060810 14:59:45;/accounts/login.php;user logged in (internal):142.150.139.140:https://sakaiproject.org/accounts/login.php
+ajax;20060810 15:01:07;/accounts/ajax/validate.php;validate:email:amcauley@upei.ca
+ajax;20060810 15:01:07;/accounts/ajax/validate.php;validate:uniquesql:amcauley@upei.ca
+ajax;20060810 15:01:07;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060810 15:01:07;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060810 15:01:07;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060810 15:01:08;/accounts/ajax/validate.php;validate:namespaces:PE
+ajax;20060810 15:01:08;/accounts/ajax/validate.php;validate:namespaces:Charlottetown
+ajax;20060810 15:01:08;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060810 15:01:08;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060810 15:01:08;/accounts/ajax/validate.php;validate:phone:902 566-0916
+ajax;20060810 15:01:08;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060810 15:01:08;/accounts/ajax/validate.php;validate:phone:902 894-2814
+ajax;20060810 15:01:08;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060810 15:01:10;/accounts/ajax/validate.php;validate:zipcode:C1A 4P3
+ajax;20060810 15:01:10;/accounts/ajax/validate.php;return=ok|zipcode|

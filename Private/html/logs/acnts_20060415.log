@@ -1,0 +1,53 @@
+pavolka;20060415 09:29:58;/accounts/login.php;user logged in (internal):149.166.133.152:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060415 14:19:51;/accounts/ajax/validate.php;validate:nospaces:angell
+ajax;20060415 14:19:51;/accounts/ajax/validate.php;validate:uniquesql:angell
+ajax;20060415 14:19:51;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060415 14:19:58;/accounts/ajax/validate.php;validate:password:alwayz47
+ajax;20060415 14:19:58;/accounts/ajax/validate.php;return=ok|password1|
+ajax;20060415 14:20:01;/accounts/ajax/validate.php;validate:password:alwayz47
+ajax;20060415 14:20:01;/accounts/ajax/validate.php;return=ok|password2|
+ajax;20060415 14:20:14;/accounts/ajax/validate.php;validate:email:angell@pdx.edu
+ajax;20060415 14:20:14;/accounts/ajax/validate.php;validate:uniquesql:angell@pdx.edu
+ajax;20060415 14:20:14;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060415 14:21:01;/accounts/ajax/validate.php;validate:namespaces:Portland
+ajax;20060415 14:21:01;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060415 14:21:05;/accounts/ajax/validate.php;validate:namespaces:OR
+ajax;20060415 14:21:05;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060415 14:21:10;/accounts/ajax/validate.php;validate:zipcode:97201
+ajax;20060415 14:21:10;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060415 14:21:11;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060415 14:21:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060415 14:21:17;/accounts/ajax/validate.php;validate:phone:503-725-8745
+ajax;20060415 14:21:17;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:required:angell
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:nospaces:angell
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:uniquesql:angell
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:required:alwayz47
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:password:alwayz47
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:required:alwayz47
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:password:alwayz47
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:required:Nathan
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:required:Angell
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:required:angell@pdx.edu
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:email:angell@pdx.edu
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:uniquesql:angell@pdx.edu
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:required:University Administration
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate::Implementor
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:required:39
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate::University Communications
+PO Box 751
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:namespaces:Portland
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:namespaces:OR
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:zipcode:97201
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060415 14:21:33;/accounts/createaccount.php;validate:phone:503-725-8745
+68.166.180.4;20060415 14:21:33;/accounts/createaccount.php;created account: angell (angell@pdx.edu) Angell,Nathan inst=39
+angell;20060415 14:22:22;/accounts/login.php;user logged in (internal):68.166.180.4:https://sakaiproject.org/accounts/login.php
+ajax;20060415 14:22:31;/accounts/ajax/validate.php;validate:namespaces:OR
+ajax;20060415 14:22:31;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060415 14:22:31;/accounts/ajax/validate.php;validate:zipcode:97201
+ajax;20060415 14:22:31;/accounts/ajax/validate.php;return=ok|zip|
+ajax;20060415 14:22:31;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060415 14:22:31;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060415 14:22:31;/accounts/ajax/validate.php;validate:phone:503-725-8745
+ajax;20060415 14:22:31;/accounts/ajax/validate.php;return=ok|phone|

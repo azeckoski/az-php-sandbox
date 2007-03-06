@@ -1,0 +1,378 @@
+darolmar;20060911 08:23:35;/accounts/login.php;user logged in (internal):158.42.252.227:https://sakaiproject.org/accounts/login.php
+ajax;20060911 08:23:47;/conference/proposals/index.php;validate:required:presentation
+amelungc;20060911 09:42:10;/accounts/login.php;user logged in (internal):130.132.248.85:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060911 11:04:00;/accounts/ajax/validate.php;validate:email:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:04:00;/accounts/ajax/validate.php;validate:uniqueuserp:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:04:00;/accounts/ajax/validate.php;validate:uniqueuserp:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:04:00;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060911 11:04:32;/accounts/ajax/validate.php;validate:email:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:04:32;/accounts/ajax/validate.php;validate:uniqueuserp:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:04:33;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060911 11:07:21;/accounts/ajax/validate.php;validate:namespaces:Atlanta
+ajax;20060911 11:07:21;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060911 11:07:21;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20060911 11:07:21;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 11:07:24;/accounts/ajax/validate.php;validate:zipcode:30308
+ajax;20060911 11:07:24;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 11:07:36;/accounts/ajax/validate.php;validate:phone:4043853000
+ajax;20060911 11:07:36;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:required:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:email:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:uniqueuserp:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:uniqueuserp:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:required:holtzhold
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:password:holtzhold
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:required:holtzhold
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:password:holtzhold
+ajax;20060911 11:07:39;/accounts/createaccount.php;validate:match:holtzhold
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:required:Jim
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:required:Snyder
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:required:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:email:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:uniqueuserp:jim.snyder@dlpe.gatech.edu
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:required:Georgia Tech
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate::84 5th Street
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:namespaces:Atlanta
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:namespaces:GA
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:zipcode:30308
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060911 11:07:40;/accounts/createaccount.php;validate:phone:4043853000
+128.61.196.35;20060911 11:07:40;/accounts/createaccount.php;created account: jim.snyder@dlpe.gatech.edu (jim.snyder@dlpe.gatech.edu) Snyder,Jim: inst=1
+jim.snyder@dlpe.gatech.edu;20060911 11:08:31;/accounts/login.php;user logged in (internal):128.61.196.35:https://sakaiproject.org/accounts/login.php
+ajax;20060911 11:08:35;/accounts/ajax/validate.php;validate:zipcode:30308
+ajax;20060911 11:08:35;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 11:08:35;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20060911 11:08:35;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 11:08:35;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 11:08:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 11:08:35;/accounts/ajax/validate.php;validate:phone:4043853000
+ajax;20060911 11:08:35;/accounts/ajax/validate.php;return=ok|phone|
+knoop;20060911 11:24:16;/accounts/login.php;user logged in (internal):68.248.43.252:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060911 11:24:32;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060911 11:24:32;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 11:24:33;/accounts/ajax/validate.php;validate:zipcode:48109-2094
+ajax;20060911 11:24:33;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 11:24:33;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 11:24:33;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 11:24:34;/accounts/ajax/validate.php;validate:phone:734-647-8042
+ajax;20060911 11:24:34;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:Manager
+ajax;20060911 11:25:21;/conference/registration/index.php;validate::Faculty
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:Ann Arbor
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:MI
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:namespaces:MI
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:zipcode:48109-2094
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:US
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:namespaces:US
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:734-647-8042
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:phone:734-647-8042
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:Y
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:N
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:X-Large
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:TUE
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:WED
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:THU
+ajax;20060911 11:25:21;/conference/registration/index.php;validate:required:FRI
+lancespeelmon;20060911 11:57:05;/accounts/login.php;user logged in (internal):74.130.9.8:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+suesearing;20060911 12:59:18;/accounts/login.php;user logged in (internal):74.134.88.111:https://sakaiproject.org/accounts/login.php
+ajax;20060911 12:59:34;/conference/proposals/index.php;validate:required:presentation
+acker.1;20060911 13:01:57;/accounts/login.php;user logged in (internal):128.146.220.45:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060911 13:02:12;/conference/proposals/index.php;validate:required:presentation
+markjnorton;20060911 13:31:42;/accounts/login.php;user logged in (internal):70.20.17.71:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060911 13:31:56;/conference/proposals/index.php;validate:required:presentation
+ajax;20060911 13:40:05;/conference/proposals/edit_proposal.php;validate:required:Sakai Requirements
+ajax;20060911 13:40:05;/conference/proposals/edit_proposal.php;validate:required:A presentation of the Sakai requirements process, how it has worked to date, and how people can contribute to future Sakai releases.
+ajax;20060911 13:40:05;/conference/proposals/edit_proposal.php;validate:required:The Sakai Requirements Working Group has guided the collection and organization of requirements for the Sakai 2.2 and 2.3 releases.  In this presentation, we will review the process to date and examine it's effectiveness with an eye towards making it better.  Some time will be spent on how to write requests and proposals.
+ajax;20060911 13:40:05;/conference/proposals/edit_proposal.php;validate:required:Mark J. Norton
+ajax;20060911 13:40:05;/conference/proposals/edit_proposal.php;validate:required:Mark Norton is a long time contributor to the Sakai project. Currently, he is serving as the Chairman of the Requirements Working Group in addition to other duties.
+ajax;20060911 13:40:05;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20060911 13:40:05;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20060911 13:40:05;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20060911 13:40:17;/conference/proposals/index.php;validate:required:presentation
+ajax;20060911 13:40:28;/conference/proposals/index.php;validate:required:presentation
+melledge;20060911 14:36:39;/accounts/login.php;user logged in (internal):35.10.173.22:https://sakaiproject.org/accounts/login.php
+ajax;20060911 14:36:54;/conference/proposals/index.php;validate:required:presentation
+aaronz;20060911 14:55:40;/accounts/login.php;user logged in (internal):128.173.55.214:https://www.sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ybf2u;20060911 15:06:32;/accounts/login.php;user logged in (internal):128.143.218.120:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060911 15:06:33;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060911 15:06:33;/accounts/ajax/validate.php;validate:zipcode:22904-4710
+ajax;20060911 15:06:33;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:06:33;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:06:33;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:06:33;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 15:06:33;/accounts/ajax/validate.php;validate:phone:434 924-4055
+ajax;20060911 15:06:33;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060911 15:09:05;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:Charlottesville
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:VA
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:namespaces:VA
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:zipcode:22904-4710
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:US
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:namespaces:US
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:434 924-4055
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:phone:434 924-4055
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:Y
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:N
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:XXX-Large
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:TUE
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:WED
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:THU
+ajax;20060911 15:09:05;/conference/registration/index.php;validate:required:FRI
+ajax;20060911 15:13:32;/accounts/ajax/validate.php;validate:zipcode:22904-4710
+ajax;20060911 15:13:32;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20060911 15:13:32;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:13:32;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:13:32;/accounts/ajax/validate.php;validate:phone:434 924-4055
+ajax;20060911 15:13:32;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:13:32;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 15:13:32;/accounts/ajax/validate.php;return=ok|country|
+markjnorton;20060911 15:25:27;/accounts/login.php;user logged in (internal):70.20.17.71:https://www.sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+147.26.118.231;20060911 15:48:48;/accounts/forgot_password.php;password reset: sk16@txstate.edu
+sk16@txstate.edu;20060911 15:50:30;/accounts/login.php;user logged in (internal):147.26.118.231:https://sakaiproject.org/accounts/login.php
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;validate:email:sk16@txstate.edu
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;validate:uniquesql:sk16@txstate.edu
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;validate:namespaces:San Marcos
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;validate:phone:512 245-2319
+ajax;20060911 15:50:41;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:password:nahid
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:password:nahid
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:match:nahid
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:required:Salwa
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:required:Khan
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:required:sk16@txstate.edu
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:email:sk16@txstate.edu
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:uniquesql:sk16@txstate.edu
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:required:Faculty Development
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate::User Support
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:required:Texas State University -    San Marcos
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate::601 University Drive
+Alkek 109
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:namespaces:San Marcos
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:namespaces:TX
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:zipcode:78666
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060911 15:51:14;/accounts/myaccount.php;validate:phone:512 245-2319
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;validate:email:sk16@txstate.edu
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;validate:uniquesql:sk16@txstate.edu
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;validate:namespaces:San Marcos
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;validate:phone:512 245-2319
+ajax;20060911 15:51:15;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:password:jamila
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:password:jamila
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:match:jamila
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:required:Salwa
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:required:Khan
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:required:sk16@txstate.edu
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:email:sk16@txstate.edu
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:uniquesql:sk16@txstate.edu
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:required:Faculty Development
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate::User Support
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:required:Texas State University -    San Marcos
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate::601 University Drive
+Alkek 109
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:namespaces:San Marcos
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:namespaces:TX
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:zipcode:78666
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060911 15:51:40;/accounts/myaccount.php;validate:phone:512 245-2319
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;validate:email:sk16@txstate.edu
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;validate:uniquesql:sk16@txstate.edu
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;validate:namespaces:San Marcos
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;validate:phone:512 245-2319
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:51:41;/accounts/ajax/validate.php;return=ok|country|
+sk16@txstate.edu;20060911 15:52:22;/accounts/login.php;user logged in (internal):147.26.118.231:https://sakaiproject.org/accounts/login.php
+ajax;20060911 15:52:28;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060911 15:52:28;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:52:28;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20060911 15:52:28;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:52:28;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:52:28;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 15:52:28;/accounts/ajax/validate.php;validate:phone:512 245-2319
+ajax;20060911 15:52:28;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;validate:email:sk16@txstate.edu
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;validate:uniquesql:sk16@txstate.edu
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;validate:namespaces:San Marcos
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;validate:phone:512 245-2319
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 15:52:53;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:required:Salwa
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:required:Khan
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:required:sk16@txstate.edu
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:email:sk16@txstate.edu
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:uniquesql:sk16@txstate.edu
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:required:Faculty Development
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate::User Support
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:required:51
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate::601 University Drive
+Alkek 109
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:namespaces:San Marcos
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:namespaces:TX
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:zipcode:78666
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060911 15:53:13;/accounts/myaccount.php;validate:phone:512 245-2319
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;validate:email:sk16@txstate.edu
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;validate:uniquesql:sk16@txstate.edu
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;validate:namespaces:San Marcos
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:53:13;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 15:53:14;/accounts/ajax/validate.php;validate:phone:512 245-2319
+ajax;20060911 15:53:14;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 15:53:21;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060911 15:53:21;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 15:53:21;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 15:53:21;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 15:53:21;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20060911 15:53:21;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 15:53:21;/accounts/ajax/validate.php;validate:phone:512 245-2319
+ajax;20060911 15:53:21;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:Faculty Development
+ajax;20060911 16:00:58;/conference/registration/index.php;validate::User Support
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:San Marcos
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:TX
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:namespaces:TX
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:zipcode:78666
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:US
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:namespaces:US
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:512 245-2319
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:phone:512 245-2319
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:N
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:N
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:Small
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:TUE
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:WED
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:THU
+ajax;20060911 16:00:58;/conference/registration/index.php;validate:required:FRI
+ajax;20060911 16:01:16;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060911 16:01:16;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20060911 16:01:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 16:01:16;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 16:01:16;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 16:01:16;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 16:01:16;/accounts/ajax/validate.php;validate:phone:512 245-2319
+ajax;20060911 16:01:16;/accounts/ajax/validate.php;return=ok|phone|
+sk16@txstate.edu;20060911 16:09:15;/accounts/login.php;user logged in (internal):147.26.118.231:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060911 16:09:30;/conference/proposals/index.php;validate:required:presentation
+ajax;20060911 16:43:18;/conference/proposals/index.php;validate:required:presentation
+ajax;20060911 16:57:23;/conference/proposals/edit_proposal.php;validate:required:Sakai's Project Management and Coordination
+ajax;20060911 16:57:23;/conference/proposals/edit_proposal.php;validate:required:An overivew of Sakai's Project Management and Coordination activities, followed by a community discussion seeking ways to improve things (e.g., better ways to orgainize existing activities wuch as Forums, Working Groups, and Projects, how to keep the community informed of the various activities' status and and future plans.)
+ajax;20060911 16:57:23;/conference/proposals/edit_proposal.php;validate:required:A roughly 20 minute overview of the current state of Sakai and how project coordination is handled.  Followed by 70 minutes of community brainstorming on what folks think might need changing and ways to do things better.
+ajax;20060911 16:57:23;/conference/proposals/edit_proposal.php;validate:required:Peter Knoop
+ajax;20060911 16:57:23;/conference/proposals/edit_proposal.php;validate:required:Peter Knoop is the Sakai Project Coordinator and also a consumer of CTools (the University of Michigan flavour of Sakai) when teaching field geology courses during the summer.
+ajax;20060911 16:57:23;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20060911 16:57:23;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20060911 16:57:23;/conference/proposals/edit_proposal.php;validate:required:90
+amorrone;20060911 19:11:04;/accounts/login.php;user logged in (internal):156.56.75.2:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060911 19:11:05;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20060911 19:11:05;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 19:11:05;/accounts/ajax/validate.php;validate:zipcode:46202
+ajax;20060911 19:11:05;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 19:11:05;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 19:11:05;/accounts/ajax/validate.php;validate:phone:317-274-3479
+ajax;20060911 19:11:05;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 19:11:05;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:Faculty Development
+ajax;20060911 19:13:37;/conference/registration/index.php;validate::Faculty
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:Indianapolis
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:IN
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:namespaces:IN
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:zipcode:46202
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:US
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:namespaces:US
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:317-274-3479
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:phone:317-274-3479
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:Y
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:N
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:Medium
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:TUE
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:WED
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:THU
+ajax;20060911 19:13:37;/conference/registration/index.php;validate:required:FRI
+jfern;20060911 22:18:44;/accounts/login.php;user logged in (internal):149.166.142.201:https://sakaiproject.org/accounts/login.php
+ajax;20060911 22:18:46;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20060911 22:18:46;/accounts/ajax/validate.php;validate:zipcode:46202
+ajax;20060911 22:18:46;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060911 22:18:46;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060911 22:18:47;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060911 22:18:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060911 22:18:47;/accounts/ajax/validate.php;validate:phone:317-278-1570
+ajax;20060911 22:18:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:University Administration
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:Indianapolis
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:IN
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:namespaces:IN
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:zipcode:46202
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:US
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:namespaces:US
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:317-278-1570
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:phone:317-278-1570
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:Y
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:N
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:X-Large
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:TUE
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:WED
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:THU
+ajax;20060911 22:19:22;/conference/registration/index.php;validate:required:FRI
+ajax;20060911 23:47:38;/conference/proposals/edit_proposal.php;validate:required:Sakai's Project Management and Coordination
+ajax;20060911 23:47:38;/conference/proposals/edit_proposal.php;validate:required:An overivew of Sakai's Project Management and Coordination activities, followed by a community discussion seeking ways to improve things (e.g., better ways to orgainize existing activities wuch as Forums, Working Groups, and Projects, how to keep the community informed of the various activities' status and and future plans.)
+ajax;20060911 23:47:38;/conference/proposals/edit_proposal.php;validate:required:A roughly 20 minute overview of the current state of Sakai and how project coordination is handled.  Followed by 70 minutes of community brainstorming on what folks think might need changing and ways to do things better.
+ajax;20060911 23:47:38;/conference/proposals/edit_proposal.php;validate:required:Peter Knoop
+ajax;20060911 23:47:38;/conference/proposals/edit_proposal.php;validate:required:Peter Knoop is the Sakai Project Coordinator and also a consumer of CTools (the University of Michigan flavour of Sakai) when teaching field geology courses during the summer.
+ajax;20060911 23:47:38;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20060911 23:47:38;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20060911 23:47:38;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20060911 23:49:41;/conference/proposals/edit_proposal.php;validate:required:Sakai's Project Management and Coordination
+ajax;20060911 23:49:41;/conference/proposals/edit_proposal.php;validate:required:An overivew of Sakai's Project Management and Coordination activities, followed by a community discussion seeking ways to improve things (e.g., better ways to orgainize existing activities wuch as Forums, Working Groups, and Projects, how to keep the community informed of the various activities' status and and future plans.)
+ajax;20060911 23:49:41;/conference/proposals/edit_proposal.php;validate:required:A roughly 20 minute overview of the current state of Sakai and how project coordination is handled.  Followed by 70 minutes of community brainstorming on what folks think might need changing and ways to do things better.
+ajax;20060911 23:49:41;/conference/proposals/edit_proposal.php;validate:required:Peter Knoop
+ajax;20060911 23:49:41;/conference/proposals/edit_proposal.php;validate:required:Peter Knoop is the Sakai Project Coordinator and also a consumer of CTools (the University of Michigan flavour of Sakai) when teaching field geology courses during the summer.
+ajax;20060911 23:49:41;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20060911 23:49:41;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20060911 23:49:41;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20060911 23:49:50;/conference/proposals/edit_proposal.php;validate:required:Sakai's Project Management and Coordination
+ajax;20060911 23:49:50;/conference/proposals/edit_proposal.php;validate:required:An overivew of Sakai's Project Management and Coordination activities, followed by a community discussion seeking ways to improve things (e.g., better ways to orgainize existing activities wuch as Forums, Working Groups, and Projects, how to keep the community informed of the various activities' status and and future plans.)
+ajax;20060911 23:49:50;/conference/proposals/edit_proposal.php;validate:required:A roughly 20 minute overview of the current state of Sakai and how project coordination is handled.  Followed by 70 minutes of community brainstorming on what folks think might need changing and ways to do things better.
+ajax;20060911 23:49:50;/conference/proposals/edit_proposal.php;validate:required:Peter Knoop
+ajax;20060911 23:49:50;/conference/proposals/edit_proposal.php;validate:required:Peter Knoop is the Sakai Project Coordinator and also a consumer of CTools (the University of Michigan flavour of Sakai) when teaching field geology courses during the summer.
+ajax;20060911 23:49:50;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20060911 23:49:50;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20060911 23:49:50;/conference/proposals/edit_proposal.php;validate:required:90

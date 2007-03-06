@@ -1,0 +1,465 @@
+fecarrod;20060925 04:19:33;/accounts/login.php;user logged in (internal):158.42.100.30:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060925 06:44:55;/conference/proposals/index.php;validate:required:presentation
+ajax;20060925 07:20:27;/conference/proposals/edit_proposal.php;validate:required:Supporting users for facing the production phase at UPV.
+ajax;20060925 07:20:27;/conference/proposals/edit_proposal.php;validate:required:This paper wants to describe the different users supporting initiatives undertaken by the Universidad Politécnica de Valencia (UPV) for facing the production phase. These initiatives include a supporting desk creation, live courses and presentations, multimedia content production and encouraging the peer to peer support
+ajax;20060925 07:20:27;/conference/proposals/edit_proposal.php;validate:required:The support for the UPV SAKAI users was one of the main problems that had to be solved during the pilot phase. During this phase was decided to offer a multimodal support to the teachers. 
+The first support mode is a help desk which helps the teachers on the phone or by e-mail.
+The second support model consists in a help site which offers the following support features:
+•A multimedia course based on SAKAI main uses cases. This course is composed by a textual explanation, a flash animation and an explicative video of the process. This tree ways of explaining the same use case is for providing online support to the teachers whatever was their available bandwidth.
+•An open forum including several threads in order to encourage the peer to peer support among the UPV users.
+The third support mode is composed by SAKAI presentations and live courses.
+
+ajax;20060925 07:20:27;/conference/proposals/edit_proposal.php;validate:required:Federico Carvajal
+ajax;20060925 07:20:27;/conference/proposals/edit_proposal.php;validate:required:Federico Carvajal received his degree in telecommunication engineering, from the Universidad Politécnica de Valencia in 1999. He has been involved as Project Engineer in several European commission research projects. He has expertise in object modeling and data models. Currently he is in the second year of his Ph.D. (Dr.Ing.) degree.
+ajax;20060925 07:20:27;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20060925 07:20:27;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20060925 07:20:27;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20060925 07:29:47;/conference/proposals/index.php;validate:required:demo
+ajax;20060925 08:44:10;/accounts/ajax/validate.php;validate:email:admteam@mail.ucf.edu
+ajax;20060925 08:44:10;/accounts/ajax/validate.php;validate:uniqueuserp:admteam@mail.ucf.edu
+ajax;20060925 08:44:10;/accounts/ajax/validate.php;validate:uniqueuserp:admteam@mail.ucf.edu
+ajax;20060925 08:44:10;/accounts/ajax/validate.php;return=error|username|username already used
+m.gonzalez@lancaster.ac.uk;20060925 08:51:15;/accounts/login.php;user logged in (internal):194.80.32.8:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+128.42.95.253;20060925 09:56:31;/accounts/forgot_password.php;password reset: solis@rice.edu
+solis;20060925 09:58:58;/accounts/login.php;user logged in (internal):128.42.95.253:https://sakaiproject.org/accounts/login.php
+ajax;20060925 10:10:45;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20060925 10:10:45;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 10:10:45;/accounts/ajax/validate.php;validate:zipcode:77005
+ajax;20060925 10:10:45;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060925 10:10:45;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060925 10:10:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 10:10:45;/accounts/ajax/validate.php;validate:phone:713-348-5687
+ajax;20060925 10:10:45;/accounts/ajax/validate.php;return=ok|phone|
+ws15@txstate.edu;20060925 10:40:17;/accounts/login.php;user logged in (internal):147.26.119.178:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:User Support
+ajax;20060925 10:43:14;/conference/registration/index.php;validate::System Administrator
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:San Marcos
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:TX
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:namespaces:TX
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:zipcode:78666
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:US
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:namespaces:US
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:512-245-2319
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:phone:512-245-2319
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:phone:512-245-3168
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:N
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:N
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:XX-Large
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:TUE
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:WED
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:THU
+ajax;20060925 10:43:14;/conference/registration/index.php;validate:required:FRI
+dave.ross@gmail.com;20060925 10:46:50;/accounts/login.php;user logged in (internal):74.70.56.163:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:Manager
+ajax;20060925 10:47:04;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:Houston
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:TX
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:namespaces:TX
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:zipcode:77005
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:US
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:namespaces:US
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:713-348-5687
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:phone:713-348-5687
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:Y
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:N
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:Large
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:TUE
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:WED
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:THU
+ajax;20060925 10:47:04;/conference/registration/index.php;validate:required:FRI
+dave.ross@gmail.com;20060925 10:47:08;/accounts/login.php;user logged in (internal):74.70.56.163:https://sakaiproject.org/accounts/login.php
+ajax;20060925 10:47:20;/conference/proposals/index.php;validate:required:presentation
+lmarfoglio@sgu.edu;20060925 10:47:47;/accounts/login.php;user logged in (internal):216.255.120.222:https://sakaiproject.org/accounts/login.php
+rblechman@sgu.edu;20060925 10:56:33;/accounts/login.php;user logged in (internal):216.255.120.222:https://sakaiproject.org/accounts/login.php
+ajax;20060925 10:56:37;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20060925 10:56:37;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 10:56:37;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060925 10:56:37;/accounts/ajax/validate.php;validate:phone:6316658055
+ajax;20060925 10:56:37;/accounts/ajax/validate.php;validate:zipcode:11706
+ajax;20060925 10:56:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 10:56:37;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060925 10:56:37;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:University Administration
+ajax;20060925 10:57:56;/conference/registration/index.php;validate::Manager
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:St. George's University
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:Bay Shore
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:NY
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:namespaces:NY
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:zipcode:11706
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:US
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:namespaces:US
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:6316658055
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:phone:6316658055
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:Y
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:N
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:Large
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:TUE
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:WED
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:THU
+ajax;20060925 10:57:56;/conference/registration/index.php;validate:required:FRI
+ajax;20060925 11:12:43;/conference/proposals/edit_proposal.php;validate:required:Linking External Tools with Sakai
+ajax;20060925 11:12:43;/conference/proposals/edit_proposal.php;validate:required:This presentation will be an in-depth look at the techniques used to link external tools into your Sakai deployment. Even if your existing codebase is currently hosted in a completely separate environment, you still may be able to expose it as a Sakai tool without much hassle.
+ajax;20060925 11:12:43;/conference/proposals/edit_proposal.php;validate:required:Albany Medical College currently is running several "linked" tools that appear to students as part of Sakai, but are hosted in a completely separate environment. This presentation will cover the existing strageies for external tool integration - focusing on the use of the Rutgers Link Tool (which is provisional for 2.3). Link Tool topics will include:
+-Custom Registration (the Link Tool can be registered with Sakai multiple times to allow end-users the ability to add multiple external tools using Site Info).
+-User Interface Concerns (we're using the linktool in a popup window to prevent dual-scrollbar issues).
+-Further Integration using webservices (our external tools make extensive use of Sakai user and authorization data - pulled via. Sakai webservices - we'll show how).
+ajax;20060925 11:12:43;/conference/proposals/edit_proposal.php;validate:required:David Ross
+ajax;20060925 11:12:43;/conference/proposals/edit_proposal.php;validate:required:Dave Ross works at Albany Medical College in Albany, NY, providing technical expertise in support of the College's educational goals. Dave has spent eight years in the information systems field, primarily involved with software development for the healthcare industry. He also regularly works with CFML, Java, C#, and a variety of other tools and technologies.
+ajax;20060925 11:12:43;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20060925 11:12:43;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20060925 11:12:43;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20060925 11:14:18;/conference/proposals/edit_proposal.php;validate:required:Linking External Tools with Sakai
+ajax;20060925 11:14:18;/conference/proposals/edit_proposal.php;validate:required:This presentation will be an in-depth look at the techniques used to link external tools into your Sakai deployment. Even if your existing codebase is currently hosted in a completely separate environment, you still may be able to expose it as a Sakai tool without much hassle.
+ajax;20060925 11:14:18;/conference/proposals/edit_proposal.php;validate:required:Albany Medical College currently is running several "linked" tools that appear to students as part of Sakai, but are hosted in a completely separate environment. This presentation will cover the existing strategies for external tool integration - focusing on the use of the Rutgers Link Tool (which is provisional for 2.3). Link Tool topics will include:
+-Custom Registration (the Link Tool can be registered with Sakai multiple times to allow end-users the ability to add multiple external tools using Site Info).
+-User Interface Concerns (we're using the linktool in a popup window to prevent dual-scrollbar issues).
+-Further Integration using webservices (our external tools make extensive use of Sakai user and authorization data - pulled via. Sakai webservices - we'll show how).
+ajax;20060925 11:14:18;/conference/proposals/edit_proposal.php;validate:required:David Ross
+ajax;20060925 11:14:18;/conference/proposals/edit_proposal.php;validate:required:Dave Ross works at Albany Medical College in Albany, NY, providing technical expertise in support of the College's educational goals. Dave has spent eight years in the information systems field, primarily involved with software development for the healthcare industry. He also regularly works with CFML, Java, C#, and a variety of other tools and technologies.
+ajax;20060925 11:14:18;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20060925 11:14:18;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20060925 11:14:18;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20060925 12:08:01;/accounts/ajax/validate.php;validate:email:rneuharth@unicon.net
+ajax;20060925 12:08:01;/accounts/ajax/validate.php;validate:uniqueuserp:rneuharth@unicon.net
+ajax;20060925 12:08:01;/accounts/ajax/validate.php;validate:uniqueuserp:rneuharth@unicon.net
+ajax;20060925 12:08:01;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060925 12:08:34;/accounts/ajax/validate.php;validate:email:rneuharth@unicon.net
+ajax;20060925 12:08:34;/accounts/ajax/validate.php;validate:uniqueuserp:rneuharth@unicon.net
+ajax;20060925 12:08:34;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:required:rneuharth@unicon.net
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:email:rneuharth@unicon.net
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:uniqueuserp:rneuharth@unicon.net
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:uniqueuserp:rneuharth@unicon.net
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:required:unicon
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:password:unicon
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:required:unicon
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:password:unicon
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:match:unicon
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:required:Ryan
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:required:Neuharth
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:required:rneuharth@unicon.net
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:email:rneuharth@unicon.net
+ajax;20060925 12:09:25;/accounts/createaccount.php;validate:uniqueuserp:rneuharth@unicon.net
+ajax;20060925 12:09:26;/accounts/createaccount.php;validate:required:Manager
+ajax;20060925 12:09:26;/accounts/createaccount.php;validate:required:95
+12.164.139.3;20060925 12:09:26;/accounts/createaccount.php;created account: rneuharth@unicon.net (rneuharth@unicon.net) Neuharth,Ryan: inst=95
+rneuharth@unicon.net;20060925 12:10:06;/accounts/login.php;user logged in (internal):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/accounts/createaccount.php
+ajax;20060925 12:10:07;/accounts/ajax/validate.php;validate:email:rneuharth@unicon.net
+ajax;20060925 12:10:07;/accounts/ajax/validate.php;validate:uniquesql:rneuharth@unicon.net
+ajax;20060925 12:10:07;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060925 12:10:26;/accounts/myaccount.php;validate:required:Ryan
+ajax;20060925 12:10:26;/accounts/myaccount.php;validate:required:Neuharth
+ajax;20060925 12:10:26;/accounts/myaccount.php;validate:required:rneuharth@unicon.net
+ajax;20060925 12:10:26;/accounts/myaccount.php;validate:email:rneuharth@unicon.net
+ajax;20060925 12:10:26;/accounts/myaccount.php;validate:uniquesql:rneuharth@unicon.net
+ajax;20060925 12:10:26;/accounts/myaccount.php;validate:required:Manager
+ajax;20060925 12:10:26;/accounts/myaccount.php;validate:required:95
+ajax;20060925 12:12:07;/conference/proposals/index.php;validate:required:demo
+ajax;20060925 12:21:42;/accounts/ajax/validate.php;validate:email:ellbogenctl@uwyo.edu
+ajax;20060925 12:21:42;/accounts/ajax/validate.php;validate:uniqueuserp:ellbogenctl@uwyo.edu
+ajax;20060925 12:21:42;/accounts/ajax/validate.php;validate:uniqueuserp:ellbogenctl@uwyo.edu
+ajax;20060925 12:21:42;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060925 12:22:02;/accounts/ajax/validate.php;validate:email:ellbogenctl@uwyo.edu
+ajax;20060925 12:22:02;/accounts/ajax/validate.php;validate:uniqueuserp:ellbogenctl@uwyo.edu
+ajax;20060925 12:22:02;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060925 12:22:46;/accounts/ajax/validate.php;validate:namespaces:Laramie
+ajax;20060925 12:22:46;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060925 12:22:50;/accounts/ajax/validate.php;validate:namespaces:WY
+ajax;20060925 12:22:50;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 12:22:53;/accounts/ajax/validate.php;validate:email:chodge5
+ajax;20060925 12:22:53;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060925 12:22:56;/accounts/ajax/validate.php;validate:zipcode:82071
+ajax;20060925 12:22:56;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060925 12:22:57;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060925 12:22:57;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 12:23:00;/accounts/ajax/validate.php;validate:email:chodge5@utk.edu
+ajax;20060925 12:23:00;/accounts/ajax/validate.php;validate:uniqueuserp:chodge5@utk.edu
+ajax;20060925 12:23:00;/accounts/ajax/validate.php;validate:uniqueuserp:chodge5@utk.edu
+ajax;20060925 12:23:00;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060925 12:23:05;/accounts/ajax/validate.php;validate:phone:307-766-5499
+ajax;20060925 12:23:05;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060925 12:23:15;/accounts/ajax/validate.php;validate:phone:307-766-4822
+ajax;20060925 12:23:15;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060925 12:23:15;/accounts/ajax/validate.php;validate:email:chodge5@utk.edu
+ajax;20060925 12:23:15;/accounts/ajax/validate.php;validate:uniqueuserp:chodge5@utk.edu
+ajax;20060925 12:23:15;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:required:ellbogenctl@uwyo.edu
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:email:ellbogenctl@uwyo.edu
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:uniqueuserp:ellbogenctl@uwyo.edu
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:uniqueuserp:ellbogenctl@uwyo.edu
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:required:Coe307
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:password:Coe307
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:required:Coe307
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:password:Coe307
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:match:Coe307
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:required:Robin 
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:required:Hill
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:required:ellbogenctl@uwyo.edu
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:email:ellbogenctl@uwyo.edu
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:uniqueuserp:ellbogenctl@uwyo.edu
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:required:Faculty Development
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:required:University of Wyoming
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate::University of Wyoming
+Ellbogen Center for Teaching and Learning
+Department 3334
+1000 East University Avenue
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:namespaces:Laramie
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:namespaces:WY
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:zipcode:82071
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:phone:307-766-5499
+ajax;20060925 12:23:53;/accounts/createaccount.php;validate:phone:307-766-4822
+129.72.68.104;20060925 12:23:53;/accounts/createaccount.php;created account: ellbogenctl@uwyo.edu (ellbogenctl@uwyo.edu) Hill,Robin : inst=1
+ws15@txstate.edu;20060925 12:31:19;/accounts/login.php;user logged in (internal):147.26.118.231:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060925 12:31:27;/conference/proposals/index.php;validate:required:presentation
+ajax;20060925 12:53:57;/conference/proposals/edit_proposal.php;validate:required:A Story As Big As Texas...Texas State's Migration to Sakai 
+ajax;20060925 12:53:57;/conference/proposals/edit_proposal.php;validate:required:From Blackboard to Sakai; Texas State's Migration to Sakai--Wrangling 27,000 students and 1500 faculty into the new frontier.
+ajax;20060925 12:53:57;/conference/proposals/edit_proposal.php;validate:required:The team presentation will cover issues faced when moving from Blackboard to Sakai. Issues we will include are: How the Sakai(TRACS)team was assembled; our 3-semester pilot program; skinning TRACS; user support efforts; open migration; user stories; and growing Sakai in Texas.
+ajax;20060925 12:53:57;/conference/proposals/edit_proposal.php;validate:required:Michael Farris
+ajax;20060925 12:53:57;/conference/proposals/edit_proposal.php;validate:required:Michael Farris is Director of the Educational Technology Center at Texas State University-San Marcos.
+ajax;20060925 12:53:57;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20060925 12:53:57;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20060925 12:53:57;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20060925 12:54:32;/conference/proposals/edit_proposal.php;validate:required:A Story As Big As Texas...Texas State's Migration to Sakai
+ajax;20060925 12:54:32;/conference/proposals/edit_proposal.php;validate:required:From Blackboard to Sakai; Texas State's Migration to Sakai--Wrangling 27,000 students and 1500 faculty into the new frontier.
+ajax;20060925 12:54:32;/conference/proposals/edit_proposal.php;validate:required:The team presentation will cover issues faced when moving from Blackboard to Sakai. Issues we will include are: How the Sakai(TRACS)team was assembled; our 3-semester pilot program; skinning TRACS; user support efforts; open migration; user stories; and growing Sakai in Texas.
+ajax;20060925 12:54:32;/conference/proposals/edit_proposal.php;validate:required:Michael Farris
+ajax;20060925 12:54:32;/conference/proposals/edit_proposal.php;validate:required:Michael Farris is Director of the Educational Technology Center at Texas State University-San Marcos.
+ajax;20060925 12:54:33;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20060925 12:54:33;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20060925 12:54:33;/conference/proposals/edit_proposal.php;validate:required:90
+132.170.155.144;20060925 13:19:09;/accounts/forgot_password.php;password reset: admteam@mail.ucf.edu
+wytzekoopal;20060925 13:32:06;/accounts/login.php;user logged in (internal):82.72.146.23:https://sakaiproject.org/accounts/login.php
+ajax;20060925 13:32:24;/accounts/ajax/validate.php;validate:namespaces:OV
+ajax;20060925 13:32:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 13:32:24;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20060925 13:32:24;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 13:32:25;/accounts/ajax/validate.php;validate:phone: 31534892455
+ajax;20060925 13:32:25;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060925 13:34:24;/conference/proposals/index.php;validate:required:presentation
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;validate:email:w.y.koopal@utwente.nl
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;validate:uniquesql:w.y.koopal@utwente.nl
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;validate:namespaces:OV
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;validate:namespaces:Enschede
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20060925 13:34:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 13:34:50;/accounts/ajax/validate.php;validate:phone: 31534892455
+ajax;20060925 13:34:50;/accounts/ajax/validate.php;return=ok|phone|
+dgunn@cerritos.edu;20060925 13:46:27;/accounts/login.php;user logged in (internal):198.188.96.2:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+132.170.155.144;20060925 13:53:57;/accounts/forgot_password.php;password reset: admteam@mail.ucf.edu
+132.170.155.144;20060925 13:55:15;/accounts/forgot_password.php;password reset: admteam@mail.ucf.edu
+132.170.155.144;20060925 14:09:28;/accounts/forgot_password.php;password reset: admteam@mail.ucf.edu
+btruman;20060925 14:54:44;/accounts/login.php;user logged in (internal):132.170.155.144:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;validate:zipcode:32816-2810
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20060925 14:54:46;/accounts/ajax/validate.php;return=ok|fax|
+emgibson;20060925 14:58:19;/accounts/login.php;user logged in (internal):169.237.97.236:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060925 15:00:16;/accounts/ajax/validate.php;validate:email:admteam@
+ajax;20060925 15:00:16;/accounts/ajax/validate.php;return=error|delegate|Invalid email address
+ajax;20060925 15:06:08;/accounts/ajax/validate.php;validate:email:admteam@mail.ucf.edu
+ajax;20060925 15:06:08;/accounts/ajax/validate.php;return=ok|delegate|
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:Faculty Development
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:University of Central Florida
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:Orlando
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:FL
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:namespaces:FL
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:zipcode:32816-2810
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:US
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:namespaces:US
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:407-823-3718
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:phone:407-823-3718
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:phone:407-823-3511
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:Y
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:Y
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:Large
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:TUE
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:WED
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:THU
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:required:FRI
+ajax;20060925 15:06:11;/conference/registration/index.php;validate:email:admteam@mail.ucf.edu
+ajax;20060925 15:09:27;/accounts/ajax/validate.php;validate:email:dvoorhee@mail.ucf.edu
+ajax;20060925 15:09:27;/accounts/ajax/validate.php;validate:uniqueuserp:dvoorhee@mail.ucf.edu
+ajax;20060925 15:09:27;/accounts/ajax/validate.php;validate:uniqueuserp:dvoorhee@mail.ucf.edu
+ajax;20060925 15:09:27;/accounts/ajax/validate.php;return=error|username|username already used
+132.170.155.144;20060925 15:10:10;/accounts/forgot_password.php;password reset: dvoorhee@mail.ucf.edu
+ajax;20060925 15:13:55;/accounts/ajax/validate.php;validate:email:jlyu@mail.ucf.edu
+ajax;20060925 15:13:55;/accounts/ajax/validate.php;validate:uniqueuserp:jlyu@mail.ucf.edu
+ajax;20060925 15:13:55;/accounts/ajax/validate.php;validate:uniqueuserp:jlyu@mail.ucf.edu
+ajax;20060925 15:13:55;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060925 15:19:15;/accounts/ajax/validate.php;validate:namespaces:Orlando
+ajax;20060925 15:19:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060925 15:19:16;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20060925 15:19:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 15:19:49;/accounts/ajax/validate.php;validate:zipcode:32816-2810
+ajax;20060925 15:19:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060925 15:19:51;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060925 15:19:51;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 15:20:14;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20060925 15:20:14;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060925 15:21:13;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20060925 15:21:13;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060925 15:23:13;/accounts/ajax/validate.php;validate:email:admteam@mail.ucf.edu
+ajax;20060925 15:23:13;/accounts/ajax/validate.php;validate:uniqueuserp:admteam@mail.ucf.edu
+ajax;20060925 15:23:13;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20060925 15:23:30;/accounts/ajax/validate.php;validate:email:jlyu@mail.ucf.edu
+ajax;20060925 15:23:30;/accounts/ajax/validate.php;validate:uniqueuserp:jlyu@mail.ucf.edu
+ajax;20060925 15:23:30;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:required:jlyu@mail.ucf.edu
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:email:jlyu@mail.ucf.edu
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:uniqueuserp:jlyu@mail.ucf.edu
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:uniqueuserp:jlyu@mail.ucf.edu
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:required:cdws
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:password:cdws
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:required:cdws
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:password:cdws
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:match:cdws
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:required:Jin
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:required:Lyn
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:required:jlyu@mail.ucf.edu
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:email:jlyu@mail.ucf.edu
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:uniqueuserp:jlyu@mail.ucf.edu
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:required:User Support
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:required:University of Central Florida
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate::4000 Central Florida Blvd.
+Bldg. 2, Lib-107
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:namespaces:Orlando
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:namespaces:FL
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:zipcode:32816-2810
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:phone:407-823-3718
+ajax;20060925 15:25:07;/accounts/createaccount.php;validate:phone:407-823-3511
+132.170.155.144;20060925 15:25:07;/accounts/createaccount.php;created account: jlyu@mail.ucf.edu (jlyu@mail.ucf.edu) Lyn,Jin: inst=1
+ajax;20060925 15:36:09;/accounts/ajax/validate.php;validate:email:wlchan@mail.ucf.edu
+ajax;20060925 15:36:09;/accounts/ajax/validate.php;validate:uniqueuserp:wlchan@mail.ucf.edu
+ajax;20060925 15:36:09;/accounts/ajax/validate.php;validate:uniqueuserp:wlchan@mail.ucf.edu
+ajax;20060925 15:36:09;/accounts/ajax/validate.php;return=error|username|username already used
+132.170.155.144;20060925 15:36:31;/accounts/forgot_password.php;password reset: wlchan@mail.ucf.edu
+ajax;20060925 15:37:08;/accounts/ajax/validate.php;validate:email:jbuckner@mail.ucf.edu
+ajax;20060925 15:37:08;/accounts/ajax/validate.php;validate:uniqueuserp:jbuckner@mail.ucf.edu
+ajax;20060925 15:37:08;/accounts/ajax/validate.php;validate:uniqueuserp:jbuckner@mail.ucf.edu
+ajax;20060925 15:37:08;/accounts/ajax/validate.php;return=error|username|username already used
+132.170.155.144;20060925 15:37:21;/accounts/forgot_password.php;password reset: jbuckner@mail.ucf.edu
+ajax;20060925 16:04:14;/conference/proposals/index.php;validate:required:presentation
+schan;20060925 16:13:52;/accounts/login.php;user logged in (internal):132.170.155.144:https://sakaiproject.org/accounts/login.php
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;validate:namespaces:FL
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;validate:phone:407-823-3718
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;validate:zipcode:32816
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;validate:phone:407-823-3511
+ajax;20060925 16:13:56;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060925 16:15:30;/accounts/ajax/validate.php;validate:email:admteam@mail.ucf.edu
+ajax;20060925 16:15:30;/accounts/ajax/validate.php;return=ok|delegate|
+ajax;20060925 16:16:10;/accounts/ajax/validate.php;validate:zipcode:32816-2810
+ajax;20060925 16:16:10;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:University of Central Florida
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:orlando
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:FL
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:namespaces:FL
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:zipcode:32816-2810
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:US
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:namespaces:US
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:407-823-3718
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:phone:407-823-3718
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:phone:407-823-3511
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:Y
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:Y
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:Large
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:TUE
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:WED
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:THU
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:required:FRI
+ajax;20060925 16:19:16;/conference/registration/index.php;validate:email:admteam@mail.ucf.edu
+ajax;20060925 19:20:25;/accounts/ajax/validate.php;validate:email:a.strijker@utwente.nl
+ajax;20060925 19:20:25;/accounts/ajax/validate.php;validate:uniqueuserp:a.strijker@utwente.nl
+ajax;20060925 19:20:25;/accounts/ajax/validate.php;validate:uniqueuserp:a.strijker@utwente.nl
+ajax;20060925 19:20:25;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060925 19:21:43;/accounts/ajax/validate.php;validate:zipcode:7500 AE
+ajax;20060925 19:21:43;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20060925 19:22:07;/accounts/ajax/validate.php;validate:namespaces:Netherlands
+ajax;20060925 19:22:07;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060925 19:22:13;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20060925 19:22:13;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 19:24:38;/accounts/ajax/validate.php;validate:email:a.strijker@utwente.nl
+ajax;20060925 19:24:38;/accounts/ajax/validate.php;validate:uniqueuserp:a.strijker@utwente.nl
+ajax;20060925 19:24:38;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:required:a.strijker@utwente.nl
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:email:a.strijker@utwente.nl
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:uniqueuserp:a.strijker@utwente.nl
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:uniqueuserp:a.strijker@utwente.nl
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:required:donderdag
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:password:donderdag
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:required:donderdag
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:password:donderdag
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:match:donderdag
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:required:Allard
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:required:Strijker
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:required:a.strijker@utwente.nl
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:email:a.strijker@utwente.nl
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:uniqueuserp:a.strijker@utwente.nl
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:required:115
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate::PO Box 217
+
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:namespaces:Enschede
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:namespaces:Netherlands
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:namespaces:NL
+ajax;20060925 19:24:45;/accounts/createaccount.php;validate:phone:+31 53 489 4543
+130.89.237.121;20060925 19:24:45;/accounts/createaccount.php;created account: a.strijker@utwente.nl (a.strijker@utwente.nl) Strijker,Allard: inst=115
+ajax;20060925 23:19:09;/accounts/ajax/validate.php;validate:email:teezee
+ajax;20060925 23:19:09;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060925 23:19:53;/accounts/ajax/validate.php;validate:email:tayyabz@umich.edu
+ajax;20060925 23:19:53;/accounts/ajax/validate.php;validate:uniqueuserp:tayyabz@umich.edu
+ajax;20060925 23:19:53;/accounts/ajax/validate.php;validate:uniqueuserp:tayyabz@umich.edu
+ajax;20060925 23:19:53;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060925 23:20:45;/accounts/ajax/validate.php;validate:email:tayyabz@umich.edu
+ajax;20060925 23:20:45;/accounts/ajax/validate.php;validate:uniqueuserp:tayyabz@umich.edu
+ajax;20060925 23:20:45;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060925 23:21:17;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060925 23:21:18;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 23:21:23;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060925 23:21:23;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:required:tayyabz@umich.edu
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:email:tayyabz@umich.edu
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:uniqueuserp:tayyabz@umich.edu
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:uniqueuserp:tayyabz@umich.edu
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:required:rahman1
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:password:rahman1
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:required:rahman1
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:password:rahman1
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:match:rahman1
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:required:Tayyab
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:required:Zaidi
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:required:tayyabz@umich.edu
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:email:tayyabz@umich.edu
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:uniqueuserp:tayyabz@umich.edu
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:required:User Support
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:required:76
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:namespaces:MI
+ajax;20060925 23:21:44;/accounts/createaccount.php;validate:namespaces:US
+68.40.215.67;20060925 23:21:44;/accounts/createaccount.php;created account: tayyabz@umich.edu (tayyabz@umich.edu) Zaidi,Tayyab: inst=76
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;validate:email:tayyabz@umich.edu
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;validate:uniqueuserp:tayyabz@umich.edu
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;validate:email:tayyabz@umich.edu
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;validate:uniqueuserp:tayyabz@umich.edu
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;return=error|username|username already used
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060925 23:22:13;/accounts/ajax/validate.php;return=ok|country|

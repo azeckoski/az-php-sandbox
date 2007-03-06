@@ -1,0 +1,45 @@
+ajax;20070212 10:26:22;/accounts/ajax/validate.php;validate:email:tim.ngan@gmail.com
+ajax;20070212 10:26:22;/accounts/ajax/validate.php;validate:uniqueuserp:tim.ngan@gmail.com
+ajax;20070212 10:26:22;/accounts/ajax/validate.php;validate:uniqueuserp:tim.ngan@gmail.com
+ajax;20070212 10:26:23;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070212 10:28:31;/accounts/ajax/validate.php;validate:email:timngan@yahoo.com
+ajax;20070212 10:28:31;/accounts/ajax/validate.php;validate:uniqueuserp:timngan@yahoo.com
+ajax;20070212 10:28:31;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:required:timngan@yahoo.com
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:email:timngan@yahoo.com
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:uniqueuserp:timngan@yahoo.com
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:uniqueuserp:timngan@yahoo.com
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:required:shungwai
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:password:shungwai
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:required:shungwai
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:password:shungwai
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:match:shungwai
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:required:Tim
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:required:Ngan
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:required:timngan@yahoo.com
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:email:timngan@yahoo.com
+ajax;20070212 10:28:40;/accounts/createaccount.php;validate:uniqueuserp:timngan@yahoo.com
+ajax;20070212 10:28:41;/accounts/createaccount.php;validate:required:Manager
+ajax;20070212 10:28:41;/accounts/createaccount.php;validate:required:HKUST
+timngan@yahoo.com;20070212 10:28:41;/accounts/createaccount.php;user added (ldap): Tim Ngan (timngan@yahoo.com) [1102]
+143.89.138.234;20070212 10:28:41;/accounts/createaccount.php;created account: timngan@yahoo.com (timngan@yahoo.com) Ngan,Tim: inst=1
+timngan@yahoo.com;20070212 10:30:12;/accounts/activate.php;user modified (ldap): Tim Ngan (timngan@yahoo.com) [1102]
+timngan@yahoo.com;20070212 10:30:31;/accounts/login.php;user logged in (ldap):143.89.138.234:https://sakaiproject.org/accounts/login.php
+shardin;20070212 13:31:45;/accounts/login.php;user logged in (ldap):141.213.120.157:https://sakaiproject.org/accounts/login.php
+bettino;20070212 15:23:20;/accounts/login.php;user logged in (ldap):198.188.96.2:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20070212 15:23:28;/conference/proposals/index.php;validate:required:presentation
+ajax;20070212 15:38:58;/conference/proposals/edit_proposal.php;validate:required:Keys to a Successful Sakai Implementation: Training and Support
+ajax;20070212 15:38:58;/conference/proposals/edit_proposal.php;validate:required:
+Cerritos College in Southern California is in the first year of implementing Sakai Open Source as our course management system. This presentation will discuss the two key elements to a successful implementation of Sakai on any campus. These are training and support for faculty, students and staff. We will also discuss some guerrilla tactics to promote the use of Sakai (which we call TalonNet).
+
+ajax;20070212 15:38:58;/conference/proposals/edit_proposal.php;validate:required:Cerritos College in Southern California is a two year community college with approximately 15,000 FTES. We have a long tradition of online course delivery, beginning in 1994. Cerritos College eventually embraced this pedagogy by putting financial and personnel resources towards the creation of a department of Technology Training and Distance Education. Every step of the way, the core values of support and academic freedom, so important to the campus culture, served as a critical foundation.
+For this reason, Staff Development, Multimedia Production and the student Academic Support Center became part of this department leading to a division name change to Innovation and Academic Support.
+	Cerritos college has never been interested in using a commercial course management system, deciding instead to build our own applications to meet faculty and student needs. But eventually the Faculty Senate requested that the college move to a more robust and scalable platform. The decision to go with Sakai was actually an easy one. It was a good fit for our campus culture. 
+	IT was the only group on campus with reservations (as is their nature). With the much appreciated help of rSmart, we built a development team that has integrated Sakai with PeopleSoft, SQL, Rosters+ 
+	This presentation will present arguments on the necessity of developing a potent training and support program on any campus undertaking a Sakai implementation. Our model can be replicated and we have made ourselves available to assist other institutions in this vital endeavor.
+
+ajax;20070212 15:38:58;/conference/proposals/edit_proposal.php;validate:required:M.L. Bettino
+ajax;20070212 15:38:58;/conference/proposals/edit_proposal.php;validate:required:ML Bettino - Dean - Innovation and Academic Support (which includes: Distance Education, Staff Development, Multimedia Production and Support, Educational Technology and all technology training). Former professor of Reading. Online Instructor since 1994. Developed first online course for Developmental Reading in California. CAPED Teacher of the Year in 1996. Presenter at Sakai Conference in Atlanta, all TechEd Conferences since 1998 and various other conferences such as League of Innovation, eLearning, CRLA and California Chancellor's Mega-Conferences. 
+ajax;20070212 15:38:58;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20070212 15:38:58;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20070212 15:38:58;/conference/proposals/edit_proposal.php;validate:required:60

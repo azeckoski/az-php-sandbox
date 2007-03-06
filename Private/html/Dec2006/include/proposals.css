@@ -1,0 +1,116 @@
+/* ---------------------voting form css--------------------- */
+/* 
+It is better to NOT use px sizes for fonts:
+IE users cannot resize a font size that is specified using px and that
+is an accessibility issue for people with poor eyesight.
+Here is a page that let's you compare sizes on browsers.
+em and % are the best ones to use in my opinion but I also use 
+pt a lot as it seems to offer better control.
+http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
+*/
+
+
+#proposals_vote tr td {
+	vertical-align:top;
+	font-size:.8em;
+	text-align: left;
+	padding: 8px 5px;
+}
+
+.button {
+	font-size:8pt;
+}
+
+textarea {
+	font-size:9pt;
+}
+
+.unsaved {
+	background-color: #660066;
+	color : white;
+}
+
+.saved {
+	background-color: #336699;
+	color : #000000;
+}
+
+.saved_green { 
+	background-color: green;
+	color : #ffffff;
+}
+
+.saved_yellow {
+	background-color: yellow;
+	color : #000000;
+}
+
+.saved_red {
+	background-color: #660000;
+	color : #ffffff;
+}
+
+.demo {
+	background-color: orange;
+	color : #000000;
+}
+.poster {
+	background-color: tan;
+	color : #000000;
+}
+.bof {
+	background-color: #9AB6C5;
+	color : #000000;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.approved {
+	background-color: #336699;
+	color : white;
+}
+
+.unapproved {
+	border: 3px solid red;
+}
+.pending {
+	background:black;
+	color:white;
+}
+
+.myvote {
+	background: white;
+	color: black;
+	font-weight: bold;
+}
+
+.matchvote {
+	background: #6666CC;
+	color:white;
+	font-weight: bold;
+}
+
+.avgvote {
+	background: #000099;
+	color:white;
+	font-weight: bold;
+}
+
+.definitions {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	background: #AADDFF;
+	border: 2px solid #AAAAAA;
+	margin-top: 6px;
+	margin-bottom: 3px;
+}
+
+.defheader {
+	background:#336699;
+	font-size:1.1em;
+	padding:.2em;
+	font-weight:bold;
+	color:white;
+}

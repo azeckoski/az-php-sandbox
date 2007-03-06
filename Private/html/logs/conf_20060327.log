@@ -1,0 +1,276 @@
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:Manager
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:Camino de Vera S/N
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:Valencia
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:Valencia
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:namespaces:Valencia
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:ES
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:namespaces:ES
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:+34 626091919
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:phone:+34 626091919
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:phone:+34 963879884
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:N
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:Y
+ajax;20060327 02:16:13;/conference/registration/index.php;validate:required:X-Large
+ajax;20060327 02:34:16;/conference/proposals/index.php;validate:required:presentation
+ajax;20060327 02:39:00;/conference/proposals/next.php;validate:required:done
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:required:Developer/Programmer
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:required:Camino de Vera s/n (Ef. 7A)
+
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:required:VALENCIA
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:required:VALENCIA
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:namespaces:VALENCIA
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:zipcode:46022
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:required:ES
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:namespaces:ES
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:required:+34963879800
+ajax;20060327 02:39:11;/conference/proposals/contact.php;validate:phone:+34963879800
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060327 03:05:51;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:CN VERA S/N
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:VALENCIA
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:VALENCIA
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:namespaces:VALENCIA
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:zipcode:46022
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:ES
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:namespaces:ES
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:0034963879070
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:phone:0034963879070
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:phone:0034963877079
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:N
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:Y
+ajax;20060327 03:05:51;/conference/registration/index.php;validate:required:Large
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060327 03:55:27;/conference/registration/index.php;validate::System Administrator
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:Camino de Vera s/n
+
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:Valencia
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:Comunidad Valenciana
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:namespaces:Comunidad Valenciana
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:zipcode:46022
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:ES
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:namespaces:ES
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:+34963879076
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:phone:+34963879076
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:phone:+34963877079
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:N
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:N
+ajax;20060327 03:55:27;/conference/registration/index.php;validate:required:Large
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20060327 11:43:20;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:
+Office of Instructional and Research Technology
+56 Bevier Road
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:piscataway
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:NJ
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:namespaces:NJ
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:zipcode:08904
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:US
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:732-445-8726
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:phone:732-445-8726
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:Y
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:N
+ajax;20060327 11:43:20;/conference/registration/index.php;validate:required:X-Large
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20060327 11:46:04;/conference/registration/index.php;validate::System Administrator
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:6439 N Sheridan Road
+Granada Center 240
+
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:Chicago
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:IL
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:namespaces:IL
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:zipcode:60626
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:US
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:773 508-7606
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:phone:773 508-7606
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:phone:773 508-2750
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:Y
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:N
+ajax;20060327 11:46:04;/conference/registration/index.php;validate:required:XXX-Large
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:Instructional Designer
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:Instruction and Research Services (IRS)
+Post Office Box 751
+
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:Portland
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:OR
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:namespaces:OR
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:zipcode:97207
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:US
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:503-725-9117
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:phone:503-725-9117
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:phone:503-725-3476
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:Y
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:N
+ajax;20060327 11:55:50;/conference/registration/index.php;validate:required:Medium
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060327 12:06:55;/conference/registration/index.php;validate::Implementor
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:University of California
+9 Dwinelle Hall, #2535
+
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:Berkeley
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:CA
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:zipcode:94720-2535
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:US
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:510-643-7380
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:phone:510-643-7380
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:Y
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:N
+ajax;20060327 12:06:55;/conference/registration/index.php;validate:required:Large
+ajax;20060327 12:08:18;/conference/proposals/index.php;validate:required:presentation
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:Instructional Designer
+ajax;20060327 12:09:05;/conference/registration/index.php;validate::Faculty Development
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:117 Pleasant Street SE
+212 Walter Library
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:Minneapolis
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:MN
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:namespaces:MN
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:zipcode:55455
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:US
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:612-624-5074
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:phone:612-624-5074
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:phone:612-625-9302
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:Y
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:N
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:required:Large
+ajax;20060327 12:09:05;/conference/registration/index.php;validate:email:kellie@umn.edu
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:Faculty Development
+ajax;20060327 12:31:03;/conference/registration/index.php;validate::User Support
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:Learning Technologies
+3008 Torgersen Hall
+Virginia Tech
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:Blacksburg
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:VA
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:namespaces:VA
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:zipcode:24061-0232
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:US
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:540.231.6499
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:phone:540.231.6499
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:Y
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:N
+ajax;20060327 12:31:03;/conference/registration/index.php;validate:required:Medium
+ajax;20060327 12:57:12;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060327 12:57:12;/conference/registration/index.php;validate::Implementor
+ajax;20060327 12:57:12;/conference/registration/index.php;validate:required:12345 El Monte
+ajax;20060327 12:57:12;/conference/registration/index.php;validate:required:Los Altos Hills
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:required:CA
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:zipcode:94022
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:required:US
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:required:(650) 949 7078
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:phone:(650) 949 7078
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:required:Y
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:required:N
+ajax;20060327 12:57:13;/conference/registration/index.php;validate:required:Medium
+ajax;20060327 13:42:17;/conference/proposals/index.php;validate:required:demo
+ajax;20060327 13:42:41;/conference/proposals/index.php;validate:required:presentation
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:Manager
+ajax;20060327 13:42:45;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:1700 Pratt Drive
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:Blacksburg
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:VA
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:namespaces:VA
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:zipcode:24060
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:US
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:540-231-7096
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:phone:540-231-7096
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:Y
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:Y
+ajax;20060327 13:42:45;/conference/registration/index.php;validate:required:X-Large
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:Faculty
+ajax;20060327 14:23:03;/conference/registration/index.php;validate::Faculty Development
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:420 Humanities
+1201 Ordean Court
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:Duluth
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:MN
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:namespaces:MN
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:zipcode:55812
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:US
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:218-726-8131
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:phone:218-726-8131
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:phone:218-726-6882
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:N
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:N
+ajax;20060327 14:23:03;/conference/registration/index.php;validate:required:Medium
+ajax;20060327 15:32:16;/conference/proposals/index.php;validate:required:presentation
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:Manager
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:1970 Campus drive
+University Library B181
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:Evanston
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:IL
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:namespaces:IL
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:zipcode:60208
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:US
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:847-467-5805
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:phone:847-467-5805
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:Y
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:N
+ajax;20060327 16:43:31;/conference/registration/index.php;validate:required:X-Large
+ajax;20060327 16:53:52;/conference/proposals/index.php;validate:required:presentation
+ajax;20060327 17:03:03;/conference/proposals/next.php;validate:required:done
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:required:Developer/Programmer
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:required:University of California, Berkeley
+Dept: URSETP
+9 Dwinelle Hall, #2535
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:required:Berkeley
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:required:CA
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:namespaces:CA
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:zipcode:94720-2535
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:required:US
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:required:510-642-8581
+ajax;20060327 17:04:11;/conference/proposals/contact.php;validate:phone:510-642-8581
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:University of California, Berkeley
+Dept: URSETP
+9 Dwinelle Hall, #2535
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:Berkeley
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:CA
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:zipcode:94720-2535
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:US
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:510-642-8581
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:phone:510-642-8581
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:Y
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:N
+ajax;20060327 17:07:32;/conference/registration/index.php;validate:required:Medium
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:System Administrator
+ajax;20060327 17:54:13;/conference/registration/index.php;validate::User Support
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:12345 El Monte Rd
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:Los Altos Hills
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:CA
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:zipcode:94022
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:US
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:namespaces:US
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:650-949-7091
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:phone:650-949-7091
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:Y
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:N
+ajax;20060327 17:54:13;/conference/registration/index.php;validate:required:Large
+ajax;20060327 18:07:07;/conference/proposals/index.php;validate:required:presentation
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:209-6356 Agricultural Road
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:Vancouver
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:BC
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:namespaces:BC
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:zipcode:V6T 1Z2
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:CA
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:namespaces:CA
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:604-827-5183
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:phone:604-827-5183
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:N
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:N
+ajax;20060327 19:55:58;/conference/registration/index.php;validate:required:Large
+ajax;20060327 20:18:27;/conference/proposals/index.php;validate:required:presentation
+ajax;20060327 20:19:23;/conference/proposals/next.php;validate:required:done

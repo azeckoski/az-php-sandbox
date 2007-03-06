@@ -1,0 +1,145 @@
+ajax;20060423 00:08:32;/accounts/ajax/validate.php;validate:uniqueuserp:higashi
+ajax;20060423 00:08:33;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060423 00:11:42;/accounts/ajax/validate.php;validate:namespaces:Nagano
+ajax;20060423 00:11:42;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060423 00:11:57;/accounts/ajax/validate.php;validate:namespaces:Japan
+ajax;20060423 00:11:57;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060423 00:12:15;/accounts/ajax/validate.php;validate:zipcode:380-8544
+ajax;20060423 00:12:15;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20060423 00:12:46;/accounts/ajax/validate.php;validate:namespaces:JP
+ajax;20060423 00:12:46;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060423 00:13:01;/accounts/ajax/validate.php;validate:namespaces:Ngano
+ajax;20060423 00:13:01;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060423 00:14:43;/accounts/ajax/validate.php;validate:email:higashi@shinshu-u.ac.jp
+ajax;20060423 00:14:43;/accounts/ajax/validate.php;validate:uniqueuserp:higashi@shinshu-u.ac.jp
+ajax;20060423 00:14:44;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:required:higashi
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:nospaces:higashi
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:uniqueuserp:higashi
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:required:mami0903
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:password:mami0903
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:required:mami0903
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:password:mami0903
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:match:mami0903
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:required:yoshinori
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:required:higashibara
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:required:higashi@shinshu-u.ac.jp
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:email:higashi@shinshu-u.ac.jp
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:uniqueuserp:higashi@shinshu-u.ac.jp
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:required:Shinshu University
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate::Nishinagano
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:namespaces:Nagano
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:namespaces:Ngano
+ajax;20060423 00:16:09;/accounts/createaccount.php;validate:namespaces:JP
+higashi;20060423 00:16:09;/accounts/createaccount.php;user added (ldap): yoshinori higashibara (higashi@shinshu-u.ac.jp) [509]
+160.252.122.104;20060423 00:16:09;/accounts/createaccount.php;created account: higashi (higashi@shinshu-u.ac.jp) higashibara,yoshinori: inst=1
+higashi;20060423 00:17:52;/accounts/activate.php;user modified (ldap): yoshinori higashibara (higashi@shinshu-u.ac.jp) [509]
+higashi;20060423 00:18:08;/accounts/login.php;user logged in (ldap):160.252.122.104:https://sakaiproject.org/accounts/login.php
+ajax;20060423 00:22:58;/accounts/ajax/validate.php;validate:namespaces:Ngano
+ajax;20060423 00:22:58;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060423 00:22:58;/accounts/ajax/validate.php;validate:namespaces:JP
+ajax;20060423 00:22:58;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060423 00:24:52;/accounts/ajax/validate.php;validate:phone:81-26-238-4246
+ajax;20060423 00:24:52;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:Faculty
+ajax;20060423 00:32:35;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:Shinshu University
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:Nagano
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:Ngano
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:namespaces:Ngano
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:JP
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:namespaces:JP
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:81-26-238-4246
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:phone:81-26-238-4246
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:Y
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:N
+ajax;20060423 00:32:35;/conference/registration/index.php;validate:required:Medium
+higashi;20060423 00:32:35;/conference/registration/index.php;user modified (ldap): yoshinori higashibara (higashi@shinshu-u.ac.jp) [509]
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;validate:email:higashi@shinshu-u.ac.jp
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;validate:namespaces:Ngano
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;validate:uniquesql:higashi@shinshu-u.ac.jp
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;validate:namespaces:JP
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;validate:namespaces:Nagano
+ajax;20060423 00:38:51;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060423 00:38:52;/accounts/ajax/validate.php;validate:phone:81-26-238-4246
+ajax;20060423 00:38:52;/accounts/ajax/validate.php;return=ok|phone|
+higashi;20060423 00:45:58;/accounts/login.php;user logged in (ldap):160.252.122.104:https://sakaiproject.org/accounts/login.php?ref=/accounts/createaccount.php
+higashi;20060423 00:46:01;/accounts/login.php;user logged in (ldap):160.252.122.104:https://sakaiproject.org/accounts/login.php?ref=/accounts/createaccount.php
+joshua.ryan@asu.edu;20060423 01:44:55;/accounts/forgot_password.php;user modified (ldap): Joshua Ryan (joshua.ryan@asu.edu) [34]
+149.169.200.133;20060423 01:44:55;/accounts/forgot_password.php;password reset: joshua.ryan@asu.edu
+joshua.ryan@asu.edu;20060423 01:45:38;/accounts/login.php;user logged in (ldap):149.169.200.133:https://sakaiproject.org/accounts/login.php
+ajax;20060423 01:47:15;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20060423 01:47:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060423 01:47:19;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060423 01:47:19;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060423 01:47:26;/accounts/ajax/validate.php;validate:phone:480-727-0868
+ajax;20060423 01:47:26;/accounts/ajax/validate.php;return=ok|phone|
+shardin;20060423 03:50:53;/accounts/login.php;user logged in (ldap):198.111.226.92:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20060423 21:46:09;/accounts/ajax/validate.php;validate:uniqueuserp:aachenjones
+ajax;20060423 21:46:09;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060423 21:46:27;/accounts/ajax/validate.php;validate:email:mzackrison@unicon.net
+ajax;20060423 21:46:27;/accounts/ajax/validate.php;validate:uniqueuserp:mzackrison@unicon.net
+ajax;20060423 21:46:27;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060423 21:47:30;/accounts/ajax/validate.php;validate:namespaces:Chandler
+ajax;20060423 21:47:30;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060423 21:47:30;/accounts/ajax/validate.php;validate:namespaces:AL
+ajax;20060423 21:47:30;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060423 21:47:34;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20060423 21:47:34;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060423 21:48:01;/accounts/ajax/validate.php;validate:zipcode:85225
+ajax;20060423 21:48:01;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060423 21:48:03;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060423 21:48:03;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060423 21:48:12;/accounts/ajax/validate.php;validate:phone:480-626-7527
+ajax;20060423 21:48:12;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:required:aachenjones
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:nospaces:aachenjones
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:uniqueuserp:aachenjones
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:required:g20g20
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:password:g20g20
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:required:g20g20
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:password:g20g20
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:match:g20g20
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:required:Mike
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:required:Zackrison
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:required:mzackrison@unicon.net
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:email:mzackrison@unicon.net
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:uniqueuserp:mzackrison@unicon.net
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:required:Manager
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:required:95
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate::3140 Arizona Ave. STE 113
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:namespaces:Chandler
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:namespaces:AZ
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:zipcode:85225
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060423 21:48:23;/accounts/createaccount.php;validate:phone:480-626-7527
+aachenjones;20060423 21:48:24;/accounts/createaccount.php;user added (ldap): Mike Zackrison (mzackrison@unicon.net) [510]
+71.37.81.64;20060423 21:48:24;/accounts/createaccount.php;created account: aachenjones (mzackrison@unicon.net) Zackrison,Mike: inst=95
+aachenjones;20060423 21:49:28;/accounts/activate.php;user modified (ldap): Mike Zackrison (mzackrison@unicon.net) [510]
+aachenjones;20060423 21:49:41;/accounts/login.php;user logged in (ldap):71.37.81.64:https://sakaiproject.org/accounts/login.php
+ajax;20060423 21:49:49;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20060423 21:49:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060423 21:49:49;/accounts/ajax/validate.php;validate:zipcode:85225
+ajax;20060423 21:49:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060423 21:49:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060423 21:49:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060423 21:49:49;/accounts/ajax/validate.php;validate:phone:480-626-7527
+ajax;20060423 21:49:49;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:required:Manager
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:required:Chandler
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:required:AZ
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:namespaces:AZ
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:zipcode:85225
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:required:US
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:namespaces:US
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:required:480-626-7527
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:phone:480-626-7527
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:required:Y
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:required:Y
+ajax;20060423 21:51:23;/conference/registration/index.php;validate:required:Large
+aachenjones;20060423 21:51:24;/conference/registration/index.php;user modified (ldap): Mike Zackrison (mzackrison@unicon.net) [510]

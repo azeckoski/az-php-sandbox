@@ -1,0 +1,584 @@
+ddelblanco;20061003 03:19:51;/accounts/login.php;user logged in (internal):158.42.100.53:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061003 03:20:14;/conference/proposals/index.php;validate:required:presentation
+ajax;20061003 07:14:15;/accounts/ajax/validate.php;validate:email:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:14:15;/accounts/ajax/validate.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:14:15;/accounts/ajax/validate.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:14:15;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061003 07:14:41;/accounts/ajax/validate.php;validate:email:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:14:41;/accounts/ajax/validate.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:14:41;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 07:15:15;/accounts/ajax/validate.php;validate:namespaces:oxford
+ajax;20061003 07:15:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 07:15:26;/accounts/ajax/validate.php;validate:zipcode:ox2 0ex
+ajax;20061003 07:15:26;/accounts/ajax/validate.php;return=error|zipcode|Invalid chars, use A-Z, numbers and '-' only
+ajax;20061003 07:15:50;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 07:15:50;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:required:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:email:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:required:hyypia
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:password:hyypia
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:required:hyypia
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:password:hyypia
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:match:hyypia
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:required:adam
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:required:marshall
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:required:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:email:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:required:oxford university
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate::oucs
+13 banbury rd
+oxford
+
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:namespaces:oxford
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:namespaces:GB
+ajax;20061003 07:16:07;/accounts/createaccount.php;validate:phone:01865 283357
+129.67.100.116;20061003 07:16:07;/accounts/createaccount.php;created account: adam.marshall@oucs.ox.ac.uk (adam.marshall@oucs.ox.ac.uk) marshall,adam: inst=1
+ajax;20061003 07:30:47;/accounts/ajax/validate.php;validate:email:buckett@bumph.org
+ajax;20061003 07:30:47;/accounts/ajax/validate.php;validate:uniqueuserp:buckett@bumph.org
+ajax;20061003 07:30:47;/accounts/ajax/validate.php;validate:uniqueuserp:buckett@bumph.org
+ajax;20061003 07:30:47;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061003 07:30:57;/accounts/ajax/validate.php;validate:email:buckett@bumph.org
+ajax;20061003 07:30:57;/accounts/ajax/validate.php;validate:uniqueuserp:buckett@bumph.org
+ajax;20061003 07:30:57;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 07:31:53;/accounts/ajax/validate.php;validate:namespaces:Oxford
+ajax;20061003 07:31:53;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 07:32:19;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 07:32:19;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20061003 07:32:30;/accounts/ajax/validate.php;validate:zipcode:OX2 6NN
+ajax;20061003 07:32:31;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20061003 07:32:40;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 07:32:40;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 07:32:53;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 07:32:53;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 07:32:59;/accounts/ajax/validate.php;validate:zipcode:OX26NN
+ajax;20061003 07:32:59;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:required:buckett@bumph.org
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:email:buckett@bumph.org
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:uniqueuserp:buckett@bumph.org
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:uniqueuserp:buckett@bumph.org
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:required:cows
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:password:cows
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:required:cows
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:password:cows
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:match:cows
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:required:Matthew
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:required:Buckett
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:required:buckett@bumph.org
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:email:buckett@bumph.org
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:uniqueuserp:buckett@bumph.org
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:required:Oxford University
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate::Computing Services
+13 Banbury Road
+
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:namespaces:Oxford
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:namespaces:Oxfordshire
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:namespaces:GB
+ajax;20061003 07:33:20;/accounts/createaccount.php;validate:phone:+44 1865 283660
+129.67.100.133;20061003 07:33:20;/accounts/createaccount.php;created account: buckett@bumph.org (buckett@bumph.org) Buckett,Matthew: inst=1
+buckett@bumph.org;20061003 07:33:41;/accounts/login.php;user logged in (internal):129.67.100.133:https://sakaiproject.org/accounts/login.php
+ajax;20061003 07:33:49;/accounts/ajax/validate.php;validate:email:buckett@bumph.org
+ajax;20061003 07:33:49;/accounts/ajax/validate.php;validate:uniquesql:buckett@bumph.org
+ajax;20061003 07:33:49;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 07:33:50;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 07:33:50;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 07:33:50;/accounts/ajax/validate.php;validate:namespaces:Oxford
+ajax;20061003 07:33:50;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 07:33:50;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 07:33:50;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 07:33:50;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 07:33:50;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 07:34:19;/accounts/ajax/validate.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:34:19;/accounts/ajax/validate.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:34:19;/accounts/ajax/validate.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:34:19;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061003 07:34:27;/accounts/ajax/validate.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:34:27;/accounts/ajax/validate.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:34:27;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 07:34:49;/accounts/ajax/validate.php;validate:namespaces:Oxford
+ajax;20061003 07:34:49;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 07:34:56;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 07:34:56;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20061003 07:34:58;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 07:34:58;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:required:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:required:cows
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:password:cows
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:required:cows
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:password:cows
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:match:cows
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:required:Matthew
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:required:Buckett
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:required:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:required:Oxford University
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate::Computing Services
+13 Banbury Road
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:namespaces:Oxford
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:namespaces:Oxfordshire
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:namespaces:GB
+ajax;20061003 07:35:10;/accounts/createaccount.php;validate:phone:+44 1865 284660
+129.67.100.133;20061003 07:35:10;/accounts/createaccount.php;created account: matthew.buckett@oucs.ox.ac.uk (matthew.buckett@oucs.ox.ac.uk) Buckett,Matthew: inst=1
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;return=error|username|username already used
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;validate:namespaces:Oxford
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;validate:phone: 44 1865 284660
+ajax;20061003 07:38:55;/accounts/ajax/validate.php;return=ok|phone|
+129.67.100.133;20061003 07:39:15;/accounts/forgot_password.php;password reset: matthew.buckett@oucs.ox.ac.uk
+buckett@bumph.org;20061003 08:36:20;/accounts/login.php;user logged in (internal):129.67.100.133:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061003 08:36:22;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:36:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 08:36:22;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 08:36:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 08:36:22;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 08:36:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 08:37:16;/accounts/ajax/validate.php;validate:email:buckett@bumph.org
+ajax;20061003 08:37:16;/accounts/ajax/validate.php;validate:uniquesql:buckett@bumph.org
+ajax;20061003 08:37:16;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 08:37:16;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:37:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 08:37:17;/accounts/ajax/validate.php;validate:namespaces:Oxford
+ajax;20061003 08:37:17;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 08:37:17;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 08:37:17;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 08:37:17;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 08:37:17;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:required:Matthew
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:required:Buckett
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:required:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:uniquesql:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:required:Oxford University
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate::Computing Services
+13 Banbury Road
+
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:namespaces:Oxford
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:namespaces:GB
+ajax;20061003 08:37:23;/accounts/myaccount.php;validate:phone:+44 1865 283660
+ajax;20061003 08:37:24;/accounts/ajax/validate.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:37:24;/accounts/ajax/validate.php;validate:uniquesql:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:37:24;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20061003 08:37:25;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:37:25;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 08:37:25;/accounts/ajax/validate.php;validate:namespaces:Oxford
+ajax;20061003 08:37:25;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 08:37:25;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 08:37:25;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 08:37:25;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 08:37:25;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 08:38:28;/accounts/ajax/validate.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:38:28;/accounts/ajax/validate.php;validate:uniqueuserp:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:38:28;/accounts/ajax/validate.php;return=error|username|username already used
+ajax;20061003 08:43:20;/accounts/ajax/validate.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:43:20;/accounts/ajax/validate.php;validate:namespaces:Oxford
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;validate:uniquesql:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 08:43:21;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;validate:email:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;validate:uniquesql:matthew.buckett@oucs.ox.ac.uk
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;validate:namespaces:Oxford
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 08:43:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 08:43:23;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:43:23;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 08:43:23;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 08:43:23;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 08:43:23;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 08:43:23;/accounts/ajax/validate.php;return=ok|phone|
+buckett@bumph.org;20061003 08:44:01;/accounts/login.php;user logged in (internal):129.67.100.133:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061003 08:44:02;/accounts/ajax/validate.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:44:02;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 08:44:02;/accounts/ajax/validate.php;validate:phone: 44 1865 283660
+ajax;20061003 08:44:02;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 08:44:02;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 08:44:02;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:Oxford University
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:Oxford
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:Oxfordshire
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:namespaces:Oxfordshire
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:GB
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:namespaces:GB
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:+44 1865 283660
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:phone:+44 1865 283660
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:Y
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:N
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:Large
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:TUE
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:WED
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:THU
+ajax;20061003 08:45:01;/conference/registration/index.php;validate:required:FRI
+m.gonzalez@lancaster.ac.uk;20061003 10:00:34;/accounts/login.php;user logged in (internal):194.80.32.8:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ws15@txstate.edu;20061003 10:42:25;/accounts/login.php;user logged in (internal):147.26.119.178:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061003 10:43:54;/conference/proposals/edit_proposal.php;validate:required:A Story As Big As Texas...Texas State's Migration to Sakai
+ajax;20061003 10:43:54;/conference/proposals/edit_proposal.php;validate:required:From Blackboard to Sakai; Texas State's Migration to Sakai--Wrangling 27,000 students and 1500 faculty into the new frontier.
+ajax;20061003 10:43:54;/conference/proposals/edit_proposal.php;validate:required:The team presentation will cover issues faced when moving from Blackboard to Sakai. Issues we will include are: How the Sakai(TRACS)team was assembled; our 3-semester pilot program; skinning TRACS; user support efforts; open migration; user stories; and growing Sakai in Texas.
+ajax;20061003 10:43:54;/conference/proposals/edit_proposal.php;validate:required:Michael Farris
+ajax;20061003 10:43:54;/conference/proposals/edit_proposal.php;validate:required:Michael Farris is Director of the Educational Technology Center at Texas State University-San Marcos.
+ajax;20061003 10:43:54;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061003 10:43:54;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20061003 10:43:54;/conference/proposals/edit_proposal.php;validate:required:90
+ws15@txstate.edu;20061003 11:06:55;/accounts/login.php;user logged in (internal):147.26.119.178:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mnotess;20061003 11:24:08;/accounts/login.php;user logged in (internal):129.79.129.60:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061003 11:24:09;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20061003 11:24:09;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 11:24:09;/accounts/ajax/validate.php;validate:zipcode:47405
+ajax;20061003 11:24:09;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 11:24:09;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 11:24:09;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 11:24:09;/accounts/ajax/validate.php;validate:phone:(812) 856-0494
+ajax;20061003 11:24:09;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:Manager
+ajax;20061003 11:24:36;/conference/registration/index.php;validate::UI/Interaction Designer
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:Bloomington
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:IN
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:namespaces:IN
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:zipcode:47405
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:US
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:namespaces:US
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:(812) 856-0494
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:phone:(812) 856-0494
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:Y
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:N
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:Large
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:TUE
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:WED
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:THU
+ajax;20061003 11:24:36;/conference/registration/index.php;validate:required:FRI
+arwhyte;20061003 13:10:34;/accounts/login.php;user logged in (internal):192.203.223.67:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061003 13:10:34;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061003 13:10:34;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 13:10:35;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 13:10:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 13:10:35;/accounts/ajax/validate.php;validate:phone:517-980-0228
+ajax;20061003 13:10:35;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 13:11:49;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061003 13:11:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:Ann Arbor
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:MI
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:namespaces:MI
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:zipcode:48109
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:US
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:namespaces:US
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:517-980-0228
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:phone:517-980-0228
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:Y
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:N
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:X-Large
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:TUE
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:WED
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:THU
+ajax;20061003 13:12:18;/conference/registration/index.php;validate:required:FRI
+johniglesia;20061003 13:13:12;/accounts/login.php;user logged in (internal):200.85.107.76:https://sakaiproject.org/accounts/login.php
+shardin;20061003 13:28:57;/accounts/login.php;user logged in (internal):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+ajax;20061003 13:29:17;/accounts/ajax/validate.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:17;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061003 13:29:20;/accounts/ajax/validate.php;validate:email:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:20;/accounts/ajax/validate.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:20;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 13:29:21;/accounts/ajax/validate.php;validate:namespaces:oxford
+ajax;20061003 13:29:21;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 13:29:21;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 13:29:21;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 13:29:22;/accounts/ajax/validate.php;validate:phone:01865 283357
+ajax;20061003 13:29:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:required:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:nospaces:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:required:adam
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:required:marshall
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:required:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:email:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:required:oxford university
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate::oucs
+13 banbury rd
+oxford
+
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:namespaces:oxford
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:namespaces:GB
+ajax;20061003 13:29:34;/accounts/admin/admin_user.php;validate:phone:01865 283357
+ajax;20061003 13:29:36;/accounts/ajax/validate.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:36;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061003 13:29:37;/accounts/ajax/validate.php;validate:namespaces:oxford
+ajax;20061003 13:29:37;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 13:29:38;/accounts/ajax/validate.php;validate:email:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:38;/accounts/ajax/validate.php;validate:uniqueuserp:adam.marshall@oucs.ox.ac.uk
+ajax;20061003 13:29:39;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 13:29:39;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20061003 13:29:39;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 13:29:40;/accounts/ajax/validate.php;validate:phone:01865 283357
+ajax;20061003 13:29:40;/accounts/ajax/validate.php;return=ok|phone|
+jmpease;20061003 13:31:48;/accounts/login.php;user logged in (internal):128.230.47.218:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061003 13:31:49;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061003 13:31:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 13:31:49;/accounts/ajax/validate.php;validate:zipcode:13244
+ajax;20061003 13:31:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 13:31:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 13:31:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 13:31:49;/accounts/ajax/validate.php;validate:phone:315-443-3450
+ajax;20061003 13:31:49;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 13:34:49;/accounts/ajax/validate.php;validate:phone:315-443-3285
+ajax;20061003 13:34:49;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 13:38:19;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061003 13:38:19;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 13:38:19;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 13:38:19;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 13:38:19;/accounts/ajax/validate.php;validate:zipcode:13244
+ajax;20061003 13:38:19;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 13:38:19;/accounts/ajax/validate.php;validate:phone:315-443-3450
+ajax;20061003 13:38:19;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 13:39:02;/accounts/ajax/validate.php;validate:phone:315-443-3285
+ajax;20061003 13:39:02;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061003 13:39:31;/conference/registration/index.php;validate::System Administrator
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:Syracuse
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:NY
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:namespaces:NY
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:zipcode:13244
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:US
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:namespaces:US
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:315-443-3285
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:phone:315-443-3285
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:Y
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:N
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:Large
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:TUE
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:WED
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:THU
+ajax;20061003 13:39:31;/conference/registration/index.php;validate:required:FRI
+ajax;20061003 14:48:10;/accounts/ajax/validate.php;validate:email:buchanon@msu.edu
+ajax;20061003 14:48:10;/accounts/ajax/validate.php;validate:uniqueuserp:buchanon@msu.edu
+ajax;20061003 14:48:11;/accounts/ajax/validate.php;validate:uniqueuserp:buchanon@msu.edu
+ajax;20061003 14:48:11;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061003 14:48:29;/accounts/ajax/validate.php;validate:email:buchanon@msu.edu
+ajax;20061003 14:48:29;/accounts/ajax/validate.php;validate:uniqueuserp:buchanon@msu.edu
+ajax;20061003 14:48:29;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 14:49:16;/accounts/ajax/validate.php;validate:namespaces:East Lansing
+ajax;20061003 14:49:16;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 14:49:18;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061003 14:49:18;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 14:49:19;/accounts/ajax/validate.php;validate:zipcode:48824
+ajax;20061003 14:49:19;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 14:49:21;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 14:49:21;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 14:49:31;/accounts/createaccount.php;validate:required:buchanon@msu.edu
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:email:buchanon@msu.edu
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:uniqueuserp:buchanon@msu.edu
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:uniqueuserp:buchanon@msu.edu
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:required:sakaiisfun
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:password:sakaiisfun
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:required:sakaiisfun
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:password:sakaiisfun
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:match:sakaiisfun
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:required:Michael
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:required:Buchanon
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:required:buchanon@msu.edu
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:email:buchanon@msu.edu
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:uniqueuserp:buchanon@msu.edu
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:required:Manager
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate::Developer/Programmer
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:required:96
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate::501 Computer Center
+Michigan State University
+
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:namespaces:East Lansing
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:namespaces:MI
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:zipcode:48824
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061003 14:49:32;/accounts/createaccount.php;validate:phone:517.432.7243
+35.8.3.184;20061003 14:49:32;/accounts/createaccount.php;created account: buchanon@msu.edu (buchanon@msu.edu) Buchanon,Michael: inst=96
+buchanon@msu.edu;20061003 14:49:59;/accounts/login.php;user logged in (internal):35.8.3.184:https://sakaiproject.org/accounts/login.php
+ajax;20061003 14:50:14;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061003 14:50:14;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 14:50:14;/accounts/ajax/validate.php;validate:zipcode:48824
+ajax;20061003 14:50:14;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 14:50:14;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 14:50:14;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 14:50:14;/accounts/ajax/validate.php;validate:phone:517.432.7243
+ajax;20061003 14:50:14;/accounts/ajax/validate.php;return=ok|phone|
+mmiles@umich.edu;20061003 15:03:28;/accounts/login.php;user logged in (internal):141.213.113.211:https://sakaiproject.org/accounts/login.php
+ajax;20061003 16:40:17;/accounts/ajax/validate.php;validate:email:ern
+ajax;20061003 16:40:17;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061003 16:40:26;/accounts/ajax/validate.php;validate:email:earle.nietzel@marist.edu
+ajax;20061003 16:40:26;/accounts/ajax/validate.php;validate:uniqueuserp:earle.nietzel@marist.edu
+ajax;20061003 16:40:26;/accounts/ajax/validate.php;validate:uniqueuserp:earle.nietzel@marist.edu
+ajax;20061003 16:40:26;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061003 16:40:52;/accounts/ajax/validate.php;validate:email:earle.nietzel@marist.edu
+ajax;20061003 16:40:52;/accounts/ajax/validate.php;validate:uniqueuserp:earle.nietzel@marist.edu
+ajax;20061003 16:40:52;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 16:41:27;/accounts/ajax/validate.php;validate:namespaces:Poughkeepsie
+ajax;20061003 16:41:27;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 16:41:30;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061003 16:41:30;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 16:41:32;/accounts/ajax/validate.php;validate:zipcode:12601
+ajax;20061003 16:41:32;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 16:41:34;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 16:41:34;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 16:41:38;/accounts/ajax/validate.php;validate:phone:845-575-3509
+ajax;20061003 16:41:38;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:required:earle.nietzel@marist.edu
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:email:earle.nietzel@marist.edu
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:uniqueuserp:earle.nietzel@marist.edu
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:uniqueuserp:earle.nietzel@marist.edu
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:required:rhinobox
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:password:rhinobox
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:required:rhinobox
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:password:rhinobox
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:match:rhinobox
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:required:Earle
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:required:Nietzel
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:required:earle.nietzel@marist.edu
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:email:earle.nietzel@marist.edu
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:uniqueuserp:earle.nietzel@marist.edu
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate::System Administrator
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:required:29
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate::DN258A
+3399 North Rd
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:namespaces:Poughkeepsie
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:namespaces:NY
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:zipcode:12601
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061003 16:41:44;/accounts/createaccount.php;validate:phone:845-575-3509
+148.100.220.10;20061003 16:41:44;/accounts/createaccount.php;created account: earle.nietzel@marist.edu (earle.nietzel@marist.edu) Nietzel,Earle: inst=29
+earle.nietzel@marist.edu;20061003 16:43:17;/accounts/login.php;user logged in (internal):148.100.220.10:https://sakaiproject.org/accounts/login.php
+ajax;20061003 16:43:19;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061003 16:43:19;/accounts/ajax/validate.php;validate:zipcode:12601
+ajax;20061003 16:43:19;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 16:43:19;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 16:43:19;/accounts/ajax/validate.php;validate:phone:845-575-3509
+ajax;20061003 16:43:19;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 16:43:19;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 16:43:19;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061003 16:44:32;/conference/registration/index.php;validate::System Administrator
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:Poughkeepsie
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:NY
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:namespaces:NY
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:zipcode:12601
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:US
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:namespaces:US
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:845-575-3509
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:phone:845-575-3509
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:Y
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:N
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:X-Large
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:TUE
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:WED
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:THU
+ajax;20061003 16:44:32;/conference/registration/index.php;validate:required:FRI
+drew@missouri.edu;20061003 16:49:34;/accounts/login.php;user logged in (internal):128.206.68.199:https://www.sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+brierley@stanford.edu;20061003 17:14:28;/accounts/login.php;user logged in (internal):171.64.130.220:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/index.php
+ajax;20061003 17:18:39;/conference/proposals/edit_proposal.php;validate:required:UI Design Patterns
+ajax;20061003 17:18:39;/conference/proposals/edit_proposal.php;validate:required:Sakai's prototype UI Design Patterns Library will be unvieled by its working group. We intend to explain the rationale behind design patterns and explain how they will benefit the Sakai community.
+ajax;20061003 17:18:39;/conference/proposals/edit_proposal.php;validate:required:Sakai's prototype UI Design Patterns Library will be unvieled by its working group. We intend to explain the rationale behind design patterns and explain how they will benefit the Sakai community.
+
+Modeled after industry standard design patterns libraries and other collections (see below), the Sakai UI Design Patter Library will provide the following benefits over the current Style Guide:
+    * More complete information about UI components, including the rationale, history and versions for each pattern;
+    * Enhanced communication between designers and developers through ensuring common pattern references (esp. if each design pattern has a corresponding set of JSF tags or other implementations); and
+    * Greater design flexibility through accepting alternative UI designs.
+
+ajax;20061003 17:18:39;/conference/proposals/edit_proposal.php;validate:required:Marc Brierley
+ajax;20061003 17:18:39;/conference/proposals/edit_proposal.php;validate:required:Marc is an interaction designer at Stanford University where he is the lead designer for the SAMigo tool. Marc has worked on various projects within Sakai including the Sakai style guide, design patterns library, advanced resources tool, and course management.
+
+ajax;20061003 17:18:39;/conference/proposals/edit_proposal.php;validate:required:panel
+ajax;20061003 17:18:39;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061003 17:18:39;/conference/proposals/edit_proposal.php;validate:required:90
+ostermmg@whitman.edu;20061003 17:35:06;/accounts/login.php;user logged in (internal):72.10.8.164:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061003 17:35:13;/conference/proposals/index.php;validate:required:presentation
+ajax;20061003 17:44:41;/conference/proposals/edit_proposal.php;validate:required:Implementing Sakai at a liberal arts school
+ajax;20061003 17:44:41;/conference/proposals/edit_proposal.php;validate:required:Many claim that Sakai is only for large research institutions. We'll share our experience in deploying Sakai at a small liberal arts school in hopes of dispelling this myth.
+ajax;20061003 17:44:41;/conference/proposals/edit_proposal.php;validate:required:The presentation will cover selection criteria that led us to Sakai, pilot project methodology, evaluation criteria, and recent experience in converting our institution from Blackboard Basic 6 to Sakai 2.2.1.
+ajax;20061003 17:44:41;/conference/proposals/edit_proposal.php;validate:required:TBD - I will not be attending but will coordinate a presenter
+ajax;20061003 17:44:41;/conference/proposals/edit_proposal.php;validate:required:TBD
+ajax;20061003 17:44:41;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061003 17:44:41;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061003 17:44:41;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061003 17:44:53;/conference/proposals/index.php;validate:required:demo
+f-cervone@northwestern.edu;20061003 17:56:28;/accounts/login.php;user logged in (internal):129.105.203.152:https://sakaiproject.org/accounts/login.php
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;validate:zipcode:60208
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;validate:phone:847.491.8304
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;validate:phone:847.491.8306
+ajax;20061003 17:56:28;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:University Administration
+ajax;20061003 17:59:42;/conference/registration/index.php;validate::Librarian
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:Evanston
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:IL
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:namespaces:IL
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:zipcode:60208
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:US
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:namespaces:US
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:847.491.8304
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:phone:847.491.8304
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:phone:847.491.8306
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:Y
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:N
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:Large
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:TUE
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:WED
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:THU
+ajax;20061003 17:59:42;/conference/registration/index.php;validate:required:FRI
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;validate:zipcode:60208
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;validate:phone:847.491.8304
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;validate:phone:847.491.8306
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 18:00:34;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;validate:email:f-cervone@northwestern.edu
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;validate:uniquesql:f-cervone@northwestern.edu
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;validate:namespaces:Evanston
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;validate:zipcode:60208
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;validate:phone:847.491.8304
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;validate:phone:847.491.8306
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061003 18:03:47;/accounts/ajax/validate.php;return=ok|fax|

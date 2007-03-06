@@ -1,0 +1,49 @@
+ajax;20060823 11:18:56;/accounts/ajax/validate.php;validate:email:dandrapop
+ajax;20060823 11:18:57;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060823 11:18:58;/accounts/ajax/validate.php;validate:email:mst3k0dandrapop
+ajax;20060823 11:18:58;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060823 11:19:16;/accounts/ajax/validate.php;validate:email:seriggs@campbellsville.edu
+ajax;20060823 11:19:16;/accounts/ajax/validate.php;validate:uniqueuserp:seriggs@campbellsville.edu
+ajax;20060823 11:19:16;/accounts/ajax/validate.php;validate:uniqueuserp:seriggs@campbellsville.edu
+ajax;20060823 11:19:16;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060823 11:19:33;/accounts/ajax/validate.php;validate:email:seriggs@campbellsville.edu
+ajax;20060823 11:19:33;/accounts/ajax/validate.php;validate:uniqueuserp:seriggs@campbellsville.edu
+ajax;20060823 11:19:33;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060823 11:20:28;/accounts/ajax/validate.php;validate:namespaces:Campbellsville
+ajax;20060823 11:20:28;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060823 11:20:29;/accounts/ajax/validate.php;validate:namespaces:KS
+ajax;20060823 11:20:29;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060823 11:20:30;/accounts/ajax/validate.php;validate:namespaces:KY
+ajax;20060823 11:20:30;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060823 11:20:33;/accounts/ajax/validate.php;validate:zipcode:42718
+ajax;20060823 11:20:33;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060823 11:20:34;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060823 11:20:34;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060823 11:20:43;/accounts/ajax/validate.php;validate:phone:270-789-5390
+ajax;20060823 11:20:43;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:required:seriggs@campbellsville.edu
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:email:seriggs@campbellsville.edu
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:uniqueuserp:seriggs@campbellsville.edu
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:uniqueuserp:seriggs@campbellsville.edu
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:required:mst3k0
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:password:mst3k0
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:required:mst3k0
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:password:mst3k0
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:match:mst3k0
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:required:Sandra
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:required:Riggs
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:required:seriggs@campbellsville.edu
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:email:seriggs@campbellsville.edu
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:uniqueuserp:seriggs@campbellsville.edu
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:required:User Support
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate::Librarian
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:required:Campbellsville University
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate::1 University Dr.
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:namespaces:Campbellsville
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:namespaces:KY
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:zipcode:42718
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060823 11:20:48;/accounts/createaccount.php;validate:phone:270-789-5390
+192.190.254.254;20060823 11:20:48;/accounts/createaccount.php;created account: seriggs@campbellsville.edu (seriggs@campbellsville.edu) Riggs,Sandra: inst=1
+seriggs@campbellsville.edu;20060823 11:22:54;/accounts/login.php;user logged in (internal):192.190.254.254:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php
+tcollins;20060823 16:04:19;/accounts/login.php;user logged in (internal):137.207.200.36:https://sakaiproject.org/accounts/login.php

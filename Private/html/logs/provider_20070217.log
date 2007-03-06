@@ -1,0 +1,31 @@
+ajax;20070217 03:55:46;/accounts/ajax/validate.php;validate:email:alistairskye
+ajax;20070217 03:55:46;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070217 03:55:56;/accounts/ajax/validate.php;validate:email:alistair@smo.uhi.ac.uk
+ajax;20070217 03:55:56;/accounts/ajax/validate.php;validate:uniqueuserp:alistair@smo.uhi.ac.uk
+ajax;20070217 03:55:56;/accounts/ajax/validate.php;validate:uniqueuserp:alistair@smo.uhi.ac.uk
+ajax;20070217 03:55:57;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070217 03:56:05;/accounts/ajax/validate.php;validate:email:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:05;/accounts/ajax/validate.php;validate:uniqueuserp:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:05;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070217 03:56:50;/accounts/createaccount.php;validate:required:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:50;/accounts/createaccount.php;validate:email:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:50;/accounts/createaccount.php;validate:uniqueuserp:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:50;/accounts/createaccount.php;validate:uniqueuserp:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:required:semolina
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:password:semolina
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:required:semolina
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:password:semolina
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:match:semolina
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:required:Alistair
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:required:Young
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:required:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:email:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:uniqueuserp:alistair@smo.uhi.ac.uk
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate::Developer/Programmer
+ajax;20070217 03:56:51;/accounts/createaccount.php;validate:required:UHI Millennium Institute
+alistair@smo.uhi.ac.uk;20070217 03:56:51;/accounts/createaccount.php;user added (ldap): Alistair Young (alistair@smo.uhi.ac.uk) [1103]
+80.176.82.74;20070217 03:56:51;/accounts/createaccount.php;created account: alistair@smo.uhi.ac.uk (alistair@smo.uhi.ac.uk) Young,Alistair: inst=1
+alistair@smo.uhi.ac.uk;20070217 03:57:11;/accounts/activate.php;user modified (ldap): Alistair Young (alistair@smo.uhi.ac.uk) [1103]
+alistair@smo.uhi.ac.uk;20070217 03:57:31;/accounts/login.php;user logged in (ldap):80.176.82.74:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20070217 09:22:20;/accounts/login.php;user logged in (ldap):67.44.75.141:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php

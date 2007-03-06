@@ -1,0 +1,42 @@
+kreister;20060807 14:23:55;/accounts/login.php;user logged in (internal):141.213.32.93:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;validate:email:kreister@umich.edu
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;validate:uniquesql:kreister@umich.edu
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;validate:phone:734-763-0606
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;validate:phone:734-936-3107
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;validate:zipcode:48109-2094
+ajax;20060807 14:25:28;/accounts/ajax/validate.php;return=ok|zipcode|
+kreister;20060807 14:26:07;/accounts/login.php;user logged in (internal):141.213.32.93:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+shardin;20060807 16:29:16;/accounts/login.php;user logged in (internal):64.235.110.195:https://sakaiproject.org/accounts/login.php
+ajax;20060807 16:29:31;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060807 16:29:31;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060807 16:29:31;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20060807 16:29:31;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060807 16:29:32;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060807 16:29:32;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060807 16:29:32;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20060807 16:29:32;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060807 16:29:38;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060807 16:29:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060807 16:29:38;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20060807 16:29:38;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060807 16:29:38;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060807 16:29:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060807 16:29:38;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20060807 16:29:38;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060807 16:30:48;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20060807 16:30:48;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060807 16:30:48;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060807 16:30:48;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060807 16:30:48;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20060807 16:30:48;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060807 16:30:49;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20060807 16:30:49;/accounts/ajax/validate.php;return=ok|phone|

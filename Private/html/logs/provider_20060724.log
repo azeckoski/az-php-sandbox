@@ -1,0 +1,159 @@
+ajax;20060724 04:51:31;/accounts/ajax/validate.php;validate:email:breakers
+ajax;20060724 04:51:31;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060724 04:51:39;/accounts/ajax/validate.php;validate:email:nbreakwell@hiberniacollege.net
+ajax;20060724 04:51:39;/accounts/ajax/validate.php;validate:uniqueuserp:nbreakwell@hiberniacollege.net
+ajax;20060724 04:51:39;/accounts/ajax/validate.php;validate:uniqueuserp:nbreakwell@hiberniacollege.net
+ajax;20060724 04:51:39;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060724 04:52:31;/accounts/ajax/validate.php;validate:namespaces:Dublin
+ajax;20060724 04:52:31;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060724 04:52:41;/accounts/ajax/validate.php;validate:namespaces:Dublin
+ajax;20060724 04:52:41;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060724 04:52:43;/accounts/ajax/validate.php;validate:zipcode:D2
+ajax;20060724 04:52:43;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20060724 04:52:47;/accounts/ajax/validate.php;validate:namespaces:IE
+ajax;20060724 04:52:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060724 04:53:03;/accounts/ajax/validate.php;validate:zipcode:MA12345
+ajax;20060724 04:53:03;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20060724 04:53:19;/accounts/ajax/validate.php;validate:zipcode:A1B 2C3
+ajax;20060724 04:53:19;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060724 04:53:45;/accounts/ajax/validate.php;validate:email:nbreakwell@revfacto.com
+ajax;20060724 04:53:45;/accounts/ajax/validate.php;validate:uniqueuserp:nbreakwell@revfacto.com
+ajax;20060724 04:53:45;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060724 04:53:56;/accounts/ajax/validate.php;validate:email:nbreakwell@hiberniacollege.net
+ajax;20060724 04:53:56;/accounts/ajax/validate.php;validate:uniqueuserp:nbreakwell@hiberniacollege.net
+ajax;20060724 04:53:56;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:required:nbreakwell@hiberniacollege.net
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:email:nbreakwell@hiberniacollege.net
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:uniqueuserp:nbreakwell@hiberniacollege.net
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:uniqueuserp:nbreakwell@hiberniacollege.net
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:required:village
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:password:village
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:required:village
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:password:village
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:match:village
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:required:Nicholas
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:required:Breakwell
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:required:nbreakwell@hiberniacollege.net
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:email:nbreakwell@hiberniacollege.net
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:uniqueuserp:nbreakwell@hiberniacollege.net
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:required:Faculty Development
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:required:Hibernia College
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate::2 Clare Street
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:namespaces:Dublin
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:namespaces:Dublin
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:zipcode:A1B 2C3
+ajax;20060724 04:54:00;/accounts/createaccount.php;validate:namespaces:IE
+83.70.53.148;20060724 04:54:00;/accounts/createaccount.php;created account: nbreakwell@hiberniacollege.net (nbreakwell@hiberniacollege.net) Breakwell,Nicholas: inst=1
+nbreakwell@hiberniacollege.net;20060724 04:55:46;/accounts/login.php;user logged in (internal):83.70.53.148:https://sakaiproject.org/accounts/login.php
+ajax;20060724 04:56:10;/accounts/ajax/validate.php;validate:email:nbreakwell@hiberniacollege.net
+ajax;20060724 04:56:10;/accounts/ajax/validate.php;validate:uniquesql:nbreakwell@hiberniacollege.net
+ajax;20060724 04:56:10;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060724 04:56:11;/accounts/ajax/validate.php;validate:namespaces:Dublin
+ajax;20060724 04:56:11;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060724 04:56:11;/accounts/ajax/validate.php;validate:namespaces:Dublin
+ajax;20060724 04:56:11;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060724 04:56:11;/accounts/ajax/validate.php;validate:zipcode:A1B 2C3
+ajax;20060724 04:56:11;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060724 04:56:11;/accounts/ajax/validate.php;validate:namespaces:IE
+ajax;20060724 04:56:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060724 12:37:41;/accounts/ajax/validate.php;validate:email:bsherman1
+ajax;20060724 12:37:41;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060724 12:37:48;/accounts/ajax/validate.php;validate:email:bsherman
+ajax;20060724 12:37:48;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060724 12:38:06;/accounts/ajax/validate.php;validate:email:bsherman@unicon.net
+ajax;20060724 12:38:06;/accounts/ajax/validate.php;validate:uniqueuserp:bsherman@unicon.net
+ajax;20060724 12:38:06;/accounts/ajax/validate.php;validate:uniqueuserp:bsherman@unicon.net
+ajax;20060724 12:38:06;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060724 12:38:57;/accounts/ajax/validate.php;validate:email:bshrman@fol.com
+ajax;20060724 12:38:57;/accounts/ajax/validate.php;validate:uniqueuserp:bshrman@fol.com
+ajax;20060724 12:38:57;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060724 12:39:07;/accounts/ajax/validate.php;validate:email:bsherman@unicon.net
+ajax;20060724 12:39:07;/accounts/ajax/validate.php;validate:uniqueuserp:bsherman@unicon.net
+ajax;20060724 12:39:07;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:required:bsherman@unicon.net
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:email:bsherman@unicon.net
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:uniqueuserp:bsherman@unicon.net
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:uniqueuserp:bsherman@unicon.net
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:required:unicon
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:password:unicon
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:required:unicon
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:password:unicon
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:match:unicon
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:required:Bruce
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:required:Sherman
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:required:bsherman@unicon.net
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:email:bsherman@unicon.net
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:uniqueuserp:bsherman@unicon.net
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:required:Manager
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:required:95
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:namespaces:Chandler
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:namespaces:AZ
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:zipcode:85225
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060724 12:39:09;/accounts/createaccount.php;validate:phone:480.558.2402
+12.164.139.3;20060724 12:39:09;/accounts/createaccount.php;created account: bsherman@unicon.net (bsherman@unicon.net) Sherman,Bruce: inst=95
+bsherman@unicon.net;20060724 12:39:39;/accounts/login.php;user logged in (internal):12.164.139.3:https://sakaiproject.org/accounts/login.php
+bsherman@unicon.net;20060724 12:41:25;/accounts/login.php;user logged in (internal):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/requirements/results.php
+bsherman@unicon.net;20060724 12:42:32;/accounts/login.php;user logged in (internal):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/requirements/results.php
+ajax;20060724 18:58:01;/accounts/ajax/validate.php;validate:email:Ashley
+ajax;20060724 18:58:01;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060724 18:58:23;/accounts/ajax/validate.php;validate:email:ashbe489@aol.com
+ajax;20060724 18:58:23;/accounts/ajax/validate.php;validate:uniqueuserp:ashbe489@aol.com
+ajax;20060724 18:58:23;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060724 18:59:26;/accounts/ajax/validate.php;validate:namespaces:Chicago
+ajax;20060724 18:59:26;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060724 18:59:27;/accounts/ajax/validate.php;validate:namespaces:ID
+ajax;20060724 18:59:27;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060724 18:59:27;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20060724 18:59:27;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060724 18:59:34;/accounts/ajax/validate.php;validate:namespaces:Wayne
+ajax;20060724 18:59:34;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060724 18:59:36;/accounts/ajax/validate.php;validate:zipcode:60184
+ajax;20060724 18:59:36;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060724 18:59:37;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060724 18:59:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060724 18:59:42;/accounts/ajax/validate.php;validate:phone:6309170092
+ajax;20060724 18:59:42;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060724 19:00:07;/accounts/ajax/validate.php;validate:email:Brunetti
+ajax;20060724 19:00:07;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060724 19:00:15;/accounts/ajax/validate.php;validate:email:ashbe489@aol.com
+ajax;20060724 19:00:15;/accounts/ajax/validate.php;validate:uniqueuserp:ashbe489@aol.com
+ajax;20060724 19:00:15;/accounts/ajax/validate.php;validate:uniqueuserp:ashbe489@aol.com
+ajax;20060724 19:00:15;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060724 19:00:16;/accounts/createaccount.php;validate:required:ashbe489@aol.com
+ajax;20060724 19:00:16;/accounts/createaccount.php;validate:email:ashbe489@aol.com
+ajax;20060724 19:00:16;/accounts/createaccount.php;validate:uniqueuserp:ashbe489@aol.com
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:uniqueuserp:ashbe489@aol.com
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:required:ashley
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:password:ashley
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:required:ashley
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:password:ashley
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:match:ashley
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:required:Ashley
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:required:Brunetti
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:required:ashbe489@aol.com
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:email:ashbe489@aol.com
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:uniqueuserp:ashbe489@aol.com
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:required:User Support
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate::User Support
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:required:13
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:namespaces:Wayne
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:namespaces:IL
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:zipcode:60184
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060724 19:00:17;/accounts/createaccount.php;validate:phone:6309170092
+68.77.11.207;20060724 19:00:17;/accounts/createaccount.php;created account: ashbe489@aol.com (ashbe489@aol.com) Brunetti,Ashley: inst=13
+ashbe489@aol.com;20060724 19:03:25;/accounts/login.php;user logged in (internal):68.77.11.207:https://sakaiproject.org/accounts/login.php
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;validate:email:ashbe489@aol.com
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;validate:uniquesql:ashbe489@aol.com
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;validate:namespaces:Wayne
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;validate:zipcode:60184
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20060724 19:03:44;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060724 19:03:45;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060724 19:03:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060724 19:03:45;/accounts/ajax/validate.php;validate:phone:6309170092
+ajax;20060724 19:03:45;/accounts/ajax/validate.php;return=ok|phone|

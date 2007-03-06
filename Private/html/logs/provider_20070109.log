@@ -1,0 +1,81 @@
+whumphri@vt.edu;20070109 09:13:52;/accounts/forgot_password.php;user modified (ldap): Will Humphries (whumphri@vt.edu) [876]
+198.82.18.231;20070109 09:13:52;/accounts/forgot_password.php;password reset: whumphri@vt.edu
+whumphri@vt.edu;20070109 09:14:45;/accounts/login.php;user logged in (ldap):198.82.18.231:https://sakaiproject.org/accounts/login.php
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;validate:email:whumphri@vt.edu
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;validate:uniquesql:whumphri@vt.edu
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;validate:phone:9083779049
+ajax;20070109 09:14:59;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:password:Wingose
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:password:Wingose
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:match:Wingose
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:required:Will
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:required:Humphries
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:required:whumphri@vt.edu
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:email:whumphri@vt.edu
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:uniquesql:whumphri@vt.edu
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate::UI/Interaction Designer
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:required:88
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:namespaces:Blacksburg
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:namespaces:VA
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:namespaces:US
+ajax;20070109 09:15:13;/accounts/myaccount.php;validate:phone:9083779049
+whumphri@vt.edu;20070109 09:15:14;/accounts/myaccount.php;user modified (ldap): Will Humphries (whumphri@vt.edu) [876]
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;validate:email:whumphri@vt.edu
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;validate:uniquesql:whumphri@vt.edu
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070109 09:15:14;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070109 09:15:15;/accounts/ajax/validate.php;validate:phone:9083779049
+ajax;20070109 09:15:15;/accounts/ajax/validate.php;return=ok|phone|
+moallem@uncw.edu;20070109 12:20:28;/accounts/activate.php;user modified (ldap): Mahnaz Moallem (moallemm@uncw.edu) [1012]
+moallem@uncw.edu;20070109 12:21:05;/accounts/forgot_password.php;user modified (ldap): Mahnaz Moallem (moallemm@uncw.edu) [1012]
+128.150.42.159;20070109 12:21:05;/accounts/forgot_password.php;password reset: moallemm@uncw.edu
+moallem@uncw.edu;20070109 12:26:49;/accounts/forgot_password.php;user modified (ldap): Mahnaz Moallem (moallemm@uncw.edu) [1012]
+128.150.42.159;20070109 12:26:49;/accounts/forgot_password.php;password reset: moallemm@uncw.edu
+moallem@uncw.edu;20070109 12:30:38;/accounts/login.php;user logged in (ldap):128.150.42.159:https://sakaiproject.org/accounts/login.php
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;validate:email:moallemm@uncw.edu
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;validate:uniquesql:moallemm@uncw.edu
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;validate:namespaces:Wilmington
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;validate:namespaces:NC
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;validate:zipcode:28403
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;validate:phone:910-962-4183
+ajax;20070109 12:30:49;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070109 12:30:50;/accounts/ajax/validate.php;validate:phone:910-962-3609
+ajax;20070109 12:30:50;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:password:maziar
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:password:maziar
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:match:maziar
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:required:Mahnaz
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:required:Moallem
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:required:moallemm@uncw.edu
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:email:moallemm@uncw.edu
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:uniquesql:moallemm@uncw.edu
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:required:Faculty
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate::Instructional Technologist
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:required:University of North Carolina, Wilmington
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate::601 South College Rd.
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:namespaces:Wilmington
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:namespaces:NC
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:zipcode:28403
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:namespaces:US
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:phone:910-962-4183
+ajax;20070109 12:31:21;/accounts/myaccount.php;validate:phone:910-962-3609
+moallem@uncw.edu;20070109 12:31:21;/accounts/myaccount.php;user modified (ldap): Mahnaz Moallem (moallemm@uncw.edu) [1012]

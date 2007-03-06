@@ -1,0 +1,30 @@
+ajax;20070221 20:00:18;/accounts/ajax/validate.php;validate:email:damien
+ajax;20070221 20:00:19;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070221 20:00:29;/accounts/ajax/validate.php;validate:email:damien_frank@hotmail.com
+ajax;20070221 20:00:29;/accounts/ajax/validate.php;validate:uniqueuserp:damien_frank@hotmail.com
+ajax;20070221 20:00:29;/accounts/ajax/validate.php;validate:uniqueuserp:damien_frank@hotmail.com
+ajax;20070221 20:00:29;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070221 20:00:46;/accounts/ajax/validate.php;validate:email:damien_frank@hotmail.com
+ajax;20070221 20:00:46;/accounts/ajax/validate.php;validate:uniqueuserp:damien_frank@hotmail.com
+ajax;20070221 20:00:47;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:required:damien_frank@hotmail.com
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:email:damien_frank@hotmail.com
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:uniqueuserp:damien_frank@hotmail.com
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:uniqueuserp:damien_frank@hotmail.com
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:required:123456
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:password:123456
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:required:123456
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:password:123456
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:match:123456
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:required:Damien
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:required:Frank
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:required:damien_frank@hotmail.com
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:email:damien_frank@hotmail.com
+ajax;20070221 20:01:14;/accounts/createaccount.php;validate:uniqueuserp:damien_frank@hotmail.com
+ajax;20070221 20:01:15;/accounts/createaccount.php;validate:required:UI/Interaction Designer
+ajax;20070221 20:01:15;/accounts/createaccount.php;validate::Developer/Programmer
+ajax;20070221 20:01:15;/accounts/createaccount.php;validate:required:71
+damien_frank@hotmail.com;20070221 20:01:15;/accounts/createaccount.php;user added (ldap): Damien Frank (damien_frank@hotmail.com) [1105]
+168.105.163.74;20070221 20:01:15;/accounts/createaccount.php;created account: damien_frank@hotmail.com (damien_frank@hotmail.com) Frank,Damien: inst=71
+damien_frank@hotmail.com;20070221 20:03:04;/accounts/activate.php;user modified (ldap): Damien Frank (damien_frank@hotmail.com) [1105]
+damien_frank@hotmail.com;20070221 20:03:33;/accounts/login.php;user logged in (ldap):168.105.163.74:https://sakaiproject.org/accounts/login.php

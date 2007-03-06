@@ -1,0 +1,68 @@
+alandavis;20060606 12:07:04;/accounts/login.php;user logged in (ldap):129.128.84.166:https://sakaiproject.org/accounts/login.php
+gbhatnag;20060606 14:54:11;/accounts/login.php;user logged in (ldap):141.211.43.176:https://sakaiproject.org/accounts/login.php?ref=/facebook/index.php
+messalih@crim.ca;20060606 15:41:54;/accounts/login.php;user logged in (internal):132.217.33.112:https://sakaiproject.org/accounts/login.php?ref=/skin/submit.php
+messalih@crim.ca;20060606 15:41:54;/accounts/login.php;user modified (ldap): Mustapha Es-salihe (messalih@crim.ca) [39]
+heitmeyer;20060606 16:13:53;/accounts/login.php;user logged in (ldap):128.103.36.109:https://sakaiproject.org/accounts/login.php?ref=/facebook/index.php
+brierley@stanford.edu;20060606 19:34:02;/accounts/login.php;user logged in (ldap):171.64.139.190:https://www.sakaiproject.org/accounts/login.php?ref=/conference/admin/index.php
+ajax;20060606 19:35:07;/accounts/ajax/validate.php;validate:uniqueuserp:JamieDinkelacker
+ajax;20060606 19:35:08;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060606 19:35:22;/accounts/ajax/validate.php;validate:email:jamie.webtech@gmail.com
+ajax;20060606 19:35:22;/accounts/ajax/validate.php;validate:uniqueuserp:jamie.webtech@gmail.com
+ajax;20060606 19:35:23;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:required:JamieDinkelacker
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:nospaces:JamieDinkelacker
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:uniqueuserp:JamieDinkelacker
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:required:woofwoof
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:password:woofwoof
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:required:woofwoof
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:password:woofwoof
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:match:woofwoof
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:required:Jamie
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:required:Dinkelacker
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:required:jamie.webtech@gmail.com
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:email:jamie.webtech@gmail.com
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:uniqueuserp:jamie.webtech@gmail.com
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:required:Faculty
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate:required:9
+ajax;20060606 19:36:02;/accounts/createaccount.php;validate::West Coast Campus
+jamiedinkelacker;20060606 19:36:03;/accounts/createaccount.php;user added (ldap): Jamie Dinkelacker (jamie.webtech@gmail.com) [730]
+70.132.43.123;20060606 19:36:03;/accounts/createaccount.php;created account: jamiedinkelacker (jamie.webtech@gmail.com) Dinkelacker,Jamie: inst=9
+jamiedinkelacker;20060606 19:37:24;/accounts/activate.php;user modified (ldap): Jamie Dinkelacker (jamie.webtech@gmail.com) [730]
+jamiedinkelacker;20060606 19:37:43;/accounts/login.php;user logged in (ldap):70.132.43.123:https://sakaiproject.org/accounts/login.php
+ajax;20060606 19:37:51;/accounts/ajax/validate.php;validate:email:jamie.webtech@gmail.com
+ajax;20060606 19:37:51;/accounts/ajax/validate.php;validate:uniquesql:jamie.webtech@gmail.com
+ajax;20060606 19:37:51;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060606 19:41:31;/facebook/add_entry.php;validate::agile software development, collaboration, leadership, software product management
+ajax;20060606 19:41:31;/facebook/add_entry.php;validate:required:1
+ajax;20060606 19:41:43;/facebook/add_entry.php;validate::agile software development, collaboration, leadership, software product management
+ajax;20060606 19:41:43;/facebook/add_entry.php;validate:required:1
+ajax;20060606 19:43:51;/accounts/ajax/validate.php;validate:email:jamie.webtech@gmail.com
+ajax;20060606 19:43:51;/accounts/ajax/validate.php;validate:uniquesql:jamie.webtech@gmail.com
+ajax;20060606 19:43:51;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060606 19:44:03;/accounts/ajax/validate.php;validate:email:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:04;/accounts/ajax/validate.php;validate:uniquesql:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:04;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060606 19:44:04;/accounts/myaccount.php;validate:required:Jamie
+ajax;20060606 19:44:04;/accounts/myaccount.php;validate:required:Dinkelacker
+ajax;20060606 19:44:04;/accounts/myaccount.php;validate:required:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:04;/accounts/myaccount.php;validate:email:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:04;/accounts/myaccount.php;validate:uniquesql:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:04;/accounts/myaccount.php;validate:required:Faculty
+ajax;20060606 19:44:04;/accounts/myaccount.php;validate:required:9
+ajax;20060606 19:44:04;/accounts/myaccount.php;validate::West Coast Campus
+jamiedinkelacker;20060606 19:44:04;/accounts/myaccount.php;user modified (ldap): Jamie Dinkelacker (jamie.dinkelacker@gmail.com) [730]
+ajax;20060606 19:44:05;/accounts/ajax/validate.php;validate:email:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:05;/accounts/ajax/validate.php;validate:uniquesql:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:05;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060606 19:44:16;/accounts/myaccount.php;validate:required:Jamie
+ajax;20060606 19:44:16;/accounts/myaccount.php;validate:required:Dinkelacker
+ajax;20060606 19:44:16;/accounts/myaccount.php;validate:required:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:16;/accounts/myaccount.php;validate:email:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:16;/accounts/myaccount.php;validate:uniquesql:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:16;/accounts/myaccount.php;validate:required:Faculty
+ajax;20060606 19:44:16;/accounts/myaccount.php;validate:required:9
+ajax;20060606 19:44:16;/accounts/myaccount.php;validate::West Coast Campus
+jamiedinkelacker;20060606 19:44:16;/accounts/myaccount.php;user modified (ldap): Jamie Dinkelacker (jamie.dinkelacker@gmail.com) [730]
+ajax;20060606 19:44:17;/accounts/ajax/validate.php;validate:email:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:17;/accounts/ajax/validate.php;validate:uniquesql:jamie.dinkelacker@gmail.com
+ajax;20060606 19:44:17;/accounts/ajax/validate.php;return=ok|email|

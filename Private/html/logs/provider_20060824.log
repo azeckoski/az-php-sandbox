@@ -1,0 +1,79 @@
+shardin;20060824 09:31:00;/accounts/login.php;user logged in (internal):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060824 10:04:45;/accounts/ajax/validate.php;validate:email:gailj
+ajax;20060824 10:04:45;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20060824 10:04:51;/accounts/ajax/validate.php;validate:email:gailj@uwindsor.ca
+ajax;20060824 10:04:51;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20060824 10:04:51;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20060824 10:04:51;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060824 10:05:26;/accounts/ajax/validate.php;validate:email:gailj@uwindsor.ca
+ajax;20060824 10:05:26;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20060824 10:05:26;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060824 10:06:28;/accounts/ajax/validate.php;validate:namespaces:windsor
+ajax;20060824 10:06:28;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060824 10:06:34;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20060824 10:06:34;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060824 10:06:40;/accounts/ajax/validate.php;validate:zipcode:n9b3p4
+ajax;20060824 10:06:40;/accounts/ajax/validate.php;return=error|zipcode|Invalid chars, use A-Z, numbers and '-' only
+ajax;20060824 10:06:43;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060824 10:06:43;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060824 10:06:50;/accounts/ajax/validate.php;validate:zipcode:n9b 3p4
+ajax;20060824 10:06:50;/accounts/ajax/validate.php;return=error|zipcode|Invalid chars, use A-Z, numbers and '-' only
+ajax;20060824 10:07:23;/accounts/ajax/validate.php;validate:zipcode:48124
+ajax;20060824 10:07:23;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:required:gailj@uwindsor.ca
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:email:gailj@uwindsor.ca
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:required:zantipe
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:password:zantipe
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:required:zantipe
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:password:zantipe
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:match:zantipe
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:required:g
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:required:j
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:required:gailj@uwindsor.ca
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:email:gailj@uwindsor.ca
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate::UI/Interaction Designer
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:required:University of Windsor
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate::401 Sunset
+
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:namespaces:windsor
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:namespaces:ON
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:zipcode:48124
+ajax;20060824 10:07:28;/accounts/createaccount.php;validate:namespaces:CA
+137.207.192.49;20060824 10:07:28;/accounts/createaccount.php;created account: gailj@uwindsor.ca (gailj@uwindsor.ca) j,g: inst=1
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;validate:email:gailj@uwindsor.ca
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;validate:email:gailj@uwindsor.ca
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;return=error|username|username already used
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;validate:namespaces:windsor
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;validate:zipcode:48124
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20060824 10:08:40;/accounts/ajax/validate.php;return=ok|country|
+gailj@uwindsor.ca;20060824 10:09:46;/accounts/login.php;user logged in (internal):137.207.192.49:https://sakaiproject.org/accounts/login.php
+gailj@uwindsor.ca;20060824 10:12:50;/accounts/login.php;user logged in (internal):137.207.192.49:https://sakaiproject.org/accounts/login.php
+gailj@uwindsor.ca;20060824 10:15:27;/accounts/login.php;user logged in (internal):137.207.192.49:https://sakaiproject.org/accounts/login.php?ref=/skin/results.php
+tcollins;20060824 10:35:36;/accounts/login.php;user logged in (internal):137.207.200.36:https://sakaiproject.org/accounts/login.php
+markjnorton;20060824 10:50:53;/accounts/login.php;user logged in (internal):70.20.30.68:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060824 10:51:03;/conference/proposals/index.php;validate:required:presentation
+shardin;20060824 11:04:07;/accounts/login.php;user logged in (internal):72.169.226.59:https://sakaiproject.org/accounts/login.php
+ajax;20060824 11:05:12;/conference/proposals/edit_proposal.php;validate:required:Comparing Presentation Technologies
+ajax;20060824 11:05:12;/conference/proposals/edit_proposal.php;validate:required:Several approaches to presentation technologies are compared and contrasted with regard to their use in Sakai.  Some of these are already present in Sakai, others are evaluated for use.
+ajax;20060824 11:05:12;/conference/proposals/edit_proposal.php;validate:required:JavaServer Faces was chosen to be the de facto presentation technology for Sakai in the very early stages of the project.  A lot has been learned about using JSF since then.  The presentation explores the strengths and weaknesses of JSF and contrasts it with other presentation technologies including Servlets, JSP, Struts, XSLT, and Spring MVP.  New and emerging technologies are also explored for their potential including RSF, Facelets, XUL, and others.  Code examples will be used to illustrate important points.
+
+This will be an overview of Java based presentation technologies and will serve to further the discussion of how Sakai should present it's user interface to users.
+ajax;20060824 11:05:12;/conference/proposals/edit_proposal.php;validate:required:Mark J. Norton
+ajax;20060824 11:05:12;/conference/proposals/edit_proposal.php;validate:required:Mark J. Norton has been an active developer and architect in the field of eLearning for over ten years.  As Director of Specification Devleopment for IMS, he led several key standards efforts now widely in use.  As the principle consultant for Nolaria Consulting, he have been engaged with the Sakai project since it's start.
+ajax;20060824 11:05:12;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20060824 11:05:12;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20060824 11:05:12;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20060824 11:05:28;/conference/proposals/index.php;validate:required:presentation
+shardin;20060824 16:19:50;/accounts/login.php;user logged in (internal):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.

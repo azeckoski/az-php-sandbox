@@ -1,0 +1,61 @@
+ajax;20060831 00:49:08;/accounts/ajax/validate.php;validate:email:sinacam@gmail.com
+ajax;20060831 00:49:08;/accounts/ajax/validate.php;validate:uniqueuserp:sinacam@gmail.com
+ajax;20060831 00:49:08;/accounts/ajax/validate.php;validate:uniqueuserp:sinacam@gmail.com
+ajax;20060831 00:49:08;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060831 00:49:54;/accounts/ajax/validate.php;validate:email:sinacam@gmail.com
+ajax;20060831 00:49:54;/accounts/ajax/validate.php;validate:uniqueuserp:sinacam@gmail.com
+ajax;20060831 00:49:54;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060831 00:51:16;/accounts/ajax/validate.php;validate:zipcode:855
+ajax;20060831 00:51:16;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20060831 00:51:22;/accounts/ajax/validate.php;validate:namespaces:KY
+ajax;20060831 00:51:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060831 00:51:30;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060831 00:51:30;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060831 00:51:33;/accounts/ajax/validate.php;validate:zipcode:1
+ajax;20060831 00:51:33;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20060831 00:51:52;/accounts/ajax/validate.php;validate:namespaces:Cambodia
+ajax;20060831 00:51:52;/accounts/ajax/validate.php;return=ok|countryOther|
+ajax;20060831 00:52:11;/accounts/createaccount.php;validate:required:sinacam@gmail.com
+ajax;20060831 00:52:11;/accounts/createaccount.php;validate:email:sinacam@gmail.com
+ajax;20060831 00:52:11;/accounts/createaccount.php;validate:uniqueuserp:sinacam@gmail.com
+ajax;20060831 00:52:11;/accounts/createaccount.php;validate:uniqueuserp:sinacam@gmail.com
+ajax;20060831 00:52:11;/accounts/createaccount.php;validate:required:012821154
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:password:012821154
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:required:012821154
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:password:012821154
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:match:012821154
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:required:sina
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:required:ano
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:required:sinacam@gmail.com
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:email:sinacam@gmail.com
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:uniqueuserp:sinacam@gmail.com
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:required:RUPP
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate::Cambodia
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:namespaces:Phnom Penh
+ajax;20060831 00:52:12;/accounts/createaccount.php;validate:namespaces:Cambodia
+202.93.10.212;20060831 00:52:12;/accounts/createaccount.php;created account: sinacam@gmail.com (sinacam@gmail.com) ano,sina: inst=1
+sinacam@gmail.com;20060831 00:55:19;/accounts/login.php;user logged in (internal):202.93.10.212:https://sakaiproject.org/accounts/login.php
+mmiles@umich.edu;20060831 09:42:46;/accounts/login.php;user logged in (internal):141.213.113.220:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+jwd@indiana.edu;20060831 10:43:18;/accounts/login.php;user logged in (internal):156.56.73.56:https://sakaiproject.org/accounts/login.php
+ajax;20060831 10:43:27;/conference/proposals/index.php;validate:required:presentation
+ajax;20060831 10:45:13;/conference/proposals/index.php;validate:required:presentation
+khancock;20060831 10:49:45;/accounts/login.php;user logged in (internal):149.166.143.22:https://sakaiproject.org/accounts/login.php
+ajax;20060831 10:49:53;/conference/proposals/index.php;validate:required:presentation
+smkeesle;20060831 11:30:42;/accounts/login.php;user logged in (internal):128.230.102.225:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060831 11:31:12;/conference/proposals/index.php;validate:required:presentation
+ian;20060831 11:31:37;/accounts/login.php;user logged in (internal):131.111.21.21:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060831 11:31:45;/conference/proposals/index.php;validate:required:presentation
+ajax;20060831 11:42:45;/conference/proposals/edit_proposal.php;validate:required:Search Service and Tool
+ajax;20060831 11:42:45;/conference/proposals/edit_proposal.php;validate:required:On overview of the search service and tool, how it works, and the pitfalls for deployment in production environments.
+ajax;20060831 11:42:45;/conference/proposals/edit_proposal.php;validate:required:The presentation will cover the underlying architecture of the search service and tool, covering the search technology, the building of indexes, extending what is indexed. Focus will be given to deployment in single node and clustered production environments together with some war stories.
+ajax;20060831 11:42:45;/conference/proposals/edit_proposal.php;validate:required:Dr Ian Boston
+ajax;20060831 11:42:45;/conference/proposals/edit_proposal.php;validate:required:Dr Ian Boston is Cheif Technology Officer for CARET, University of Cambridge. He has lead the development of the RWiki tool and the Search Tool. In 2006 he was elected a Sakai Fellow.
+Before joining CARET he was Cheif Technology Officer for a Business Workflow company and continues to maintain an interest in that area. He holds a PhD in Parallel Computing and a Bachelors in Engineering Design and Manufacture. In his spare time he enjoys Sailing out of reach of the Internet.
+ajax;20060831 11:42:45;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20060831 11:42:45;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20060831 11:42:45;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20060831 11:42:54;/conference/proposals/index.php;validate:required:presentation
+s-githens@northwestern.edu;20060831 13:50:53;/accounts/login.php;user logged in (internal):129.105.116.55:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060831 13:51:10;/conference/proposals/index.php;validate:required:demo
+jpgorrono@ucdavis.edu;20060831 21:51:50;/accounts/login.php;user logged in (internal):169.237.11.6:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.

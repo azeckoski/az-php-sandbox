@@ -1,0 +1,481 @@
+ajax;20061107 02:26:33;/accounts/ajax/validate.php;validate:email:syzelle
+ajax;20061107 02:26:34;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061107 02:26:39;/accounts/ajax/validate.php;validate:email:syzelle@unisa.ac.za
+ajax;20061107 02:26:39;/accounts/ajax/validate.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:26:39;/accounts/ajax/validate.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:26:39;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061107 02:26:56;/accounts/ajax/validate.php;validate:email:syzelle@unisa.ac.za
+ajax;20061107 02:26:56;/accounts/ajax/validate.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:26:56;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061107 02:27:31;/accounts/ajax/validate.php;validate:email:syzelle@unisa.ac.z
+ajax;20061107 02:27:31;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061107 02:27:33;/accounts/ajax/validate.php;validate:email:syzelle@unisa.ac.za
+ajax;20061107 02:27:33;/accounts/ajax/validate.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:27:33;/accounts/ajax/validate.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:27:33;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061107 02:27:48;/accounts/ajax/validate.php;validate:email:syzelle@unisa.ac.za
+ajax;20061107 02:27:48;/accounts/ajax/validate.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:27:48;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061107 02:28:40;/accounts/ajax/validate.php;validate:namespaces:Pretoria
+ajax;20061107 02:28:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061107 02:29:08;/accounts/ajax/validate.php;validate:namespaces:South Africa
+ajax;20061107 02:29:08;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:required:syzelle@unisa.ac.za
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:email:syzelle@unisa.ac.za
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:required:askoek
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:password:askoek
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:required:askoek
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:password:askoek
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:match:askoek
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:required:Sonette
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:required:Yzelle
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:required:syzelle@unisa.ac.za
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:email:syzelle@unisa.ac.za
+ajax;20061107 02:29:27;/accounts/createaccount.php;validate:uniqueuserp:syzelle@unisa.ac.za
+ajax;20061107 02:29:28;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061107 02:29:28;/accounts/createaccount.php;validate:required:82
+ajax;20061107 02:29:28;/accounts/createaccount.php;validate::Preller Street
+Muckleneuk
+Pretoria
+syzelle@unisa.ac.za;20061107 02:29:28;/accounts/createaccount.php;user added (ldap): Sonette Yzelle (syzelle@unisa.ac.za) [937]
+163.200.81.4;20061107 02:29:28;/accounts/createaccount.php;created account: syzelle@unisa.ac.za (syzelle@unisa.ac.za) Yzelle,Sonette: inst=82
+syzelle@unisa.ac.za;20061107 02:42:41;/accounts/forgot_password.php;user modified (ldap): Sonette Yzelle (syzelle@unisa.ac.za) [937]
+163.200.81.4;20061107 02:42:41;/accounts/forgot_password.php;password reset: syzelle@unisa.ac.za
+syzelle@unisa.ac.za;20061107 03:03:44;/accounts/activate.php;user modified (ldap): Sonette Yzelle (syzelle@unisa.ac.za) [937]
+syzelle@unisa.ac.za;20061107 03:04:07;/accounts/activate.php;user modified (ldap): Sonette Yzelle (syzelle@unisa.ac.za) [937]
+syzelle@unisa.ac.za;20061107 03:04:14;/accounts/login.php;user logged in (ldap):163.200.81.4:https://sakaiproject.org/accounts/login.php
+ajax;20061107 03:04:55;/accounts/ajax/validate.php;validate:namespaces:Gauteng
+ajax;20061107 03:04:55;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20061107 03:05:02;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20061107 03:05:02;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 03:05:23;/accounts/ajax/validate.php;validate:phone:0124296259
+ajax;20061107 03:05:23;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 03:06:15;/accounts/ajax/validate.php;validate:email:syzelle@unisa.ac.za
+ajax;20061107 03:06:15;/accounts/ajax/validate.php;return=ok|delegate|
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:Pretoria
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:Gauteng
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:namespaces:Gauteng
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:ZA
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:namespaces:ZA
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:0124296259
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:phone:0124296259
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:N
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:N
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:Medium
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:TUE
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:WED
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:THU
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:required:FRI
+ajax;20061107 03:06:27;/conference/registration/index.php;validate:email:syzelle@unisa.ac.za
+syzelle@unisa.ac.za;20061107 03:06:27;/conference/registration/index.php;user modified (ldap): Sonette Yzelle (syzelle@unisa.ac.za) [937]
+a.strijker@utwente.nl;20061107 09:02:27;/accounts/login.php;user logged in (ldap):130.89.154.170:https://sakaiproject.org/accounts/login.php
+ajax;20061107 09:22:21;/accounts/ajax/validate.php;validate:email:cdonovan
+ajax;20061107 09:22:21;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061107 09:22:27;/accounts/ajax/validate.php;validate:email:cdonovan@indiana.edu
+ajax;20061107 09:22:27;/accounts/ajax/validate.php;validate:uniqueuserp:cdonovan@indiana.edu
+ajax;20061107 09:22:27;/accounts/ajax/validate.php;validate:uniqueuserp:cdonovan@indiana.edu
+ajax;20061107 09:22:27;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061107 09:22:40;/accounts/ajax/validate.php;validate:email:cdonovan@indiana.edu
+ajax;20061107 09:22:40;/accounts/ajax/validate.php;validate:uniqueuserp:cdonovan@indiana.edu
+ajax;20061107 09:22:40;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061107 09:23:23;/accounts/ajax/validate.php;validate:namespaces:Bloomington
+ajax;20061107 09:23:23;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061107 09:23:25;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20061107 09:23:25;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 09:23:29;/accounts/ajax/validate.php;validate:zipcode:47405
+ajax;20061107 09:23:29;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 09:23:30;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 09:23:30;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 09:23:54;/accounts/ajax/validate.php;validate:phone:812.856.3644
+ajax;20061107 09:23:54;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 09:23:55;/accounts/ajax/validate.php;validate:phone:812.855.1649
+ajax;20061107 09:23:55;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:required:cdonovan@indiana.edu
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:email:cdonovan@indiana.edu
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:uniqueuserp:cdonovan@indiana.edu
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:uniqueuserp:cdonovan@indiana.edu
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:required:madrid
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:password:madrid
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:required:madrid
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:password:madrid
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:match:madrid
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:required:Carrie
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:required:Donovan
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:required:cdonovan@indiana.edu
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:email:cdonovan@indiana.edu
+ajax;20061107 09:24:04;/accounts/createaccount.php;validate:uniqueuserp:cdonovan@indiana.edu
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate:required:Librarian
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate:required:23
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate::Wells Library, W121
+1320 E. 10th St. 
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate:namespaces:Bloomington
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate:namespaces:IN
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate:zipcode:47405
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate:phone:812.856.3644
+ajax;20061107 09:24:05;/accounts/createaccount.php;validate:phone:812.855.1649
+cdonovan@indiana.edu;20061107 09:24:05;/accounts/createaccount.php;user added (ldap): Carrie Donovan (cdonovan@indiana.edu) [938]
+129.79.38.101;20061107 09:24:05;/accounts/createaccount.php;created account: cdonovan@indiana.edu (cdonovan@indiana.edu) Donovan,Carrie: inst=23
+cdonovan@indiana.edu;20061107 09:29:01;/accounts/activate.php;user modified (ldap): Carrie Donovan (cdonovan@indiana.edu) [938]
+cdonovan@indiana.edu;20061107 09:30:14;/accounts/activate.php;user modified (ldap): Carrie Donovan (cdonovan@indiana.edu) [938]
+cdonovan@indiana.edu;20061107 09:30:22;/accounts/login.php;user logged in (ldap):129.79.38.101:https://sakaiproject.org/accounts/login.php
+ajax;20061107 09:30:29;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20061107 09:30:29;/accounts/ajax/validate.php;validate:zipcode:47405
+ajax;20061107 09:30:29;/accounts/ajax/validate.php;validate:phone:812.856.3644
+ajax;20061107 09:30:29;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 09:30:29;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 09:30:29;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 09:30:29;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 09:30:29;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 09:30:30;/accounts/ajax/validate.php;validate:phone:812.855.1649
+ajax;20061107 09:30:30;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:Librarian
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:Bloomington
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:IN
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:namespaces:IN
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:zipcode:47405
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:US
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:namespaces:US
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:812.856.3644
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:phone:812.856.3644
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:phone:812.855.1649
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:N
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:N
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:Medium
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:TUE
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:WED
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required:THU
+ajax;20061107 09:32:13;/conference/registration/index.php;validate:required: 
+cdonovan@indiana.edu;20061107 09:32:13;/conference/registration/index.php;user modified (ldap): Carrie Donovan (cdonovan@indiana.edu) [938]
+adeal@cmu.edu;20061107 10:40:02;/accounts/login.php;user logged in (ldap):67.186.9.215:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+adeal@cmu.edu;20061107 10:45:32;/accounts/login.php;user logged in (ldap):128.2.121.142:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mmiles@umich.edu;20061107 11:35:23;/accounts/login.php;user logged in (ldap):141.213.113.211:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+ajax;20061107 11:36:03;/conference/proposals/index.php;validate:required:presentation
+ajax;20061107 11:37:23;/conference/proposals/edit_proposal.php;validate:required:Getting Set-Up For Production
+ajax;20061107 11:37:23;/conference/proposals/edit_proposal.php;validate:required:To follow...
+ajax;20061107 11:37:23;/conference/proposals/edit_proposal.php;validate:required:To follow...
+ajax;20061107 11:37:23;/conference/proposals/edit_proposal.php;validate:required:David Haines
+ajax;20061107 11:37:23;/conference/proposals/edit_proposal.php;validate:required:To follow...
+ajax;20061107 11:37:23;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20061107 11:37:23;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061107 11:37:23;/conference/proposals/edit_proposal.php;validate:required:90
+martinr@acaweb.org;20061107 12:06:49;/accounts/login.php;user logged in (ldap):71.31.30.206:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+dfflanders@aim.com;20061107 12:09:02;/accounts/login.php;user logged in (ldap):193.61.13.36:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061107 12:25:30;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061107 12:25:30;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 12:25:30;/accounts/ajax/validate.php;validate:zipcode:60611
+ajax;20061107 12:25:30;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 12:25:31;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 12:25:31;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 12:25:31;/accounts/ajax/validate.php;validate:phone:312-503-0720
+ajax;20061107 12:25:31;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 12:25:31;/accounts/ajax/validate.php;validate:phone:312-503-8930
+ajax;20061107 12:25:31;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:Librarian
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:Chicago
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:IL
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:namespaces:IL
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:zipcode:60611
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:US
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:namespaces:US
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:312-503-0720
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:phone:312-503-0720
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:phone:312-503-8930
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:Y
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:N
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:Medium
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:TUE
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required:WED
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required: 
+ajax;20061107 12:26:23;/conference/registration/index.php;validate:required: 
+j-borden@northwestern.edu;20061107 12:26:23;/conference/registration/index.php;user modified (ldap): Julie Patton (j-borden@northwestern.edu) [923]
+ajax;20061107 13:08:24;/conference/proposals/index.php;validate:required:poster
+colin.clark@utoronto.ca;20061107 13:47:31;/accounts/login.php;user logged in (ldap):142.150.154.149:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+bbiltimier;20061107 15:13:03;/accounts/login.php;user logged in (internal):67.132.153.34:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+bbiltimier;20061107 15:13:03;/accounts/login.php;user modified (ldap): Brooke Biltimier (bbiltimier@rsmart.com) [410]
+ajax;20061107 15:13:05;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20061107 15:13:05;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 15:13:05;/accounts/ajax/validate.php;validate:zipcode:85018
+ajax;20061107 15:13:05;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 15:13:05;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 15:13:05;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 15:13:05;/accounts/ajax/validate.php;validate:phone:480-220-3117
+ajax;20061107 15:13:05;/accounts/ajax/validate.php;return=ok|phone|
+jpostonday;20061107 15:21:47;/accounts/login.php;user logged in (internal):64.124.144.10:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+jpostonday;20061107 15:21:47;/accounts/login.php;user added (ldap): Jan Day (jday@blackboard.com) [582]
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;validate:namespaces:DC
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;validate:zipcode:20036
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;validate:phone:(202) 463-4863
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;validate:phone:(202) 463-4860
+ajax;20061107 15:21:49;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:Manager
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:Blackboard
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:Washington
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:DC
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:namespaces:DC
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:zipcode:20036
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:US
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:namespaces:US
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:(202) 463-4860
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:phone:(202) 463-4860
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:phone:(202) 463-4863
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:Y
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:N
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:Large
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:TUE
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:WED
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:THU
+ajax;20061107 15:23:06;/conference/registration/index.php;validate:required:FRI
+jpostonday;20061107 15:23:07;/conference/registration/index.php;user modified (ldap): Jan Day (jday@blackboard.com) [582]
+adeal@cmu.edu;20061107 15:59:34;/accounts/login.php;user logged in (ldap):128.2.122.200:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+adeal@cmu.edu;20061107 16:04:44;/accounts/login.php;user logged in (ldap):128.2.120.199:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061107 16:10:18;/accounts/ajax/validate.php;validate:email:jbush
+ajax;20061107 16:10:18;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061107 16:10:23;/accounts/ajax/validate.php;validate:email:jbush@rsmart.com
+ajax;20061107 16:10:23;/accounts/ajax/validate.php;validate:uniqueuserp:jbush@rsmart.com
+ajax;20061107 16:10:23;/accounts/ajax/validate.php;validate:uniqueuserp:jbush@rsmart.com
+ajax;20061107 16:10:24;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061107 16:10:30;/accounts/ajax/validate.php;validate:email:john.bush@rsmart.com
+ajax;20061107 16:10:30;/accounts/ajax/validate.php;validate:uniqueuserp:john.bush@rsmart.com
+ajax;20061107 16:10:30;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:required:jbush@rsmart.com
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:email:jbush@rsmart.com
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:uniqueuserp:jbush@rsmart.com
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:uniqueuserp:jbush@rsmart.com
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:required:teri1h
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:password:teri1h
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:required:teri1h
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:password:teri1h
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:match:teri1h
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:required:John
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:required:Bush
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:required:john.bush@rsmart.com
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:email:john.bush@rsmart.com
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:uniqueuserp:john.bush@rsmart.com
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate::Manager
+ajax;20061107 16:10:58;/accounts/createaccount.php;validate:required:93
+jbush@rsmart.com;20061107 16:10:59;/accounts/createaccount.php;user added (ldap): John Bush (john.bush@rsmart.com) [939]
+67.132.153.34;20061107 16:10:59;/accounts/createaccount.php;created account: jbush@rsmart.com (john.bush@rsmart.com) Bush,John: inst=93
+jbush@rsmart.com;20061107 16:11:32;/accounts/activate.php;user modified (ldap): John Bush (john.bush@rsmart.com) [939]
+jbush@rsmart.com;20061107 16:11:44;/accounts/login.php;user logged in (ldap):67.132.153.34:https://sakaiproject.org/accounts/login.php
+ajax;20061107 16:12:02;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20061107 16:12:02;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 16:22:23;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 16:22:23;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 16:22:28;/accounts/ajax/validate.php;validate:phone:480-227-2910
+ajax;20061107 16:22:28;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061107 16:22:49;/conference/registration/index.php;validate::Manager
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:phoenix
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:AZ
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:namespaces:AZ
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:US
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:namespaces:US
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:480-227-2910
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:phone:480-227-2910
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:Y
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:N
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:X-Large
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:TUE
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:WED
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:THU
+ajax;20061107 16:22:49;/conference/registration/index.php;validate:required:FRI
+jbush@rsmart.com;20061107 16:22:49;/conference/registration/index.php;user modified (ldap): John Bush (john.bush@rsmart.com) [939]
+ajax;20061107 16:57:15;/conference/proposals/edit_proposal.php;validate:required:How We Turned On the Lights in the LAMP Collaborative Community
+ajax;20061107 16:57:15;/conference/proposals/edit_proposal.php;validate:required:The Appalachian College Association’s unique LAMP implementation is a consortium of 15 small colleges.  Less than a year into the project, we are in production with over 6,800 users and  3,800 sites.  We will discuss how we grew this endeavor through project structure, shared governance, faculty development, and hosting partnerships.
+ajax;20061107 16:57:15;/conference/proposals/edit_proposal.php;validate:required:2
+ajax;20061107 16:57:15;/conference/proposals/edit_proposal.php;validate:required:Martin Ramsay
+ajax;20061107 16:57:15;/conference/proposals/edit_proposal.php;validate:required:poster
+mwfarris;20061107 17:17:22;/accounts/login.php;user logged in (ldap):147.26.119.225:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;validate:email:mwfarris@txstate.edu
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;validate:namespaces:San Marcos
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;validate:uniquesql:mwfarris@txstate.edu
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;validate:phone:512-245-2319
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;validate:phone:512-245-3168
+ajax;20061107 17:17:30;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061107 17:26:11;/accounts/ajax/validate.php;validate:email:darlingury
+ajax;20061107 17:26:11;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061107 17:26:22;/accounts/ajax/validate.php;validate:email:darlingury@gmail.com
+ajax;20061107 17:26:22;/accounts/ajax/validate.php;validate:uniqueuserp:darlingury@gmail.com
+ajax;20061107 17:26:23;/accounts/ajax/validate.php;validate:uniqueuserp:darlingury@gmail.com
+ajax;20061107 17:26:23;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061107 17:26:53;/accounts/ajax/validate.php;validate:email:darlingury@gmail.com
+ajax;20061107 17:26:53;/accounts/ajax/validate.php;validate:uniqueuserp:darlingury@gmail.com
+ajax;20061107 17:26:53;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061107 17:28:22;/accounts/ajax/validate.php;validate:namespaces:mexico city
+ajax;20061107 17:28:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061107 17:28:36;/accounts/ajax/validate.php;validate:namespaces:Mexico city
+ajax;20061107 17:28:36;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20061107 17:28:48;/accounts/ajax/validate.php;validate:namespaces:MX
+ajax;20061107 17:28:48;/accounts/ajax/validate.php;return=ok|country|
+brierley@stanford.edu;20061107 17:29:08;/accounts/login.php;user logged in (ldap):171.64.130.220:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/index.php
+ajax;20061107 17:29:58;/accounts/ajax/validate.php;validate:zipcode:06800
+ajax;20061107 17:29:58;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 17:31:13;/accounts/ajax/validate.php;validate:phone:55-10-20-32 
+ajax;20061107 17:31:13;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 17:31:43;/accounts/ajax/validate.php;validate:phone:55-18-09-57 
+ajax;20061107 17:31:43;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061107 17:38:52;/accounts/createaccount.php;validate:required:darlingury@gmail.com
+ajax;20061107 17:38:52;/accounts/createaccount.php;validate:email:darlingury@gmail.com
+ajax;20061107 17:38:52;/accounts/createaccount.php;validate:uniqueuserp:darlingury@gmail.com
+ajax;20061107 17:38:52;/accounts/createaccount.php;validate:uniqueuserp:darlingury@gmail.com
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:required:camm1063
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:password:camm1063
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:required:camm1063
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:password:camm1063
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:match:camm1063
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:required:uriel
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:required:querido
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:required:darlingury@gmail.com
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:email:darlingury@gmail.com
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:uniqueuserp:darlingury@gmail.com
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:required:User Support
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate::University Administration
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:required:CIDEL UNAM
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate::Mexico City, DF, Tacuba No. 5, Col. Centro 
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:namespaces:mexico city
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:namespaces:DF
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:zipcode:06800
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:namespaces:MX
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:phone:55-10-20-32 
+ajax;20061107 17:38:53;/accounts/createaccount.php;validate:phone:55-18-09-57 
+darlingury@gmail.com;20061107 17:38:53;/accounts/createaccount.php;user added (ldap): uriel querido (darlingury@gmail.com) [940]
+132.248.138.3;20061107 17:38:55;/accounts/createaccount.php;created account: darlingury@gmail.com (darlingury@gmail.com) querido,uriel: inst=1
+darlingury@gmail.com;20061107 18:20:20;/accounts/activate.php;user modified (ldap): uriel querido (darlingury@gmail.com) [940]
+darlingury@gmail.com;20061107 18:20:39;/accounts/login.php;user logged in (ldap):132.248.138.3:https://sakaiproject.org/accounts/login.php
+ajax;20061107 18:52:38;/accounts/ajax/validate.php;validate:email:bgonzalez2
+ajax;20061107 18:52:38;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061107 18:52:46;/accounts/ajax/validate.php;validate:email:bgonzalez2@ucmerced.edu
+ajax;20061107 18:52:46;/accounts/ajax/validate.php;validate:uniqueuserp:bgonzalez2@ucmerced.edu
+ajax;20061107 18:52:46;/accounts/ajax/validate.php;validate:uniqueuserp:bgonzalez2@ucmerced.edu
+ajax;20061107 18:52:46;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061107 18:53:18;/accounts/ajax/validate.php;validate:email:bgonzalez2@ucmerced.edu
+ajax;20061107 18:53:18;/accounts/ajax/validate.php;validate:uniqueuserp:bgonzalez2@ucmerced.edu
+ajax;20061107 18:53:18;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061107 18:54:12;/accounts/ajax/validate.php;validate:namespaces:Atwater
+ajax;20061107 18:54:12;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061107 18:54:22;/accounts/ajax/validate.php;validate:zipcode:95301
+ajax;20061107 18:54:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 18:54:23;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061107 18:54:23;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 18:54:30;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 18:54:30;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 18:54:45;/accounts/ajax/validate.php;validate:phone:209-724-2974
+ajax;20061107 18:54:45;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 18:54:45;/accounts/createaccount.php;validate:required:bgonzalez2@ucmerced.edu
+ajax;20061107 18:54:45;/accounts/createaccount.php;validate:email:bgonzalez2@ucmerced.edu
+ajax;20061107 18:54:45;/accounts/createaccount.php;validate:uniqueuserp:bgonzalez2@ucmerced.edu
+ajax;20061107 18:54:45;/accounts/createaccount.php;validate:uniqueuserp:bgonzalez2@ucmerced.edu
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:required:bjagg0sakai
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:password:bjagg0sakai
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:required:bjagg0sakai
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:password:bjagg0sakai
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:match:bjagg0sakai
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:required:Benito
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:required:Gonzalez
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:required:bgonzalez2@ucmerced.edu
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:email:bgonzalez2@ucmerced.edu
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:uniqueuserp:bgonzalez2@ucmerced.edu
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate::System Administrator
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:required:63
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate::4225 N Hospital Rd
+
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:namespaces:Atwater
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:namespaces:CA
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:zipcode:95301
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061107 18:54:46;/accounts/createaccount.php;validate:phone:209-724-2974
+bgonzalez2@ucmerced.edu;20061107 18:54:46;/accounts/createaccount.php;user added (ldap): Benito Gonzalez (bgonzalez2@ucmerced.edu) [941]
+169.236.10.91;20061107 18:54:46;/accounts/createaccount.php;created account: bgonzalez2@ucmerced.edu (bgonzalez2@ucmerced.edu) Gonzalez,Benito: inst=63
+bgonzalez2@ucmerced.edu;20061107 18:55:21;/accounts/activate.php;user modified (ldap): Benito Gonzalez (bgonzalez2@ucmerced.edu) [941]
+bgonzalez2@ucmerced.edu;20061107 18:55:33;/accounts/login.php;user logged in (ldap):169.236.10.91:https://sakaiproject.org/accounts/login.php
+ajax;20061107 18:55:42;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061107 18:55:42;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 18:55:42;/accounts/ajax/validate.php;validate:zipcode:95301
+ajax;20061107 18:55:42;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 18:55:42;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 18:55:42;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 18:55:42;/accounts/ajax/validate.php;validate:phone:209-724-2974
+ajax;20061107 18:55:42;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061107 18:57:04;/conference/registration/index.php;validate::System Administrator
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:Atwater
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:CA
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:zipcode:95301
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:US
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:namespaces:US
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:209-724-2974
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:phone:209-724-2974
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:Y
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:Y
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:Large
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:TUE
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:WED
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:THU
+ajax;20061107 18:57:04;/conference/registration/index.php;validate:required:FRI
+bgonzalez2@ucmerced.edu;20061107 18:57:04;/conference/registration/index.php;user modified (ldap): Benito Gonzalez (bgonzalez2@ucmerced.edu) [941]
+dale.stiles@rsmart.com;20061107 19:54:51;/accounts/forgot_password.php;user modified (ldap): dale stiles (dale.stiles@rsmart.com) [924]
+67.132.153.34;20061107 19:54:51;/accounts/forgot_password.php;password reset: dale.stiles@rsmart.com
+dale.stiles@rsmart.com;20061107 19:55:21;/accounts/login.php;user logged in (ldap):67.132.153.34:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061107 19:55:26;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20061107 19:55:26;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 19:55:26;/accounts/ajax/validate.php;validate:zipcode:85018
+ajax;20061107 19:55:26;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 19:55:26;/accounts/ajax/validate.php;validate:phone:602-490-0465
+ajax;20061107 19:55:26;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 19:55:26;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 19:55:26;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 19:55:27;/accounts/ajax/validate.php;validate:phone:602-391-2172
+ajax;20061107 19:55:27;/accounts/ajax/validate.php;return=ok|fax|
+dale.stiles@rsmart.com;20061107 20:49:38;/accounts/login.php;user logged in (ldap):67.132.153.34:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;validate:zipcode:85018
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;validate:phone:602-490-0465
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;validate:phone:602-391-2172
+ajax;20061107 20:49:45;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061107 20:50:15;/accounts/ajax/validate.php;validate:email:dale.stiles@rsmart.com
+ajax;20061107 20:50:15;/accounts/ajax/validate.php;return=ok|delegate|
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:Manager
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:Phoenix
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:AZ
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:namespaces:AZ
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:zipcode:85018
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:US
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:namespaces:US
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:602-490-0465
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:phone:602-490-0465
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:phone:602-391-2172
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:Y
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:N
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:X-Large
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required: 
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required: 
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:THU
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:required:FRI
+ajax;20061107 20:50:17;/conference/registration/index.php;validate:email:dale.stiles@rsmart.com
+dale.stiles@rsmart.com;20061107 20:50:17;/conference/registration/index.php;user modified (ldap): dale stiles (dale.stiles@rsmart.com) [924]

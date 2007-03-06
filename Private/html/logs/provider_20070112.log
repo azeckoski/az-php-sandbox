@@ -1,0 +1,43 @@
+marcus.dubois@it.su.se;20070112 03:19:19;/accounts/activate.php;user added (ldap): Marcus Dubois (marcus.dubois@it.su.se) [676]
+marcus.dubois@it.su.se;20070112 03:19:45;/accounts/login.php;user logged in (internal):130.237.95.184:https://sakaiproject.org/accounts/login.php
+marcus.dubois@it.su.se;20070112 03:19:45;/accounts/login.php;user modified (ldap): Marcus Dubois (marcus.dubois@it.su.se) [676]
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;validate:email:marcus.dubois@it.su.se
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;validate:uniquesql:marcus.dubois@it.su.se
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;validate:namespaces:Stockholm
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;validate:namespaces:Stockholm
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;validate:zipcode:10691
+ajax;20070112 03:19:58;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070112 03:19:59;/accounts/ajax/validate.php;validate:namespaces:SE
+ajax;20070112 03:19:59;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070112 03:19:59;/accounts/ajax/validate.php;validate:phone: 46 8 16 19 99
+ajax;20070112 03:19:59;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070112 03:20:21;/accounts/ajax/validate.php;validate:email:marcus.dubois@it.su.se
+ajax;20070112 03:20:21;/accounts/ajax/validate.php;validate:uniquesql:marcus.dubois@it.su.se
+ajax;20070112 03:20:21;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;validate:namespaces:Stockholm
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;validate:namespaces:Stockholm
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;validate:zipcode:10691
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;validate:namespaces:SE
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;validate:phone: 46 8 16 19 99
+ajax;20070112 03:20:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070112 03:20:25;/accounts/ajax/validate.php;validate:email:marcus.dubois@it.su.se
+ajax;20070112 03:20:25;/accounts/ajax/validate.php;validate:uniquesql:marcus.dubois@it.su.se
+ajax;20070112 03:20:25;/accounts/ajax/validate.php;validate:namespaces:Stockholm
+ajax;20070112 03:20:25;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070112 03:20:25;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070112 03:20:26;/accounts/ajax/validate.php;validate:namespaces:Stockholm
+ajax;20070112 03:20:26;/accounts/ajax/validate.php;validate:zipcode:10691
+ajax;20070112 03:20:26;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070112 03:20:26;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070112 03:20:26;/accounts/ajax/validate.php;validate:namespaces:SE
+ajax;20070112 03:20:26;/accounts/ajax/validate.php;validate:phone: 46 8 16 19 99
+ajax;20070112 03:20:26;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070112 03:20:26;/accounts/ajax/validate.php;return=ok|phone|
+shardin;20070112 09:40:46;/accounts/login.php;user logged in (ldap):62.12.10.30:https://sakaiproject.org/accounts/login.php

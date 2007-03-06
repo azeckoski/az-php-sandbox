@@ -1,0 +1,60 @@
+ajax;20070204 03:59:23;/accounts/ajax/validate.php;validate:email:boubac
+ajax;20070204 03:59:23;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070204 03:59:52;/accounts/ajax/validate.php;validate:email:younousfrbàyahoo.fr
+ajax;20070204 03:59:52;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070204 04:00:41;/accounts/ajax/validate.php;validate:email:younousfrb@yahoo.fr
+ajax;20070204 04:00:41;/accounts/ajax/validate.php;validate:uniqueuserp:younousfrb@yahoo.fr
+ajax;20070204 04:00:41;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070204 04:03:02;/accounts/ajax/validate.php;validate:namespaces:lome
+ajax;20070204 04:03:02;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070204 04:03:30;/accounts/ajax/validate.php;validate:zipcode:3939
+ajax;20070204 04:03:30;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20070204 04:05:23;/accounts/ajax/validate.php;validate:phone:2289428669
+ajax;20070204 04:05:23;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070204 04:05:31;/accounts/ajax/validate.php;validate:namespaces:lome    TOGO
+ajax;20070204 04:05:31;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070204 04:06:41;/accounts/ajax/validate.php;validate:phone:2282223658
+ajax;20070204 04:06:41;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070204 04:07:21;/accounts/ajax/validate.php;validate:email:younousfrb@yahoo.fr
+ajax;20070204 04:07:21;/accounts/ajax/validate.php;validate:uniqueuserp:younousfrb@yahoo.fr
+ajax;20070204 04:07:21;/accounts/ajax/validate.php;validate:uniqueuserp:younousfrb@yahoo.fr
+ajax;20070204 04:07:22;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070204 04:07:45;/accounts/ajax/validate.php;validate:zipcode:BP3939
+ajax;20070204 04:07:45;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070204 04:08:08;/accounts/ajax/validate.php;validate:zipcode:0BP3939
+ajax;20070204 04:08:08;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070204 04:08:51;/accounts/ajax/validate.php;validate:zipcode:B.P3939
+ajax;20070204 04:08:51;/accounts/ajax/validate.php;return=error|zipcode|Invalid chars, use A-Z, numbers and '-' only
+ajax;20070204 04:09:19;/accounts/ajax/validate.php;validate:zipcode:B-P-939
+ajax;20070204 04:09:19;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070204 04:09:34;/accounts/ajax/validate.php;validate:zipcode:B-P-3939
+ajax;20070204 04:09:34;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070204 04:09:46;/accounts/ajax/validate.php;validate:zipcode:B-P-3939lo
+ajax;20070204 04:09:46;/accounts/ajax/validate.php;return=error|zipcode|Invalid chars, use A-Z, numbers and '-' only
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:required:younousfrb@yahoo.fr
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:email:younousfrb@yahoo.fr
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:uniqueuserp:younousfrb@yahoo.fr
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:uniqueuserp:younousfrb@yahoo.fr
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:required:271167
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:password:271167
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:required:271167
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:password:271167
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:match:271167
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:required:younoussa
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:required:boubacar  james
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:required:younousfrb@yahoo.fr
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:email:younousfrb@yahoo.fr
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:uniqueuserp:younousfrb@yahoo.fr
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:required:User Support
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate::Manager
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:required:30
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate::rue du commerce ,25
+P O BOX 3939
+LOME   REP of TOGO 
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:namespaces:lome    TOGO
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:phone:2289428669
+ajax;20070204 04:10:04;/accounts/createaccount.php;validate:phone:2282223658
+younousfrb@yahoo.fr;20070204 04:10:05;/accounts/createaccount.php;user added (ldap): younoussa boubacar  james (younousfrb@yahoo.fr) [1097]
+41.207.187.214;20070204 04:10:05;/accounts/createaccount.php;created account: younousfrb@yahoo.fr (younousfrb@yahoo.fr) boubacar  james,younoussa: inst=30
+younousfrb@yahoo.fr;20070204 04:33:02;/accounts/activate.php;user modified (ldap): younoussa boubacar  james (younousfrb@yahoo.fr) [1097]
+younousfrb@yahoo.fr;20070204 04:33:40;/accounts/login.php;user logged in (ldap):41.207.187.214:https://sakaiproject.org/accounts/login.php

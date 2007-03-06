@@ -1,0 +1,430 @@
+a.strijker@utwente.nl;20061023 02:49:54;/accounts/forgot_password.php;user modified (ldap): Allard Strijker (a.strijker@utwente.nl) [819]
+130.89.237.121;20061023 02:49:54;/accounts/forgot_password.php;password reset: a.strijker@utwente.nl
+a.strijker@utwente.nl;20061023 02:50:44;/accounts/login.php;user logged in (ldap):130.89.237.121:https://sakaiproject.org/accounts/login.php
+ajax;20061023 02:51:08;/accounts/ajax/validate.php;validate:email:a.strijker@utwente.nl
+ajax;20061023 02:51:08;/accounts/ajax/validate.php;validate:uniquesql:a.strijker@utwente.nl
+ajax;20061023 02:51:08;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061023 02:51:11;/accounts/ajax/validate.php;validate:namespaces:Netherlands
+ajax;20061023 02:51:11;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 02:51:11;/accounts/ajax/validate.php;validate:namespaces:Enschede
+ajax;20061023 02:51:11;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061023 02:51:11;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20061023 02:51:12;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 02:51:12;/accounts/ajax/validate.php;validate:phone: 31 53 489 4543
+ajax;20061023 02:51:12;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:password:donderdag
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:password:donderdag
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:match:donderdag
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:required:Allard
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:required:Strijker
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:required:a.strijker@utwente.nl
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:email:a.strijker@utwente.nl
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:uniquesql:a.strijker@utwente.nl
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:required:Faculty
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:required:115
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate::PO Box 217
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:namespaces:Enschede
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:namespaces:Netherlands
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:namespaces:NL
+ajax;20061023 02:51:31;/accounts/myaccount.php;validate:phone:+31 53 489 4543
+a.strijker@utwente.nl;20061023 02:51:31;/accounts/myaccount.php;user modified (ldap): Allard Strijker (a.strijker@utwente.nl) [819]
+ajax;20061023 02:53:23;/conference/proposals/index.php;validate:required:presentation
+shardin;20061023 08:51:31;/accounts/login.php;user logged in (ldap):141.213.120.80:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+mmiles@umich.edu;20061023 08:55:14;/accounts/login.php;user logged in (ldap):141.213.113.211:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20061023 08:57:22;/accounts/ajax/validate.php;validate:email:fengr@vt.edu
+ajax;20061023 08:57:22;/accounts/ajax/validate.php;validate:uniqueuserp:fengr@vt.edu
+ajax;20061023 08:57:22;/accounts/ajax/validate.php;validate:uniqueuserp:fengr@vt.edu
+ajax;20061023 08:57:22;/accounts/ajax/validate.php;return=ok|username|
+babi;20061023 08:57:59;/accounts/login.php;user logged in (internal):18.127.1.110:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+babi;20061023 08:57:59;/accounts/login.php;user modified (ldap): Amitava 'Babi' Mitra (babi@mit.edu) [452]
+ajax;20061023 08:58:02;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20061023 08:58:02;/accounts/ajax/validate.php;validate:zipcode:02139
+ajax;20061023 08:58:02;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 08:58:02;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061023 08:58:03;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 08:58:03;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 08:58:03;/accounts/ajax/validate.php;validate:phone:617-253-2385
+ajax;20061023 08:58:03;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061023 08:58:09;/accounts/ajax/validate.php;validate:email:fengr@vt.edu
+ajax;20061023 08:58:09;/accounts/ajax/validate.php;validate:uniqueuserp:fengr@vt.edu
+ajax;20061023 08:58:09;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:required:fengr@vt.edu
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:email:fengr@vt.edu
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:uniqueuserp:fengr@vt.edu
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:uniqueuserp:fengr@vt.edu
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:required:zhang3
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:password:zhang3
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:required:zhang3
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:password:zhang3
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:match:zhang3
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:required:Rui
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:required:Feng
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:required:fengr@vt.edu
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:email:fengr@vt.edu
+ajax;20061023 08:58:32;/accounts/createaccount.php;validate:uniqueuserp:fengr@vt.edu
+ajax;20061023 08:58:33;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061023 08:58:33;/accounts/createaccount.php;validate:required:88
+fengr@vt.edu;20061023 08:58:33;/accounts/createaccount.php;user added (ldap): Rui Feng (fengr@vt.edu) [884]
+198.82.16.231;20061023 08:58:33;/accounts/createaccount.php;created account: fengr@vt.edu (fengr@vt.edu) Feng,Rui: inst=88
+fengr@vt.edu;20061023 08:59:49;/accounts/activate.php;user modified (ldap): Rui Feng (fengr@vt.edu) [884]
+fengr@vt.edu;20061023 09:00:07;/accounts/login.php;user logged in (ldap):198.82.16.231:https://sakaiproject.org/accounts/login.php
+ajax;20061023 09:00:26;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20061023 09:00:26;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 09:00:31;/accounts/ajax/validate.php;validate:zipcode:24060
+ajax;20061023 09:00:31;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061023 09:00:34;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 09:00:34;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 09:00:58;/accounts/ajax/validate.php;validate:phone:540-231-3814
+ajax;20061023 09:00:58;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:Manager
+ajax;20061023 09:02:20;/conference/registration/index.php;validate::University Administration
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:Cambridge
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:MA
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:namespaces:MA
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:zipcode:02139
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:US
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:namespaces:US
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:617-253-2385
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:phone:617-253-2385
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:Y
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:N
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:X-Large
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:TUE
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:WED
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:THU
+ajax;20061023 09:02:20;/conference/registration/index.php;validate:required:FRI
+babi;20061023 09:02:20;/conference/registration/index.php;user modified (ldap): Amitava 'Babi' Mitra (babi@mit.edu) [452]
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:Blacksburg
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:VA
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:namespaces:VA
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:zipcode:24060
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:US
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:namespaces:US
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:540-231-3814
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:phone:540-231-3814
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:Y
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:N
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:Small
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:TUE
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:WED
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:THU
+ajax;20061023 09:03:02;/conference/registration/index.php;validate:required:FRI
+fengr@vt.edu;20061023 09:03:02;/conference/registration/index.php;user modified (ldap): Rui Feng (fengr@vt.edu) [884]
+clayf;20061023 09:06:11;/accounts/login.php;user logged in (ldap):168.122.82.165:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.+%3Cbr%2F%3E%3Cbr%2F%3E%2A%2A++only+those+individuals+who+were+nominated+and+contacted+by+the+elections+committee+may+add+their+information.%3Cbr%2F%3E%3Cbr%2F%3E+
+ajax;20061023 09:07:25;/election/add_entry.php;validate:required:2006 has been a year of transitions for the Sakai community: a shift from a grant-funded project with a corporate development model to a community source foundation; a broadening of both leadership and the community's requirements, and a greater transparency of management.  But yet further, needed transitions lie ahead.  I think Sakai's greatest challenge remains its barriers to entry, or, perhaps better put, its barriers to participation, since the barrier to entry is (in principle) very low indeed.  We know the shared vision that got us in the door, but now it's time to affirm what's going to keep us in the room.  It is the reduction of these challenges to participation that I think will represent the next stage of Sakai's maturity. 
+
+Institutions encounter these challenges in their strategic planning with regard to Sakai.  Although we benefit from a self-motivated voluntarism in many individuals, the success of Sakai will really require the voluntarism that is also an extension of the institutional will.  Much progress has been made in allowing the community to follow progress on the various projects and weigh in with their own needs, and we need to continue to hone these practices.  But I think we can do more to encourage school administrations in their investment of resources - in fact, I think we can increase contributions - by better identifying or establishing clear channels for them to devote resources to achieve measurable, predictable results.  In short, we can improve the ability for institutions to account for their investment in community source, and provide them with better reasons to contribute.
+
+Faculty and students encounter these challenges in the arena of usability or user experience.  There are encouraging initiatives underway to establish more coherent design patterns, and to bring user experience issues more to the fore.  More development projects are leading with design and usability planning rather than trying to corral those problems after the fact.  And the upcoming pre-conference day devoted to user experience issues in Sakai is a very heartening indeed.  All such efforts need to be encouraged and promoted.
+
+Designers, learning technologists, and developers encounter these challenges in technical complexity, a lack of documentation, and a sometimes confusing array of information sources.  I'm much encouraged by the training workshops for new developers that have grown out of the community, and by maturing technologies which carry the promise of easier and better collaboration between designers, pedagogists, and the Java experts (e.g., RSF and ongoing efforts to integrate with other languages).  I still hold out hope for the time when faculty can be immediately involved in tool development - it was part of the vision which originally attracted me to Sakai, but the difficulties to date have been daunting.  I think we can do more to provide clear, comprehensive information, and to identify points of engagement and mentoring for willing contributors.
+
+All our volunteers can encounter challenges to participation when the Sakai calendar matches up poorly with the calendar of local exigencies.  I'm much encouraged by the establishment of a new release schedule which provides much more lead time between software releases and academic terms, and which has achieved better discipline for QA and regularity for development cycles.
+
+In addition to how participation in Sakai, I think a key factor to our success will be how Sakai participates within the broader array of higher ed technology initiatives.  I am encouraged by our common cartridge work, by our interactions with the LAMS community, by efforts to integrate Sakai with Bodington and uPortal, among others.  We need to continue to cultivate these partnerships.
+
+Sakai community leaders have done a superb job in communicating our vision and promoting it within the broader education community, while they have also done an admirable job forearming us against external threats, such as the issues surrounding patent litigation.  That all needs to continue and even be developed further.  But at the same time we will need to do more to figure out how to make this collaboration really work for those who have already bought into the vision.
+ajax;20061023 09:07:25;/election/add_entry.php;validate:required:Though a U.S. citizen, Clay grew up in South Korea, and only returned to the States for his university education.  He received his undergraduate degree from Colorado College, and his M.S. in High Energy Astrophysics from Iowa State University in 1995.  He finished this degree with the conviction that teaching was a more compelling pursuit for him than the life of a research astronomer, and in fact at the time he left with his degree he was teaching in both the physics and philosophy departments, and writing popular astronomy articles for publication.  
+
+Seeking to combine this pedagogical interest with a desire to return overseas, he spent the next three years in rural South Africa, a volunteer in educational and community development.  His chief responsibility was a set of primary schools and their villages in the Sotho homelands, but he also worked closely with provincial offices in acquiring donations of books and computers from international investors, and establishing grant-funded libraries and computer literacy programs for educators.
+
+Upon returning to the States in 1999 he moved to Boston to enter a master's program in Philosophy at Boston University, and he parlayed his experience doing computer modeling in gamma ray astronomy to acquire a job in the IT department there - initially just for the tuition remission while he pursued his own studies.  But a professional philosophical interest was once again eclipsed by a fascination with the computer as both a social tool and a medium of instruction.  He became the administrator for the course management systems at the School of Management, helped develop some of its courses for online delivery, and taught a few of his own astronomy and calculus courses online as well.  Late in 2003 he became the Associate Director for Academic Computing.
+
+Since he spearheaded the School of Management's entry into the Sakai partnership in early 2004, he has been a vocal and active member of the community at a number of levels, ranging from the QA working group and release documentation, through Strategy and Advocacy discussions which shaped the Foundation by-laws, and to the community practice working group which seeks to articulate the practices by which the Sakai community collaborates.  He was made a Sakai Fellow in May of 2006.  Throughout, his keenest interest has been in the nature and health of the organization and the community source model.
+ajax;20061023 09:07:43;/election/add_entry.php;validate:required:2006 has been a year of transitions for the Sakai community: a shift from a grant-funded project with a corporate development model to a community source foundation; a broadening of both leadership and the community's requirements, and a greater transparency of management.  But yet further, needed transitions lie ahead.  I think Sakai's greatest challenge remains its barriers to entry, or, perhaps better put, its barriers to participation, since the barrier to entry is (in principle) very low indeed.  We know the shared vision that got us in the door, but now it's time to affirm what's going to keep us in the room.  It is the reduction of these challenges to participation that I think will represent the next stage of Sakai's maturity. 
+
+Institutions encounter these challenges in their strategic planning with regard to Sakai.  Although we benefit from a self-motivated voluntarism in many individuals, the success of Sakai will really require the voluntarism that is also an extension of the institutional will.  Much progress has been made in allowing the community to follow progress on the various projects and weigh in with their own needs, and we need to continue to hone these practices.  But I think we can do more to encourage school administrations in their investment of resources - in fact, I think we can increase contributions - by better identifying or establishing clear channels for them to devote resources to achieve measurable, predictable results.  In short, we can improve the ability for institutions to account for their investment in community source, and provide them with better reasons to contribute.
+
+Faculty and students encounter these challenges in the arena of usability or user experience.  There are encouraging initiatives underway to establish more coherent design patterns, and to bring user experience issues more to the fore.  More development projects are leading with design and usability planning rather than trying to corral those problems after the fact.  And the upcoming pre-conference day devoted to user experience issues in Sakai is a very heartening indeed.  All such efforts need to be encouraged and promoted.
+
+Designers, learning technologists, and developers encounter these challenges in technical complexity, a lack of documentation, and a sometimes confusing array of information sources.  I'm much encouraged by the training workshops for new developers that have grown out of the community, and by maturing technologies which carry the promise of easier and better collaboration between designers, pedagogists, and the Java experts (e.g., RSF and ongoing efforts to integrate with other languages).  I still hold out hope for the time when faculty can be immediately involved in tool development - it was part of the vision which originally attracted me to Sakai, but the difficulties to date have been daunting.  I think we can do more to provide clear, comprehensive information, and to identify points of engagement and mentoring for willing contributors.
+
+All our volunteers can encounter challenges to participation when the Sakai calendar matches up poorly with the calendar of local exigencies.  I'm much encouraged by the establishment of a new release schedule which provides much more lead time between software releases and academic terms, and which has achieved better discipline for QA and regularity for development cycles.
+
+In addition to participation in Sakai, I think a key factor to our success will be how Sakai participates within the broader array of higher ed technology initiatives.  I am encouraged by our common cartridge work, by our interactions with the LAMS community, by efforts to integrate Sakai with Bodington and uPortal, among others.  We need to continue to cultivate these partnerships.
+
+Sakai community leaders have done a superb job in communicating our vision and promoting it within the broader education community, while they have also done an admirable job forearming us against external threats, such as the issues surrounding patent litigation.  That all needs to continue and even be developed further.  But at the same time we will need to do more to figure out how to make this collaboration really work for those who have already bought into the vision.
+ajax;20061023 09:07:43;/election/add_entry.php;validate:required:Though a U.S. citizen, Clay grew up in South Korea, and only returned to the States for his university education.  He received his undergraduate degree from Colorado College, and his M.S. in High Energy Astrophysics from Iowa State University in 1995.  He finished this degree with the conviction that teaching was a more compelling pursuit for him than the life of a research astronomer, and in fact at the time he left with his degree he was teaching in both the physics and philosophy departments, and writing popular astronomy articles for publication.  
+
+Seeking to combine this pedagogical interest with a desire to return overseas, he spent the next three years in rural South Africa, a volunteer in educational and community development.  His chief responsibility was a set of primary schools and their villages in the Sotho homelands, but he also worked closely with provincial offices in acquiring donations of books and computers from international investors, and establishing grant-funded libraries and computer literacy programs for educators.
+
+Upon returning to the States in 1999 he moved to Boston to enter a master's program in Philosophy at Boston University, and he parlayed his experience doing computer modeling in gamma ray astronomy to acquire a job in the IT department there - initially just for the tuition remission while he pursued his own studies.  But a professional philosophical interest was once again eclipsed by a fascination with the computer as both a social tool and a medium of instruction.  He became the administrator for the course management systems at the School of Management, helped develop some of its courses for online delivery, and taught a few of his own astronomy and calculus courses online as well.  Late in 2003 he became the Associate Director for Academic Computing.
+
+Since he spearheaded the School of Management's entry into the Sakai partnership in early 2004, he has been a vocal and active member of the community at a number of levels, ranging from the QA working group and release documentation, through Strategy and Advocacy discussions which shaped the Foundation by-laws, and to the community practice working group which seeks to articulate the practices by which the Sakai community collaborates.  He was made a Sakai Fellow in May of 2006.  Throughout, his keenest interest has been in the nature and health of the organization and the community source model.
+ajax;20061023 09:08:19;/election/add_entry.php;validate:required:2006 has been a year of transitions for the Sakai community: a shift from a grant-funded project with a corporate development model to a community source foundation; a broadening of both leadership and the community's requirements, and a greater transparency of management.  But yet further, needed transitions lie ahead.  I think Sakai's greatest challenge remains its barriers to entry, or, perhaps better put, its barriers to participation, since the barrier to entry is (in principle) very low indeed.  We know the shared vision that got us in the door, but now it's time to affirm what's going to keep us in the room.  It is the reduction of these challenges to participation that I think will represent the next stage of Sakai's maturity. 
+
+Institutions encounter these challenges in their strategic planning with regard to Sakai.  Although we benefit from a self-motivated voluntarism in many individuals, the success of Sakai will really require the voluntarism that is also an extension of the institutional will.  Much progress has been made in allowing the community to follow progress on the various projects and weigh in with their own needs, and we need to continue to hone these practices.  But I think we can do more to encourage school administrations in their investment of resources - in fact, I think we can increase contributions - by better identifying or establishing clear channels for them to devote resources to achieve measurable, predictable results.  In short, we can improve the ability for institutions to account for their investment in community source, and provide them with better reasons to contribute.
+
+Faculty and students encounter these challenges in the arena of usability or user experience.  There are encouraging initiatives underway to establish more coherent design patterns, and to bring user experience issues more to the fore.  More development projects are leading with design and usability planning rather than trying to corral those problems after the fact.  And the upcoming pre-conference day devoted to user experience issues in Sakai is a very heartening indeed.  All such efforts need to be encouraged and promoted.
+
+Designers, learning technologists, and developers encounter these challenges in technical complexity, a lack of documentation, and a sometimes confusing array of information sources.  I'm much encouraged by the training workshops for new developers that have grown out of the community, and by maturing technologies which carry the promise of easier and better collaboration between designers, pedagogists, and the Java experts (e.g., RSF and ongoing efforts to integrate with other languages).  I still hold out hope for the time when faculty can be immediately involved in tool development - it was part of the vision which originally attracted me to Sakai, but the difficulties to date have been daunting.  I think we can do more to provide clear, comprehensive information, and to identify points of engagement and mentoring for willing contributors.
+
+All our volunteers can encounter challenges to participation when the Sakai calendar matches up poorly with the calendar of local exigencies.  I'm much encouraged by the establishment of a new release schedule which provides much more lead time between software releases and academic terms, and which has achieved better discipline for QA and regularity for development cycles.
+
+In addition to participation in Sakai, I think a key factor to our success will be how Sakai participates within the broader array of higher ed technology initiatives.  I am encouraged by our common cartridge work, by our interactions with the LAMS community, by efforts to integrate Sakai with Bodington and uPortal, among others.  We need to continue to cultivate these partnerships.
+
+Sakai community leaders have done a superb job in communicating our vision and promoting it within the broader education community, while they have also done an admirable job forearming us against external threats, such as the issues surrounding patent litigation.  That all needs to continue and even be developed further.  But at the same time I think we will be called upon to do more to figure out how to make this collaboration really work for those who have already bought into the vision.
+ajax;20061023 09:08:19;/election/add_entry.php;validate:required:Though a U.S. citizen, Clay grew up in South Korea, and only returned to the States for his university education.  He received his undergraduate degree from Colorado College, and his M.S. in High Energy Astrophysics from Iowa State University in 1995.  He finished this degree with the conviction that teaching was a more compelling pursuit for him than the life of a research astronomer, and in fact at the time he left with his degree he was teaching in both the physics and philosophy departments, and writing popular astronomy articles for publication.  
+
+Seeking to combine this pedagogical interest with a desire to return overseas, he spent the next three years in rural South Africa, a volunteer in educational and community development.  His chief responsibility was a set of primary schools and their villages in the Sotho homelands, but he also worked closely with provincial offices in acquiring donations of books and computers from international investors, and establishing grant-funded libraries and computer literacy programs for educators.
+
+Upon returning to the States in 1999 he moved to Boston to enter a master's program in Philosophy at Boston University, and he parlayed his experience doing computer modeling in gamma ray astronomy to acquire a job in the IT department there - initially just for the tuition remission while he pursued his own studies.  But a professional philosophical interest was once again eclipsed by a fascination with the computer as both a social tool and a medium of instruction.  He became the administrator for the course management systems at the School of Management, helped develop some of its courses for online delivery, and taught a few of his own astronomy and calculus courses online as well.  Late in 2003 he became the Associate Director for Academic Computing.
+
+Since he spearheaded the School of Management's entry into the Sakai partnership in early 2004, he has been a vocal and active member of the community at a number of levels, ranging from the QA working group and release documentation, through Strategy and Advocacy discussions which shaped the Foundation by-laws, and to the community practice working group which seeks to articulate the practices by which the Sakai community collaborates.  He was made a Sakai Fellow in May of 2006.  Throughout, his keenest interest has been in the nature and health of the organization and the community source model.
+clayf;20061023 10:35:01;/accounts/login.php;user logged in (ldap):168.122.34.200:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.+%3Cbr%2F%3E%3Cbr%2F%3E%2A%2A++only+those+individuals+who+were+nominated+and+contacted+by+the+elections+committee+may+add+their+information.%3Cbr%2F%3E%3Cbr%2F%3E+
+ajax;20061023 10:58:26;/election/add_entry.php;validate:required:2006 has been a year of transitions for the Sakai community: a shift from a grant-funded project to a community source foundation; a broadening of both leadership and the community's requirements, and a greater transparency of management.  But yet further needed transitions lie ahead.  
+
+I think Sakai's greatest challenge remains its barriers to entry, or, perhaps better put, its barriers to participation, since the barrier to entry is (in principle) very low indeed.  We know the shared vision that got us in the door, but now it's time to affirm what's going to keep us in the room.  It is the smoothing out of these challenges to participation that I think will represent the next stage of Sakai's maturity. 
+
+Institutions encounter these challenges in their strategic planning with regard to Sakai.  Although we benefit from a self-motivated voluntarism in many individuals, the success of Sakai will really require the voluntarism that is an extension of the institutional will, and institutions can be better encouraged and supported in this.  Much progress has been made in allowing the community to follow progress on the various projects and weigh in with their own needs, and we need to continue to hone these practices.  But I think we can do more to encourage school administrations in their investment of resources - in fact, I think we can increase contributions - by better identifying or establishing clear channels for them to devote resources to achieve measurable, predictable results.  In short, we can improve the ability for institutions to account for their investment in community source, and provide them with stronger reasons to both contribute and defend those contributions at home, when the occasion calls for it.
+
+Faculty and students encounter these challenges in the arena of usability or user experience.  There are encouraging initiatives underway to establish more coherent design patterns, and to bring user experience issues more to the fore.  More development projects are leading with design and usability planning rather than trying to corral those problems after the fact.  And the upcoming pre-conference day devoted to user experience issues in Sakai is a very heartening indeed.  I think all such efforts need to continue to be encouraged and promoted.
+
+Designers, learning technologists, and developers encounter these challenges in technical complexity, a lack of documentation, and a sometimes confusing array of information sources.  I'm much encouraged by the training workshops for new developers that have grown out of the community, and by maturing technologies which carry the promise of easier and better collaboration between designers, pedagogists, and the Java experts (e.g., RSF and ongoing efforts to integrate with other languages).  I still hold out hope for the time when more teachers can be immediately involved in tool development - it was part of the vision which originally attracted me to Sakai, but the difficulties to date have been daunting.  I think we can do more to provide clear, comprehensive information, and to identify points of engagement and mentoring for willing contributors.
+
+All our volunteers can encounter challenges to participation when the Sakai calendar matches up poorly with the calendar of local exigencies.  I'm much encouraged by the establishment of a new release schedule which provides much more lead time between software releases and academic terms, and which has achieved better discipline for QA and regularity for development cycles.  We need to continue to try to better align Sakai's processes with local processes, and even merge them where appropriate, in order to better harness the efforts of the community.
+
+In addition to broad participation within the Sakai community, I think a key factor to our success will be how Sakai participates within the broader array of higher ed technology initiatives.  I am encouraged by our common cartridge work, by our interactions with the LAMS community, by efforts to integrate Sakai with Bodington and uPortal, among others.  We need to continue to reach out and cultivate these partnerships.
+
+Sakai Foundation leaders have done a superb job in communicating our vision and promoting it within the broader education community, while they have also done an admirable job forearming us against external threats, such as the issues surrounding patent litigation.  That all needs to continue and even be developed further.  But at the same time I think we will be called upon to do more to figure out how to make this collaboration really work for those who have already bought into the vision.
+ajax;20061023 10:58:26;/election/add_entry.php;validate:required:Though a U.S. citizen, Clay grew up in South Korea, and only returned to the States for his university education.  He received his undergraduate degree from Colorado College, and his M.S. in High Energy Astrophysics from Iowa State University in 1995.  He finished this degree with the conviction that teaching was a more compelling pursuit for him than the life of a research astronomer, and in fact at the time he left with his degree he was teaching in both the physics and philosophy departments, and writing popular astronomy articles for publication.  
+
+Seeking to combine this pedagogical interest with a desire to return overseas, he spent the next three years in rural South Africa, a volunteer in educational and community development.  His chief responsibility was a set of primary schools and their villages in the Sotho homelands, but he also worked closely with provincial offices in acquiring donations of books and computers from international investors, and establishing grant-funded libraries and computer literacy programs for educators.
+
+Upon returning to the States in 1999 he moved to Boston to enter a master's program in Philosophy at Boston University, and he parlayed his experience doing computer modeling in gamma ray astronomy to acquire a job in the IT department there - initially just for the tuition remission while he pursued his own studies.  But a professional philosophical interest was once again eclipsed by a fascination with the computer as both a social tool and a medium of instruction.  He became the administrator for the course management systems at the School of Management, helped develop some of its courses for online delivery, and taught a few of his own astronomy and calculus courses online as well.  Late in 2003 he became the Associate Director for Academic Computing.
+
+Since he spearheaded BU's entry into the Sakai partnership in early 2004, he has been a vocal and active member of the community at a number of levels, ranging from the QA working group and release documentation, through Strategy and Advocacy discussions which shaped the Foundation by-laws, and to the community practice working group which seeks to articulate the practices by which the Sakai community collaborates.  He was made a Sakai Fellow in May of 2006.  Throughout, his keenest interest has been in the nature and health of the organization and the community source model.
+shardin;20061023 11:35:05;/accounts/login.php;user logged in (internal):141.213.120.80:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+shardin;20061023 11:35:05;/accounts/login.php;user modified (ldap): Susan Hardin (shardin@umich.edu) [2]
+hardin;20061023 11:57:58;/accounts/login.php;user logged in (internal):141.213.120.80:https://sakaiproject.org/accounts/login.php
+hardin;20061023 11:57:58;/accounts/login.php;user added (ldap): Joseph Hardin (hardin@umich.edu) [191]
+hardin;20061023 12:00:05;/accounts/login.php;user logged in (ldap):141.213.120.101:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+shardin;20061023 12:01:48;/accounts/login.php;user logged in (ldap):141.213.120.80:https://sakaiproject.org/accounts/login.php
+ajax;20061023 12:20:52;/conference/proposals/index.php;validate:required:poster
+boisebarbara@gmail.com;20061023 12:39:44;/accounts/activate.php;user modified (ldap): Barbara Schroeder (boisebarbara@gmail.com) [883]
+boisebarbara@gmail.com;20061023 12:40:07;/accounts/login.php;user logged in (ldap):132.178.141.5:https://sakaiproject.org/accounts/login.php
+ajax;20061023 12:40:27;/accounts/ajax/validate.php;validate:namespaces:ID
+ajax;20061023 12:40:27;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 12:40:27;/accounts/ajax/validate.php;validate:zipcode:83725
+ajax;20061023 12:40:27;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061023 12:40:27;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 12:40:27;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 12:40:27;/accounts/ajax/validate.php;validate:phone:208-426--5542
+ajax;20061023 12:40:27;/accounts/ajax/validate.php;return=ok|phone|
+shardin.umich@gmail.com;20061023 12:47:06;/accounts/login.php;user logged in (ldap):141.213.120.80:https://sakaiproject.org/accounts/login.php
+abcassidy;20061023 12:49:32;/accounts/login.php;user logged in (internal):70.20.17.71:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+abcassidy;20061023 12:49:32;/accounts/login.php;user modified (ldap): Brigid Cassidy (abrigidcassidy@earthlink.net) [380]
+colin.clark@utoronto.ca;20061023 12:54:16;/accounts/login.php;user logged in (ldap):142.150.154.149:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+mmiles@umich.edu;20061023 12:59:23;/accounts/login.php;user logged in (ldap):141.212.49.49:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;validate:email:shardin.umich@gmail.com
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;validate:uniquesql:shardin.umich@gmail.com
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;validate:zipcode:33333
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;validate:phone:444-444-4444
+ajax;20061023 13:00:21;/accounts/ajax/validate.php;return=ok|phone|
+shardin;20061023 13:00:30;/accounts/login.php;user logged in (internal):141.213.120.80:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+shardin;20061023 13:00:30;/accounts/login.php;user modified (ldap): Susan Hardin (shardin@umich.edu) [2]
+shardin;20061023 13:01:39;/accounts/login.php;user logged in (ldap):141.213.120.80:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+jrm;20061023 13:02:05;/accounts/login.php;user logged in (internal):128.220.212.114:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+jrm;20061023 13:02:05;/accounts/login.php;user added (ldap): Jim Martino (jrm@jhu.edu) [226]
+markjnorton;20061023 13:05:55;/accounts/login.php;user logged in (ldap):70.20.17.71:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+amorrone;20061023 13:24:23;/accounts/login.php;user logged in (ldap):156.56.75.140:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+jfgreen;20061023 13:27:39;/accounts/login.php;user logged in (internal):35.10.4.162:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+jfgreen;20061023 13:27:39;/accounts/login.php;user added (ldap): James F. Green (jfgreen@msu.edu) [413]
+urauch;20061023 14:01:20;/accounts/login.php;user logged in (ldap):142.103.98.230:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+abcassidy;20061023 14:08:17;/accounts/login.php;user logged in (ldap):70.20.17.71:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+abcassidy;20061023 14:10:53;/accounts/login.php;user logged in (ldap):70.20.17.71:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20061023 14:35:38;/accounts/ajax/validate.php;validate:email:sgrullon
+ajax;20061023 14:35:38;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061023 14:35:46;/accounts/ajax/validate.php;validate:email:sgrullon@gmail.com
+ajax;20061023 14:35:46;/accounts/ajax/validate.php;validate:uniqueuserp:sgrullon@gmail.com
+ajax;20061023 14:35:46;/accounts/ajax/validate.php;validate:uniqueuserp:sgrullon@gmail.com
+ajax;20061023 14:35:47;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061023 14:36:01;/accounts/ajax/validate.php;validate:email:sgrullon@gmail.com
+ajax;20061023 14:36:01;/accounts/ajax/validate.php;validate:uniqueuserp:sgrullon@gmail.com
+ajax;20061023 14:36:01;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061023 14:36:52;/accounts/ajax/validate.php;validate:namespaces:Marietta
+ajax;20061023 14:36:52;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061023 14:36:53;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20061023 14:36:53;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 14:36:56;/accounts/ajax/validate.php;validate:zipcode:30062
+ajax;20061023 14:36:56;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061023 14:36:58;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 14:36:58;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 14:37:02;/accounts/ajax/validate.php;validate:phone:770-757-9715
+ajax;20061023 14:37:02;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061023 14:38:02;/accounts/createaccount.php;validate:required:sgrullon@gmail.com
+ajax;20061023 14:38:03;/accounts/createaccount.php;validate:email:sgrullon@gmail.com
+ajax;20061023 14:38:04;/accounts/createaccount.php;validate:uniqueuserp:sgrullon@gmail.com
+ajax;20061023 14:38:05;/accounts/createaccount.php;validate:uniqueuserp:sgrullon@gmail.com
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:required:sg2317
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:password:sg2317
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:required:sg2317
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:password:sg2317
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:match:sg2317
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:required:Sergio
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:required:Grullon
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:required:sgrullon@gmail.com
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:email:sgrullon@gmail.com
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:uniqueuserp:sgrullon@gmail.com
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:required:Manager
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:required:ILAFE LLC
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate::1500 Tappahannock Trail
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:namespaces:Marietta
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:namespaces:GA
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:zipcode:30062
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061023 14:38:06;/accounts/createaccount.php;validate:phone:770-757-9715
+sgrullon@gmail.com;20061023 14:38:06;/accounts/createaccount.php;user added (ldap): Sergio Grullon (sgrullon@gmail.com) [885]
+24.98.118.135;20061023 14:38:06;/accounts/createaccount.php;created account: sgrullon@gmail.com (sgrullon@gmail.com) Grullon,Sergio: inst=1
+sgrullon@gmail.com;20061023 14:39:12;/accounts/activate.php;user modified (ldap): Sergio Grullon (sgrullon@gmail.com) [885]
+sgrullon@gmail.com;20061023 14:39:16;/accounts/login.php;user logged in (ldap):24.98.118.135:https://sakaiproject.org/accounts/login.php
+ajax;20061023 14:39:22;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20061023 14:39:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 14:39:22;/accounts/ajax/validate.php;validate:zipcode:30062
+ajax;20061023 14:39:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061023 14:39:22;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 14:39:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 14:39:22;/accounts/ajax/validate.php;validate:phone:770-757-9715
+ajax;20061023 14:39:22;/accounts/ajax/validate.php;return=ok|phone|
+mickwisniewski;20061023 15:00:21;/accounts/login.php;user logged in (ldap):198.188.96.2:https://sakaiproject.org/accounts/login.php?ref=/conference/logos/add_entry.php&msg=You+must+login+to+submit+a+logo+or+theme+for+the++conference.+If+you+do+not+have+an+account%2C+please+create+one.
+erik.froese@gmail.com;20061023 15:05:42;/accounts/forgot_password.php;user added (ldap): Erik Froese (erik.froese@gmail.com) [673]
+128.122.50.199;20061023 15:05:42;/accounts/forgot_password.php;password reset: erik.froese@gmail.com
+erik.froese@gmail.com;20061023 15:06:29;/accounts/login.php;user logged in (ldap):128.122.50.199:https://sakaiproject.org/accounts/login.php
+ajax;20061023 15:06:54;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061023 15:06:55;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 15:06:57;/accounts/ajax/validate.php;validate:zipcode:10012
+ajax;20061023 15:06:57;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061023 15:06:59;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 15:06:59;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 15:07:06;/accounts/ajax/validate.php;validate:phone:9179758049
+ajax;20061023 15:07:06;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:System Administrator
+ajax;20061023 15:07:27;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:New York
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:NY
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:namespaces:NY
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:zipcode:10012
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:US
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:namespaces:US
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:9179758049
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:phone:9179758049
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:N
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:N
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:Large
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:TUE
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:WED
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:THU
+ajax;20061023 15:07:27;/conference/registration/index.php;validate:required:FRI
+erik.froese@gmail.com;20061023 15:07:27;/conference/registration/index.php;user modified (ldap): Erik Froese (erik.froese@gmail.com) [673]
+ws15@txstate.edu;20061023 15:27:21;/accounts/login.php;user logged in (ldap):147.26.119.178:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+amorrone;20061023 15:34:17;/accounts/login.php;user logged in (ldap):156.56.75.140:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+abcassidy;20061023 15:49:28;/accounts/login.php;user logged in (ldap):70.20.17.71:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20061023 15:54:14;/conference/proposals/index.php;validate:required:presentation
+lbrooks@stanford.edu;20061023 16:04:36;/accounts/login.php;user logged in (ldap):171.64.183.227:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+tms@virginia.edu;20061023 16:05:18;/accounts/login.php;user logged in (internal):128.143.231.159:https://sakaiproject.org/accounts/login.php
+tms@virginia.edu;20061023 16:05:19;/accounts/login.php;user added (ldap): Tim Sigmon (tms@virginia.edu) [177]
+ajax;20061023 16:16:25;/conference/proposals/edit_proposal.php;validate:required:Featured User Experience Presentation
+ajax;20061023 16:16:25;/conference/proposals/edit_proposal.php;validate:required:Brian Cantwell-Smith will present a featured talk about usability and user experience. More details to come.
+ajax;20061023 16:16:25;/conference/proposals/edit_proposal.php;validate:required:Brian Cantwell-Smith will present a featured talk about usability and user experience. More details to come.
+ajax;20061023 16:16:25;/conference/proposals/edit_proposal.php;validate:required:Brian Cantwell Smith
+ajax;20061023 16:16:25;/conference/proposals/edit_proposal.php;validate:required:Brian Cantwell Smith is the author of more than 35 articles and three books, including a seven-volume series entitled The Age of Significance: An Essay on the Origins of Computation and Intentionality, which has been accepted for publication by MIT Press. 
+Smith's research focuses on the foundations and philosophy of computing, both in the practice and theory of computer science, and in the use of computational metaphors in other fields -- such as philosophy, cognitive science, physics, and art. His doctoral dissertation introduced the notion of computational reflection in programming languages -- an area of active ongoing research in computer science. 
+As well as being Dean and Professor at the University of Toronto's Faculty of Information Studies, Brian holds a Canada Research Chair in the Foundations of Information, is cross-appointed as Professor in the departments of Philosophy and Computer Science and in the Program in Communication, Culture and Technology at University of Toronto at Mississauga.
+ajax;20061023 16:16:25;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061023 16:16:25;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061023 16:16:25;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061023 16:19:30;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20061023 16:19:30;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 16:19:42;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 16:19:42;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 16:20:00;/accounts/ajax/validate.php;validate:phone:434-924-0615
+ajax;20061023 16:20:00;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061023 16:21:13;/conference/registration/index.php;validate:required:University Administration
+ajax;20061023 16:21:13;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20061023 16:21:13;/conference/registration/index.php;validate:required:Charlottesville
+ajax;20061023 16:21:13;/conference/registration/index.php;validate:required:VA
+ajax;20061023 16:21:13;/conference/registration/index.php;validate:namespaces:VA
+ajax;20061023 16:21:13;/conference/registration/index.php;validate:required:US
+ajax;20061023 16:21:13;/conference/registration/index.php;validate:namespaces:US
+ajax;20061023 16:21:13;/conference/registration/index.php;validate:required:434-924-0615
+ajax;20061023 16:21:14;/conference/registration/index.php;validate:phone:434-924-0615
+ajax;20061023 16:21:14;/conference/registration/index.php;validate:required:Y
+ajax;20061023 16:21:14;/conference/registration/index.php;validate:required:N
+ajax;20061023 16:21:14;/conference/registration/index.php;validate:required:Large
+ajax;20061023 16:21:14;/conference/registration/index.php;validate:required:TUE
+ajax;20061023 16:21:14;/conference/registration/index.php;validate:required:WED
+ajax;20061023 16:21:14;/conference/registration/index.php;validate:required:THU
+ajax;20061023 16:21:14;/conference/registration/index.php;validate:required:FRI
+tms@virginia.edu;20061023 16:21:14;/conference/registration/index.php;user modified (ldap): Tim Sigmon (tms@virginia.edu) [177]
+jrm;20061023 16:41:31;/accounts/login.php;user logged in (ldap):128.220.212.114:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+shardin;20061023 19:49:47;/accounts/login.php;user logged in (ldap):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20061023 20:45:10;/election/add_entry.php;validate:required: 
+ajax;20061023 20:45:10;/election/add_entry.php;validate:required: 
+
+shardin;20061023 21:16:10;/accounts/login.php;user logged in (ldap):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/accounts/login.php
+shardin;20061023 21:16:21;/accounts/login.php;user logged in (ldap):72.169.226.59:https://sakaiproject.org/accounts/login.php
+ajax;20061023 21:16:42;/accounts/ajax/validate.php;validate:uniqueuserp:abcassidy
+ajax;20061023 21:16:42;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061023 21:16:44;/accounts/ajax/validate.php;validate:namespaces:Bedford
+ajax;20061023 21:16:44;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061023 21:16:45;/accounts/ajax/validate.php;validate:email:abrigidcassidy@earthlink.net
+ajax;20061023 21:16:45;/accounts/ajax/validate.php;validate:uniqueuserp:abrigidcassidy@earthlink.net
+ajax;20061023 21:16:45;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061023 21:16:46;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20061023 21:16:46;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061023 21:16:47;/accounts/ajax/validate.php;validate:zipcode:01730-1342
+ajax;20061023 21:16:47;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061023 21:16:49;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061023 21:16:49;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061023 21:16:49;/accounts/ajax/validate.php;validate:phone:781-275-4070
+ajax;20061023 21:16:49;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061023 22:14:37;/election/add_entry.php;validate:required: I’m going to put down some initial thoughts here, and then invite anyone interested to check out the blog at http://josephhardin.livejournal.com for more discussion over the next few weeks.  These elections give us an opportunity to discuss where we are and where we’re going, and I’m going to take advantage of that.  If you have any questions or concerns, just post them there as comments and I’ll answer.  I’ll also be blogging as the next few weeks go along , talking in more depth about what I think is important for Sakai now and over the next few years, and anyone can respond to those posts there.
+
+We’ve done a lot in the last few years, and we have a lot yet to do.  Everyone in the Sakai Community should be very pleased that we are creating new possibilities for the institutions and individuals we work with.  We are all constructors of a great experiment here, figuring out ways that our own work and creativity can benefit education and research efforts all over the globe, and how the work of individuals can be connected, coordinated and become effective through open source software, processes and community.  We need to continue to emphasize that we as a community recognize and reward merit and the delivery of well designed, running software.  We are an eminently pragmatic community at the same time as we are a visionary one.  We ask everyone to show us what they can do, not how well they can talk about it.  The fundamental condition of all our possibilities is the creation and delivery of useful, usable, stable, scalable software.  
+
+At the same time we are inspired by the ideas that open source, open content, open access, and open processes in general have brought forth: that being open pays off as well as makes us feel good.  We are participants in one of the largest and farthest reaching social transformations in the way people work and work together that has ever been seen.  Sakai is a child of the web and the web’s use by people like ourselves who want to have fun, be productive, and do good things all at the same time.
+
+As an educator, I’m really pleased to see the increasing number of proposals from faculty and teaching technologists, and the discussions around pedagogy that are emerging at the conferences.  The examples of the use of Sakai at my own institution and those I visit virtually and actually are beginning to be more than just management of courses and becoming the kinds of things we got into this for: interesting, innovative, enabling, liberating and transformative learning and knowledge building experiences.  We are just at the start of what can be done when institutions with the missions of teaching and learning, research and service are given the kinds of tools for communication and collaboration that you are all building.  Combining those tools with the capability of modifying them as those institutions and users see fit and then sharing those innovations with others provides the propagation and amplification of innovation that we are counting on to create better universities and learning experiences for everyone.  
+
+I’m also happy that everywhere we hear about Sakai being put up against other systems in institutional bake-offs (OS and proprietary, around the world) and we are being adopted.  The value of a vibrant open source community coming out of the communities of scholars that we all live in is becoming clear.  We need to continue to experiment with these interesting and effective OS processes and understand as we go along more about them and how they work.  
+
+I’ve been very impressed over the past few months with the examples that the open source portfolio folks have shown us that reveal the richness that can be realized in assessment, evaluation and reflection on learning experiences through the use of emerging portfolio technologies.  I’ve been spending a good bit of time lately working with others to put together an effort to work on the portfolio tools and bring them to the point they can be easily configured and used by lots of users.  We have seen strong demand for innovative uses of these tools here at Michigan and in many parts of the community, and I think this is a set of ideas and tools whose time has come.  I feel the same way about the Sakai-OpenCourseware tools that we have been working on.  Sakai is beginning here to fulfill its promise as a conduit of interesting knowledge practices and technologies to large communities of users, not just early adopters.
+
+I am also very concerned that we keep our own integrity and freedom of action in the face of assaults on the educational and open source communities from a number of directions, including from those who would substitute legal advantages for open competition around methods of building software for better educational experiences. Here, Blackboard, Inc. has given us a clear case of anti-competitive business practices that can only harm communication and innovation in the development of educational technologies.  I’ve been spending a lot of time recently working to make sure that the Blackboard patent is defeated.  Working with the Software Freedom Law Center, and in cooperation with Moodle and ATutor, we are aggressively seeking solutions that will not only remove this patent threat, but deter future uses of such inappropriate methods within the education software community.  As we move forward, we need to think seriously about community defense mechanisms that can protect our software, developers, users and community.  At times here we will be breaking new ground, and we should be prudent in our decisions and action, but not hesitant when we see the right thing to do.  We are again here witnessing the emergence of a new way of doing business, of creating value for us and others, an open way, and it is exciting to see and contribute to.  More on this in the coming days on the lists and the blog.
+
+I’m also kept busy this time of year being the Sakai Conference Chair, which I have been for all the Sakai Conferences.  If there is anything you don’t like about the conferences, you’ve probably already told me about it, since I also construct and send out the online conference surveys that happen after each conference.  Same goes for things you do like about the conferences, and many of you have said very complimentary things about them.  I think they are one of the critical community building tools we have, helping us form deeper personal relations with online colleagues.  Virtual relations become real ones in the face to face interactions of the conferences.
+
+I also have to point out that I like to sail, and skippered one of the boats of the first Sakai Flotilla that sailed in the Georgian Straits just before the Vancouver Sakai Conference.  There I tried to keep up with Ian Boston, who captained the other Sakai boat.  I plan on setting up similar sails when future Sakai Conferences occur near gorgeous sailing grounds.  This will be the case in the summer of 2007, when the conference is in Amsterdam, which is not that far from Stockholm and the archipelago that stretches out into the Baltic, reaching toward Finland.  Stay tuned.
+
+Enough for now.  The pro forma bio is below.  See you on the lists and blog.  Congratulations for all you have done.
+
+
+
+ajax;20061023 22:14:37;/election/add_entry.php;validate:required: 
+JOSEPH HARDIN
+School of Information,
+Duderstadt Center
+University of Michigan Ann Arbor, MI
+734/763-3266   
+email: hardin@umich.edu
+
+Joseph Hardin is the Director of the Collaborative Technologies Laboratory in the Duderstadt Center, and a Clinical Assistant Professor in the School of Information, at the University of Michigan, Ann Arbor. 
+
+Joseph is also currently the Chairman of the Board for the Sakai Foundation, which provides a legal structure for the work of the Sakai Community as it constructs and uses the Sakai Collaboration and Learning Environment open source software, a modular collection of open source tools to support online education, research and collaboration, and as the community constructs itself.  This effort has been joined by over 100 colleges, universities and commercial affiliates around the world.  (see http://sakaiproject.org)
+
+Joseph has worked on the development of online collaboration systems for a good while, including when he was Associate Director of Software Development at the National Center for Supercomputing Applications (NCSA) at the University of Illinois-UC, from the early to the late 90´s.  There he led the Software Development Group (SDG) that built the Mosaic web browsers.  He is also a founder of the International World Wide Web Conference Committee, (see http://www2006.org) and teaches a graduate course on the Semantic Web.  (see http://www-personal.si.umich.edu/~hardin/).  
+
+ 
+
+kajita@nagoya-u.jp;20061023 22:19:22;/accounts/login.php;user logged in (internal):133.6.207.139:https://sakaiproject.org/accounts/login.php
+kajita@nagoya-u.jp;20061023 22:19:23;/accounts/login.php;user added (ldap): Shoji Kajita (kajita@nagoya-u.jp) [357]
+shardin;20061023 22:25:40;/accounts/login.php;user logged in (ldap):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.+%3Cbr%2F%3E%3Cbr%2F%3E%2A%2A++only+those+individuals+who+were+nominated+and+contacted+by+the+elections+committee+may+add+their+information.%3Cbr%2F%3E%3Cbr%2F%3E+

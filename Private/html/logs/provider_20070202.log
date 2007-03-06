@@ -1,0 +1,17 @@
+p.beckett@uea.ac.uk;20070202 04:10:15;/accounts/login.php;user logged in (ldap):139.222.129.3:https://www.sakaiproject.org/accounts/login.php
+aaronz;20070202 22:04:50;/accounts/login.php;user logged in (ldap):72.66.170.234:https://www.sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;validate:email:aaronz@vt.edu
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;validate:uniquesql:aaronz@vt.edu
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;validate:namespaces:Virginia
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;validate:zipcode:24061
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;validate:namespaces:United States
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;validate:phone:540-231-8053
+ajax;20070202 22:05:01;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070202 22:05:02;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20070202 22:05:02;/accounts/ajax/validate.php;return=ok|fax|

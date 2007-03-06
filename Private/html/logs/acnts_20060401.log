@@ -1,0 +1,22 @@
+mayumi;20060401 06:45:56;/accounts/login.php;user logged in (internal):58.188.33.47:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mayumi;20060401 06:46:00;/accounts/login.php;user logged in (internal):58.188.33.47:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mayumi;20060401 06:47:12;/accounts/login.php;user logged in (internal):58.188.33.47:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060401 06:47:21;/accounts/ajax/validate.php;validate:phone: 81-52-789-5910
+ajax;20060401 06:47:21;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060401 06:47:21;/accounts/ajax/validate.php;validate:phone: 81-52-789-5910
+ajax;20060401 06:47:21;/accounts/ajax/validate.php;return=ok|fax|
+knoop;20060401 09:15:05;/accounts/login.php;user logged in (internal):70.218.181.144:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+marquard@ched.uct.ac.za;20060401 12:00:40;/accounts/login.php;user logged in (internal):165.165.195.132:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060401 12:02:37;/accounts/ajax/validate.php;validate:namespaces:Western Cape
+ajax;20060401 12:02:37;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060401 12:02:44;/accounts/ajax/validate.php;validate:zipcode:7700
+ajax;20060401 12:02:44;/accounts/ajax/validate.php;return=error|zip|Invalid US zip, must be 5 or 9 digits
+ajax;20060401 12:02:45;/accounts/ajax/validate.php;validate:namespaces:SC
+ajax;20060401 12:02:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060401 12:02:51;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20060401 12:02:51;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060401 12:06:11;/accounts/ajax/validate.php;validate:phone: 27-21-650-5037
+ajax;20060401 12:06:11;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060401 12:09:41;/accounts/ajax/validate.php;validate:zipcode:99999
+ajax;20060401 12:09:41;/accounts/ajax/validate.php;return=ok|zip|
+mmiles@umich.edu;20060401 14:42:40;/accounts/login.php;user logged in (internal):71.124.57.91:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php

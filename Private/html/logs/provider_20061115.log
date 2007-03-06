@@ -1,0 +1,422 @@
+aaronz;20061115 08:31:39;/accounts/login.php;user logged in (ldap):128.173.55.214:https://www.sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20061115 08:31:58;/conference/proposals/index.php;validate:required:demo
+ajax;20061115 08:35:36;/conference/proposals/edit_proposal.php;validate:required:Evaluation System
+ajax;20061115 08:35:36;/conference/proposals/edit_proposal.php;validate:required:The Evaluation System allows any Sakai instructor to give formative evaluations to students in their courses and review the results. Some features include a variety of question item display options and reusable templates. The system is planned to be expanded to handle summative evaluations and flexible reporting next year.
+ajax;20061115 08:35:36;/conference/proposals/edit_proposal.php;validate:required:Aaron Zeckoski
+ajax;20061115 08:35:36;/conference/proposals/edit_proposal.php;validate:required:demo
+aaronz;20061115 08:42:28;/accounts/login.php;user logged in (ldap):128.173.55.214:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061115 08:59:17;/conference/proposals/index.php;validate:required:poster
+aaronz;20061115 09:00:13;/accounts/login.php;user logged in (ldap):128.173.55.214:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061115 09:00:18;/conference/proposals/index.php;validate:required:poster
+ramyar@vt.edu;20061115 09:02:56;/accounts/login.php;user logged in (ldap):69.174.226.21:https://sakaiproject.org/accounts/login.php
+ajax;20061115 09:03:04;/accounts/ajax/validate.php;validate:email:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:03:04;/accounts/ajax/validate.php;validate:uniqueuserp:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:03:04;/accounts/ajax/validate.php;validate:uniqueuserp:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:03:04;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061115 09:03:10;/conference/proposals/index.php;validate:required:poster
+ajax;20061115 09:03:31;/accounts/ajax/validate.php;validate:email:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:03:31;/accounts/ajax/validate.php;validate:uniqueuserp:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:03:31;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:required:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:email:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:uniqueuserp:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:uniqueuserp:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:required:tcamilli
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:password:tcamilli
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:required:tcamilli
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:password:tcamilli
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:match:tcamilli
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:required:Tony
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:required:Camilli
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:required:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:email:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:uniqueuserp:tcamilli@lagcc.cuny.edu
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate::User Support
+ajax;20061115 09:04:21;/accounts/createaccount.php;validate:required:LaGuardia Community College / CUNY
+tcamilli@lagcc.cuny.edu;20061115 09:04:21;/accounts/createaccount.php;user added (ldap): Tony Camilli (tcamilli@lagcc.cuny.edu) [979]
+199.219.155.83;20061115 09:04:22;/accounts/createaccount.php;created account: tcamilli@lagcc.cuny.edu (tcamilli@lagcc.cuny.edu) Camilli,Tony: inst=1
+tcamilli@lagcc.cuny.edu;20061115 09:05:10;/accounts/activate.php;user modified (ldap): Tony Camilli (tcamilli@lagcc.cuny.edu) [979]
+tcamilli@lagcc.cuny.edu;20061115 09:05:11;/accounts/activate.php;user modified (ldap): Tony Camilli (tcamilli@lagcc.cuny.edu) [979]
+tcamilli@lagcc.cuny.edu;20061115 09:05:35;/accounts/login.php;user logged in (ldap):199.219.155.83:https://sakaiproject.org/accounts/login.php
+tcamilli@lagcc.cuny.edu;20061115 09:09:02;/accounts/login.php;user logged in (ldap):199.219.155.83:https://sakaiproject.org/accounts/login.php
+michael@mfeldstein.com;20061115 09:33:50;/accounts/login.php;user logged in (ldap):12.33.96.194:https://sakaiproject.org/accounts/login.php?ref=/election/index.php
+ajax;20061115 09:34:22;/election/add_entry.php;validate:required:If elected to the Sakai Board of Directors, I would strongly advocate for three issues. First, I would like to see renewed and redoubled efforts to strengthen Sakai as a flexible framework that can act as a platform for accelerated innovation and high-quality user experience. Clearly, Sakai has been a pioneer in this regard and has made significant strides, particularly in the most recent releases. Equally clearly, there is much more work that could be done. Chuck Severence’s recent position paper on the Sakai Object Bus, Oracle’s AEI initiative, and the Bodington Tetra collaboration are three great examples of what could be done next. As a member of the Board, I would work hard to find additional resources and support for these efforts, always with the goal of gaining a net acceleration in the community’s ability to respond nimbly to evolving member needs for the platform.
+
+Second, I would look to expand inter-institutional collaboration among end users of the Sakai platform, with a goal of getting better information to improve the quality of the capabilities and user experience. Currently, Sakai benefits tremendously from the cross-fertilization that happens between development teams in different institutions. There is no reason why the community could not accrue equally remarkable benefits from strong cross-fertilization among teachers, administrators, and students who can help define and refine requirements for the platform. Also, speaking as a non-technologist educator, it has been my personal experience that educators can be much more helpful to technologists and usability engineers when they are invited into the conversation and are educated on how the software development process works. Not all faculty are interested in this sort of a dialog; however, even if one percent of the faculty at the participating universities were to engage, I believe Sakai would reap enormous benefits. As a Board member, I would like to help design an outreach program that would make the Sakai community an attractive place for educators interested in the quality of their virtual learning environments.
+
+And finally, as somebody who has been outspoken on the edupatent issue, I would like to see Sakai take a leadership role within the broader educational community in defining sensible intellectual property policies for higher education. The Sakai community has among its members some of the most prolific and sophisticated producers of intellectual property in the academe. In addition, the project itself has a history of innovation in this regard via its community source approach. Sakai and its membership are uniquely positioned to see all sides of the patent dilemma and to help their peer institutions articulate a coherent and pragmatic approach to a problem that is looming larger for both Open Source and higher education by the day. As a Board member, I could act as a conduit between the considerable expertise within the Sakai community and the equally considerable expertise that is rallying to this cause elsewhere within the higher education ecosphere.
+ajax;20061115 09:34:22;/election/add_entry.php;validate:required:*UPDATE*: Effective December 1st 2006, I will start work for Oracle as a Product Manager on the Academic Enterprise Initiative.
+
+Michael Feldstein is an Assistant Director at the SUNY Learning Network, where he oversees blended learning faculty development and is part of the leadership team for the LMS platform migration efforts of this 40-campus program. He is also the author of the e-Literate weblog (http://mfeldstein.com) and a member of eLearn Magazine’s Editorial Advisory Board (http://elearnmag.org). He is a frequent invited speaker on a range of e-learning-related topics. Most recently, he has been invited to speak on topics including e-learning usability, LMS evaluation methods, ePortfolios, and edupatents for organizations ranging from the eLearning Guild to the Postsecondary Electronic Standards Council, and has been interviewed as an e-learning expert by a variety of media outlets, including The Chronicle of Higher Education, the Associated Press, and U.S. News and World Report.
+
+Michael was a very early participant in Open Source Learning Management Systems projects, having been one of the founding members (and the only non-technologist founding member) of the OpenACS community  in early 2000—the community that would eventually spawn the GPL-licensed dotLRN Learning Management System. In his prior career as an e-learning consultant, he designed and evaluated online learning courses, curricula, and technology delivery platforms for organizations ranging from MIT’s Sloan School of Business to Merrill Lynch to Memorial Sloan Kettering Cancer Center.
+ajax;20061115 09:35:51;/election/add_entry.php;validate:required:If elected to the Sakai Board of Directors, I would strongly advocate for three issues. First, I would like to see renewed and redoubled efforts to strengthen Sakai as a flexible framework that can act as a platform for accelerated innovation and high-quality user experience. Clearly, Sakai has been a pioneer in this regard and has made significant strides, particularly in the most recent releases. Equally clearly, there is much more work that could be done. Chuck Severence’s recent position paper on the Sakai Object Bus, Oracle’s AEI initiative, and the Bodington Tetra collaboration are three great examples of what could be done next. As a member of the Board, I would work hard to find additional resources and support for these efforts, always with the goal of gaining a net acceleration in the community’s ability to respond nimbly to evolving member needs for the platform.
+
+Second, I would look to expand inter-institutional collaboration among end users of the Sakai platform, with a goal of getting better information to improve the quality of the capabilities and user experience. Currently, Sakai benefits tremendously from the cross-fertilization that happens between development teams in different institutions. There is no reason why the community could not accrue equally remarkable benefits from strong cross-fertilization among teachers, administrators, and students who can help define and refine requirements for the platform. Also, speaking as a non-technologist educator, it has been my personal experience that educators can be much more helpful to technologists and usability engineers when they are invited into the conversation and are educated on how the software development process works. Not all faculty are interested in this sort of a dialog; however, even if one percent of the faculty at the participating universities were to engage, I believe Sakai would reap enormous benefits. As a Board member, I would like to help design an outreach program that would make the Sakai community an attractive place for educators interested in the quality of their virtual learning environments.
+
+And finally, as somebody who has been outspoken on the edupatent issue, I would like to see Sakai take a leadership role within the broader educational community in defining sensible intellectual property policies for higher education. The Sakai community has among its members some of the most prolific and sophisticated producers of intellectual property in the academe. In addition, the project itself has a history of innovation in this regard via its community source approach. Sakai and its membership are uniquely positioned to see all sides of the patent dilemma and to help their peer institutions articulate a coherent and pragmatic approach to a problem that is looming larger for both Open Source and higher education by the day. As a Board member, I could act as a conduit between the considerable expertise within the Sakai community and the equally considerable expertise that is rallying to this cause elsewhere within the higher education ecosphere.
+ajax;20061115 09:35:51;/election/add_entry.php;validate:required:*UPDATE*: Effective December 1st 2006, I will start work for Oracle as a Product Manager on the Academic Enterprise Initiative.
+
+Michael Feldstein is an Assistant Director at the SUNY Learning Network, where he oversees blended learning faculty development and is part of the leadership team for the LMS platform migration efforts of this 40-campus program. He is also the author of the <a href="http://mfeldstein.com"><i>e-Literate</i> weblog</a> and a member of <a href="http://elearnmag.org.">eLearn Magazine</a>’s Editorial Advisory Board. He is a frequent invited speaker on a range of e-learning-related topics. Most recently, he has been invited to speak on topics including e-learning usability, LMS evaluation methods, ePortfolios, and edupatents for organizations ranging from the eLearning Guild to the Postsecondary Electronic Standards Council, and has been interviewed as an e-learning expert by a variety of media outlets, including The Chronicle of Higher Education, the Associated Press, and U.S. News and World Report.
+
+Michael was a very early participant in Open Source Learning Management Systems projects, having been one of the founding members (and the only non-technologist founding member) of the OpenACS community  in early 2000—the community that would eventually spawn the GPL-licensed dotLRN Learning Management System. In his prior career as an e-learning consultant, he designed and evaluated online learning courses, curricula, and technology delivery platforms for organizations ranging from MIT’s Sloan School of Business to Merrill Lynch to Memorial Sloan Kettering Cancer Center.
+ajax;20061115 09:37:23;/election/add_entry.php;validate:required:If elected to the Sakai Board of Directors, I would strongly advocate for three issues. First, I would like to see renewed and redoubled efforts to strengthen Sakai as a flexible framework that can act as a platform for accelerated innovation and high-quality user experience. Clearly, Sakai has been a pioneer in this regard and has made significant strides, particularly in the most recent releases. Equally clearly, there is much more work that could be done. Chuck Severence’s recent position paper on the Sakai Object Bus, Oracle’s AEI initiative, and the Bodington Tetra collaboration are three great examples of what could be done next. As a member of the Board, I would work hard to find additional resources and support for these efforts, always with the goal of gaining a net acceleration in the community’s ability to respond nimbly to evolving member needs for the platform.
+
+Second, I would look to expand inter-institutional collaboration among end users of the Sakai platform, with a goal of getting better information to improve the quality of the capabilities and user experience. Currently, Sakai benefits tremendously from the cross-fertilization that happens between development teams in different institutions. There is no reason why the community could not accrue equally remarkable benefits from strong cross-fertilization among teachers, administrators, and students who can help define and refine requirements for the platform. Also, speaking as a non-technologist educator, it has been my personal experience that educators can be much more helpful to technologists and usability engineers when they are invited into the conversation and are educated on how the software development process works. Not all faculty are interested in this sort of a dialog; however, even if one percent of the faculty at the participating universities were to engage, I believe Sakai would reap enormous benefits. As a Board member, I would like to help design an outreach program that would make the Sakai community an attractive place for educators interested in the quality of their virtual learning environments.
+
+And finally, as somebody who has been outspoken on the edupatent issue, I would like to see Sakai take a leadership role within the broader educational community in defining sensible intellectual property policies for higher education. The Sakai community has among its members some of the most prolific and sophisticated producers of intellectual property in the academe. In addition, the project itself has a history of innovation in this regard via its community source approach. Sakai and its membership are uniquely positioned to see all sides of the patent dilemma and to help their peer institutions articulate a coherent and pragmatic approach to a problem that is looming larger for both Open Source and higher education by the day. As a Board member, I could act as a conduit between the considerable expertise within the Sakai community and the equally considerable expertise that is rallying to this cause elsewhere within the higher education ecosphere.
+ajax;20061115 09:37:23;/election/add_entry.php;validate:required:*UPDATE*: Effective December 1st 2006, I will start work for Oracle as a Product Manager on the Academic Enterprise Initiative.
+
+Michael Feldstein is an Assistant Director at the SUNY Learning Network, where he oversees blended learning faculty development and is part of the leadership team for the LMS platform migration efforts of this 40-campus program. He is also the author of the e-Literate weblog (http://mfeldstein.com/) and a member of eLearn Magazine’s Editorial Advisory Board (http://elearnmag.org/). He is a frequent invited speaker on a range of e-learning-related topics. Most recently, he has been invited to speak on topics including e-learning usability, LMS evaluation methods, ePortfolios, and edupatents for organizations ranging from the eLearning Guild to the Postsecondary Electronic Standards Council, and has been interviewed as an e-learning expert by a variety of media outlets, including The Chronicle of Higher Education, the Associated Press, and U.S. News and World Report.
+
+Michael was a very early participant in Open Source Learning Management Systems projects, having been one of the founding members (and the only non-technologist founding member) of the OpenACS community  in early 2000—the community that would eventually spawn the GPL-licensed dotLRN Learning Management System. In his prior career as an e-learning consultant, he designed and evaluated online learning courses, curricula, and technology delivery platforms for organizations ranging from MIT’s Sloan School of Business to Merrill Lynch to Memorial Sloan Kettering Cancer Center.
+ajax;20061115 10:03:40;/accounts/ajax/validate.php;validate:email:rcaa798@students.tusculum.edu
+ajax;20061115 10:03:40;/accounts/ajax/validate.php;validate:uniqueuserp:rcaa798@students.tusculum.edu
+ajax;20061115 10:03:40;/accounts/ajax/validate.php;validate:uniqueuserp:rcaa798@students.tusculum.edu
+ajax;20061115 10:03:41;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061115 10:04:11;/accounts/ajax/validate.php;validate:email:Candace0202@aol.com
+ajax;20061115 10:04:11;/accounts/ajax/validate.php;validate:uniqueuserp:Candace0202@aol.com
+ajax;20061115 10:04:11;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061115 10:05:34;/accounts/ajax/validate.php;validate:email:rcaa798
+ajax;20061115 10:05:34;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061115 10:05:43;/accounts/ajax/validate.php;validate:email:rcaa798@students.tusculu.edu
+ajax;20061115 10:05:43;/accounts/ajax/validate.php;validate:uniqueuserp:rcaa798@students.tusculu.edu
+ajax;20061115 10:05:43;/accounts/ajax/validate.php;validate:uniqueuserp:rcaa798@students.tusculu.edu
+ajax;20061115 10:05:43;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061115 10:50:12;/accounts/ajax/validate.php;validate:email:rwhw497@students.tusculum.edu
+ajax;20061115 10:50:12;/accounts/ajax/validate.php;validate:uniqueuserp:rwhw497@students.tusculum.edu
+ajax;20061115 10:50:12;/accounts/ajax/validate.php;validate:uniqueuserp:rwhw497@students.tusculum.edu
+ajax;20061115 10:50:12;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061115 10:50:32;/accounts/ajax/validate.php;validate:email:rwhw497@students.tusculum.edu
+ajax;20061115 10:50:32;/accounts/ajax/validate.php;validate:uniqueuserp:rwhw497@students.tusculum.edu
+ajax;20061115 10:50:32;/accounts/ajax/validate.php;return=ok|email|
+mmiles@umich.edu;20061115 11:08:14;/accounts/login.php;user logged in (ldap):141.213.113.207:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/index.php
+shardin;20061115 11:11:17;/accounts/login.php;user logged in (ldap):141.213.120.61:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+turnerp;20061115 11:56:12;/accounts/login.php;user logged in (ldap):216.106.72.112:https://sakaiproject.org/accounts/login.php
+aaronz;20061115 12:20:06;/accounts/login.php;user logged in (ldap):128.173.55.214:https://www.sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20061115 12:20:19;/conference/proposals/index.php;validate:required:demo
+ajax;20061115 12:25:28;/accounts/ajax/validate.php;validate:email:khoneyfield
+ajax;20061115 12:25:28;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061115 12:25:37;/accounts/ajax/validate.php;validate:email:khoneyfield@ucdavis.edu
+ajax;20061115 12:25:37;/accounts/ajax/validate.php;validate:uniqueuserp:khoneyfield@ucdavis.edu
+ajax;20061115 12:25:38;/accounts/ajax/validate.php;validate:uniqueuserp:khoneyfield@ucdavis.edu
+ajax;20061115 12:25:38;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061115 12:27:35;/accounts/ajax/validate.php;validate:email:khoneyfield@ucdavis.edu
+ajax;20061115 12:27:35;/accounts/ajax/validate.php;validate:uniqueuserp:khoneyfield@ucdavis.edu
+ajax;20061115 12:27:35;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061115 12:28:43;/accounts/ajax/validate.php;validate:namespaces:Davis
+ajax;20061115 12:28:43;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061115 12:28:45;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061115 12:28:45;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 12:28:48;/accounts/ajax/validate.php;validate:zipcode:95816
+ajax;20061115 12:28:48;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 12:28:51;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 12:28:51;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 12:29:02;/accounts/ajax/validate.php;validate:phone:530-752-5544
+ajax;20061115 12:29:02;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 12:29:28;/accounts/createaccount.php;validate:required:khoneyfield@ucdavis.edu
+ajax;20061115 12:29:28;/accounts/createaccount.php;validate:email:khoneyfield@ucdavis.edu
+ajax;20061115 12:29:28;/accounts/createaccount.php;validate:uniqueuserp:khoneyfield@ucdavis.edu
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:uniqueuserp:khoneyfield@ucdavis.edu
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:required:Svm$1Sakai
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:password:Svm$1Sakai
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:required:Svm$1Sakai
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:password:Svm$1Sakai
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:match:Svm$1Sakai
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:required:Keith
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:required:Honeyfield
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:required:khoneyfield@ucdavis.edu
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:email:khoneyfield@ucdavis.edu
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:uniqueuserp:khoneyfield@ucdavis.edu
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:required:61
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate::1 Shields Ave
+
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:namespaces:Davis
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:namespaces:CA
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:zipcode:95816
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061115 12:29:29;/accounts/createaccount.php;validate:phone:530-752-5544
+khoneyfield@ucdavis.edu;20061115 12:29:30;/accounts/createaccount.php;user added (ldap): Keith Honeyfield (khoneyfield@ucdavis.edu) [980]
+169.237.109.212;20061115 12:29:30;/accounts/createaccount.php;created account: khoneyfield@ucdavis.edu (khoneyfield@ucdavis.edu) Honeyfield,Keith: inst=61
+ajax;20061115 12:33:25;/conference/proposals/edit_proposal.php;validate:required:Resources Viewer
+ajax;20061115 12:33:25;/conference/proposals/edit_proposal.php;validate:required:The Resource Viewer provides the ability to create a list of resources related to a particular part of a course or subproject. This tool focuses on making it easier for a site maintainer to create a simple list of resources in their site and format it as they see fit.
+ajax;20061115 12:33:25;/conference/proposals/edit_proposal.php;validate:required:Aaron Zeckoski
+ajax;20061115 12:33:25;/conference/proposals/edit_proposal.php;validate:required:demo
+khoneyfield@ucdavis.edu;20061115 12:34:18;/accounts/activate.php;user modified (ldap): Keith Honeyfield (khoneyfield@ucdavis.edu) [980]
+khoneyfield@ucdavis.edu;20061115 12:34:36;/accounts/login.php;user logged in (ldap):169.237.109.212:https://sakaiproject.org/accounts/login.php
+ajax;20061115 12:34:41;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061115 12:34:41;/accounts/ajax/validate.php;validate:zipcode:95816
+ajax;20061115 12:34:41;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 12:34:41;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 12:34:41;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 12:34:41;/accounts/ajax/validate.php;validate:phone:530-752-5544
+ajax;20061115 12:34:41;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 12:34:41;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:Davis
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:CA
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:zipcode:95816
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:US
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:namespaces:US
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:530-752-5544
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:phone:530-752-5544
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:Y
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:N
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:Medium
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required:TUE
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required: 
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required: 
+ajax;20061115 12:38:47;/conference/registration/index.php;validate:required: 
+khoneyfield@ucdavis.edu;20061115 12:38:47;/conference/registration/index.php;user modified (ldap): Keith Honeyfield (khoneyfield@ucdavis.edu) [980]
+anthony.atkins@vt.edu;20061115 12:56:26;/accounts/login.php;user logged in (ldap):80.187.221.33:https://www.sakaiproject.org/accounts/login.php
+ajax;20061115 12:56:40;/conference/proposals/index.php;validate:required:demo
+ajax;20061115 12:59:47;/conference/proposals/edit_proposal.php;validate:required:Sakai Configuration Viewer
+ajax;20061115 12:59:47;/conference/proposals/edit_proposal.php;validate:required:The Sakai Configuration Viewer tool displays the full list of supported configuration options for Sakai itself and the tools bundled with Sakai.  
+
+This tool provides a searchable, browsable compendium to help users create their own sakai.properties files, and to help them confirm their current settings as well.
+ajax;20061115 12:59:47;/conference/proposals/edit_proposal.php;validate:required:Anthony Atkins
+ajax;20061115 12:59:47;/conference/proposals/edit_proposal.php;validate:required:demo
+tswann@tusculum.edu;20061115 13:53:09;/accounts/login.php;user logged in (ldap):205.160.103.101:https://sakaiproject.org/accounts/login.php
+tswann@tusculum.edu;20061115 14:54:36;/accounts/login.php;user logged in (ldap):205.160.103.101:https://sakaiproject.org/accounts/login.php
+mprice@spelman.edu;20061115 15:12:43;/accounts/login.php;user logged in (ldap):12.13.176.132:https://sakaiproject.org/accounts/login.php
+ajax;20061115 15:12:59;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20061115 15:12:59;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 15:12:59;/accounts/ajax/validate.php;validate:zipcode:30314
+ajax;20061115 15:12:59;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 15:12:59;/accounts/ajax/validate.php;validate:phone:404-270-5579
+ajax;20061115 15:12:59;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 15:12:59;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 15:12:59;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 15:13:02;/accounts/ajax/validate.php;validate:phone:404-270-5275
+ajax;20061115 15:13:02;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:Faculty
+ajax;20061115 15:14:12;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:Spelman College
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:Atlanta
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:GA
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:namespaces:GA
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:zipcode:30314
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:US
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:namespaces:US
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:404-270-5579
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:phone:404-270-5579
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:phone:404-270-5275
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:N
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:N
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:Small
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required: 
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:WED
+ajax;20061115 15:14:12;/conference/registration/index.php;validate:required:THU
+ajax;20061115 15:14:13;/conference/registration/index.php;validate:required:FRI
+mprice@spelman.edu;20061115 15:14:13;/conference/registration/index.php;user modified (ldap): Margaret Price (mprice@spelman.edu) [977]
+ajax;20061115 15:50:36;/accounts/ajax/validate.php;validate:email:shill2
+ajax;20061115 15:50:36;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061115 15:50:45;/accounts/ajax/validate.php;validate:email:shill@jhu.edu
+ajax;20061115 15:50:45;/accounts/ajax/validate.php;validate:uniqueuserp:shill@jhu.edu
+ajax;20061115 15:50:45;/accounts/ajax/validate.php;validate:uniqueuserp:shill@jhu.edu
+ajax;20061115 15:50:46;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061115 15:51:10;/accounts/ajax/validate.php;validate:email:shill@jhu.edu
+ajax;20061115 15:51:10;/accounts/ajax/validate.php;validate:uniqueuserp:shill@jhu.edu
+ajax;20061115 15:51:10;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061115 15:51:52;/accounts/ajax/validate.php;validate:namespaces:Baltimore
+ajax;20061115 15:51:52;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061115 15:51:54;/accounts/ajax/validate.php;validate:namespaces:MD
+ajax;20061115 15:51:54;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 15:51:58;/accounts/ajax/validate.php;validate:zipcode:21210
+ajax;20061115 15:51:58;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 15:52:00;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 15:52:00;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 15:52:11;/accounts/ajax/validate.php;validate:phone:410-312-2885
+ajax;20061115 15:52:11;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 15:52:15;/accounts/createaccount.php;validate:required:shill@jhu.edu
+ajax;20061115 15:52:15;/accounts/createaccount.php;validate:email:shill@jhu.edu
+ajax;20061115 15:52:15;/accounts/createaccount.php;validate:uniqueuserp:shill@jhu.edu
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:uniqueuserp:shill@jhu.edu
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:required:4myodyssey4
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:password:4myodyssey4
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:required:4myodyssey4
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:password:4myodyssey4
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:match:4myodyssey4
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:required:Sara
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:required:Hill
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:required:shill@jhu.edu
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:email:shill@jhu.edu
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:uniqueuserp:shill@jhu.edu
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:required:Instructional Designer
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate::Faculty
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:required:24
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate::6740 Alexander Bell Drive
+Suite 170
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:namespaces:Baltimore
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:namespaces:MD
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:zipcode:21210
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061115 15:52:16;/accounts/createaccount.php;validate:phone:410-312-2885
+shill@jhu.edu;20061115 15:52:17;/accounts/createaccount.php;user added (ldap): Sara Hill (shill@jhu.edu) [981]
+128.220.159.62;20061115 15:52:17;/accounts/createaccount.php;created account: shill@jhu.edu (shill@jhu.edu) Hill,Sara: inst=24
+shill@jhu.edu;20061115 15:52:31;/accounts/activate.php;user modified (ldap): Sara Hill (shill@jhu.edu) [981]
+shill@jhu.edu;20061115 15:52:46;/accounts/login.php;user logged in (ldap):128.220.159.62:https://sakaiproject.org/accounts/login.php
+ajax;20061115 15:52:52;/accounts/ajax/validate.php;validate:namespaces:MD
+ajax;20061115 15:52:52;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 15:52:52;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 15:52:52;/accounts/ajax/validate.php;validate:zipcode:21210
+ajax;20061115 15:52:52;/accounts/ajax/validate.php;validate:phone:410-312-2885
+ajax;20061115 15:52:52;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 15:52:52;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 15:52:52;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 15:54:09;/accounts/ajax/validate.php;validate:zipcode:21046
+ajax;20061115 15:54:09;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:Instructional Designer
+ajax;20061115 15:54:25;/conference/registration/index.php;validate::Faculty
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:Baltimore
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:MD
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:namespaces:MD
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:zipcode:21046
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:US
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:namespaces:US
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:410-312-2885
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:phone:410-312-2885
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:Y
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:N
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:Large
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:TUE
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:WED
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required:THU
+ajax;20061115 15:54:25;/conference/registration/index.php;validate:required: 
+shill@jhu.edu;20061115 15:54:25;/conference/registration/index.php;user modified (ldap): Sara Hill (shill@jhu.edu) [981]
+heitmeyer;20061115 16:40:20;/accounts/login.php;user logged in (ldap):128.103.36.89:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061115 16:40:21;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20061115 16:40:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 16:40:22;/accounts/ajax/validate.php;validate:zipcode:02138
+ajax;20061115 16:40:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 16:40:22;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 16:40:22;/accounts/ajax/validate.php;validate:phone:617-384-6656
+ajax;20061115 16:40:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 16:40:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:Cambridge
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:MA
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:namespaces:MA
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:zipcode:02138
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:US
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:namespaces:US
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:617-384-6656
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:phone:617-384-6656
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:Y
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:N
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:Large
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required: 
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:WED
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:THU
+ajax;20061115 16:41:10;/conference/registration/index.php;validate:required:FRI
+heitmeyer;20061115 16:41:11;/conference/registration/index.php;user modified (ldap): David Heitmeyer (david_heitmeyer@harvard.edu) [562]
+ajax;20061115 19:39:38;/accounts/ajax/validate.php;validate:email:jboissel
+ajax;20061115 19:39:38;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061115 19:39:43;/accounts/ajax/validate.php;validate:email:jboissel@mtholyoke.edu
+ajax;20061115 19:39:43;/accounts/ajax/validate.php;validate:uniqueuserp:jboissel@mtholyoke.edu
+ajax;20061115 19:39:44;/accounts/ajax/validate.php;validate:uniqueuserp:jboissel@mtholyoke.edu
+ajax;20061115 19:39:44;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061115 19:40:09;/accounts/ajax/validate.php;validate:email:jboissel@mtholyoke.edu
+ajax;20061115 19:40:09;/accounts/ajax/validate.php;validate:uniqueuserp:jboissel@mtholyoke.edu
+ajax;20061115 19:40:10;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:required:jboissel@mtholyoke.edu
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:email:jboissel@mtholyoke.edu
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:uniqueuserp:jboissel@mtholyoke.edu
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:uniqueuserp:jboissel@mtholyoke.edu
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:required:Icecream
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:password:Icecream
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:required:Icecream
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:password:Icecream
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:match:Icecream
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:required:Juliet Habjan
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:required:Boisselle
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:required:jboissel@mtholyoke.edu
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:email:jboissel@mtholyoke.edu
+ajax;20061115 19:40:58;/accounts/createaccount.php;validate:uniqueuserp:jboissel@mtholyoke.edu
+ajax;20061115 19:40:59;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20061115 19:40:59;/accounts/createaccount.php;validate::Librarian
+ajax;20061115 19:40:59;/accounts/createaccount.php;validate:required:Mount Holyoke College
+jboissel@mtholyoke.edu;20061115 19:40:59;/accounts/createaccount.php;user added (ldap): Juliet Habjan Boisselle (jboissel@mtholyoke.edu) [982]
+69.183.206.198;20061115 19:40:59;/accounts/createaccount.php;created account: jboissel@mtholyoke.edu (jboissel@mtholyoke.edu) Boisselle,Juliet Habjan: inst=1
+bpham;20061115 21:24:05;/accounts/forgot_password.php;user modified (ldap): Billy Pham (bpham@huric.org) [470]
+216.98.111.108;20061115 21:24:05;/accounts/forgot_password.php;password reset: bpham@huric.org
+bpham;20061115 21:24:49;/accounts/login.php;user logged in (ldap):216.98.111.108:https://sakaiproject.org/accounts/login.php
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;validate:email:bpham@huric.org
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;validate:namespaces:Burlingame
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;validate:uniquesql:bpham@huric.org
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;validate:zipcode:94010
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;validate:phone:6504016985
+ajax;20061115 21:25:04;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 21:25:05;/accounts/ajax/validate.php;validate:phone:6504016983
+ajax;20061115 21:25:05;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061115 21:25:20;/accounts/myaccount.php;validate:password:2119qla
+ajax;20061115 21:25:20;/accounts/myaccount.php;validate:password:2119qla
+ajax;20061115 21:25:20;/accounts/myaccount.php;validate:match:2119qla
+ajax;20061115 21:25:20;/accounts/myaccount.php;validate:required:Billy
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:required:Pham
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:required:bpham@huric.org
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:email:bpham@huric.org
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:uniquesql:bpham@huric.org
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:required:Developer/Programmer
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:required:22
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate::800 Airport Blvd. Suite 504
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:namespaces:Burlingame
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:zipcode:94010
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:namespaces:US
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:phone:6504016985
+ajax;20061115 21:25:21;/accounts/myaccount.php;validate:phone:6504016983
+bpham;20061115 21:25:21;/accounts/myaccount.php;user modified (ldap): Billy Pham (bpham@huric.org) [470]
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;validate:email:bpham@huric.org
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;validate:uniquesql:bpham@huric.org
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;validate:namespaces:Burlingame
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;validate:zipcode:94010
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;validate:phone:6504016985
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;validate:phone:6504016983
+ajax;20061115 21:25:22;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061115 21:25:35;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061115 21:25:35;/accounts/ajax/validate.php;validate:zipcode:94010
+ajax;20061115 21:25:35;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061115 21:25:35;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061115 21:25:35;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061115 21:25:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061115 21:25:35;/accounts/ajax/validate.php;validate:phone:6504016985
+ajax;20061115 21:25:35;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061115 21:25:36;/accounts/ajax/validate.php;validate:phone:6504016983
+ajax;20061115 21:25:36;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:Burlingame
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:CA
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:zipcode:94010
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:US
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:namespaces:US
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:6504016985
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:phone:6504016985
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:phone:6504016983
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:Y
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:N
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:Medium
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:TUE
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:WED
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:THU
+ajax;20061115 21:26:56;/conference/registration/index.php;validate:required:FRI
+bpham;20061115 21:26:56;/conference/registration/index.php;user modified (ldap): Billy Pham (bpham@huric.org) [470]

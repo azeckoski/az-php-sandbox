@@ -1,0 +1,14 @@
+aaronz;20070219 10:11:14;/accounts/login.php;user logged in (ldap):128.173.55.214:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20070219 10:11:16;/accounts/ajax/validate.php;validate:namespaces:Virginia
+ajax;20070219 10:11:16;/accounts/ajax/validate.php;validate:zipcode:24061
+ajax;20070219 10:11:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070219 10:11:16;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070219 10:11:17;/accounts/ajax/validate.php;validate:namespaces:United States
+ajax;20070219 10:11:17;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070219 10:11:17;/accounts/ajax/validate.php;validate:phone:540-231-8053
+ajax;20070219 10:11:17;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070219 10:11:17;/accounts/ajax/validate.php;validate:phone:540-231-5922
+ajax;20070219 10:11:17;/accounts/ajax/validate.php;return=ok|fax|
+mmiles@umich.edu;20070219 10:51:43;/accounts/login.php;user logged in (ldap):141.213.113.210:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+kgansepo;20070219 15:59:30;/accounts/login.php;user logged in (internal):128.173.53.79:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+kgansepo;20070219 15:59:30;/accounts/login.php;user added (ldap): Kim Gausepohl (kgansepo@vt.edu) [66]

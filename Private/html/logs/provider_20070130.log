@@ -1,0 +1,229 @@
+ajax;20070130 10:19:30;/accounts/ajax/validate.php;validate:email:marta
+ajax;20070130 10:19:30;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070130 10:19:40;/accounts/ajax/validate.php;validate:email:marutasan@yahoo.com
+ajax;20070130 10:19:40;/accounts/ajax/validate.php;validate:uniqueuserp:marutasan@yahoo.com
+ajax;20070130 10:19:40;/accounts/ajax/validate.php;validate:uniqueuserp:marutasan@yahoo.com
+ajax;20070130 10:19:40;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070130 10:19:59;/accounts/ajax/validate.php;validate:email:marutasan@yahoo.com
+ajax;20070130 10:19:59;/accounts/ajax/validate.php;validate:uniqueuserp:marutasan@yahoo.com
+ajax;20070130 10:19:59;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070130 10:20:34;/accounts/createaccount.php;validate:required:marutasan@yahoo.com
+ajax;20070130 10:20:34;/accounts/createaccount.php;validate:email:marutasan@yahoo.com
+ajax;20070130 10:20:34;/accounts/createaccount.php;validate:uniqueuserp:marutasan@yahoo.com
+ajax;20070130 10:20:34;/accounts/createaccount.php;validate:uniqueuserp:marutasan@yahoo.com
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:required:patata
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:password:patata
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:required:patata
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:password:patata
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:match:patata
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:required:Marta
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:required:Morales Vivó
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:required:marutasan@yahoo.com
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:email:marutasan@yahoo.com
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:uniqueuserp:marutasan@yahoo.com
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20070130 10:20:35;/accounts/createaccount.php;validate:required:Universitat Pompeu Fabra
+marutasan@yahoo.com;20070130 10:20:35;/accounts/createaccount.php;user added (ldap): Marta Morales Vivó (marutasan@yahoo.com) [1094]
+193.145.32.56;20070130 10:20:35;/accounts/createaccount.php;created account: marutasan@yahoo.com (marutasan@yahoo.com) Morales Vivó,Marta: inst=1
+marutasan@yahoo.com;20070130 10:23:52;/accounts/activate.php;user modified (ldap): Marta Morales VivÃ³ (marutasan@yahoo.com) [1094]
+marutasan@yahoo.com;20070130 10:24:10;/accounts/login.php;user logged in (ldap):193.145.32.56:https://sakaiproject.org/accounts/login.php
+daniel.dupont@usherbrooke.ca;20070130 13:57:48;/accounts/activate.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+daniel.dupont@usherbrooke.ca;20070130 13:58:15;/accounts/forgot_password.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+132.210.208.31;20070130 13:58:15;/accounts/forgot_password.php;password reset: daniel.dupont@usherbrooke.ca
+ajax;20070130 15:33:27;/accounts/ajax/validate.php;validate:email:srehberg3
+ajax;20070130 15:33:27;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070130 15:33:44;/accounts/ajax/validate.php;validate:email:stephen@cetl.gatech.edu
+ajax;20070130 15:33:44;/accounts/ajax/validate.php;validate:uniqueuserp:stephen@cetl.gatech.edu
+ajax;20070130 15:33:44;/accounts/ajax/validate.php;validate:uniqueuserp:stephen@cetl.gatech.edu
+ajax;20070130 15:33:45;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070130 15:34:05;/accounts/ajax/validate.php;validate:email:stephen@cetl.gatech.edu
+ajax;20070130 15:34:05;/accounts/ajax/validate.php;validate:uniqueuserp:stephen@cetl.gatech.edu
+ajax;20070130 15:34:06;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070130 15:34:41;/accounts/ajax/validate.php;validate:namespaces:Atlanta
+ajax;20070130 15:34:41;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070130 15:34:42;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20070130 15:34:42;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070130 15:34:45;/accounts/ajax/validate.php;validate:zipcode:30332
+ajax;20070130 15:34:45;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070130 15:34:45;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070130 15:34:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070130 15:34:54;/accounts/ajax/validate.php;validate:phone:404-894-7569
+ajax;20070130 15:34:54;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070130 15:35:14;/accounts/ajax/validate.php;validate:phone:404-894-4475
+ajax;20070130 15:35:14;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070130 15:35:14;/accounts/createaccount.php;validate:required:stephen@cetl.gatech.edu
+ajax;20070130 15:35:14;/accounts/createaccount.php;validate:email:stephen@cetl.gatech.edu
+ajax;20070130 15:35:14;/accounts/createaccount.php;validate:uniqueuserp:stephen@cetl.gatech.edu
+ajax;20070130 15:35:14;/accounts/createaccount.php;validate:uniqueuserp:stephen@cetl.gatech.edu
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:required:thing00
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:password:thing00
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:required:thing00
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:password:thing00
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:match:thing00
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:required:Stephen
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:required:Rehberg
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:required:stephen@cetl.gatech.edu
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:email:stephen@cetl.gatech.edu
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:uniqueuserp:stephen@cetl.gatech.edu
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:required:Instructional Designer
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate::Faculty Development
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:required:116
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate::225 North Ave. Suite 004
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:namespaces:Atlanta
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:namespaces:GA
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:zipcode:30332
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:namespaces:US
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:phone:404-894-7569
+ajax;20070130 15:35:15;/accounts/createaccount.php;validate:phone:404-894-4475
+stephen@cetl.gatech.edu;20070130 15:35:15;/accounts/createaccount.php;user added (ldap): Stephen Rehberg (stephen@cetl.gatech.edu) [1095]
+130.207.46.43;20070130 15:35:15;/accounts/createaccount.php;created account: stephen@cetl.gatech.edu (stephen@cetl.gatech.edu) Rehberg,Stephen: inst=116
+daniel.dupont@usherbrooke.ca;20070130 16:04:54;/accounts/login.php;user logged in (ldap):132.210.208.31:https://sakaiproject.org/accounts/login.php
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;validate:email:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;validate:uniquesql:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;validate:namespaces:Sherbrooke
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;validate:namespaces:PQ
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;validate:zipcode:J1K 2R1
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;validate:phone:(819) 620-5393
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070130 16:05:11;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070130 16:05:12;/accounts/ajax/validate.php;validate:phone:(819) 821-6910
+ajax;20070130 16:05:12;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070130 16:05:36;/accounts/myaccount.php;validate:password:990215dd1043
+ajax;20070130 16:05:36;/accounts/myaccount.php;validate:password:990215dd1043
+ajax;20070130 16:05:36;/accounts/myaccount.php;validate:match:990215dd1043
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:required:Daniel
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:required:Dupont
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:required:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:email:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:uniquesql:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:required:Manager
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate::Faculty Development
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:required:UniversitÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ© de Sherbrooke
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate::2500 Blv Unversite
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:namespaces:Sherbrooke
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:namespaces:PQ
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:zipcode:J1K 2R1
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:phone:(819) 620-5393
+ajax;20070130 16:05:37;/accounts/myaccount.php;validate:phone:(819) 821-6910
+daniel.dupont@usherbrooke.ca;20070130 16:05:37;/accounts/myaccount.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:password:drdgd1
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:password:drdgd1
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:match:drdgd1
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:required:Daniel
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:required:Dupont
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:required:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:email:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:uniquesql:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:required:Manager
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate::Faculty Development
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:required:UniversitÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ© de Sherbrooke
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate::2500 Blv Unversite
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:namespaces:Sherbrooke
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:namespaces:PQ
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:zipcode:J1K 2R1
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:phone:(819) 620-5393
+ajax;20070130 16:06:08;/accounts/myaccount.php;validate:phone:(819) 821-6910
+daniel.dupont@usherbrooke.ca;20070130 16:06:08;/accounts/myaccount.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:password:1431
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:password:1431
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:match:1431
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:required:Daniel
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:required:Dupont
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:required:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:email:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:uniquesql:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:required:Manager
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate::Faculty Development
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:required:UniversitÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ© de Sherbrooke
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate::2500 Blv Unversite
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:namespaces:Sherbrooke
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:namespaces:PQ
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:zipcode:J1K 2R1
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:phone:(819) 620-5393
+ajax;20070130 16:06:33;/accounts/myaccount.php;validate:phone:(819) 821-6910
+daniel.dupont@usherbrooke.ca;20070130 16:06:34;/accounts/myaccount.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:required:Daniel
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:required:Dupont
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:required:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:email:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:uniquesql:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:required:Manager
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate::Faculty Development
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:required:UniversitÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ© de Sherbrooke
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate::2500 Blv Unversite
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:namespaces:Sherbrooke
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:namespaces:PQ
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:zipcode:J1K 2R1
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:phone:(819) 620-5393
+ajax;20070130 16:06:53;/accounts/myaccount.php;validate:phone:(819) 821-6910
+daniel.dupont@usherbrooke.ca;20070130 16:06:54;/accounts/myaccount.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:password:9902151043
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:password:9902151043
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:match:9902151043
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:required:Daniel
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:required:Dupont
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:required:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:email:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:uniquesql:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:required:Manager
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate::Faculty Development
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:required:UniversitÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ© de Sherbrooke
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate::2500 Blv Unversite
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:namespaces:Sherbrooke
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:namespaces:PQ
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:zipcode:J1K 2R1
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:phone:(819) 620-5393
+ajax;20070130 16:08:23;/accounts/myaccount.php;validate:phone:(819) 821-6910
+daniel.dupont@usherbrooke.ca;20070130 16:08:24;/accounts/myaccount.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+daniel.dupont@usherbrooke.ca;20070130 16:08:37;/accounts/forgot_password.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+132.210.208.31;20070130 16:08:37;/accounts/forgot_password.php;password reset: daniel.dupont@usherbrooke.ca
+daniel.dupont@usherbrooke.ca;20070130 16:08:42;/accounts/forgot_password.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+132.210.208.31;20070130 16:08:42;/accounts/forgot_password.php;password reset: daniel.dupont@usherbrooke.ca
+daniel.dupont@usherbrooke.ca;20070130 16:08:53;/accounts/forgot_password.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+132.210.208.31;20070130 16:08:53;/accounts/forgot_password.php;password reset: daniel.dupont@usherbrooke.ca
+stephen@cetl.gatech.edu;20070130 16:11:37;/accounts/activate.php;user modified (ldap): Stephen Rehberg (stephen@cetl.gatech.edu) [1095]
+daniel.dupont@usherbrooke.ca;20070130 16:14:11;/accounts/login.php;user logged in (ldap):132.210.208.31:https://sakaiproject.org/accounts/login.php
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;validate:email:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;validate:uniquesql:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;validate:namespaces:Sherbrooke
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;validate:namespaces:PQ
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;validate:zipcode:J1K 2R1
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;validate:phone:(819) 620-5393
+ajax;20070130 16:14:20;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070130 16:14:21;/accounts/ajax/validate.php;validate:phone:(819) 821-6910
+ajax;20070130 16:14:21;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:required:Daniel
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:required:Dupont
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:required:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:email:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:uniquesql:daniel.dupont@usherbrooke.ca
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:required:Manager
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate::Faculty Development
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:required:UniversitÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ§>UniversitÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼/option>				<option value=""> --Select Your Organization-- </option>
+				<option title=
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate::2500 Blv Unversite
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:namespaces:Sherbrooke
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:namespaces:PQ
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:zipcode:J1K 2R1
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:namespaces:CA
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:phone:(819) 620-5393
+ajax;20070130 16:14:47;/accounts/myaccount.php;validate:phone:(819) 821-6910
+daniel.dupont@usherbrooke.ca;20070130 16:14:47;/accounts/myaccount.php;user modified (ldap): Daniel Dupont (daniel.dupont@usherbrooke.ca) [927]
+daniel.dupont@usherbrooke.ca;20070130 16:15:37;/accounts/login.php;user logged in (ldap):132.210.208.31:https://sakaiproject.org/accounts/login.php
+stephen@cetl.gatech.edu;20070130 16:42:27;/accounts/login.php;user logged in (ldap):130.207.46.43:https://www.sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.

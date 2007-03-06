@@ -1,0 +1,51 @@
+raijmann;20060609 10:21:45;/accounts/login.php;user logged in (internal):145.18.144.38:https://sakaiproject.org/accounts/login.php
+raijmann;20060609 10:21:45;/accounts/login.php;user modified (ldap): Leon Raijmann (l.e.l.raijmann@uva.nl) [289]
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;validate:email:l.e.l.raijmann@uva.nl
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;validate:uniquesql:l.e.l.raijmann@uva.nl
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;validate:namespaces:Amsterdam
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;validate:namespaces:1016 BR
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;validate:phone: 31205252428
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;validate:phone: 31205252084
+ajax;20060609 10:21:47;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:password:EntreeSakai
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:password:EntreeSakai
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:match:EntreeSakai
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:required:Leon
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:required:Raijmann
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:required:l.e.l.raijmann@uva.nl
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:email:l.e.l.raijmann@uva.nl
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:uniquesql:l.e.l.raijmann@uva.nl
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:required:Manager
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:required:49
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate::Universiteit van Amsterdam
+Central Computer Services
+Group Education and Research Services
+Herengracht 182
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:namespaces:Amsterdam
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:namespaces:1016 BR
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:namespaces:NL
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:phone:+31205252428
+ajax;20060609 10:23:52;/accounts/myaccount.php;validate:phone:+31205252084
+raijmann;20060609 10:23:53;/accounts/myaccount.php;user modified (ldap): Leon Raijmann (l.e.l.raijmann@uva.nl) [289]
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;validate:email:l.e.l.raijmann@uva.nl
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;validate:uniquesql:l.e.l.raijmann@uva.nl
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;validate:namespaces:1016 BR
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;validate:namespaces:Amsterdam
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;validate:phone: 31205252428
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;validate:phone: 31205252084
+ajax;20060609 10:23:54;/accounts/ajax/validate.php;return=ok|fax|
+raijmann;20060609 10:24:29;/accounts/login.php;user logged in (ldap):145.18.144.38:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+johniglesia;20060609 11:08:51;/accounts/login.php;user logged in (ldap):200.85.107.76:https://sakaiproject.org/accounts/login.php?ref=/skin/vote.php
+johniglesia;20060609 11:12:44;/accounts/login.php;user logged in (ldap):200.85.107.76:https://sakaiproject.org/accounts/login.php?ref=/requirements/results.php

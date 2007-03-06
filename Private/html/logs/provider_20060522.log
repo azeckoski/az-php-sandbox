@@ -1,0 +1,380 @@
+smileyatic;20060522 00:38:05;/accounts/login.php;user logged in (ldap):68.6.41.199:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060522 00:40:06;/facebook/add_entry.php;validate::running, kayaking, mt biking
+ajax;20060522 00:40:06;/facebook/add_entry.php;validate:required:1
+magnus.tagesson@it.su.se;20060522 09:38:46;/accounts/login.php;user logged in (internal):85.226.36.158:https://sakaiproject.org/accounts/login.php?ref=/facebook/add_entry.php
+magnus.tagesson@it.su.se;20060522 09:38:47;/accounts/login.php;user modified (ldap): Magnus Tagesson (magnus.tagesson@it.su.se) [331]
+magnus.tagesson@it.su.se;20060522 09:39:22;/accounts/login.php;user logged in (ldap):85.226.36.158:https://sakaiproject.org/accounts/login.php?ref=/facebook/add_entry.php
+magnus.tagesson@it.su.se;20060522 09:40:55;/accounts/login.php;user logged in (ldap):85.226.36.158:https://sakaiproject.org/accounts/login.php?ref=/facebook/add_entry.php
+ajax;20060522 09:42:03;/facebook/add_entry.php;validate::Implementation, user support, portfolios, course evaluation
+ajax;20060522 09:42:03;/facebook/add_entry.php;validate:required:1
+ajax;20060522 09:42:16;/facebook/add_entry.php;validate::Implementation, user support, portfolios, course evaluation
+ajax;20060522 09:42:16;/facebook/add_entry.php;validate:required:1
+amelungc;20060522 09:46:06;/accounts/login.php;user logged in (internal):128.206.107.70:https://sakaiproject.org/accounts/login.php?ref=/facebook/add_entry.php
+amelungc;20060522 09:46:06;/accounts/login.php;user modified (ldap): Chris Amelung (amelungc@missouri.edu) [361]
+ajax;20060522 09:47:11;/facebook/add_entry.php;validate::activity notifications, social computing, whitewater kayaking, sailing
+ajax;20060522 09:47:11;/facebook/add_entry.php;validate:required:1
+ajax;20060522 09:47:33;/facebook/add_entry.php;validate::activity notifications, social computing, whitewater kayaking, sailing
+ajax;20060522 09:47:33;/facebook/add_entry.php;validate:required:1
+khancock;20060522 11:08:17;/accounts/login.php;user logged in (ldap):149.166.143.234:https://sakaiproject.org/accounts/login.php?ref=/facebook/add_entry.php
+ajax;20060522 11:09:27;/facebook/add_entry.php;validate::Usability
+UI Design
+Reading
+Running
+ajax;20060522 11:09:27;/facebook/add_entry.php;validate:required:1
+ajax;20060522 11:10:16;/facebook/add_entry.php;validate::Usability, UI Design, Reading, Running
+ajax;20060522 11:10:16;/facebook/add_entry.php;validate:required:1
+wendemm;20060522 11:16:02;/accounts/login.php;user logged in (ldap):131.252.203.103:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060522 11:16:32;/conference/proposals/index.php;validate:required:presentation
+ajax;20060522 11:22:55;/conference/proposals/edit_proposal.php;validate:required:The Evolution of an OSP Personal Matrix  
+ajax;20060522 11:22:55;/conference/proposals/edit_proposal.php;validate:required:Many eportfolio matrices are designed to assist with accreditation or university-wide goal setting.  Unfortunately this can come into conflict with a true learner-centered. The focus of this presentation is to describe the design of an eportfolio matrix represent flexible student personal goals over time using forms and presentations. 
+ajax;20060522 11:22:55;/conference/proposals/edit_proposal.php;validate:required:Many eportfolio matrices are clearly designed to assist with accreditation or university-wide goal setting and not created by individual learners.  Unfortunately this can come into conflict with the true learner-centered purpose of eportfolios. The focus of this presentation is to describe the design of an eportfolio matrix to represent not only department, program or course goals but to also represent shifting personal goals.  As Tufts University’s Academic Technology eportfolio project team worked with the Boston School of Occupational Therapy instructors and students, a participatory design model evolved to more clearly represent all stakeholder goals – not just those of faculty. As the students ‘socially constructed’ the use of this new technology, they saw more meaning in attaching their work to personal goals in a flexible matrix.  Because the OSP matrix tool did not lend itself to that type of design, a presentation and forms were created to achieve the same goal.  
+
+The matrices that I have seen have been created by someone other than the learner (being told what to do). Eportfolios are in the same boat. In many cases, they are being viewed as an assessment tool (for someone other than the student). How much buy-in and long-term learning will come from such "systems?" 
+
+ajax;20060522 11:22:55;/conference/proposals/edit_proposal.php;validate:required:Ranjani Saigal 
+ajax;20060522 11:22:55;/conference/proposals/edit_proposal.php;validate:required:Ranjani Saigal is a Project Manager at Academic Technology, a directorate of Tufts Computing and Communications Services at Tufts University. Along with doing technical development she also manages the student consulting program at Academic Technology. She has a Master’s in Computer Science and has worked for several years on developing many teaching and learning applications. She is currently the Project Manager for pilot implementation of OSP and Sakai at Tufts.  She has worked on many open source projects s including the Visual Understanding Environment and the Fedora based Tufts Digital Library. 
+ajax;20060522 11:22:55;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20060522 11:22:55;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20060522 11:26:34;/conference/admin/edit_proposal.php;validate:required:The Evolution of an OSP Personal Matrix
+ajax;20060522 11:26:34;/conference/admin/edit_proposal.php;validate:required:Many eportfolio matrices are designed to assist with accreditation or university-wide goal setting.  Unfortunately this can come into conflict with a true learner-centered. The focus of this presentation is to describe the design of an eportfolio matrix represent flexible student personal goals over time using forms and presentations. 
+ajax;20060522 11:26:34;/conference/admin/edit_proposal.php;validate:required:Many eportfolio matrices are clearly designed to assist with accreditation or university-wide goal setting and not created by individual learners.  Unfortunately this can come into conflict with the true learner-centered purpose of eportfolios. The focus of this presentation is to describe the design of an eportfolio matrix to represent not only department, program or course goals but to also represent shifting personal goals.  As Tufts University’s Academic Technology eportfolio project team worked with the Boston School of Occupational Therapy instructors and students, a participatory design model evolved to more clearly represent all stakeholder goals – not just those of faculty. As the students ‘socially constructed’ the use of this new technology, they saw more meaning in attaching their work to personal goals in a flexible matrix.  Because the OSP matrix tool did not lend itself to that type of design, a presentation and forms were created to achieve the same goal.  
+
+The matrices that I have seen have been created by someone other than the learner (being told what to do). Eportfolios are in the same boat. In many cases, they are being viewed as an assessment tool (for someone other than the student). How much buy-in and long-term learning will come from such "systems?" 
+
+ajax;20060522 11:26:34;/conference/admin/edit_proposal.php;validate:required:Ranjani Saigal
+ajax;20060522 11:26:34;/conference/admin/edit_proposal.php;validate:required:Ranjani Saigal is a Project Manager at Academic Technology, a directorate of Tufts Computing and Communications Services at Tufts University. Along with doing technical development she also manages the student consulting program at Academic Technology. She has a Master’s in Computer Science and has worked for several years on developing many teaching and learning applications. She is currently the Project Manager for pilot implementation of OSP and Sakai at Tufts.  She has worked on many open source projects s including the Visual Understanding Environment and the Fedora based Tufts Digital Library. 
+ajax;20060522 11:26:34;/conference/admin/edit_proposal.php;validate:required:lecture
+ajax;20060522 11:26:34;/conference/admin/edit_proposal.php;validate:required:theater
+schrecv;20060522 12:01:44;/accounts/login.php;user logged in (ldap):131.252.200.152:https://sakaiproject.org/accounts/login.php?ref=/facebook/add_entry.php
+kennygrimm;20060522 13:30:56;/accounts/activate.php;user modified (ldap): Kenny Grimm (kgrimm@unicon.net) [643]
+kennygrimm;20060522 13:31:03;/accounts/login.php;user logged in (ldap):12.164.139.3:https://sakaiproject.org/accounts/login.php
+mmiles@umich.edu;20060522 14:06:03;/accounts/login.php;user logged in (ldap):141.213.113.220:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+kmclennan;20060522 14:10:02;/accounts/login.php;user logged in (ldap):72.150.31.145:https://sakaiproject.org/accounts/login.php?ref=/facebook/index.php
+ajax;20060522 14:17:34;/accounts/ajax/validate.php;validate:uniqueuserp:hnovillo
+ajax;20060522 14:17:34;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060522 14:18:06;/accounts/ajax/validate.php;validate:email:hnovillo@e-mozart.com
+ajax;20060522 14:18:06;/accounts/ajax/validate.php;validate:uniqueuserp:hnovillo@e-mozart.com
+ajax;20060522 14:18:06;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060522 14:20:32;/accounts/ajax/validate.php;validate:namespaces:Corodba
+ajax;20060522 14:20:32;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060522 14:20:40;/accounts/ajax/validate.php;validate:namespaces:Cordoba
+ajax;20060522 14:20:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060522 14:21:15;/accounts/ajax/validate.php;validate:namespaces:Cordoba
+ajax;20060522 14:21:15;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060522 14:21:17;/accounts/ajax/validate.php;validate:zipcode:5000
+ajax;20060522 14:21:17;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20060522 14:21:32;/accounts/ajax/validate.php;validate:namespaces:AR
+ajax;20060522 14:21:32;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060522 14:21:46;/accounts/ajax/validate.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:21:46;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060522 14:22:03;/accounts/ajax/validate.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:22:03;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:required:hnovillo
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:nospaces:hnovillo
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:uniqueuserp:hnovillo
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:required:petronc
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:password:petronc
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:required:petronc
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:password:petronc
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:match:petronc
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:required:Hernan
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:required:Novillo Corvalán
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:required:hnovillo@e-mozart.com
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:email:hnovillo@e-mozart.com
+ajax;20060522 14:22:03;/accounts/createaccount.php;validate:uniqueuserp:hnovillo@e-mozart.com
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate:required:Implementor
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate::Manager
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate:required:Asocioción de investigaciones tecnólogicas
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate::Av. Fuerza Aérea 6500.
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate:namespaces:Cordoba
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate:namespaces:Cordoba
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate:namespaces:AR
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:22:04;/accounts/createaccount.php;validate:phone:(0351) 466-1841
+hnovillo;20060522 14:22:04;/accounts/createaccount.php;user added (ldap): Hernan Novillo Corvalán (hnovillo@e-mozart.com) [671]
+200.68.91.105;20060522 14:22:04;/accounts/createaccount.php;created account: hnovillo (hnovillo@e-mozart.com) Novillo Corvalán,Hernan: inst=1
+hnovillo;20060522 14:32:39;/accounts/activate.php;user modified (ldap): Hernan Novillo CorvalÃ¡n (hnovillo@e-mozart.com) [671]
+hnovillo;20060522 14:33:35;/accounts/activate.php;user modified (ldap): Hernan Novillo CorvalÃÂ¡n (hnovillo@e-mozart.com) [671]
+hnovillo;20060522 14:43:48;/accounts/login.php;user logged in (ldap):200.68.91.105:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060522 14:44:08;/accounts/ajax/validate.php;validate:namespaces:Cordoba
+ajax;20060522 14:44:08;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060522 14:44:09;/accounts/ajax/validate.php;validate:namespaces:AR
+ajax;20060522 14:44:09;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060522 14:44:09;/accounts/ajax/validate.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:44:09;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060522 14:44:12;/accounts/ajax/validate.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:44:12;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060522 14:45:17;/accounts/ajax/validate.php;validate:namespaces:Cordoba
+ajax;20060522 14:45:17;/accounts/ajax/validate.php;validate:email:hnovillo@e-mozart.com
+ajax;20060522 14:45:17;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060522 14:45:17;/accounts/ajax/validate.php;validate:uniquesql:hnovillo@e-mozart.com
+ajax;20060522 14:45:17;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:required:Hernan
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:required:Novillo Corvalan
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:required:hnovillo@e-mozart.com
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:email:hnovillo@e-mozart.com
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:uniquesql:hnovillo@e-mozart.com
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:required:Implementor
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate::Manager
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:required:Asociociacion de Investigaciones Tecnologicas
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate::Av. Fuerza Aerea 6500.
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:namespaces:Cordoba
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:namespaces:Cordoba
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:namespaces:AR
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:46:27;/accounts/myaccount.php;validate:phone:(0351) 466-1841
+hnovillo;20060522 14:46:27;/accounts/myaccount.php;user modified (ldap): Hernan Novillo Corvalan (hnovillo@e-mozart.com) [671]
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:required:Hernan
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:required:Novillo Corvalan
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:required:hnovillo@e-mozart.com
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:email:hnovillo@e-mozart.com
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:uniquesql:hnovillo@e-mozart.com
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:required:Implementor
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate::Manager
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:required:Asociociacion de Investigaciones Tecnologicas
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate::Av. Fuerza Aerea 6500.
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:namespaces:Cordoba
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:namespaces:Cordoba
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:namespaces:AR
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:47:26;/accounts/myaccount.php;validate:phone:(0351) 466-1841
+hnovillo;20060522 14:47:26;/accounts/myaccount.php;user modified (ldap): Hernan Novillo Corvalan (hnovillo@e-mozart.com) [671]
+hnovillo;20060522 14:47:39;/accounts/login.php;user logged in (ldap):200.68.91.105:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:Implementor
+ajax;20060522 14:49:46;/conference/registration/index.php;validate::Manager
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:Asociociacion de Investigaciones Tecnologicas
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:Cordoba
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:Cordoba
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:namespaces:Cordoba
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:AR
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:namespaces:AR
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:(0351) 466-1841
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:phone:(0351) 466-1841
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:N
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:Y
+ajax;20060522 14:49:46;/conference/registration/index.php;validate:required:X-Large
+hnovillo;20060522 14:49:46;/conference/registration/index.php;user modified (ldap): Hernan Novillo Corvalan (hnovillo@e-mozart.com) [671]
+shardin;20060522 15:15:23;/accounts/login.php;user logged in (ldap):141.213.120.158:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/index.php
+ajax;20060522 15:16:40;/conference/admin/edit_proposal.php;validate:required:The Evolution of an OSP Personal Matrix
+ajax;20060522 15:16:40;/conference/admin/edit_proposal.php;validate:required:Many eportfolio matrices are designed to assist with accreditation or university-wide goal setting.  Unfortunately this can come into conflict with a true learner-centered. The focus of this presentation is to describe the design of an eportfolio matrix represent flexible student personal goals over time using forms and presentations. 
+ajax;20060522 15:16:40;/conference/admin/edit_proposal.php;validate:required:Many eportfolio matrices are clearly designed to assist with accreditation or university-wide goal setting and not created by individual learners.  Unfortunately this can come into conflict with the true learner-centered purpose of eportfolios. The focus of this presentation is to describe the design of an eportfolio matrix to represent not only department, program or course goals but to also represent shifting personal goals.  As Tufts University’s Academic Technology eportfolio project team worked with the Boston School of Occupational Therapy instructors and students, a participatory design model evolved to more clearly represent all stakeholder goals – not just those of faculty. As the students ‘socially constructed’ the use of this new technology, they saw more meaning in attaching their work to personal goals in a flexible matrix.  Because the OSP matrix tool did not lend itself to that type of design, a presentation and forms were created to achieve the same goal.  
+
+The matrices that I have seen have been created by someone other than the learner (being told what to do). Eportfolios are in the same boat. In many cases, they are being viewed as an assessment tool (for someone other than the student). How much buy-in and long-term learning will come from such "systems?" 
+
+ajax;20060522 15:16:40;/conference/admin/edit_proposal.php;validate:required:Ranjani Saigal
+ajax;20060522 15:16:40;/conference/admin/edit_proposal.php;validate:required:Ranjani Saigal is a Project Manager at Academic Technology, a directorate of Tufts Computing and Communications Services at Tufts University. Along with doing technical development she also manages the student consulting program at Academic Technology. She has a Master’s in Computer Science and has worked for several years on developing many teaching and learning applications. She is currently the Project Manager for pilot implementation of OSP and Sakai at Tufts.  She has worked on many open source projects s including the Visual Understanding Environment and the Fedora based Tufts Digital Library. 
+ajax;20060522 15:16:40;/conference/admin/edit_proposal.php;validate:required:lecture
+ajax;20060522 15:16:40;/conference/admin/edit_proposal.php;validate:required:theater
+ajax;20060522 16:08:19;/accounts/ajax/validate.php;validate:uniqueuserp:johniglesia
+ajax;20060522 16:08:19;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060522 16:08:41;/accounts/ajax/validate.php;validate:email:jiglesia@e-mozart.com
+ajax;20060522 16:08:41;/accounts/ajax/validate.php;validate:uniqueuserp:jiglesia@e-mozart.com
+ajax;20060522 16:08:42;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060522 16:10:41;/accounts/ajax/validate.php;validate:namespaces:Pilar
+ajax;20060522 16:10:41;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060522 16:10:52;/accounts/ajax/validate.php;validate:namespaces:Buenos Aires
+ajax;20060522 16:10:52;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20060522 16:10:55;/accounts/ajax/validate.php;validate:zipcode:1629
+ajax;20060522 16:10:55;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20060522 16:10:56;/accounts/ajax/validate.php;validate:namespaces:AL
+ajax;20060522 16:10:56;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060522 16:11:01;/accounts/ajax/validate.php;validate:namespaces:AR
+ajax;20060522 16:11:01;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060522 16:11:33;/accounts/ajax/validate.php;validate:phone:54-2322-491758
+ajax;20060522 16:11:33;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060522 16:11:42;/accounts/ajax/validate.php;validate:phone:54-2322-491758
+ajax;20060522 16:11:42;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060522 16:11:59;/accounts/ajax/validate.php;validate:zipcode:01629
+ajax;20060522 16:11:59;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:required:johniglesia
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:nospaces:johniglesia
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:uniqueuserp:johniglesia
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:required:goyena
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:password:goyena
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:required:goyena
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:password:goyena
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:match:goyena
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:required:Juan
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:required:Iglesia
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:required:jiglesia@e-mozart.com
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:email:jiglesia@e-mozart.com
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:uniqueuserp:jiglesia@e-mozart.com
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:required:Manager
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate::Implementor
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:required:Mozart Technologies S.A.
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate::Ruta Panamericana Km 49.5
+Edif. Concord Pilar - TC #314
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:namespaces:Pilar
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:namespaces:Buenos Aires
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:zipcode:01629
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:namespaces:AR
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:phone:54-2322-491758
+ajax;20060522 16:12:07;/accounts/createaccount.php;validate:phone:54-2322-491758
+johniglesia;20060522 16:12:08;/accounts/createaccount.php;user added (ldap): Juan Iglesia (jiglesia@e-mozart.com) [672]
+200.85.107.76;20060522 16:12:08;/accounts/createaccount.php;created account: johniglesia (jiglesia@e-mozart.com) Iglesia,Juan: inst=1
+johniglesia;20060522 16:14:00;/accounts/activate.php;user modified (ldap): Juan Iglesia (jiglesia@e-mozart.com) [672]
+johniglesia;20060522 16:14:24;/accounts/login.php;user logged in (ldap):200.85.107.76:https://sakaiproject.org/accounts/login.php
+ajax;20060522 16:15:22;/accounts/ajax/validate.php;validate:zipcode:01629
+ajax;20060522 16:15:22;/accounts/ajax/validate.php;validate:namespaces:AR
+ajax;20060522 16:15:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060522 16:15:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060522 16:15:23;/accounts/ajax/validate.php;validate:phone:54-2322-491758
+ajax;20060522 16:15:23;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060522 16:15:23;/accounts/ajax/validate.php;validate:phone:54-2322-491758
+ajax;20060522 16:15:23;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060522 16:15:24;/accounts/ajax/validate.php;validate:namespaces:Buenos Aires
+ajax;20060522 16:15:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:Manager
+ajax;20060522 16:17:42;/conference/registration/index.php;validate::Implementor
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:Mozart Technologies S.A.
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:Pilar
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:Buenos Aires
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:namespaces:Buenos Aires
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:zipcode:01629
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:AR
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:namespaces:AR
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:54-2322-491758
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:phone:54-2322-491758
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:phone:54-2322-491758
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:N
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:Y
+ajax;20060522 16:17:42;/conference/registration/index.php;validate:required:X-Large
+johniglesia;20060522 16:17:42;/conference/registration/index.php;user modified (ldap): Juan Iglesia (jiglesia@e-mozart.com) [672]
+ajax;20060522 16:37:47;/accounts/ajax/validate.php;validate:uniqueuserp:erik.froese@gmail.com
+ajax;20060522 16:37:48;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060522 16:38:00;/accounts/ajax/validate.php;validate:email:erik.froese@gmail.com
+ajax;20060522 16:38:00;/accounts/ajax/validate.php;validate:uniqueuserp:erik.froese@gmail.com
+ajax;20060522 16:38:00;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060522 16:38:18;/accounts/createaccount.php;validate:required:erik.froese@gmail.com
+ajax;20060522 16:38:18;/accounts/createaccount.php;validate:nospaces:erik.froese@gmail.com
+ajax;20060522 16:38:18;/accounts/createaccount.php;validate:uniqueuserp:erik.froese@gmail.com
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:required:c00!ranch
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:password:c00!ranch
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:required:c00!ranch
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:password:c00!ranch
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:match:c00!ranch
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:required:Erik
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:required:Froese
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:required:erik.froese@gmail.com
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:email:erik.froese@gmail.com
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:uniqueuserp:erik.froese@gmail.com
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:required:System Administrator
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate::University Administration
+ajax;20060522 16:38:19;/accounts/createaccount.php;validate:required:33
+erik.froese@gmail.com;20060522 16:38:19;/accounts/createaccount.php;user added (ldap): Erik Froese (erik.froese@gmail.com) [673]
+128.122.50.199;20060522 16:38:19;/accounts/createaccount.php;created account: erik.froese@gmail.com (erik.froese@gmail.com) Froese,Erik: inst=33
+erik.froese@gmail.com;20060522 16:38:32;/accounts/activate.php;user modified (ldap): Erik Froese (erik.froese@gmail.com) [673]
+erik.froese@gmail.com;20060522 16:38:40;/accounts/login.php;user logged in (ldap):128.122.50.199:https://sakaiproject.org/accounts/login.php
+ajax;20060522 20:10:28;/accounts/ajax/validate.php;validate:uniqueuserp:hherzog
+ajax;20060522 20:10:28;/accounts/ajax/validate.php;return=ok|username|
+ajax;20060522 20:10:52;/accounts/ajax/validate.php;validate:email:hherzog@learningobjects.com
+ajax;20060522 20:10:52;/accounts/ajax/validate.php;validate:uniqueuserp:hherzog@learningobjects.com
+ajax;20060522 20:10:52;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060522 20:11:43;/accounts/ajax/validate.php;validate:namespaces:Washington
+ajax;20060522 20:11:43;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060522 20:11:45;/accounts/ajax/validate.php;validate:namespaces:DC
+ajax;20060522 20:11:45;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060522 20:11:46;/accounts/ajax/validate.php;validate:zipcode:20009
+ajax;20060522 20:11:46;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060522 20:11:50;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060522 20:11:50;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060522 20:11:58;/accounts/ajax/validate.php;validate:phone:202-265-3276
+ajax;20060522 20:11:58;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060522 20:12:05;/accounts/ajax/validate.php;validate:phone:202-318-0331
+ajax;20060522 20:12:05;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:required:hherzog
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:nospaces:hherzog
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:uniqueuserp:hherzog
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:required:learnobjs
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:password:learnobjs
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:required:learnobjs
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:password:learnobjs
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:match:learnobjs
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:required:Hal
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:required:Herzog
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:required:hherzog@learningobjects.com
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:email:hherzog@learningobjects.com
+ajax;20060522 20:15:41;/accounts/createaccount.php;validate:uniqueuserp:hherzog@learningobjects.com
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate:required:Manager
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate::Developer/Programmer
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate:required:Learning Objects, Inc.
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate::1801 18th Street NW, Suite 10
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate:namespaces:Washington
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate:namespaces:DC
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate:zipcode:20009
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate:namespaces:US
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate:phone:202-265-3276
+ajax;20060522 20:15:42;/accounts/createaccount.php;validate:phone:202-318-0331
+hherzog;20060522 20:15:42;/accounts/createaccount.php;user added (ldap): Hal Herzog (hherzog@learningobjects.com) [674]
+69.3.5.175;20060522 20:15:42;/accounts/createaccount.php;created account: hherzog (hherzog@learningobjects.com) Herzog,Hal: inst=1
+hherzog;20060522 20:23:01;/accounts/activate.php;user modified (ldap): Hal Herzog (hherzog@learningobjects.com) [674]
+hherzog;20060522 20:25:19;/accounts/forgot_password.php;user modified (ldap): Hal Herzog (hherzog@learningobjects.com) [674]
+69.3.5.175;20060522 20:25:19;/accounts/forgot_password.php;password reset: hherzog@learningobjects.com
+hherzog;20060522 20:25:38;/accounts/login.php;user logged in (ldap):69.3.5.175:https://sakaiproject.org/accounts/login.php
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;validate:email:hherzog@learningobjects.com
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;validate:uniquesql:hherzog@learningobjects.com
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;validate:namespaces:Washington
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;validate:namespaces:DC
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;validate:zipcode:20009
+ajax;20060522 20:25:44;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060522 20:25:45;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060522 20:25:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060522 20:25:45;/accounts/ajax/validate.php;validate:phone:202-265-3276
+ajax;20060522 20:25:45;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060522 20:25:45;/accounts/ajax/validate.php;validate:phone:202-318-0331
+ajax;20060522 20:25:45;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:password:Dx*bAJZg
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:password:Dx*bAJZg
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:match:Dx*bAJZg
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:required:Hal
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:required:Herzog
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:required:hherzog@learningobjects.com
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:email:hherzog@learningobjects.com
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:uniquesql:hherzog@learningobjects.com
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:required:Manager
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate::Developer/Programmer
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:required:Learning Objects, Inc.
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate::1801 18th Street NW, Suite 10
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:namespaces:Washington
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:namespaces:DC
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:zipcode:20009
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:namespaces:US
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:phone:202-265-3276
+ajax;20060522 20:26:04;/accounts/myaccount.php;validate:phone:202-318-0331
+hherzog;20060522 20:26:05;/accounts/myaccount.php;user modified (ldap): Hal Herzog (hherzog@learningobjects.com) [674]
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;validate:email:hherzog@learningobjects.com
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;validate:uniquesql:hherzog@learningobjects.com
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;validate:namespaces:DC
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;validate:namespaces:Washington
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;validate:zipcode:20009
+ajax;20060522 20:26:06;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20060522 20:26:07;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20060522 20:26:07;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060522 20:26:07;/accounts/ajax/validate.php;validate:phone:202-265-3276
+ajax;20060522 20:26:07;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060522 20:26:07;/accounts/ajax/validate.php;validate:phone:202-318-0331
+ajax;20060522 20:26:07;/accounts/ajax/validate.php;return=ok|fax|
+s-githens@northwestern.edu;20060522 20:26:14;/accounts/login.php;user logged in (ldap):67.162.111.222:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+sbond;20060522 22:13:19;/accounts/login.php;user logged in (ldap):132.217.33.104:https://www.sakaiproject.org/accounts/login.php
+wendemm;20060522 22:28:52;/accounts/login.php;user logged in (ldap):131.252.169.191:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Vancouver+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20060522 22:30:25;/conference/admin/edit_proposal.php;validate:required:The Future of OSP Development
+ajax;20060522 22:30:25;/conference/admin/edit_proposal.php;validate:required:As OSP 2.1 and 2.2 make full integration with Sakai a reality, the Open Source Portfolio (OSP) community faces a crossroads.  In this session, options will be presented for further intergrating our community with the Sakai community.  In addition, the direction of the development work that lies ahead will be discussed and plans will be proposed.  Join us for this vital conversation as we shape the future of OSP development.
+ajax;20060522 22:30:25;/conference/admin/edit_proposal.php;validate:required:.
+ajax;20060522 22:30:25;/conference/admin/edit_proposal.php;validate:required:Coppola, Fern, Angell, Morgaine
+ajax;20060522 22:30:25;/conference/admin/edit_proposal.php;validate:required:. 
+ajax;20060522 22:30:25;/conference/admin/edit_proposal.php;validate:required:discussion
+ajax;20060522 22:30:25;/conference/admin/edit_proposal.php;validate:required:theater
+ajax;20060522 22:30:46;/conference/admin/edit_proposal.php;validate:required:The Future of OSP Development
+ajax;20060522 22:30:46;/conference/admin/edit_proposal.php;validate:required:As OSP 2.1 and 2.2 make full integration with Sakai a reality, the Open Source Portfolio (OSP) community faces a crossroads.  In this session, options will be presented for further intergrating our community with the Sakai community.  In addition, the direction of the development work that lies ahead will be discussed and plans will be proposed.  Join us for this vital conversation as we shape the future of OSP development.
+ajax;20060522 22:30:46;/conference/admin/edit_proposal.php;validate:required:.
+ajax;20060522 22:30:46;/conference/admin/edit_proposal.php;validate:required:Coppola, Fern, Angell, Morgaine
+ajax;20060522 22:30:46;/conference/admin/edit_proposal.php;validate:required:. 
+ajax;20060522 22:30:46;/conference/admin/edit_proposal.php;validate:required:discussion
+ajax;20060522 22:30:46;/conference/admin/edit_proposal.php;validate:required:theater

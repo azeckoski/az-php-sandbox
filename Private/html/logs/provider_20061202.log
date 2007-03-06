@@ -1,0 +1,138 @@
+ajax;20061202 00:29:40;/accounts/ajax/validate.php;validate:email:ecnufe
+ajax;20061202 00:29:40;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061202 00:29:45;/accounts/ajax/validate.php;validate:email:ecnufenufe
+ajax;20061202 00:29:45;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061202 00:29:49;/accounts/ajax/validate.php;validate:email:ecnuf
+ajax;20061202 00:29:49;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061202 00:29:51;/accounts/ajax/validate.php;validate:email:ecnufe
+ajax;20061202 00:29:51;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061202 00:30:08;/accounts/ajax/validate.php;validate:email:nymphaeas@gmail.com
+ajax;20061202 00:30:08;/accounts/ajax/validate.php;validate:uniqueuserp:nymphaeas@gmail.com
+ajax;20061202 00:30:08;/accounts/ajax/validate.php;validate:uniqueuserp:nymphaeas@gmail.com
+ajax;20061202 00:30:08;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061202 00:30:36;/accounts/ajax/validate.php;validate:email:nymphaeas@gmail.com
+ajax;20061202 00:30:36;/accounts/ajax/validate.php;validate:uniqueuserp:nymphaeas@gmail.com
+ajax;20061202 00:30:37;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061202 00:32:25;/accounts/ajax/validate.php;validate:namespaces:shanghai
+ajax;20061202 00:32:25;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061202 00:32:38;/accounts/ajax/validate.php;validate:namespaces:china
+ajax;20061202 00:32:38;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20061202 00:32:45;/accounts/ajax/validate.php;validate:namespaces:CN
+ajax;20061202 00:32:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:required:nymphaeas@gmail.com
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:email:nymphaeas@gmail.com
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:uniqueuserp:nymphaeas@gmail.com
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:uniqueuserp:nymphaeas@gmail.com
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:required:20062006
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:password:20062006
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:required:20062006
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:password:20062006
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:match:20062006
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:required:ecnu
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:required:family education
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:required:nymphaeas@gmail.com
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:email:nymphaeas@gmail.com
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:uniqueuserp:nymphaeas@gmail.com
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:required:east china  normal university
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:namespaces:shanghai
+ajax;20061202 00:33:50;/accounts/createaccount.php;validate:namespaces:CN
+nymphaeas@gmail.com;20061202 00:33:51;/accounts/createaccount.php;user added (ldap): ecnu family education (nymphaeas@gmail.com) [1067]
+218.78.225.57;20061202 00:33:51;/accounts/createaccount.php;created account: nymphaeas@gmail.com (nymphaeas@gmail.com) family education,ecnu: inst=1
+nymphaeas@gmail.com;20061202 00:34:16;/accounts/activate.php;user modified (ldap): ecnu family education (nymphaeas@gmail.com) [1067]
+nymphaeas@gmail.com;20061202 00:34:50;/accounts/login.php;user logged in (ldap):218.78.225.57:https://sakaiproject.org/accounts/login.php
+ajax;20061202 00:35:35;/accounts/ajax/validate.php;validate:namespaces:CN
+ajax;20061202 00:35:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061202 00:35:42;/accounts/ajax/validate.php;validate:email:nymphaeas@gmail.com
+ajax;20061202 00:35:42;/accounts/ajax/validate.php;validate:uniquesql:nymphaeas@gmail.com
+ajax;20061202 00:35:42;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061202 00:35:43;/accounts/ajax/validate.php;validate:namespaces:shanghai
+ajax;20061202 00:35:43;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061202 00:35:43;/accounts/ajax/validate.php;validate:namespaces:CN
+ajax;20061202 00:35:43;/accounts/ajax/validate.php;return=ok|country|
+pitterk;20061202 02:44:28;/accounts/login.php;user logged in (internal):68.189.135.78:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+pitterk;20061202 02:44:28;/accounts/login.php;user added (ldap): Keiko Pitter (pitterk@whitman.edu) [193]
+nymphaeas@gmail.com;20061202 08:14:29;/accounts/login.php;user logged in (ldap):218.78.225.57:https://sakaiproject.org/accounts/login.php?ref=/accounts/myaccount.php
+ajax;20061202 08:19:38;/accounts/ajax/validate.php;validate:namespaces:CN
+ajax;20061202 08:19:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061202 10:03:00;/accounts/ajax/validate.php;validate:namespaces:Chappaqua
+ajax;20061202 10:03:00;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061202 10:03:05;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061202 10:03:05;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061202 10:03:10;/accounts/ajax/validate.php;validate:zipcode:10514
+ajax;20061202 10:03:10;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061202 10:03:17;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061202 10:03:17;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061202 10:03:26;/accounts/ajax/validate.php;validate:phone:914-282-1610
+ajax;20061202 10:03:26;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061202 10:05:20;/accounts/ajax/validate.php;validate:email:gracelin
+ajax;20061202 10:05:20;/accounts/ajax/validate.php;return=error|username|Invalid email address
+s-githens@northwestern.edu;20061202 11:47:14;/accounts/login.php;user logged in (ldap):71.201.56.4:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20061202 13:56:46;/accounts/login.php;user logged in (internal):72.254.167.232:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+shardin;20061202 13:56:46;/accounts/login.php;user modified (ldap): Susan Hardin (shardin@umich.edu) [2]
+baduncan@ucsc.edu;20061202 16:14:54;/accounts/login.php;user logged in (ldap):66.245.39.38:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+aaronz;20061202 16:16:08;/accounts/login.php;user logged in (ldap):198.82.168.151:https://www.sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20061202 16:18:20;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061202 16:18:20;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061202 16:18:30;/accounts/ajax/validate.php;validate:zipcode:95060
+ajax;20061202 16:18:30;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061202 16:18:31;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061202 16:18:31;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061202 16:18:44;/accounts/ajax/validate.php;validate:phone:831.459.3406
+ajax;20061202 16:18:44;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:required:New Teacher Center, UCSC
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:required:Santa Cruz
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:required:CA
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:zipcode:95060
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:required:US
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:namespaces:US
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:required:831.459.3406
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:phone:831.459.3406
+ajax;20061202 16:20:09;/conference/registration/index.php;validate:required:Y
+ajax;20061202 16:20:10;/conference/registration/index.php;validate:required:N
+ajax;20061202 16:20:10;/conference/registration/index.php;validate:required:XX-Large
+ajax;20061202 16:20:10;/conference/registration/index.php;validate:required:TUE
+ajax;20061202 16:20:10;/conference/registration/index.php;validate:required:WED
+ajax;20061202 16:20:10;/conference/registration/index.php;validate:required:THU
+ajax;20061202 16:20:10;/conference/registration/index.php;validate:required:FRI
+baduncan@ucsc.edu;20061202 16:20:10;/conference/registration/index.php;user modified (ldap): Bruce Duncan (baduncan@ucsc.edu) [1059]
+zathomas;20061202 16:24:35;/accounts/login.php;user logged in (ldap):24.155.111.130:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mmmay;20061202 18:37:39;/accounts/login.php;user logged in (ldap):149.166.143.128:https://sakaiproject.org/accounts/login.php?ref=/conference/volunteer.php
+samir;20061202 20:15:02;/accounts/forgot_password.php;user added (ldap): Samir Iskenderov (samir.iskenderov@trinity.edu) [327]
+131.194.30.10;20061202 20:15:02;/accounts/forgot_password.php;password reset: samir.iskenderov@trinity.edu
+samir;20061202 20:15:48;/accounts/login.php;user logged in (ldap):131.194.30.10:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;validate:email:samir.iskenderov@trinity.edu
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;validate:uniquesql:samir.iskenderov@trinity.edu
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;validate:namespaces:San Antonio
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;validate:zipcode:78212
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;validate:phone:2109997401
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061202 20:16:14;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:password:testtest
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:password:testtest
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:match:testtest
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:required:Samir
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:required:Iskenderov
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:required:samir.iskenderov@trinity.edu
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:email:samir.iskenderov@trinity.edu
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:uniquesql:samir.iskenderov@trinity.edu
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:required:System Administrator
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate::User Support
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:required:Trinity University
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate::Trinity University, ITS
+One Trinity Place
+San Antonio TX 78212
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:namespaces:San Antonio
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:namespaces:TX
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:zipcode:78212
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:namespaces:US
+ajax;20061202 20:16:32;/accounts/myaccount.php;validate:phone:2109997401
+samir;20061202 20:16:32;/accounts/myaccount.php;user modified (ldap): Samir Iskenderov (samir.iskenderov@trinity.edu) [327]

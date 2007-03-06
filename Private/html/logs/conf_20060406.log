@@ -1,0 +1,143 @@
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:Manager
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:Agro Businesspark 82
+6708 PW  Wageningen
+
+PO Box 78
+6700 AB  Wageningen
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:Wageningen
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:GLD
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:namespaces:GLD
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:NL
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:namespaces:NL
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:+31 317 472 651
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:phone:+31 317 472 651
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:phone:+31 317 472 707
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:Y
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:N
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:required:Large
+ajax;20060406 09:58:41;/conference/registration/index.php;validate:email:dga@stoas.nl
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:Implementor
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:Agro Businesspark 82
+6708 PW  Wageningen
+
+PO Box 78
+6700 AB  Wageningen
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:Wageningen
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:GL
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:namespaces:GL
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:NL
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:namespaces:NL
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:+31 317 472 651
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:phone:+31 317 472 651
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:phone:+31 317 472 707
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:Y
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:N
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:required:Large
+ajax;20060406 10:45:07;/conference/registration/index.php;validate:email:dga@stoas.nl
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:User Support
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:301 Evans Street
+Suite 401-E
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:Greenville
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:NC
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:namespaces:NC
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:zipcode:27858
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:US
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:namespaces:US
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:252-328-9073
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:phone:252-328-9073
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:phone:252-328-9417
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:Y
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:N
+ajax;20060406 10:52:56;/conference/registration/index.php;validate:required:X-Large
+ajax;20060406 15:45:07;/conference/proposals/index.php;validate:required:presentation
+ajax;20060406 15:50:49;/conference/proposals/next.php;validate:required:done
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:required:Librarian
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:required:RSC
+SML 226
+Yale University
+P.O. Box 208240
+
+
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:required:New Haven
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:required:CT
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:namespaces:CT
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:zipcode:06520-8240
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:required:US
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:required:203-432-8211
+ajax;20060406 15:50:58;/conference/proposals/contact.php;validate:phone:203-432-8211
+ajax;20060406 15:51:13;/conference/proposals/index.php;validate:required:presentation
+ajax;20060406 15:54:24;/conference/proposals/next.php;validate:required:done
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:required:Librarian
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:required:RSC
+SML 226
+Yale University
+P.O. Box 208240
+
+
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:required:New Haven
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:required:CT
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:namespaces:CT
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:zipcode:06520-8240
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:required:US
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:required:203-432-8211
+ajax;20060406 15:54:44;/conference/proposals/contact.php;validate:phone:203-432-8211
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:Faculty
+ajax;20060406 15:57:47;/conference/registration/index.php;validate::Faculty Development
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:2020 East Maple Street
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:North Canton
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:OH
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:namespaces:OH
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:zipcode:44720
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:US
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:namespaces:US
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:330-490-7233
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:phone:330-490-7233
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:phone:330-490-7272
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:Y
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:N
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:required:XX-Large
+ajax;20060406 15:57:47;/conference/registration/index.php;validate:email:kbuttermore@walsh.edu
+ajax;20060406 15:58:15;/conference/proposals/index.php;validate:required:presentation
+ajax;20060406 16:12:12;/conference/proposals/next.php;validate:required:done
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:required:Faculty
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:required:2020 East Maple Street
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:required:North Canton
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:required:OH
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:namespaces:OH
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:zipcode:44720
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:required:US
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:required:330-490-7233
+ajax;20060406 16:12:27;/conference/proposals/contact.php;validate:phone:330-490-7233
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:required:System Administrator
+ajax;20060406 16:27:25;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:required:301 Evans Street
+Self Help Building
+Suite 401-E
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:required:Greenville
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:required:NC
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:namespaces:NC
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:zipcode:27858
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:required:US
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:namespaces:US
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:required:252-328-9072
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:phone:252-328-9072
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:phone:252-328-9417
+ajax;20060406 16:27:25;/conference/registration/index.php;validate:required:Y
+ajax;20060406 16:27:26;/conference/registration/index.php;validate:required:N
+ajax;20060406 16:27:26;/conference/registration/index.php;validate:required:X-Large
+ajax;20060406 16:50:29;/conference/proposals/index.php;validate:required:presentation
+ajax;20060406 16:56:35;/conference/proposals/next.php;validate:required:done
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:required:UI Developer
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:required:535 W. Michigan St.
+IT 347F
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:required:Indianapolis
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:required:IN
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:namespaces:IN
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:zipcode:46202
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:required:US
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:namespaces:US
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:required:317 278-6047
+ajax;20060406 16:56:47;/conference/proposals/contact.php;validate:phone:317 278-6047

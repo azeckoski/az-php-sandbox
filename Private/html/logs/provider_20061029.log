@@ -1,0 +1,265 @@
+mmiles@umich.edu;20061029 12:28:55;/accounts/login.php;user logged in (ldap):71.124.74.251:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/attendees.php
+shardin;20061029 15:07:00;/accounts/login.php;user logged in (ldap):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+ajax;20061029 15:09:57;/accounts/ajax/validate.php;validate:namespaces:University of Windsor
+ajax;20061029 15:09:57;/accounts/ajax/validate.php;validate:uniqueinstp:University of Windsor
+ajax;20061029 15:09:58;/accounts/ajax/validate.php;return=ok|name|
+ajax;20061029 15:10:10;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061029 15:10:10;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:10:13;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061029 15:10:13;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 15:10:16;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061029 15:10:16;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061029 15:10:19;/accounts/admin/admin_inst.php;validate:required:University of Windsor
+ajax;20061029 15:10:19;/accounts/admin/admin_inst.php;validate:namespaces:University of Windsor
+ajax;20061029 15:10:19;/accounts/admin/admin_inst.php;validate:uniqueinstp:University of Windsor
+ajax;20061029 15:10:19;/accounts/admin/admin_inst.php;validate:required:educational
+ajax;20061029 15:10:19;/accounts/admin/admin_inst.php;validate:namespaces:Windsor
+ajax;20061029 15:10:19;/accounts/admin/admin_inst.php;validate:namespaces:ON
+ajax;20061029 15:10:19;/accounts/admin/admin_inst.php;validate:namespaces:CA
+;20061029 15:10:19;/accounts/admin/admin_inst.php;inst added (ldap): University of Windsor (educational) [119]
+ajax;20061029 15:10:36;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20061029 15:10:36;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 15:10:38;/accounts/ajax/validate.php;validate:namespaces:windsor
+ajax;20061029 15:10:38;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:10:41;/accounts/ajax/validate.php;validate:email:gailj@uwindsor.ca
+ajax;20061029 15:10:41;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20061029 15:10:41;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:10:42;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061029 15:10:42;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 15:10:44;/accounts/ajax/validate.php;validate:zipcode:48124
+ajax;20061029 15:10:44;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061029 15:10:44;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061029 15:10:44;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061029 15:10:47;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061029 15:10:47;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:10:47;/accounts/admin/admin_user.php;validate:required:gailj@uwindsor.ca
+ajax;20061029 15:10:47;/accounts/admin/admin_user.php;validate:nospaces:gailj@uwindsor.ca
+ajax;20061029 15:10:47;/accounts/admin/admin_user.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:required:g
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:required:j
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:required:gailj@uwindsor.ca
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:email:gailj@uwindsor.ca
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:required:Instructional Technologist
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate::UI/Interaction Designer
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:required:119
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate::401 Sunset
+
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:namespaces:Windsor
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:namespaces:ON
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:zipcode:48124
+ajax;20061029 15:10:48;/accounts/admin/admin_user.php;validate:namespaces:CA
+gailj@uwindsor.ca;20061029 15:10:49;/accounts/admin/admin_user.php;user added (ldap): g j (gailj@uwindsor.ca) [757]
+ajax;20061029 15:10:51;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20061029 15:10:51;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 15:10:54;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061029 15:10:54;/accounts/ajax/validate.php;validate:email:gailj@uwindsor.ca
+ajax;20061029 15:10:54;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:10:54;/accounts/ajax/validate.php;validate:uniqueuserp:gailj@uwindsor.ca
+ajax;20061029 15:10:54;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:11:10;/accounts/ajax/validate.php;validate:uniqueuserp:mpowley
+ajax;20061029 15:11:11;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 15:11:12;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061029 15:11:12;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:11:14;/accounts/ajax/validate.php;validate:email:mpowley@uwindsor.ca
+ajax;20061029 15:11:14;/accounts/ajax/validate.php;validate:uniqueuserp:mpowley@uwindsor.ca
+ajax;20061029 15:11:14;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:11:14;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061029 15:11:14;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 15:11:15;/accounts/ajax/validate.php;validate:zipcode:N9B 3P4
+ajax;20061029 15:11:15;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061029 15:11:16;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061029 15:11:16;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061029 15:11:17;/accounts/ajax/validate.php;validate:phone:519-253-3000
+ajax;20061029 15:11:17;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061029 15:11:18;/accounts/ajax/validate.php;validate:phone:519-971-3693
+ajax;20061029 15:11:18;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061029 15:11:34;/accounts/admin/admin_user.php;validate:required:mpowley
+ajax;20061029 15:11:34;/accounts/admin/admin_user.php;validate:nospaces:mpowley
+ajax;20061029 15:11:34;/accounts/admin/admin_user.php;validate:uniqueuserp:mpowley
+ajax;20061029 15:11:34;/accounts/admin/admin_user.php;validate:required:Marilyn
+ajax;20061029 15:11:34;/accounts/admin/admin_user.php;validate:required:Powley
+ajax;20061029 15:11:34;/accounts/admin/admin_user.php;validate:required:mpowley@uwindsor.ca
+ajax;20061029 15:11:34;/accounts/admin/admin_user.php;validate:email:mpowley@uwindsor.ca
+ajax;20061029 15:11:34;/accounts/admin/admin_user.php;validate:uniqueuserp:mpowley@uwindsor.ca
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate:required:University Administration
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate:required:119
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate::Centre for Flexible Learning
+401 Sunset Avenue
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate:namespaces:Windsor
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate:namespaces:ON
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate:zipcode:N9B 3P4
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate:namespaces:CA
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate:phone:519-253-3000
+ajax;20061029 15:11:35;/accounts/admin/admin_user.php;validate:phone:519-971-3693
+;20061029 15:11:35;/accounts/admin/admin_user.php;inst modified (ldap): University of Windsor (educational) [119]
+;20061029 15:11:35;/accounts/admin/admin_user.php;inst modified (ldap): University of Windsor (educational) [119]
+mpowley;20061029 15:11:36;/accounts/admin/admin_user.php;user added (ldap): Marilyn Powley (mpowley@uwindsor.ca) [625]
+ajax;20061029 15:11:38;/accounts/ajax/validate.php;validate:uniqueuserp:mpowley
+ajax;20061029 15:11:38;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 15:11:40;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061029 15:11:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:11:40;/accounts/ajax/validate.php;validate:email:mpowley@uwindsor.ca
+ajax;20061029 15:11:40;/accounts/ajax/validate.php;validate:uniqueuserp:mpowley@uwindsor.ca
+ajax;20061029 15:11:41;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:11:41;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061029 15:11:41;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 15:11:42;/accounts/ajax/validate.php;validate:zipcode:N9B 3P4
+ajax;20061029 15:11:42;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061029 15:11:43;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061029 15:11:43;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061029 15:11:44;/accounts/ajax/validate.php;validate:phone:519-253-3000
+ajax;20061029 15:11:44;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061029 15:11:58;/accounts/ajax/validate.php;validate:uniqueuserp:pbristo
+ajax;20061029 15:11:58;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 15:12:00;/accounts/ajax/validate.php;validate:namespaces:Windsro
+ajax;20061029 15:12:00;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:12:00;/accounts/ajax/validate.php;validate:email:pbristo@uwindsor.ca
+ajax;20061029 15:12:00;/accounts/ajax/validate.php;validate:uniqueuserp:pbristo@uwindsor.ca
+ajax;20061029 15:12:01;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:12:01;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061029 15:12:01;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 15:12:02;/accounts/ajax/validate.php;validate:zipcode:N9B 3P4
+ajax;20061029 15:12:02;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061029 15:12:03;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061029 15:12:03;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061029 15:12:04;/accounts/ajax/validate.php;validate:phone:519-253-3000
+ajax;20061029 15:12:04;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061029 15:12:05;/accounts/ajax/validate.php;validate:phone:519-973-7083
+ajax;20061029 15:12:05;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061029 15:12:18;/accounts/admin/admin_user.php;validate:required:pbristo
+ajax;20061029 15:12:18;/accounts/admin/admin_user.php;validate:nospaces:pbristo
+ajax;20061029 15:12:18;/accounts/admin/admin_user.php;validate:uniqueuserp:pbristo
+ajax;20061029 15:12:18;/accounts/admin/admin_user.php;validate:required:Purita
+ajax;20061029 15:12:18;/accounts/admin/admin_user.php;validate:required:Bristow
+ajax;20061029 15:12:18;/accounts/admin/admin_user.php;validate:required:pbristo@uwindsor.ca
+ajax;20061029 15:12:18;/accounts/admin/admin_user.php;validate:email:pbristo@uwindsor.ca
+ajax;20061029 15:12:18;/accounts/admin/admin_user.php;validate:uniqueuserp:pbristo@uwindsor.ca
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate:required:Manager
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate::Implementor
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate:required:119
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate::Information Technology Services
+401 Sunset Avenue
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate:namespaces:Windsro
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate:namespaces:ON
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate:zipcode:N9B 3P4
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate:namespaces:CA
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate:phone:519-253-3000
+ajax;20061029 15:12:19;/accounts/admin/admin_user.php;validate:phone:519-973-7083
+;20061029 15:12:19;/accounts/admin/admin_user.php;inst modified (ldap): University of Windsor (educational) [119]
+;20061029 15:12:19;/accounts/admin/admin_user.php;inst modified (ldap): University of Windsor (educational) [119]
+pbristo;20061029 15:12:20;/accounts/admin/admin_user.php;user added (ldap): Purita Bristow (pbristo@uwindsor.ca) [602]
+ajax;20061029 15:12:22;/accounts/ajax/validate.php;validate:uniqueuserp:pbristo
+ajax;20061029 15:12:22;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 15:12:24;/accounts/ajax/validate.php;validate:namespaces:Windsro
+ajax;20061029 15:12:24;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:12:25;/accounts/ajax/validate.php;validate:email:pbristo@uwindsor.ca
+ajax;20061029 15:12:25;/accounts/ajax/validate.php;validate:uniqueuserp:pbristo@uwindsor.ca
+ajax;20061029 15:12:25;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:12:25;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061029 15:12:25;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 15:12:41;/accounts/ajax/validate.php;validate:uniqueuserp:tcollins
+ajax;20061029 15:12:42;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 15:12:43;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061029 15:12:43;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:12:44;/accounts/ajax/validate.php;validate:email:tcollins@uwindsor.ca
+ajax;20061029 15:12:44;/accounts/ajax/validate.php;validate:uniqueuserp:tcollins@uwindsor.ca
+ajax;20061029 15:12:44;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:12:44;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061029 15:12:44;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 15:12:45;/accounts/ajax/validate.php;validate:zipcode:N9B 3P4
+ajax;20061029 15:12:45;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061029 15:12:46;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061029 15:12:46;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061029 15:12:47;/accounts/ajax/validate.php;validate:phone:519-253-3000
+ajax;20061029 15:12:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061029 15:12:47;/accounts/ajax/validate.php;validate:phone:519-971-3693
+ajax;20061029 15:12:47;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061029 15:13:12;/accounts/admin/admin_user.php;validate:required:tcollins
+ajax;20061029 15:13:12;/accounts/admin/admin_user.php;validate:nospaces:tcollins
+ajax;20061029 15:13:12;/accounts/admin/admin_user.php;validate:uniqueuserp:tcollins
+ajax;20061029 15:13:12;/accounts/admin/admin_user.php;validate:required:Teresa
+ajax;20061029 15:13:12;/accounts/admin/admin_user.php;validate:required:Collins
+ajax;20061029 15:13:12;/accounts/admin/admin_user.php;validate:required:tcollins@uwindsor.ca
+ajax;20061029 15:13:12;/accounts/admin/admin_user.php;validate:email:tcollins@uwindsor.ca
+ajax;20061029 15:13:12;/accounts/admin/admin_user.php;validate:uniqueuserp:tcollins@uwindsor.ca
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate:required:Implementor
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate::Implementor
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate:required:119
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate::University of Windsor
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate:namespaces:Windsor
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate:namespaces:ON
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate:zipcode:N9B 3P4
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate:namespaces:CA
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate:phone:519-253-3000
+ajax;20061029 15:13:13;/accounts/admin/admin_user.php;validate:phone:519-971-3693
+;20061029 15:13:13;/accounts/admin/admin_user.php;inst modified (ldap): University of Windsor (educational) [119]
+;20061029 15:13:13;/accounts/admin/admin_user.php;inst modified (ldap): University of Windsor (educational) [119]
+tcollins;20061029 15:13:14;/accounts/admin/admin_user.php;user added (ldap): Teresa Collins (tcollins@uwindsor.ca) [629]
+ajax;20061029 15:13:16;/accounts/ajax/validate.php;validate:uniqueuserp:tcollins
+ajax;20061029 15:13:16;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 15:13:18;/accounts/ajax/validate.php;validate:namespaces:Windsor
+ajax;20061029 15:13:18;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 15:13:19;/accounts/ajax/validate.php;validate:email:tcollins@uwindsor.ca
+ajax;20061029 15:13:19;/accounts/ajax/validate.php;validate:uniqueuserp:tcollins@uwindsor.ca
+ajax;20061029 15:13:19;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:13:19;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061029 15:13:19;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 15:13:21;/accounts/ajax/validate.php;validate:zipcode:N9B 3P4
+ajax;20061029 15:13:21;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061029 15:13:21;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061029 15:13:21;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061029 15:13:23;/accounts/ajax/validate.php;validate:phone:519-253-3000
+ajax;20061029 15:13:23;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061029 15:13:23;/accounts/ajax/validate.php;validate:phone:519-971-3693
+ajax;20061029 15:13:23;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061029 15:19:54;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061029 15:19:54;/accounts/ajax/validate.php;validate:uniquesql:shardin@umich.edu
+ajax;20061029 15:19:54;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 15:19:56;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061029 15:19:56;/accounts/ajax/validate.php;return=ok|state|
+shardin;20061029 18:16:06;/accounts/login.php;user logged in (ldap):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061029 23:56:28;/accounts/ajax/validate.php;validate:email:jeisner@academicmanagement.com
+ajax;20061029 23:56:28;/accounts/ajax/validate.php;validate:uniqueuserp:jeisner@academicmanagement.com
+ajax;20061029 23:56:28;/accounts/ajax/validate.php;validate:uniqueuserp:jeisner@academicmanagement.com
+ajax;20061029 23:56:29;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061029 23:56:57;/accounts/ajax/validate.php;validate:email:jeisner@academicmanagement.com
+ajax;20061029 23:56:57;/accounts/ajax/validate.php;validate:uniqueuserp:jeisner@academicmanagement.com
+ajax;20061029 23:56:57;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061029 23:57:44;/accounts/ajax/validate.php;validate:namespaces:Amherst
+ajax;20061029 23:57:44;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061029 23:57:48;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061029 23:57:48;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061029 23:58:02;/accounts/ajax/validate.php;validate:zipcode:14228
+ajax;20061029 23:58:02;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061029 23:58:12;/accounts/ajax/validate.php;validate:zipcode:14228-2710
+ajax;20061029 23:58:12;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061029 23:58:13;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061029 23:58:13;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061029 23:58:21;/accounts/ajax/validate.php;validate:phone:716-204-0464
+ajax;20061029 23:58:21;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061029 23:58:59;/accounts/createaccount.php;validate:required:jeisner@academicmanagement.com
+ajax;20061029 23:58:59;/accounts/createaccount.php;validate:email:jeisner@academicmanagement.com
+ajax;20061029 23:58:59;/accounts/createaccount.php;validate:uniqueuserp:jeisner@academicmanagement.com
+ajax;20061029 23:58:59;/accounts/createaccount.php;validate:uniqueuserp:jeisner@academicmanagement.com
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:required:696969
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:password:696969
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:required:696969
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:password:696969
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:match:696969
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:required:John
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:required:Eisner
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:required:jeisner@academicmanagement.com
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:email:jeisner@academicmanagement.com
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:uniqueuserp:jeisner@academicmanagement.com
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:required:User Support
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:required:Academic Management Systems
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate::1576 Sweet Home Road
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:namespaces:Amherst
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:namespaces:NY
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:zipcode:14228-2710
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:phone:716-204-0464
+ajax;20061029 23:59:00;/accounts/createaccount.php;validate:phone:716-204-0466
+jeisner@academicmanagement.com;20061029 23:59:00;/accounts/createaccount.php;user added (ldap): John Eisner (jeisner@academicmanagement.com) [901]
+66.114.228.226;20061029 23:59:00;/accounts/createaccount.php;created account: jeisner@academicmanagement.com (jeisner@academicmanagement.com) Eisner,John: inst=1

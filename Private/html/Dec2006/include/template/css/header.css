@@ -1,0 +1,35 @@
+/* dark header */
+#header {
+	position: relative;
+	height: 112px;
+	overflow: hidden;
+	background: #232833 url(../images/header-bg.png) repeat-x;
+}
+
+
+
+#logo {
+	position: absolute;
+	top: 35px;
+	left: 25px;
+	display: block;
+	width:350px;
+	height: 66px;
+	background: url(../images/sakai_conf_tools_logo.jpg) no-repeat;
+}
+
+
+#confLogo {
+	height:160px;
+	background: url(../images/officialAtlantaSakaiLogo_sm.png) no-repeat;
+}
+#top {
+	height: 80px;
+	padding-top: 30px;
+	overflow: hidden;
+	margin-left: 395px;
+	margin-bottom: 10px;
+	margin-right: 25px;
+	color: #999;
+}
+

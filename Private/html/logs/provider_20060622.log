@@ -1,0 +1,53 @@
+raijmann;20060622 04:50:40;/accounts/activate.php;user modified (ldap): Leon Raijmann (l.e.l.raijmann@uva.nl) [289]
+raijmann;20060622 04:51:20;/accounts/forgot_password.php;user modified (ldap): Leon Raijmann (l.e.l.raijmann@uva.nl) [289]
+145.18.144.38;20060622 04:51:20;/accounts/forgot_password.php;password reset: l.e.l.raijmann@uva.nl
+raijmann;20060622 04:52:19;/accounts/forgot_password.php;user modified (ldap): Leon Raijmann (l.e.l.raijmann@uva.nl) [289]
+145.18.144.38;20060622 04:52:19;/accounts/forgot_password.php;password reset: l.e.l.raijmann@uva.nl
+raijmann;20060622 04:53:34;/accounts/forgot_password.php;user modified (ldap): Leon Raijmann (l.e.l.raijmann@uva.nl) [289]
+145.18.144.38;20060622 04:53:34;/accounts/forgot_password.php;password reset: l.e.l.raijmann@uva.nl
+raijmann;20060622 05:00:17;/accounts/login.php;user logged in (ldap):145.18.144.38:https://sakaiproject.org/accounts/login.php
+ajax;20060622 05:00:23;/accounts/ajax/validate.php;validate:email:l.e.l.raijmann@uva.nl
+ajax;20060622 05:00:23;/accounts/ajax/validate.php;validate:uniquesql:l.e.l.raijmann@uva.nl
+ajax;20060622 05:00:23;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060622 05:00:23;/accounts/ajax/validate.php;validate:namespaces:Amsterdam
+ajax;20060622 05:00:23;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060622 05:00:24;/accounts/ajax/validate.php;validate:namespaces:1016 BR
+ajax;20060622 05:00:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060622 05:00:24;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20060622 05:00:24;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060622 05:00:24;/accounts/ajax/validate.php;validate:phone: 31205252428
+ajax;20060622 05:00:24;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060622 05:00:24;/accounts/ajax/validate.php;validate:phone: 31205252084
+ajax;20060622 05:00:24;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:password:EntreeSakai
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:required:Leon
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:required:Raijmann
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:required:l.e.l.raijmann@uva.nl
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:email:l.e.l.raijmann@uva.nl
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:uniquesql:l.e.l.raijmann@uva.nl
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:required:Manager
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:required:49
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate::Universiteit van Amsterdam
+Central Computer Services
+Group Education and Research Services
+Herengracht 182
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:namespaces:Amsterdam
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:namespaces:1016 BR
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:namespaces:NL
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:phone:+31205252428
+ajax;20060622 05:00:52;/accounts/myaccount.php;validate:phone:+31205252084
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;validate:email:l.e.l.raijmann@uva.nl
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;validate:uniquesql:l.e.l.raijmann@uva.nl
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;return=ok|email|
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;validate:namespaces:1016 BR
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;return=ok|state|
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;validate:namespaces:Amsterdam
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;return=ok|city|
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;return=ok|country|
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;validate:phone: 31205252428
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;validate:phone: 31205252084
+ajax;20060622 05:00:53;/accounts/ajax/validate.php;return=ok|fax|
+raijmann;20060622 05:01:10;/accounts/login.php;user logged in (ldap):145.18.144.38:https://sakaiproject.org/accounts/login.php
+raijmann;20060622 05:04:07;/accounts/login.php;user logged in (ldap):145.18.144.38:https://sakaiproject.org/accounts/login.php

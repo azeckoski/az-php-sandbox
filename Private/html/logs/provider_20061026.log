@@ -1,0 +1,614 @@
+jfern;20061026 08:00:11;/accounts/login.php;user logged in (internal):149.166.142.201:https://sakaiproject.org/accounts/login.php
+jfern;20061026 08:00:12;/accounts/login.php;user added (ldap): Jay Fern (jfern@iupui.edu) [64]
+ajax;20061026 08:11:37;/accounts/ajax/validate.php;validate:email:bparaska
+ajax;20061026 08:11:37;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061026 08:11:50;/accounts/ajax/validate.php;validate:email:bparaska@gsu.edu
+ajax;20061026 08:11:50;/accounts/ajax/validate.php;validate:uniqueuserp:bparaska@gsu.edu
+ajax;20061026 08:11:50;/accounts/ajax/validate.php;validate:uniqueuserp:bparaska@gsu.edu
+ajax;20061026 08:11:50;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061026 08:12:10;/accounts/ajax/validate.php;validate:email:bparaska@gsu.edu
+ajax;20061026 08:12:10;/accounts/ajax/validate.php;validate:uniqueuserp:bparaska@gsu.edu
+ajax;20061026 08:12:11;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061026 08:13:05;/accounts/ajax/validate.php;validate:namespaces:Atlanta
+ajax;20061026 08:13:05;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061026 08:13:06;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20061026 08:13:06;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 08:13:10;/accounts/ajax/validate.php;validate:zipcode:30303
+ajax;20061026 08:13:10;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 08:13:11;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 08:13:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 08:13:16;/accounts/ajax/validate.php;validate:phone:4046510881
+ajax;20061026 08:13:16;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 08:13:23;/accounts/ajax/validate.php;validate:phone:4046514408
+ajax;20061026 08:13:23;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:required:bparaska@gsu.edu
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:email:bparaska@gsu.edu
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:uniqueuserp:bparaska@gsu.edu
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:uniqueuserp:bparaska@gsu.edu
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:required:204999
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:password:204999
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:required:204999
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:password:204999
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:match:204999
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:required:Bill
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:required:Paraska
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:required:bparaska@gsu.edu
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:email:bparaska@gsu.edu
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:uniqueuserp:bparaska@gsu.edu
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:required:Manager
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate::University Administration
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:required:Georgia State University
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate::95 Decatur Street
+Suite CS500
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:namespaces:Atlanta
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:namespaces:GA
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:zipcode:30303
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:phone:4046510881
+ajax;20061026 08:13:25;/accounts/createaccount.php;validate:phone:4046514408
+bparaska@gsu.edu;20061026 08:13:26;/accounts/createaccount.php;user added (ldap): Bill Paraska (bparaska@gsu.edu) [894]
+131.96.233.140;20061026 08:13:26;/accounts/createaccount.php;created account: bparaska@gsu.edu (bparaska@gsu.edu) Paraska,Bill: inst=1
+bparaska@gsu.edu;20061026 08:15:58;/accounts/activate.php;user modified (ldap): Bill Paraska (bparaska@gsu.edu) [894]
+bparaska@gsu.edu;20061026 08:16:11;/accounts/login.php;user logged in (ldap):131.96.233.140:https://sakaiproject.org/accounts/login.php
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;validate:zipcode:30303
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;validate:phone:4046510881
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;validate:phone:4046514408
+ajax;20061026 08:16:16;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:required:Manager
+ajax;20061026 08:17:52;/conference/registration/index.php;validate::University Administration
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:required:Georgia State University
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:required:Atlanta
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:required:GA
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:namespaces:GA
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:zipcode:30303
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:required:US
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:namespaces:US
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:required:4046510881
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:phone:4046510881
+ajax;20061026 08:17:52;/conference/registration/index.php;validate:phone:4046514408
+ajax;20061026 08:17:53;/conference/registration/index.php;validate:required:N
+ajax;20061026 08:17:53;/conference/registration/index.php;validate:required:N
+ajax;20061026 08:17:53;/conference/registration/index.php;validate:required:Large
+ajax;20061026 08:17:53;/conference/registration/index.php;validate:required:TUE
+ajax;20061026 08:17:53;/conference/registration/index.php;validate:required:WED
+ajax;20061026 08:17:53;/conference/registration/index.php;validate:required:THU
+ajax;20061026 08:17:53;/conference/registration/index.php;validate:required:FRI
+bparaska@gsu.edu;20061026 08:17:53;/conference/registration/index.php;user modified (ldap): Bill Paraska (bparaska@gsu.edu) [894]
+slonn;20061026 08:17:58;/accounts/login.php;user logged in (internal):141.212.68.98:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+slonn;20061026 08:17:58;/accounts/login.php;user added (ldap): Steve Lonn (slonn@umich.edu) [449]
+mmiles@umich.edu;20061026 08:56:42;/accounts/login.php;user logged in (ldap):71.244.224.62:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+clayf;20061026 09:45:10;/accounts/login.php;user logged in (ldap):168.122.34.200:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 09:45:11;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20061026 09:45:11;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 09:45:11;/accounts/ajax/validate.php;validate:zipcode:02215
+ajax;20061026 09:45:11;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 09:45:11;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 09:45:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 09:45:11;/accounts/ajax/validate.php;validate:phone:617-358-2782
+ajax;20061026 09:45:11;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:Manager
+ajax;20061026 09:46:10;/conference/registration/index.php;validate::Implementor
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:Boston
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:MA
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:namespaces:MA
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:zipcode:02215
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:US
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:namespaces:US
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:617-358-2782
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:phone:617-358-2782
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:Y
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:Y
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:Large
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:TUE
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:WED
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:THU
+ajax;20061026 09:46:10;/conference/registration/index.php;validate:required:FRI
+clayf;20061026 09:46:10;/conference/registration/index.php;user modified (ldap): Clay Fenlason (clayf@bu.edu) [31]
+ajax;20061026 09:47:31;/conference/proposals/edit_proposal.php;validate:required:Skiing outside the Wake: a community source case study
+ajax;20061026 09:47:31;/conference/proposals/edit_proposal.php;validate:required:A case study of a small, focused collaboration between 3 schools - UNISA, Whitman College, and Boston University - to meet a set of shared requirements for the Resources tool. The experience is traced from requirements voting through implementation and inclusion in the Sakai release.  
+ajax;20061026 09:47:31;/conference/proposals/edit_proposal.php;validate:required:Following the requirements voting results in April, representatives from a few schools came together to try to satisfy Resources requirements that were critical for their respective deployments.  Jim Eng, the project lead, was approached, and over the course of the next few months these requirements were honed, a design was achieved, the development work was completed, and then it was QA'ed and deployed outside the Sakai release cycle.  These features are now a part of the 2.3 release.
+
+This session offers primarily a recounting of this experience: its process, successes and failures.  There are also broader lessons to be drawn for how more focused collaborations can operate within the Sakai community, for risk management, and a judicious allocation of limited local resources to meet local needs, while yet benefitting the wider project.
+ajax;20061026 09:47:31;/conference/proposals/edit_proposal.php;validate:required:Clay Fenlason
+ajax;20061026 09:47:32;/conference/proposals/edit_proposal.php;validate:required:Clay Fenlason has been convinced that community is a natural complement to educational development ever since he began working in the field in rural Africa.  He is now the Associate Director of Academic Computing at Boston University's School of Management, and a Sakai Fellow.
+ajax;20061026 09:47:32;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061026 09:47:32;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061026 09:47:32;/conference/proposals/edit_proposal.php;validate:required:40
+mglackin@mtholyoke.edu;20061026 10:15:00;/accounts/login.php;user logged in (ldap):138.110.16.124:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 10:15:01;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20061026 10:15:01;/accounts/ajax/validate.php;validate:zipcode:01075-6416
+ajax;20061026 10:15:01;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 10:15:01;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 10:15:01;/accounts/ajax/validate.php;validate:phone:413.538.2537
+ajax;20061026 10:15:01;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 10:15:01;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 10:15:01;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 10:15:02;/accounts/ajax/validate.php;validate:phone:413.538.3051
+ajax;20061026 10:15:02;/accounts/ajax/validate.php;return=ok|fax|
+gbhatnag;20061026 10:20:52;/accounts/login.php;user logged in (ldap):141.211.43.176:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+damckee;20061026 10:36:32;/accounts/login.php;user logged in (ldap):156.56.16.147:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 10:36:35;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20061026 10:36:35;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 10:36:35;/accounts/ajax/validate.php;validate:zipcode:47408
+ajax;20061026 10:36:35;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 10:36:35;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 10:36:35;/accounts/ajax/validate.php;validate:phone:812-855-7197
+ajax;20061026 10:36:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 10:36:35;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:System Administrator
+ajax;20061026 10:37:51;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:Bloomington
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:IN
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:namespaces:IN
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:zipcode:47408
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:US
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:namespaces:US
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:812-855-7197
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:phone:812-855-7197
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:Y
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:N
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:X-Large
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:TUE
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:WED
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:THU
+ajax;20061026 10:37:51;/conference/registration/index.php;validate:required:FRI
+damckee;20061026 10:37:51;/conference/registration/index.php;user modified (ldap): Dan McKee (damckee@indiana.edu) [700]
+jdb53;20061026 10:39:06;/accounts/login.php;user logged in (internal):130.132.168.163:https://sakaiproject.org/accounts/login.php
+jdb53;20061026 10:39:06;/accounts/login.php;user added (ldap): Jennifer Bourey (jennifer.bourey@yale.edu) [515]
+ajax;20061026 10:41:16;/accounts/ajax/validate.php;validate:email:alanh@unc.edu
+ajax;20061026 10:41:16;/accounts/ajax/validate.php;validate:uniqueuserp:alanh@unc.edu
+ajax;20061026 10:41:17;/accounts/ajax/validate.php;validate:uniqueuserp:alanh@unc.edu
+ajax;20061026 10:41:17;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061026 10:41:35;/accounts/ajax/validate.php;validate:email:alanh@unc.edu
+ajax;20061026 10:41:35;/accounts/ajax/validate.php;validate:uniqueuserp:alanh@unc.edu
+ajax;20061026 10:41:35;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061026 10:42:34;/accounts/createaccount.php;validate:required:alanh@unc.edu
+ajax;20061026 10:42:34;/accounts/createaccount.php;validate:email:alanh@unc.edu
+ajax;20061026 10:42:34;/accounts/createaccount.php;validate:uniqueuserp:alanh@unc.edu
+ajax;20061026 10:42:34;/accounts/createaccount.php;validate:uniqueuserp:alanh@unc.edu
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:required:Hjdmib
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:password:Hjdmib
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:required:Hjdmib
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:password:Hjdmib
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:match:Hjdmib
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:required:Alan
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:required:Hoyle
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:required:alanh@unc.edu
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:email:alanh@unc.edu
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:uniqueuserp:alanh@unc.edu
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate::Implementor
+ajax;20061026 10:42:35;/accounts/createaccount.php;validate:required:University of North Carolina at Chapel Hill
+alanh@unc.edu;20061026 10:42:35;/accounts/createaccount.php;user added (ldap): Alan Hoyle (alanh@unc.edu) [895]
+152.2.202.114;20061026 10:42:35;/accounts/createaccount.php;created account: alanh@unc.edu (alanh@unc.edu) Hoyle,Alan: inst=1
+shardin;20061026 10:50:48;/accounts/login.php;user logged in (ldap):141.213.120.147:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20061026 10:51:32;/conference/proposals/index.php;validate:required:presentation
+ajax;20061026 10:53:05;/conference/proposals/edit_proposal.php;validate:required:Sakai Licensing Discussion
+ajax;20061026 10:53:05;/conference/proposals/edit_proposal.php;validate:required:tba
+ajax;20061026 10:53:05;/conference/proposals/edit_proposal.php;validate:required:  
+ajax;20061026 10:53:05;/conference/proposals/edit_proposal.php;validate:required:Joseph Hardin and Chris Coppola
+ajax;20061026 10:53:05;/conference/proposals/edit_proposal.php;validate:required: 
+ajax;20061026 10:53:05;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20061026 10:53:05;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061026 10:53:05;/conference/proposals/edit_proposal.php;validate:required:90
+alanh@unc.edu;20061026 10:54:42;/accounts/activate.php;user modified (ldap): Alan Hoyle (alanh@unc.edu) [895]
+alanh@unc.edu;20061026 10:54:58;/accounts/login.php;user logged in (ldap):152.2.202.114:https://sakaiproject.org/accounts/login.php
+ajax;20061026 11:00:32;/accounts/ajax/validate.php;validate:namespaces:NE
+ajax;20061026 11:00:33;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 11:00:34;/accounts/ajax/validate.php;validate:namespaces:NV
+ajax;20061026 11:00:34;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 11:00:35;/accounts/ajax/validate.php;validate:namespaces:NH
+ajax;20061026 11:00:35;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 11:00:35;/accounts/ajax/validate.php;validate:namespaces:NJ
+ajax;20061026 11:00:35;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 11:00:35;/accounts/ajax/validate.php;validate:namespaces:NM
+ajax;20061026 11:00:35;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 11:00:36;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061026 11:00:36;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 11:00:36;/accounts/ajax/validate.php;validate:namespaces:NC
+ajax;20061026 11:00:36;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 11:00:40;/accounts/ajax/validate.php;validate:zipcode:27599-1150
+ajax;20061026 11:00:40;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 11:00:41;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 11:00:41;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 11:00:45;/accounts/ajax/validate.php;validate:phone:(919) 445-9471
+ajax;20061026 11:00:45;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061026 11:01:21;/conference/registration/index.php;validate::Implementor
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:University of North Carolina at Chapel Hill
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:Chapel Hill
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:NC
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:namespaces:NC
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:zipcode:27599-1150
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:US
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:namespaces:US
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:(919) 445-9471
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:phone:(919) 445-9471
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:Y
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:N
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:Large
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:TUE
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:WED
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:THU
+ajax;20061026 11:01:21;/conference/registration/index.php;validate:required:FRI
+alanh@unc.edu;20061026 11:01:21;/conference/registration/index.php;user modified (ldap): Alan Hoyle (alanh@unc.edu) [895]
+ajax;20061026 11:13:54;/conference/proposals/index.php;validate:required:poster
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;validate:namespaces:CT
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;validate:zipcode:06520-8276
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;validate:phone:(203) 432-5718
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;validate:phone:(203) 436-4067
+ajax;20061026 11:14:42;/accounts/ajax/validate.php;return=ok|fax|
+mmiles@umich.edu;20061026 11:17:39;/accounts/login.php;user logged in (ldap):71.244.224.62:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 11:17:48;/conference/proposals/index.php;validate:required:presentation
+ajax;20061026 11:20:10;/conference/proposals/edit_proposal.php;validate:required:Licenses,CLAs, and Why They Matter - Which Way Sakai?
+ajax;20061026 11:20:10;/conference/proposals/edit_proposal.php;validate:required:To follow
+ajax;20061026 11:20:10;/conference/proposals/edit_proposal.php;validate:required:To follow
+ajax;20061026 11:20:10;/conference/proposals/edit_proposal.php;validate:required:Chris Coppola, Joseph Hardin, Barnaby Gibson
+ajax;20061026 11:20:10;/conference/proposals/edit_proposal.php;validate:required:To follow
+ajax;20061026 11:20:10;/conference/proposals/edit_proposal.php;validate:required:discussion
+ajax;20061026 11:20:10;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061026 11:20:10;/conference/proposals/edit_proposal.php;validate:required:90
+mmiles@umich.edu;20061026 11:28:52;/accounts/login.php;user logged in (ldap):71.244.224.62:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+rneuharth@unicon.net;20061026 12:00:10;/accounts/login.php;user logged in (ldap):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 12:04:18;/conference/proposals/edit_proposal.php;validate:required:Podcasting With Sakai
+ajax;20061026 12:04:18;/conference/proposals/edit_proposal.php;validate:required:This session will introduce participants to podcasting, how they are created and how they can be delivered and accessed through Sakai. Participants will demonstrate the Sakai podcasting tool, the RSS Resources plugin, and the iTunes U portal tool. Panelists will also present user data from their Fall 2006 experiences at their institutions.
+ajax;20061026 12:04:18;/conference/proposals/edit_proposal.php;validate:required:Podcasting is a method for distributing multimedia files, such as audio or video programs, over the Internet using syndication feeds, for playback on mobile devices and personal computers. 
+
+Within Sakai, there are a variety of different tools that institutions are using for podcasting. At Michigan, a portal was created for Sakai users to be automatically directed into their iTunes U page for their course or project site. At Indiana, a new podcasting tool for Sakai was created. At Whitman, a plugin was created allowing users to turn any Resources folder into a RSS feed. Other campuses have developed their own deployment options, as well.
+
+During this session, the presenters will build upon the podcasting session at the Vancouver conference. Creation methods for podcasts will be discussed briefly. The majority of the session will include live demonstrations of the Podcasting, RSS Resources, and iTunes U portal tools. The presenters will also share user data and statistics from their Fall 2006 experiences at their institutions. 
+ajax;20061026 12:04:18;/conference/proposals/edit_proposal.php;validate:required:Steve Lonn
+ajax;20061026 12:04:18;/conference/proposals/edit_proposal.php;validate:required:Steve Lonn is a member of the CTools Support team at the University of Michigan. His role includes faculty, student, and staff support as well as chief responsibility for survey evaluation and related research activities. Steve is also a Doctoral candidate in the Learning Technologies program in the School of Education.
+ajax;20061026 12:04:18;/conference/proposals/edit_proposal.php;validate:required:panel
+ajax;20061026 12:04:18;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061026 12:04:18;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061026 12:05:31;/conference/proposals/index.php;validate:required:poster
+ajax;20061026 12:24:24;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061026 12:24:24;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061026 12:24:24;/accounts/ajax/validate.php;validate:uniquesql:shardin@umich.edu
+ajax;20061026 12:24:24;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061026 12:24:24;/accounts/ajax/validate.php;return=ok|email|
+aachenjones;20061026 12:28:41;/accounts/login.php;user logged in (internal):71.213.82.143:https://sakaiproject.org/accounts/login.php
+aachenjones;20061026 12:28:42;/accounts/login.php;user modified (ldap): Mike Zackrison (mzackrison@unicon.net) [510]
+ajax;20061026 12:28:50;/accounts/ajax/validate.php;validate:email:mzackrison@unicon.net
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;validate:uniquesql:mzackrison@unicon.net
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;validate:namespaces:Chandler
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;validate:namespaces:AZ
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;validate:zipcode:85225
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;validate:phone:480-626-7527
+ajax;20061026 12:28:51;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:required:Mike
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:required:Zackrison
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:required:mzackrison@unicon.net
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:email:mzackrison@unicon.net
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:uniquesql:mzackrison@unicon.net
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:required:Manager
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:required:95
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate::3140 N. Arizona Ave. STE 113
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:namespaces:Chandler
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:namespaces:AZ
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:zipcode:85225
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:namespaces:US
+ajax;20061026 12:29:16;/accounts/myaccount.php;validate:phone:480-626-7527
+aachenjones;20061026 12:29:16;/accounts/myaccount.php;user modified (ldap): Mike Zackrison (mzackrison@unicon.net) [510]
+ajax;20061026 12:30:07;/conference/proposals/index.php;validate:required:presentation
+khancock;20061026 12:41:45;/accounts/login.php;user logged in (ldap):149.166.143.234:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+ajax;20061026 12:48:11;/accounts/ajax/validate.php;validate:email:lmestre
+ajax;20061026 12:48:11;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061026 12:48:20;/accounts/ajax/validate.php;validate:email:lmestre@uiuc.edu
+ajax;20061026 12:48:20;/accounts/ajax/validate.php;validate:uniqueuserp:lmestre@uiuc.edu
+ajax;20061026 12:48:20;/accounts/ajax/validate.php;validate:uniqueuserp:lmestre@uiuc.edu
+ajax;20061026 12:48:20;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061026 12:48:34;/accounts/ajax/validate.php;validate:email:lmestre@uiuc.edu
+ajax;20061026 12:48:34;/accounts/ajax/validate.php;validate:uniqueuserp:lmestre@uiuc.edu
+ajax;20061026 12:48:34;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061026 12:49:43;/accounts/ajax/validate.php;validate:namespaces:Urbana
+ajax;20061026 12:49:43;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061026 12:49:49;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061026 12:49:49;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 12:49:55;/accounts/ajax/validate.php;validate:zipcode:61801
+ajax;20061026 12:49:55;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 12:49:56;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 12:49:56;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 12:50:04;/accounts/ajax/validate.php;validate:phone:217-365-9994
+ajax;20061026 12:50:04;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 12:50:04;/accounts/createaccount.php;validate:required:lmestre@uiuc.edu
+ajax;20061026 12:50:04;/accounts/createaccount.php;validate:email:lmestre@uiuc.edu
+ajax;20061026 12:50:04;/accounts/createaccount.php;validate:uniqueuserp:lmestre@uiuc.edu
+ajax;20061026 12:50:04;/accounts/createaccount.php;validate:uniqueuserp:lmestre@uiuc.edu
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:required:22alex
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:password:22alex
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:required:22alex
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:password:22alex
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:match:22alex
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:required:Lori
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:required:Mestre
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:required:lmestre@uiuc.edu
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:email:lmestre@uiuc.edu
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:uniqueuserp:lmestre@uiuc.edu
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:required:Librarian
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate::Faculty
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:required:73
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate::436 Main Library
+1408 W. Gregory Drive
+
+
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:namespaces:Urbana
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:namespaces:IL
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:zipcode:61801
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061026 12:50:05;/accounts/createaccount.php;validate:phone:217-365-9994
+lmestre@uiuc.edu;20061026 12:50:05;/accounts/createaccount.php;user added (ldap): Lori Mestre (lmestre@uiuc.edu) [896]
+130.126.35.133;20061026 12:50:05;/accounts/createaccount.php;created account: lmestre@uiuc.edu (lmestre@uiuc.edu) Mestre,Lori: inst=73
+lmestre@uiuc.edu;20061026 12:51:47;/accounts/activate.php;user modified (ldap): Lori Mestre (lmestre@uiuc.edu) [896]
+lmestre@uiuc.edu;20061026 12:51:59;/accounts/login.php;user logged in (ldap):130.126.35.133:https://sakaiproject.org/accounts/login.php
+ajax;20061026 12:52:10;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061026 12:52:10;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 12:52:10;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 12:52:10;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 12:52:10;/accounts/ajax/validate.php;validate:zipcode:61801
+ajax;20061026 12:52:10;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 12:52:10;/accounts/ajax/validate.php;validate:phone:217-365-9994
+ajax;20061026 12:52:10;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 12:52:44;/conference/proposals/edit_proposal.php;validate:required:Open Source Support and Sustainability - Is there a model that makes sense?
+ajax;20061026 12:52:44;/conference/proposals/edit_proposal.php;validate:required:Open-source software is a hot topic within higher education today. 
+Many institutions are considering open source for their online campus. 
+Solutions like Sakai and uPortal provide open source applications for 
+online campus initiatives. The biggest concerns with open source is the 
+long-term sustainability and product support. Unicon helps 
+institutions pursue a supported open-source IT strategy with lower risk and predictable costs. This session explores the open-source 
+sustainability and support issue and one company's solution for higher education.
+
+ajax;20061026 12:52:44;/conference/proposals/edit_proposal.php;validate:required:Open Source software solutions are a hot topic within higher education
+today. Many institutions are exploring and in many cases using open source
+solutions to provide important online campus capabilities. Solutions like
+Sakai, uPortal, CAS, Moodle and others have demonstrated that education
+communities can come together and develop important open source applications required to support many online campus initiatives. However, ask the leaders of these communities what their primary concerns for their projects are and chief among them are the sustainability of their project over the long term and the development of a viable software support model. Some estimate that 20% of any open source project's effort is spent developing the first major release of the software. The other 80% of the effort is required to sustain and maintain the software throughout a useful lifespan. After all, many of these systems will be in use for years to come. So what is the right sustainability model for open source software in higher education? How can users of these systems get reliable product support? How can we ensure that the systems we adopt today-the current hot projects-will be viable and supported in the future? 
+
+Unicon presents the Sakai Cooperative Support Program designed to give
+institutions interested in running Sakai an accountable support option. The program also ensures the long term sustainability of Sakai by bringing
+additional fully-funded development resources to the community. 
+
+This session explores the open source sustainability and support challenge
+and one firm's solution for higher education. 
+
+ajax;20061026 12:52:44;/conference/proposals/edit_proposal.php;validate:required:Mike Zackrison
+ajax;20061026 12:52:44;/conference/proposals/edit_proposal.php;validate:required:Mike Zackrison is the Vice President of Product Management for Unicon. He drives the company's product strategy and is responsible for identifying and developing new solution offerings for the company. Mr. Zackrison joined Unicon in January 2006 with many years of experience developing and marketing enterprise software for the higher education market. Mike was formerly with SunGard Higher Education (aka Sungard SCT) where he was a member of the original Campus Pipeline business team that conceptualized and launched the SCT Luminis product line. Since 2001, Mike led SunGard SCT's open source initiatives and outreach strategy. Through his efforts with JA-SIG, the uPortal project, and Sakai, Mike helped SunGard SCT become an important partner to higher education-focused open source initiatives. In addition to SunGard SCT and Campus Pipeline, Mike has extensive experience in product management, strategic planning, sales and marketing at technology companies such as Ingenix (a division of United HealthGroup), TenFold, and U.S. Robotics Corp. (acquired by 3Com). He received his MBA from the Kellogg School of Management at Northwestern University and bachelor degrees in finance and German from the University of Utah. 
+ajax;20061026 12:52:44;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061026 12:52:44;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061026 12:52:44;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061026 12:55:04;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061026 12:55:04;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 12:55:04;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 12:55:04;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 12:55:04;/accounts/ajax/validate.php;validate:zipcode:61801
+ajax;20061026 12:55:04;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 12:55:04;/accounts/ajax/validate.php;validate:phone:217-365-9994
+ajax;20061026 12:55:04;/accounts/ajax/validate.php;return=ok|phone|
+rneuharth@unicon.net;20061026 12:59:20;/accounts/login.php;user logged in (ldap):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:Librarian
+ajax;20061026 13:00:15;/conference/registration/index.php;validate::Faculty
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:Urbana
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:IL
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:namespaces:IL
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:zipcode:61801
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:US
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:namespaces:US
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:217-365-9994
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:phone:217-365-9994
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:Y
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:N
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:Medium
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:TUE
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:WED
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:THU
+ajax;20061026 13:00:15;/conference/registration/index.php;validate:required:FRI
+lmestre@uiuc.edu;20061026 13:00:15;/conference/registration/index.php;user modified (ldap): Lori Mestre (lmestre@uiuc.edu) [896]
+dalev;20061026 13:08:12;/accounts/forgot_password.php;user modified (ldap): Dale Voorhees (dvoorhee@mail.ucf.edu) [576]
+65.33.234.249;20061026 13:08:12;/accounts/forgot_password.php;password reset: dvoorhee@mail.ucf.edu
+dalev;20061026 13:11:21;/accounts/login.php;user logged in (ldap):65.33.234.249:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+mmiles@umich.edu;20061026 13:14:50;/accounts/login.php;user logged in (ldap):71.244.224.62:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+mmiles@umich.edu;20061026 13:27:36;/accounts/login.php;user logged in (ldap):71.244.224.62:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+lindafeng;20061026 14:05:18;/accounts/login.php;user logged in (internal):148.87.1.171:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+lindafeng;20061026 14:05:18;/accounts/login.php;user added (ldap): Linda Feng (linda.feng@oracle.com) [113]
+ajax;20061026 14:05:24;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061026 14:05:24;/accounts/ajax/validate.php;validate:zipcode:94010
+ajax;20061026 14:05:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 14:05:24;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 14:05:24;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 14:05:24;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 14:05:24;/accounts/ajax/validate.php;validate:phone:650-506-6329
+ajax;20061026 14:05:24;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 14:06:11;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061026 14:06:11;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 14:06:11;/accounts/ajax/validate.php;validate:zipcode:94010
+ajax;20061026 14:06:11;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 14:06:11;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 14:06:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 14:06:11;/accounts/ajax/validate.php;validate:phone:650-506-6329
+ajax;20061026 14:06:11;/accounts/ajax/validate.php;return=ok|phone|
+brierley@stanford.edu;20061026 14:08:58;/accounts/login.php;user logged in (internal):171.64.130.220:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+brierley@stanford.edu;20061026 14:08:58;/accounts/login.php;user modified (ldap): Marc Brierley (brierley@stanford.edu) [109]
+c.carrillo;20061026 14:16:03;/accounts/login.php;user logged in (ldap):155.33.197.143:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 14:16:33;/accounts/ajax/validate.php;validate:zipcode:94065
+ajax;20061026 14:16:33;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 14:17:20;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061026 14:17:20;/conference/registration/index.php;validate:required:Redwood Shores
+ajax;20061026 14:17:20;/conference/registration/index.php;validate:required:CA
+ajax;20061026 14:17:20;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:zipcode:94065
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required:US
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:namespaces:US
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required:650-506-6329
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:phone:650-506-6329
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required:Y
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required:N
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required:Small
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required: 
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required:WED
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required:THU
+ajax;20061026 14:17:21;/conference/registration/index.php;validate:required: 
+lindafeng;20061026 14:17:21;/conference/registration/index.php;user modified (ldap): Linda Feng (linda.feng@oracle.com) [113]
+ajax;20061026 14:17:58;/conference/proposals/edit_proposal.php;validate:required:Sakai Course Mgmt API and Oracle Enterprise Campus Solutions
+ajax;20061026 14:17:59;/conference/proposals/edit_proposal.php;validate:required:Oracle will share strategy and architecture to support out of the box integration between Enterprise Campus Solutions and Sakai for course, person and enrollment information. We will also present analysis and prototyping results of course management integration based on the proposed Sakai Course Management API.
+ajax;20061026 14:17:59;/conference/proposals/edit_proposal.php;validate:required:Oracle has been participating in Sakai’s Course Management API working group since June 2006.  Our primary goal within this working group is to ensure support for an out-of-the-box integration between Oracle Enterprise Campus Solutions, a student information system, and Sakai for course, person and enrollment information.  We will present the analysis of mapping between course structures represented within Enterprise Campus Solutions and those represented by the Sakai CM api.  In addition, we will review the prototype of a services oriented integration implementation as well as future plans for Oracle’s integration strategy.
+ajax;20061026 14:17:59;/conference/proposals/edit_proposal.php;validate:required:Linda Feng
+ajax;20061026 14:17:59;/conference/proposals/edit_proposal.php;validate:required:Linda Feng is currently Director of Software Development in Oracle's Student Products Division.  Her current role is focused on architecting Oracle’s Academic Enterprise Initiative strategy, integration and product development for the Higher Education market.
+ajax;20061026 14:17:59;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061026 14:17:59;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061026 14:17:59;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061026 14:18:16;/conference/proposals/index.php;validate:required:presentation
+carybrown;20061026 14:20:57;/accounts/login.php;user logged in (ldap):148.87.1.172:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 14:51:14;/accounts/ajax/validate.php;validate:email:matt.clare@brocku.ca
+ajax;20061026 14:51:14;/accounts/ajax/validate.php;validate:uniqueuserp:matt.clare@brocku.ca
+ajax;20061026 14:51:14;/accounts/ajax/validate.php;validate:uniqueuserp:matt.clare@brocku.ca
+ajax;20061026 14:51:14;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061026 14:51:30;/accounts/ajax/validate.php;validate:email:matt.clare@brocku.ca
+ajax;20061026 14:51:30;/accounts/ajax/validate.php;validate:uniqueuserp:matt.clare@brocku.ca
+ajax;20061026 14:51:30;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061026 14:52:47;/accounts/ajax/validate.php;validate:namespaces:St. Catharines
+ajax;20061026 14:52:47;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061026 14:52:51;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061026 14:52:51;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 14:53:06;/accounts/ajax/validate.php;validate:zipcode:L2S 3A1
+ajax;20061026 14:53:06;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 14:53:07;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061026 14:53:07;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 14:53:15;/accounts/ajax/validate.php;validate:phone:905 688 5550
+ajax;20061026 14:53:15;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 14:53:19;/accounts/createaccount.php;validate:required:matt.clare@brocku.ca
+ajax;20061026 14:53:19;/accounts/createaccount.php;validate:email:matt.clare@brocku.ca
+ajax;20061026 14:53:19;/accounts/createaccount.php;validate:uniqueuserp:matt.clare@brocku.ca
+ajax;20061026 14:53:19;/accounts/createaccount.php;validate:uniqueuserp:matt.clare@brocku.ca
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:required:0zero0
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:password:0zero0
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:required:0zero0
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:password:0zero0
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:match:0zero0
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:required:Matt
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:required:Clare
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:required:matt.clare@brocku.ca
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:email:matt.clare@brocku.ca
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:uniqueuserp:matt.clare@brocku.ca
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate::System Administrator
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:required:Brock University
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate::500 Glenridge
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:namespaces:St. Catharines
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:namespaces:ON
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:zipcode:L2S 3A1
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:namespaces:CA
+ajax;20061026 14:53:20;/accounts/createaccount.php;validate:phone:905 688 5550
+matt.clare@brocku.ca;20061026 14:53:20;/accounts/createaccount.php;user added (ldap): Matt Clare (matt.clare@brocku.ca) [897]
+139.57.153.249;20061026 14:53:20;/accounts/createaccount.php;created account: matt.clare@brocku.ca (matt.clare@brocku.ca) Clare,Matt: inst=1
+ajax;20061026 15:14:02;/conference/proposals/index.php;validate:required:demo
+olliebakers2pants@yahoo.co.uk;20061026 15:20:35;/accounts/login.php;user logged in (ldap):193.1.100.109:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 15:20:58;/accounts/ajax/validate.php;validate:email:Olliebakers2pants@yahoo.co.uk
+ajax;20061026 15:20:58;/accounts/ajax/validate.php;validate:uniquesql:Olliebakers2pants@yahoo.co.uk
+ajax;20061026 15:20:58;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061026 15:20:58;/accounts/ajax/validate.php;validate:namespaces:Limericj
+ajax;20061026 15:20:58;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061026 15:20:59;/accounts/ajax/validate.php;validate:namespaces:Munster
+ajax;20061026 15:20:59;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 15:21:02;/accounts/ajax/validate.php;validate:namespaces:IE
+ajax;20061026 15:21:02;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 15:23:23;/accounts/ajax/validate.php;validate:email:homecusack@eircom.net
+ajax;20061026 15:23:23;/accounts/ajax/validate.php;validate:uniqueuserp:homecusack@eircom.net
+ajax;20061026 15:23:23;/accounts/ajax/validate.php;validate:uniqueuserp:homecusack@eircom.net
+ajax;20061026 15:23:23;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061026 15:24:25;/accounts/ajax/validate.php;validate:email:homecusack@eircom.net
+ajax;20061026 15:24:25;/accounts/ajax/validate.php;validate:uniqueuserp:homecusack@eircom.net
+ajax;20061026 15:24:26;/accounts/ajax/validate.php;return=ok|email|
+matt.clare@brocku.ca;20061026 15:45:30;/accounts/activate.php;user modified (ldap): Matt Clare (matt.clare@brocku.ca) [897]
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:email:matt.clare@brocku.ca
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:uniqueuserp:matt.clare@brocku.ca
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:email:matt.clare@brocku.ca
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:uniqueuserp:matt.clare@brocku.ca
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;return=error|username|username already used
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;return=error|email|email already used
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:namespaces:St. Catharines
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:zipcode:L2S 3A1
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;validate:phone:905 688 5550
+ajax;20061026 15:45:38;/accounts/ajax/validate.php;return=ok|phone|
+mmiles@umich.edu;20061026 15:49:39;/accounts/login.php;user logged in (ldap):71.244.224.62:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+matt.clare@brocku.ca;20061026 15:55:46;/accounts/login.php;user logged in (ldap):139.57.153.249:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 15:55:47;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061026 15:55:47;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 15:55:47;/accounts/ajax/validate.php;validate:zipcode:L2S 3A1
+ajax;20061026 15:55:47;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 15:55:47;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061026 15:55:47;/accounts/ajax/validate.php;validate:phone:905 688 5550
+ajax;20061026 15:55:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 15:55:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20061026 15:59:16;/conference/registration/index.php;validate::System Administrator
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:Brock University
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:St. Catharines
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:ON
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:namespaces:ON
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:zipcode:L2S 3A1
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:CA
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:905 688 5550
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:phone:905 688 5550
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:Y
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:N
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:Medium
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:TUE
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:WED
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:THU
+ajax;20061026 15:59:16;/conference/registration/index.php;validate:required:FRI
+matt.clare@brocku.ca;20061026 15:59:16;/conference/registration/index.php;user modified (ldap): Matt Clare (matt.clare@brocku.ca) [897]
+mmiles@umich.edu;20061026 17:42:15;/accounts/login.php;user logged in (ldap):71.244.224.62:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals_results.php
+omcgrath;20061026 19:52:53;/accounts/login.php;user logged in (ldap):169.229.212.44:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061026 19:54:28;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061026 19:54:28;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061026 19:54:34;/accounts/ajax/validate.php;validate:zipcode:94720
+ajax;20061026 19:54:35;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061026 19:54:38;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061026 19:54:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061026 19:54:48;/accounts/ajax/validate.php;validate:phone:(510) 642-2535  
+ajax;20061026 19:54:48;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061026 19:54:56;/accounts/ajax/validate.php;validate:phone:(510) 643-9221
+ajax;20061026 19:54:56;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:University Administration
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:Berkeley
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:CA
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:zipcode:94720
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:US
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:namespaces:US
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:(510) 642-2535  
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:phone:(510) 642-2535  
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:phone:(510) 643-9221
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:Y
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:N
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:XX-Large
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:TUE
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:WED
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:THU
+ajax;20061026 19:55:44;/conference/registration/index.php;validate:required:FRI
+omcgrath;20061026 19:55:45;/conference/registration/index.php;user modified (ldap): Owen McGrath (owen@media.berkeley.edu) [80]

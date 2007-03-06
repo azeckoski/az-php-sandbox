@@ -1,0 +1,554 @@
+ajax;20061016 01:28:26;/accounts/ajax/validate.php;validate:email:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:28:26;/accounts/ajax/validate.php;validate:uniqueuserp:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:28:26;/accounts/ajax/validate.php;validate:uniqueuserp:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:28:27;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061016 01:29:04;/accounts/ajax/validate.php;validate:email:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:29:04;/accounts/ajax/validate.php;validate:uniqueuserp:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:29:04;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 01:30:44;/accounts/ajax/validate.php;validate:namespaces:Sydney
+ajax;20061016 01:30:44;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 01:30:52;/accounts/ajax/validate.php;validate:zipcode:2040
+ajax;20061016 01:30:52;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20061016 01:30:56;/accounts/ajax/validate.php;validate:namespaces:AU
+ajax;20061016 01:30:56;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 01:31:20;/accounts/ajax/validate.php;validate:namespaces:NSW
+ajax;20061016 01:31:20;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20061016 01:31:27;/accounts/ajax/validate.php;validate:zipcode:2040
+ajax;20061016 01:31:27;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:required:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:email:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:uniqueuserp:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:uniqueuserp:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:required:aads5844
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:password:aads5844
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:required:aads5844
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:password:aads5844
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:match:aads5844
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:required:David
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:required:Smith
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:required:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:email:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:uniqueuserp:david.smith@ceo.syd.catholic.edu.au
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:required:Catholic Education Office
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate::38 Renwick Street
+Leichhardt
+2040
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:namespaces:Sydney
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:namespaces:NSW
+ajax;20061016 01:49:28;/accounts/createaccount.php;validate:namespaces:AU
+david.smith@ceo.syd.catholic.edu.au;20061016 01:49:29;/accounts/createaccount.php;user added (ldap): David Smith (david.smith@ceo.syd.catholic.edu.au) [862]
+210.11.173.57;20061016 01:49:29;/accounts/createaccount.php;created account: david.smith@ceo.syd.catholic.edu.au (david.smith@ceo.syd.catholic.edu.au) Smith,David: inst=1
+david.smith@ceo.syd.catholic.edu.au;20061016 01:52:43;/accounts/activate.php;user modified (ldap): David Smith (david.smith@ceo.syd.catholic.edu.au) [862]
+david.smith@ceo.syd.catholic.edu.au;20061016 01:53:49;/accounts/login.php;user logged in (ldap):210.11.173.57:https://sakaiproject.org/accounts/login.php
+trusova;20061016 02:05:38;/accounts/login.php;user logged in (internal):71.116.84.62:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+trusova;20061016 02:05:38;/accounts/login.php;user added (ldap): Olga Trusova (trusova@carnegiefoundation.org) [225]
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;validate:email:trusova@carnegiefoundation.org
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;validate:uniquesql:trusova@carnegiefoundation.org
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;validate:zipcode:94305
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;validate:namespaces:Stanford
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;validate:phone:(650) 566-5508
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 02:06:15;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 09:56:00;/conference/proposals/index.php;validate:required:presentation
+mickwisniewski;20061016 10:14:44;/accounts/login.php;user logged in (internal):198.188.96.2:https://sakaiproject.org/accounts/login.php
+mickwisniewski;20061016 10:14:45;/accounts/login.php;user added (ldap): Michael Wisniewski (mwisniewski@cerritos.edu) [273]
+billcope@byu.edu;20061016 10:17:02;/accounts/login.php;user logged in (ldap):128.187.156.32:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+anthony.atkins@vt.edu;20061016 10:22:33;/accounts/login.php;user logged in (ldap):128.173.53.41:https://sakaiproject.org/accounts/login.php?ref=/requirements/index.php
+ajax;20061016 10:24:30;/conference/proposals/index.php;validate:required:demo
+khancock;20061016 11:49:54;/accounts/login.php;user logged in (ldap):149.166.143.234:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mmiles@umich.edu;20061016 12:07:09;/accounts/login.php;user logged in (internal):141.213.113.207:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+mmiles@umich.edu;20061016 12:07:09;/accounts/login.php;user added (ldap): Mary Miles (mmiles@umich.edu) [184]
+kemoore;20061016 12:22:27;/accounts/activate.php;user added (ldap): Kathy Moore (kemoore@bu.edu) [634]
+rneuharth@unicon.net;20061016 12:43:33;/accounts/login.php;user logged in (internal):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+rneuharth@unicon.net;20061016 12:43:33;/accounts/login.php;user added (ldap): Ryan Neuharth (rneuharth@unicon.net) [816]
+ajax;20061016 12:44:02;/accounts/ajax/validate.php;validate:email:rneuharth@unicon.net
+ajax;20061016 12:44:02;/accounts/ajax/validate.php;validate:uniquesql:rneuharth@unicon.net
+ajax;20061016 12:44:02;/accounts/ajax/validate.php;return=ok|email|
+ws15@txstate.edu;20061016 14:03:43;/accounts/login.php;user logged in (internal):147.26.119.178:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ws15@txstate.edu;20061016 14:03:43;/accounts/login.php;user added (ldap): Whitten Smart (ws15@txstate.edu) [802]
+seththeriault;20061016 14:04:53;/accounts/login.php;user logged in (ldap):128.59.39.120:https://sakaiproject.org/accounts/login.php
+mmiles@umich.edu;20061016 14:21:45;/accounts/login.php;user logged in (ldap):141.213.113.207:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20061016 14:23:42;/accounts/ajax/validate.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 14:23:42;/accounts/ajax/validate.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 14:23:43;/accounts/ajax/validate.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 14:23:43;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061016 14:23:58;/accounts/ajax/validate.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 14:23:58;/accounts/ajax/validate.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 14:23:59;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 14:24:45;/accounts/ajax/validate.php;validate:namespaces:San Francisco
+ajax;20061016 14:24:45;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 14:24:46;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 14:24:46;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 14:24:48;/accounts/ajax/validate.php;validate:zipcode:9470
+ajax;20061016 14:24:48;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20061016 14:24:50;/accounts/ajax/validate.php;validate:zipcode:94705
+ajax;20061016 14:24:50;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 14:24:52;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 14:24:52;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 14:25:00;/accounts/createaccount.php;validate:required:mkorcuska@yahoo.com
+ajax;20061016 14:25:00;/accounts/createaccount.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 14:25:00;/accounts/createaccount.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 14:25:00;/accounts/createaccount.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:required:merlot
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:password:merlot
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:required:merlot
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:password:merlot
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:match:merlot
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:required:Michael
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:required:Korcuska
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:required:mkorcuska@yahoo.com
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:required:Manager
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:required:ELT, Inc.
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate::160 Pine Street
+Suite 200
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:namespaces:San Francisco
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:namespaces:CA
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:zipcode:94705
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061016 14:25:01;/accounts/createaccount.php;validate:phone:415-962-3404
+mkorcuska@yahoo.com;20061016 14:25:01;/accounts/createaccount.php;user added (ldap): Michael Korcuska (mkorcuska@yahoo.com) [863]
+71.4.153.165;20061016 14:25:01;/accounts/createaccount.php;created account: mkorcuska@yahoo.com (mkorcuska@yahoo.com) Korcuska,Michael: inst=1
+mkorcuska@yahoo.com;20061016 14:25:39;/accounts/activate.php;user modified (ldap): Michael Korcuska (mkorcuska@yahoo.com) [863]
+mkorcuska@yahoo.com;20061016 14:25:52;/accounts/login.php;user logged in (ldap):71.4.153.165:https://sakaiproject.org/accounts/login.php
+ajax;20061016 14:26:07;/accounts/ajax/validate.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 14:26:07;/accounts/ajax/validate.php;validate:uniquesql:mkorcuska@yahoo.com
+ajax;20061016 14:26:07;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 14:26:07;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 14:26:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 14:26:07;/accounts/ajax/validate.php;validate:namespaces:San Francisco
+ajax;20061016 14:26:07;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 14:26:07;/accounts/ajax/validate.php;validate:zipcode:94705
+ajax;20061016 14:26:08;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 14:26:08;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 14:26:08;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 14:26:08;/accounts/ajax/validate.php;validate:phone:415-962-3404
+ajax;20061016 14:26:08;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 14:32:03;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 14:32:03;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 14:32:03;/accounts/ajax/validate.php;validate:zipcode:94705
+ajax;20061016 14:32:03;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 14:32:03;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 14:32:03;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 14:32:03;/accounts/ajax/validate.php;validate:phone:415-962-3404
+ajax;20061016 14:32:03;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 14:35:16;/accounts/ajax/validate.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 14:35:16;/accounts/ajax/validate.php;validate:uniquesql:mkorcuska@yahoo.com
+ajax;20061016 14:35:16;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 14:35:16;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 14:35:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 14:35:17;/accounts/ajax/validate.php;validate:namespaces:San Francisco
+ajax;20061016 14:35:17;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 14:35:17;/accounts/ajax/validate.php;validate:zipcode:94705
+ajax;20061016 14:35:17;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 14:35:17;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 14:35:17;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 14:35:17;/accounts/ajax/validate.php;validate:phone:415-962-3404
+ajax;20061016 14:35:17;/accounts/ajax/validate.php;return=ok|phone|
+mkorcuska@yahoo.com;20061016 14:35:35;/accounts/login.php;user logged in (ldap):71.4.153.165:https://sakaiproject.org/accounts/login.php
+mmiles@umich.edu;20061016 14:37:48;/accounts/login.php;user logged in (ldap):141.213.113.207:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+tmccready;20061016 15:01:58;/accounts/login.php;user logged in (internal):66.185.252.130:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+tmccready;20061016 15:01:59;/accounts/login.php;user added (ldap): Trevor McCready (trevor.mccready@moody.edu) [91]
+ajax;20061016 15:02:51;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061016 15:02:51;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 15:02:54;/accounts/ajax/validate.php;validate:zipcode:60610
+ajax;20061016 15:02:54;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 15:02:55;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 15:02:55;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 15:03:24;/accounts/ajax/validate.php;validate:phone:312-329-4064
+ajax;20061016 15:03:24;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 15:03:29;/accounts/ajax/validate.php;validate:phone:312-329-4023
+ajax;20061016 15:03:29;/accounts/ajax/validate.php;return=ok|fax|
+mara@media.berkeley.edu;20061016 15:20:05;/accounts/login.php;user logged in (internal):169.229.212.10:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+mara@media.berkeley.edu;20061016 15:20:05;/accounts/login.php;user added (ldap): Mara Hancock (mara@media.berkeley.edu) [58]
+ajax;20061016 15:20:07;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 15:20:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 15:20:07;/accounts/ajax/validate.php;validate:zipcode:94703
+ajax;20061016 15:20:07;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 15:20:07;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 15:20:07;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 15:20:07;/accounts/ajax/validate.php;validate:phone:510-407-0543
+ajax;20061016 15:20:07;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:required:Manager
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:required:Berkeley
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:required:CA
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:zipcode:94703
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:required:US
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:namespaces:US
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:required:510-407-0543
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:phone:510-407-0543
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:required:Y
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:required:N
+ajax;20061016 15:21:52;/conference/registration/index.php;validate:required:Medium
+ajax;20061016 15:21:53;/conference/registration/index.php;validate:required:TUE
+ajax;20061016 15:21:53;/conference/registration/index.php;validate:required:WED
+ajax;20061016 15:21:53;/conference/registration/index.php;validate:required:THU
+ajax;20061016 15:21:53;/conference/registration/index.php;validate:required:FRI
+mara@media.berkeley.edu;20061016 15:21:53;/conference/registration/index.php;user modified (ldap): Mara Hancock (mara@media.berkeley.edu) [58]
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:Manager
+ajax;20061016 15:37:17;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:Moody Bible Institute
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:Chicago
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:IL
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:namespaces:IL
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:zipcode:60610
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:US
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:namespaces:US
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:312-329-4064
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:phone:312-329-4064
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:phone:312-329-4023
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:N
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:N
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:X-Large
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:TUE
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:WED
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:THU
+ajax;20061016 15:37:17;/conference/registration/index.php;validate:required:FRI
+tmccready;20061016 15:37:17;/conference/registration/index.php;user modified (ldap): Trevor McCready (trevor.mccready@moody.edu) [91]
+carybrown;20061016 15:38:53;/accounts/login.php;user logged in (internal):148.87.1.170:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+carybrown;20061016 15:38:53;/accounts/login.php;user modified (ldap): Carroll Brown (carroll.brown@oracle.com) [507]
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;validate:zipcode:91436
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;validate:phone:818-817-2982
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;validate:phone:818-379-9810
+ajax;20061016 15:39:04;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:Oracle Corporation
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:Encino
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:CA
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:zipcode:91436
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:US
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:namespaces:US
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:818-817-2982
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:phone:818-817-2982
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:phone:818-379-9810
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:Y
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:N
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:Large
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:TUE
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:WED
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required:THU
+ajax;20061016 15:41:08;/conference/registration/index.php;validate:required: 
+carybrown;20061016 15:41:09;/conference/registration/index.php;user modified (ldap): Carroll Brown (carroll.brown@oracle.com) [507]
+vsinou;20061016 15:41:41;/accounts/login.php;user logged in (internal):24.5.128.159:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+vsinou;20061016 15:41:41;/accounts/login.php;user added (ldap): Vivie Sinou (SinouVivian@foothill.edu) [117]
+ajax;20061016 15:42:04;/conference/proposals/index.php;validate:required:presentation
+carybrown;20061016 15:44:17;/accounts/login.php;user logged in (ldap):148.87.1.170:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061016 15:44:27;/accounts/ajax/validate.php;validate:email:carroll.brown@oracle.com
+ajax;20061016 15:44:27;/accounts/ajax/validate.php;validate:uniquesql:carroll.brown@oracle.com
+ajax;20061016 15:44:27;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 15:44:27;/accounts/ajax/validate.php;validate:namespaces:Encino
+ajax;20061016 15:44:27;/accounts/ajax/validate.php;return=ok|city|
+kmbrokam;20061016 15:46:37;/accounts/login.php;user logged in (internal):149.166.143.41:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+kmbrokam;20061016 15:46:37;/accounts/login.php;user added (ldap): Kevin Brokamp (kmbrokam@iupui.edu) [235]
+ajax;20061016 15:46:38;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20061016 15:46:38;/accounts/ajax/validate.php;validate:zipcode:46220
+ajax;20061016 15:46:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 15:46:38;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 15:46:38;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 15:46:38;/accounts/ajax/validate.php;validate:phone:317-253-9487
+ajax;20061016 15:46:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 15:46:38;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 15:52:35;/conference/proposals/edit_proposal.php;validate:required:Melete - Lesson Builder for Sakai
+ajax;20061016 15:52:35;/conference/proposals/edit_proposal.php;validate:required:Melete is a lesson builder tool developed for Sakai. Melete allows instructors to publish learning sequences that can be created by using a rich text editor, uploading learning objects, or pointing to existing URL resources. Instructors can design content that supports instructor facilitated learning or system managed self-study. Lessons can be released automatically based on start and stop dates. Melete supports IMS Content Packaging. Join this session for an overview of Melete's current functionality and to learn about future directions for Melete 3.0.  
+ajax;20061016 15:52:35;/conference/proposals/edit_proposal.php;validate:required:This is basically a demonstration session that will introduce participates to Melete's current functionality, a walk-through of its features, supported functionality, and limitations. Additionally, the presenter will cover new functionality coming up in Melete 3.0, and the future road-map for the tool. 
+ajax;20061016 15:52:35;/conference/proposals/edit_proposal.php;validate:required:Vivie Sinou
+ajax;20061016 15:52:35;/conference/proposals/edit_proposal.php;validate:required:Vivie Sinou, Dean of Learning Technology & Innovations, Foothill College, manages the development, implementation, and strategic planning for the California Community College Consortium (CCCC) ETUDES Project. Dean Sinou formed the ETUDES Alliance that extended the use of ETUDES to over 50 colleges in 2002. Sinou manages the ETUDES-NG (Sakai-based tools) development effort, serves on the Sakai Board, and is contributing in shaping the vision of open source software for higher education, including leading an open content initiative for community colleges, the SOFIA Project. 
+Sinou was the recipient of the 2002 Technology Leadership Award from the California Community Colleges Chancellor’s Office. She was chosen for the prestigious statewide award for her prominence within the arena of higher educational technological resources management, exemplary organizational management and leadership qualities, advocacy of effective use of technology in supporting institutional goals, and contributions to growth of the profession as a whole. Sinou was also selected for the League Innovator of the Year Award for Foothill De Anza Community College District (2002). 
+
+ajax;20061016 15:52:35;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061016 15:52:35;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061016 15:52:35;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061016 15:52:52;/conference/proposals/index.php;validate:required:presentation
+ajax;20061016 16:02:00;/conference/proposals/edit_proposal.php;validate:required:JForum - Discussion & Private Messaging for Sakai
+ajax;20061016 16:02:00;/conference/proposals/edit_proposal.php;validate:required:JForum Discussion & Private Messages is an easy-to-use, yet robust tool that offers industry-standard functionality to users. Instructors can set up unlimited categories and forums, moderate topics (move, edit, delete, lock, or unlock), read recent topics and mark them as read, watch and bookmark topics, and much more. Additionally, JForum comes with built-in private messaging that allows site members to communicate privately while discussing issues or collaborating on projects. JForum has a familiar (popular phpBB) graphical user interface. Join this session for an overview of JForum's current functionality and to learn about future directions. 
+ajax;20061016 16:02:00;/conference/proposals/edit_proposal.php;validate:required:This is a demonstration session that will introduce participants to JForum's current functionality; it will be a walk-through of its features and supported functionality. Additionally, the presenter will cover new functionality planned for future Jforum releases to support communication and collaboration in Sakai.
+ajax;20061016 16:02:00;/conference/proposals/edit_proposal.php;validate:required:Vivie Sinou
+ajax;20061016 16:02:00;/conference/proposals/edit_proposal.php;validate:required:Vivie Sinou, Dean of Learning Technology & Innovations, Foothill College, manages the development, implementation, and strategic planning for the California Community College Consortium (CCCC) ETUDES Project. Dean Sinou formed the ETUDES Alliance that extended the use of ETUDES to over 50 colleges in 2002. Sinou manages the ETUDES-NG (Sakai-based tools) development effort, serves on the Sakai Board, and is contributing in shaping the vision of open source software for higher education, including leading an open content initiative for community colleges, the SOFIA Project. 
+Sinou was the recipient of the 2002 Technology Leadership Award from the California Community Colleges Chancellor’s Office. She was chosen for the prestigious statewide award for her prominence within the arena of higher educational technological resources management, exemplary organizational management and leadership qualities, advocacy of effective use of technology in supporting institutional goals, and contributions to growth of the profession as a whole. Sinou was also selected for the League Innovator of the Year Award for Foothill De Anza Community College District (2002). 
+
+ajax;20061016 16:02:00;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061016 16:02:00;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061016 16:02:00;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061016 16:04:00;/accounts/ajax/validate.php;validate:namespaces:IN
+ajax;20061016 16:04:00;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:04:00;/accounts/ajax/validate.php;validate:zipcode:46220
+ajax;20061016 16:04:00;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 16:04:00;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 16:04:00;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 16:04:00;/accounts/ajax/validate.php;validate:phone:317-253-9487
+ajax;20061016 16:04:00;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:User Support
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:Indianapolis
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:IN
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:namespaces:IN
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:zipcode:46220
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:US
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:namespaces:US
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:317-253-9487
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:phone:317-253-9487
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:Y
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:N
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:X-Large
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:TUE
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:WED
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:THU
+ajax;20061016 16:04:58;/conference/registration/index.php;validate:required:FRI
+kmbrokam;20061016 16:04:59;/conference/registration/index.php;user modified (ldap): Kevin Brokamp (kmbrokam@iupui.edu) [235]
+shardin;20061016 16:12:18;/accounts/login.php;user logged in (ldap):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+ajax;20061016 16:12:52;/accounts/ajax/validate.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 16:12:52;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061016 16:12:54;/accounts/ajax/validate.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 16:12:54;/accounts/ajax/validate.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 16:12:54;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 16:12:55;/accounts/ajax/validate.php;validate:namespaces:San Francisco
+ajax;20061016 16:12:55;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 16:12:55;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 16:12:55;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:12:56;/accounts/ajax/validate.php;validate:zipcode:94705
+ajax;20061016 16:12:56;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 16:12:57;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 16:12:57;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 16:12:58;/accounts/ajax/validate.php;validate:phone:415-962-3404
+ajax;20061016 16:12:58;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:required:mkorcuska@yahoo.com
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:nospaces:mkorcuska@yahoo.com
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:required:Michael
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:required:Korcuska
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:required:mkorcuska@yahoo.com
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:required:Manager
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:required:ELT, Inc.
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate::160 Pine Street
+Suite 200
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:namespaces:San Francisco
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:namespaces:CA
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:zipcode:94705
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061016 16:13:09;/accounts/admin/admin_user.php;validate:phone:415-962-3404
+;20061016 16:13:10;/accounts/admin/admin_user.php;inst modified (ldap): Other (non-Member) (non-member) [1]
+;20061016 16:13:10;/accounts/admin/admin_user.php;inst modified (ldap): Other (non-Member) (non-member) [1]
+mkorcuska@yahoo.com;20061016 16:13:10;/accounts/admin/admin_user.php;user modified (ldap): Michael Korcuska (mkorcuska@yahoo.com) [863]
+ajax;20061016 16:13:12;/accounts/ajax/validate.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 16:13:12;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061016 16:13:14;/accounts/ajax/validate.php;validate:namespaces:San Francisco
+ajax;20061016 16:13:14;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 16:13:14;/accounts/ajax/validate.php;validate:email:mkorcuska@yahoo.com
+ajax;20061016 16:13:14;/accounts/ajax/validate.php;validate:uniqueuserp:mkorcuska@yahoo.com
+ajax;20061016 16:13:15;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 16:13:15;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061016 16:13:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:13:16;/accounts/ajax/validate.php;validate:zipcode:94705
+ajax;20061016 16:13:16;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 16:13:17;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 16:13:17;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 16:13:17;/accounts/ajax/validate.php;validate:phone:415-962-3404
+ajax;20061016 16:13:17;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 16:17:28;/accounts/ajax/validate.php;validate:namespaces:Oracle
+ajax;20061016 16:17:28;/accounts/ajax/validate.php;validate:uniqueinstp:Oracle
+ajax;20061016 16:17:28;/accounts/ajax/validate.php;return=ok|name|
+ajax;20061016 16:17:30;/accounts/admin/admin_inst.php;validate:required:Oracle
+ajax;20061016 16:17:30;/accounts/admin/admin_inst.php;validate:namespaces:Oracle
+ajax;20061016 16:17:30;/accounts/admin/admin_inst.php;validate:uniqueinstp:Oracle
+ajax;20061016 16:17:31;/accounts/admin/admin_inst.php;validate:required:commercial
+;20061016 16:17:31;/accounts/admin/admin_inst.php;inst added (ldap): Oracle (commercial) [118]
+jeremy.peterson@moody.edu;20061016 16:30:42;/accounts/login.php;user logged in (internal):66.185.249.91:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+jeremy.peterson@moody.edu;20061016 16:30:42;/accounts/login.php;user added (ldap): Jeremy Peterson (jeremy.peterson@moody.edu) [735]
+ajax;20061016 16:30:45;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061016 16:30:45;/accounts/ajax/validate.php;validate:zipcode:60610
+ajax;20061016 16:30:45;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:30:45;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 16:30:45;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 16:30:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 16:30:45;/accounts/ajax/validate.php;validate:phone:3123298081
+ajax;20061016 16:30:45;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 16:40:11;/accounts/ajax/validate.php;validate:email:fschultz@moody.edu
+ajax;20061016 16:40:11;/accounts/ajax/validate.php;validate:uniqueuserp:fschultz@moody.edu
+ajax;20061016 16:40:11;/accounts/ajax/validate.php;validate:uniqueuserp:fschultz@moody.edu
+ajax;20061016 16:40:12;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061016 16:40:25;/accounts/ajax/validate.php;validate:email:fschultz@moody.edu
+ajax;20061016 16:40:25;/accounts/ajax/validate.php;validate:uniqueuserp:fschultz@moody.edu
+ajax;20061016 16:40:25;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061016 16:40:36;/accounts/ajax/validate.php;validate:email:dannylee_mbi
+ajax;20061016 16:40:36;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061016 16:40:51;/accounts/ajax/validate.php;validate:email:danny.lee@moody.edu
+ajax;20061016 16:40:51;/accounts/ajax/validate.php;validate:uniqueuserp:danny.lee@moody.edu
+ajax;20061016 16:40:51;/accounts/ajax/validate.php;validate:uniqueuserp:danny.lee@moody.edu
+ajax;20061016 16:40:51;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061016 16:40:57;/conference/registration/index.php;validate:required:System Administrator
+ajax;20061016 16:40:57;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20061016 16:40:57;/conference/registration/index.php;validate:required:Moody Bible Institute
+ajax;20061016 16:40:57;/conference/registration/index.php;validate:required:Chicago
+ajax;20061016 16:40:57;/conference/registration/index.php;validate:required:IL
+ajax;20061016 16:40:57;/conference/registration/index.php;validate:namespaces:IL
+ajax;20061016 16:40:57;/conference/registration/index.php;validate:zipcode:60610
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:US
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:namespaces:US
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:3123298081
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:phone:3123298081
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:N
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:N
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:X-Large
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:TUE
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:WED
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:THU
+ajax;20061016 16:40:58;/conference/registration/index.php;validate:required:FRI
+jeremy.peterson@moody.edu;20061016 16:40:58;/conference/registration/index.php;user modified (ldap): Jeremy Peterson (jeremy.peterson@moody.edu) [735]
+ajax;20061016 16:41:15;/accounts/ajax/validate.php;validate:email:danny.lee@moody.edu
+ajax;20061016 16:41:15;/accounts/ajax/validate.php;validate:uniqueuserp:danny.lee@moody.edu
+ajax;20061016 16:41:16;/accounts/ajax/validate.php;return=ok|email|
+carybrown;20061016 16:41:58;/accounts/login.php;user logged in (ldap):148.87.1.170:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061016 16:42:14;/accounts/ajax/validate.php;validate:namespaces:Chicago
+ajax;20061016 16:42:14;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 16:42:16;/accounts/ajax/validate.php;validate:namespaces:ID
+ajax;20061016 16:42:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:42:17;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061016 16:42:17;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:42:21;/accounts/ajax/validate.php;validate:zipcode:60610
+ajax;20061016 16:42:21;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 16:42:23;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 16:42:23;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 16:42:32;/accounts/ajax/validate.php;validate:phone:312-329-4176
+ajax;20061016 16:42:32;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:required:fschultz@moody.edu
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:email:fschultz@moody.edu
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:uniqueuserp:fschultz@moody.edu
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:uniqueuserp:fschultz@moody.edu
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:required:phread
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:password:phread
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:required:phread
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:password:phread
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:match:phread
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:required:Fred
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:required:Schultz
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:required:fschultz@moody.edu
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:email:fschultz@moody.edu
+ajax;20061016 16:42:42;/accounts/createaccount.php;validate:uniqueuserp:fschultz@moody.edu
+ajax;20061016 16:42:43;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061016 16:42:43;/accounts/createaccount.php;validate:required:Moody Bible Institute
+ajax;20061016 16:42:43;/accounts/createaccount.php;validate::820 N LaSalle
+ajax;20061016 16:42:43;/accounts/createaccount.php;validate:namespaces:Chicago
+ajax;20061016 16:42:43;/accounts/createaccount.php;validate:namespaces:IL
+ajax;20061016 16:42:43;/accounts/createaccount.php;validate:zipcode:60610
+ajax;20061016 16:42:43;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061016 16:42:43;/accounts/createaccount.php;validate:phone:312-329-4176
+fschultz@moody.edu;20061016 16:42:43;/accounts/createaccount.php;user added (ldap): Fred Schultz (fschultz@moody.edu) [864]
+66.185.248.201;20061016 16:42:43;/accounts/createaccount.php;created account: fschultz@moody.edu (fschultz@moody.edu) Schultz,Fred: inst=1
+fschultz@moody.edu;20061016 16:42:58;/accounts/activate.php;user modified (ldap): Fred Schultz (fschultz@moody.edu) [864]
+carybrown;20061016 16:43:16;/accounts/login.php;user logged in (ldap):148.87.1.170:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+fschultz@moody.edu;20061016 16:43:17;/accounts/login.php;user logged in (ldap):66.185.248.201:https://sakaiproject.org/accounts/login.php
+ajax;20061016 16:43:23;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061016 16:43:23;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 16:43:23;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:43:23;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 16:43:23;/accounts/ajax/validate.php;validate:phone:312-329-4176
+ajax;20061016 16:43:23;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 16:43:23;/accounts/ajax/validate.php;validate:zipcode:60610
+ajax;20061016 16:43:23;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 16:44:09;/accounts/ajax/validate.php;validate:namespaces:Chicago
+ajax;20061016 16:44:09;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061016 16:44:19;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061016 16:44:19;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:44:24;/accounts/ajax/validate.php;validate:zipcode:60610
+ajax;20061016 16:44:24;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 16:44:26;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 16:44:26;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 16:44:34;/accounts/ajax/validate.php;validate:phone:312 329-8041
+ajax;20061016 16:44:34;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 16:45:20;/accounts/ajax/validate.php;validate:phone:312 329-4023
+ajax;20061016 16:45:20;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061016 16:45:24;/accounts/createaccount.php;validate:required:danny.lee@moody.edu
+ajax;20061016 16:45:24;/accounts/createaccount.php;validate:email:danny.lee@moody.edu
+ajax;20061016 16:45:24;/accounts/createaccount.php;validate:uniqueuserp:danny.lee@moody.edu
+ajax;20061016 16:45:24;/accounts/createaccount.php;validate:uniqueuserp:danny.lee@moody.edu
+ajax;20061016 16:45:24;/accounts/createaccount.php;validate:required:danny13
+ajax;20061016 16:45:24;/accounts/createaccount.php;validate:password:danny13
+ajax;20061016 16:45:24;/accounts/createaccount.php;validate:required:danny13
+ajax;20061016 16:45:24;/accounts/createaccount.php;validate:password:danny13
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:match:danny13
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:required:Danny 
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:required:Lee
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:required:danny.lee@moody.edu
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:email:danny.lee@moody.edu
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:uniqueuserp:danny.lee@moody.edu
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate::User Support
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:required:Moody Bible Institute
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate::820 La Salle Drive
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:namespaces:Chicago
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:namespaces:IL
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:zipcode:60610
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:phone:312 329-8041
+ajax;20061016 16:45:25;/accounts/createaccount.php;validate:phone:312 329-4023
+danny.lee@moody.edu;20061016 16:45:25;/accounts/createaccount.php;user added (ldap): Danny  Lee (danny.lee@moody.edu) [865]
+66.185.249.145;20061016 16:45:25;/accounts/createaccount.php;created account: danny.lee@moody.edu (danny.lee@moody.edu) Lee,Danny : inst=1
+danny.lee@moody.edu;20061016 16:46:33;/accounts/activate.php;user modified (ldap): Danny  Lee (danny.lee@moody.edu) [865]
+danny.lee@moody.edu;20061016 16:46:56;/accounts/login.php;user logged in (ldap):66.185.249.145:https://sakaiproject.org/accounts/login.php
+ajax;20061016 16:47:07;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061016 16:47:07;/accounts/ajax/validate.php;validate:zipcode:60610
+ajax;20061016 16:47:07;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061016 16:47:07;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061016 16:47:08;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061016 16:47:08;/accounts/ajax/validate.php;validate:phone:312 329-8041
+ajax;20061016 16:47:08;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061016 16:47:08;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061016 16:47:08;/accounts/ajax/validate.php;validate:phone:312 329-4023
+ajax;20061016 16:47:08;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:Moody Bible Institute
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:Chicago
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:IL
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:namespaces:IL
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:zipcode:60610
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:US
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:namespaces:US
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:312-329-4176
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:phone:312-329-4176
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:N
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:N
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:Large
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:TUE
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:WED
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:THU
+ajax;20061016 16:47:42;/conference/registration/index.php;validate:required:FRI
+fschultz@moody.edu;20061016 16:47:42;/conference/registration/index.php;user modified (ldap): Fred Schultz (fschultz@moody.edu) [864]
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20061016 17:06:38;/conference/registration/index.php;validate::User Support
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:Moody Bible Institute
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:Chicago
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:IL
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:namespaces:IL
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:zipcode:60610
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:US
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:namespaces:US
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:312 329-8041
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:phone:312 329-8041
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:phone:312 329-4023
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:N
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:N
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:X-Large
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required: 
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:WED
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:THU
+ajax;20061016 17:06:38;/conference/registration/index.php;validate:required:FRI
+danny.lee@moody.edu;20061016 17:06:38;/conference/registration/index.php;user modified (ldap): Danny Lee (danny.lee@moody.edu) [865]
+jimeng;20061016 19:00:36;/accounts/login.php;user logged in (internal):69.212.63.65:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+jimeng;20061016 19:00:36;/accounts/login.php;user added (ldap): Jim Eng (jimeng@umich.edu) [11]

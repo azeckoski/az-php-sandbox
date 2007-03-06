@@ -1,0 +1,153 @@
+shardin;20061111 09:48:24;/accounts/login.php;user logged in (internal):72.169.226.59:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/edit_proposal.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20061111 09:48:24;/accounts/login.php;user modified (ldap): Susan Hardin (shardin@umich.edu) [2]
+ajax;20061111 10:17:24;/conference/proposals/index.php;validate:required:BOF
+ajax;20061111 18:03:00;/accounts/ajax/validate.php;validate:email:chaohua
+ajax;20061111 18:03:00;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061111 18:03:15;/accounts/ajax/validate.php;validate:email:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:03:15;/accounts/ajax/validate.php;validate:uniqueuserp:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:03:15;/accounts/ajax/validate.php;validate:uniqueuserp:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:03:16;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061111 18:03:40;/accounts/ajax/validate.php;validate:email:chao
+ajax;20061111 18:03:40;/accounts/ajax/validate.php;return=error|email|Invalid email address
+ajax;20061111 18:04:00;/accounts/ajax/validate.php;validate:email:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:04:00;/accounts/ajax/validate.php;validate:uniqueuserp:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:04:00;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061111 18:05:02;/accounts/ajax/validate.php;validate:namespaces:Atlanta
+ajax;20061111 18:05:02;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061111 18:05:05;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20061111 18:05:05;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061111 18:05:09;/accounts/ajax/validate.php;validate:zipcode:30332
+ajax;20061111 18:05:10;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061111 18:05:11;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061111 18:05:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061111 18:05:29;/accounts/ajax/validate.php;validate:phone:404-385-4812
+ajax;20061111 18:05:29;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061111 18:05:29;/accounts/createaccount.php;validate:required:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:05:29;/accounts/createaccount.php;validate:email:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:05:29;/accounts/createaccount.php;validate:uniqueuserp:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:uniqueuserp:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:required:cetl123
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:password:cetl123
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:required:cetl123
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:password:cetl123
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:match:cetl123
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:required:Chaohua
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:required:Ou
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:required:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:email:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:uniqueuserp:chaohua.ou@cetl.gatech.edu
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate::Faculty Development
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:required:116
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate::225 North Ave, Admin Building
+Suite 004
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:namespaces:Atlanta
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:namespaces:GA
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:zipcode:30332
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061111 18:05:30;/accounts/createaccount.php;validate:phone:404-385-4812
+chaohua.ou@cetl.gatech.edu;20061111 18:05:31;/accounts/createaccount.php;user added (ldap): Chaohua Ou (chaohua.ou@cetl.gatech.edu) [954]
+68.184.88.135;20061111 18:05:31;/accounts/createaccount.php;created account: chaohua.ou@cetl.gatech.edu (chaohua.ou@cetl.gatech.edu) Ou,Chaohua: inst=116
+chaohua.ou@cetl.gatech.edu;20061111 18:07:56;/accounts/activate.php;user modified (ldap): Chaohua Ou (chaohua.ou@cetl.gatech.edu) [954]
+chaohua.ou@cetl.gatech.edu;20061111 18:08:13;/accounts/login.php;user logged in (ldap):68.184.88.135:https://sakaiproject.org/accounts/login.php
+ajax;20061111 18:08:24;/accounts/ajax/validate.php;validate:namespaces:GA
+ajax;20061111 18:08:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061111 18:08:25;/accounts/ajax/validate.php;validate:zipcode:30332
+ajax;20061111 18:08:25;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061111 18:08:25;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061111 18:08:25;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061111 18:08:25;/accounts/ajax/validate.php;validate:phone:404-385-4812
+ajax;20061111 18:08:25;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20061111 18:11:00;/conference/registration/index.php;validate::Faculty Development
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:Atlanta
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:GA
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:namespaces:GA
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:zipcode:30332
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:US
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:namespaces:US
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:404-385-4812
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:phone:404-385-4812
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:N
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:N
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:Small
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:TUE
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:WED
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:THU
+ajax;20061111 18:11:00;/conference/registration/index.php;validate:required:FRI
+chaohua.ou@cetl.gatech.edu;20061111 18:11:00;/conference/registration/index.php;user modified (ldap): Chaohua Ou (chaohua.ou@cetl.gatech.edu) [954]
+ajax;20061111 22:50:02;/accounts/ajax/validate.php;validate:email:cstinson@ferrum.edu
+ajax;20061111 22:50:02;/accounts/ajax/validate.php;validate:uniqueuserp:cstinson@ferrum.edu
+ajax;20061111 22:50:02;/accounts/ajax/validate.php;validate:uniqueuserp:cstinson@ferrum.edu
+ajax;20061111 22:50:02;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061111 22:50:18;/accounts/ajax/validate.php;validate:email:cstinson@ferrum.edu
+ajax;20061111 22:50:18;/accounts/ajax/validate.php;validate:uniqueuserp:cstinson@ferrum.edu
+ajax;20061111 22:50:18;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061111 22:51:36;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20061111 22:51:36;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061111 22:51:38;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20061111 22:51:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061111 22:51:42;/accounts/ajax/validate.php;validate:zipcode:24060
+ajax;20061111 22:51:42;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061111 22:51:44;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061111 22:51:44;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061111 22:51:50;/accounts/ajax/validate.php;validate:phone:540-365-4311
+ajax;20061111 22:51:50;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061111 22:52:11;/accounts/createaccount.php;validate:required:cstinson@ferrum.edu
+ajax;20061111 22:52:11;/accounts/createaccount.php;validate:email:cstinson@ferrum.edu
+ajax;20061111 22:52:11;/accounts/createaccount.php;validate:uniqueuserp:cstinson@ferrum.edu
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:uniqueuserp:cstinson@ferrum.edu
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:required:maggie05
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:password:maggie05
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:required:maggie05
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:password:maggie05
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:match:maggie05
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:required:Christine
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:required:Stinson
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:required:cstinson@ferrum.edu
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:email:cstinson@ferrum.edu
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:uniqueuserp:cstinson@ferrum.edu
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate::Faculty
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:required:Ferrum College
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate::1002 Highland Circle
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:namespaces:Blacksburg
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:namespaces:VA
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:zipcode:24060
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:phone:540-365-4311
+ajax;20061111 22:52:12;/accounts/createaccount.php;validate:phone:540-365-4377
+cstinson@ferrum.edu;20061111 22:52:13;/accounts/createaccount.php;user added (ldap): Christine Stinson (cstinson@ferrum.edu) [955]
+72.255.42.222;20061111 22:52:13;/accounts/createaccount.php;created account: cstinson@ferrum.edu (cstinson@ferrum.edu) Stinson,Christine: inst=1
+cstinson@ferrum.edu;20061111 22:53:20;/accounts/activate.php;user modified (ldap): Christine Stinson (cstinson@ferrum.edu) [955]
+cstinson@ferrum.edu;20061111 22:53:33;/accounts/login.php;user logged in (ldap):72.255.42.222:https://sakaiproject.org/accounts/login.php
+ajax;20061111 22:53:38;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20061111 22:53:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061111 22:53:38;/accounts/ajax/validate.php;validate:zipcode:24060
+ajax;20061111 22:53:38;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061111 22:53:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061111 22:53:38;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061111 22:53:39;/accounts/ajax/validate.php;validate:phone:540-365-4311
+ajax;20061111 22:53:39;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061111 22:53:39;/accounts/ajax/validate.php;validate:phone:540-365-4377
+ajax;20061111 22:53:39;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20061111 22:54:37;/conference/registration/index.php;validate::Faculty
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:Ferrum College
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:Blacksburg
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:VA
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:namespaces:VA
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:zipcode:24060
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:US
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:namespaces:US
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:540-365-4311
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:phone:540-365-4311
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:phone:540-365-4377
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:Y
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:N
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:Large
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:TUE
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:WED
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required:THU
+ajax;20061111 22:54:37;/conference/registration/index.php;validate:required: 
+cstinson@ferrum.edu;20061111 22:54:37;/conference/registration/index.php;user modified (ldap): Christine Stinson (cstinson@ferrum.edu) [955]

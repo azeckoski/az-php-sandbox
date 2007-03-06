@@ -1,0 +1,414 @@
+wytzekoopal;20061010 03:49:02;/accounts/login.php;user logged in (internal):130.89.36.180:https://sakaiproject.org/accounts/login.php
+ajax;20061010 03:49:04;/accounts/ajax/validate.php;validate:namespaces:OV
+ajax;20061010 03:49:04;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20061010 03:49:04;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 03:49:04;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 03:49:04;/accounts/ajax/validate.php;validate:phone: 31534892455
+ajax;20061010 03:49:04;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 03:49:43;/accounts/ajax/validate.php;validate:zipcode:7500 AE
+ajax;20061010 03:49:43;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:Implementor
+ajax;20061010 03:50:28;/conference/registration/index.php;validate::Manager
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:Enschede
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:OV
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:namespaces:OV
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:NL
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:namespaces:NL
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:+31534892455
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:phone:+31534892455
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:Y
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:N
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:X-Large
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:TUE
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:WED
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:THU
+ajax;20061010 03:50:28;/conference/registration/index.php;validate:required:FRI
+ajax;20061010 05:28:36;/accounts/ajax/validate.php;validate:email:ckwong@hkac.org.hk
+ajax;20061010 05:28:36;/accounts/ajax/validate.php;validate:uniqueuserp:ckwong@hkac.org.hk
+ajax;20061010 05:28:36;/accounts/ajax/validate.php;validate:uniqueuserp:ckwong@hkac.org.hk
+ajax;20061010 05:28:36;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061010 05:29:31;/accounts/ajax/validate.php;validate:namespaces:Hong Kong 
+ajax;20061010 05:29:31;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 05:29:45;/accounts/ajax/validate.php;validate:namespaces:HK
+ajax;20061010 05:29:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 05:30:47;/accounts/ajax/validate.php;validate:email:ckwong
+ajax;20061010 05:30:47;/accounts/ajax/validate.php;return=error|email|Invalid email address
+ajax;20061010 05:30:57;/accounts/ajax/validate.php;validate:email:ckwong@hkac.org.hk
+ajax;20061010 05:30:57;/accounts/ajax/validate.php;validate:uniqueuserp:ckwong@hkac.org.hk
+ajax;20061010 05:30:57;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 05:31:01;/accounts/ajax/validate.php;validate:email:ckwong
+ajax;20061010 05:31:01;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061010 05:31:09;/accounts/ajax/validate.php;validate:email:ckwong@hkac.org.hk
+ajax;20061010 05:31:09;/accounts/ajax/validate.php;validate:uniqueuserp:ckwong@hkac.org.hk
+ajax;20061010 05:31:09;/accounts/ajax/validate.php;validate:uniqueuserp:ckwong@hkac.org.hk
+ajax;20061010 05:31:09;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:required:ckwong@hkac.org.hk
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:email:ckwong@hkac.org.hk
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:uniqueuserp:ckwong@hkac.org.hk
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:uniqueuserp:ckwong@hkac.org.hk
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:required:fw6624
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:password:fw6624
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:required:fw6624
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:password:fw6624
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:match:fw6624
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:required:Frederick
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:required:Wong
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:required:ckwong@hkac.org.hk
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:email:ckwong@hkac.org.hk
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:uniqueuserp:ckwong@hkac.org.hk
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:required:System Administrator
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate::Faculty
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:required:Hong Kong Art School
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate::http://www.hkas.edu.hk
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:namespaces:Hong Kong 
+ajax;20061010 05:31:46;/accounts/createaccount.php;validate:namespaces:HK
+203.198.168.41;20061010 05:31:46;/accounts/createaccount.php;created account: ckwong@hkac.org.hk (ckwong@hkac.org.hk) Wong,Frederick: inst=1
+ckwong@hkac.org.hk;20061010 05:39:35;/accounts/login.php;user logged in (internal):203.198.168.41:https://sakaiproject.org/accounts/login.php?ref=/accounts/myaccount.php
+ajax;20061010 05:39:42;/accounts/ajax/validate.php;validate:email:ckwong@hkac.org.hk
+ajax;20061010 05:39:42;/accounts/ajax/validate.php;validate:uniquesql:ckwong@hkac.org.hk
+ajax;20061010 05:39:42;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 05:39:42;/accounts/ajax/validate.php;validate:namespaces:Hong Kong
+ajax;20061010 05:39:42;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 05:39:43;/accounts/ajax/validate.php;validate:namespaces:HK
+ajax;20061010 05:39:43;/accounts/ajax/validate.php;return=ok|country|
+granow@oncampus.de;20061010 06:26:27;/accounts/login.php;user logged in (internal):193.175.122.124:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.+%3Cbr%2F%3E%3Cbr%2F%3E%2A%2A++only+those+individuals+who+were+nominated+and+contacted+by+the+elections+committee+may+add+their+information.%3Cbr%2F%3E%3Cbr%2F%3E+
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;validate:email:granow@oncampus.de
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;validate:uniquesql:granow@oncampus.de
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;validate:zipcode:23562
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;validate:namespaces:Luebeck
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;validate:phone: 49 451 3005432
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;validate:phone: 49 451 3005420
+ajax;20061010 06:26:41;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:required:Rolf
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:required:Granow
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:required:granow@oncampus.de
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:email:granow@oncampus.de
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:uniquesql:granow@oncampus.de
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:required:Manager
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate::Faculty Development
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:required:27
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate::Stephensonstr. 239
+23562 Luebeck
+Germany
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:namespaces:Luebeck
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:zipcode:23562
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:namespaces:DE
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:phone:+49 451 3005432
+ajax;20061010 06:27:36;/accounts/myaccount.php;validate:phone:+49 451 3005420
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;validate:email:granow@oncampus.de
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;validate:uniquesql:granow@oncampus.de
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;validate:zipcode:23562
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;validate:namespaces:Luebeck
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;validate:phone: 49 451 3005432
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;validate:phone: 49 451 3005420
+ajax;20061010 06:27:38;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061010 06:28:39;/accounts/ajax/validate.php;validate:zipcode:23562
+ajax;20061010 06:28:39;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 06:28:39;/accounts/ajax/validate.php;validate:phone: 49 451 3005432
+ajax;20061010 06:28:39;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 06:28:39;/accounts/ajax/validate.php;validate:phone: 49 451 3005420
+ajax;20061010 06:28:39;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061010 06:28:39;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061010 06:28:39;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 06:31:04;/accounts/ajax/validate.php;validate:email:granow@oncampus.de
+ajax;20061010 06:31:04;/accounts/ajax/validate.php;validate:uniquesql:granow@oncampus.de
+ajax;20061010 06:31:04;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 06:31:04;/accounts/ajax/validate.php;validate:zipcode:23562
+ajax;20061010 06:31:04;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 06:31:05;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061010 06:31:05;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 06:31:05;/accounts/ajax/validate.php;validate:namespaces:Luebeck
+ajax;20061010 06:31:05;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 06:31:05;/accounts/ajax/validate.php;validate:phone: 49 451 3005432
+ajax;20061010 06:31:05;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 06:31:05;/accounts/ajax/validate.php;validate:phone: 49 451 3005420
+ajax;20061010 06:31:05;/accounts/ajax/validate.php;return=ok|fax|
+mmmay;20061010 08:29:03;/accounts/login.php;user logged in (internal):149.166.143.165:https://sakaiproject.org/accounts/login.php
+ajax;20061010 08:29:09;/conference/proposals/index.php;validate:required:presentation
+mmmay;20061010 08:33:11;/accounts/login.php;user logged in (internal):149.166.143.128:https://sakaiproject.org/accounts/login.php
+mmmay;20061010 08:37:31;/accounts/login.php;user logged in (internal):149.166.143.165:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/edit_proposal.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061010 08:39:10;/conference/proposals/edit_proposal.php;validate:required:What does quality assurance mean for Sakai?
+ajax;20061010 08:39:10;/conference/proposals/edit_proposal.php;validate:required:During this session we will give you a glimpse of the Sakai quality assurance process and how it relates to the release process.  We will review changes that have occurred over the past year and take an in-depth look at the current process.  In doing so, we will find out how various stakeholders view the level of quality of past releases.  We will then explore future pathways for quality assurance and one surefire way to ensure quality is for institutional leaders to pledge quality assurance resources to the community!
+ajax;20061010 08:39:10;/conference/proposals/edit_proposal.php;validate:required:During this session we will give you a glimpse of the Sakai quality assurance process and how it relates to the release process.  We will review changes that have occurred over the past year and take an in-depth look at the current process.  In doing so, we will find out how various stakeholders view the level of quality of past releases.  We will then explore future pathways for quality assurance and one surefire way to ensure quality is for institutional leaders to pledge quality assurance resources to the community!
+ajax;20061010 08:39:10;/conference/proposals/edit_proposal.php;validate:required:Megan May 
+ajax;20061010 08:39:10;/conference/proposals/edit_proposal.php;validate:required:Megan May has been coordinating the Sakai QA efforts for the past year. In addition to her work with the Sakai, she is a senior analyst coordinating & performing local QA and data analysis for Oncourse, Indiana University's implementation of Sakai.
+ajax;20061010 08:39:10;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061010 08:39:10;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061010 08:39:10;/conference/proposals/edit_proposal.php;validate:required:40
+jrm;20061010 09:43:10;/accounts/login.php;user logged in (internal):128.220.212.114:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+jbshedd;20061010 09:43:50;/accounts/login.php;user logged in (internal):128.230.35.191:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+khancock;20061010 09:44:02;/accounts/login.php;user logged in (internal):149.166.143.234:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061010 09:44:06;/conference/proposals/index.php;validate:required:presentation
+ajax;20061010 09:44:31;/conference/proposals/edit_proposal.php;validate:required:Goal-aware tools: integrating course management & assessment sytems
+ajax;20061010 09:44:31;/conference/proposals/edit_proposal.php;validate:required:Sakai's new "goal-aware" toolset can turn course management software (typically thought to serve the needs of individual courses and instructors) into an academic information system, with far-reaching implications for students, faculty, and administrators. Panrelists will discuss the pedagogical, organizational, political, and programatic implications of these deceptively simple but powerful tools.
+ajax;20061010 09:44:31;/conference/proposals/edit_proposal.php;validate:required:The technical details of Sakai's new "goal-aware" tools have been described in other sessions and venues. Panelists in this session will discuss the pedagogical, organizational, programmatic, and political implications of these deceptively simple but powerful tools. By associating assignments and other work that students may complete for particular courses or other communities with "global" goal-sets that whole programs share in common, and by providing a means of tracking  ratings on these assignments and other work across courses, goal-aware tools have the potential to turn course management software (typically thought to serve the needs of individual courses and instructors) into academic information systems, with far-reaching implications for students, faculty, and program administrators. Panelists in this session are involved in some of the first efforts to test and implement the tools in various K12 and higher education settings; they will discuss the similar and different issues that their efforts are uncovering.
+ajax;20061010 09:44:31;/conference/proposals/edit_proposal.php;validate:required:Joseph Shedd
+ajax;20061010 09:44:31;/conference/proposals/edit_proposal.php;validate:required:Associate Professor of Educational Leadership, Chair, Teaching and Leadership Programs, and PT3 Principal Invesitgatr, Syracuse University School of Education.
+ajax;20061010 09:44:31;/conference/proposals/edit_proposal.php;validate:required:panel
+ajax;20061010 09:44:31;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061010 09:44:31;/conference/proposals/edit_proposal.php;validate:required:90
+jbshedd;20061010 09:58:58;/accounts/login.php;user logged in (internal):128.230.35.191:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061010 09:59:32;/conference/proposals/edit_proposal.php;validate:required:Message Center
+ajax;20061010 09:59:32;/conference/proposals/edit_proposal.php;validate:required:Message Center is Indiana University’s solution for discussion and private messaging, facilitating one-on-one and group communication. 
+ajax;20061010 09:59:32;/conference/proposals/edit_proposal.php;validate:required:Message Center is Indiana University’s solution for discussion and private messaging, facilitating one-on-one and group communication. Through private messaging, users within a site can quickly and easily communicate individually or with a group and can even auto-forward private messages to their favorite email client.  Message Center’s discussion forum feature complements private messaging well by providing authors with extensive control over permissions and forum/topic status and giving users an intuitive navigation.  New Message Center functionality for Sakai 2.4 will include a group aware discussion forum tool.
+ajax;20061010 09:59:32;/conference/proposals/edit_proposal.php;validate:required:Megan May
+ajax;20061010 09:59:32;/conference/proposals/edit_proposal.php;validate:required:Megan May has been coordinating the Sakai QA efforts for the past year. In addition to her work with the Sakai, she is a senior analyst coordinating & performing local QA and data analysis for Oncourse, Indiana University's implementation of Sakai.
+ajax;20061010 09:59:32;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061010 09:59:32;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061010 09:59:32;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061010 09:59:38;/conference/proposals/index.php;validate:required:presentation
+ajax;20061010 10:02:43;/conference/proposals/edit_proposal.php;validate:required:Podcasts
+ajax;20061010 10:02:43;/conference/proposals/edit_proposal.php;validate:required:Indiana University’s Podcasts tool gives site owners the opportunity to make lectures and other course content available for students to download and listen to on their portable media player. This technology enables students to review lectures in their dorm or on their way to and from class. Come and learn more about this technology that is transforming the way students prepare for class.
+ajax;20061010 10:02:43;/conference/proposals/edit_proposal.php;validate:required:Indiana University’s Podcasts tool gives site owners the opportunity to make lectures and other course content available for students to download and listen to on their portable media player.  This technology enables students to review lectures in their dorm or on their way to and from class.  Come and learn more about this technology that is transforming the way students prepare for class.
+ajax;20061010 10:02:43;/conference/proposals/edit_proposal.php;validate:required:Lance Speelmon
+ajax;20061010 10:02:43;/conference/proposals/edit_proposal.php;validate:required:Lance Speelmon is the manager of the Course Management Systems team at Indiana University.  He is responsible for the development of Indiana University’s faculty and student requirements for Sakai.  Lance is also the branch manager for Sakai.
+ajax;20061010 10:02:43;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061010 10:02:43;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061010 10:02:43;/conference/proposals/edit_proposal.php;validate:required:40
+amorrone;20061010 10:32:30;/accounts/login.php;user logged in (internal):156.56.74.174:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061010 10:32:48;/conference/proposals/index.php;validate:required:presentation
+wittke;20061010 10:41:19;/accounts/login.php;user logged in (internal):193.175.122.93:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061010 10:41:22;/accounts/ajax/validate.php;validate:namespaces:Schleswig-Holstein
+ajax;20061010 10:41:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 10:41:22;/accounts/ajax/validate.php;validate:zipcode:23552
+ajax;20061010 10:41:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 10:41:22;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061010 10:41:22;/accounts/ajax/validate.php;validate:phone: 49-451-300-543
+ajax;20061010 10:41:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 10:41:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 10:43:36;/accounts/ajax/validate.php;validate:namespaces:Schleswig-Holstein
+ajax;20061010 10:43:36;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 10:43:36;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061010 10:43:36;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 10:43:36;/accounts/ajax/validate.php;validate:phone: 49-451-300-543
+ajax;20061010 10:43:36;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 10:43:39;/accounts/ajax/validate.php;validate:zipcode:23552
+ajax;20061010 10:43:39;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 11:17:21;/conference/proposals/edit_proposal.php;validate:required:ePortfolio: The Triple Helix of Learning, Assessment, and Pedagogy
+ajax;20061010 11:17:21;/conference/proposals/edit_proposal.php;validate:required:In this session, we will discuss the triple helix as a metaphor for how the strands of learning, assessment, and pedagogy must be intertwined to provide a coherent way to think about teaching and learning. We will explore examples that illustrate how the ePortfolio links these strands in meaningful ways.
+ajax;20061010 11:17:21;/conference/proposals/edit_proposal.php;validate:required:The nature of college instruction is changing rapidly.  More than ever before faculty and students are engaging in meaningful discourse about complex, authentic problems within and across disciplines.  What does this shift from traditional methods of instruction toward instructional approaches that emphasize active learning and the social construction of knowledge mean for assessment of student learning?  How can we better align pedagogy with learning and assessment?  How does this relate to a triple helix?  Extending the triple helix metaphor to an electronic portfolio, we argue that the three strands of learning, assessment of student learning, and pedagogy must be intertwined in the same way as that of a triple helix in nature.  An electronic portfolio can provide the means to inherently link the three strands of learning, assessment, and pedagogy.  In this session, we will explore ePortfolio examples in which learning, assessment, and pedagogy are inextricably linked.
+ajax;20061010 11:17:21;/conference/proposals/edit_proposal.php;validate:required:Anastasia S. Morrone
+ajax;20061010 11:17:21;/conference/proposals/edit_proposal.php;validate:required:Anastasia S. Morrone is an Associate Professor of Educational Psychology and Associate Dean for Teaching and Learning Information Technologies (TLIT) at Indiana University.  She is responsible for university-wide leadership for faculty adoption of Sakai and IT support to faculty coordinated through the campus centers for teaching and learning.
+ajax;20061010 11:17:21;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20061010 11:17:21;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20061010 11:17:21;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061010 11:42:29;/conference/proposals/index.php;validate:required:presentation
+ajax;20061010 11:46:01;/conference/proposals/edit_proposal.php;validate:required:Effective use of Sakai in promoting best practices in teaching and learning
+ajax;20061010 11:46:01;/conference/proposals/edit_proposal.php;validate:required:We will bring members of the academic and professional development community together with developers and the technical support community to discuss how Sakai tools support best practices in teaching and learning. The participants will discuss examples of innovative teaching practices and challenged to describe how Sakai tools support these practices.
+ajax;20061010 11:46:01;/conference/proposals/edit_proposal.php;validate:required:In this interactive session, we will bring members of the academic and professional development community together with developers and the technical support community to discuss about how the Sakai tools support best practices in teaching and learning.  The participants will explore examples of innovative teaching practices at Indiana University that are drawn from a comprehensive, peer-reviewed good practices repository.  These examples include problem-based learning, case studies, simulations and gaming, use of item (artifact) collection and reflection as a pedagogical tool, developing formative and summative assessment models, and peer review. Participants will explore how current Sakai tools support these teaching practices and also the challenges that the current tools pose for the use of these practices.  The overarching goal of the session is to bring together people with different backgrounds to discuss the effective use of Sakai tools in promoting best practices in teaching and learning.
+ajax;20061010 11:46:01;/conference/proposals/edit_proposal.php;validate:required:Anastasia S. Morrone
+ajax;20061010 11:46:01;/conference/proposals/edit_proposal.php;validate:required:Anastasia S. Morrone is an Associate Professor of Educational Psychology and Associate Dean for Teaching and Learning Information Technologies (TLIT) at Indiana University.  She is responsible for university-wide leadership for faculty adoption of Sakai and IT support to faculty coordinated through the campus centers for teaching and learning.
+ajax;20061010 11:46:01;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20061010 11:46:02;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20061010 11:46:02;/conference/proposals/edit_proposal.php;validate:required:90
+132.170.155.66;20061010 12:25:07;/accounts/forgot_password.php;password reset: jbuckner@mail.ucf.edu
+angdehart;20061010 13:29:39;/accounts/login.php;user logged in (internal):128.42.47.131:https://sakaiproject.org/accounts/login.php
+ajax;20061010 13:37:46;/accounts/ajax/validate.php;validate:email:emetsger@jhu.edu
+ajax;20061010 13:37:46;/accounts/ajax/validate.php;validate:uniqueuserp:emetsger@jhu.edu
+ajax;20061010 13:37:46;/accounts/ajax/validate.php;validate:uniqueuserp:emetsger@jhu.edu
+ajax;20061010 13:37:46;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061010 13:38:00;/accounts/ajax/validate.php;validate:email:emetsger@jhu.edu
+ajax;20061010 13:38:00;/accounts/ajax/validate.php;validate:uniqueuserp:emetsger@jhu.edu
+ajax;20061010 13:38:00;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 13:38:28;/accounts/ajax/validate.php;validate:namespaces:B
+ajax;20061010 13:38:28;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 13:38:39;/accounts/ajax/validate.php;validate:namespaces:Baltimore
+ajax;20061010 13:38:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 13:38:41;/accounts/ajax/validate.php;validate:namespaces:MD
+ajax;20061010 13:38:41;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 13:38:43;/accounts/ajax/validate.php;validate:zipcode:21218
+ajax;20061010 13:38:43;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 13:38:44;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061010 13:38:44;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:required:emetsger@jhu.edu
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:email:emetsger@jhu.edu
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:uniqueuserp:emetsger@jhu.edu
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:uniqueuserp:emetsger@jhu.edu
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:required:flagflower
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:password:flagflower
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:required:flagflower
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:password:flagflower
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:match:flagflower
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:required:Elliot
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:required:Metsger
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:required:emetsger@jhu.edu
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:email:emetsger@jhu.edu
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:uniqueuserp:emetsger@jhu.edu
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate::System Administrator
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:required:24
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate::3500 N Charles St
+115 Krieger Hall
+
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:namespaces:Baltimore
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:namespaces:MD
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:zipcode:21218
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061010 13:38:52;/accounts/createaccount.php;validate:phone:410 516 4147
+128.220.8.104;20061010 13:38:53;/accounts/createaccount.php;created account: emetsger@jhu.edu (emetsger@jhu.edu) Metsger,Elliot: inst=24
+emetsger@jhu.edu;20061010 13:42:35;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php
+emetsger@jhu.edu;20061010 13:42:57;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+emetsger@jhu.edu;20061010 13:43:07;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php
+emetsger@jhu.edu;20061010 13:43:37;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php
+emetsger@jhu.edu;20061010 13:45:52;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+emetsger@jhu.edu;20061010 13:46:03;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+emetsger@jhu.edu;20061010 13:46:14;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+128.220.8.104;20061010 13:46:21;/accounts/forgot_password.php;password reset: emetsger@jhu.edu
+emetsger@jhu.edu;20061010 13:49:30;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php
+emetsger@jhu.edu;20061010 14:08:59;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php
+granow@oncampus.de;20061010 15:07:17;/accounts/login.php;user logged in (internal):193.175.120.186:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+granow@oncampus.de;20061010 15:07:45;/accounts/login.php;user logged in (internal):193.175.120.186:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+granow@oncampus.de;20061010 15:08:10;/accounts/login.php;user logged in (internal):193.175.120.186:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+emetsger@jhu.edu;20061010 15:16:02;/accounts/login.php;user logged in (internal):128.220.8.104:https://sakaiproject.org/accounts/login.php
+ajax;20061010 15:16:08;/accounts/ajax/validate.php;validate:namespaces:MD
+ajax;20061010 15:16:08;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 15:16:08;/accounts/ajax/validate.php;validate:zipcode:21218
+ajax;20061010 15:16:08;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 15:16:09;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061010 15:16:09;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 15:16:09;/accounts/ajax/validate.php;validate:phone:410 516 4147
+ajax;20061010 15:16:09;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061010 15:19:36;/conference/registration/index.php;validate::System Administrator
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:Baltimore
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:MD
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:namespaces:MD
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:zipcode:21218
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:US
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:namespaces:US
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:410 516 4147
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:phone:410 516 4147
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:Y
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:Y
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:Large
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:TUE
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:WED
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:THU
+ajax;20061010 15:19:36;/conference/registration/index.php;validate:required:FRI
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;validate:email:emetsger@jhu.edu
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;validate:uniquesql:emetsger@jhu.edu
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;validate:namespaces:Baltimore
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;validate:namespaces:MD
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;validate:zipcode:21218
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;validate:phone:410 516 4147
+ajax;20061010 15:43:40;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 15:48:02;/facebook/add_entry.php;validate::Programming, reading, hockey (ice), football (american)
+ajax;20061010 15:48:02;/facebook/add_entry.php;validate:required:1
+ajax;20061010 15:48:11;/facebook/add_entry.php;validate::Programming, reading, hockey (ice), football (american)
+ajax;20061010 15:48:11;/facebook/add_entry.php;validate:required:1
+ajax;20061010 15:49:18;/facebook/add_entry.php;validate::Programming (Java), reading, hockey (ice), football (american)
+ajax;20061010 15:49:18;/facebook/add_entry.php;validate:required:1
+rneuharth@unicon.net;20061010 15:58:14;/accounts/login.php;user logged in (internal):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+omcgrath;20061010 17:26:45;/accounts/login.php;user logged in (internal):169.229.212.44:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+rneuharth@unicon.net;20061010 18:41:08;/accounts/login.php;user logged in (internal):12.164.139.3:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061010 19:53:55;/accounts/ajax/validate.php;validate:email:core
+ajax;20061010 19:53:55;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061010 19:54:08;/accounts/ajax/validate.php;validate:email:core1978
+ajax;20061010 19:54:08;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061010 19:54:25;/accounts/ajax/validate.php;validate:email:corinneabba@gmail.com
+ajax;20061010 19:54:25;/accounts/ajax/validate.php;validate:uniqueuserp:corinneabba@gmail.com
+ajax;20061010 19:54:25;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 19:55:06;/accounts/ajax/validate.php;validate:email:corinneabba@gmail.com
+ajax;20061010 19:55:06;/accounts/ajax/validate.php;validate:uniqueuserp:corinneabba@gmail.com
+ajax;20061010 19:55:06;/accounts/ajax/validate.php;validate:uniqueuserp:corinneabba@gmail.com
+ajax;20061010 19:55:06;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:required:corinneabba@gmail.com
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:email:corinneabba@gmail.com
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:uniqueuserp:corinneabba@gmail.com
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:uniqueuserp:corinneabba@gmail.com
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:required:tijean78
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:password:tijean78
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:required:tijean78
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:password:tijean78
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:match:tijean78
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:required:corinne
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:required:abba
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:required:corinneabba@gmail.com
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:email:corinneabba@gmail.com
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:uniqueuserp:corinneabba@gmail.com
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:required:Faculty
+ajax;20061010 19:55:10;/accounts/createaccount.php;validate:required:84
+70.49.222.62;20061010 19:55:10;/accounts/createaccount.php;created account: corinneabba@gmail.com (corinneabba@gmail.com) abba,corinne: inst=84
+corinneabba@gmail.com;20061010 19:55:38;/accounts/login.php;user logged in (internal):70.49.222.62:https://sakaiproject.org/accounts/login.php
+ajax;20061010 19:55:48;/accounts/ajax/validate.php;validate:email:corinneabba@gmail.com
+ajax;20061010 19:55:48;/accounts/ajax/validate.php;validate:uniquesql:corinneabba@gmail.com
+ajax;20061010 19:55:48;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 19:58:02;/accounts/ajax/validate.php;validate:email:corinneabba@gmail.com
+ajax;20061010 19:58:02;/accounts/ajax/validate.php;validate:uniquesql:corinneabba@gmail.com
+ajax;20061010 19:58:02;/accounts/ajax/validate.php;return=ok|email|
+sayeedmd;20061010 21:46:25;/accounts/login.php;user logged in (internal):72.85.5.214:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+sayeedmd;20061010 21:49:12;/accounts/login.php;user logged in (internal):72.85.5.214:https://sakaiproject.org/accounts/login.php
+sayeedmd;20061010 21:49:40;/accounts/login.php;user logged in (internal):72.85.5.214:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+sayeedmd;20061010 21:50:42;/accounts/login.php;user logged in (internal):72.85.5.214:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+sayeedmd;20061010 21:51:22;/accounts/login.php;user logged in (internal):72.85.5.214:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+brian;20061010 23:13:42;/accounts/login.php;user logged in (internal):142.179.197.134:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061010 23:13:44;/accounts/ajax/validate.php;validate:namespaces:MB
+ajax;20061010 23:13:44;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 23:13:44;/accounts/ajax/validate.php;validate:zipcode:R3B 2E9
+ajax;20061010 23:13:44;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 23:13:45;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061010 23:13:45;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 23:13:45;/accounts/ajax/validate.php;validate:phone:204-786-9801
+ajax;20061010 23:13:45;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;validate:email:brian@moosetrout.com
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;validate:uniquesql:brian@moosetrout.com
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;validate:namespaces:MB
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;validate:namespaces:Winnipeg
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;validate:zipcode:R3B 2E9
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;validate:phone:204-786-9801
+ajax;20061010 23:14:48;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:Implementor
+ajax;20061010 23:26:43;/conference/registration/index.php;validate::Developer/Programmer
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:University of Winnipeg
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:Winnipeg
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:MB
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:namespaces:MB
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:zipcode:R3B 2E9
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:CA
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:204-786-9801
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:phone:204-786-9801
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:Y
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:N
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:Large
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:TUE
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:WED
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:THU
+ajax;20061010 23:26:43;/conference/registration/index.php;validate:required:FRI
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;validate:email:brian@moosetrout.com
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;validate:uniquesql:brian@moosetrout.com
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;validate:namespaces:MB
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;validate:namespaces:Winnipeg
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;validate:zipcode:R3B 2E9
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;validate:phone:204-786-9801
+ajax;20061010 23:29:35;/accounts/ajax/validate.php;return=ok|phone|

@@ -1,0 +1,1815 @@
+brierley@stanford.edu;20061002 01:22:22;/accounts/login.php;user logged in (internal):71.139.199.139:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061002 01:22:36;/conference/proposals/index.php;validate:required:presentation
+ajax;20061002 01:58:35;/conference/proposals/edit_proposal.php;validate:required:Tool Carousel - SAMigo (Tests & Quizzes)
+ajax;20061002 01:58:35;/conference/proposals/edit_proposal.php;validate:required:An overview of the tool's design and best practices will be followed by short demonstration.
+ajax;20061002 01:58:35;/conference/proposals/edit_proposal.php;validate:required:An overview of the tool's design and best practices will be followed by short demonstration.
+ajax;20061002 01:58:35;/conference/proposals/edit_proposal.php;validate:required:Marc Brierley
+ajax;20061002 01:58:35;/conference/proposals/edit_proposal.php;validate:required:Marc is an interaction designer at Stanford University where he is the lead designer for the SAMigo tool. Marc has worked on various projects within Sakai including the Sakai style guide, design patterns library, advanced resources tool, and course management.
+ajax;20061002 01:58:35;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061002 01:58:35;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061002 01:58:35;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061002 02:27:12;/conference/proposals/edit_proposal.php;validate:required:SAMigo (Tests & Quizzes)
+ajax;20061002 02:27:12;/conference/proposals/edit_proposal.php;validate:required:An overview of the tool's design and best practices will be followed by short demonstration.
+ajax;20061002 02:27:12;/conference/proposals/edit_proposal.php;validate:required:An overview of the tool's design and best practices will be followed by short demonstration.
+ajax;20061002 02:27:12;/conference/proposals/edit_proposal.php;validate:required:Marc Brierley
+ajax;20061002 02:27:12;/conference/proposals/edit_proposal.php;validate:required:Marc is an interaction designer at Stanford University where he is the lead designer for the SAMigo tool. Marc has worked on various projects within Sakai including the Sakai style guide, design patterns library, advanced resources tool, and course management.
+ajax;20061002 02:27:12;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061002 02:27:12;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061002 02:27:12;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061002 02:27:25;/conference/proposals/index.php;validate:required:presentation
+nfernandes;20061002 04:23:38;/accounts/login.php;user logged in (internal):195.23.27.50:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/edit_proposal.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+breiner;20061002 06:35:00;/accounts/login.php;user logged in (internal):71.87.236.158:https://sakaiproject.org/accounts/login.php
+sean@smo.uhi.ac.uk;20061002 07:30:43;/accounts/login.php;user logged in (internal):194.35.194.49:https://sakaiproject.org/accounts/login.php
+ajax;20061002 07:32:01;/conference/proposals/edit_proposal.php;validate:required:Institutional Elearning Using Bodington: UHI and Oxford Case Studies.
+ajax;20061002 07:32:01;/conference/proposals/edit_proposal.php;validate:required:Presentation Description: The Bodington VLE has been deployed in  
+the UK since 1997 and is presently the institutional VLE at  
+both Oxford University and the UHI. This presentation will  
+demonstrate the tool set and use cases found in routine teaching  
+and learning in both institutions.
+ajax;20061002 07:32:01;/conference/proposals/edit_proposal.php;validate:required:Presentation Description: The Bodington VLE has been deployed in  
+the UK since 1997 and is presently the institutional VLE at  
+both Oxford University and the UHI. This presentation will  
+demonstrate the tool set and use cases found in routine teaching  
+and learning in both institutions. The VLE has a range of  
+pedagogically designed tools and resources and supports a variety  
+of teaching and learning styles. It is hoped that the pedagogical  
+design of the tools and container can make a positive impact on the 
+Sakai community. There will be an opportunity for questions for the audience at the end.
+ajax;20061002 07:32:01;/conference/proposals/edit_proposal.php;validate:required:John Smith
+ajax;20061002 07:32:01;/conference/proposals/edit_proposal.php;validate:required:I am currently the VLE Implementation Manager at UHI. Prior to this was
+employed as a Lecturer in Broadcasting, Worked at Aberdeen University in
+the development of medical teaching resources and with BBC in
+communications engineering.  For the past 7 Years have been involved in
+elearning activities at UHI.
+ajax;20061002 07:32:01;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061002 07:32:01;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061002 07:32:01;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061002 07:34:12;/conference/proposals/index.php;validate:required:presentation
+ajax;20061002 08:47:34;/accounts/ajax/validate.php;validate:email:rhoward
+ajax;20061002 08:47:34;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 08:47:36;/accounts/ajax/validate.php;validate:email:rhowarddavdianna
+ajax;20061002 08:47:36;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 08:47:40;/accounts/ajax/validate.php;validate:email:rhoward
+ajax;20061002 08:47:40;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 08:48:00;/accounts/ajax/validate.php;validate:email:rhoward@rsmart.com
+ajax;20061002 08:48:00;/accounts/ajax/validate.php;validate:uniqueuserp:rhoward@rsmart.com
+ajax;20061002 08:48:00;/accounts/ajax/validate.php;validate:uniqueuserp:rhoward@rsmart.com
+ajax;20061002 08:48:00;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 08:48:18;/accounts/ajax/validate.php;validate:email:RHOWARD@rsmart.com
+ajax;20061002 08:48:18;/accounts/ajax/validate.php;validate:uniqueuserp:RHOWARD@rsmart.com
+ajax;20061002 08:48:18;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 08:48:59;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061002 08:48:59;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 08:49:01;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061002 08:49:01;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 08:49:10;/accounts/ajax/validate.php;validate:phone:602 
+ajax;20061002 08:49:10;/accounts/ajax/validate.php;return=error|phone|Invalid phone number, too short
+ajax;20061002 08:49:27;/accounts/ajax/validate.php;validate:phone:602 490 0475
+ajax;20061002 08:49:27;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:required:rhoward@rsmart.com
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:email:rhoward@rsmart.com
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:uniqueuserp:rhoward@rsmart.com
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:uniqueuserp:rhoward@rsmart.com
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:required:davidanna
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:password:davidanna
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:required:davidanna
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:password:davidanna
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:match:davidanna
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:required:Robert
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:required:Howard
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:required:RHOWARD@rsmart.com
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:email:RHOWARD@rsmart.com
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:uniqueuserp:RHOWARD@rsmart.com
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:required:Implementor
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate::User Support
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:required:93
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:namespaces:ON
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:namespaces:CA
+ajax;20061002 08:49:31;/accounts/createaccount.php;validate:phone:602 490 0475
+67.132.153.34;20061002 08:49:31;/accounts/createaccount.php;created account: rhoward@rsmart.com (RHOWARD@rsmart.com) Howard,Robert: inst=93
+rhoward@rsmart.com;20061002 08:52:41;/accounts/login.php;user logged in (internal):67.132.153.34:https://sakaiproject.org/accounts/login.php
+ajax;20061002 09:03:00;/accounts/ajax/validate.php;validate:namespaces:ON
+ajax;20061002 09:03:00;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061002 09:03:00;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 09:03:00;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 09:03:01;/accounts/ajax/validate.php;validate:phone:602 490 0475
+ajax;20061002 09:03:01;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 09:04:16;/accounts/ajax/validate.php;validate:email:sherwoodyao
+ajax;20061002 09:04:16;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 09:04:22;/accounts/ajax/validate.php;validate:email:sherwoodyao@gmail.colm
+ajax;20061002 09:04:22;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 09:04:24;/accounts/ajax/validate.php;validate:email:sherwoodyao@gmail.com
+ajax;20061002 09:04:24;/accounts/ajax/validate.php;validate:uniqueuserp:sherwoodyao@gmail.com
+ajax;20061002 09:04:24;/accounts/ajax/validate.php;validate:uniqueuserp:sherwoodyao@gmail.com
+ajax;20061002 09:04:24;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 09:04:37;/accounts/ajax/validate.php;validate:email:sherwoodyao@gmail.com
+ajax;20061002 09:04:37;/accounts/ajax/validate.php;validate:uniqueuserp:sherwoodyao@gmail.com
+ajax;20061002 09:04:37;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:required:sherwoodyao@gmail.com
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:email:sherwoodyao@gmail.com
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:uniqueuserp:sherwoodyao@gmail.com
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:uniqueuserp:sherwoodyao@gmail.com
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:required:53yaoxh
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:password:53yaoxh
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:required:53yaoxh
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:password:53yaoxh
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:match:53yaoxh
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:required:Sherwood
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:required:Yao
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:required:sherwoodyao@gmail.com
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:email:sherwoodyao@gmail.com
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:uniqueuserp:sherwoodyao@gmail.com
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate::UI/Interaction Designer
+ajax;20061002 09:05:20;/accounts/createaccount.php;validate:required:100
+68.209.207.52;20061002 09:05:20;/accounts/createaccount.php;created account: sherwoodyao@gmail.com (sherwoodyao@gmail.com) Yao,Sherwood: inst=100
+sherwoodyao@gmail.com;20061002 09:06:09;/accounts/login.php;user logged in (internal):68.209.207.52:https://sakaiproject.org/accounts/login.php
+ajax;20061002 09:06:34;/accounts/ajax/validate.php;validate:email:sherwoodyao@gmail.com
+ajax;20061002 09:06:34;/accounts/ajax/validate.php;validate:uniqueuserp:sherwoodyao@gmail.com
+ajax;20061002 09:06:34;/accounts/ajax/validate.php;validate:email:sherwoodyao@gmail.com
+ajax;20061002 09:06:34;/accounts/ajax/validate.php;return=error|username|username already used
+ajax;20061002 09:06:34;/accounts/ajax/validate.php;validate:uniqueuserp:sherwoodyao@gmail.com
+ajax;20061002 09:06:34;/accounts/ajax/validate.php;return=error|email|email already used
+sherwoodyao@gmail.com;20061002 09:06:37;/accounts/login.php;user logged in (internal):68.209.207.52:https://sakaiproject.org/accounts/login.php
+ajax;20061002 09:07:15;/conference/proposals/index.php;validate:required:demo
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;validate:uniquesql:shardin@umich.edu
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 10:44:24;/accounts/ajax/validate.php;return=ok|phone|
+shardin;20061002 10:55:29;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.
+shardin;20061002 10:55:37;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php
+ajax;20061002 10:56:07;/accounts/ajax/validate.php;validate:name:elections_Nov2006
+ajax;20061002 10:56:07;/accounts/ajax/validate.php;validate:uniquesql:elections_Nov2006
+ajax;20061002 10:56:07;/accounts/ajax/validate.php;return=ok|perm_name|
+ajax;20061002 10:56:18;/accounts/admin/admin_perm.php;validate:required:elections_Nov2006
+ajax;20061002 10:56:18;/accounts/admin/admin_perm.php;validate:name:elections_Nov2006
+ajax;20061002 10:56:18;/accounts/admin/admin_perm.php;validate:uniquesql:elections_Nov2006
+ajax;20061002 10:56:18;/accounts/admin/admin_perm.php;validate:required:Only those who have been nominated and need to add their candidate information will have this permission.
+ajax;20061002 10:56:26;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 10:56:26;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 10:56:26;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 10:56:26;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 10:56:26;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 10:56:26;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 10:56:26;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 10:56:27;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 10:56:27;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 10:56:27;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 10:56:27;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 10:56:27;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 10:56:27;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 10:56:27;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 10:56:27;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:required:shardin
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:nospaces:shardin
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:required:Susan
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:required:shardin@umich.edu
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:email:shardin@umich.edu
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:required:76
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate::Duderstadt Ctr
+Bonisteel Dr.
+ajax;20061002 10:56:35;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 10:56:36;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 10:56:36;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20061002 10:56:36;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 10:56:36;/accounts/admin/admin_user.php;validate:phone:734-904-0437
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 10:56:36;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:uniqueuserp:aaronz
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:email:aaronz@vt.edu
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:uniqueuserp:aaronz@vt.edu
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:zipcode:24061
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:phone:540-231-8053
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;validate:phone:540-231-5992
+ajax;20061002 10:56:47;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:required:aaronz
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:nospaces:aaronz
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:uniqueuserp:aaronz
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:required:Aaron
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:required:Zeckoski
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:required:aaronz@vt.edu
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:email:aaronz@vt.edu
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:uniqueuserp:aaronz@vt.edu
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate::UI/Interaction Designer
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:required:88
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate::Learning Technologies
+3005 Torgersen Hall
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:namespaces:Blacksburg
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:namespaces:VA
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:zipcode:24061
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:phone:540-231-8053
+ajax;20061002 10:56:55;/accounts/admin/admin_user.php;validate:phone:540-231-5992
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:uniqueuserp:aaronz
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:email:aaronz@vt.edu
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:uniqueuserp:aaronz@vt.edu
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:namespaces:Blacksburg
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:zipcode:24061
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:phone:540-231-8053
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;validate:phone:540-231-5992
+ajax;20061002 10:56:55;/accounts/ajax/validate.php;return=ok|fax|
+shardin;20061002 11:26:10;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;validate:uniquesql:shardin@umich.edu
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 11:26:12;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 11:36:12;/conference/proposals/edit_proposal.php;validate:required:Course Management Project Update
+ajax;20061002 11:36:12;/conference/proposals/edit_proposal.php;validate:required:The Course Management working group will give an community update on the progress of project to update Sakai tools and services to take better advantage of student information system data. Though highly related, the session will consist of two parts: how users will be affected and the technical underpinnings.
+ajax;20061002 11:36:12;/conference/proposals/edit_proposal.php;validate:required:The Course Management working group will give an community update on the progress of project to update Sakai tools and services to take better advantage of student information system data. Though highly related, the session will consist of two parts: how users will be affected and the technical underpinnings.
+ajax;20061002 11:36:12;/conference/proposals/edit_proposal.php;validate:required:Marc Brierley
+ajax;20061002 11:36:12;/conference/proposals/edit_proposal.php;validate:required:Marc is an interaction designer at Stanford University where he is the lead designer and project managerger for the Course Management WG. Marc has worked on various projects within Sakai including the Sakai style guide, design patterns library, advanced resources tool, and SAMigo.
+ajax;20061002 11:36:12;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20061002 11:36:12;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061002 11:36:12;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061002 11:36:20;/conference/proposals/index.php;validate:required:presentation
+ajax;20061002 11:38:13;/accounts/ajax/validate.php;validate:email:fazia
+ajax;20061002 11:38:13;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 11:38:19;/accounts/ajax/validate.php;validate:email:fazia@txstate.edu
+ajax;20061002 11:38:19;/accounts/ajax/validate.php;validate:uniqueuserp:fazia@txstate.edu
+ajax;20061002 11:38:19;/accounts/ajax/validate.php;validate:uniqueuserp:fazia@txstate.edu
+ajax;20061002 11:38:19;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 11:38:39;/accounts/ajax/validate.php;validate:email:fazia@txstate.edu
+ajax;20061002 11:38:39;/accounts/ajax/validate.php;validate:uniqueuserp:fazia@txstate.edu
+ajax;20061002 11:38:40;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 11:39:27;/accounts/ajax/validate.php;validate:namespaces:San Marcos
+ajax;20061002 11:39:27;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 11:39:30;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20061002 11:39:30;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 11:39:34;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20061002 11:39:34;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 11:39:35;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 11:39:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 11:39:54;/accounts/ajax/validate.php;validate:phone:(512) 245-2319
+ajax;20061002 11:39:55;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:required:fazia@txstate.edu
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:email:fazia@txstate.edu
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:uniqueuserp:fazia@txstate.edu
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:uniqueuserp:fazia@txstate.edu
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:required:11allat11
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:password:11allat11
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:required:11allat11
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:password:11allat11
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:match:11allat11
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:required:Fazia
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:required:Rizvi
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:required:fazia@txstate.edu
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:email:fazia@txstate.edu
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:uniqueuserp:fazia@txstate.edu
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:required:User Support
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:required:51
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate::Alkek 133.3
+601 University Drive
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:namespaces:San Marcos
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:namespaces:TX
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:zipcode:78666
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061002 11:39:55;/accounts/createaccount.php;validate:phone:(512) 245-2319
+147.26.118.240;20061002 11:39:55;/accounts/createaccount.php;created account: fazia@txstate.edu (fazia@txstate.edu) Rizvi,Fazia: inst=51
+ajax;20061002 11:43:58;/conference/proposals/edit_proposal.php;validate:required:UI Design Patterns
+ajax;20061002 11:43:58;/conference/proposals/edit_proposal.php;validate:required:Sakai's prototype UI Design Patterns Library will be unvieled by its working group. We intend to explain the rationale behind design patterns and explain how they will benefit the Sakai community.
+ajax;20061002 11:43:58;/conference/proposals/edit_proposal.php;validate:required:Sakai's prototype UI Design Patterns Library will be unvieled by its working group. We intend to explain the rationale behind design patterns and explain how they will benefit the Sakai community.
+
+Modeled after industry standard design patterns libraries and other collections (see below), the Sakai UI Design Patter Library will provide the following benefits over the current Style Guide:
+    * More complete information about UI components, including the rationale, history and versions for each pattern;
+    * Enhanced communication between designers and developers through ensuring common pattern references (esp. if each design pattern has a corresponding set of JSF tags or other implementations); and
+    * Greater design flexibility through accepting alternative UI designs.
+
+ajax;20061002 11:43:58;/conference/proposals/edit_proposal.php;validate:required:Marc Brierley
+ajax;20061002 11:43:58;/conference/proposals/edit_proposal.php;validate:required:Marc is an interaction designer at Stanford University where he is the lead designer for the SAMigo tool. Marc has worked on various projects within Sakai including the Sakai style guide, design patterns library, advanced resources tool, and course management.
+
+ajax;20061002 11:43:58;/conference/proposals/edit_proposal.php;validate:required:panel
+ajax;20061002 11:43:58;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061002 11:43:58;/conference/proposals/edit_proposal.php;validate:required:40
+fazia@txstate.edu;20061002 11:45:32;/accounts/login.php;user logged in (internal):147.26.118.240:https://sakaiproject.org/accounts/login.php
+ajax;20061002 11:45:36;/accounts/ajax/validate.php;validate:namespaces:TX
+ajax;20061002 11:45:36;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 11:45:36;/accounts/ajax/validate.php;validate:zipcode:78666
+ajax;20061002 11:45:36;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 11:45:36;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 11:45:36;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 11:45:36;/accounts/ajax/validate.php;validate:phone:(512) 245-2319
+ajax;20061002 11:45:36;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:User Support
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:San Marcos
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:TX
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:namespaces:TX
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:zipcode:78666
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:US
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:namespaces:US
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:(512) 245-2319
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:phone:(512) 245-2319
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:Y
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:N
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:Medium
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:TUE
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:WED
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:THU
+ajax;20061002 11:47:16;/conference/registration/index.php;validate:required:FRI
+ajax;20061002 12:25:26;/accounts/ajax/validate.php;validate:email:fcervone
+ajax;20061002 12:25:26;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 12:25:27;/accounts/ajax/validate.php;validate:email:fcervoneC3rv0n3
+ajax;20061002 12:25:27;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 12:25:37;/accounts/ajax/validate.php;validate:email:f-cervone@northwestern.edu
+ajax;20061002 12:25:37;/accounts/ajax/validate.php;validate:uniqueuserp:f-cervone@northwestern.edu
+ajax;20061002 12:25:37;/accounts/ajax/validate.php;validate:uniqueuserp:f-cervone@northwestern.edu
+ajax;20061002 12:25:37;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:25:51;/accounts/ajax/validate.php;validate:email:f-cervone@northwestern.edu
+ajax;20061002 12:25:51;/accounts/ajax/validate.php;validate:uniqueuserp:f-cervone@northwestern.edu
+ajax;20061002 12:25:51;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:26:29;/accounts/ajax/validate.php;validate:namespaces:Evanston
+ajax;20061002 12:26:29;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:26:31;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061002 12:26:31;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:26:32;/accounts/ajax/validate.php;validate:zipcode:60208
+ajax;20061002 12:26:32;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:26:33;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:26:33;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:26:37;/accounts/ajax/validate.php;validate:phone:847.491.8304
+ajax;20061002 12:26:37;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:26:41;/accounts/ajax/validate.php;validate:phone:847.491.8306
+ajax;20061002 12:26:41;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:required:f-cervone@northwestern.edu
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:email:f-cervone@northwestern.edu
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:uniqueuserp:f-cervone@northwestern.edu
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:uniqueuserp:f-cervone@northwestern.edu
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:required:C3rv0n3
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:password:C3rv0n3
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:required:C3rv0n3
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:password:C3rv0n3
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:match:C3rv0n3
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:required:Frank
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:required:Cervone
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:required:f-cervone@northwestern.edu
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:email:f-cervone@northwestern.edu
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:uniqueuserp:f-cervone@northwestern.edu
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:required:University Administration
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate::Librarian
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:required:36
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate::University Library
+1970 Campus Drive
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:namespaces:Evanston
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:namespaces:IL
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:zipcode:60208
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:phone:847.491.8304
+ajax;20061002 12:26:43;/accounts/createaccount.php;validate:phone:847.491.8306
+129.105.203.152;20061002 12:26:43;/accounts/createaccount.php;created account: f-cervone@northwestern.edu (f-cervone@northwestern.edu) Cervone,Frank: inst=36
+f-cervone@northwestern.edu;20061002 12:27:26;/accounts/login.php;user logged in (internal):129.105.203.152:https://sakaiproject.org/accounts/login.php
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;validate:phone:847.491.8304
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;validate:zipcode:60208
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;validate:phone:847.491.8306
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;validate:namespaces:IL
+ajax;20061002 12:27:26;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:29:31;/election/add_entry.php;validate:required:test
+ajax;20061002 12:29:31;/election/add_entry.php;validate:required:test
+ajax;20061002 12:30:10;/election/add_entry.php;validate:required:test
+ajax;20061002 12:30:10;/election/add_entry.php;validate:required:test
+shardin;20061002 12:39:04;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.+%3Cbr%2F%3E%3Cbr%2F%3E%2A%2A++only+those+individuals+who+were+nominated+and+contacted+by+the+elections+committee+may+add+their+information.%3Cbr%2F%3E%3Cbr%2F%3E+
+shardin;20061002 12:39:13;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:39:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:required:shardin
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:nospaces:shardin
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:required:Susan
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:required:shardin@umich.edu
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:email:shardin@umich.edu
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:required:76
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate::Duderstadt Ctr
+Bonisteel Dr.
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 12:39:28;/accounts/admin/admin_user.php;validate:phone:734-904-0437
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:39:29;/accounts/ajax/validate.php;return=ok|phone|
+shardin;20061002 12:39:50;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.+%3Cbr%2F%3E%3Cbr%2F%3E%2A%2A++only+those+individuals+who+were+nominated+and+contacted+by+the+elections+committee+may+add+their+information.%3Cbr%2F%3E%3Cbr%2F%3E+
+shardin;20061002 12:40:05;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:40:14;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:required:shardin
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:nospaces:shardin
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:required:Susan
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:required:shardin@umich.edu
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:email:shardin@umich.edu
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:required:76
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate::Duderstadt Ctr
+Bonisteel Dr.
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 12:40:21;/accounts/admin/admin_user.php;validate:phone:734-904-0437
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:40:22;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:40:36;/election/add_entry.php;validate:required:test
+ajax;20061002 12:40:36;/election/add_entry.php;validate:required:test
+
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:46:41;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:46:42;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:46:42;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:46:42;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:46:42;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:46:42;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:46:47;/accounts/admin/admin_user.php;validate:required:shardin
+ajax;20061002 12:46:47;/accounts/admin/admin_user.php;validate:nospaces:shardin
+ajax;20061002 12:46:47;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin
+ajax;20061002 12:46:47;/accounts/admin/admin_user.php;validate:required:Susan
+ajax;20061002 12:46:47;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 12:46:47;/accounts/admin/admin_user.php;validate:required:shardin@umich.edu
+ajax;20061002 12:46:47;/accounts/admin/admin_user.php;validate:email:shardin@umich.edu
+ajax;20061002 12:46:47;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:46:48;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 12:46:48;/accounts/admin/admin_user.php;validate:required:76
+ajax;20061002 12:46:48;/accounts/admin/admin_user.php;validate::Duderstadt Ctr
+Bonisteel Dr.
+ajax;20061002 12:46:48;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:46:48;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 12:46:48;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20061002 12:46:48;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 12:46:48;/accounts/admin/admin_user.php;validate:phone:734-904-0437
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:46:48;/accounts/ajax/validate.php;return=ok|phone|
+shardin;20061002 12:58:29;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:58:37;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:required:shardin
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:nospaces:shardin
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:required:Susan
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:required:shardin@umich.edu
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:email:shardin@umich.edu
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:required:76
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate::Duderstadt Ctr
+Bonisteel Dr.
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 12:58:46;/accounts/admin/admin_user.php;validate:phone:734-904-0437
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:58:46;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:58:47;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:58:47;/accounts/ajax/validate.php;return=ok|phone|
+shardin;20061002 12:59:05;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:59:16;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:required:shardin
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:nospaces:shardin
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:required:Susan
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:required:shardin@umich.edu
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:email:shardin@umich.edu
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:required:76
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate::Duderstadt Ctr
+Bonisteel Dr.
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 12:59:27;/accounts/admin/admin_user.php;validate:phone:734-904-0437
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:59:28;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:required:shardin
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:nospaces:shardin
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:required:Susan
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:required:shardin@umich.edu
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:email:shardin@umich.edu
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:required:76
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate::Duderstadt Ctr
+Bonisteel Dr.
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 12:59:53;/accounts/admin/admin_user.php;validate:phone:734-904-0437
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;validate:uniqueuserp:shardin
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;validate:uniqueuserp:shardin@umich.edu
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 12:59:54;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;validate:uniqueuserp:chuck_powell
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;validate:email:charles.powell@yale.edu
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;validate:uniqueuserp:charles.powell@yale.edu
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;validate:namespaces:New Haven
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;validate:namespaces:CT
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;validate:zipcode:06520
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;validate:phone:(203)432-7458
+ajax;20061002 13:00:15;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:required:chuck_powell
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:nospaces:chuck_powell
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:uniqueuserp:chuck_powell
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:required:Chuck
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:required:Powell
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:required:charles.powell@yale.edu
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:email:charles.powell@yale.edu
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:uniqueuserp:charles.powell@yale.edu
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:required:University Administration
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate::Manager
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:required:91
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate::175 Whitney Ave
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:namespaces:New Haven
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:namespaces:CT
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:zipcode:06520
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 13:00:20;/accounts/admin/admin_user.php;validate:phone:(203)432-7458
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;validate:uniqueuserp:chuck_powell
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;validate:email:charles.powell@yale.edu
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;validate:uniqueuserp:charles.powell@yale.edu
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;validate:namespaces:New Haven
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;validate:namespaces:CT
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;validate:zipcode:06520
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;validate:phone:(203)432-7458
+ajax;20061002 13:00:21;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;validate:uniqueuserp:clayf
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;validate:email:clayf@bu.edu
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;validate:uniqueuserp:clayf@bu.edu
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;validate:namespaces:Boston
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;validate:zipcode:02215
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;validate:phone:617-358-2782
+ajax;20061002 13:00:32;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:required:clayf
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:nospaces:clayf
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:uniqueuserp:clayf
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:required:Clay
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:required:Fenlason
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:required:clayf@bu.edu
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:email:clayf@bu.edu
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:uniqueuserp:clayf@bu.edu
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:required:Manager
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate::Implementor
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:required:Boston University School of Management
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:namespaces:Boston
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:namespaces:MA
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:zipcode:02215
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 13:00:38;/accounts/admin/admin_user.php;validate:phone:617-358-2782
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;validate:uniqueuserp:clayf
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;validate:email:clayf@bu.edu
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;validate:uniqueuserp:clayf@bu.edu
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;validate:namespaces:Boston
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;validate:namespaces:MA
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;validate:zipcode:02215
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;validate:phone:617-358-2782
+ajax;20061002 13:00:38;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;validate:uniqueuserp:hardin
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;validate:email:hardin@umich.edu
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;validate:uniqueuserp:hardin@umich.edu
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;validate:phone:734 763-3266
+ajax;20061002 13:00:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:00:57;/accounts/admin/admin_user.php;validate:required:hardin
+ajax;20061002 13:00:57;/accounts/admin/admin_user.php;validate:nospaces:hardin
+ajax;20061002 13:00:57;/accounts/admin/admin_user.php;validate:uniqueuserp:hardin
+ajax;20061002 13:00:57;/accounts/admin/admin_user.php;validate:required:Joseph
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:required:hardin@umich.edu
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:email:hardin@umich.edu
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:uniqueuserp:hardin@umich.edu
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:required:Faculty
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate::University Administration
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:required:76
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate::Duderstadt Center
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 13:00:58;/accounts/admin/admin_user.php;validate:phone:734 763-3266
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;validate:uniqueuserp:hardin
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;validate:email:hardin@umich.edu
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;validate:uniqueuserp:hardin@umich.edu
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;validate:phone:734 763-3266
+ajax;20061002 13:00:58;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;validate:uniqueuserp:seththeriault
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;validate:email:slt@columbia.edu
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;validate:uniqueuserp:slt@columbia.edu
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;validate:zipcode:10025
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;validate:phone:2128545741
+ajax;20061002 13:01:09;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:required:seththeriault
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:nospaces:seththeriault
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:uniqueuserp:seththeriault
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:required:Seth
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:required:Theriault
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:required:slt@columbia.edu
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:email:slt@columbia.edu
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:uniqueuserp:slt@columbia.edu
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:required:System Administrator
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate::Developer/Programmer
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:required:13
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate::Information Technology
+Columbia University
+612 W 115 St
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:namespaces:New York
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:namespaces:NY
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:zipcode:10025
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 13:01:17;/accounts/admin/admin_user.php;validate:phone:2128545741
+ajax;20061002 13:01:17;/accounts/ajax/validate.php;validate:uniqueuserp:seththeriault
+ajax;20061002 13:01:17;/accounts/ajax/validate.php;validate:email:slt@columbia.edu
+ajax;20061002 13:01:17;/accounts/ajax/validate.php;validate:uniqueuserp:slt@columbia.edu
+ajax;20061002 13:01:17;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:01:17;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;validate:namespaces:New York
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;validate:namespaces:NY
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;validate:zipcode:10025
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;validate:phone:2128545741
+ajax;20061002 13:01:18;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;validate:uniqueuserp:marquard@ched.uct.ac.za
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;validate:email:marquard@ched.uct.ac.za
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;validate:uniqueuserp:marquard@ched.uct.ac.za
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;validate:namespaces:South Africa
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;validate:namespaces:Western Cape
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;validate:zipcode:99999
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;validate:phone: 27-21-650-5037
+ajax;20061002 13:01:29;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:required:marquard@ched.uct.ac.za
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:nospaces:marquard@ched.uct.ac.za
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:uniqueuserp:marquard@ched.uct.ac.za
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:required:Stephen
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:required:Marquard
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:required:marquard@ched.uct.ac.za
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:email:marquard@ched.uct.ac.za
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:uniqueuserp:marquard@ched.uct.ac.za
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:required:Implementor
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate::Developer/Programmer
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:required:66
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate::Centre for Educational Technology
+Hlanganani Building, Upper Campus
+University of Cape Town
+Rondebosch
+Cape Town
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:namespaces:South Africa
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:namespaces:Western Cape
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:zipcode:99999
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:namespaces:ZA
+ajax;20061002 13:01:38;/accounts/admin/admin_user.php;validate:phone:+27-21-650-5037
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;validate:uniqueuserp:marquard@ched.uct.ac.za
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;validate:email:marquard@ched.uct.ac.za
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;validate:uniqueuserp:marquard@ched.uct.ac.za
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;validate:namespaces:South Africa
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;validate:namespaces:Western Cape
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;validate:zipcode:99999
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;validate:phone: 27-21-650-5037
+ajax;20061002 13:01:39;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:uniqueuserp:dvanderm
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:email:dvanderm@unisa.ac.za
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:uniqueuserp:dvanderm@unisa.ac.za
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:namespaces:Roodepoort
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:namespaces:Gauteng
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:zipcode: 1710
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:phone:27 11 471-2844
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;validate:phone:27  11 471-3070
+ajax;20061002 13:01:56;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:required:dvanderm
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:nospaces:dvanderm
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:uniqueuserp:dvanderm
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:required:Deon
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:required:van der Merwe
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:required:dvanderm@unisa.ac.za
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:email:dvanderm@unisa.ac.za
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:uniqueuserp:dvanderm@unisa.ac.za
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:required:Manager
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate::Implementor
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:required:82
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate::Department: ICT
+Directorate: Portal and Academic Solutions
+Private Bag X6
+Florida
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:namespaces:Roodepoort
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:namespaces:Gauteng
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:zipcode: 1710
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:namespaces:ZA
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:phone:27 11 471-2844
+ajax;20061002 13:02:01;/accounts/admin/admin_user.php;validate:phone:27  11 471-3070
+ajax;20061002 13:02:01;/accounts/ajax/validate.php;validate:uniqueuserp:dvanderm
+ajax;20061002 13:02:01;/accounts/ajax/validate.php;validate:email:dvanderm@unisa.ac.za
+ajax;20061002 13:02:01;/accounts/ajax/validate.php;validate:uniqueuserp:dvanderm@unisa.ac.za
+ajax;20061002 13:02:01;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;validate:namespaces:Roodepoort
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;validate:namespaces:Gauteng
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;validate:zipcode: 1710
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;validate:namespaces:ZA
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;validate:phone:27 11 471-2844
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;validate:phone:27  11 471-3070
+ajax;20061002 13:02:02;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 13:02:28;/accounts/ajax/validate.php;validate:uniqueuserp:lbrooks@stanford.edu
+ajax;20061002 13:02:28;/accounts/ajax/validate.php;validate:email:lbrooks@stanford.edu
+ajax;20061002 13:02:28;/accounts/ajax/validate.php;validate:uniqueuserp:lbrooks@stanford.edu
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;validate:namespaces:Stanford
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;validate:zipcode:94305-3101
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;validate:phone:650-723-3064
+ajax;20061002 13:02:29;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:required:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:nospaces:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:uniqueuserp:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:required:Lois
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:required:Brooks
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:required:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:email:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:uniqueuserp:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:required:University Administration
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:required:46
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate::Academic Computing
+Meyer Memorial Library
+560 Escondido Mall, Room 242
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:namespaces:Stanford
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:namespaces:CA
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:zipcode:94305-3101
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 13:02:38;/accounts/admin/admin_user.php;validate:phone:650-723-3064
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;validate:uniqueuserp:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;validate:email:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;validate:uniqueuserp:lbrooks@stanford.edu
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;validate:namespaces:Stanford
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;validate:zipcode:94305-3101
+ajax;20061002 13:02:38;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:02:39;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:02:39;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:02:39;/accounts/ajax/validate.php;validate:phone:650-723-3064
+ajax;20061002 13:02:39;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:03:08;/accounts/ajax/validate.php;validate:uniqueuserp:hedrick
+ajax;20061002 13:03:08;/accounts/ajax/validate.php;validate:email:hedrick@rutgers.edu
+ajax;20061002 13:03:08;/accounts/ajax/validate.php;validate:uniqueuserp:hedrick@rutgers.edu
+ajax;20061002 13:03:08;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:03:08;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;validate:uniqueuserp:hedrickc
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;validate:email:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;validate:uniqueuserp:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;validate:namespaces:PISCATAWAY
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;validate:namespaces:NJ
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;validate:zipcode:08854
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;validate:phone:732-445-3088
+ajax;20061002 13:03:15;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:required:hedrickc
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:nospaces:hedrickc
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:uniqueuserp:hedrickc
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:required:Charles
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:required:Hedrick
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:required:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:email:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:uniqueuserp:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:required:Manager
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate::Instructional Technologist
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:required:44
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate::56 Bevier Road
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:namespaces:PISCATAWAY
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:namespaces:NJ
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:zipcode:08854
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 13:03:25;/accounts/admin/admin_user.php;validate:phone:732-445-3088
+ajax;20061002 13:03:25;/accounts/ajax/validate.php;validate:uniqueuserp:hedrickc
+ajax;20061002 13:03:25;/accounts/ajax/validate.php;validate:email:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:25;/accounts/ajax/validate.php;validate:uniqueuserp:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;validate:namespaces:PISCATAWAY
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;validate:namespaces:NJ
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;validate:zipcode:08854
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;validate:phone:732-445-3088
+ajax;20061002 13:03:26;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;validate:uniqueuserp:hedrickc
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;validate:email:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;validate:uniqueuserp:hwalsh@rci.rutgers.edu
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;validate:namespaces:PISCATAWAY
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;validate:namespaces:NJ
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;validate:zipcode:08854
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;validate:phone:732-445-3088
+ajax;20061002 13:03:29;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:03:34;/accounts/ajax/validate.php;validate:uniqueuserp:hedrick
+ajax;20061002 13:03:34;/accounts/ajax/validate.php;validate:email:hedrick@rutgers.edu
+ajax;20061002 13:03:34;/accounts/ajax/validate.php;validate:uniqueuserp:hedrick@rutgers.edu
+ajax;20061002 13:03:34;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:03:34;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:required:hedrick
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:nospaces:hedrick
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:uniqueuserp:hedrick
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:required:Charles
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:required:Hedrick
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:required:hedrick@rutgers.edu
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:email:hedrick@rutgers.edu
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:uniqueuserp:hedrick@rutgers.edu
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:required:Manager
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate::Instructional Technologist
+ajax;20061002 13:03:56;/accounts/admin/admin_user.php;validate:required:44
+ajax;20061002 13:03:56;/accounts/ajax/validate.php;validate:uniqueuserp:hedrick
+ajax;20061002 13:03:56;/accounts/ajax/validate.php;validate:email:hedrick@rutgers.edu
+ajax;20061002 13:03:56;/accounts/ajax/validate.php;validate:uniqueuserp:hedrick@rutgers.edu
+ajax;20061002 13:03:56;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:03:56;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:40:00;/accounts/ajax/validate.php;validate:email:Carl Jacobson
+ajax;20061002 13:40:00;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 13:40:05;/accounts/ajax/validate.php;validate:email:carlj@udel.edu
+ajax;20061002 13:40:05;/accounts/ajax/validate.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 13:40:05;/accounts/ajax/validate.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 13:40:05;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 13:40:30;/accounts/ajax/validate.php;validate:email:carlj@udel.edu
+ajax;20061002 13:40:30;/accounts/ajax/validate.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 13:40:30;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 13:40:57;/accounts/ajax/validate.php;validate:namespaces:Newark
+ajax;20061002 13:40:57;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 13:40:58;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061002 13:40:58;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 13:41:00;/accounts/ajax/validate.php;validate:zipcode:19716
+ajax;20061002 13:41:00;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 13:41:01;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 13:41:01;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 13:41:06;/accounts/ajax/validate.php;validate:phone:302-831-6070
+ajax;20061002 13:41:06;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 13:41:16;/accounts/ajax/validate.php;validate:phone:302-831-8955
+ajax;20061002 13:41:16;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:required:carlj@udel.edu
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:email:carlj@udel.edu
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:required:cwj123
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:password:cwj123
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:required:cwj123
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:password:cwj123
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:match:cwj123
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:required:Carl
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:required:Jacobson
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:required:carlj@udel.edu
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:email:carlj@udel.edu
+ajax;20061002 13:41:16;/accounts/createaccount.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate:required:University Administration
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate:required:70
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate::192 S. Chapel Street
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate:namespaces:Newark
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate:namespaces:DE
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate:zipcode:19716
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate:phone:302-831-6070
+ajax;20061002 13:41:17;/accounts/createaccount.php;validate:phone:302-831-8955
+128.175.163.211;20061002 13:41:17;/accounts/createaccount.php;created account: carlj@udel.edu (carlj@udel.edu) Jacobson,Carl: inst=70
+carlj@udel.edu;20061002 13:41:58;/accounts/login.php;user logged in (internal):128.175.163.211:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.+%3Cbr%2F%3E%3Cbr%2F%3E%2A%2A++only+those+individuals+who+were+nominated+and+contacted+by+the+elections+committee+may+add+their+information.%3Cbr%2F%3E%3Cbr%2F%3E+
+gbhatnag;20061002 13:55:17;/accounts/login.php;user logged in (internal):141.211.43.176:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061002 14:05:05;/accounts/ajax/validate.php;validate:email:granow@oncampus.de
+ajax;20061002 14:05:05;/accounts/ajax/validate.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 14:05:05;/accounts/ajax/validate.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 14:05:05;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 14:05:34;/accounts/ajax/validate.php;validate:email:granow@oncampus.de
+ajax;20061002 14:05:34;/accounts/ajax/validate.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 14:05:34;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 14:07:17;/accounts/ajax/validate.php;validate:namespaces:Luebeck
+ajax;20061002 14:07:17;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 14:07:22;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project: Accessing Licensed Digital Content Within Sakai
+ajax;20061002 14:07:22;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project has implemented and started usability and pilot testing for a system within Sakai to search licensed electronic scholarly databases.  From search results, Citations can be managed in the form of Citation Lists within the Resources tool.  This presentation will describe and demonstrate various features of this project.
+ajax;20061002 14:07:22;/conference/proposals/edit_proposal.php;validate:required:The goals of this presentation are to:
+* share and demonstrate the functionality developed for Sakai by the Sakaibrary Project - walkthroughs of various user (faculty, student, librarian) usage of the system.
+* describe the various technologies the Sakaibrary Project employs (Metasearch engines, OpenURL Link Resolvers, OKI Repository OSID, modifications to Sakai Content).
+* share "Phase 2" project enhancements.
+* briefly describe the QA, usability and pilot testing process and results (though this is the main focus of the Sakaibrary Project Update Presentation).
+ajax;20061002 14:07:23;/conference/proposals/edit_proposal.php;validate:required:Susan Hollar
+ajax;20061002 14:07:23;/conference/proposals/edit_proposal.php;validate:required:Susan is Curriculum Integration Coordinator at the University of Michigan Library and co-Project Lead on the Sakaibrary Project.  Susan has lead various projects at Michigan to integrate innovative information technologies with library systems.
+ajax;20061002 14:07:23;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061002 14:07:23;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061002 14:07:23;/conference/proposals/edit_proposal.php;validate:required:40
+ajax;20061002 14:07:33;/accounts/ajax/validate.php;validate:zipcode:23562
+ajax;20061002 14:07:33;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 14:07:39;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061002 14:07:39;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 14:07:53;/accounts/ajax/validate.php;validate:phone: 49 451 300 543
+ajax;20061002 14:07:53;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 14:08:03;/accounts/ajax/validate.php;validate:phone: 49 451 300
+ajax;20061002 14:08:03;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 14:08:14;/accounts/ajax/validate.php;validate:phone: 49 451 3005432
+ajax;20061002 14:08:14;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 14:08:28;/conference/proposals/edit_proposal.php;validate:required:The OKI Repository OSID in Sakai: where can we go from here?
+ajax;20061002 14:08:28;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project has implemented the OKI Repository OSID to interface commercial metasearch engines with Sakaibrary's re-purposed version of the "Twin Peaks" Repository OSID searching tool.  How does this work lend itself to existing and future ideas of Repository OSID use within Sakai?
+ajax;20061002 14:08:28;/conference/proposals/edit_proposal.php;validate:required:The goals of this session are to:
+* gather leaders working with (or with an interest in) Sakai and the Repository OSID.
+* share a summary of the Sakaibrary Project's work implementing the Repository OSID and re-purposing "Twin Peaks" with the Sakai & Repository OSID community to lower barriers to interoperability.
+* share existing and future ideas of Repository OSID use within Sakai (this will start with the panel and then be open to the audience).
+* discuss possibilities for interoperability between ideas.
+
+In the previous Sakai Conference, there was a rather large BOF and much e-mail discussion on the topic of Repositories in general in Sakai and the intersection of the Repository OSID.  This session would act as a follow-up to that BOF/discussion, highlighting the Sakaibrary Project's work accessing "repositories" (metasearch engines) in Sakai through use of the Repository OSID.
+ajax;20061002 14:08:28;/conference/proposals/edit_proposal.php;validate:required:Gaurav Bhatnagar
+ajax;20061002 14:08:28;/conference/proposals/edit_proposal.php;validate:required:Gaurav is an Application Programmer-Analyst at the University of Michigan Library working on the Sakaibrary Project. He has been a part of the development team implementing the OKI Repository OSID to interface commercial metasearch engines with Sakaibrary's re-purposed version of the "Twin Peaks" OKI Repository OSID searching tool.
+ajax;20061002 14:08:28;/conference/proposals/edit_proposal.php;validate:required:panel
+ajax;20061002 14:08:28;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20061002 14:08:28;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061002 14:08:29;/accounts/ajax/validate.php;validate:phone: 49 451 3005420
+ajax;20061002 14:08:29;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 14:08:31;/accounts/createaccount.php;validate:required:granow@oncampus.de
+ajax;20061002 14:08:31;/accounts/createaccount.php;validate:email:granow@oncampus.de
+ajax;20061002 14:08:31;/accounts/createaccount.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:required:gra10now
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:password:gra10now
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:required:gra10now
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:password:gra10now
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:match:gra10now
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:required:Rolf
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:required:Granow
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:required:granow@oncampus.de
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:email:granow@oncampus.de
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:required:Manager
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate::Faculty Development
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:required:27
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate::Stephensonstr. 239
+23562 Luebeck
+Germany
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:namespaces:Luebeck
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:zipcode:23562
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:namespaces:DE
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:phone:+49 451 3005432
+ajax;20061002 14:08:32;/accounts/createaccount.php;validate:phone:+49 451 3005420
+193.175.122.124;20061002 14:08:32;/accounts/createaccount.php;created account: granow@oncampus.de (granow@oncampus.de) Granow,Rolf: inst=27
+shardin;20061002 14:24:13;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:email:carlj@udel.edu
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:namespaces:Newark
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:zipcode:19716
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:phone:302-831-6070
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;validate:phone:302-831-8955
+ajax;20061002 14:24:31;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 14:24:41;/accounts/admin/admin_user.php;validate:required:carlj@udel.edu
+ajax;20061002 14:24:41;/accounts/admin/admin_user.php;validate:nospaces:carlj@udel.edu
+ajax;20061002 14:24:41;/accounts/admin/admin_user.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 14:24:41;/accounts/admin/admin_user.php;validate:required:Carl
+ajax;20061002 14:24:41;/accounts/admin/admin_user.php;validate:required:Jacobson
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:required:carlj@udel.edu
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:email:carlj@udel.edu
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:required:University Administration
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:required:70
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate::192 S. Chapel Street
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:namespaces:Newark
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:namespaces:DE
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:zipcode:19716
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:phone:302-831-6070
+ajax;20061002 14:24:42;/accounts/admin/admin_user.php;validate:phone:302-831-8955
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:email:carlj@udel.edu
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:uniqueuserp:carlj@udel.edu
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:namespaces:Newark
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:zipcode:19716
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:phone:302-831-6070
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;validate:phone:302-831-8955
+ajax;20061002 14:24:42;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 14:26:22;/election/add_entry.php;validate:required:This is a sample entry my platform statement would go here...
+ajax;20061002 14:26:22;/election/add_entry.php;validate:required:This is a sample entry my bio would go here...
+ajax;20061002 14:29:21;/election/add_entry.php;validate:required:This is a sample entry my platform statement would go here...
+The Sakai Foundation is a non-profit organization that is dedicated to coordinating activities around Sakai and the Sakai community to insure Sakai's long-term viability.
+
+The Sakai Foundation has a number of staff focused on coordinating activities, including a full-time Executive Director who manages the daily operation of the foundation. Sakai staff provides coordination across a number of activities including: project management, quality assurance, release management and conference planning.
+
+The Sakai Foundation is supported by voluntary partner contributions. The Sakai Partners elect the Sakai Foundation Board of Directors, which provide the strategic leadership for the Sakai Foundation.
+
+The Sakai Foundation is a non-profit organization that is dedicated to coordinating activities around Sakai and the Sakai community to insure Sakai's long-term viability.
+
+The Sakai Foundation has a number of staff focused on coordinating activities, including a full-time Executive Director who manages the daily operation of the foundation. Sakai staff provides coordination across a number of activities including: project management, quality assurance, release management and conference planning.
+
+The Sakai Foundation is supported by voluntary partner contributions. The Sakai Partners elect the Sakai Foundation Board of Directors, which provide the strategic leadership for the Sakai Foundation.
+
+
+ajax;20061002 14:29:21;/election/add_entry.php;validate:required:This is a sample entry my bio would go here...
+Sakai is an online Collaboration and Learning Environment. Many users of Sakai deploy it to support teaching and learning, ad hoc group collaboration, support for portfolios and research collaboration.
+
+Sakai is a free and open source product that is built and maintained by the Sakai community. Sakai's development model is called "Community Source" because many of the developers creating Sakai are drawn from the "community" of organizations that have adopted and are using Sakai.
+ajax;20061002 14:29:37;/election/add_entry.php;validate:required:This is a sample entry my platform statement would go here...
+
+The Sakai Foundation is a non-profit organization that is dedicated to coordinating activities around Sakai and the Sakai community to insure Sakai's long-term viability.
+
+The Sakai Foundation has a number of staff focused on coordinating activities, including a full-time Executive Director who manages the daily operation of the foundation. Sakai staff provides coordination across a number of activities including: project management, quality assurance, release management and conference planning.
+
+The Sakai Foundation is supported by voluntary partner contributions. The Sakai Partners elect the Sakai Foundation Board of Directors, which provide the strategic leadership for the Sakai Foundation.
+
+The Sakai Foundation is a non-profit organization that is dedicated to coordinating activities around Sakai and the Sakai community to insure Sakai's long-term viability.
+
+The Sakai Foundation has a number of staff focused on coordinating activities, including a full-time Executive Director who manages the daily operation of the foundation. Sakai staff provides coordination across a number of activities including: project management, quality assurance, release management and conference planning.
+
+The Sakai Foundation is supported by voluntary partner contributions. The Sakai Partners elect the Sakai Foundation Board of Directors, which provide the strategic leadership for the Sakai Foundation.
+
+
+ajax;20061002 14:29:37;/election/add_entry.php;validate:required:This is a sample entry my bio would go here...
+
+Sakai is an online Collaboration and Learning Environment. Many users of Sakai deploy it to support teaching and learning, ad hoc group collaboration, support for portfolios and research collaboration.
+
+Sakai is a free and open source product that is built and maintained by the Sakai community. Sakai's development model is called "Community Source" because many of the developers creating Sakai are drawn from the "community" of organizations that have adopted and are using Sakai.
+ajax;20061002 14:39:39;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project: Accessing Licensed Digital Content Within Sakai
+ajax;20061002 14:39:39;/conference/proposals/edit_proposal.php;validate:required:The Sakaibrary Project has implemented and started usability and pilot testing for a system within Sakai to search licensed electronic scholarly databases.  From search results, Citations can be managed in the form of Citation Lists within the Resources tool.  This presentation will describe and demonstrate various features of this project.
+ajax;20061002 14:39:39;/conference/proposals/edit_proposal.php;validate:required:The goals of this presentation are to:
+* share and demonstrate the functionality developed for Sakai by the Sakaibrary Project - walkthroughs of various user (faculty, student, librarian) usage of the system.
+* describe the various technologies the Sakaibrary Project employs (Metasearch engines, OpenURL Link Resolvers, OKI Repository OSID, modifications to Sakai Content).
+* share "Phase 2" project enhancements.
+* briefly describe the QA, usability and pilot testing process and results (though this is the main focus of the Sakaibrary Project Update Presentation).
+ajax;20061002 14:39:39;/conference/proposals/edit_proposal.php;validate:required:Susan Hollar
+ajax;20061002 14:39:39;/conference/proposals/edit_proposal.php;validate:required:Susan is Curriculum Integration Coordinator at the University of Michigan Library and co-Project Lead on the Sakaibrary Project.  Susan has lead various projects at Michigan to integrate innovative information technologies with library systems.
+ajax;20061002 14:39:39;/conference/proposals/edit_proposal.php;validate:required:carousel
+ajax;20061002 14:39:39;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061002 14:39:39;/conference/proposals/edit_proposal.php;validate:required:40
+granow@oncampus.de;20061002 15:31:21;/accounts/login.php;user logged in (internal):193.175.122.124:https://sakaiproject.org/accounts/login.php
+shardin;20061002 15:34:27;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ws15@txstate.edu;20061002 15:34:44;/accounts/login.php;user logged in (internal):147.26.119.178:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ggolden@umich.edu;20061002 15:34:54;/accounts/login.php;user logged in (internal):68.40.200.152:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061002 15:34:55;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 15:34:55;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 15:34:55;/accounts/ajax/validate.php;validate:zipcode:48109-2094
+ajax;20061002 15:34:55;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 15:34:55;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 15:34:55;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 15:34:55;/accounts/ajax/validate.php;validate:phone:734-395-98700
+ajax;20061002 15:34:55;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 15:36:40;/accounts/ajax/validate.php;validate:phone:734-395-9700
+ajax;20061002 15:36:40;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:Ann Arbor
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:MI
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:namespaces:MI
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:zipcode:48109-2094
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:US
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:namespaces:US
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:734-395-9700
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:phone:734-395-9700
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:Y
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:N
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:X-Large
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:TUE
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:WED
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:THU
+ajax;20061002 15:38:59;/conference/registration/index.php;validate:required:FRI
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;validate:email:granow@oncampus.de
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;validate:uniquesql:granow@oncampus.de
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;validate:zipcode:23562
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;validate:namespaces:Luebeck
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;validate:phone: 49 451 3005432
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;validate:phone: 49 451 3005420
+ajax;20061002 15:42:34;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 15:46:22;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20061002 15:46:22;/accounts/ajax/validate.php;validate:uniquesql:shardin@umich.edu
+ajax;20061002 15:46:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 15:46:22;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 15:46:22;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 15:46:23;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 15:46:23;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20061002 15:46:23;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 15:46:23;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 15:46:23;/accounts/ajax/validate.php;validate:phone:734-904-0437
+ajax;20061002 15:46:23;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 15:46:23;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 15:46:23;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;validate:uniqueuserp:shardin.umich@gmail.com
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;validate:email:shardin.umich@gmail.com
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;validate:uniqueuserp:shardin.umich@gmail.com
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;validate:zipcode:33333
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;validate:phone:444-444-4444
+ajax;20061002 15:46:32;/accounts/ajax/validate.php;return=ok|phone|
+shardin.umich@gmail.com;20061002 15:46:58;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+shardin;20061002 15:47:31;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/accounts/admin/admin_users.php
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;validate:uniqueuserp:shardin.umich@gmail.com
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;validate:email:shardin.umich@gmail.com
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;validate:uniqueuserp:shardin.umich@gmail.com
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;validate:zipcode:33333
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;validate:phone:444-444-4444
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 15:47:37;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:required:shardin.umich@gmail.com
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:nospaces:shardin.umich@gmail.com
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin.umich@gmail.com
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:required:Susan
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:required:Hardin
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:required:shardin.umich@gmail.com
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:email:shardin.umich@gmail.com
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:uniqueuserp:shardin.umich@gmail.com
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:required:Developer/Programmer
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:required:Sakai Foundation
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate::555 Main
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:zipcode:33333
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20061002 15:47:45;/accounts/admin/admin_user.php;validate:phone:444-444-4444
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;validate:uniqueuserp:shardin.umich@gmail.com
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;validate:email:shardin.umich@gmail.com
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;validate:uniqueuserp:shardin.umich@gmail.com
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;validate:zipcode:33333
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;validate:phone:444-444-4444
+ajax;20061002 15:47:46;/accounts/ajax/validate.php;return=ok|phone|
+shardin.umich@gmail.com;20061002 15:47:57;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php
+granow@oncampus.de;20061002 15:50:21;/accounts/login.php;user logged in (internal):193.175.122.124:https://sakaiproject.org/accounts/login.php
+knoop;20061002 15:59:03;/accounts/login.php;user logged in (internal):75.45.184.105:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+gbhatnag;20061002 16:07:18;/accounts/login.php;user logged in (internal):141.211.43.176:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+shardin;20061002 16:14:01;/accounts/login.php;user logged in (internal):141.213.113.215:https://sakaiproject.org/accounts/login.php?ref=/accounts/index.php
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;validate:email:granow@oncampus.de
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;validate:namespaces:Luebeck
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;validate:zipcode:23562
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;validate:phone: 49 451 3005432
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;validate:phone: 49 451 3005420
+ajax;20061002 16:14:11;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:required:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:nospaces:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:required:Rolf
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:required:Granow
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:required:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:email:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:required:Manager
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate::Faculty Development
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:required:27
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate::Stephensonstr. 239
+23562 Luebeck
+Germany
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:namespaces:Luebeck
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:zipcode:23562
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:namespaces:DE
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:phone:+49 451 3005432
+ajax;20061002 16:14:18;/accounts/admin/admin_user.php;validate:phone:+49 451 3005420
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;validate:email:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;validate:uniqueuserp:granow@oncampus.de
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;validate:namespaces:Luebeck
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;validate:zipcode:23562
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;validate:namespaces:DE
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;validate:phone: 49 451 3005432
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;validate:phone: 49 451 3005420
+ajax;20061002 16:14:18;/accounts/ajax/validate.php;return=ok|fax|
+granow@oncampus.de;20061002 16:19:32;/accounts/login.php;user logged in (internal):193.175.122.124:https://sakaiproject.org/accounts/login.php?ref=/election/add_entry.php&msg=You+must+login+to+complete+your+Sakai+Board+elections+nominee+entry.+If+you+do+not+have+an+account%2C+please+create+one.+%3Cbr%2F%3E%3Cbr%2F%3E%2A%2A++only+those+individuals+who+were+nominated+and+contacted+by+the+elections+committee+may+add+their+information.%3Cbr%2F%3E%3Cbr%2F%3E+
+ajax;20061002 16:28:05;/election/add_entry.php;validate:required:To be free in creating partnerships and to extend collaboration among teachers and students across organizations Lübeck joined Sakai in 2004. We are convinced of the value of the architecture of Sakai and its framework. We are excited to be part of the international Sakai community at an early stage of its lifecycle. We see tremendous potential in the idea of connecting successful ideas and solutions from both sides of the Atlantic and around the world to shape the next generation of common E-Learning environments.
+
+On the operational level: we have completed our pilot evaluation of Sakai and will be in full production with Sakai starting in October 2006.
+
+We organised in 2005 the first German Sakai Day and in 2006 the first European Sakai Day.  During the European Sakai Day, we discussed how the impact of the Bologna Process is creating a common European area of higher education. We see this leading to a common vision of a collaborative learning environment enabling collaboration of teachers, researchers and students across our universities. A common platform is a precondition and we estimate Sakai the best solution for this deployment.
+
+I present myself as a candidate for the Sakai board because I believe that Lübeck should continue to make a strong commitment and contribution to Sakai.   We are convinced of the competitiveness and strategic potential of Sakai. I would be honoured to serve the community going forward and to help promoting the solution as well as the ideas around the solution.
+
+As Sakai is now a solid product a major focus in the next period has to be increasing the number of Sakai implementations. An appropriate way from my view is to foster strategic implementations in spearhead-institutions and to disseminate from these best-practice experiences. Implementations are the dynamic source for aggregating practical feed-back and are mission-critical for future success.
+
+Serving and extending the community is a continuing activity which must continue to point out that Sakai is not based on “vendors” and “suppliers” but instead based on active partnership across the community.
+
+The community of developers has to be substantially expanded towards a community of practice with teachers, researchers and students. Their experience will drive scenarios for collaborative-learning and optimisation of the front-end-functionality. The interaction between the different communities has to be designed and implemented carefully.
+
+Beside fostering these more operational (but necessary) actions my key-interest in Sakai on a strategic level is to realise the vision of international virtual collaboration among students and teachers – by implementing interoperable environments and joining universities technically and organisationally to produce a global community in higher education creating added value from multicultural backgrounds and attitudes.
+
+ajax;20061002 16:28:05;/election/add_entry.php;validate:required:Since 1997 I have been responsible for the E-Learning-activities in Lübeck, leading large-scale E-Learning-projects with a total volume of over 50 M$.  The idea from the beginning was to use E-Learning to attract new target-groups of students by supporting life-long-learning and to use technology for innovative collaborations between universities. We currently use a blended learning approach with about 80% online-learning and with 20% of on-campus learning.
+
+We started in 1998 with a consortium of German Universities named “Virtual University of Applied Sciences”. We have developed and successfully implemented complete online Bachelor/Master programmes in informatics, engineering and business administration. We have agreed to common curricula, we have jointly developed learning content, and we share the content and the LMS for all our online-students. We enrol regular students into the programmes at each of our universities, organise the virtual teaching and build virtual student-groups across the universities. I was initially the project-manager of the federal flagship-project that created the consortium and then became then secretary of the board of the virtual organisation.
+
+Following these ideas we initiated the European consortium named “Baltic Sea Virtual Campus” that today joins 12 universities from the Baltic Sea Area. I have been the chairman of the executive board since 2005. We have collaboratively developed and implemented international online-master-programmes in “Industrial Engineering” and “Transregional Management”. A specific focus has been the online-collaboration of international groups of students. They stay in their countries and form virtual groups. We have realized significant added value to the learning-outcomes of the students due to the multicultural and professional experiences of these virtual groups. 
+
+I am currently the managing director of the limited company “oncampus GmbH”, delivering E-Learning-services and marketing online-courses and–programmes. We have a focus in developing high quality online-courses with rich media content and collaborative learning-scenarios. We have created our production-environment for efficient and sustainable course-creation based on professional processes and workflow-management. I am leading a team of nearly 40 people in Lübeck.
+
+I received my Ph.D. in flexible manufacturing systems. For ten years I worked on the managing board of a German IT-company. I became a professor in Lübeck in 1993 where I taught production organisation and computer integrated manufacturing with a focus on re-engineering processes and the impact of IT on strategic competitiveness.
+
+aaronz;20061002 16:28:09;/accounts/login.php;user logged in (internal):128.173.55.214:https://sakaiproject.org/accounts/login.php?ref=/conference/registration/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;validate:namespaces:VA
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;validate:zipcode:24061
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;validate:phone:540-231-8053
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;validate:phone:540-231-5992
+ajax;20061002 16:28:12;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 16:28:39;/election/add_entry.php;validate:required:To be free in creating partnerships and to extend collaboration among teachers and students across organizations Lübeck joined Sakai in 2004. We are convinced of the value of the architecture of Sakai and its framework. We are excited to be part of the international Sakai community at an early stage of its lifecycle. We see tremendous potential in the idea of connecting successful ideas and solutions from both sides of the Atlantic and around the world to shape the next generation of common E-Learning environments.
+
+On the operational level: we have completed our pilot evaluation of Sakai and will be in full production with Sakai starting in October 2006.
+
+We organised in 2005 the first German Sakai Day and in 2006 the first European Sakai Day.  During the European Sakai Day, we discussed how the impact of the Bologna Process is creating a common European area of higher education. We see this leading to a common vision of a collaborative learning environment enabling collaboration of teachers, researchers and students across our universities. A common platform is a precondition and we estimate Sakai the best solution for this deployment.
+
+I present myself as a candidate for the Sakai board because I believe that Lübeck should continue to make a strong commitment and contribution to Sakai.   We are convinced of the competitiveness and strategic potential of Sakai. I would be honoured to serve the community going forward and to help promoting the solution as well as the ideas around the solution.
+
+As Sakai is now a solid product a major focus in the next period has to be increasing the number of Sakai implementations. An appropriate way from my view is to foster strategic implementations in spearhead-institutions and to disseminate from these best-practice experiences. Implementations are the dynamic source for aggregating practical feed-back and are mission-critical for future success.
+
+Serving and extending the community is a continuing activity which must continue to point out that Sakai is not based on “vendors” and “suppliers” but instead based on active partnership across the community.
+
+The community of developers has to be substantially expanded towards a community of practice with teachers, researchers and students. Their experience will drive scenarios for collaborative-learning and optimisation of the front-end-functionality. The interaction between the different communities has to be designed and implemented carefully.
+
+Beside fostering these more operational (but necessary) actions my key-interest in Sakai on a strategic level is to realise the vision of international virtual collaboration among students and teachers – by implementing interoperable environments and joining universities technically and organisationally to produce a global community in higher education creating added value from multicultural backgrounds and attitudes.
+
+ajax;20061002 16:28:39;/election/add_entry.php;validate:required:Since 1997 I have been responsible for the E-Learning-activities in Lübeck, leading large-scale E-Learning-projects with a total volume of over 50 M$.  The idea from the beginning was to use E-Learning to attract new target-groups of students by supporting life-long-learning and to use technology for innovative collaborations between universities. We currently use a blended learning approach with about 80% online-learning and with 20% of on-campus learning.
+
+We started in 1998 with a consortium of German Universities named “Virtual University of Applied Sciences”. We have developed and successfully implemented complete online Bachelor/Master programmes in informatics, engineering and business administration. We have agreed to common curricula, we have jointly developed learning content, and we share the content and the LMS for all our online-students. We enrol regular students into the programmes at each of our universities, organise the virtual teaching and build virtual student-groups across the universities. I was initially the project-manager of the federal flagship-project that created the consortium and then became then secretary of the board of the virtual organisation.
+
+Following these ideas we initiated the European consortium named “Baltic Sea Virtual Campus” that today joins 12 universities from the Baltic Sea Area. I have been the chairman of the executive board since 2005. We have collaboratively developed and implemented international online-master-programmes in “Industrial Engineering” and “Transregional Management”. A specific focus has been the online-collaboration of international groups of students. They stay in their countries and form virtual groups. We have realized significant added value to the learning-outcomes of the students due to the multicultural and professional experiences of these virtual groups. 
+
+I am currently the managing director of the limited company “oncampus GmbH”, delivering E-Learning-services and marketing online-courses and–programmes. We have a focus in developing high quality online-courses with rich media content and collaborative learning-scenarios. We have created our production-environment for efficient and sustainable course-creation based on professional processes and workflow-management. I am leading a team of nearly 40 people in Lübeck.
+
+I received my Ph.D. in flexible manufacturing systems. For ten years I worked on the managing board of a German IT-company. I became a professor in Lübeck in 1993 where I taught production organisation and computer integrated manufacturing with a focus on re-engineering processes and the impact of IT on strategic competitiveness.
+
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:Developer/Programmer
+ajax;20061002 16:28:53;/conference/registration/index.php;validate::UI/Interaction Designer
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:Blacksburg
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:VA
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:namespaces:VA
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:zipcode:24061
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:US
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:namespaces:US
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:540-231-8053
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:phone:540-231-8053
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:phone:540-231-5992
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:Y
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:N
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:Large
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:TUE
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:WED
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:THU
+ajax;20061002 16:28:53;/conference/registration/index.php;validate:required:FRI
+ajax;20061002 16:28:56;/election/add_entry.php;validate:required:To be free in creating partnerships and to extend collaboration among teachers and students across organizations Lübeck joined Sakai in 2004. We are convinced of the value of the architecture of Sakai and its framework. We are excited to be part of the international Sakai community at an early stage of its lifecycle. We see tremendous potential in the idea of connecting successful ideas and solutions from both sides of the Atlantic and around the world to shape the next generation of common E-Learning environments.
+
+On the operational level: we have completed our pilot evaluation of Sakai and will be in full production with Sakai starting in October 2006.
+
+We organised in 2005 the first German Sakai Day and in 2006 the first European Sakai Day.  During the European Sakai Day, we discussed how the impact of the Bologna Process is creating a common European area of higher education. We see this leading to a common vision of a collaborative learning environment enabling collaboration of teachers, researchers and students across our universities. A common platform is a precondition and we estimate Sakai the best solution for this deployment.
+
+I present myself as a candidate for the Sakai board because I believe that Lübeck should continue to make a strong commitment and contribution to Sakai.   We are convinced of the competitiveness and strategic potential of Sakai. I would be honoured to serve the community going forward and to help promoting the solution as well as the ideas around the solution.
+
+As Sakai is now a solid product a major focus in the next period has to be increasing the number of Sakai implementations. An appropriate way from my view is to foster strategic implementations in spearhead-institutions and to disseminate from these best-practice experiences. Implementations are the dynamic source for aggregating practical feed-back and are mission-critical for future success.
+
+Serving and extending the community is a continuing activity which must continue to point out that Sakai is not based on “vendors” and “suppliers” but instead based on active partnership across the community.
+
+The community of developers has to be substantially expanded towards a community of practice with teachers, researchers and students. Their experience will drive scenarios for collaborative-learning and optimisation of the front-end-functionality. The interaction between the different communities has to be designed and implemented carefully.
+
+Beside fostering these more operational (but necessary) actions my key-interest in Sakai on a strategic level is to realise the vision of international virtual collaboration among students and teachers – by implementing interoperable environments and joining universities technically and organisationally to produce a global community in higher education creating added value from multicultural backgrounds and attitudes.
+
+ajax;20061002 16:28:56;/election/add_entry.php;validate:required:Since 1997 I have been responsible for the E-Learning-activities in Lübeck, leading large-scale E-Learning-projects with a total volume of over 50 M$.  The idea from the beginning was to use E-Learning to attract new target-groups of students by supporting life-long-learning and to use technology for innovative collaborations between universities. We currently use a blended learning approach with about 80% online-learning and with 20% of on-campus learning.
+
+We started in 1998 with a consortium of German Universities named “Virtual University of Applied Sciences”. We have developed and successfully implemented complete online Bachelor/Master programmes in informatics, engineering and business administration. We have agreed to common curricula, we have jointly developed learning content, and we share the content and the LMS for all our online-students. We enrol regular students into the programmes at each of our universities, organise the virtual teaching and build virtual student-groups across the universities. I was initially the project-manager of the federal flagship-project that created the consortium and then became then secretary of the board of the virtual organisation.
+
+Following these ideas we initiated the European consortium named “Baltic Sea Virtual Campus” that today joins 12 universities from the Baltic Sea Area. I have been the chairman of the executive board since 2005. We have collaboratively developed and implemented international online-master-programmes in “Industrial Engineering” and “Transregional Management”. A specific focus has been the online-collaboration of international groups of students. They stay in their countries and form virtual groups. We have realized significant added value to the learning-outcomes of the students due to the multicultural and professional experiences of these virtual groups. 
+
+I am currently the managing director of the limited company “oncampus GmbH”, delivering E-Learning-services and marketing online-courses and–programmes. We have a focus in developing high quality online-courses with rich media content and collaborative learning-scenarios. We have created our production-environment for efficient and sustainable course-creation based on professional processes and workflow-management. I am leading a team of nearly 40 people in Lübeck.
+
+I received my Ph.D. in flexible manufacturing systems. For ten years I worked on the managing board of a German IT-company. I became a professor in Lübeck in 1993 where I taught production organisation and computer integrated manufacturing with a focus on re-engineering processes and the impact of IT on strategic competitiveness.
+
+ajax;20061002 16:29:02;/conference/proposals/index.php;validate:required:presentation
+ostermmg@whitman.edu;20061002 16:30:46;/accounts/login.php;user logged in (internal):199.89.174.104:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061002 16:31:30;/conference/proposals/index.php;validate:required:presentation
+ajax;20061002 16:38:30;/conference/proposals/index.php;validate:required:demo
+ajax;20061002 16:38:48;/accounts/ajax/validate.php;validate:namespaces:WA
+ajax;20061002 16:38:48;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 16:38:48;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 16:38:48;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 16:38:48;/accounts/ajax/validate.php;validate:phone:509-527-5419
+ajax;20061002 16:38:48;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 16:38:48;/accounts/ajax/validate.php;validate:zipcode:99362
+ajax;20061002 16:38:48;/accounts/ajax/validate.php;return=ok|zipcode|
+antranig;20061002 17:00:59;/accounts/login.php;user logged in (internal):131.111.21.21:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061002 17:04:32;/conference/proposals/edit_proposal.php;validate:required:Reasonable Sakai Widgets
+ajax;20061002 17:04:32;/conference/proposals/edit_proposal.php;validate:required:We will talk about and demonstrate the widgets that are currently available in Sakai to ensure a consistent user experience. We will then demonstrate the use of widgets (like a date picker, WYSIWYG editor, etc.) in Sakai apps/tools. Finally, we will discuss with the audience which widgets Sakai should add and how to create those widgets.
+ajax;20061002 17:04:32;/conference/proposals/edit_proposal.php;validate:required:This panel presentation is aimed at UI Designers and Developers and is meant to help make the user experience in Sakai more consistent by demonstrating the widgets that are available and can be created. We hope this will encourage more discussion about design patterns and a consistent user experience in Sakai.
+ajax;20061002 17:04:32;/conference/proposals/edit_proposal.php;validate:required:Aaron Zeckoski
+ajax;20061002 17:04:32;/conference/proposals/edit_proposal.php;validate:required:Aaron Zeckoski is the Manager of Application Development and Lead Developer in the Learning Technologies unit at Virginia Tech. He has been involved in many aspects of system development over the past five years at Virginia Tech including analysis, design, implementation, QA, deployment, and support. His current responsibilities include project analysis, system design, and system implementation for Learning Technologies web application development. Current projects include Sakai (Scholar @ VT), OSP (ePortfolio @ VT), Evaluation (CourseEval @ VT), and other internal projects. He is currently working on a Masters degree in Computer Science Applications.
+ajax;20061002 17:04:32;/conference/proposals/edit_proposal.php;validate:required:panel
+ajax;20061002 17:04:32;/conference/proposals/edit_proposal.php;validate:required:theater
+ajax;20061002 17:04:32;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061002 17:19:13;/accounts/ajax/validate.php;validate:email:MitchDysart
+ajax;20061002 17:19:13;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20061002 17:19:25;/accounts/ajax/validate.php;validate:email:dysart.1@osu.edu
+ajax;20061002 17:19:25;/accounts/ajax/validate.php;validate:uniqueuserp:dysart.1@osu.edu
+ajax;20061002 17:19:25;/accounts/ajax/validate.php;validate:uniqueuserp:dysart.1@osu.edu
+ajax;20061002 17:19:25;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 17:19:40;/accounts/ajax/validate.php;validate:namespaces:Columbus
+ajax;20061002 17:19:40;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 17:19:40;/accounts/ajax/validate.php;validate:namespaces:OH
+ajax;20061002 17:19:40;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 17:19:47;/accounts/ajax/validate.php;validate:zipcode:43212-1153
+ajax;20061002 17:19:47;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 17:19:48;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 17:19:48;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 17:19:54;/accounts/ajax/validate.php;validate:phone:614-688-3007
+ajax;20061002 17:19:54;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 17:19:58;/accounts/ajax/validate.php;validate:phone:614-292-1535
+ajax;20061002 17:19:58;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 17:20:22;/accounts/ajax/validate.php;validate:email:dysart.1@osu.edu
+ajax;20061002 17:20:22;/accounts/ajax/validate.php;validate:uniqueuserp:dysart.1@osu.edu
+ajax;20061002 17:20:22;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:required:dysart.1@osu.edu
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:email:dysart.1@osu.edu
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:uniqueuserp:dysart.1@osu.edu
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:uniqueuserp:dysart.1@osu.edu
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:required:1McCoy1
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:password:1McCoy1
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:required:1McCoy1
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:password:1McCoy1
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:match:1McCoy1
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:required:Mitchell
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:required:Dysart
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:required:dysart.1@osu.edu
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:email:dysart.1@osu.edu
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:uniqueuserp:dysart.1@osu.edu
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:required:University Administration
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate::System Administrator
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:required:37
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate::1121 Kinnear Rd
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:namespaces:Columbus
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:namespaces:OH
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:zipcode:43212-1153
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:phone:614-688-3007
+ajax;20061002 17:21:24;/accounts/createaccount.php;validate:phone:614-292-1535
+128.146.243.55;20061002 17:21:24;/accounts/createaccount.php;created account: dysart.1@osu.edu (dysart.1@osu.edu) Dysart,Mitchell: inst=37
+dysart.1@osu.edu;20061002 17:23:40;/accounts/login.php;user logged in (internal):128.146.243.55:https://sakaiproject.org/accounts/login.php
+anthony.atkins@vt.edu;20061002 17:25:17;/accounts/login.php;user logged in (internal):128.173.53.41:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Atlanta+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20061002 17:25:28;/conference/proposals/edit_proposal.php;validate:required:Some Assembly Required - Configuring Sakai for the Real World
+ajax;20061002 17:25:28;/conference/proposals/edit_proposal.php;validate:required:This session is geared towards to help new implementers get an out of the box Sakai installation ready for production.  
+ajax;20061002 17:25:28;/conference/proposals/edit_proposal.php;validate:required:In this talk, the implementation lead at Virginia Tech (who currently run collab) will talk new implementers through customizing and hardening a stock copy of Sakai for production use. 
+
+Topics covered will include customization, setting up SSL, performance tuning, best practices for mail configuration, and much more.
+ajax;20061002 17:25:28;/conference/proposals/edit_proposal.php;validate:required:Tony Atkins
+ajax;20061002 17:25:28;/conference/proposals/edit_proposal.php;validate:required:As Lead Systems Integrator at Virginia tech, Tony Atkins leads the team responsible for the care and feeding of the Sakai instance at Virginia Tech and collab.sakaiproject.org.  
+ajax;20061002 17:25:28;/conference/proposals/edit_proposal.php;validate:required:workshop
+ajax;20061002 17:25:28;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20061002 17:25:28;/conference/proposals/edit_proposal.php;validate:required:90
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;validate:namespaces:OH
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;validate:zipcode:43212-1153
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;validate:phone:614-688-3007
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;validate:phone:614-292-1535
+ajax;20061002 17:26:19;/accounts/ajax/validate.php;return=ok|fax|
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:University Administration
+ajax;20061002 17:30:55;/conference/registration/index.php;validate::System Administrator
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:Columbus
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:OH
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:namespaces:OH
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:zipcode:43212-1153
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:US
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:namespaces:US
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:614-688-3007
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:phone:614-688-3007
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:phone:614-292-1535
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:Y
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:N
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:Large
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:TUE
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:WED
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:THU
+ajax;20061002 17:30:55;/conference/registration/index.php;validate:required:FRI
+ajax;20061002 22:32:12;/accounts/ajax/validate.php;validate:email:dehoney.1@osu.edu
+ajax;20061002 22:32:12;/accounts/ajax/validate.php;validate:uniqueuserp:dehoney.1@osu.edu
+ajax;20061002 22:32:12;/accounts/ajax/validate.php;validate:uniqueuserp:dehoney.1@osu.edu
+ajax;20061002 22:32:12;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061002 22:32:39;/accounts/ajax/validate.php;validate:email:dehoney.1@osu.edu
+ajax;20061002 22:32:39;/accounts/ajax/validate.php;validate:uniqueuserp:dehoney.1@osu.edu
+ajax;20061002 22:32:39;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061002 22:34:15;/accounts/ajax/validate.php;validate:namespaces:Columbus
+ajax;20061002 22:34:15;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061002 22:34:21;/accounts/ajax/validate.php;validate:namespaces:OH
+ajax;20061002 22:34:21;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 22:34:29;/accounts/ajax/validate.php;validate:zipcode:43210
+ajax;20061002 22:34:29;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 22:34:33;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 22:34:33;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 22:35:02;/accounts/ajax/validate.php;validate:phone:614.247.6819
+ajax;20061002 22:35:02;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:required:dehoney.1@osu.edu
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:email:dehoney.1@osu.edu
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:uniqueuserp:dehoney.1@osu.edu
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:uniqueuserp:dehoney.1@osu.edu
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:required:quakka77
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:password:quakka77
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:required:quakka77
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:password:quakka77
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:match:quakka77
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:required:joanne
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:required:Dehoney
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:required:dehoney.1@osu.edu
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:email:dehoney.1@osu.edu
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:uniqueuserp:dehoney.1@osu.edu
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:required:University Administration
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate::Instructional Technologist
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:required:37
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate::480D Baker Systems
+1971 Neil Avenue
+  
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:namespaces:Columbus
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:namespaces:OH
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:zipcode:43210
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061002 22:35:02;/accounts/createaccount.php;validate:phone:614.247.6819
+69.223.134.92;20061002 22:35:02;/accounts/createaccount.php;created account: dehoney.1@osu.edu (dehoney.1@osu.edu) Dehoney,joanne: inst=37
+dehoney.1@osu.edu;20061002 22:38:44;/accounts/login.php;user logged in (internal):69.223.134.92:https://sakaiproject.org/accounts/login.php
+ajax;20061002 22:38:51;/accounts/ajax/validate.php;validate:namespaces:OH
+ajax;20061002 22:38:51;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061002 22:38:51;/accounts/ajax/validate.php;validate:zipcode:43210
+ajax;20061002 22:38:51;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061002 22:38:51;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061002 22:38:51;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061002 22:38:51;/accounts/ajax/validate.php;validate:phone:614.247.6819
+ajax;20061002 22:38:51;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:University Administration
+ajax;20061002 22:42:33;/conference/registration/index.php;validate::Instructional Technologist
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:Columbus
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:OH
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:namespaces:OH
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:zipcode:43210
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:US
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:namespaces:US
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:614.247.6819
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:phone:614.247.6819
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:Y
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:N
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:Large
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:TUE
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:WED
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required:THU
+ajax;20061002 22:42:33;/conference/registration/index.php;validate:required: 
+ajax;20061002 22:43:10;/conference/proposals/index.php;validate:required:presentation

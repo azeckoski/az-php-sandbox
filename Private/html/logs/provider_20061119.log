@@ -1,0 +1,69 @@
+ajax;20061119 11:54:42;/accounts/ajax/validate.php;validate:email:sunny.chau@cgu.edu
+ajax;20061119 11:54:42;/accounts/ajax/validate.php;validate:uniqueuserp:sunny.chau@cgu.edu
+ajax;20061119 11:54:43;/accounts/ajax/validate.php;validate:uniqueuserp:sunny.chau@cgu.edu
+ajax;20061119 11:54:43;/accounts/ajax/validate.php;return=ok|username|
+ajax;20061119 11:54:56;/accounts/ajax/validate.php;validate:email:sunny.chau@cgu.edu
+ajax;20061119 11:54:56;/accounts/ajax/validate.php;validate:uniqueuserp:sunny.chau@cgu.edu
+ajax;20061119 11:54:56;/accounts/ajax/validate.php;return=ok|email|
+ajax;20061119 11:57:45;/accounts/ajax/validate.php;validate:namespaces:Claremont
+ajax;20061119 11:57:45;/accounts/ajax/validate.php;return=ok|city|
+ajax;20061119 11:57:47;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061119 11:57:47;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061119 11:57:49;/accounts/ajax/validate.php;validate:zipcode:91711
+ajax;20061119 11:57:49;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061119 11:58:00;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061119 11:58:00;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061119 11:58:07;/accounts/ajax/validate.php;validate:phone:9096070885
+ajax;20061119 11:58:07;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:required:sunny.chau@cgu.edu
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:email:sunny.chau@cgu.edu
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:uniqueuserp:sunny.chau@cgu.edu
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:uniqueuserp:sunny.chau@cgu.edu
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:required:cmc007
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:password:cmc007
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:required:cmc007
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:password:cmc007
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:match:cmc007
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:required:Sunny
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:required:Chau
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:required:sunny.chau@cgu.edu
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:email:sunny.chau@cgu.edu
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:uniqueuserp:sunny.chau@cgu.edu
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:required:120
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate::150 E. 10th St.
+Harper 6
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:namespaces:Claremont
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:namespaces:CA
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:zipcode:91711
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:namespaces:US
+ajax;20061119 11:58:20;/accounts/createaccount.php;validate:phone:9096070885
+sunny.chau@cgu.edu;20061119 11:58:21;/accounts/createaccount.php;user added (ldap): Sunny Chau (sunny.chau@cgu.edu) [1001]
+24.205.191.123;20061119 11:58:21;/accounts/createaccount.php;created account: sunny.chau@cgu.edu (sunny.chau@cgu.edu) Chau,Sunny: inst=120
+sunny.chau@cgu.edu;20061119 12:03:25;/accounts/activate.php;user modified (ldap): Sunny Chau (sunny.chau@cgu.edu) [1001]
+sunny.chau@cgu.edu;20061119 12:03:59;/accounts/login.php;user logged in (ldap):24.205.191.123:https://sakaiproject.org/accounts/login.php
+ajax;20061119 12:04:18;/accounts/ajax/validate.php;validate:namespaces:CA
+ajax;20061119 12:04:18;/accounts/ajax/validate.php;return=ok|state|
+ajax;20061119 12:04:18;/accounts/ajax/validate.php;validate:zipcode:91711
+ajax;20061119 12:04:18;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20061119 12:04:18;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20061119 12:04:18;/accounts/ajax/validate.php;return=ok|country|
+ajax;20061119 12:04:18;/accounts/ajax/validate.php;validate:phone:9096070885
+ajax;20061119 12:04:18;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:Instructional Technologist
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:Claremont
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:CA
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:namespaces:CA
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:zipcode:91711
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:US
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:namespaces:US
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:9096070885
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:phone:9096070885
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:Y
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:N
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:X-Large
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:TUE
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:WED
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:THU
+ajax;20061119 12:05:38;/conference/registration/index.php;validate:required:FRI
+sunny.chau@cgu.edu;20061119 12:05:38;/conference/registration/index.php;user modified (ldap): Sunny Chau (sunny.chau@cgu.edu) [1001]

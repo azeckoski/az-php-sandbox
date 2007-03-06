@@ -1,0 +1,13 @@
+wytzekoopal;20070222 10:03:02;/accounts/login.php;user logged in (ldap):130.89.36.180:https://sakaiproject.org/accounts/login.php
+benneker;20070222 10:16:20;/accounts/login.php;user logged in (ldap):145.18.144.57:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;validate:namespaces:1016 BR Amsterdam
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;validate:email:w.f.m.benneker@uva.nl
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;validate:uniquesql:w.f.m.benneker@uva.nl
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;validate:namespaces:NH
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;validate:phone:31 202 525 4914
+ajax;20070222 10:16:44;/accounts/ajax/validate.php;return=ok|phone|

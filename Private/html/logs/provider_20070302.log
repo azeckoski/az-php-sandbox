@@ -1,0 +1,409 @@
+ajax;20070302 03:42:07;/accounts/ajax/validate.php;validate:email:portiersj
+ajax;20070302 03:42:07;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070302 03:43:58;/accounts/ajax/validate.php;validate:namespaces:Enschede
+ajax;20070302 03:43:58;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 03:44:13;/accounts/ajax/validate.php;validate:namespaces:Overijssel
+ajax;20070302 03:44:13;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20070302 03:44:19;/accounts/ajax/validate.php;validate:zipcode:7500 AE
+ajax;20070302 03:44:19;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070302 03:44:27;/accounts/ajax/validate.php;validate:zipcode:7500AE
+ajax;20070302 03:44:27;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070302 03:44:35;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20070302 03:44:35;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 03:44:54;/accounts/ajax/validate.php;validate:phone: 31.53.4893739
+ajax;20070302 03:44:54;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070302 03:46:53;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20070302 03:46:53;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 03:51:53;/accounts/ajax/validate.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:51:53;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:51:53;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:51:53;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 03:51:54;/accounts/ajax/validate.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:51:54;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:51:54;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:51:55;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 03:52:03;/accounts/ajax/validate.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:52:03;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:52:04;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 03:52:43;/accounts/ajax/validate.php;validate:namespaces:Enschede
+ajax;20070302 03:52:43;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 03:53:16;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20070302 03:53:16;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 03:53:26;/accounts/ajax/validate.php;validate:phone: 31.53.4893739
+ajax;20070302 03:53:26;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:required:s.j.portier@utwente.nl
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:required:yasmine9
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:password:yasmine9
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:required:yasmine9
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:password:yasmine9
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:match:yasmine9
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:required:Stanley
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:required:Portier
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:required:s.j.portier@utwente.nl
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate::Manager
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:required:115
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate::PO Box 217
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:namespaces:Enschede
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:zipcode:7500AE
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:namespaces:NL
+ajax;20070302 03:53:32;/accounts/createaccount.php;validate:phone:+31.53.4893739
+ajax;20070302 03:54:39;/accounts/ajax/validate.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:54:39;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:54:39;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:54:39;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 03:55:10;/accounts/ajax/validate.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:55:10;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:55:10;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 03:55:32;/accounts/ajax/validate.php;validate:namespaces:Enschede
+ajax;20070302 03:55:32;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 03:55:37;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20070302 03:55:37;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 03:55:47;/accounts/ajax/validate.php;validate:phone: 31.53.4893739
+ajax;20070302 03:55:47;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070302 03:55:49;/accounts/createaccount.php;validate:required:s.j.portier@utwente.nl
+ajax;20070302 03:55:49;/accounts/createaccount.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:55:49;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:required:yasmine9
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:password:yasmine9
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:required:yasmine9
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:password:yasmine9
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:match:yasmine9
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:required:Stanley
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:required:Portier
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:required:s.j.portier@utwente.nl
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate::Manager
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:required:115
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate::PO Box 217
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:namespaces:Enschede
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:zipcode:7500AE
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:namespaces:NL
+ajax;20070302 03:55:50;/accounts/createaccount.php;validate:phone:+31.53.4893739
+ajax;20070302 03:56:15;/accounts/ajax/validate.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:56:15;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:56:15;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:56:15;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 03:57:31;/accounts/ajax/validate.php;validate:zipcode:750 0AE
+ajax;20070302 03:57:31;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070302 03:57:44;/accounts/ajax/validate.php;validate:zipcode:A1B 2C3
+ajax;20070302 03:57:44;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070302 03:57:48;/accounts/ajax/validate.php;validate:namespaces:NL
+ajax;20070302 03:57:48;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 03:57:58;/accounts/ajax/validate.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:57:58;/accounts/ajax/validate.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:57:59;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 03:58:08;/accounts/createaccount.php;validate:required:s.j.portier@utwente.nl
+ajax;20070302 03:58:08;/accounts/createaccount.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:58:08;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:58:08;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:required:yasmine9
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:password:yasmine9
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:required:yasmine9
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:password:yasmine9
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:match:yasmine9
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:required:Stanley
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:required:Portier
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:required:s.j.portier@utwente.nl
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:email:s.j.portier@utwente.nl
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:uniqueuserp:s.j.portier@utwente.nl
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:required:Instructional Technologist
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate::Manager
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:required:115
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate::PO Box 217
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:namespaces:Enschede
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:namespaces:Overijssel
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:zipcode:A1B 2C3
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:namespaces:NL
+ajax;20070302 03:58:09;/accounts/createaccount.php;validate:phone:+31.53.4893739
+s.j.portier@utwente.nl;20070302 03:58:09;/accounts/createaccount.php;user added (ldap): Stanley Portier (s.j.portier@utwente.nl) [1110]
+84.31.25.71;20070302 03:58:09;/accounts/createaccount.php;created account: s.j.portier@utwente.nl (s.j.portier@utwente.nl) Portier,Stanley: inst=115
+s.j.portier@utwente.nl;20070302 03:58:40;/accounts/activate.php;user modified (ldap): Stanley Portier (s.j.portier@utwente.nl) [1110]
+s.j.portier@utwente.nl;20070302 03:58:53;/accounts/login.php;user logged in (ldap):84.31.25.71:https://sakaiproject.org/accounts/login.php
+ajax;20070302 03:59:30;/conference/proposals/index.php;validate:required:presentation
+shardin;20070302 07:55:08;/accounts/login.php;user logged in (ldap):67.44.75.141:https://sakaiproject.org/accounts/login.php?ref=/Dec2006/admin/proposals.php
+anthony.atkins@vt.edu;20070302 08:33:39;/accounts/login.php;user logged in (ldap):194.35.219.101:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
+ajax;20070302 08:33:53;/conference/proposals/index.php;validate:required:presentation
+ajax;20070302 08:35:54;/accounts/ajax/validate.php;validate:uniqueuserp:gsilver
+ajax;20070302 08:35:55;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 08:35:56;/accounts/ajax/validate.php;validate:email:gsilver@umich.edu
+ajax;20070302 08:35:56;/accounts/ajax/validate.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 08:35:56;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 08:35:57;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20070302 08:35:57;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 08:35:58;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20070302 08:35:58;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070302 08:35:59;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20070302 08:35:59;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070302 08:35:59;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070302 08:35:59;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 08:36:00;/accounts/ajax/validate.php;validate:phone:734 7634669
+ajax;20070302 08:36:00;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:required:gsilver@umich.edu
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:nospaces:gsilver@umich.edu
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:password:ironchef
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:password:ironchef
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:match:ironchef
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:required:Gonzalo
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:required:Silverio
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:required:gsilver@umich.edu
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:email:gsilver@umich.edu
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:required:UI/Interaction Designer
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate::Instructional Designer
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:required:76
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate::Media Union Commons
+Duderstadt Center
+2281 Bonisteel Blvd
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20070302 08:36:19;/accounts/admin/admin_user.php;validate:phone:734 7634669
+gsilver@umich.edu;20070302 08:36:21;/accounts/admin/admin_user.php;user modified (ldap): Gonzalo Silverio (gsilver@umich.edu) [255]
+ajax;20070302 08:36:23;/accounts/ajax/validate.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 08:36:23;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 08:36:25;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20070302 08:36:25;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 08:36:26;/accounts/ajax/validate.php;validate:email:gsilver@umich.edu
+ajax;20070302 08:36:26;/accounts/ajax/validate.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 08:36:26;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 08:36:27;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20070302 08:36:27;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070302 08:36:28;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20070302 08:36:28;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070302 08:36:28;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070302 08:36:28;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 08:36:29;/accounts/ajax/validate.php;validate:phone:734 7634669
+ajax;20070302 08:36:29;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070302 08:40:05;/accounts/ajax/validate.php;validate:namespaces:MN
+ajax;20070302 08:40:05;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070302 08:40:29;/accounts/ajax/validate.php;validate:namespaces:minnnesota
+ajax;20070302 08:40:29;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 08:40:30;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070302 08:40:30;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 08:41:16;/accounts/ajax/validate.php;validate:zipcode:0092
+ajax;20070302 08:41:16;/accounts/ajax/validate.php;return=error|zipcode|Invalid US zip, must be 5 or 9 digits
+ajax;20070302 08:41:23;/conference/proposals/edit_proposal.php;validate:required:Sakai System Administrator's Guide
+ajax;20070302 08:41:23;/conference/proposals/edit_proposal.php;validate:required:This presentation will review the recently development system administrator's handbook.  Topics will include hardware and software requirements, basic installation, configuration, load balancing, performance tuning, and how to contribute your unique experiences as an administrator to the handbook.
+ajax;20070302 08:41:23;/conference/proposals/edit_proposal.php;validate:required:This talk extends my Atlanta talk ("Some Assembly Required") and presents a combination of that material and material incorporated during the process of assembling the system administrator's handbook.
+ajax;20070302 08:41:23;/conference/proposals/edit_proposal.php;validate:required:Tony Atkins
+ajax;20070302 08:41:23;/conference/proposals/edit_proposal.php;validate:required:Tony Atkins is the Software Development Manager at UHI (http://www.uhi.ac.uk/).  Previously, he was the Lead Systems Integrator at Virginia Tech (http://www.vt.edu/).  He (and others at UHI) currently maintain collab.sakaiproject.org.
+ajax;20070302 08:41:23;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20070302 08:41:23;/conference/proposals/edit_proposal.php;validate:required:class
+ajax;20070302 08:41:23;/conference/proposals/edit_proposal.php;validate:required:60
+ajax;20070302 08:41:30;/accounts/ajax/validate.php;validate:namespaces:PK
+ajax;20070302 08:41:30;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 08:41:54;/accounts/ajax/validate.php;validate:namespaces:Islamabad
+ajax;20070302 08:41:54;/accounts/ajax/validate.php;return=ok|stateOther|
+ajax;20070302 08:42:07;/accounts/ajax/validate.php;validate:namespaces:Islamabad
+ajax;20070302 08:42:07;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 08:43:26;/accounts/ajax/validate.php;validate:email:fiaz512@yahoo.com
+ajax;20070302 08:43:26;/accounts/ajax/validate.php;validate:uniqueuserp:fiaz512@yahoo.com
+ajax;20070302 08:43:26;/accounts/ajax/validate.php;validate:uniqueuserp:fiaz512@yahoo.com
+ajax;20070302 08:43:27;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 08:44:06;/accounts/ajax/validate.php;validate:zipcode:00092
+ajax;20070302 08:44:06;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070302 08:44:30;/accounts/ajax/validate.php;validate:email:fhasghar512@hotmail.com
+ajax;20070302 08:44:30;/accounts/ajax/validate.php;validate:uniqueuserp:fhasghar512@hotmail.com
+ajax;20070302 08:44:30;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 08:44:37;/accounts/createaccount.php;validate:required:fiaz512@yahoo.com
+ajax;20070302 08:44:37;/accounts/createaccount.php;validate:email:fiaz512@yahoo.com
+ajax;20070302 08:44:37;/accounts/createaccount.php;validate:uniqueuserp:fiaz512@yahoo.com
+ajax;20070302 08:44:37;/accounts/createaccount.php;validate:uniqueuserp:fiaz512@yahoo.com
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:required:6422789
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:password:6422789
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:required:6422789
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:password:6422789
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:match:6422789
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:required:Fayyaz
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:required:Asghar
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:required:fhasghar512@hotmail.com
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:email:fhasghar512@hotmail.com
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:uniqueuserp:fhasghar512@hotmail.com
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:required:Faculty
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate::User Support
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:required:77
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate::Department of mechanical Engineering, PIEAS, Islamabad
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:namespaces:Islamabad
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:namespaces:Islamabad
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:zipcode:00092
+ajax;20070302 08:44:38;/accounts/createaccount.php;validate:namespaces:PK
+fiaz512@yahoo.com;20070302 08:44:38;/accounts/createaccount.php;user added (ldap): Fayyaz Asghar (fhasghar512@hotmail.com) [1111]
+202.83.173.154;20070302 08:44:38;/accounts/createaccount.php;created account: fiaz512@yahoo.com (fhasghar512@hotmail.com) Asghar,Fayyaz: inst=77
+ajax;20070302 09:38:49;/accounts/ajax/validate.php;validate:email:x.yang@dl.ac.uk
+ajax;20070302 09:38:49;/accounts/ajax/validate.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:38:49;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 09:40:12;/accounts/ajax/validate.php;validate:namespaces:Warrington
+ajax;20070302 09:40:12;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 09:40:27;/accounts/ajax/validate.php;validate:zipcode:WA4 4AD
+ajax;20070302 09:40:27;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070302 09:40:40;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20070302 09:40:40;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 09:40:52;/accounts/ajax/validate.php;validate:zipcode:WA4 4AD
+ajax;20070302 09:40:52;/accounts/ajax/validate.php;return=error|zipcode|Invalid Canadian zip (e.g. A1B 2C3)
+ajax;20070302 09:45:13;/accounts/ajax/validate.php;validate:email:xyang
+ajax;20070302 09:45:13;/accounts/ajax/validate.php;return=error|username|Invalid email address
+ajax;20070302 09:45:29;/accounts/ajax/validate.php;validate:email:x.yang@dl.ac.uk
+ajax;20070302 09:45:29;/accounts/ajax/validate.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:45:29;/accounts/ajax/validate.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:45:29;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 09:45:30;/accounts/ajax/validate.php;validate:email:x.yang@dl.ac.uk
+ajax;20070302 09:45:30;/accounts/ajax/validate.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:45:30;/accounts/ajax/validate.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:45:30;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 09:45:50;/accounts/ajax/validate.php;validate:email:x.yang@dl.ac.uk
+ajax;20070302 09:45:50;/accounts/ajax/validate.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:45:50;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 09:46:31;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20070302 09:46:31;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:required:x.yang@dl.ac.uk
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:email:x.yang@dl.ac.uk
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:required:y33822510
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:password:y33822510
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:required:y33822510
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:password:y33822510
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:match:y33822510
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:required:Xiaobo
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:required:Yang
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:required:x.yang@dl.ac.uk
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:email:x.yang@dl.ac.uk
+ajax;20070302 09:46:49;/accounts/createaccount.php;validate:uniqueuserp:x.yang@dl.ac.uk
+ajax;20070302 09:46:50;/accounts/createaccount.php;validate:required:Developer/Programmer
+ajax;20070302 09:46:50;/accounts/createaccount.php;validate:required:CCLRC
+ajax;20070302 09:46:50;/accounts/createaccount.php;validate::CCLRC e-Science Centre
+Daresbury Laboratory
+ajax;20070302 09:46:50;/accounts/createaccount.php;validate:namespaces:Warrington
+ajax;20070302 09:46:50;/accounts/createaccount.php;validate:namespaces:GB
+x.yang@dl.ac.uk;20070302 09:46:50;/accounts/createaccount.php;user added (ldap): Xiaobo Yang (x.yang@dl.ac.uk) [1112]
+148.79.162.143;20070302 09:46:50;/accounts/createaccount.php;created account: x.yang@dl.ac.uk (x.yang@dl.ac.uk) Yang,Xiaobo: inst=1
+x.yang@dl.ac.uk;20070302 09:47:06;/accounts/activate.php;user modified (ldap): Xiaobo Yang (x.yang@dl.ac.uk) [1112]
+x.yang@dl.ac.uk;20070302 09:47:38;/accounts/login.php;user logged in (ldap):148.79.162.143:https://sakaiproject.org/accounts/login.php
+ajax;20070302 09:48:17;/accounts/ajax/validate.php;validate:email:x.yang@dl.ac.uk
+ajax;20070302 09:48:17;/accounts/ajax/validate.php;validate:namespaces:Warrington
+ajax;20070302 09:48:17;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 09:48:17;/accounts/ajax/validate.php;validate:uniquesql:x.yang@dl.ac.uk
+ajax;20070302 09:48:17;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 09:48:17;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20070302 09:48:17;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 09:48:37;/conference/proposals/index.php;validate:required:presentation
+ajax;20070302 10:05:47;/conference/proposals/edit_proposal.php;validate:required:Using Sakai as a multi-institution Virtual Research Environment.
+ajax;20070302 10:05:47;/conference/proposals/edit_proposal.php;validate:required:Sakai has been adopted by several UK e-Science projects including the
+JISC-funded Sakai VRE Demonstrator Project. Besides functionalities
+like project management, Sakai is an ideal candidate for building up
+community portals. In this paper, we will discuss how to bring Sakai
+to Grid users in a multi-institution VRE.
+
+ajax;20070302 10:05:47;/conference/proposals/edit_proposal.php;validate:required:The Grid and accociated middleware exist to enable multiple
+institutions to share resources. Sakai adds to Grid middleware by
+providing a user interface and a useful range of collaboration and
+administration tools. It also has the built in capability of managing
+groups of users and therefore supports the concept of Virtual
+Organisation. Sakai is therefore an ideal candidate for building
+community-driven portals for Grid projects. In this talk, we will
+present two approaches to integration of Grid portlets with Sakai: 1)
+through Web Services for Remote Portlets (WSRP), and 2) through Pluto
+integration inside Sakai. Both these approaches enable us to re-use
+Grid portlets developed for the UK National Grid Service (NGS)
+Portal. In addition, we have developed additional tools for Sakai
+including a document management tool for organising conferences and
+a mashup tool for building Web 2.0 applications inside Sakai.
+
+ajax;20070302 10:05:47;/conference/proposals/edit_proposal.php;validate:required:Dr Rob Allan
+ajax;20070302 10:05:47;/conference/proposals/edit_proposal.php;validate:required:Dr. Robert Allan -- Head of Grid Technology Group at CCLRC Daresbury Laboratory, with an interest in distributed service development and deployment and user interfaces for research, mainly in the natural sciences.
+ajax;20070302 10:05:47;/conference/proposals/edit_proposal.php;validate:required:lecture
+ajax;20070302 10:05:47;/conference/proposals/edit_proposal.php;validate:required:conference
+ajax;20070302 10:05:47;/conference/proposals/edit_proposal.php;validate:required:30
+ajax;20070302 10:06:05;/conference/proposals/index.php;validate:required:presentation
+ajax;20070302 10:06:59;/conference/proposals/index.php;validate:required:presentation
+ajax;20070302 10:07:46;/conference/proposals/index.php;validate:required:presentation
+ajax;20070302 10:08:22;/conference/proposals/edit_proposal.php;validate:required:Using Sakai as a multi-institution Virtual Research Environment.
+ajax;20070302 10:08:22;/conference/proposals/edit_proposal.php;validate:required:Sakai has been adopted by several UK e-Science projects including the
+JISC-funded Sakai VRE Demonstrator Project. Besides functionalities
+like project management, Sakai is an ideal candidate for building up
+community portals. In this paper, we will discuss how to bring Sakai
+to Grid users in a multi-institution VRE.
+
+ajax;20070302 10:08:22;/conference/proposals/edit_proposal.php;validate:required:Dr Rob Allan
+ajax;20070302 10:08:22;/conference/proposals/edit_proposal.php;validate:required:Dr. Robert Allan -- Head of Grid Technology Group at CCLRC Daresbury Laboratory, with an interest in distributed service development and deployment and user interfaces for research, mainly in the natural sciences.
+x.yang@dl.ac.uk;20070302 10:08:54;/accounts/login.php;user logged in (ldap):148.79.162.143:https://sakaiproject.org/accounts/login.php
+ajax;20070302 10:09:06;/accounts/ajax/validate.php;validate:email:x.yang@dl.ac.uk
+ajax;20070302 10:09:06;/accounts/ajax/validate.php;validate:uniquesql:x.yang@dl.ac.uk
+ajax;20070302 10:09:06;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 10:09:06;/accounts/ajax/validate.php;validate:namespaces:Warrington
+ajax;20070302 10:09:06;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 10:09:06;/accounts/ajax/validate.php;validate:namespaces:GB
+ajax;20070302 10:09:06;/accounts/ajax/validate.php;return=ok|country|
+gsilver@umich.edu;20070302 10:11:06;/accounts/login.php;user logged in (ldap):68.40.183.243:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/proposals.php
+ajax;20070302 10:15:08;/conference/proposals/index.php;validate:required:presentation
+shardin;20070302 13:10:39;/accounts/login.php;user logged in (ldap):67.44.75.141:https://sakaiproject.org/accounts/login.php?ref=/accounts/myaccount.php
+ajax;20070302 13:10:50;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20070302 13:10:50;/accounts/ajax/validate.php;validate:email:shardin@umich.edu
+ajax;20070302 13:10:50;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 13:10:50;/accounts/ajax/validate.php;validate:uniquesql:shardin@umich.edu
+ajax;20070302 13:10:50;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 13:10:52;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20070302 13:10:52;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070302 13:10:52;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20070302 13:10:52;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070302 13:11:23;/accounts/ajax/validate.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 13:11:23;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 13:11:25;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20070302 13:11:25;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 13:11:26;/accounts/ajax/validate.php;validate:email:gsilver@umich.edu
+ajax;20070302 13:11:26;/accounts/ajax/validate.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 13:11:26;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 13:11:27;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20070302 13:11:27;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070302 13:11:29;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20070302 13:11:29;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070302 13:11:30;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070302 13:11:30;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 13:11:31;/accounts/ajax/validate.php;validate:phone:734 7634669
+ajax;20070302 13:11:31;/accounts/ajax/validate.php;return=ok|phone|
+ajax;20070302 13:11:49;/accounts/admin/admin_user.php;validate:required:gsilver@umich.edu
+ajax;20070302 13:11:49;/accounts/admin/admin_user.php;validate:nospaces:gsilver@umich.edu
+ajax;20070302 13:11:49;/accounts/admin/admin_user.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 13:11:49;/accounts/admin/admin_user.php;validate:required:Gonzalo
+ajax;20070302 13:11:49;/accounts/admin/admin_user.php;validate:required:Silverio
+ajax;20070302 13:11:49;/accounts/admin/admin_user.php;validate:required:gsilver@umich.edu
+ajax;20070302 13:11:49;/accounts/admin/admin_user.php;validate:email:gsilver@umich.edu
+ajax;20070302 13:11:49;/accounts/admin/admin_user.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate:required:UI/Interaction Designer
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate::Instructional Designer
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate:required:76
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate::Media Union Commons
+Duderstadt Center
+2281 Bonisteel Blvd
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate:namespaces:Ann Arbor
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate:namespaces:MI
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate:zipcode:48109
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate:namespaces:US
+ajax;20070302 13:11:50;/accounts/admin/admin_user.php;validate:phone:734 7634669
+gsilver@umich.edu;20070302 13:11:51;/accounts/admin/admin_user.php;user modified (ldap): Gonzalo Silverio (gsilver@umich.edu) [255]
+ajax;20070302 13:11:54;/accounts/ajax/validate.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 13:11:54;/accounts/ajax/validate.php;return=ok|username|
+ajax;20070302 13:11:56;/accounts/ajax/validate.php;validate:namespaces:Ann Arbor
+ajax;20070302 13:11:56;/accounts/ajax/validate.php;return=ok|city|
+ajax;20070302 13:11:58;/accounts/ajax/validate.php;validate:email:gsilver@umich.edu
+ajax;20070302 13:11:58;/accounts/ajax/validate.php;validate:uniqueuserp:gsilver@umich.edu
+ajax;20070302 13:11:58;/accounts/ajax/validate.php;validate:namespaces:MI
+ajax;20070302 13:11:58;/accounts/ajax/validate.php;return=ok|state|
+ajax;20070302 13:11:58;/accounts/ajax/validate.php;return=ok|email|
+ajax;20070302 13:12:00;/accounts/ajax/validate.php;validate:zipcode:48109
+ajax;20070302 13:12:00;/accounts/ajax/validate.php;validate:namespaces:US
+ajax;20070302 13:12:00;/accounts/ajax/validate.php;return=ok|zipcode|
+ajax;20070302 13:12:00;/accounts/ajax/validate.php;return=ok|country|
+ajax;20070302 13:12:02;/accounts/ajax/validate.php;validate:phone:734 7634669
+ajax;20070302 13:12:02;/accounts/ajax/validate.php;return=ok|phone|
