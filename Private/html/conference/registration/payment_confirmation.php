@@ -86,7 +86,7 @@ if ($Message) {
   <tr>
     <td  colspan=2 style=" padding:5px;"><strong>Registration Complete</strong>: <br />
       Thank you for registering for the Sakai Amsterdam conference. 
-      You will receive a registration confirmation email and a payment confirmation email shortly. 
+      You will receive a registration confirmation email and a payment confirmation email shortly. You can also <a href="index.php">view your registration receipt online. </a>
       See you in Amsterdam! <br />
       <br />
       -- Sakai Conference Committee</td>
