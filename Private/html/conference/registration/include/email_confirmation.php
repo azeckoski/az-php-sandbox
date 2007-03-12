@@ -21,7 +21,7 @@ $today = date("F j, Y");
 
 //set up cleaner mail message -AZ
 $msg ="Thank you for your registration to the Sakai Amsterdam Conference, scheduled for June 12-14, 2007 in Amsterdam, The Netherlands (with pre-conference sessions on June 11th, and post-conference session on June 15th). \r\n";
-$msg.="\r\n \r\nIf you have any questions about your registration information please contact mmiles@umich.edu. \r\n \r\nThank You\r\n      Sakai Staff\r";
+$msg.="\r\n \r\nIf you have any questions about your registration information please contact shardin@umich.edu. \r\n \r\nThank You\r\n      Sakai Staff\r";
 $msg.="-------------------------------------------- \r\n\r\n";
 $msg.="Date Submitted: $today \r\n\r\n";
 $msg.="Attendee:  $User->firstname $User->lastname ($User->email)\r\n\r\n";
