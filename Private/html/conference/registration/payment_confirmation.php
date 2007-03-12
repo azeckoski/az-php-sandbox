@@ -45,35 +45,9 @@ $payeeEmail=$_POST['EMAIL'];
 $payeeInfo=$payee ."\r" .$payeePhone ."\r" .$payeeEmail ;
 $ResultCode=$_POST['RESULT'];
 $ResponseMsg=$_POST['RESPMSG'];
-$trans_type="";
-$trans_avs="";
 
-//TODO
-//track the Result Code, Reponse Msg, avs street match avs zip match
-//international avs indicator
-//transaction type 
-//comment 1
-//comment2 
-if ($ResultCode<0) {
-	//communications error, no transaction was attempted 
-	$msg="A communications error occured when proccessing your request.  No credit card transaction took place.  " .
-			"Please submit the form again or contact <a mailto:sakaiproject_webmaster@umich.edu>sakaiproject_webmaster@umich.edu</a>";
-}  else if ($ResultCode>0)  {
-	//indicates a decline or error, need to get the response msg
-	switch ($ResultCode) {
-		case 12: $msg="Please check to see that the credit card number has been entered properly, then resubmit.";
-				break;
-		case 24: $msg="Please check to see that the expiration date has been entered properly, then resubmit.";
-			break;
-		case 30: $msg="This is a duplicate transaction.  No payment has been processed on this current request." .
-				"Please contact <a mailto:sakaiproject_webmaster@umich.edu>sakaiproject_webmaster@umich.edu</a> to verify your registration status. ";
-				break;
-		case 112:  $msg= "Authorization error - check address and zip code for this card.";
-		default: $msg="There was an error processing your request, please contact  <a mailto:sakaiproject_webmaster@umich.edu>sakaiproject_webmaster@umich.edu</a>.   ";
-		
-	}
-}
-else if ($ResultCode== '0') { 
+
+if ($ResultCode== '0') { 
 	//no fatal errors from Verisign 
 	//TODO
 	//need to add in the cc type, result code, result msg, avs code
@@ -83,10 +57,10 @@ else if ($ResultCode== '0') {
 	$sql = "UPDATE conferences SET date_modified = NOW(), fee='$transAmount', " .
 	 	"transID = '$transID', payeeInfo='$payeeInfo', activated='1' " .
 	 	"WHERE users_pk='$userPK' and confID='$CONF_ID'";
-	$result = mysql_query($sql) or die('Conf insert query failed: ('.$confsql.')' . mysql_error());
-			
-	header('Location:index.php');
-} 
+	$result = mysql_query($sql);
+} else {
+	$Message = "Failure: An error occurred with the credit card processing";
+}
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
@@ -111,9 +85,9 @@ if ($Message) {
   </tr>
   <tr>
     <td  colspan=2 style=" padding:5px;"><strong>Registration Complete</strong>: <br />
-      Thank you for registering for the Sakai Atlanta conference. 
+      Thank you for registering for the Sakai Amsterdam conference. 
       You will receive a registration confirmation email and a payment confirmation email shortly. 
-      See you in Atlanta! <br />
+      See you in Amsterdam! <br />
       <br />
       -- Sakai Conference Committee</td>
   </tr>
@@ -123,7 +97,7 @@ if ($Message) {
     <strong>Special announcements and reminders:</strong>
         <ul>
       <!--    <li><strong>Visit the Sakai Conference Facebook</strong> to see who else is attending - and add your photo while you're there! (see sidebar for more information)</li>
-      -->    <li><strong>Call for Proposals Deadline is September 30, 2006.</strong> [ <a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=420&Itemid=593">more information</a> ]</li>
+      -->    <li><strong>Call for Proposals Deadline is March 15, 2007.</strong> [ <a href="http://sakaiproject.org/index.php?option=com_content&task=view&id=420&Itemid=593">more information</a> ]</li>
         </ul>
       </blockquote><div><br />
   <br />
