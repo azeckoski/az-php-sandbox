@@ -62,7 +62,7 @@
                       </table>
                     </div>
                     <div class="moduletable"> </div></td>
-                  <td class="mainbody" width="100%">
+                  <td class="mainbody" width="100%" style="padding-left:10px;">
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="contentpane">
                       <tr>
                         <td width="100%" valign="top" class="contentdescription" colspan="2">
