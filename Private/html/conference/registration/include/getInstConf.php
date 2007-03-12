@@ -22,7 +22,7 @@ if ($CONF) {
 	if (!$isPartner) {
 	    if ($transID) { //non-member payment transaction received from Verisign
 	    	$Message  .="<span style='color:red;'><br />Your payment confirmation number is: $transID </span><br/>" .
-	    			"<span style='color:red;'><br />Registration fee paid: &#36;$fee </span><br/>";
+	    			"<span style='color:red;'><br />Registration fee paid: &#36;$fee </span><br/><br/>";
 	    	
 	    } else {
 	    	$Message  .="<span style='color:red;'><br />However, <strong>you have not completed the payment process</strong>. <br/><br/></span><strong>Please go to the <a href='payment.php'>Payment page</a> to complete the registration process.</strong> ";
