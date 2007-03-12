@@ -20,8 +20,8 @@ $attending=$CONF["attending"];
 $today = date("F j, Y"); 
 
 //set up cleaner mail message -AZ
-$msg ="Thank you for your registration to the Sakai Atlanta Conference, scheduled for December 5 to December 8, 2006 in Atlanta, Georgia. \r\n";
-$msg.=" If you have any questions about your registration information please contact kreister@umich.edu. \r\n \r\nThank You\r\n      Sakai Staff\r";
+$msg ="Thank you for your registration to the Sakai Amsterdam Conference, scheduled for June 12-14, 2007 in Amsterdam, The Netherlands (with pre-conference sessions on June 11th, and post-conference session on June 15th). \r\n";
+$msg.="\r\n \r\nIf you have any questions about your registration information please contact mmiles@umich.edu. \r\n \r\nThank You\r\n      Sakai Staff\r";
 $msg.="-------------------------------------------- \r\n\r\n";
 $msg.="Date Submitted: $today \r\n\r\n";
 $msg.="Attendee:  $User->firstname $User->lastname ($User->email)\r\n\r\n";
@@ -33,13 +33,13 @@ $msg.="Phone:  $User->phone  \r\n\r\n";
 if ($User->fax) {
 	$msg.="Fax:   $User->fax \r\n\r\n";
 }
-$msg.="TShirt size: $shirt \r\n\r\n";
+$msg.="T-Shirt size:  $shirt \r\n\r\n";
 if ($special) {
 	$msg.="Special needs:   $special \r\n\r\n";
 } else {
 	$msg.="Special needs:  none \r\n\r\n";
 }
-$msg.="Attending JA-SIG:   $jasig \r\n\r\n";
+//$msg.="Attending JA-SIG:   $jasig \r\n\r\n";
 $msg.="Staying at Conf. Hotel:   $hotel \r\n\r\n";
 $msg.="Dates Attending Conference:   $attending \r\n\r\n";
 
@@ -71,7 +71,7 @@ $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 //set up mail for Susan
 $recipient = "shardin@umich.edu";
-$subject= "COPY-Atlanta Reg-$User->firstname $User->lastname";
+$subject= "COPY-Amsterdam Reg-$User->firstname $User->lastname";
 //send the mail to susan
 @mail($recipient, $subject, $msg, $headers);
 
@@ -85,7 +85,7 @@ $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
 
 $recipient = $User->email;
-$subject= "Sakai Atlanta Conference Registration";
+$subject= "Sakai Amsterdam Conference Registration";
 //send the mail to registrant
 @mail($recipient, $subject, $msg, $headers);
 ?>
