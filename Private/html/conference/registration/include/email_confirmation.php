@@ -79,7 +79,7 @@ $subject= "COPY-Amsterdam Reg-$User->firstname $User->lastname";
 //set up mail for registrant
 $headers  = 'From: ' . $HELP_EMAIL . "\n";
 $headers .= 'Return-Path: ' . $HELP_EMAIL . "\n";
-$headers .= 'Reply-To: ' . "kreister@umich.edu" . "\n";
+$headers .= 'Reply-To: ' . "shardin@umich.edu" . "\n";
 $headers .= 'MIME-Version: 1.0' ."\n";
 $headers .= 'Content-type: text/plain; charset=ISO-8859-1' ."\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() ."\n";
