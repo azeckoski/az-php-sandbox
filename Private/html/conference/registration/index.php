@@ -54,7 +54,7 @@ $vItems = array();
 $vItems['primaryRole'] = "required";
 $vItems['secondaryRole'] = "";
 $vItems['institution'] = "required";
-$vItems['address1'] = "required:focus";
+$vItems['address'] = "required:focus";
 $vItems['city'] = "required";
 $vItems['state'] = "required:namespaces";
 $vItems['zipcode'] = "zipcode";
@@ -65,6 +65,7 @@ $vItems['confHotel'] = "required";
 $vItems['jasig'] = "required";
 $vItems['shirt'] = "required";
 $vItems['delegate'] = "email";
+$vItems['attending_mon'] ="required";
 $vItems['attending_tue'] ="required";
 $vItems['attending_wed'] ="required";
 $vItems['attending_thu'] ="required";
@@ -110,7 +111,7 @@ if ($_POST['save'] && !$error) { // saving the form
 	$publishInfo = mysql_real_escape_string($_POST["publish"]);
 	$delegate = mysql_real_escape_string($_POST["delegate"]);
 	$expectations = mysql_real_escape_string($_POST["expectations"]);
-	$attending = trim($_POST['attending_tue'] ." ". $_POST['attending_wed'] ." ". $_POST['attending_thu'] ." ". $_POST['attending_fri']);
+	$attending = trim($_POST['attending_mon'] ." ". $_POST['attending_tue'] ." ". $_POST['attending_wed'] ." ". $_POST['attending_thu'] ." ". $_POST['attending_fri']);
 
 //$attending=serialize($_POST['attending']); //takes the data from a post operation...
 //$attending = implode(' ',$_POST['attending']).' ';
@@ -254,7 +255,7 @@ if (!$attending){
 <?php
 	if ($isPartner) {  // this means the user is in a partner inst 
 ?>
-	<strong><?= $Inst->name ?> is a Sakai Partner Organization</strong> (registration fee is waived)
+	<strong><?= $Inst->name ?> is a Sakai Partner Organization</strong> <br/>(registration fee is waived)
 	<input type="hidden" name="memberType" value="1" />
 <?php } else { // this is a member institution ?>
 	<strong><?= $User->institution ?> is not a Sakai Partner Organization</strong>&nbsp;
