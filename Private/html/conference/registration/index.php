@@ -263,8 +263,8 @@ if (!$attending){
 	<br/>
       <div style="margin:10px;"></div>
       <strong>Registration Fee:</strong> $395 per person. <br />
-      <em>If you are also attending the JA-SIG/uPortal conference, your fee will be $345</em><br />
-      <div style="margin:6px;"></div>
+    <!--  <em>If you are also attending the JA-SIG/uPortal conference, your fee will be $345</em><br /> -->
+      <div style="margin:6px;"><br/></div>
       Visa, Mastercard, and American express accepted<br />
       <img src="<?= $TOOL_URL ?>/include/images/ccards.jpg" width="121" height="30"/>
 <?php } ?>
