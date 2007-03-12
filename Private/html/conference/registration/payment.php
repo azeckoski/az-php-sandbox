@@ -73,59 +73,70 @@ if (!$isPartner){
 <?= $Message ?>
 
 <!-- start of the form td -->
-<div id=cfp> <br />
+<div id=cfp> 
 
 <!-- start form section -->
-<form id='form1' method="post" action="https://payments.verisign.com/payflowlink">
-<table width="500"  cellpadding="0" cellspacing="0">
+<form id="form1" method="post" action="https://payments.verisign.com/payflowlink">
+<table width="500"  cellpadding="0" cellspacing="0" class="noline">
 	<tr>
-		<td valign=top>
-			<div align="right">
-				<strong>Registrant's Information: </strong>
-			</div>
-		</td>
-		<td>
-			<strong>name:</strong> <?= $User->firstname."&nbsp;".$User->lastname ?><br/> 
-			<strong>email: </strong> <?= $User->email ?><br/>
-			<strong>institution: </strong> <?= $User->institution ?><br/>
-			<strong>address:</strong><br/>
+		<td valign=top colspan=3><span style="font-weight:bold; font-size:1.2em">Your Registration Details: </span></td>
+	</tr>
+	<tr>
+		<td >&nbsp;</td><td width=120px><strong>name:</strong></td><td> <?= $User->firstname."&nbsp;".$User->lastname ?><br/> </td>
+	</tr>
+	<tr>
+		<td >&nbsp;</td><td><strong>email: </strong></td><td> <?= $User->email ?><br/></td>
+	</tr>
+	<tr>
+		<td >&nbsp;</td><td><strong>institution: </strong></td><td> <?= $User->institution ?><br/></td>
+	</tr>
+	<tr>
+		<td >&nbsp;</td><td><strong>address:</strong><br/></td><td>
 			<?= nl2br($User->address) ?><br/>
 			<?= $User->city ." ". $User->state .", ". $User->zipcode ?><br/>
 			<?= $User->country ?><br/>
 			<br />
-			<strong>phone:</strong> <?= $User->phone ?><br/>
-			<?php if ($User->fax) { ?>
-			<strong>fax:</strong> <?= $User->fax ?><br/>
-			<?php } ?>
-			<br/>
-			<strong>shirt size:</strong> <?= $CONF['shirt'] ?><br/>
-			<strong>attending jasig:</strong> <?= $CONF['jasig'] ?><br/>
-			<strong>staying at conference hotel:</strong> <?= $CONF['confHotel'] ?><br/>
-			<strong>publish name on attendee list:</strong> <?= $CONF['publishInfo'] ?><br/>
-	<?php if ($CONF['special']) { echo "<strong>Special needs: </strong> $CONF[special]<br/>"; } ?>
-		<?php if ($CONF['expectations']) { echo "<strong>Expectations:</strong> $CONF[expectations]<br/>"; } ?>
-		<?php if ($CONF['attending']) { echo "<strong>Attending: </strong> $CONF[attending]<br/>"; } ?>
-			</td>
-	</tr>
-
-	<tr>
-		<td valign=top>
-			<div align="right">
-				<strong><span>Registration Fee</span>: &nbsp;&nbsp;&nbsp;</strong> 
-			</div>
 		</td>
-	 	<td width='300'><?= $amount ?></td>
+	</tr>
+	<tr>
+		<td >&nbsp;</td><td><strong>phone:</strong></td><td> <?= $User->phone ?><br/></td>
+	</tr>	
+	<?php if ($User->fax) { ?>
+	<tr>
+		<td >&nbsp;</td><td><strong>fax:</strong></td><td>  <?= $User->fax ?><br/><br/></td>
+	</tr>
+	<?php } ?>
+	<tr>
+		<td >&nbsp;</td><td><strong>shirt size:</strong></td><td>  <?= $CONF['shirt'] ?><br/></td>
+	</tr>
+	<?php if ($CONF['jasig']) { ?><tr>
+		<td >&nbsp;</td><td><strong>attending jasig:</strong></td><td>  <?= $CONF['jasig'] ?><br/></td>
+	</tr>
+	<?php }?>
+	<tr>
+		<td >&nbsp;</td><td><strong>staying at <br/>conference hotel:</strong></td><td>  <?= $CONF['confHotel'] ?><br/></td>
+	</tr> 
+	<tr>
+		<td >&nbsp;</td><td><strong>publish name on <br/>attendee list:</strong> </td><td> <?= $CONF['publishInfo'] ?><br/></td>
+	</tr>
+	<?php if ($CONF['special']) { ?>
+	<tr><td >&nbsp;</td><td><strong>Special needs: </strong></td><td><?=$CONF['special']?><br/></td></tr>
+	<?php } ?>
+		<?php if ($CONF['expectations']) { ?>
+		<tr><td >&nbsp;</td><td><strong>Expectations:</strong></td><td><?=$CONF['expectations']?><br/></td></tr>
+	<?php } ?>	<?php if ($CONF['attending']) { ?>
+	<tr><td >&nbsp;</td><td><strong>Dates Attending: </strong></td><td> <?=$CONF['attending']?><br/></td></tr>
+	<?php } ?>		
+	<tr>
+		<td >&nbsp;</td><td valign=top><strong>Registration Fee</strong>: </td><td> <?= $amount ?></td>
 	</tr>
 
 <?php if ($CONF['transID']) { 
 	// user has already paid
 ?>
-
 	<tr>
-		<td valign=top>
-			<div align="right">
-				<strong><span>Registration Fee</span>: &nbsp;&nbsp;&nbsp;</strong> 
-			</div>
+		<td >&nbsp;</td>
+		<td valign=top><div align="right"><strong><span>Registration Fee</span>: &nbsp;&nbsp;&nbsp;</strong> </div>
 		</td>
 	 	<td width='300'><?= $amount ?></td>
 	</tr>
@@ -140,7 +151,7 @@ if (!$isPartner){
 			<input type="hidden" name="USER2" value="<?php echo $registrant ?>"/>
 			<input type="hidden" name="USER3" value="<?php echo $CONF['delegate'] ?>"/>
 			<input type="hidden" name="COMMENT1" value="Registrant: <?= $User->firstname." ".$User->lastname ?>, <?= $User->institution ?>, <?= $User->email ?>"/>
-			
+			<input type="hidden" name="COMMENT2" value="<?=$CONF_ID?>" />
 			<!--  
 			<input type="hidden" name="ORDERFORM" value="TRUE" >
 			<input type="hidden" name="ECHODATA" value="TRUE" >
@@ -150,7 +161,7 @@ if (!$isPartner){
           <!-- cardnum for testing -->
          <!-- <input type="hidden" name="CARDNUM" value="4111111111111111" > -->
           <!-- cardnum for testing -->
-     <!--     <input type="hidden" name="EXPDATE" value="1006" > -->
+     <!--     <input type="hidden" name="EXPDATE" value="1008" > -->
           <!--  exp date for testing -->
           <input type="hidden" name="METHOD" value="CC" />
           <input type="hidden" name="TYPE" value="S"/>
@@ -160,7 +171,7 @@ if (!$isPartner){
 // $amount='1.00';
 ?>
           <input type="hidden" name="AMOUNT" value="<?php echo $amount; ?>"/>
-          <input type="hidden" name="DESCRIPTION" value="Sakai -Atlanta Conference registration"/>
+          <input type="hidden" name="DESCRIPTION" value="Sakai -Amsterdam Conference registration"/>
           <input type="submit" name="submit" value="pay by credit card >>" />
         </td>
       </tr>
