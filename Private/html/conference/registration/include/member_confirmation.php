@@ -67,11 +67,11 @@
 		<td valign=top style="border-right: 1px dotted #cccccc; padding-right:10px;"><strong>Payment Information</strong><br/><br/><br/></td>
 		<td colspan=2 style="padding-left:10px;"><br/>
 		<strong>Registration Fee</strong>:  &nbsp;&nbsp;&nbsp;&nbsp;
-						<?php if (!$amount) {
-							$amount="No Fee Required ";  echo $amount; } 
+						<?php if (!$fee) {
+							$fee="No Fee Required ";  echo $fee; } 
 						else { 
-							echo "$" .$amount;  ?><br/>
-						<strong>Amount Paid</strong>:  &nbsp;&nbsp;&nbsp;&nbsp; $<?=$amount?>
+							echo "$" .$fee;  ?><br/>
+						<strong>Amount Paid</strong>:  &nbsp;&nbsp;&nbsp;&nbsp; $<?=$fee?>
 						<?php } ?>					
 
 </td></tr>
