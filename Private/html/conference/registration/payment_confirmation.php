@@ -65,7 +65,7 @@ if ($ResultCode== '0') {
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<?php include $ACCOUNTS_PATH.'include/header.php';?>
+<?php include '../include/header.php';?>
 <?php include 'include/registration_LeftCol.php'; // Include left column ?>
 
 
@@ -73,7 +73,7 @@ if ($ResultCode== '0') {
 if ($Message) {
 	echo $Message;
 	echo  "<br>" . $ResponseMsg;
-	include $ACCOUNTS_PATH.'include/footer.php';
+	include '../include/footer.php';
 	exit;
 }
 ?>
