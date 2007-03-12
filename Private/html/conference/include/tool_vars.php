@@ -27,8 +27,10 @@ $CONF_ID = "Jun2007";
 $CONF_LOC = "Amsterdam";
 $CONF_NAME = "Sakai Amsterdam Conference - June 2007";
 $CONF_URL = "http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=190&Itemid=615";
-$REG_START_DATE = "2007/03/11 8:00";
+$REG_START_DATE = "2007/03/12 8:00";
 $CFP_START_DATE = "2007/02/01 8:00";
+
+$CFP_END_DATE = "2007/03/15 17:00";
 
 $CONF_START_DATE = "2007/07/12 8:00";
 $CONF_END_DATE = "2007/07/14 17:00";
