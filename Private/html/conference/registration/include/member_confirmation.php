@@ -68,7 +68,7 @@
 		<td colspan=2 style="padding-left:10px;"><br/>
 		<strong>Registration Fee</strong>:  &nbsp;&nbsp;&nbsp;&nbsp;
 						<?php if (!$fee) {
-							$fee="No Fee Required ";  echo $fee; } 
+							$fee="Member Organization:  No Fee Required ";  echo $fee; } 
 						else { 
 							echo "$" .$fee;  ?><br/>
 						<strong>Amount Paid</strong>:  &nbsp;&nbsp;&nbsp;&nbsp; $<?=$fee?>
