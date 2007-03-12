@@ -25,7 +25,10 @@ if ($CONF) {
 	    			"<span style='color:red;'><br />Registration fee paid: &#36;$fee </span><br/><br/>";
 	    	
 	    } else {
-	    	$Message  .="<span style='color:red;'><br />However, <strong>you have not completed the payment process</strong>. <br/><br/></span><strong>Please go to the <a href='payment.php'>Payment page</a> to complete the registration process.</strong><div class='padding50></div><div class='padding50></div>' ";
+	    	$Message  .="<span style='color:red;'><br />However, <strong>you have not completed the payment process.</strong>" .
+					" <br/><br/></span><strong>Please go to" .
+	    			" the <a href='payment.php'>Payment page</a> to complete the registration process.</strong>" .
+	    			"<div class=padding50>&nbsp;</div><div class=padding50>&nbsp;</div> ";
 	    }
 	}
 }
