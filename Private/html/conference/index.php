@@ -5,9 +5,11 @@
  */
 ?>
 <?php
-require_once 'include/tool_vars.php';
+require_once $ACCOUNTS_PATH.'include/tool_vars.php';
 
-$PAGE_NAME = "Conference";
+$PAGE_NAME = "Sakai Conference";
+
+$ACTIVE_MENU="HOME";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -16,48 +18,42 @@ require 'sql/mysqlconnect.php';
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
-// add in the help link
-//$EXTRA_LINKS = " - <a style='font-size:9pt;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
-//$EXTRA_MESSAGE = "<br/><span style='font-size:8pt;'>Technical problems? Please contact <a href='mailto:$HELP_EMAIL'>$HELP_EMAIL</a></span><br/>";
+
+$CSS_FILE = $ACCOUNTS_URL.'/include/accounts.css';
+
+// top header links
+	$EXTRA_LINKS .="<a class='active' href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:" ;
+
+
+$EXTRA_LINKS = "<span class='extralinks'>" ;
+if ((!$User->checkPerm("admin_accounts")) && (!$User->checkPerm("proposals_dec2006")) ) {
+$EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
+ }
+$EXTRA_LINKS.=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+	"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" .
+	"</span>";
+
+
 ?>
 
 <?php require $ACCOUNTS_PATH.'include/top_header.php'; ?>
+<?php require $ACCOUNTS_PATH.'include/header.php'; ?>
+<div id="maincontent">
+<?php include 'registration/include/registration_LeftCol.php'?>
 
-<style type="text/css">
+<div style="text-align:left; padding-left: 30px; width:100%;">
 
-#activity{
-color:#000;
-}
-#activity td{
-padding: 0px 5px;
-color:#000;
-}
-</style>
-<script type="text/javascript">
-<!--
-// -->
-</script>
-<?php require 'include/header.php'; ?>
-<?php include 'include/conference_LeftCol.php'?>
-
-<div style="text-align:left;">
-
-<span style="font-size:11pt;"><a href="proposals/">Propose a session</a></span>  for the Amsterdam conference
+<span style="font-size:1.1em;"><a class="mainlevel" href="proposals">Propose a session</a></span> 
 	<br/><br/>
-<span style="font-size:11pt;">
-<a style="font-size:11pt;" href="/">Register</a> </span>for the Amsterdam conference
+<span style="font-size:1.1em;">
+<a class="mainlevel" href="registration/">Register</a> </span>
 	<br/><br/>
 	
-<span style="font-size:11pt;"><a href="logos/">Submit a Logo or theme</a></span>  for the Amsterdam logo contest
-	<br/><br/>
+<div class="padding50">&nbsp;</div>
 	
-	
-	<!-- <span style="font-size:11pt;">Volunteer to help at the conference</span> -
-	Click here to volunteer to be a convener or recorder for the upcoming Sakai conference<br/>
-    -->
-<!-- <a style="font-size:12pt;" href="volunteer.php">Volunteer to help at the conference</a> -
-	Click here to volunteer to be a convener or recorder for the upcoming Sakai conference<br/>
--->
+
+
 </div>
-<div style="height:60px;"><br/><br/></div>
-<?php require 'include/footer.php'; // Include the FOOTER ?>
+</td></tr></table>
+</div>
+<?php require $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

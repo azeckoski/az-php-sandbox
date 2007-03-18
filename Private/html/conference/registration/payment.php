@@ -5,6 +5,8 @@ require_once '../include/tool_vars.php';
 $PAGE_NAME = "Payment";
 $Message = "";
 
+$PAGE_NAME = "Registration";
+
 // connect to database
 require '../sql/mysqlconnect.php';
 
@@ -12,12 +14,15 @@ require '../sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-$AUTH_MESSAGE = "You must login to make payment for the $CONF_NAME conference. If you do not have an account, please create one and register first.";
+$AUTH_MESSAGE = "<strong>LOGIN REQUIRED</strong><br/>You must login to register or submit a proposal for this event. <br/>If you do not have an account, " .
+		"please <a href='/accounts/createaccount.php'> create a new account</a>.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+
+// bring in the form validation code
+require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // bring in inst and conf data
 require 'include/getInstConf.php';
-
 // kick them off this page if they should not be here
 if ( (!$isRegistered) || $isPartner) {
 	// if not registered yet then send them packing
@@ -26,26 +31,35 @@ if ( (!$isRegistered) || $isPartner) {
 	header('location:'.$TOOL_URL.'/registration/index.php'.$MSG);
 	exit;
 }
+
+$CSS_FILE = $ACCOUNTS_URL.'/include/accounts.css';
+
 $Message = $_GET['msg'];
 
-// add in the help link
-//$EXTRA_LINKS = " - <a style='font-size:9pt;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
-//$EXTRA_MESSAGE = "<br/><span style='font-size:8pt;'>Technical problems? Please contact <a href='mailto:$HELP_EMAIL'>$HELP_EMAIL</a></span><br/>";
-?>
+// top header links
+$EXTRA_LINKS = "<span class='extralinks'>" ;
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
-<style type="text/css">
-#activity{
-color:#000;
-}
-#activity td{
-padding: 0px 5px;
-color:#000;
-}
-</style>
+$EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
+ 
+$EXTRA_LINKS.=	"<a class='active'  href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+	"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
+	if ($SCHEDULE) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }
+	
+	$EXTRA_LINKS.="</span>";?>
+
+ <?php // INCLUDE THE HTML HEAD
+include $ACCOUNTS_PATH.'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<?php include '../include/header.php'; // INCLUDE THE HEADER ?>
-<?php include 'include/registration_LeftCol.php'; //Include the registration left col  ?>
+<?php  // INCLUDE THE HEADER
+include $ACCOUNTS_PATH.'/include/header.php';  ?>
+<div id="maincontent">
+<?php include 'include/registration_LeftCol.php'?>
+
+<?php  if ($Message ) { echo "<div>".  $Message ."</div><br/>"; } ?> 
+
 <?php
 $today = date($DATE_FORMAT,time());
 
@@ -70,7 +84,6 @@ if (!$isPartner){
   </tr>
 </table>
 
-<?= $Message ?>
 
 <!-- start of the form td -->
 <div id=cfp> 
@@ -171,14 +184,15 @@ if (!$isPartner){
  //$amount='1.00';
 ?>
           <input type="hidden" name="AMOUNT" value="<?php echo $amount; ?>"/>
-          <input type="hidden" name="DESCRIPTION" value="Sakai -Amsterdam Conference registration"/>
-          <input type="submit" name="submit" value="pay by credit card >>" />
+          <input type="hidden" name="DESCRIPTION" value="Sakai -Amsterdam Conference registration"/><br/><br/>
+          <input type="submit" id="submitbutton" name="submit" value="pay by credit card >>" />
         </td>
       </tr>
     </table>
   </form>
 </div>
 <!-- end cfp -->
-<?php } // end check paid ?>
-
-<?php require '../include/footer.php'; ?>
+<?php  // end check paid 
+}	?>
+</div>
+<?php require $ACCOUNTS_PATH .'/include/footer.php'; ?>

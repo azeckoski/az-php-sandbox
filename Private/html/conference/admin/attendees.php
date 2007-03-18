@@ -9,6 +9,8 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Attendee List";
+$ACTIVE_MENU="REGISTER";  //for managing active links on multiple menus
+
 $Message = "";
 
 // connect to database
@@ -18,7 +20,7 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
@@ -127,6 +129,7 @@ $items_displayed = mysql_num_rows($result);
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
+
 $DATE_FORMAT = "M d, Y h:i a";
 
 
@@ -158,21 +161,19 @@ if ($_REQUEST["export"] && $allowed) {
 	exit;
 } // END EXPORT
 
-
 // set header links
 $EXTRA_LINKS = 
-	"<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin:</a> " .
-	"<a href='attendees.php'><strong>Attendees</strong></a> - " .
-	"<a href='proposals.php'>Proposals</a> - " .
-	"<a href='check_in.php'>Check In</a> - " .
-	"<a href='schedule.php'>Schedule</a> - " .
-	"<a href='volunteers.php'>Volunteers</a> " .
+	"<span class='extralinks'>" .
+	"<a class='active' href='$CONFADMIN_URL/admin/attendees.php'>Attendee List</a>" .
+	"<a href='$CONFADMIN_URL/admin/payment_info.php'>Payments</a>" .
+	"<a href='$CONFADMIN_URL/admin/check_in.php'>Onsite Check-in</a>" .
 	"</span>";
+
 
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+<?php // INCLUDE THE HTML HEAD
+require $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -194,14 +195,14 @@ function doConfirm(item, type, action) {
 }
 // -->
 </script>
-<?php include $TOOL_PATH.'include/admin_header.php'; ?>
-
+<?php include $ACCOUNTS_PATH.'include/header.php' ?>
+<div id="maindata">
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include $TOOL_PATH.'include/admin_footer.php';
+		include $ACCOUNTS_PATH.'include/footer.php';
 		exit;
 	}
 ?>
@@ -213,13 +214,30 @@ function doConfirm(item, type, action) {
 <div class="filterarea">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
-		<td nowrap="y"><b style="font-size:1.1em;">Info:</b></td>
-		<td nowrap="y" colspan="5">
-			<div style="float:left;">
-				<strong><?= $CONF_NAME ?></strong>
-				(<?= date($SHORT_DATE_FORMAT,strtotime($CONF_START_DATE)) ?> - <?= date($SHORT_DATE_FORMAT,strtotime($CONF_END_DATE)) ?>)
-			</div>
-			<div style="float:right; padding-right: 30px;">
+		<td>
+			<strong>Filter:</strong>
+		</td>
+		<td>
+			<select style="font-size:.9em;"name="filter_roles" title="Filter the items by role">
+				<option value="<?= $filter_roles ?>" selected><?= $filter_roles ?></option>
+				<option value="Developer/Programmer">Developer/Programmer</option>
+				<option value="Faculty">Faculty</option>
+				<option value="Faculty Development">Faculty Development</option>
+				<option value="Implementor">Implementor</option>
+				<option value="Instructional Designer">Instructional Designer</option>
+				<option value="Instructional Technologist">Instructional Technologist</option>
+				<option value="Librarian">Librarian</option>
+				<option value="Manager">Manager</option>
+				<option value="System Administrator">System Administrator</option>
+				<option value="UI/Interaction Designer">UI/Interaction Designer</option>
+				<option value="University Administration">University Administration</option>
+				<option value="User Support">User Support</option>
+				<option value="show all Roles">show all Roles</option>
+			</select>
+		    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
+			&nbsp;&nbsp;
+			
+				</td>	<td align="right">
 
 <?php
 	$count_sql = "SELECT count(*) FROM conferences where activated = 'Y' and confId = '$CONF_ID'";
@@ -247,13 +265,13 @@ function doConfirm(item, type, action) {
 			<label title="members of Sakai partner institutions"><?= $total_items - $non_members ?> members</label> /
 			<label style="color:#990099;" title="not members of Sakai partner institutions"><?= $non_members ?> non-members</label>)
 			</span>
-			</div>
+			
+			
 		</td>
 	</tr>
-
 	<tr>
-		<td nowrap="y" ><strong style="font-size:1.1em;">Paging:</strong></td>
-		<td nowrap="y">
+		<td nowrap="y" style="padding-top:8px;" ><strong >Paging:</strong></td>
+		<td nowrap="y" style="padding-top:8px;">
 <?php if ($_REQUEST["num_limit"] == "All") { ?>
 		<input type="hidden" name="num_limit" value="All"/>
 		<span class="keytext">
@@ -274,7 +292,7 @@ function doConfirm(item, type, action) {
 <?php } ?>
 		</td>
 	
-		<td nowrap="y" align="right">
+		<td nowrap="y" align="right" style="padding-top:8px;">
 			<input class="filter" type="submit" name="clearall" value="Clear" title="Reset display to defaults" />
 			<input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
 	        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
@@ -284,31 +302,7 @@ function doConfirm(item, type, action) {
 		</td>
 	</tr>
 
-	<tr>
-		<td>
-			<strong style="font-size:1.1em;">Filter:</strong>
-		</td>
-		<td>
-			<select name="filter_roles" title="Filter the items by role">
-				<option value="<?= $filter_roles ?>" selected><?= $filter_roles ?></option>
-				<option value="Developer/Programmer">Developer/Programmer</option>
-				<option value="Faculty">Faculty</option>
-				<option value="Faculty Development">Faculty Development</option>
-				<option value="Implementor">Implementor</option>
-				<option value="Instructional Designer">Instructional Designer</option>
-				<option value="Instructional Technologist">Instructional Technologist</option>
-				<option value="Librarian">Librarian</option>
-				<option value="Manager">Manager</option>
-				<option value="System Administrator">System Administrator</option>
-				<option value="UI/Interaction Designer">UI/Interaction Designer</option>
-				<option value="University Administration">University Administration</option>
-				<option value="User Support">User Support</option>
-				<option value="show all Roles">show all Roles</option>
-			</select>
-		    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
-			&nbsp;&nbsp;
-		</td>
-	</tr>
+	
 
 	</table>
 </div>
@@ -370,7 +364,7 @@ while($row=mysql_fetch_assoc($result)) {
 	<td class="line"><?= $row["email"] ?></td>
 	<td class="line"><?= $row['primaryRole'] ?> </td>
 	<td class="line"><?= $row["institution"] ?></td>
-	<td class="line" align="center" nowrap="y" style="font-size:.8em;"><?= date($DATE_FORMAT,strtotime($row["date_created"])) ?></td>
+	<td class="line" align="center" nowrap="y" ><?= date($DATE_FORMAT,strtotime($row["date_created"])) ?></td>
 	<td class="line"><?= $row_num ?></td>
 </tr>
 
@@ -381,6 +375,7 @@ while($row=mysql_fetch_assoc($result)) {
 </table>
 </form>
 
+<div class="padding50"></div>
 <br/>
 <div class="definitions">
 <div class="defheader">How to use attendees page</div>
@@ -395,5 +390,5 @@ To activate a user even if they have not paid, use the <strong>+</strong> link t
 To deactivate a user (basically disables their registration), use the <strong>x</strong> link to the left of their name.<br/>
 </div>
 </div>
-
-<?php include $TOOL_PATH.'include/admin_footer.php'; ?>
+</div>
+<?php require $ACCOUNTS_PATH.'include/footer.php'; ?>

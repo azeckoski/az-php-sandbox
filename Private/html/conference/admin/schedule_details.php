@@ -195,16 +195,29 @@ $CSS_FILE2 = $TOOL_URL."/include/schedule.css";
 
 $DATE_FORMAT = "M d, Y h:i A";
 
-
 // set header links
-$EXTRA_LINKS = 
-	"<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin:</a> " .
-	"<a href='attendees.php'>Attendees</a> - " .
-	"<a href='proposals.php'>Proposals</a> - " .
-	"<a href='check_in.php'>Check In</a> - " .
-	"<a href='schedule.php'><strong>Schedule</strong></a> " .
-	"</span>";
+$EXTRA_LINKS = "<span class='extralinks'>" ;
+	// top header links
+$EXTRA_LINKS = "<span class='extralinks'>" ;
+$EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
+ 
+		
+		
+		$EXTRA_LINKS.=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+		"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
+		
+	if ($SCHEDULE) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a class='active'  href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>"; }
+	if ($VOLUNTEER) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/volunteers.php'>Volunteers</a>"; 
+		}
+		
+		
+	$EXTRA_LINKS .="</span>";
+	
+
+	
 ?>
 
 
@@ -223,13 +236,8 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php 
-if ($User && $isAdmin) {
-	include $TOOL_PATH.'include/admin_header.php';
-} else {
-	echo "</head><body>";
-}
-?>
+<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
+
 
 <?= $Message ?>
 
@@ -239,32 +247,7 @@ if ($User && $isAdmin) {
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
 
-<div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
-<strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
-Check back closer to the conference for the final schedule, contact <a href="mailto:mmiles@umich.edu">Mary Miles</a> with questions
-</div>
-
-
-<div class="filterarea">
-	<table border=0 cellspacing=0 cellpadding=0 width="100%">
-	<tr>
-		<td nowrap="y"><b style="font-size:1.1em;">Conference schedule:</b></td>
-		<td nowrap="y" colspan="5">
-		<div style="float:left; padding-right: 30px;"><a href="schedule.php"><strong>Table View <img src="../include/images/arrow.gif" border=0 height=9 width=9/></a>
-			</div>	<div style="float:left;">
-				<strong><a href="<?= $CONF_URL ?>"><?= $CONF_NAME ?></a></strong>
-<?php $confDateFormat = "g:i a, l, M j, Y"; ?>
-				(<?= date($confDateFormat,strtotime($CONF_START_DATE)) ?> - <?= date($confDateFormat,strtotime($CONF_END_DATE)) ?>)
-			</div>
-			
-		</td>
-	</tr>
-
-	</table>
-</div>
-
-
-<div style="background:#ECECEC;border:1px solid #ccc;padding:3px;margin-bottom:10px;">
+<div style="background:#fff;border:0px solid #ccc;padding:3px;margin-bottom:10px;">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
 	<td nowrap="y">
@@ -496,4 +479,6 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 </table>
 </form>
 
-<?php include $TOOL_PATH.'include/admin_footer.php'; ?>
+<div class="padding50"></div>
+
+<?php include $ACCOUNTS_PATH.'include/footer.php'; // INCLUDE THE footer ?>

@@ -4,10 +4,13 @@
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
 ?>
+
 <?php
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Registration";
+
+$ACTIVE_MENU="HOME";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -17,7 +20,8 @@ require '../sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-$AUTH_MESSAGE = "You must login to register or submit a proposal for the $CONF_NAME conference. If you do not have an account, please create one.";
+$AUTH_MESSAGE = "<strong>LOGIN REQUIRED</strong><br/>You must login to register or submit a proposal for this event. <br/>If you do not have an account, " .
+		"please <a href='/accounts/createaccount.php'> create a new account</a>.";
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // bring in the form validation code
@@ -34,19 +38,18 @@ if($_GET['msg']) {
 	$Message .= "<br/>" . $_GET['msg'];
 }
 
-if ($User->checkPerm("admin_conference")) {
-	$REG_START_DATE="2006/08/01 8:00"; //only admins can see this before start date
-}
-
+if (!$User->checkPerm("admin_accounts")) {
 // check for date restrictions
 if(strtotime($CONF_END_DATE) < time()) {
-	$Message = "This conference registration period has passed.<br>" .
+	$Message = "This registration period has passed.<br>" .
 			"Ended on " . date($DATE_FORMAT,strtotime($CONF_END_DATE));
 	$error = true;
 } elseif (strtotime($REG_START_DATE) > time()) {
-	$Message = "This conference registration period has not yet begun.<br>" .
-			"Begins on " . date($DATE_FORMAT,strtotime($REG_START_DATE));
+	$Message = "This registration has not yet opened.  You may register starting " .
+			 date($DATE_FORMAT,strtotime($REG_START_DATE));
+    $Message .= "<div class='padding50'></div><div class='padding50'></div>";
 	$error = true;
+}
 }
 
 // Define the array of items to validate and the validation strings
@@ -180,26 +183,35 @@ if (!$attending){
 		}
 	}
 }
+$CSS_FILE = $ACCOUNTS_URL.'/include/accounts.css';
 
-// add in the help link
-//$EXTRA_LINKS = " - <a style='font-size:9pt;' href='$HELP_LINK' target='_HELP'>Help</a><br/>";
-//$EXTRA_MESSAGE = "<br/><span style='font-size:8pt;'>Technical problems? Please contact <a href='mailto:$HELP_EMAIL'>$HELP_EMAIL</a></span><br/>";
-?>
-<?php require $ACCOUNTS_PATH.'include/top_header.php';  ?>
+// top header links
+$EXTRA_LINKS = "<span class='extralinks'>" ;
+
+$EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
+ 
+$EXTRA_LINKS.=	"<a class='active'  href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+	"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
+	if ($SCHEDULE) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }
+	
+	$EXTRA_LINKS.="</span>";
+
+ // INCLUDE THE HTML HEAD
+include $ACCOUNTS_PATH.'include/top_header.php';  ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<!-- // INCLUDE THE HEADER -->
-<?php require '../include/header.php';  ?>
-<?php require 'include/registration_LeftCol.php';  ?>
 
+<?php  // INCLUDE THE HEADER
+include $ACCOUNTS_PATH.'/include/header.php';  ?>
+<div id="maincontent">
+<?php include 'include/registration_LeftCol.php'; ?>
 
-<table width="100%" class="blog" cellpadding="0" cellspacing="0">
-  <tr>
-    <td valign="top"><div class="componentheading"> Conference Registration</div></td>
-  </tr>
-</table>
-
-<?php echo $Message; ?>
+<div class="componentheading">Registration</div>
+<?= $Message ?>
 <?php
+
 	// this should never happen but just in case
 	if (!$User->institution_pk) {
 		print "<b style='color:red;'>Fatal Error: You must use the My Account link to set " .
@@ -229,33 +241,32 @@ if (!$attending){
 	} else { // show registration form
 ?>
 
+
 <!-- start of the form td -->
 <div> <!-- start form section -->
 <form name="form1" id="form1" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="save" value="1" />
 <table width="500"  cellpadding="0" cellspacing="0">
-
 <tr>
 	<td valign="top" colspan="2" style="padding:0px;">
 		<div id="requiredMessage"></div>
 	</td>
 </tr>
-
 <tr>
 	<td colspan=2>
-		<strong>Verify personal information:</strong><br />
+		<strong>Verify personal information:</strong><br /><br/>
 		<div style="padding-left: 40px;">
 <?php
 	// get info for verification
-	echo "<strong>Name:</strong> $thisUser->firstname $thisUser->lastname <br />";
-	echo "<strong>Email:</strong> $thisUser->email <br />";
-	echo "<strong>Institution:</strong> $thisUser->institution <br />";
+	echo "<strong>Name:</strong>&nbsp; &nbsp; $thisUser->firstname $thisUser->lastname <br /><br/>";
+	echo "<strong>Email:</strong>&nbsp; &nbsp; $thisUser->email <br /><br/>";
+	echo "<strong>Institution:</strong>&nbsp; &nbsp;  $thisUser->institution <br />";
 ?>
 		<div style="margin:10px;"></div>
 <?php
 	if ($isPartner) {  // this means the user is in a partner inst 
 ?>
-	<strong><?= $Inst->name ?> is a Sakai Partner Organization</strong> <br/>(registration fee is waived)
+	<strong>* <?= $Inst->name ?> is a Sakai Partner Organization</strong> <br/>(registration fee is waived)
 	<input type="hidden" name="memberType" value="1" />
 <?php } else { // this is a member institution ?>
 	<strong><?= $User->institution ?> is not a Sakai Partner Organization</strong>&nbsp;
@@ -269,7 +280,7 @@ if (!$attending){
       <img src="<?= $TOOL_URL ?>/include/images/ccards.jpg" width="121" height="30"/>
 <?php } ?>
 	<div style="margin:10px;"></div>
-	If the above information is wrong, use 
+	<br/>If the above information is wrong, use 
 	<a href="<?= $ACCOUNTS_URL ?>/<?= $ACCOUNTS_PAGE ?>" >My Account</a>
 	to correct it <strong>before</strong> registering
 		</div>
@@ -280,7 +291,7 @@ if (!$attending){
 
 <?php if ($isPartner) { ?>
     <tr>
-      <td colspan=2><div align=center>
+      <td colspan="2" style="border-bottom:0;"><div align=center>
           <input id="submitbutton" type="submit" name="submit_MemberReg" value="Save my registration" />
         </div></td>
     </tr>
@@ -293,8 +304,11 @@ if (!$attending){
 <?php  } ?>
   </table>
 </form>
+<br/><br/><br/>
 <!--end of unique form info for form1 -->
 </div> <!-- end cfp -->
 <?php } ?>
 
-<?php require '../include/footer.php'; // Include the FOOTER ?>
+</td></tr></table>
+</div>
+<?php include $ACCOUNTS_PATH.'/include/footer.php'; // Include the FOOTER ?>

@@ -5,7 +5,7 @@
  */
 ?>
 <tr valign="top">
-  <td style="border-bottom:0px solid #eee; padding-bottom: 0px;">
+  <td style="border-bottom:0px solid #eee; padding-bottom: px; width: 160px;">
   	<div align=right>
 		<img id="primaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
 			<strong>Your Primary Role:</strong>
@@ -262,7 +262,9 @@
    
 </tr>
      <tr>
-     <td> 	
+     <td colspan="2" style="border-bottom:0;"> 	
+     <table width="100%" cellpadding="0"  cellspacing="0" border="0" >
+     <tr><td>
  <strong>Dates Attending:</strong></td>
      <td><div> Please check the days that you WILL ATTEND the Amsterdam conference. This information helps us save money, by providing a more accurate head count when ordering banquet services.</div>
         <br/> <strong> I WILL ATTEND</strong> on the following days:
@@ -270,7 +272,7 @@
          <img id="attending_monImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   	
       <input type="radio" name="attending_mon" value="MON"  <?php if ($_POST['attending_mon']=="MON") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No &nbsp;&nbsp;&nbsp;
-       <strong>Mon, Jun. 11th (Pre-Conference sessions)</strong><br><br/>
+       <strong>Mon, Jun. 11th </strong>(Pre-Conference sessions)<br><br/>
      <input type="hidden" id="attending_monValidate" value="<?= $vItems['attending_mon'] ?>"/> 
 	<span id="attending_monMsg"></span> 
 	     <img id="attending_tueImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
@@ -296,10 +298,10 @@
 	
 	<img id="attending_friImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
       <input type="radio" name="attending_fri" value="FRI"  <?php if ($_POST['attending_fri']=="FRI") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_fri" value=" " /> No &nbsp;&nbsp;&nbsp;
-     <strong>Fri, Jun. 15th  (Post-Conference meetings)</strong><br><br/>
+     <strong>Fri, Jun. 15th </strong> (Post-Conference meetings)<br><br/>
      <input type="hidden" id="attending_friValidate" value="<?= $vItems['attending_fri'] ?>"/>
 	<span id="attending_friMsg"></span> 
-	
+	</td></tr></table>
      </td>
   </tr>
 <tr>

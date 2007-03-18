@@ -1,7 +1,16 @@
 <?php
+/*
+ * file: createaccount.php
+ * Created on Mar 01, 2006 10:21:01 PM by @author aaronz
+ * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
+ */
+?>
+<?php
 require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "My Account";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -37,6 +46,7 @@ $vItems['fax'] = "phone";
 
 // this matters when the form is submitted
 if ($_POST["save"]) {
+	
 
 	//$User->username = $_POST["username"];
 	$User->email = $_POST["email"];
@@ -52,6 +62,8 @@ if ($_POST["save"]) {
 	$User->country = $_POST["country"];
 	$User->phone = $_POST["phone"];
 	$User->fax = $_POST["fax"];
+	
+	
 
 	$PASS1 = mysql_real_escape_string($_POST["password1"]);
 	$PASS2 = mysql_real_escape_string($_POST["password2"]);
@@ -88,11 +100,33 @@ if ($_POST["save"]) {
 		$Message = "<div style=\"border:2px solid darkgreen;padding:3px;background:lightgreen;font-weight:bold;\"><b>Updated user information</b></div><br/>";
 	}
 }
-?>
-<?php include 'include/top_header.php';  ?>
-<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<?php include 'include/header.php';  ?>
 
+
+
+if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) ) {
+// top header links for admins
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a href='$ACCOUNTS_URL/admin/admin_users.php'>Users</a>" .
+	"<a   href='$ACCOUNTS_URL/admin/admin_insts.php'>Institutions</a>" .
+	"<a href='$ACCOUNTS_URL/admin/admin_perms.php'>Permissions</a>" .
+	"<a href='$ACCOUNTS_URL/admin/admin_roles.php'>Roles</a>" .
+	"</span>";
+} else {
+// top header links
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a class='active' href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:" .
+	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+	"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" .
+	"</span>";
+
+}
+	
+?>
+<?php // INCLUDE THE HTML HEAD
+ include 'include/top_header.php';  ?>
+<script type="text/javascript" src="ajax/validate.js"></script>
+<?php require 'include/header.php';  ?>
+<div id="maindata">
 <?= $Message ?>
 
 <div class="required" id="requiredMessage"></div>
@@ -109,10 +143,11 @@ if ($_POST["save"]) {
 
 </form>
 
-<span style="font-size:9pt;">
+<span style="font-size:.9em;">
 	<b>Note:</b> <i>To change your password, enter the new values in the fields above.<br/>
 	To leave your password at its current value, leave the password fields blank.</i>
 </span>
 <br/>
+</div>
 
 <?php include 'include/footer.php'; // Include the FOOTER ?>

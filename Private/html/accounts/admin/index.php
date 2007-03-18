@@ -9,6 +9,8 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Admin Accounts Control";
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
+
 $Message = "";
 
 // connect to database
@@ -30,18 +32,21 @@ if (!$User->checkPerm("admin_accounts")) {
 	$allowed = 1;
 }
 
+
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'><strong>Admin</strong></a>: " .
-	"<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'>Institutions</a> - " .
-"<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a href='admin_users.php'>Users</a>" .
+	"<a href='admin_insts.php'>Institutions</a>" .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"<a href='admin_roles.php'>Roles</a>" .
 	"</span>";
+
 
 ?>
 
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php // INCLUDE THE HTML HEAD 
+include $ACCOUNTS_PATH.'include/top_header.php';  ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -55,8 +60,8 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
-
+<?php include $ACCOUNTS_PATH.'include/header.php';  ?>
+<div id="maincontent">
 <?= $Message ?>
 
 <?php
@@ -66,36 +71,39 @@ function orderBy(newOrder) {
 		exit;
 	}
 ?>
+<div id="maindata">
+<table cellpadding="5" cellspacing="10">
 
-<table>
+  <tr>
+      <td valign="top"><a class="mainlevel" href="<?= $ACCOUNTS_URL ?>/createaccount.php">Create Account</a></td>
+      <td>This allows admins to create accounts for others when necessary.  <br/>
+      
+      </td>
+    </tr>
     <tr>
-      <td valign="top"><a href="admin_users.php">Users Control</a></td>
+      <td valign="top"><a class="mainlevel"  href="admin_users.php">Users Control</a></td>
       <td>This allows control of user accounts and related properties<br/>
       Edit the user to set them as an institutional rep or polling rep and to control admin privileges
       </td>
     </tr>
 
     <tr>
-      <td valign="top"><a href="admin_insts.php">Institutional Control</a></td>
+      <td valign="top"><a class="mainlevel" href="admin_insts.php">Institutional Control</a></td>
       <td>This allows control of institutions<br/>
       Edit the institution to change the name, abbreviation, or type
       </td>
     </tr>
 
     <tr>
-      <td valign="top"><a href="admin_perms.php">Permissions Control</a></td>
+      <td valign="top"><a class="mainlevel"  href="admin_perms.php">Permissions Control</a></td>
       <td>This allows control of permissions<br/>
       Add new permissions or edit the descriptions of existing permissions
       </td>
     </tr>
 
-    <tr>
-      <td valign="top"><a href="admin_ldap.php">LDAP Control</a></td>
-      <td>This allows control of the LDAP<br/>
-      Refresh DB from LDAP, send data to LDAP, edit LDAP data directly
-      </td>
-    </tr>
 
 </table>  
+</div>
+</div><div class="padding50">  </div>
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

@@ -9,6 +9,8 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Volunteers Tracking";
+$ACTIVE_MENU="SCHEDULE";  //for managing active links on multiple menus
+
 $Message = "";
 
 // connect to database
@@ -55,20 +57,22 @@ while($row=mysql_fetch_assoc($result)) { $conf_proposals[$row['pk']] = $row; }
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $CSS_FILE2 = $TOOL_URL."/include/schedule.css";
 $DATE_FORMAT = "M d, Y h:i A";
+// set header links
 
 // set header links
-$EXTRA_LINKS = 
-	"<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin:</a> " .
-	"<a href='attendees.php'>Attendees</a> - " .
-	"<a href='proposals.php'>Proposals</a> - " .
-	"<a href='check_in.php'>Check In</a> - " .
-	"<a href='schedule.php'>Schedule</a> - " .
-	"<a href='volunteers.php'><strong>Volunteers</strong></a> " .
-	"</span>";
+$EXTRA_LINKS = "<span class='extralinks'>" ;
+	if ($SCHEDULE) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list)</a>"; }
+	if ($VOLUNTEER) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/volunteers.php'>Volunteers</a>"; 
+		}
+	$EXTRA_LINKS .="</span>";
+
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+<?php // INCLUDE THE HEADER 
+include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -86,14 +90,16 @@ function setConfProposal(pk) {
 }
 // -->
 </script>
-<?php include $TOOL_PATH.'include/admin_header.php'; ?>
+<?php  // INCLUDE THE HEADER
+include $ACCOUNTS_PATH.'include/header.php';  ?>
 
+<div id="maindata">
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include $TOOL_PATH.'include/admin_footer.php';
+		include $ACCOUNTS_PATH.'include/footer.php';
 		exit;
 	}
 ?>
@@ -115,7 +121,7 @@ function setConfProposal(pk) {
 
 		<td nowrap="y">
 			<div style="float:right;">
-				<strong style="color:red;">TOOL UNDER CONSTRUCTION</strong>
+				<strong style="color:red; font-size: .9em;">TOOL UNDER CONSTRUCTION</strong>
 				<em>Scroll down for instructions</em>&nbsp;
 			</div>
 		</td>
@@ -129,19 +135,11 @@ function setConfProposal(pk) {
 	<div class="colorkeyheader">Color Key</div>
 	<div style="padding:3px;">
 		<b style="font-size:1.1em;">Key:</b>
-	<?php if($User->pk) { ?>
-		<div class="convenor_user" style='display:inline;'>&nbsp;You are the convenor&nbsp;</div>
-		&nbsp;
-		<div class="recorder_user" style='display:inline;'>&nbsp;You are the recorder&nbsp;</div>
-		&nbsp;
-	<?php } ?>
-		<div class="recorder_convenor_exist" style='display:inline;'>&nbsp;Covenor and Recorder set&nbsp;</div>
+
+		<div class="convenor_exists" style='display:inline;'>&nbsp;Covenor set&nbsp;</div>
 		&nbsp;
 		<div class="no_convenor" style='display:inline;'>&nbsp;No Convenor&nbsp;</div>
-		&nbsp;
-		<div class="no_recorder" style='display:inline;'>&nbsp;No Recorder&nbsp;</div>
-		&nbsp;
-		<div class="no_recorder_convenor" style='display:inline;'>&nbsp;No Covenor or Recorder&nbsp;</div>
+		
 		&nbsp;
 	</div>
 </div>
@@ -164,24 +162,22 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 		$disabledN = "disabled='y'";
 	}
 
-	if (!$conf_proposal['recorder_pk'] && !$conf_proposal['convenor_pk']) {
-		$linestyle = "no_recorder_convenor";
-	} else if (!$conf_proposal['convenor_pk']) {
+	if (!$conf_proposal['convenor_pk']) {
 		$linestyle = "no_convenor";
-	} else if (!$conf_proposal['recorder_pk']) {
-		$linestyle = "no_recorder";
 	} else {
-		$linestyle = "recorder_convenor_exist";
+		$linestyle = "convenor_exists";
 	}
 
 	// make it easy for someone to tell they are a convenor or recorder
-	if ($User->pk) {
-		if ($conf_proposal['convenor_pk'] == $User->pk) {
-			$linestyle = "convenor_user";
-		} else if ($conf_proposal['recorder_pk'] == $User->pk) {
-			$linestyle = "recorder_user";
-		}
-	}
+	/*if ($User->pk) {
+	*	if ($conf_proposal['convenor_pk'] == $User->pk) {
+	*		$linestyle = "convenor_user";
+	*	} else if ($conf_proposal['recorder_pk'] == $User->pk) {
+	*		$linestyle = "recorder_user";
+	*	}
+	*}
+	*/
+	
 
 	//$current = $conf_proposal['type'];
 	$current = date('D, M d',strtotime($conf_proposal['start_time']));
@@ -203,11 +199,11 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 	$last = $current;
 ?>
 	<tr class="<?= $linestyle ?>">
-		<td valign="middle" align="center">
+		<td valign="middle" class="small_centered">
 <?php
 	if ($conf_proposal['convenor_pk']) { echo "<strong>Conv</strong>"; } else { echo "NC"; }
-	echo ", ";
-	if ($conf_proposal['recorder_pk']) { echo "<strong>Rec</strong>"; } else { echo "NR"; }
+	//echo ", ";
+	//if ($conf_proposal['recorder_pk']) { echo "<strong>Rec</strong>"; } else { echo "NR"; }
 ?>
 		</td>
 		<td class="small_centered">
@@ -278,5 +274,5 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 </ul>
 </div>
 </div>
-
-<?php include $TOOL_PATH.'include/admin_footer.php'; ?>
+</div>
+<?php include $ACCOUNTS_PATH.'include/footer.php'; ?>

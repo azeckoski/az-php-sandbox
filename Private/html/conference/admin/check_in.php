@@ -9,7 +9,8 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Arrivals Check In";
+$PAGE_NAME = "Onsite Check In";
+$ACTIVE_MENU="REGISTER";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -192,20 +193,19 @@ if ($_REQUEST["export"] && $allowed) {
 
 // set header links
 $EXTRA_LINKS = 
-	"<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin:</a> " .
-	"<a href='attendees.php'>Attendees</a> - " .
-	"<a href='proposals.php'>Proposals</a> - " .
-	"<a href='check_in.php'><strong>Check In</strong></a> " .
-		"(<em>" .
-		"<a href='create_badge.php?USERS_PK[]=all' target='new'>All Badges [pdf]</a>" .
-		"</em>) - " .
-	"<a href='schedule.php'>Schedule</a> - " .
-	"<a href='volunteers.php'>Volunteers</a> " .
+	"<span class='extralinks'>" .
+	"<a  href='$CONFADMIN_URL/admin/attendees.php'>Attendee List</a>" .
+	"<a href='$CONFADMIN_URL/admin/payment_info.php'>Payments</a>" .
+	"<a class='active' href='$CONFADMIN_URL/admin/check_in.php'>Onsite Check-in</a>" .
 	"</span>";
+
+
+
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+<?php // INCLUDE THE HTML HEAD
+ include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+ 
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -237,14 +237,14 @@ function unCheckInUser(num) {
 }
 // -->
 </script>
-<?php include $TOOL_PATH.'include/admin_header.php'; ?>
-
+<?php include $ACCOUNTS_PATH.'/include/header.php'; ?>
+<div id="maindata">
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include $TOOL_PATH.'include/admin_footer.php';
+		include $ACCOUNTS_PATH.'/include/footer.php';
 		exit;
 	}
 ?>
@@ -343,7 +343,7 @@ function unCheckInUser(num) {
 			<strong style="font-size:1.1em;">Filter:</strong>
 		</td>
 		<td>
-			<select name="filter_roles" title="Filter the items by role">
+			<select style="font-size:.9em;" name="filter_roles" title="Filter the items by role">
 				<option value="<?= $filter_roles ?>" selected><?= $filter_roles ?></option>
 				<option value="Developer/Programmer">Developer/Programmer</option>
 				<option value="Faculty">Faculty</option>
@@ -359,7 +359,7 @@ function unCheckInUser(num) {
 				<option value="User Support">User Support</option>
 				<option value="show all Roles">show all Roles</option>
 			</select>
-		    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
+		    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 			&nbsp;&nbsp;
 		</td>
 		<td>
@@ -379,6 +379,7 @@ function unCheckInUser(num) {
 <td></td>
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
+<td><a href="javascript:orderBy('confHotel');">Conf. Hotel?</a></td>
 <td><a href="javascript:orderBy('shirt');">Shirt</a></td>
 <td align="center"><a href="javascript:orderBy('date_created');">Registration Date</a></td>
 <td align="center"><a href="javascript:orderBy('arrived');">Arrival Date</a></td>
@@ -419,7 +420,9 @@ while($row=mysql_fetch_assoc($result)) {
 
 	<td class="line"><?= $row["institution"] ?></td>
 
-	<td class="line">
+	<td class="line" align=center>
+	<?=$row["confHotel"]; ?>
+	</td><td class="line">
 		<?= $row["shirt"] ?>
 <?php if ($row['special']) { ?>
 		<label style="font-size:.9em;color:darkblue;" title="Special Needs: <?= $row['special'] ?>">[special]</label>
@@ -430,11 +433,11 @@ while($row=mysql_fetch_assoc($result)) {
 <?php 
 	if($row["arrived"]) {
 		echo date($DATE_FORMAT,strtotime($row["arrived"]));
-		echo "&nbsp;<input style='font-size:7pt;' type='button' name='check' value='X' " .
+		echo "&nbsp;<input style='font-size:..9em;' type='button' name='check' value='X' " .
 				"onClick='javascript:unCheckInUser(".$row['userpk'].");return false;' />";
 	} else {
 		echo "<em>Not arrived</em> - " .
-				"<input style='font-size:7pt;' type='button' name='check' value='Check In' " .
+				"<input style='font-size:.9em;' type='button' name='check' value='Check In' " .
 				"onClick='javascript:checkInUser(".$row['userpk'].");return false;' />";
 	}
 ?>
@@ -443,9 +446,9 @@ while($row=mysql_fetch_assoc($result)) {
 	<td class="line" align="center">
 		<input type="checkbox" name="USERS_PK[]" value="<?= $row['userpk'] ?>"/>
 <?php if($row['printed_badge'] == "Y") { ?>
-		<image width="20" height="20" src="../include/images/printer_r.gif" alt="printed" />
+		<img width="20" height="17" src="../include/images/printer_r.gif" alt="printed" />
 <?php } else { ?>
-		<image width="20" height="20" src="../include/images/printer_g.gif" alt="not printed yet" />
+		<img width="20" height="17" src="../include/images/printer_g.gif" alt="not printed yet" />
 <?php } ?>
 	</td>
 </tr>
@@ -453,9 +456,9 @@ while($row=mysql_fetch_assoc($result)) {
 <?php } ?>
 
 <tr>
-<td colspan="5">&nbsp;</td>
-<td align="center">
-<input type="submit" value="Print Badges" onClick="document.adminform.action='create_badge.php';"/>
+<td colspan="6">&nbsp;</td>
+<td align="right"><div class="padding50"></div>
+<input class="filter" type="submit" value="Print Badges" onClick="document.adminform.action='create_badge.php';"/>
 </td>
 </tr>
 </table>
@@ -471,12 +474,10 @@ To undo a check-in, click on the <strong>X</strong> button (only visible if the 
 <div>To only show all users, click the <strong>ALL</strong> button at the top</div>
 <div>To only show users who have not checked in yet, click the <strong>NA</strong> button at the top</div>
 <div>To only show users who have already checked in, click the <strong>IN</strong> button at the top</div>
-<div>If a badge has not been printed for a user yet then a <font color="green">green</font> printer image <image width="20" height="20" src="../include/images/printer_g.gif" alt="not printed yet" /> will appear in the badge column.  If a badge has been printed, a <font color="red">red</font> printer image <image width="20" height="20" src="../include/images/printer_r.gif" alt="already printed " /> will appear in the badge column.  </div>
+<div>If a badge has not been printed for a user yet then a <font color="green">green</font> printer image <img width="20" height="20" src="../include/images/printer_g.gif" alt="not printed yet" /> will appear in the badge column.  If a badge has been printed, a <font color="red">red</font> printer image <img width="20" height="20" src="../include/images/printer_r.gif" alt="already printed " /> will appear in the badge column.  </div>
 <div>To print badges for every activated and registered person, click the <strong>(All Badges [pdf])</strong> link at the top</div>
 <div>To print badges for a select group of users, check the box(es) in the badge column and click the <strong>Print Badges</strong> button at the bottom of the page</div>
 <div>To create a special badge for a key-note speaker or guest who is not a registered attendee, use the <strong>Create special badge</strong> link at the top</div>
 </div>
 </div>
-
-<?php include $TOOL_PATH.'include/admin_footer.php'; ?>
-
+</div><?php include $ACCOUNTS_PATH.'/include/footer.php'; ?>

@@ -9,6 +9,8 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Conference Control";
+
+$ACTIVE_MENU="REGIST";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -31,22 +33,22 @@ if (!$User->checkPerm("admin_conference")) {
 }
 
 // custom CSS file
-$CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 
+$CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 // set header links
 $EXTRA_LINKS = 
-	"<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'><strong>Admin:</strong></a> " .
-	"<a href='attendees.php'>Attendees</a> - " .
-	"<a href='proposals.php'>Proposals</a> - " .
-	"<a href='check_in.php'>Check In</a> - " .
-	"<a href='schedule.php'>Schedule</a> - " .
-	"<a href='volunteers.php'>Volunteers</a> " .
-	"</span>";
+	"<span class='extralinks'>".
+	"<a class='active' href='$CONFADMIN_URL/admin/index.php'>User Forms:</a>";
+	if ($PROPOSALS) {  $EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/proposals.php'>Proposals Admin</a>"; }
+	if ($REGISTRATION) {  $EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/registration.php'>Registraton Admin</a>"; }
+	if ($SCHEDULE) {  $EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule Admin</a>"; }
+$EXTRA_LINKS .= "</span>";
 
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+<?php  // INCLUDE THE HTML HEAD 
+include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -60,45 +62,81 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include $TOOL_PATH.'include/admin_header.php'; ?>
 
+<?php // INCLUDE THE HEADER
+  include $ACCOUNTS_PATH.'include/header.php'; ?>
+<div id="maincontent">
 <?= $Message ?>
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include $TOOL_PATH.'include/admin_footer.php';
+		include $ACCOUNTS_PATH.'/include/footer.php';
 		exit;
 	}
 ?>
+<div id="maindata">
+<table border=0 cellpadding=5 cellspacing=5>
 
-<table>
-
+<?php 	if ($REGISTRATION) {  ?>
     <tr>
-      <td valign="top"><a href="attendees.php">Attendees</a></td>
-      <td>This allows an admin to view the current list of conference attendees for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
+      <td valign="top"><a class="mainlevel" href="registration.php">Registration</a></td>
+      <td>View the current list of conference attendees </td>
+    </tr>
+<?php } else {?>
+<tr>
+      <td valign="top"> <td valign="top"><a href="#" class="mainlevel" style="color:#333;" title="this feature not active">Volunteer</a></td>
+     Registration</td>
+      <td > <span style="color: #666;"> (this feature has not been activated for this event) </td>
+    </tr>
+<?php } ?>
+<?php 	if ($PROPOSALS) {  ?>
+    <tr>
+      <td valign="top"><a class="mainlevel" href="proposals_admin.php">Proposals</a></td>
+      <td >View and vote on the current list of <br/>conference proposals. </td>
     </tr>
 
+<?php } else {?>
+<tr>
+      <td valign="top"> <td valign="top"><a href="#" class="mainlevel" style="color:#333;" title="this feature not active">Proposals</a></td>
+     Proposals</a></td>
+      <td ><span style="color: #666;"> (this feature has not been activated for this event) </td>
+    </tr>
+<?php }  	if ($REGISTRATION)  {  ?>
     <tr>
-      <td valign="top"><a href="proposals.php">Proposals</a></td>
-      <td>This allows an admin to view and vote on the current list of conference proposals for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
+      <td valign="top"><a class="mainlevel" href="check_in.php">Onsite Check In</a></td>
+      <td>Conference admins can handle check in and badges </td>
     </tr>
 
+<?php } else {?>
+<tr>
+  <td valign="top"><a href="#" class="mainlevel" style="color:#333;" title="this feature not active">Onsite Check-In</a></td>
+           <td ><span style="color: #666;"> (this feature has not been activated for this event) </td>
+    </tr>
+<?php }   	if ($SCHEDULE) {  ?>
     <tr>
-      <td valign="top"><a href="check_in.php">Check In</a></td>
-      <td>This allows an admin to handle check in and badges for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
+      <td valign="top"><a class="mainlevel" href="schedule.php">Schedule</a></td>
+      <td>Modify the conference schedule. </td>
+    </tr>
+<?php } else {?>
+<tr>
+  <td valign="top"><a href="#" class="mainlevel" style="color:#333;" title="this feature not active">Schedule</a></td>
+        <td ><span style="color: #666;"> (this feature has not been activated for this event) </td>
+    </tr>
+<?php }	if ($VOLUNTEER) {  ?>
+    <tr>
+      <td valign="top"><a class="mainlevel" href="volunteers.php">Volunteers</a></td>
+      <td>View the list of conveners and recorders. </td>
     </tr>
 
-    <tr>
-      <td valign="top"><a href="schedule.php">Scheduling</a></td>
-      <td>This allows an admin to handle scheduling for sessions for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
+<?php } else {?>
+<tr>
+      <td valign="top"><a href="#" class="mainlevel" style="color:#333;" title="this feature not active">Volunteer</a></td>
+      <td ><span style="color: #666;"> (this feature has not been activated for this event) </td>
     </tr>
-
-    <tr>
-      <td valign="top"><a href="volunteers.php">Volunteers</a></td>
-      <td>This allows an admin to view the list of conveners and recorders for <?= $CONF_NAME ?> (<?= $CONF_ID ?>)</td>
-    </tr>
-
+<?php } ?>
 </table>  
+</div>
 
-<?php include $TOOL_PATH.'include/admin_footer.php'; // Include the FOOTER ?>
+</div>
+<?php include $ACCOUNTS_PATH.'/include/footer.php'; // Include the FOOTER ?>

@@ -9,6 +9,8 @@
 require_once 'include/tool_vars.php';
 
 $PAGE_NAME = "Create Account";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links  on multiple menus
 $Message = "";
 
 // connect to database
@@ -18,17 +20,25 @@ require 'sql/mysqlconnect.php';
 require 'include/check_authentic.php';
 
 // if logged in, kick over to my account instead
-if ($User->pk) {
+if ($User->pk)  {
+if (!$User->checkPerm("admin_accounts") ) { 
 	header('location:'.$ACCOUNTS_URL.'/myaccount.php');
 	exit;
 }
+}
+if ($User->checkPerm("admin_accounts")){ 
 
-$Message = "<a href='login.php'>Login if you already have an account</a> -- " .
-	"If you need to create an account, enter your information below.<br/>";
+$allowed=true;
+$Message = "<br/><strong>ADMIN: Create New User Account</strong> ";
+} else {
+	$Message = " <br/><strong>Already have an account?</strong>   <a style='font-size:1.1em;' href='login.php'> Login <img src='include/images/arrow.gif' border='0'</a> <br/> " .
+	"";
+	
+	
+}
 
-
-// bring in the form validation code
-require 'ajax/validators.php';
+// bring in the form validation code// bring in the form validation code
+require $ACCOUNTS_PATH.'ajax/validators.php';
 
 // Define the array of items to validate and the validation strings
 $vItems = array();
@@ -102,7 +112,7 @@ if ($_POST["save"]) {
 		
 		$newUser->save(); // save the new values
 
-		$Message = "<b>New user account created</b><br/>" .
+		$Message = "<br/><strong>New user account created</strong><br/>" .
 			"An email has been sent to $newUser->email.<br/>" .
 			"Use the link in the email to activate your account.<br/>";
 		$created = true;
@@ -115,14 +125,28 @@ if ($_POST["save"]) {
 		require 'include/activation_email.php';
 	}
 }
-?>
-<?php require 'include/top_header.php';  ?>
-<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
-<?php require 'include/header.php';  ?>
 
-<?= $Message ?>
+// top header links
+$EXTRA_LINKS = "<span class='extralinks'>";
+ if (!$User->pk) {
+	$EXTRA_LINKS .="<a class='active' href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:" ;
+ }
+$EXTRA_LINKS .=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+	"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" .
+	"</span>";
+
+
+?>
+<?php include $ACCOUNTS_PATH.'include/top_header.php';  ?>
+<script type="text/javascript" src="/accounts/ajax/validate.js"></script>
+<!-- // INCLUDE THE HEADER -->
+<?php include $ACCOUNTS_PATH.'include/header.php';  ?>
+<div id="maincontent">
+
+<?php if($Message) { ?><div> <?= $Message ?><br/></div> <?php }?>
 
 <?php if (!$created) { ?>
+	
 
 <div class="required" id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
@@ -131,17 +155,18 @@ if ($_POST["save"]) {
 <?php
 	$thisUser = array();
 	$submitButtonName = "Create Account";
-	require $ACCOUNTS_PATH.'include/user_form.php';
+	require $ACCOUNTS_PATH.'/include/user_form.php';
 ?>
 
 </form>
 
-<span style="font-size:9pt;">
-	<b>Note:</b> <i>Your user information is private and will only be used in this system.<br/>
-	It will not be given to anyone else. Passwords are not stored as plain text in the database.</i>
-</span>
+
 <br/>
 
-<?php } ?>
+<?php } ?> </div>
 
+<div class="padding50"></div>
+
+<div class="padding50">&nbsp;</div>
+<div class="padding50">&nbsp;</div>
 <?php require 'include/footer.php'; // Include the FOOTER ?>

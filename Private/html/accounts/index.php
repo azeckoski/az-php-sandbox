@@ -8,8 +8,12 @@
 <?php
 require_once 'include/tool_vars.php';
 
+//require_once '../conference/include/tool_vars.php';
+
 // Introduction or main page
 $PAGE_NAME = "Main";
+$ACTIVE_MENU="HOME";  //for managing active links on multiple menus
+$msg=$_REQUEST['msg'];
 $Message = "";
 
 // connect to database
@@ -17,51 +21,83 @@ require 'sql/mysqlconnect.php';
 
 // check authentication
 require $ACCOUNTS_PATH.'include/check_authentic.php';
+
+
+// top header links
+$EXTRA_LINKS = "<span class='extralinks'>";
+	$EXTRA_LINKS .= "<a  class='active' href='$ACCOUNTS_URL/index.php' title='Sakai accounts home'><strong>Home</strong></a>:";
+
+$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
+if ($SCHEDULE) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }
+	
+	$EXTRA_LINKS.="</span>";
+
+
 ?>
 
-<?php include 'include/top_header.php'; ?>
+<?php //INCLUDE THE HEADER
+ include 'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 // -->
 </script>
 <?php include 'include/header.php'; ?>
-
-<table border=0 cellpadding=0 cellspacing=3 width="100%">
+<table id="maincontent" border=0 cellpadding=0 cellspacing=5 width="100%">
 <tr>
-<td valign="top" width="80%">
-
-<div class="info">
-<?php if($User->pk) { ?>
-You may access the following tools:<br/>
+<td style="padding-left: 20px;"><? if($msg) { echo $msg;} ?>
+	<?php if($User->pk) { ?>
+<strong> Please select one of the following options:<br/></strong>
 <?php } else { ?>
-This page allows you to create an account to access the following tools:<br/>
-<?php } ?>
-<a href="/conference/registration/">Conference Registration</a><br/>
-<!-- <a href="/conference/admin/schedule.php">Conference Schedule</a><br/> -->
-<a href="/conference/volunteer.php">Conference Volunteering</a><br/>
-<a href="/facebook/">Facebook</a><br/>
-<a href="/requirements/">Requirements Polling</a><br/>
-<!-- no skin voting this time
-<a href="/skin/">Default Skin Submission and Voting</a><br/>
--->
 <br/>
-<?php if($User->pk) { ?>
-You can <a href="<?= $ACCOUNTS_PAGE ?>">manage your account settings</a> and change your password if you would like.<br/>
-<br/>
-<?php } else { ?>
-You should <a href="createaccount.php">create an account</a> first if you do not have one.<br/>
-<br/>
-You can <a href="<?= $LOGIN_PAGE ?>">login</a> if you already have an account.<br/>
-<br/>
-You can even <a href="forgot_password.php">reset your password</a> if you forgot it.<br/>
-<br/>
-<?php } ?>
+<?php } echo "<br/><div>";
 
-</div>
+	if ($REGISTRATION) {  
+ echo "<a class='mainlevellinks' href='../conference/registration/index.php' >Register for this conference</a><br/>";
+	}
+	if ($PROPOSALS) {  
+echo "<a class='mainlevellinks' href='../conference/proposals/index.php' >Submit a Proposal</a><br/>" ;
+	}
+	if ($SCHEDULE) { 
+echo "<a class='mainlevellinks' href='../conference/admin/schedule.php'>View the Conference Schedule</a><br/>" ;
+	}
+	if ($VOLUNTEER) { 
+echo "<a class='mainlevellinks' href='../conference/volunteer.php'>Volunteer to help at the conference</a><br/>" ;
+	}
+	if ($FACEBOOK) { 
+echo "<a class='mainlevellinks' href='../facebook/'>View the Facebook</a><br/>" ; 
+	}
+	echo "<a class='mainlevellinks' href='http://sakaiproject.org/sakaiamsterdam07' >Visit the Amsterdam conference website</a><br/>";
+	
+	if (($User->checkPerm("admin_conference")) || ($User->checkPerm("proposals_dec2006")) || ($User->checkPerm("registration_dec2006")) ) {
+echo "<br/><br/><br/><strong>Administrative Tools: </strong><br/><br/>";   //need to see admin links
+	if (($User->checkPerm("admin_conference")) || ($User->checkPerm("proposals_dec2006")) ) {
+	
+ echo "<a class='mainlevellinks' href='../conference/admin/proposals.php' >Proposals Voting</a> <br/>";
+echo "<a class='mainlevellinks' href='../conference/admin/proposals_results.php' >Proposals Results</a> <br/>";
+
+}
+if (($User->checkPerm("admin_conference")) || ($User->checkPerm("registration_dec2006")) ) {
+	
+ echo "<a class='mainlevellinks' href='../conference/admin/registration_admin.php' >Conference Registration administration</a> <br/>";
+
+} 
+}
+echo "</div><br/>";
+
+
+?>
+
 </td>
+
 <td valign="top" width="20%">
-	<div class="right">
-	<div class="rightheader"><?= $TOOL_NAME ?> information</div>
+<?php  if ($User->checkPerm("admin_accounts")) {
+	
+?>	<br/><br/><div class="login">
+	<div class="loginheader"><?= $TOOL_NAME ?></div>
 	<div class="padded">
 
 <?php
@@ -82,16 +118,11 @@ $inst_count = $Inst->getInstsBySearch("*","","pk",true);
 	<br/>
 
 	</div>
-	</div>
+	</div>  
+	<?php } ?>
 </td>
 </tr>
 </table>
+<div class="padding50"></div>
 
-<div class="help">
-	<b>Help:</b>
-	<a class="pwhelp" href="createaccount.php">I need to create an account</a> -
-	<a class="pwhelp" href="login.php">I need to login</a> -
-	<a class="pwhelp" href="forgot_password.php">I forgot my password</a>
-</div>
-
-<?php include 'include/footer.php'; // Include the FOOTER ?>
+<?php include $ACCOUNTS_PATH.'/include/footer.php'; // Include the FOOTER ?>

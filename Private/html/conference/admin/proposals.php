@@ -9,6 +9,8 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Proposals Voting and Viewing";
+
+$ACTIVE_MENU="PROPOSALS";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -22,60 +24,56 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = false; // assume user is NOT allowed unless otherwise shown
-if (!$User->checkPerm("proposals_dec2006")) {
+if ( (!$User->checkPerm("admin_accounts")) && (!$User->checkPerm("proposals_dec2006")) ) {
 	$allowed = false;
-	$Message = "Only admins with <b>proposals_dec2006</b> may view this page.<br/>" .
+	$Message = "Only admins and the conference committee may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
 	$allowed = true;
 }
-
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
-$CSS_FILE2 = "../include/proposals.css";
+$CSS_FILE2 = $TOOL_URL. "/include/proposals.css";
+
 
 // set header links
-$EXTRA_LINKS = 
-	"<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin:</a> " .
-	"<a href='attendees.php'>Attendees</a> - " .
-	"<a href='proposals.php'><strong>Proposals</strong></a> " .
-		"(<em>" .
-		"<a href='proposals.php'><strong>Viewing / Voting</strong></a> - " .
-		"<a href='proposals_results.php'>Results / Editing</a>" .
-		"</em>) - " .
-	"<a href='check_in.php'>Check In</a> " .
-	"</span>";
+$EXTRA_LINKS = "<span class='extralinks'>" ;
+	if ($PROPOSALS) {  
+		$EXTRA_LINKS .= "<a class='active'  href='$CONFADMIN_URL/admin/proposals.php'>Proposals-Voting</a>";		
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/proposals_results.php'>Proposals-Results</a>";  }
+	$EXTRA_LINKS .="</span>";
 
 
 // this restricts the voting by date
 $voting = false;
 $commenting = true;
 
-$EXTRA_LINKS .= "<div class='date_message'>";
+$Message .= "<div class='date_message' style='text-align:left;'><a href='#colorkey'><strong><img src='../include/images/help_icon.jpg' border=0 height='18' width='18' />Voting Help</strong> &nbsp; &nbsp; View Color Key </a> &nbsp;&nbsp;&nbsp; ";
 if (strtotime($VOTE_CLOSE_DATE) < time()) {
 	// No one can access after the close date
 	$voting = false;
 	$commenting = false;
 	$Message = "Voting closed on " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
-	$EXTRA_LINKS .= "Voting closed " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+	//$EXTRA_LINKS .= "Voting closed " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 } else if (strtotime($VOTE_OPEN_DATE) > time()) {
 	// No access until voting opens
 	$voting = false;
 	$Message = "Voting is not allowed until " . date($DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
-	$EXTRA_LINKS .= "Voting opens " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
+	//$EXTRA_LINKS .= "Voting opens " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE));
 } else {
 	// open voting is allowed
 	$voting = true;
-	$EXTRA_LINKS .= "Voting open from " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE)) .
+	$Message .= "Voting open from " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE)) .
 		" to " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 }
-$EXTRA_LINKS .= "</div>";
+$Message .= "</div>";
 
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
-<!-- <script type="text/javascript" src="/accounts/ajax/validate.js"></script> -->
+
+<?php // INCLUDE THE HTML HEAD
+include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+<!-- <script type="text/javascript" src="../../accounts/ajax/validate.js"></script> -->
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -153,17 +151,19 @@ function checkSaved(num) {
 function setUnsaved(num) {
 	var item = document.getElementById('vb'+num);
 	item.className='unsaved';
-
 	var sbutton = document.getElementById('vs'+num);
 	sbutton.disabled=false;
 
 	var cbutton = document.getElementById('vc'+num);
 	cbutton.disabled=false;
+	
+	
 }
 
 function setSaved(num) {
 	var item = document.getElementById('vb'+num);
 	//item.className='saved'
+	
 // this part adds in the nicer coloring like Susan wanted
 	var voteItem = document.getElementById('vh'+num);
 	var curVote = voteItem.value;
@@ -186,6 +186,7 @@ function setSaved(num) {
 
 	var cbutton = document.getElementById('vc'+num);
 	cbutton.disabled=true;
+	
 }
 
 function setCleared(num) {
@@ -209,10 +210,13 @@ function setCleared(num) {
 		item.className='clear';
 
 		var sbutton = document.getElementById('vs'+num);
-		sbutton.disabled=true;
+		sbutton.className='unsaved_button';
+		disabled=true;
 
 		var cbutton = document.getElementById('vc'+num);
 		cbutton.disabled=true;
+		cbutton.className='unsaved_button';
+		
 	} else {
 		// reset to saved value
 		setSaved(num);
@@ -220,14 +224,17 @@ function setCleared(num) {
 }
 // -->
 </script>
-<?php include $TOOL_PATH.'include/admin_header.php'; ?>
 
-<?= $Message ?>
+<?php // INCLUDE THE HEADER
+ include $ACCOUNTS_PATH.'include/header.php';  ?>
+
+
+<div id="maindata">
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
-		include $TOOL_PATH.'include/admin_footer.php';
+		include $ACCOUNTS_PATH.'include/footer.php';
 		exit;
 	} else {
 ?>
@@ -317,6 +324,23 @@ if ($filter_items == "show my voted items") {
 	$filter_items_sql = "";
 }
 
+// Approval Status Filter
+$filter_status_default = "show all status";
+$filter_status = "";
+if ($_REQUEST["filter_status"] && (!$_REQUEST["clearall"]) ) { $filter_status = $_REQUEST["filter_status"]; }
+
+$special_filter = "";
+$filter_status_sql = "";
+switch ($filter_status){
+   	case "approved": $filter_status_sql = " and approved ='Y' and type!='demo' and type!='poster' and type !='BOF'"; break;
+  	case "not approved": $filter_status_sql = " and approved !='Y' and approved !='P' "; break;
+  	case "pending": $filter_status_sql = " and approved ='P' "; break;
+	case ""; // show all items
+		$filter_status = $filter_status_default;
+		$filter_status_sql = "";
+		break;
+}
+
 // Type Filter
 $filter_type_default = "show all types";
 $filter_type = "";
@@ -342,7 +366,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql . $filter_items_sql . $sqlsorting . $mysql_limit;
+	$filter_type_sql . $filter_items_sql .$filter_status_sql . $sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -350,6 +374,9 @@ $items = array();
 
 // put all of the query results into an array first
 while($row=mysql_fetch_assoc($result)) { $items[$row['pk']] = $row; }
+
+
+
 
 // add in the audiences and topics of that nature (should require 2 more queries)
 $sql = "select PA.pk, PA.proposals_pk, R.role_name, PA.choice from proposals_audiences PA " .
@@ -386,23 +413,23 @@ foreach ($items as $item) {
 	$items[$item['pk']]['topics'] = $topics_items[$item['pk']];
 	$items[$item['pk']]['audiences'] = $audience_items[$item['pk']];
 	$items[$item['pk']]['comments'] = $comments_items[$item['pk']];
+	
+	$items[$item['pk']]['papers'] = $paper_items[$item['pk']];
 }
 
 //echo "<pre>",print_r($items),"</pre><br/>";
-
 ?>
 
 <form name="voteform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
 
-
-<div style="background:#ECECEC;border:1px solid #ccc;padding:3px;margin-bottom:10px;">
+<div style="background:#ffffff;border:0px solid #ccc;padding:5px;margin-bottom:10px;">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
 	<td nowrap="y">
 	<strong>Filters:</strong>&nbsp;&nbsp;
 	</td>
-	<td nowrap="y" style="font-size:0.9em;">
+	<td nowrap="y">
 		<strong>Vote:</strong>
 		<select name="filter_items" title="Filter the items by my votes">
 			<option value="<?= $filter_items ?>" selected><?= $filter_items ?></option>
@@ -411,20 +438,31 @@ foreach ($items as $item) {
 			<option value="show my unvoted items">show my unvoted items</option>
 		</select>
 		&nbsp;&nbsp;
+			<strong>Status:</strong>
+		<select name="filter_status" title="Filter the items by approval status">
+			<option value="<?= $filter_status ?>" selected><?= $filter_status ?></option>
+			<option value="approved">approved</option>
+			<option value="pending">pending</option>
+			<option value="not approved">not approved</option>
+			<option value="show all status">show all status</option>
+		</select>
+		&nbsp;
+		&nbsp;	
+	<?php if ($FILTER_TYPE) {  ?>
 		<strong>Type:</strong>
 		<select name="filter_type" title="Filter the items by type">
 			<option value="<?= $filter_type ?>" selected><?= $filter_type ?></option>
-			<option value="lecture">lecture</option>
-			<option value="discussion">discussion</option>
-			<option value="workshop">workshop</option>
-			<option value="panel">panel</option
-			<option value="carousel">carousel</option>
-			<option value="demo">demo</option>
-			<option value="poster">poster</option>
+	        <?php foreach ($type_list as $key => $value ) { ?>
+	        	<option value="<?=$value?>"><?=$value?></option>
+	        	<?php } ?>
+	        	
 			<option value="show all types">show all types</option>
 		</select>
 		&nbsp;
-	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page">
+		&nbsp;
+		<?php } ?>
+		&nbsp;
+	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 		&nbsp;&nbsp;&nbsp;
 		<?= count($items) ?> proposals shown
 	</td>
@@ -432,7 +470,7 @@ foreach ($items as $item) {
 	<td nowrap="y" align="right">
 		<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
         <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
-        	length="20" title="Enter search text here" />
+        	maxlength="20" title="Enter search text here" />
         <script type="text/javascript">document.voteform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
 	</td>
@@ -442,15 +480,19 @@ foreach ($items as $item) {
 
 
 <table id="proposals_vote" width="100%" cellspacing="0" cellpadding="0">
-
-<tr class='tableheader'>
-<td>&nbsp;<a href="javascript:orderBy('vote');">VOTE</a></td>
-<!-- <td width='10%'>&nbsp;<a href="javascript:orderBy('comment');">Comment</a></td>-->
+<tr><td colspan="5" align="right"><div>
+<?= $Message ?></div></td></tr>
+<tr class="tableheader">
+<td><a href="javascript:orderBy('num');"title="sort by number" >#</a>&nbsp;</td>
+<td>&nbsp;<a href="javascript:orderBy('vote');">Vote</a></td>
 <td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a> </td>
-<td>Abstract&nbsp;/&nbsp;Description&nbsp;/&nbsp;Speakers&nbsp;/&nbsp; <a href="javascript:orderBy('type');">Format</a></td>
-<!-- <td width='49%'><a href="javascript:orderBy('type');">Format/Length</a> </td>-->
-<td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
-</tr>
+<td><a href="javascript:orderBy('auth1_last');"title="sort by primary author last name" >Authors</a></td>
+
+<td>Details</td>
+<?php // if topic or audience ranking is required
+	 if ($RANKING){  ?>
+	 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
+	 <?php }  ?> </tr>
 
 <?php // now dump the data we currently have
 $line = 0;
@@ -489,11 +531,11 @@ foreach ($items as $item) { // loop through all of the proposal items
 		switch ($VOTE_TEXT[$vote]) {
 			case "green": $tdstyle = " class='saved_green' "; break;
 			case "yellow": $tdstyle = " class='saved_yellow' "; break;
-			case "red": $tdstyle = " class='saved_red' "; break;
+			case "red": $tdstyle = " class='saved_red' ";   break;
 			default: $tdstyle = " class='saved' ";
 		}
 	}
-
+    
 	if ($item['type']=='demo'){
 		$demo++;
 		$tdstyle = " class='demo' ";
@@ -505,7 +547,8 @@ foreach ($items as $item) { // loop through all of the proposal items
 	if ($item['type']=='BOF'){
 		$bof++;
 		$tdstyle = " class='bof' ";
-	}  else {
+	}
+	  else {
 		$presentation++;
 	}
 
@@ -516,15 +559,19 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;'>
+	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: 1.1em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['num']?></strong></div></td>
+	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;border-left:1px dotted #ccc;'>
 <?php if ($item['type']=='demo')  {
-		echo "<strong>Demo:</strong><br/>No voting<br/>on demos, posters<br/> or BOFs";
+		echo "<strong>Demo </strong><br/>No voting<br/>";
 	} else if ($item['type']=='poster')  {
-		echo "<strong>Poster:</strong><br/>No voting<br/>on demos, posters<br/> or BOFs";
+		echo "<strong>Poster </strong><br/>No voting";
 	} else if ($item['type']=='BOF')  {
-		echo "<strong>BOF:</strong><br/>No voting<br/>on BOFs";
-	} else  {
-?>
+		echo "<strong>BOF </strong><br/>";
+
+	}  else  {
+		
+	 
+?>		
 		<a name="anchor<?= $pk ?>"></a>
 <?php	for ($vi = 0; $vi < count($VOTE_TEXT); $vi++) { ?>
 		<input <?= $vote_disable ?> id="vr<?= $pk ?>_<?= $vi ?>" name="vr<?= $pk ?>" type="radio" value="<?= $VOTE_SCORE[$vi] ?>" <?= $checked[$VOTE_SCORE[$vi]] ?> onClick="checkSaved('<?= $pk ?>')" title="<?= $VOTE_HELP[$vi] ?>" /><label for="vr<?= $pk ?>_<?= $vi ?>" title="<?= $VOTE_HELP[$vi] ?>"><?= $VOTE_TEXT[$vi] ?></label><br/>
@@ -539,49 +586,173 @@ foreach ($items as $item) { // loop through all of the proposal items
 	</td>
 
 	<td width="25%">
-		<div class="summary"><strong><?= $item['title'] ?></strong><br/><br/></div>
-		<div>
-			<a href="mailto:<?= $item['email'] ?>">	<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
-			<?= $printInst ?><br/><br /><strong>Date Submitted: </strong><br/>
-			<?= date($MED_DATE_FORMAT,strtotime($item['date_created'])) ?><br/><br/>
-		</div>		
+	
+	<div class="summary"><br/><strong><?= $item['title'] ?></strong><br/><br/></div>
+		<div class="item_info"><strong>Submitted by:</strong><br/></div>
+		<div style="padding-left:20px;"> <a href="mailto:<?= $item['email'] ?>">
+			<?= $item['firstname']." ".$item['lastname'] ?></a><br/>
+			<?= $printInst ?><br/><br /></div>
+		<div class="item_info"><strong>Date Submitted: </strong><br/></div>
+		<div style="padding-left:20px;">	<?= date($MED2_DATE_FORMAT,strtotime($item['date_created'])) ?><br/><br/></div>
+		
 	</td>
+<td style="border-bottom:1px solid black;" rowspan="2" width="20%">
+	<div class="description">
+	<?php if ($item['type']=='paper')  { ?>
+	<br/>	<strong>Author:</strong><br/> 
+	<?php } else  { ?>
+			<strong>Speaker:</strong><br/>
+	<?php } ?>
+		<a href="mailto:<?=$item['auth1_email']?>"><?= $item['auth1_first'] ." " . $item['auth1_last'] ?> </a> 
+	<?= $item['auth1_org']?> </div><br/>
+	<?php if ($item['type']=='paper')  { ?>
+		<div class="description"><strong>Co Author(s):</strong></div>
+	<?php } else  {  ?>
+		<div class="description"><strong>Co Speaker(s):</strong></div>
+	<?php } if (($item['auth2_first']) || ($item['auth3_first']) || ($item['auth3_first']))  {  ?>
+				<div><a href="mailto:<?=$item['auth2_email']?>"><?= $item['auth2_first'] ." " . $item['auth2_last'] ?> </a> <?= $item['auth2_org']?> 
+	<br/><br/><a href="mailto:<?=$item['auth3_email']?>"><?= $item['auth3_first'] ." " . $item['auth3_last'] ?> </a> <?= $item['auth3_org']?> 
+	<br/><br/><a href="mailto:<?=$item['auth4_email']?>"><?= $item['auth4_first'] ." " . $item['auth4_last'] ?> </a> <?= $item['auth4_org']?> 
+	<br/><br/></div><?php }  else { 
+		 echo "<span class='item_info'> &nbsp; &nbsp;  n/a<br/><br/><br/></span>";    } 
+		 if ($item['author_other']){ 
+		echo $item['author_other'] ;   
+		}?>
+	
+		<br/><br/>
 
-	<td style="border-bottom:1px solid black;" rowspan="2" width="40%">
-		<div class="description"><strong>Abstract:</strong><br/><?= $item['abstract'] ?><br/><br/></div>
+	
+	 <?php  if ($AVAILABILITY) {
+	  if ($item['conflict']) {
+	  	echo "<div><strong>Availability: </strong>  Can NOT present on "  ;
+	  	?>
+	  	<span style="color:red;"> <?= $item['conflict'] ?></span>
+	  	
+	  	<?php
+	  } else {
+	  	echo "<br/>  <strong>Availability:  </strong><br/>   available all days";
+	  }  echo "</div>";
+	 }
+	
+	  ?>
+	</td>
+	
+	<td style="border-bottom:1px solid black;" rowspan="2" width="40%"><br/>
+		<div class="description"><strong>
+	<?php	if ($item['type']=='paper')  {
+				echo "Paper ";
+		} else {
+				echo "Presentation ";}  ?>
+			Abstract:</strong><?php if (!$item['abstract']) { 
+			  echo "<span class='item_info'> &nbsp; &nbsp;  not available<br/><br/><br/></span>";    }
+	?><br/><?= $item['abstract'] ?><br/><br/></div>
+			<?php if ($item['type']=="paper") { 
+				if ($item['paper_url']) {
+					
+					//get the file info if a paper has been submitted
+				//	$this_pk=$item['pk'];
+					//	$query = "SELECT * FROM doc_files where proposals_pk='$this_pk'";
+						//$result = mysql_query($query) or die('Error, get paper info query failed');
+				//		if (!mysql_num_rows($result) == 0) 
+				//		$thisfile = mysql_fetch_assoc($result);
+				//		$current_file = "<a href='../include/download.php?id=" . $this_pk. "'>" . $thisfile['name'] . "</a> <br/>";
+
+	
+					$paper_url=$PAPER_LOC.$item['paper_url'];
+				}
+				?>
+				
+			<div class="description"><strong>Download Paper:</strong>&nbsp; &nbsp;
+		<?php	echo"<a href='$paper_url'>";
+				echo "<img src='../include/images/download_f2.png'  alt='download image'  border='0' width='19' height='19'  />" .
+						" &nbsp;" .$item['paper_url'] ." </a><br/><br/></div>";
+				//echo "<img src='../include/images/download_f2.png'  alt='download image'  border='0' width='19' height='19'  />" .
+				//		" &nbsp;" .$current_file ." </a><br/><br/></div>";		
+			
+		
+				}
+				?>
 		<?php if ($item['URL']) { /* a project URL was provided */
-			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"http://sakaiproject.org/images/M_images/weblink.png\" border=0 width=10px height=10px></a><br/><br/></div>";
+			$url=$item['URL'];
+			echo"<div><strong>Project URL: </strong><a href=\"$url\"><img src=\"../include/images/weblink.png\" alt=\"weblink\" border=0 width=10 height=10 /> " .
+			$url ."</a><br/><br/></div>";
 		}
 		
-if ($item['type']!='demo')  { ?>
-		<div class="description"><strong>Description:</strong>
-			<a href="" onClick="javascript:this.style.display='none';getElementById('desc<?= $pk ?>').style.display='inline';return false;" 
-			title="Click to reveal the description">[view description]</a><br/>
+if (($item['type']!='demo') && ($item['type'] != 'BOF'))  { 
+	
+		?>
+	<br/>	<div class="description"><strong>Comments/Additional Information:</strong>
+		<?php if (!$item['desc']) { 
+			  echo "<span class='item_info'> &nbsp; &nbsp;  not available<br/><br/><br/></span></div>";    } else { ?>	
+			  <a href="" onClick="javascript:this.style.display='inline';getElementById('desc<?= $pk ?>').style.display='inline';return false;" 
+			title="Click to reveal the description">[ show ]</a> &nbsp; 
+			<a href="" onClick="javascript:this.style.display='inline';getElementById('desc<?= $pk ?>').style.display='none';return false;" 
+			title="Click to hide the description">[ hide ]</a> <br/></div>
 			<div id='desc<?= $pk ?>' style='display:none;'><?= $item['desc'] ?></div>
-		</div>
+		<br/>	
 		<br/>
-     	<div class="description"><strong>Speaker Bio:</strong><br/>
-     	<?= $item['bio'] ?><br/><br/>
-     	</div>
-<?php } ?>
-
-<?php if ($item['co_speaker'])  { ?>
-		<div class="description"><strong>Co-Speaker:</strong><br/>
-		<?= $item['co_speaker'] ?><br/><br/>
-<?php } ?>
+		<?php if ($item['type']!="paper") { ?>
+     	<div class="description"><strong>Speaker Bio:</strong><br/> 
+     	<?= $item['bio'] ?><br/><br/></div>
+     	<?php }  ?>
+     	
+<?php } }?>
+<div class="description"> 
+	<?php	if ($item['type']!="paper") { ?>
+		
 		 <span style="padding-right: 20px;">
 		 	<strong>Format: </strong><?= $item['type'] ?></span>
 		 <span style="padding-right: 20px;" ><strong>Length:</strong>
-<?php if ($item['length']=='0') {  echo "n/a<br/>"; } //this is a demo with no time limit
-	 		else { echo  $item['length'] ." min. </span>"; 
-} ?>
+<?php if ($item['length']=='0') {  echo "n/a "; } //this is a demo with no time limit
+	 		else { echo  $item['length'] ." min. "; 
+} echo "</span>";
+		}
+		?>
+	 <span style="padding-right: 20px;"><strong>Track:</strong>&nbsp;&nbsp;
+	 <?php  if ($item['type']=="paper") {
+	  if ($item['track']) {
+			 	 echo $item['track'] ."<br/><br/>";
+			 } else { 
+			 	  echo "<span style='color: #666666;'>not set </span><br/><br/>";  
+		
+			 }
+	 } else {
+	 if ($item['track']) {
+			 	 echo $item['track'];
+			 }
+			 else {
+			  echo "<span style='color: #666666;'>not set </span><br/><br/>";  
+			 } 
+	
+		?></span>
+		
+			 <span style="padding-right: 20px;"><strong>Sub Track:</strong>
+	 <?php  
+	 if ($item['sub_track']) {
+			 	 echo $item['sub_track'];
+			 }
+			 else {
+			  echo "<span style='color: #666666;'>not set </span>";  
+			 } 
+	 }
+		
+		?></span>
+		
 	    </div>
-	</td>	
-
+	 
+	
+	</td>		
+<?php // if topic or audience ranking is required
+	 if ($RANKING){  ?>
 	<td style="border-bottom:1px solid black;" rowspan="2" width="25%">
-	<?php if ($item['type']=='demo') {  /* only non-demo types use the following data */ ?>
-		n/a:  demo
-	<?php } else {
+	<?php if ($item['type']=='demo') {  /* demos do not use the following data */ ?>
+		n/a for demos
+	<?php }  else  if ($item['type']=='demo') {  /* demos do not use the following data */ ?>
+		n/a for papers
+	<?php }  else  if ($item['type']=='BOF') {  /* demos do not use the following data */ ?>
+		n/a for BOFs
+	
+	<?php }{
 		if (is_array($item['topics'])) {
 			echo "<strong>Topic ranking:</strong><br/>";
 
@@ -609,14 +780,16 @@ if ($item['type']!='demo')  { ?>
 			}
 		}
 	}
+	echo "</td>";
+	 }
 ?>
-	</td>
+	
 </tr>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td colspan="2" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
+	<td colspan="3" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
 		<div>
-			Reviewer Comments (<?= count($item['comments']) ?>):
+			<strong>Reviewer Comments</strong> (<?= count($item['comments']) ?>):
 <?php if ($commenting)  { ?>
 			<a id="onComment<?= $pk ?>" href="<?= $_SERVER['PHP_SELF'] ?>" onClick="showAddComment('<?= $pk ?>');return false;" title="Reveal a comment box so you can enter comments">Add Comment</a>
 			<br/>
@@ -639,9 +812,9 @@ if ($item['type']!='demo')  { ?>
 				$short_username = substr($short_username,0,10) . "...";
 			}
 
-			echo "<div style='width:100%;font-size:8pt;' class='$lineclass'>\n" .
+			echo "<div style='width:100%;' class='$lineclass'>\n" .
 				"&nbsp;<label title='Entered by $comment[username] on " .
-				date($DATE_FORMAT,strtotime($comment['date_created']))."'>\n" .
+				date($DATE_FORMAT,strtotime($comment['date_created']))."' >&nbsp;</label>\n" .
 				"<em><a href='mailto:$comment[email]'>$short_username</a></em>" .
 				" - <label style='cursor:pointer;' title='Click to reveal the entire comment' " .
 				"onClick=\"javascript:this.style.display='none';getElementById('fullcmnt$pk$cline').style.display='inline';\">$short_comment</label>\n" .
@@ -662,4 +835,74 @@ if ($item['type']!='demo')  { ?>
 
 </form>
 <?php } ?>
-<?php include $TOOL_PATH.'include/admin_footer.php'; // Include the FOOTER ?>
+<a name="colorkey"> </a>
+<div class="definitions">
+	<div class="defheader">Color Key</div>
+	<div style="padding:3px;">
+		<b style="font-size:1.1em;">Key:</b> 
+	<?php if($User->pk) { ?>
+<!--		<div class="myvote" style='display:inline;'>&nbsp;Your vote&nbsp;</div>
+		&nbsp;
+		<div class="matchvote" style='display:inline;'><label title="Your vote matches the average">&nbsp;Your vote matches the average&nbsp;</label></div>
+		&nbsp;    --> 
+	<?php } ?> 
+<!--		<div class="avgvote" style='display:inline;'>&nbsp;Average vote&nbsp;</div>  -->
+		&nbsp;&nbsp; &nbsp;
+		&nbsp;
+	
+	
+<?php if ($DEMO)	{ ?>
+		<div class="demo" style='display:inline;'>&nbsp;Demo&nbsp;</div>
+		&nbsp;   <?php } ?>
+	&nbsp; &nbsp;<div style='display:inline; padding-left:30px;'><strong>Voting:&nbsp;&nbsp;</strong></div>	<div class="saved_green" style='display:inline;'>&nbsp;yes&nbsp;</div>
+		&nbsp;
+		<div class="saved_yellow" style='display:inline;'>&nbsp;maybe&nbsp;</div>
+		&nbsp;
+		<div class="saved_red" style='display:inline;'>&nbsp;no&nbsp;</div>
+		&nbsp;<div style='display:inline; padding-left:30px;'><strong>Not voted on:&nbsp;&nbsp;</strong></div>	
+			<div  style='background:#eee; display:inline;'>&nbsp;no vote&nbsp;</div>
+			&nbsp; 	<div  style='background:#ffffff; display:inline;'>&nbsp;no vote&nbsp;</div>
+	</div>
+	<div style="padding: 15px; width: 700px;" ><div><br/><strong>HOW TO USE THIS PAGE:</strong><br/><br/> </div>
+	<div><strong>VOTING:</strong></div><br/>
+	<div><strong>&nbsp;&nbsp;&nbsp;&nbsp;To vote on proposals one at a time:</strong><div><ul>
+	<li>Click on one of the radio buttons (Yes, Maybe, No) for a proposal.</li>
+	<li>Click on the Save button to save your vote for that proposal.   </li>
+	<li>The color of that voting box will change to one of the associated vote colors as shown in the color key above. </li>
+	</ul>
+	
+	<div><strong>&nbsp;&nbsp;&nbsp;&nbsp;To vote on several proposals at once:</strong> (to save reload time)</div>	<ul>
+	<li>Vote on several proposals by clicking on the appropriate radio button (Yes, Maybe, No) for that group of proposals. 
+	Do NOT click on a Save button until you have voted on 5-10 proposals. </li>
+	<li>After voting on 5-10 proposals, Click on the Save button to save all those votes at once.   </li>
+	</ul>
+	<br/><div><strong>COMMENTING ON PROPOSALS:</strong></div><br/>
+	<div><strong>&nbsp;&nbsp;&nbsp;&nbsp;To comment on proposals:</strong><div><ul>
+	<li>Click on the <strong>Add Comment</strong> link for the proposal you wish to comment on.</li>
+	<li>Type a brief comment into the box that appears.   </li>
+	<li>Save your comment by clicking on the <strong>Save New Comment</strong> link.  Comments cannot currently be deleted or modified. </li>
+	<li> To view a comment, click on the text of a comment to read the entire comment. 
+	</ul>
+	<div><br/><strong>FAQ</strong></div>
+	<ul>
+	<li><strong>How long are my votes stored/saved?</strong><br/> - Once you vote on a proposal and save that vote, 
+	that vote remains in the system until you decide to change it in the future. 
+	<br/><br/></li>
+	 <li><strong>How do I cancel/delete a vote?</strong><br/>  - Currently votes cannot be deleted. 
+	  To 'neutralize' a vote you should select 'Maybe' and save that vote. 
+	   (note:  a 'delete vote' option will be added soon).<br/><br/></li> 
+	  <li><strong>What does the RESET button do?</strong><br/>  - You will want to use the <strong>RESET</strong> button when you are 
+	  trying to change your vote for a proposal (or if you accidentally start to vote on a proposal you had already voted on).
+	    Clicking the RESET button will reset that proposal's vote to your last saved vote. <br/> <br/></li> 
+	  <li><strong>What does the RESET button do?</strong><br/>  - You will want to use the <strong>RESET</strong> button when you are 
+	  trying to change your vote for a proposal (or if you accidentally start to vote on a proposal you had already voted on).
+	    Clicking the RESET button will reset that proposal's vote to your last saved vote. <br/><br/> </li> </ul>
+	 </div>
+	  
+	  </div>
+</div>
+</div>
+</div>
+</div></div>
+
+<?php include $ACCOUNTS_PATH.'include/footer.php';; // Include the FOOTER ?>

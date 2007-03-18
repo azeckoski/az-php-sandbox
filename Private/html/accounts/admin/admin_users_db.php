@@ -9,6 +9,8 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Admin User Control";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -134,9 +136,8 @@ if ($_REQUEST["ldif"] && $allowed) {
 
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'>Users</a> - " .
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a  class='active' href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
 "<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
 	" <strong>** WARNING: This tool is deprecated! **</strong>" .
@@ -144,7 +145,9 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+<?php // INCLUDE THE HTML HEAD 
+ include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+ 
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -158,11 +161,13 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
+<?php include $ACCOUNTS_PATH.'include/header.php'; 
+// INCLUDE THE HEADER ?>
 
-<?= $Message ?>
 
-<?php
+<div id="maincontent">
+		<?= $Message ?>
+<?php  
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
 		include $ACCOUNTS_PATH.'include/footer.php';
@@ -348,5 +353,11 @@ if ($row["username"] == $row["rep_username"]) {
 
 </table>
 </form>
+</div>
+<div class="padding50">&nbsp;  </div>
+
+<div class="padding50">&nbsp;  </div>
+
+
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

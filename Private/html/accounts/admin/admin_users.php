@@ -9,6 +9,8 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Users Control";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -24,7 +26,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 $allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("admin_accounts")) {
 	$allowed = false;
-	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_insts</b> may view this page.<br/>" .
+	$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
 	$allowed = true;
@@ -92,7 +94,7 @@ if ($searchtext) { // no results without doing a search
 } else { // end use ldap check
 	$output = "Total users: $totalItems[count] - No search text entered...";
 	if (!$USE_LDAP) {
-		$output .= "(<b>LDAP is disabled!</b>)";
+	//	$output .= "(<b>LDAP is disabled!</b>)";
 	}
 }
 
@@ -232,13 +234,12 @@ if ($_REQUEST["ldif"] && $allowed) {
 	exit();
 }
 
-
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'><strong>Users</strong></a> - " .
-	"<a href='admin_insts.php'>Institutions</a> - " .
-"<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a class='active' href='admin_users.php'>Users</a>" .
+	"<a href='admin_insts.php'>Institutions</a>" .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"<a href='admin_roles.php'>Roles</a>" .
 	"</span>";
 
 ?>
@@ -272,6 +273,7 @@ function itemdel(itempk) {
 </script>
 <?php include $ACCOUNTS_PATH.'include/header.php'; ?>
 
+<div id="maincontent">
 <?= $Message ?>
 
 <?php
@@ -281,7 +283,7 @@ function itemdel(itempk) {
 		exit;
 	}
 ?>
-
+<div id="maindata">
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
@@ -314,8 +316,8 @@ function itemdel(itempk) {
 
 	<td nowrap="y" align="right" width="10%">
 		<input class="filter" type="submit" name="showall" value="Show All" title="Display all items" tabindex="3" />
-		<input class="filter" type="submit" name="ldif" value="LDIF" title="Export an LDIF (ldap) file of all users" tabindex="4" />
-		<input class="filter" type="submit" name="export" value="Export" title="Export results based on current search" tabindex="5" />
+		<!--<input class="filter" type="submit" name="ldif" value="LDIF" title="Export an LDIF (ldap) file of all users" tabindex="4" />
+		--><input class="filter" type="submit" name="export" value="Export" title="Export results based on current search" tabindex="5" />
 		&nbsp;
 	</td>
 
@@ -337,7 +339,7 @@ function itemdel(itempk) {
 <td><a href="javascript:orderBy('lastname');">Name</a></td>
 <td><a href="javascript:orderBy('email');">Email</a></td>
 <td><a href="javascript:orderBy('institution');">Institution</a></td>
-<td align="center"><a title="Add a new user" href="admin_user.php">add</a></td>
+<td align="center"><a title="Add a new user" href="admin_user.php">+ add new user</a></td>
 </tr>
 
 <?php
@@ -390,5 +392,12 @@ foreach ($items as $item) {
 	document.adminform.searchtext.focus();
 // -->
 </script>
+</div>
+
+</div>
+<div class="padding50">&nbsp;  </div>
+
+<div class="padding50">&nbsp;  </div>
+
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

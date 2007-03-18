@@ -9,7 +9,9 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Institution Edit";
-$Message = "Add the information below to create an institution.<br/>";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
+$Message = "<br/>Add the information below to create an institution.<br/>";
 
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
@@ -20,11 +22,12 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 // login if not autheticated
 require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
+
 // Make sure user is authorized
 $allowed = false; // assume user is NOT allowed unless otherwise shown
-if (!$User->checkPerm("admin_insts")) {
+if ((!$User->checkPerm("admin_accounts")) && (!$User->checkPerm("admin_inst")) ){
 	$allowed = false;
-	$Message = "Only admins with <b>admin_insts</b> may view this page.<br/>" .
+	$Message = "Only admins with <b>admin_accounts</b> or <b>admin_inst</b> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 } else {
 	$allowed = true;
@@ -32,19 +35,21 @@ if (!$User->checkPerm("admin_insts")) {
 
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
-"<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a href='admin_users.php'>Users</a>" .
+	"<a class='active'  href='admin_insts.php'>Institutions</a>" .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"<a href='admin_roles.php'>Roles</a>" .
 	"</span>";
+
+
 
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <?php include $ACCOUNTS_PATH.'include/header.php'; ?>
-
+<div id="maincontent"> 
 
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
@@ -154,5 +159,8 @@ $thisItem['vemail'] = $userInfo[$opInst->repvote_pk]['email'];
 <?php require $ACCOUNTS_PATH.'include/inst_form.php'; ?>
 
 </form>
-
+ </div>
+ 
+ <div class="padding50">&nbsp;</div>
+ <div class="padding50">&nbsp;</div>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

@@ -1,54 +1,98 @@
 /* ---------------------voting form css--------------------- */
 /* 
+
 It is better to NOT use px sizes for fonts:
+
 IE users cannot resize a font size that is specified using px and that
+
 is an accessibility issue for people with poor eyesight.
+
 Here is a page that let's you compare sizes on browsers.
+
 em and % are the best ones to use in my opinion but I also use 
+
 pt a lot as it seems to offer better control.
+
 http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
+
 */
+
 
 
 #proposals_vote tr td {
 	vertical-align:top;
-	font-size:.8em;
 	text-align: left;
-	padding: 8px 5px;
+	padding: 5px 5px;
+}
+.item_info {
+color:#666;
 }
 
 .button {
-	font-size:8pt;
+	margin: 2px 2px;
+	font-size:.87em;
+	color:#333;
 }
+
+
 
 textarea {
-	font-size:9pt;
+	font-size:1em;
 }
 
-.unsaved {
-	background-color: #660066;
-	color : white;
+
+ .unsaved {
+	background-color: #ffffff;
+	border: 2px solid #660000;
+	color : red;
 }
+
+.unsaved_button {
+	margin: 5px 3px;
+	font-size:1em;
+	background:#66000;
+	border: 1px solid #660000;
+	color: #000000;
+}
+
+
 
 .saved {
 	background-color: #336699;
+
+	color : #000000;
+
+}
+.no_vote {
+	background-color: #ccc;
 	color : #000000;
 }
 
+
 .saved_green { 
-	background-color: green;
+
+	background-color: #006633;
+
 	color : #ffffff;
+
 }
+
+
 
 .saved_yellow {
 	background-color: yellow;
 	color : #000000;
 }
 
+
 .saved_red {
+
 	background-color: #660000;
+
 	color : #ffffff;
+
 }
+
 
 .demo {
 	background-color: orange;
@@ -62,55 +106,119 @@ textarea {
 	background-color: #9AB6C5;
 	color : #000000;
 }
+.paper {
+	background-color: yellow;
+	color : #000000;
+}
+
 
 .nowrap {
+
 	white-space: nowrap;
+
 }
 
-.approved {
-	background-color: #336699;
-	color : white;
+
+.approved, .pending, .unapproved {
+ background:#e9d06f;
+ border:1px solid #999;
+ padding:.3em .5em;
+ font-weight:bold;
+ font-size:.95em;
+ color:#000000;
+ 
+ 
 }
+
+
+.pending {
+
+	background-color: #000000;
+
+	color : #000000;
+
+}
+
+
 
 .unapproved {
-	border: 3px solid red;
+background:#ffffff;
+color:#660000;
+
+	
+
 }
 .pending {
 	background:black;
 	color:white;
 }
 
+
+
 .myvote {
+
 	background: white;
-	color: black;
+
+	color: red;
+
 	font-weight: bold;
+
 }
+
+
 
 .matchvote {
+
 	background: #6666CC;
+
 	color:white;
+
 	font-weight: bold;
+
 }
 
-.avgvote {
-	background: #000099;
-	color:white;
+
+
+.avgvotes {
+
+	background: #ffffff;
+
+	color:#000000;
+
 	font-weight: bold;
+
 }
+
+
 
 .definitions {
+
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 9pt;
+
+	font-size: 1em;
+
 	background: #AADDFF;
+
 	border: 2px solid #AAAAAA;
+
 	margin-top: 6px;
+
 	margin-bottom: 3px;
+
 }
 
+
+
 .defheader {
+
 	background:#336699;
+
 	font-size:1.1em;
+
 	padding:.2em;
+
 	font-weight:bold;
+
 	color:white;
+
 }

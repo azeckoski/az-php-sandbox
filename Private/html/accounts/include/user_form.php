@@ -10,10 +10,10 @@
 <td width="50%" valign="top">
 
 <!-- Column One -->
-<fieldset><legend>Personal</legend>
+<fieldset><legend><strong style="font-size:1.1em;">Personal</strong></legend>
 <table border="0" cellpadding="2" cellspacing="0">
 	<tr>
-		<td class="account"><b>Username:</b></td>
+		<td class="account"><strong>Username:</strong></td>
 		<td nowrap="y">
 			<img id="usernameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 <?php if($disableUsername) { ?>
@@ -24,13 +24,13 @@
 			<span id="usernameMsg"></span>
 			<br/>
 			&nbsp;&nbsp;&nbsp;&nbsp;
-			<i style="font-size:.7em; color:red; padding-left: 10px;">Email address required for username</i>
+			<i style="font-size:.95em; color:red; padding-left: 10px;">Email address required for username</i>
 <?php } ?>
 		</td>
 	</tr>
 
 	<tr>
-		<td class="account"><b>Password:</b></td>
+		<td class="account"><strong>Password:</strong></td>
 		<td nowrap="y">
 			<img id="password1Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="password" name="password1" maxlength="50"/>
@@ -40,7 +40,7 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>Confirm&nbsp;pwd:</b></td>
+		<td class="account"><strong>Confirm&nbsp;pwd:</strong></td>
 		<td nowrap="y">
 			<img id="password2Img" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="password" name="password2" maxlength="50"/>
@@ -50,7 +50,7 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>First&nbsp;name:</b></td>
+		<td class="account"><strong>First&nbsp;name:</strong></td>
 		<td nowrap="y">
 			<img id="firstnameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="text" name="firstname" value="<?= $thisUser['firstname'] ?>" size="30" maxlength="50"/>
@@ -60,7 +60,7 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>Last&nbsp;name:</b></td>
+		<td class="account"><strong>Last&nbsp;name:</strong></td>
 		<td nowrap="y">
 			<img id="lastnameImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="text" name="lastname" value="<?= $thisUser['lastname'] ?>" size="30" maxlength="50"/>
@@ -70,7 +70,7 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>Email:</b></td>
+		<td class="account"><strong>Email:</strong></td>
 		<td nowrap="y">
 			<img id="emailImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="text" name="email" value="<?= $thisUser['email'] ?>" size="40" maxlength="50"/>
@@ -80,7 +80,7 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>Primary&nbsp;Role:</b></td>
+		<td class="account"><strong>Primary&nbsp;Role:</strong></td>
 		<td nowrap="y">
 			<img id="primaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="primaryRole">
@@ -93,14 +93,14 @@
 	</tr>
 
 	<tr>
-		<td class="account"><b>Secondary&nbsp;Role:</b></td>
+		<td class="account"><strong>Secondary&nbsp;Role:</strong></td>
 		<td nowrap="y">
-			<img id="secondaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+			&nbsp; &nbsp; &nbsp; <img id="secondaryRoleImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="secondaryRole">
 				<option value="">-- select role --</option>
 				<?= generate_roles_dropdown($thisUser['secondaryRole']) ?>
 				<option value="" <?php if(!$thisUser['secondaryRole']) echo " selected='y' "; ?> >None</option>
-			</select> <em style="font-size:.8em;">(if applicable)</em><br/>
+			</select> <em style="font-size:.9em;">(if applicable)</em><br/>
 			<input type="hidden" id="secondaryRoleValidate" value="<?= $vItems['secondaryRole'] ?>" />
 			<span id="secondaryRoleMsg"></span>
 		</td>
@@ -109,12 +109,15 @@
 </table>
 </fieldset>
 
-<div style="margin:6px;"></div>
+<div style="margin:6px;">
+<span>
+	<strong>Note:</strong> <i>Your user information is private and will only be used in this system.<br/>
+	It will not be given to anyone else. Passwords are not stored as plain text in the database.</span><br/><br/></div>
 <?php 
 if ($submitButtonName) {
-	echo "<input type='submit' value='$submitButtonName' />";
+	echo "<input id='submitbutton' type='submit' value='$submitButtonName' />";
 } else {
-	echo "<input type='submit' value='Save Information' />";
+	echo "<input id='submitbutton' type='submit' value='Save Information' />";
 }
 ?>
 
@@ -122,10 +125,11 @@ if ($submitButtonName) {
 <td width="50%" valign="top">
 
 <!-- Column Two -->
-<fieldset><legend>Location</legend>
+<fieldset><legend><strong style="font-size:1.1em;">Location</strong></legend>
 <table border="0" cellpadding="2" cellspacing="0">
-	<tr><td class="account" colspan=2 style="padding-bottom: 10px;"> <b>Organization:</b><br/>Select your organization from the Sakai Partner list below.  If your organization is not a Sakai Partner, select 'Other' from the list then enter the organization name into the box provided. 
-	  <span style="font-size: .9em; color: #333;"> <br/><br/>(If your Sakai Partner organization is not listed below, please contact <a mailto:mmiles@umich.edu">mmiles@umich.edu).</a></span>
+	<tr><td class="account" colspan=2 style="padding-bottom: 10px;"> <strong>Organization:</strong><br/>Select your organization from the Sakai Partner list below. 
+	<br/>(If your Sakai Partner organization is not listed below, please contact <a mailto:mmiles@umich.edu">mmiles@umich.edu).</a><br/> <br/>If your organization is <strong>not</strong> a Sakai Partner, select <strong>Other </strong><br/> then enter the organization name into the box provided. 
+	  <span style=" color: #333;"> <br/></span>
 	</td>
 	</tr>
 	<tr>
@@ -149,9 +153,9 @@ if ($submitButtonName) {
 	</tr>
 
 	<tr>
-		<td class="account"><b>Address:</b></td>
+		<td class="account"><strong>Address:</strong></td>
 		<td nowrap="y">
-			<img id="addressImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
+			&nbsp; &nbsp; &nbsp; <img id="addressImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<textarea name="address" cols="30" rows="3"><?php echo $thisUser['address'];?></textarea>
 			<input type="hidden" id="addressValidate" value="<?= $vItems['address'] ?>"/>
 			<span id="addressMsg"></span>
@@ -159,7 +163,7 @@ if ($submitButtonName) {
 	</tr>
 
 	<tr>
-		<td class="account"><b>City:</b></td>
+		<td class="account"><strong>City:</strong></td>
 		<td nowrap="y">
 			<img id="cityImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="text" name="city" value="<?= $thisUser['city'] ?>" size="30" maxlength="50"/>
@@ -169,7 +173,7 @@ if ($submitButtonName) {
 	</tr>
 
 	<tr>
-		<td class="account"><b>State:</b></td>
+		<td class="account"><strong>State:</strong></td>
 		<td nowrap="y">
 			<img id="stateImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="state">
@@ -187,7 +191,7 @@ if ($submitButtonName) {
 	</tr>
 
 	<tr>
-		<td class="account"><b>Zipcode:</b></td>
+		<td class="account"><strong>Zipcode:</strong></td>
 		<td nowrap="y">
 			<img id="zipcodeImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="text" name="zipcode" value="<?= $thisUser['zipcode'] ?>" size="10" maxlength="10"/>
@@ -197,7 +201,7 @@ if ($submitButtonName) {
 	</tr>
 
 	<tr>
-		<td class="account"><b>Country:</b></td>
+		<td class="account"><strong>Country:</strong></td>
 		<td nowrap="y">
 			<img id="countryImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<select name="country">
@@ -215,7 +219,7 @@ if ($submitButtonName) {
 	</tr>
 
 	<tr>
-		<td class="account"><b>Phone:</b></td>
+		<td class="account"><strong>Phone:</strong></td>
 		<td nowrap="y">
 			<img id="phoneImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="text" name="phone" value="<?= $thisUser['phone'] ?>" size="15" maxlength="15"/>
@@ -225,7 +229,7 @@ if ($submitButtonName) {
 	</tr>
 
 	<tr>
-		<td class="account"><b>Fax:</b></td>
+		<td class="account"><strong>Fax:</strong></td>
 		<td nowrap="y">
 			<img id="faxImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="valid indicator"/>
 			<input type="text" name="fax" value="<?= $thisUser['fax'] ?>" size="15" maxlength="15"/>

@@ -11,7 +11,8 @@
     </td>
 </tr> <?php } ?>
 <tr>
-		<td valign=top colspan=3 style="border-bottom: 0px solid #cccccc; width:100%; font-size:12px;"><span style="font-weight:bold; font-size:1.2em">Your Registration Details <br/><br/></span></td>
+		<td valign=top colspan=3 style="border-bottom: 0px solid #cccccc; width:100%; font-size:12px;"><br/>
+		<span style="font-weight:bold; font-size:1.2em">Your Registration Details <br/><br/></span></td>
 	</tr>
 	<tr>
 		<td width="10%" valign=top style="padding-right:10px;border-right: 1px dotted #cccccc;" ><strong>Contact Information</strong></td>
@@ -64,7 +65,7 @@
   	
 	<tr><td>&nbsp;</td></tr>
 	<tr>
-		<td valign=top style="border-right: 1px dotted #cccccc; padding-right:10px;"><strong>Payment Information</strong><br/><br/><br/></td>
+		<td valign=top style="border-right: 1px dotted #cccccc; padding-right:10px;"><br/><strong>Payment Information</strong><br/><br/><br/></td>
 		<td colspan=2 style="padding-left:10px;"><br/>
 		<strong>Registration Fee</strong>:  &nbsp;&nbsp;&nbsp;&nbsp;
 						<?php if (!$fee) {

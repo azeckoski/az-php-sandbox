@@ -8,7 +8,10 @@
 <?php
 require_once 'include/tool_vars.php';
 
+
 $PAGE_NAME = "Login";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -45,6 +48,7 @@ if (!$errors && strlen($username) && strlen($password)) {
 		// redirect after login -AZ
 		//print "ref = $REF<br/>";
 
+		
 		if ($REF) {
 			header('location:'.$REF);
 		} else {
@@ -52,7 +56,7 @@ if (!$errors && strlen($username) && strlen($password)) {
 		}
 		exit;
 
-	} else {
+	}  else {
 		// user login failed
 		$Message .= "<span class='error'>Invalid login: $username </span><br/>" .
 			"Please check your username and password and make sure your account is activated.";
@@ -61,41 +65,52 @@ if (!$errors && strlen($username) && strlen($password)) {
 		$User->destroySession();
 	}
 }
+// top header links
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a class='active' href='index.php'><strong>Home</strong></a>:" .
+	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+	"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" .
+	"</span>";
+
+
 ?>
-<?php include 'include/top_header.php';  ?>
+<?php //INCLUDE THE HEADER
+
+include 'include/top_header.php';  ?>
 <script type="text/javascript">
 <!--
 // -->
 </script>
 <!-- // INCLUDE THE HEADER -->
 <?php include 'include/header.php';  ?>
+<div style="padding: 3px 20px;"> 
+<?= $Message ?>  </div>
 
-<?= $Message ?>
-
-<table border="0">
+<table id="maincontent" border="0" width="100%" cellspacing="0" cellpadding="0">
 <tr>
-
-<td width="10%" valign="top" height="100">
-	<div class="login">
+<td width="10%" valign="top" height="100" style="padding:10px;">
+	<div class="login" style="padding:10px;">
+	<div><strong>LOGIN REQUIRED: </strong><br/>You must login to register or<br/> submit a proposal for this event. <br/>
+		<br/>If you do not have an account, please <a href='$ACCOUNTS_URL/createaccount.php'>create one.</a><br/><br/><br/></div>
 	<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <?php if($REF) { ?>
 	<input type="hidden" name="ref" value="<?= $REF ?>" />
 <?php } ?>
-	<div class="loginheader"><?= $SYSTEM_NAME ?> Login</div>
+	<div class="loginheader">Login to this event:</div>
 	<table border="0" class="padded">
 		<tr>
-			<td><b style="font-size:11pt;">Username:</b></td>
+			<td><strong style="font-size:1em">Username:</strong></td>
 			<td><input type="text" name="username" tabindex="1" value="<?= $username ?>" size="20" /></td>
 		</tr>
 		<tr>
-			<td><b style="font-size:11pt;">Password:</b></td>
+			<td><strong style="font-size:1em">Password:</strong></td>
 			<td><input type="password" name="password" tabindex="2" value="<?= $password ?>" size="20" /></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" name="login" value="Login" tabindex="3" /></td>
+			<td>&nbsp;</td><td align="right"><input id="submitbutton" type="submit" name="login" value="Login" tabindex="3" /></td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td colspan="2"><br/>
 				<a class="pwhelp" href="createaccount.php">Need to create an account?</a>
 			</td>
 		</tr>
@@ -108,23 +123,13 @@ if (!$errors && strlen($username) && strlen($password)) {
 	</form>
 	</div>
 </td>
-
+<td width="5%"> &nbsp;</td>
 <td valign="top">
 	<div class="right">
-	<div class="rightheader">Info Display</div>
-	<table border="0" class="padded">
-	<tr>
-	<td style="font-size:11pt;">
-<?php // output the passed message if there is one
-	if ($_REQUEST["msg"]) {
-		echo "<b>NOTE:</b> ".$_REQUEST["msg"]."<br><br>";
-	}
-?>
-	This space is planned to be used later to add help information as needed.
-
-	</td>
-	</tr>
-	</table>
+			<div class="componentheading"><br/><img src="<?=$admin_logo?>" height="60" alt="event organization logo" /> <br/><br/> <?=$CONF_NAME?><div  style="color:#666;padding-top:3px; font-size: 1em;">&nbsp;<?=$CONF_LOC?><br/>&nbsp;<?=$CONF_DAYS?></div><br/> </div>
+	
+	</div>
+<div><br/>
 	</div>
 </td>
 

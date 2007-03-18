@@ -10,6 +10,9 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Admin Institutions";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
+
 $Message = "";
 
 // connect to database
@@ -158,14 +161,14 @@ $userInfo = $User->getUsersByPkList($userPks, "pk,username");
 
 //echo "<pre>",print_r($userInfo),"</pre><br/>";
 
-
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'><strong>Institutions</strong></a> - " .
-"<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a href='admin_users.php'>Users</a>" .
+	"<a class='active'  href='admin_insts.php'>Institutions</a>" .
+	"<a href='admin_perms.php'>Permissions</a>" .
+	"<a href='admin_roles.php'>Roles</a>" .
 	"</span>";
+
 
 ?>
 
@@ -197,7 +200,7 @@ function itemdel(itempk) {
 // -->
 </script>
 <?php include $ACCOUNTS_PATH.'include/header.php'; ?>
-
+<div id="maincontent">
 <?= $Message ?>
 
 <?php
@@ -208,6 +211,7 @@ function itemdel(itempk) {
 	}
 ?>
 
+<div id="maindata">
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
@@ -246,7 +250,7 @@ function itemdel(itempk) {
 <td><a href="javascript:orderBy('type');">Type</a></td>
 <td>InstRep</td>
 <td>VoteRep</td>
-<td align="center"><a title="Add a new institution" href="admin_inst.php">add</a></td>
+<td align="center"><a title="Add a new institution" href="admin_inst.php">+ add new</a></td>
 </tr>
 
 <?php
@@ -310,5 +314,12 @@ if ($item["repvote_pk"]) {
 
 </table>
 </form>
+</div>
+</div>
+<div class="padding50">&nbsp;  </div>
+
+<div class="padding50">&nbsp;  </div>
+
+
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

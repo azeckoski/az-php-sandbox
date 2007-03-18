@@ -18,14 +18,9 @@ $TOOL_PATH = $_SERVER["DOCUMENT_ROOT"].$TOOL_URL.'/';
 $TOOL_NAME = "Conference";
 $TOOL_SHORT = "conf";
 
-$CSS_FILE2 = $TOOL_URL."/include/template/css/template_css.css";
-$CSS_FILE3 = $TOOL_URL."/include/template/css/header.css";
-$CSS_FILE4 = $TOOL_URL."/include/template/css/footer.css";
 //$HELP_LINK = "include/help.php";
 
 $CONF_ID = "Jun2007";
-$CONF_LOC = "Amsterdam";
-$CONF_NAME = "Sakai Amsterdam Conference - June 2007";
 $CONF_URL = "http://www.sakaiproject.org/index.php?option=com_content&task=blogcategory&id=190&Itemid=615";
 $REG_START_DATE = "2007/03/12 8:00";
 $CFP_START_DATE = "2007/02/01 8:00";

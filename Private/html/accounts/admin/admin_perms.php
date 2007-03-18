@@ -10,7 +10,11 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Admin Permissions";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
+
 $Message = "";
+$msg=$_REQUEST['msg'];
 
 // connect to database
 require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
@@ -92,11 +96,11 @@ $items_displayed = mysql_num_rows($result);
 
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'>Institutions</a> - " .
-	"<a href='admin_perms.php'><strong>Permissions</strong></a>" .
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a href='admin_users.php'>Users</a>" .
+	"<a href='admin_insts.php'>Institutions</a>" .
+	"<a class='active' href='admin_perms.php'>Permissions</a>" .
+	"<a href='admin_roles.php'>Roles</a>" .
 	"</span>";
 
 ?>
@@ -116,7 +120,8 @@ function orderBy(newOrder) {
 // -->
 </script>
 <?php include $ACCOUNTS_PATH.'include/header.php'; ?>
-
+<div id="maincontent">
+<?= $msg ?>
 <?= $Message ?>
 
 <?php
@@ -127,6 +132,7 @@ function orderBy(newOrder) {
 	}
 ?>
 
+<div id="maindata">
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
@@ -175,7 +181,7 @@ function orderBy(newOrder) {
 <tr class='tableheader'>
 <td><a href="javascript:orderBy('perm_name');">Name</a></td>
 <td><a href="javascript:orderBy('perm_description');">Description</a></td>
-<td align="center"><a title="Add a new institution" href="admin_perm.php?pk=-1&amp;add=1">add</a></td>
+<td align="center"><a title="Add a new permission" href="admin_perm.php?pk=-1&amp;add=1">+ add new</a></td>
 </tr>
 
 <?php 
@@ -206,5 +212,8 @@ while($itemrow=mysql_fetch_assoc($result)) {
 
 </table>
 </form>
+
+</div>
+</div>
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

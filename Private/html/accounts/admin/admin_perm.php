@@ -67,12 +67,13 @@ if ($_POST["save"]) {
 	if ($errors == 0) {
 		if ($_REQUEST["add"]) {
 			// insert new item
-			$sqlinsert = "INSERT into permissions (perm_name,perm_description,date_created)" .
-					" values ('$perm_name','$perm_description',NOW())";
+			$sqlinsert = "INSERT into permissions (perm_name,perm_description,date_created, adminID)" .
+					" values ('$perm_name','$perm_description',NOW(), '$adminID')";
 			$result = mysql_query($sqlinsert) or die('Insert query failed: ' . mysql_error());
 			$PK = mysql_insert_id();
-			$Message = "<b>Added new permission</b><br/>";
+			$msg = "<b>Added new permission</b><br/>";
 			$_REQUEST["add"] = "";
+			header("Location:admin_perms.php?msg=$msg");
 		} else {
 			// write the new values to the DB
 			$sqledit = "UPDATE permissions set perm_name='$perm_name', " .
@@ -93,12 +94,13 @@ $thisItem = mysql_fetch_assoc($result);
 mysql_free_result($result);
 
 
+
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'>Users</a> - " .
-	"<a href='admin_insts.php'>Institutions</a> - " .
-	"<a href='admin_perms.php'><strong>Permissions</strong></a>" .
+$EXTRA_LINKS = "<span class='extralinks'>" .
+	"<a href='admin_users.php'>Users</a>" .
+	"<a href='admin_insts.php'>Institutions</a>" .
+	"<a class='active' href='admin_perms.php'>Permissions</a>" .
+	"<a href='admin_roles.php'>Roles</a>" .
 	"</span>";
 
 ?>
@@ -106,9 +108,9 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 <?php include $ACCOUNTS_PATH.'include/header.php'; ?>
-
+<div id="maincontent">
 <?= $Message ?>
-
+<div><br/> Add a new permission group.</div><br/><br/>
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
@@ -153,5 +155,10 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 <input type='submit' value='Save Information' />
 
 </form>
+<div class="padding50">&nbsp;  </div>
 
+<div class="padding50">&nbsp;  </div>
+
+
+</div>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

@@ -9,6 +9,9 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "User control";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
+
 $Message="";
 $MessageColor="";
 
@@ -25,7 +28,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 $allowed = false; // assume user is NOT allowed unless otherwise shown
 if (!$User->checkPerm("admin_accounts")) {
 	$allowed = false;
-	$Message = "Only admins with <b>admin_accounts</b> may view this page.<br/>" .
+	$Message = "Only admins with <strong>admin_accounts</strong> may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 	$MessageColor = "#ff0000";
 } else {
@@ -34,11 +37,10 @@ if (!$User->checkPerm("admin_accounts")) {
 
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
-	"<a href='index.php'>Admin</a>: " .
-	"<a href='admin_users.php'><strong>Users</strong></a> - " .
+$EXTRA_LINKS = "<span class='extralinks' >" .
+	"<a class='active' href='admin_users.php'><strong>Users</strong></a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
-"<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
+	"<a href='admin_perms.php'>Permissions</a> - <a href='admin_roles.php'>Roles</a>" .
 	"</span>";
 
 ?>
@@ -47,7 +49,7 @@ $EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
 <!-- // INCLUDE THE HEADER -->
 <?php include $ACCOUNTS_PATH.'include/header.php';  ?>
 
-
+<div id="maincontent">
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
@@ -216,11 +218,11 @@ $thisUser = $opUser->toArray(); // put the user data into an array for easy acce
 if ($MessageColor == "#000000") { $MessageBackgroundColor="#FFFFFF"; }
 else { $MessageBackgroundColor=$MessageColor; }
 ?>
-
+<?php if ($Message) {   ?>
 <div align="center" style="font-weight:bold;width:99%;margin:0px;padding:0px;padding-top:18px;padding-bottom:18px;border: 1px solid <?= $MessageBackgroundColor ?>;color:<?= $MessageColor ?>;">
 <?= $Message ?>
 </div>
-
+<?php }?>
 <div class="required" id="requiredMessage"></div>
 <form name="adminform" action="<?=$_SERVER['PHP_SELF']; ?>" method="post" style="margin:0px;">
 <input type="hidden" name="pk" value="<?= $PK ?>" />
@@ -231,20 +233,20 @@ else { $MessageBackgroundColor=$MessageColor; }
 	require $ACCOUNTS_PATH.'include/user_form.php';
 ?>
 
-<span style="font-size:9pt;">
-	<b>Note:</b> <i>To change the password, enter the new values in the fields above.<br/>
+<span style="font-size:.9em;">
+	<strong>Note:</strong> <i>To change the password, enter the new values in the fields above.<br/>
 	To leave your password at it's current value, leave the password fields blank.</i>
 </span>
 
 
-<table width="60%">
+<table width="100%">
 <tr>
 <td valign="top">
-
-<fieldset><legend>Permissions</legend>
+<br/><br/>
+<fieldset><legend><strong>Account Access</strong></legend>
 <table border="0" class="padded">
 	<tr>
-		<td class="account"><b>Activated:</b></td>
+		<td class="account"><strong>Account Activated:</strong></td>
 		<td class="checkbox">
 			<input type="checkbox" name="active" tabindex="9" value="1" <?php
 				if ($opUser->active) { echo " checked='y' "; }
@@ -252,9 +254,10 @@ else { $MessageBackgroundColor=$MessageColor; }
 			<i> - account is active (inactive accounts cannot login)</i>
 		</td>
 	</tr>
-
+	<?php //check to see if we should include instRep
+if ($INSTREP) {  ?>
 	<tr>
-		<td class="account"><b>Inst Rep:</b></td>
+		<td class="account"><strong>Inst Rep:</strong></td>
 		<td class="checkbox">
 			<input type="checkbox" name="instrep" tabindex="10" value="1" <?php
 				if ($opUser->isRep) { echo " checked='y' "; }
@@ -262,9 +265,9 @@ else { $MessageBackgroundColor=$MessageColor; }
 			<i> - user is the representative for the listed institution</i>
 		</td>
 	</tr>
-
+<? } if ($INSTREP) {  ?>
 	<tr>
-		<td class="account"><b>Vote Rep:</b></td>
+		<td class="account"><strong>Vote Rep:</strong></td>
 		<td class="checkbox">
 			<input type="checkbox" name="voterep" tabindex="11" value="1" <?php
 				if ($opUser->isVoteRep) { echo " checked='y' "; }
@@ -272,9 +275,9 @@ else { $MessageBackgroundColor=$MessageColor; }
 			<i> - user is the polling rep for the listed institution</i>
 		</td>
 	</tr>
-
+<?php }  ?>
 	<tr>
-		<td colspan="2" class="account"><br/><b>Permissions:</b></td>
+		<td colspan="2" class="account"><br/><strong>User Permissions:</strong></td>
 	</tr>
 
 <?php 
@@ -283,7 +286,7 @@ else { $MessageBackgroundColor=$MessageColor; }
 	$perm_result = mysql_query($perms_sql) or die("Query failed ($perms_sql): " . mysql_error());	
 	while($row = mysql_fetch_assoc($perm_result)) { ?>
 	<tr>
- 		<td class="account"><strong><?= $row['perm_name'] ?>:</strong></td>
+ 		<td class="account" style="padding-left: 30px;"><strong><?= $row['perm_name'] ?>:</strong></td>
 		<td class="checkbox">
 			<input type="checkbox" name="perms[]" value="<?= $row['perm_name'] ?>" <?php
 				if ($opUser->checkPerm($row['perm_name'])) { echo " checked='y' "; }
@@ -301,5 +304,5 @@ else { $MessageBackgroundColor=$MessageColor; }
 </table>
 
 </form>
-
+</div>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>

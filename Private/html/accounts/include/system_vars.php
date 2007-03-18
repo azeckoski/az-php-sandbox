@@ -6,7 +6,7 @@
 // You should change the environment variable to correspond to the environment you're using.
 
 // supported options are "dev","test", and "prod"
-$ENVIRONMENT = "prod";
+$ENVIRONMENT = "devSusan";
 
 if ($ENVIRONMENT == "dev") {
 	// Set needed system variables
@@ -52,13 +52,8 @@ else {
   die("Invalid environment varaiable: &quot;$ENVIRONMENT&quot;.'");	
 }
 
-// Non-environment dependent globals
-$ACCOUNTS_URL = '/accounts';
-$ACCOUNTS_PAGE = "myaccount.php";
-$LOGIN_PAGE = "login.php";
-$LOGOUT_PAGE = "logout.php";
 
-
+require ('config.php');
 // Load the GD module (for images)
 if (!extension_loaded('gd')) {
 	if (!dl('gd.so')) {

@@ -9,6 +9,9 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Users Control";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
+
 $Message = "";
 
 // connect to database
@@ -31,7 +34,7 @@ if (!$User->checkPerm("admin_accounts")) {
 }
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+$EXTRA_LINKS = "<br/><span style='font-size:.9em;'>" .
 	"<a href='index.php'>Admin</a>: " .
 	"<a href='admin_ldap.php'><strong>LDAP</strong></a> - " .
 	"<a href='admin_users.php'>Users</a> - " .

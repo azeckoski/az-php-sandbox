@@ -10,6 +10,9 @@
 require_once '../include/tool_vars.php';
 
 $PAGE_NAME = "Admin Institutions";
+
+$ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
+
 $Message = "";
 
 // connect to database
@@ -137,7 +140,7 @@ if ($_REQUEST["ldif"] && $allowed) {
 }
 
 // top header links
-$EXTRA_LINKS = "<br/><span style='font-size:9pt;'>" .
+$EXTRA_LINKS = "<span style='font-size:9pt;'>" .
 	"<a href='index.php'>Admin</a>: " .
 	"<a href='admin_users.php'>Users</a> - " .
 	"<a href='admin_insts.php'>Institutions</a> - " .
@@ -158,7 +161,8 @@ if ($_REQUEST["export"] && $allowed) {
 	// display the page normally
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; // INCLUDE THE HTML HEAD ?>
+
+<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -172,8 +176,11 @@ function orderBy(newOrder) {
 }
 // -->
 </script>
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
 
+<?php //INCLUDE THE HEADER
+include $ACCOUNTS_PATH.'include/header.php'; 
+ ?>
+<div id="maincontent">
 <?= $Message ?>
 
 <?php
@@ -313,7 +320,7 @@ if ($_REQUEST["export"]) {
 
 </table>
 </form>
-
+</div>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
 
 <?php } // end display ?>
