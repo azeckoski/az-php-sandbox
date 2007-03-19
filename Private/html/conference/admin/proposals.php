@@ -483,7 +483,7 @@ foreach ($items as $item) {
 <tr><td colspan="5" align="right"><div>
 <?= $Message ?></div></td></tr>
 <tr class="tableheader">
-<td><a href="javascript:orderBy('num');"title="sort by number" >#</a>&nbsp;</td>
+<td>#</td>
 <td>&nbsp;<a href="javascript:orderBy('vote');">Vote</a></td>
 <td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a> </td>
 <td><a href="javascript:orderBy('auth1_last');"title="sort by primary author last name" >Authors</a></td>
@@ -559,7 +559,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: 1.1em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['num']?></strong></div></td>
+	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: .9em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['order']?></strong></div></td>
 	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;border-left:1px dotted #ccc;'>
 <?php if ($item['type']=='demo')  {
 		echo "<strong>Demo </strong><br/>No voting<br/>";
