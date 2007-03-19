@@ -109,7 +109,7 @@ echo "</div><br/>";
     <li>* UI Camp -- User Support folks and Programmers welcome! (full day)</li>
     </ul>
     </blockquote>
-     <p><br/><br/>For more information please visit the <a href="http://sakaiproject.org/conference/index.html">conference website.<img src="include/images/arrow.gif" border="0"></a></p> 
+     <p><br/><br/>For more information please visit the <a href="http://sakaiproject.org/conference/index.html">conference website.<img src="include/images/arrow.gif" border="0" /></a></p> 
     
     </div>
    

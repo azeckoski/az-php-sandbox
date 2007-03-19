@@ -95,9 +95,9 @@ if (!$isPartner){
 
 <!-- start form section -->
 <form id="form1" method="post" action="https://payments.verisign.com/payflowlink">
-<table width="500"  cellpadding="0" cellspacing="0" class="noline">
+<table width="500"  cellpadding="0" cellspacing="2" class="noline">
 	<tr>
-		<td valign=top colspan=3><span style="font-weight:bold; font-size:1.2em">Your Registration Details: </span></td>
+		<td valign=top colspan=3><p><span style="font-weight:bold; font-size:1.2em">Your Registration Details: </span></p></td>
 	</tr>
 	<tr>
 		<td >&nbsp;</td><td width=120px><strong>name:</strong></td><td> <?= $User->firstname."&nbsp;".$User->lastname ?><br/> </td>
@@ -195,7 +195,7 @@ if (!$isPartner){
       </tr>
     </table>
   </form>
-</div>
+</div><div class="padding50">
 <!-- end cfp -->
 <?php  // end check paid 
 }	?>
