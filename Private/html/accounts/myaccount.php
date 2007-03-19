@@ -151,11 +151,6 @@ if ($SCHEDULE_PUBLISHED) {
 ?>
 
 </form>
-
-<span style="font-size:.9em;">
-	<b>Note:</b> <i>To change your password, enter the new values in the fields above.<br/>
-	To leave your password at its current value, leave the password fields blank.</i>
-</span>
 <br/>
 </div>
 

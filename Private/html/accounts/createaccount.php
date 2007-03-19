@@ -182,7 +182,4 @@ if ($SCHEDULE_PUBLISHED) {
 <?php } ?> </div>
 
 <div class="padding50"></div>
-
-<div class="padding50">&nbsp;</div>
-<div class="padding50">&nbsp;</div>
 <?php require 'include/footer.php'; // Include the FOOTER ?>
