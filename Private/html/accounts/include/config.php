@@ -35,7 +35,7 @@ $CONF_MGR_EMAIL= "shardin@umich.edu";
 
 //this is the event main web page
 $CONF_URL = "http://sakaiproject.org/conference";
-$CONF_DAYS= "June 7-9, 2007";
+$CONF_DAYS= "June 12-14, 2007";
 
 
 
