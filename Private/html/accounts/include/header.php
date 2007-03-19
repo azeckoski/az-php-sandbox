@@ -6,11 +6,11 @@
 	<div id="accounts_header">
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" >
 						<tr>
-						<td  valign="top" style="white-space:nowrap; font-size:1.2em; ">
+						<td  valign="top" style="white-space:nowrap; font-size:1.1em; ">
 					
 						<div><a href="http://sakaiproject.org"> <img src="<?=$admin_logo?>" align="left" alt="sakaiproject.org home page " style="border:0;padding-right: 30px; height:50px;"/></a>
-						<div style="padding-top:10px;"><?=$CONF_NAME?></div>
-						<div style="color:#666;padding-top:3px; padding-left: 20px; font-size: .9em;">&nbsp;<?=$CONF_LOC?>
+						<div style="padding-top:10px;"><strong><?=$CONF_NAME?></strong></div>
+						<div style="color:#333;padding-top:3px; padding-left: 20px; font-size: .95em;">&nbsp;<?=$CONF_LOC?>
 						<br/>&nbsp;<?=$CONF_DAYS?> </div>
 						</div>
 						
