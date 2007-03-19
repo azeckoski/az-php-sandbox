@@ -124,8 +124,8 @@ echo "</div><br/>";
 <td valign="top" width="20%">
 <?php  if ($User->checkPerm("admin_accounts")) {
 	
-?>	<br/><br/><div class="login">
-	<div class="loginheader"><?= $TOOL_NAME ?></div>
+?>	<br/><br/><div class="login" style="padding:5px 15px;"><h3 align=center>Statistics:</h3>
+	<div class="loginheader">Accounts Admin</div>
 	<div class="padded">
 
 <?php
@@ -134,19 +134,41 @@ $Inst = new Institution();
 $inst_count = $Inst->getInstsBySearch("*","","pk",true);
 ?>
 
-	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
-	<b>Accounts:</b> <?= $user_count['db'] ?><br/>
+	<strong>Accounts:</strong> <?= $user_count['db'] ?><br/>
 <?php if ($USE_LDAP) { ?>
 	&nbsp;&nbsp;- LDAP: <?= $user_count['ldap'] ?><br/>
 <?php } ?>
-	<b>Institutions:</b> <?= $inst_count['db'] ?><br/>
+	<strong>Institutions:</strong> <?= $inst_count['db'] ?><br/>
 <?php if ($USE_LDAP) { ?>
 	&nbsp;&nbsp;- LDAP: <?= $inst_count['ldap'] ?><br/>
 <?php } ?>
 	<br/>
 
-	</div>
+	
 	</div>  
+	<div class="loginheader">Registration Admin</div>
+	<div class="padded">
+
+<?php
+	//attendance statistics
+	
+?>
+	<br/>
+
+
+	</div>  
+	<div class="loginheader">Proposals Admin</div>
+	<div class="padded">
+
+<?php//  get number of proposals submitted, number approved
+	
+	
+?>
+	<br/>
+
+
+	</div> 
+	</div>
 	<?php } ?>
 </td>
 </tr>
