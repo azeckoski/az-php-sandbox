@@ -20,7 +20,16 @@ padding:0px 5px;
 margin:0;
 border:0px solid #000;
 }
+li {
+list-style-type:none;
+list-style-position:outside;
 
+}
+
+ul {
+padding-left:5px;
+padding-right:5px;
+}
 /* Links */
 a{
  color: #336699;
