@@ -31,7 +31,7 @@ if ($User->checkPerm("admin_accounts")){
 $allowed=true;
 $Message = "<br/><strong>ADMIN: Create New User Account</strong> ";
 } else {
-	$Message = " <br/><strong>Already have an account?</strong>   <a style='font-size:1.1em;' href='login.php'> Login <img src='include/images/arrow.gif' border='0'</a> <br/> " .
+	$Message = " <br/><strong>Already have an account?</strong>   <a style='font-size:1.1em;' href='login.php'> Login <img src='include/images/arrow.gif' border='0'/></a> <br/> " .
 	"";
 	
 	
