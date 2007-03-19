@@ -53,8 +53,8 @@ if ($SCHEDULE_PUBLISHED) {
 <?php include $ACCOUNTS_PATH.'include/header.php'; ?>
 <table id="maincontent" border=0 cellpadding=0 cellspacing=5 width="100%">
 <tr>
-<td style="padding-left: 20px;"><? if($msg) { echo $msg;} ?>
-	<?php if($User->pk) { ?>
+<td valign=top style="padding-left: 20px;"><? if($msg) { echo $msg;} ?>
+	<?php if($User->pk) { ?><br/>
 <strong> Please select one of the following options:<br/></strong>
 <?php } else { ?>
 <br/>
@@ -96,6 +96,23 @@ echo "</div><br/>";
 
 ?>
 
+</td> <td valign=top style="padding:20px 30px;">
+<div style="text-align:left;font-size: 1.05em; line-height:1.1em; border:1px solid #808000; padding:10px; width:300px; " >
+<p >
+<strong>Conference Dates: </strong> <br/> Tuesday, June 12th - Thursday, June 14th 2007</p>
+<br/>
+<p><strong>Pre-conference workshops:</strong><br/> Monday, June 11th</p>
+<blockquote>
+<ul>
+    <li>* Programmer's Cafe  (full day)</li>
+    <li>* Introduction to Sakai (1/2 day)</li>
+    <li>* UI Camp -- User Support folks and Programmers welcome! (full day)</li>
+    </ul>
+    </blockquote>
+     <p><br/><br/>For more information please visit the <a href="http://sakaiproject.org/conference/index.html">conference website.<img src="include/images/arrow.gif" border="0"></a></p> 
+    
+    </div>
+   
 </td>
 
 <td valign="top" width="20%">
