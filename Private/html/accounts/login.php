@@ -65,13 +65,20 @@ if (!$errors && strlen($username) && strlen($password)) {
 		$User->destroySession();
 	}
 }
-// top header links
-$EXTRA_LINKS = "<span class='extralinks'>" .
-	"<a class='active' href='index.php'><strong>Home</strong></a>:" .
-	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
-	"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" .
-	"</span>";
 
+
+// top header links
+$EXTRA_LINKS = "<span class='extralinks'>";
+	$EXTRA_LINKS .= "<a  href='$CONFADMIN_URL/index.php' title='Sakai accounts home'><strong>Home</strong></a>:";
+
+$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
+if ($SCHEDULE) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }
+	
+	$EXTRA_LINKS.="</span>";
 
 ?>
 <?php //INCLUDE THE HEADER
