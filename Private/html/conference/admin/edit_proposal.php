@@ -12,8 +12,9 @@
 ?>
 <?php
 require_once '../include/tool_vars.php';
+$PAGE_NAME = "Proposals Results and Editing";
 
-$PAGE_NAME = "Call for Proposals";
+$ACTIVE_MENU="PROPOSALS";  //for managing active links on multiple menus
 $Message = "";
 
 // connect to database
@@ -348,6 +349,15 @@ if ($_POST['save']) {
 	
 	}
 }
+
+
+// set header links
+$EXTRA_LINKS = "<span class='extralinks'>" ;
+	if ($PROPOSALS) {  
+		$EXTRA_LINKS .= "<a  href='$CONFADMIN_URL/admin/proposals.php'>Proposals-Voting</a>";		
+		$EXTRA_LINKS .= "<a class='active' href='$CONFADMIN_URL/admin/proposals_results.php'>Proposals-Results</a>";  }
+	$EXTRA_LINKS .="</span>";
+
 ?>
 
 <!-- // INCLUDE THE HTML HEAD -->

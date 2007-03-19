@@ -21,7 +21,7 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 // Make sure user is authorized for admin perms
 $isAdmin = false; // assume user is NOT allowed unless otherwise shown
 $hide_bof_rooms = false; // flag to hide the BOF rooms
-if (!$User->checkPerm("admin_conference")) {
+if ((!$User->checkPerm("admin_conference")) && (!$User->checkPerm("registration_dec2006"))  && (!$User->checkPerm("proposals_dec006"))  ){
 	$isAdmin = false;
 	$hide_bof_rooms = true;
 } else {
@@ -196,29 +196,6 @@ $CSS_FILE2 = $TOOL_URL."/include/schedule.css";
 $DATE_FORMAT = "M d, Y h:i A";
 
 
-// set header links
-$EXTRA_LINKS = "<span class='extralinks'>" ;
-	// top header links
-$EXTRA_LINKS = "<span class='extralinks'>" ;
-$EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
- 
-		
-		
-		$EXTRA_LINKS.=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
-		"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
-		
-if ($SCHEDULE_PUBLISHED) { 
-		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
-		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
-		 }  else {
-		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
-	
-		 	
-		 }
-		
-		
-	$EXTRA_LINKS .="</span>";
-	
 
 if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) ) {
 // top header links for admins
@@ -267,8 +244,7 @@ function orderBy(newOrder) {
 
 <?= $Message ?>
 
-	
-
+<p>coming soon...</p>
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 

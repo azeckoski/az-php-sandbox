@@ -14,7 +14,7 @@ require_once ($ACCOUNTS_PATH.'include/system_vars.php');
 
 // Tool variables
 $TOOL_URL = "/conference";
-$TOOL_PATH = $_SERVER["DOCUMENT_ROOT"].$TOOL_URL.'/';
+$TOOL_PATH = $TOOL_URL;
 $TOOL_NAME = "Conference";
 $TOOL_SHORT = "conf";
 

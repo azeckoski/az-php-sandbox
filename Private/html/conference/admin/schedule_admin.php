@@ -24,10 +24,11 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = 0; // assume user is NOT allowed unless otherwise shown
-if (!$User->checkPerm("admin_conference")) {
+if ((!$User->checkPerm("admin_conference")) && (!$User->checkPerm("registration_dec2006"))  && (!$User->checkPerm("proposals_dec006"))  ){
 	$allowed = 0;
-	$Message = "Only admins may view this page.<br/>" .
-		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
+	$Message = "Only Conference Administrators may view this page.<br/>" .
+		"Try out this one instead: <a href='$TOOL_PATH/admin/schedule.php'>Schedule</a>" .
+		"<div class='padding50'></div><div class='padding50'></div>";
 } else {
 	$allowed = 1;
 }
@@ -81,9 +82,14 @@ include $ACCOUNTS_PATH.'include/header.php';  ?>
 <table border="0" cellpadding="5" cellspacing="10">
 <?php 	if ($SCHEDULE) {  ?>
     <tr>
-      <td valign="top"><a class="mainlevel" href="schedule.php">Schedule</a></td>
-      <td>Modify the conference schedule. </td>
+      <td valign="top"><a class="mainlevel" href="schedule.php">View Schedule (table)</a></td>
+      <td>View the conference schedule in table view.  <br/>(Conference Admins can also build and edit the schedule using this link) </td>
     </tr>
+      <tr>
+      <td valign="top"><a class="mainlevel" href="schedule.php">View Schedule (list)</a></td>
+      <td>View the conference schedule in list view.  </td>
+    </tr>
+  
     <?	}  else  { ?>
     	 <tr>
       <td valign="top"><a href="#" class="mainlevel" style="color:#333;" title="this feature not active">Schedule</a></td>
@@ -99,7 +105,7 @@ include $ACCOUNTS_PATH.'include/header.php';  ?>
    <?	}  else  { ?>
     	 <tr>
       <td valign="top"><a href="#" class="mainlevel" style="color:#333;" title="this feature not active">Volunteers</a></td>
-     <td><span style="color: #666;"> (this feature has not been activated for this event)</span> </td>
+     <td><span style="color: #666;"> (this feature has not yet been activated for this event)</span> </td>
      </tr>
       <?php } ?>
 </table>  

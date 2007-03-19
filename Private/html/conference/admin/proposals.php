@@ -24,7 +24,7 @@ require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 // Make sure user is authorized
 $allowed = false; // assume user is NOT allowed unless otherwise shown
-if ( (!$User->checkPerm("admin_accounts")) && (!$User->checkPerm("proposals_dec2006")) ) {
+if ( (!$User->checkPerm("admin_accounts")) && (!$User->checkPerm("proposals_dec2006")) && (!$User->checkPerm("admin_conference")) ) {
 	$allowed = false;
 	$Message = "Only admins and the conference committee may view this page.<br/>" .
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";

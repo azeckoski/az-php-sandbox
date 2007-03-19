@@ -107,7 +107,7 @@ $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $CSS_FILE2 = $TOOL_URL."/include/schedule.css";
 $DATE_FORMAT = "M d, Y h:i A";
 
-if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) ) {
+if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) || ($User->checkPerm("proposals_dec2006")) || ($User->checkPerm("registration_dec2006"))   ) {
 // top header links for admins
 	$EXTRA_LINKS = "<span class='extralinks'>" ;
 	$EXTRA_LINKS .= "<a class='active' href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
@@ -156,7 +156,7 @@ function orderBy(newOrder) {
 
 
 <?= $Message ?>
-<p>&nbsp;</p>
+<p>coming soon...</p>
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
