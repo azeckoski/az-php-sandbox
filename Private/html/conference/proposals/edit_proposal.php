@@ -241,7 +241,7 @@ if ($_POST['save']) {
 		$length = $_POST['plength'];
 		if ($type == "BOF") {
 			$approved = "Y";
-			$length = "90";
+			$length = "60";
 		}
 		
 		$conflict = trim($_POST['conflict_tue'] . " " . $_POST['conflict_wed'] . " " . $_POST['conflict_thu'] . " " . $_POST['conflict_fri']);
@@ -306,14 +306,20 @@ if ($_POST['save']) {
 					$approved = "Y";
 					$length = "60";
 				}
+				
+					$count_sql = "select * from conf_proposals where confID='$CONF_ID' ";
+			$result = mysql_query($count_sql) or die('count query failed: ' . mysql_error());
+			$num_rows = mysql_num_rows($result);
+			$proposal_num=$num_rows+1;
+				
 
 			//first add presentation information into --all data except role and topic data
 			$proposal_sql = "INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, " .
 			"`title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` ," .
-			" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url`, `poster`)
+			" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url`, `poster`, `order`)
 							VALUES ( NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', " .
 			"'$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' ," .
-			" '$co_speaker' , '$co_bio' , '$approved', '$track', '$wiki_url', '$num_posters')";
+			" '$co_speaker' , '$co_bio' , '$approved', '$track', '$wiki_url', '$num_posters', '$proposal_num')";
 
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 			"registration form submission. Please try to submit the registration again. " .
@@ -377,9 +383,13 @@ $EXTRA_LINKS = "<span class='extralinks'>";
 
 $EXTRA_LINKS .= "<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
 "<a class='active'  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
-if ($SCHEDULE) { 
+if ($SCHEDULE_PUBLISHED) { 
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }  else {
+		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
+	
+		 	
 		 }
 	
 	$EXTRA_LINKS.="</span>";

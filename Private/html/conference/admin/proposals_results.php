@@ -454,7 +454,7 @@ if (!$_REQUEST["export"]) {
 <td>Results</td>
 
 <td><a href="javascript:orderBy('title');"title="sort by Title" >Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');" title="sort by submitter last name">Submitted&nbsp;by</a> </td>
-<td><a href="javascript:orderBy('auth1_last');"title="sort by primary author last name" >Authors</a></td>
+<td><a href="javascript:orderBy('speaker');"title="sort by primary speaker FIRST name" >Speaker(s)</a></td>
 <td>Details</td>
 <?php // if topic or audience ranking is required
 	 if ($RANKING){  ?>
@@ -680,17 +680,15 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 	<?php } else  { ?>
 		<br/><br/><br/>	<strong>Speaker:</strong><br/>
 	<?php } ?>
-		<a href="mailto:<?=$item['auth1_email']?>"><?= $item['auth1_first'] ." " . $item['auth1_last'] ?> </a> 
-	<?= $item['auth1_org']?> </div><br/>
+		<a href="mailto:<?=$item['email']?>"><?= $item['speaker']  ?> </a> 
+	 </div><br/>
 	<?php if ($item['type']=='paper')  { ?>
 		<div class="description"><strong>Co Author(s):</strong></div>
 	<?php } else  {  ?>
 		<div class="description"><strong>Co Speaker(s):</strong></div>
-	<?php } if (($item['auth2_first']) || ($item['auth3_first']) || ($item['auth3_first']))  {  ?>
-		<div><a href="mailto:<?=$item['auth2_email']?>"><?= $item['auth2_first'] ." " . $item['auth2_last'] ?> </a> <?= $item['auth2_org']?> 
-	<br/><br/><a href="mailto:<?=$item['auth3_email']?>"><?= $item['auth3_first'] ." " . $item['auth3_last'] ?> </a> <?= $item['auth3_org']?> 
-	<br/><br/><a href="mailto:<?=$item['auth4_email']?>"><?= $item['auth4_first'] ." " . $item['auth4_last'] ?> </a> <?= $item['auth4_org']?> 
-	<br/><br/></div><?php }  else { 
+	<?php } if ($item['co_speaker'])   {  ?>
+		<div><?=$item['co_speaker']?></div>
+		<?php }  else { 
 		 echo "<span class='item_info'> &nbsp; &nbsp;  n/a<br/><br/><br/></span>";    } 
 		 if ($item['author_other']){ 
 		echo $item['author_other'] ;   
@@ -699,9 +697,9 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 		<br/><br/>
 
 	
-	 <?php  if ($AVAILABILITY) {
+	 <?php  if ($AVAILABLE) {
 	  if ($item['conflict']) {
-	  	echo "<div><strong>Availability: </strong>  Can NOT present on "  ;
+	  	echo "<div><strong>Availability: </strong> <br/> Not on:"  ;
 	  	?>
 	  	<span style="color:red;"> <?= $item['conflict'] ?></span>
 	  	
@@ -769,7 +767,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 } echo "</span>";
 		}
 		?>
-	 <span style="padding-right: 20px;"><strong>Track:</strong>&nbsp;&nbsp;
+	 <br/><br/><span style="padding-right: 20px;"><strong>Track:</strong>&nbsp;&nbsp;
 	 <?php  if ($item['type']=="paper") {
 	  if ($item['track']) {
 			 	 echo $item['track'] ."<br/><br/>";
@@ -815,7 +813,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 	<?php } else {
 
 		if (is_array($item['topics'])) {
-			echo "<strong>Topic ranking:</strong><br/>";
+			echo "<br/><br/><br/><strong>Topic ranking:</strong><br/>";
 
 			foreach($item['topics'] as $v) {
 				 //only display those with value higher than 1
@@ -883,7 +881,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 	}
 ?>
 			<div id="addComment<?= $pk ?>" style="display:none;">
-			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes">Save New Comment</a><br/>
+			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes" style="color:red;">Save New Comment</a><br/>
 			<textarea name="cmnt<?= $pk ?>" cols="40" rows="3"></textarea>
 			</div>
 		</div>

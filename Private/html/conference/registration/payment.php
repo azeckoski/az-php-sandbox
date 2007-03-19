@@ -2,10 +2,11 @@
 session_start();
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Payment";
 $Message = "";
 
 $PAGE_NAME = "Registration";
+$ACTIVE_MENU="HOME";  //for managing active links on multiple menus
+
 
 // connect to database
 require '../sql/mysqlconnect.php';
@@ -43,9 +44,13 @@ $EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
  
 $EXTRA_LINKS.=	"<a class='active'  href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
 	"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
-	if ($SCHEDULE) { 
+	if ($SCHEDULE_PUBLISHED) { 
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }  else {
+		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
+	
+		 	
 		 }
 	
 	$EXTRA_LINKS.="</span>";?>

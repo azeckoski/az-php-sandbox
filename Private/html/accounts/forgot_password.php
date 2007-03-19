@@ -65,14 +65,22 @@ This is an automated response, please do not reply!";
 	// For testing only -AZ
 	//$Message .= "<br/>Subject: $subject<br><pre>$message</pre><br>";
 }
-
 // top header links
-$EXTRA_LINKS = "<span class='extralinks'>" .
-	"<a class='active' href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:" .
-	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
-	"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" .
-	"</span>";
+$EXTRA_LINKS = "<span class='extralinks'>";
+	$EXTRA_LINKS .= "<a class='active' href='$CONFADMIN_URL/index.php' title='Sakai accounts home'><strong>Home</strong></a>:";
+
+$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
+if ($SCHEDULE_PUBLISHED) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }  else {
+		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
 	
+		 	
+		 }
+	
+	$EXTRA_LINKS.="</span>";
 	
 ?>
 

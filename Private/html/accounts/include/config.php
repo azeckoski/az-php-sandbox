@@ -21,7 +21,7 @@ $mediaOnionLogo= "$ACCOUNTS_URL/include/images/logoslate160x89.jpg";
 
 
 //modify admin features
-$adminID="Dec2007";  //allows  roles and other admin labels to change
+$adminID="Jun2007";  //allows  roles and other admin labels to change
 
 $INST_REP=false;
 $VOTE_REP=false;
@@ -80,6 +80,7 @@ $ACCEPT_PMT=true;  //no payment required for this event
 $VOLUNTEER=false; //do not show the volunteer tools or menu link
 
 $SCHEDULE=true; //do not show the schedule tool or menu link
+$SCHEDULE_PUBLISHED=false; //the schedule is not available to the public yet
 
 $REGISTRATION=true; //do not show the schedule tool or menu link
 

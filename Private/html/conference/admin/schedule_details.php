@@ -195,6 +195,7 @@ $CSS_FILE2 = $TOOL_URL."/include/schedule.css";
 
 $DATE_FORMAT = "M d, Y h:i A";
 
+
 // set header links
 $EXTRA_LINKS = "<span class='extralinks'>" ;
 	// top header links
@@ -206,18 +207,43 @@ $EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
 		$EXTRA_LINKS.=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
 		"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
 		
-	if ($SCHEDULE) { 
+if ($SCHEDULE_PUBLISHED) { 
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
-		$EXTRA_LINKS .= "<a class='active'  href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>"; }
-	if ($VOLUNTEER) { 
-		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/volunteers.php'>Volunteers</a>"; 
-		}
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }  else {
+		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
+	
+		 	
+		 }
 		
 		
 	$EXTRA_LINKS .="</span>";
 	
 
+if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) ) {
+// top header links for admins
+	$EXTRA_LINKS = "<span class='extralinks'>" ;
+	$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a class='active'  href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+	$EXTRA_LINKS .="</span>";
+} else {
+// set header links
+$EXTRA_LINKS = "<span class='extralinks'>" ;
 	
+$EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
+		
+$EXTRA_LINKS.=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+		"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
+		
+	if ($SCHEDULE_PUBLISHED) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a class='active' href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }  else {
+		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";	
+		 }
+	$EXTRA_LINKS .="</span>";
+	
+}
 ?>
 
 

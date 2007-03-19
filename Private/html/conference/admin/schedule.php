@@ -107,28 +107,34 @@ $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $CSS_FILE2 = $TOOL_URL."/include/schedule.css";
 $DATE_FORMAT = "M d, Y h:i A";
 
-
+if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) ) {
+// top header links for admins
+	$EXTRA_LINKS = "<span class='extralinks'>" ;
+	$EXTRA_LINKS .= "<a class='active' href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+	$EXTRA_LINKS .="</span>";
+} else {
 // set header links
 $EXTRA_LINKS = "<span class='extralinks'>" ;
 	
-			
-		
 $EXTRA_LINKS.="<a  href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:";
 		
 $EXTRA_LINKS.=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
 		"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
 		
-	if ($SCHEDULE) { 
+	if ($SCHEDULE_PUBLISHED) { 
 		$EXTRA_LINKS .= "<a class='active' href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
-		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>"; }
-	if ($VOLUNTEER) { 
-		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/volunteers.php'>Volunteers</a>"; 
-		}
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		 }  else {
+		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
+			header('Location:draft_schedule.php');
+		 	
+		 }
 		
 		
 	$EXTRA_LINKS .="</span>";
 	
-
+}
 ?>
 
 <?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
@@ -150,8 +156,7 @@ function orderBy(newOrder) {
 
 
 <?= $Message ?>
-
-
+<p>&nbsp;</p>
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>

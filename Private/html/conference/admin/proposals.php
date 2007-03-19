@@ -486,7 +486,7 @@ foreach ($items as $item) {
 <td>#</td>
 <td>&nbsp;<a href="javascript:orderBy('vote');">Vote</a></td>
 <td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a> </td>
-<td><a href="javascript:orderBy('auth1_last');"title="sort by primary author last name" >Authors</a></td>
+<td><a href="javascript:orderBy('speaker');"title="sort by primary speaker last name" >Speaker(s)</a></td>
 
 <td>Details</td>
 <?php // if topic or audience ranking is required
@@ -599,21 +599,19 @@ foreach ($items as $item) { // loop through all of the proposal items
 <td style="border-bottom:1px solid black;" rowspan="2" width="20%">
 	<div class="description">
 	<?php if ($item['type']=='paper')  { ?>
-	<br/>	<strong>Author:</strong><br/> 
+	<br/><br/>	<strong>Author:</strong><br/> 
 	<?php } else  { ?>
-			<strong>Speaker:</strong><br/>
+		<br/><strong>Speaker:</strong><br/>
 	<?php } ?>
-		<a href="mailto:<?=$item['auth1_email']?>"><?= $item['auth1_first'] ." " . $item['auth1_last'] ?> </a> 
-	<?= $item['auth1_org']?> </div><br/>
+		<a href="mailto:<?=$item['email']?>"><?= $item['speaker']  ?> </a> 
+	 </div><br/>
 	<?php if ($item['type']=='paper')  { ?>
 		<div class="description"><strong>Co Author(s):</strong></div>
 	<?php } else  {  ?>
 		<div class="description"><strong>Co Speaker(s):</strong></div>
-	<?php } if (($item['auth2_first']) || ($item['auth3_first']) || ($item['auth3_first']))  {  ?>
-				<div><a href="mailto:<?=$item['auth2_email']?>"><?= $item['auth2_first'] ." " . $item['auth2_last'] ?> </a> <?= $item['auth2_org']?> 
-	<br/><br/><a href="mailto:<?=$item['auth3_email']?>"><?= $item['auth3_first'] ." " . $item['auth3_last'] ?> </a> <?= $item['auth3_org']?> 
-	<br/><br/><a href="mailto:<?=$item['auth4_email']?>"><?= $item['auth4_first'] ." " . $item['auth4_last'] ?> </a> <?= $item['auth4_org']?> 
-	<br/><br/></div><?php }  else { 
+	<?php } if ($item['co_speaker'])   {  ?>
+		<div><?=$item['co_speaker']?></div>
+		<?php }  else { 
 		 echo "<span class='item_info'> &nbsp; &nbsp;  n/a<br/><br/><br/></span>";    } 
 		 if ($item['author_other']){ 
 		echo $item['author_other'] ;   
@@ -621,10 +619,10 @@ foreach ($items as $item) { // loop through all of the proposal items
 	
 		<br/><br/>
 
-	
-	 <?php  if ($AVAILABILITY) {
+	 <?php  if ($AVAILABLE) {
 	  if ($item['conflict']) {
-	  	echo "<div><strong>Availability: </strong>  Can NOT present on "  ;
+	  	echo "<div><strong>Availability: </strong>  <br/>" .
+	  			"NOT on: "  ;
 	  	?>
 	  	<span style="color:red;"> <?= $item['conflict'] ?></span>
 	  	
@@ -754,7 +752,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 	
 	<?php }{
 		if (is_array($item['topics'])) {
-			echo "<strong>Topic ranking:</strong><br/>";
+			echo "<br/><strong>Topic ranking:</strong><br/>";
 
 			foreach($item['topics'] as $v) {
 				 //only display those with value higher than 1
@@ -823,7 +821,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 	}
 ?>
 			<div id="addComment<?= $pk ?>" style="display:none;">
-			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes">Save New Comment</a><br/>
+			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes" style="color:red;">Save New Comment</a><br/>
 			<textarea name="cmnt<?= $pk ?>" cols="40" rows="3"></textarea>
 			</div>
 		</div>
