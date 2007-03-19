@@ -233,10 +233,7 @@ else { $MessageBackgroundColor=$MessageColor; }
 	require $ACCOUNTS_PATH.'include/user_form.php';
 ?>
 
-<span style="font-size:.9em;">
-	<strong>Note:</strong> <i>To change the password, enter the new values in the fields above.<br/>
-	To leave your password at it's current value, leave the password fields blank.</i>
-</span>
+
 
 
 <table width="100%">
