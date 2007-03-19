@@ -14,11 +14,9 @@ $User->destroySession();
 $PAGE_NAME = "Logout";
 
 // redirect to the main page
-<<<<<<< .mine
+
 header('location:'.$CONFADMIN_URL.'/index.php');
-=======
-header('location:'.$ACCOUNTS_URL.'/login.php');
->>>>>>> .r1233
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
