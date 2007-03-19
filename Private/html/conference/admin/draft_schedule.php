@@ -151,15 +151,16 @@ function orderBy(newOrder) {
 // -->
 </script>
 
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
-
+<?php  // INCLUDE THE HEADER
+  include $ACCOUNTS_PATH.'include/header.php';  ?>
+<div style="padding-left:40px;">
 
 <?= $Message ?>
 <h3>Draft Schedule</h3><p>For more information please visit the <a href="http://sakaiproject.org/conference/index.html">conference website.</a></p> 
-<table width="500px" cellpadding="0" border="0">
-<tbody><tr style="background-color: rgb(204, 204, 153);" align="center"><td valign="top" colspan="2">
-<p><strong><font color="#000000">PRE-CONFERENCE WORKSHOPS <br />
- </font></strong><font color="#990000"><strong><font color="#000000">Location:</font>&nbsp; University of Amsterdam</strong></font> </p></td></tr><tr><td width="200" valign="top"><strong>Monday, June 11<br />
+<table width="500px" cellpadding="2" cellspacing="0" border="0">
+<tbody><tr style="background-color: rgb(204, 204, 153);" align="center" ><td valign="top" colspan="2">
+<div><strong><font color="#000000">PRE-CONFERENCE WORKSHOPS <br />
+ </font></strong><font color="#990000"><strong><font color="#000000">Location:</font>&nbsp; University of Amsterdam</strong></font></div></td></tr><tr><td width="200" valign="top"><strong>Monday, June 11<br />
 </strong></td><td width="398"><br />
 </td></tr><tr><td valign="top" align="left">9:00 a.m. - 5:00 p.m.</td><td valign="top">
 <p><strong>Half-Day and Full-Day Workshops:</strong></p>
@@ -168,12 +169,12 @@ function orderBy(newOrder) {
 <li>
 Introduction to Sakai (1/2 day)<br />
  </li>
-<li>UI Camp -- User Support folks and Programmers welcome! (full day)<br />
+<li>UI Camp -- User Support folks and Programmers welcome! (full day)
 </li></ul></td></tr><tr><td valign="top" colspan="2"><br />
 </td></tr><tr style="background-color: rgb(204, 204, 153);" align="center"><td valign="top" colspan="2">
-<p><strong><font color="#000000">MAIN CONFERENCE SCHEDULE<br />
+<div><strong><font color="#000000">MAIN CONFERENCE SCHEDULE<br />
 </font></strong><font color="#990000"><strong><font color="#000000">Location:</font>&nbsp;&nbsp; Movenpick Hotel </strong></font><br />
- </p></td></tr><tr><td valign="top"><strong><u>Tuesday, June 12</u><br />
+ </div></td></tr><tr><td valign="top"><strong><u>Tuesday, June 12</u><br />
 </strong></td><td valign="top"><br />
 </td></tr><tr><td valign="top">8:00 a.m</td><td valign="top">
 <p><strong>Registration Opens<br />
@@ -211,9 +212,5 @@ Introduction to Sakai (1/2 day)<br />
 </td></tr></tbody></table>
 <p>&nbsp;</p>
 
-<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
-<input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
-<div class="padding50"></div>
-<table border="0" cellspacing="0" style='width:100%;height:100%;'>
-
+</div>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; ?>
