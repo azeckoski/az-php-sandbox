@@ -111,8 +111,8 @@
 
 <div style="margin:6px;">
 <span>
-	<strong>Note:</strong> <i>Your user information is private and will only be used in this system.<br/>
-	It will not be given to anyone else. Passwords are not stored as plain text in the database.</span><br/><br/></div>
+	<strong>Note:</strong> <em>Your user information is private and will only be used in this system.<br/>
+	It will not be given to anyone else. Passwords are not stored as plain text in the database.</em></span><br/><br/></div>
 <?php 
 if ($submitButtonName) {
 	echo "<input id='submitbutton' type='submit' value='$submitButtonName' />";
@@ -128,7 +128,7 @@ if ($submitButtonName) {
 <fieldset><legend><strong style="font-size:1.1em;">Location</strong></legend>
 <table border="0" cellpadding="2" cellspacing="0">
 	<tr><td class="account" colspan=2 style="padding-bottom: 10px;"> <strong>Organization:</strong><br/>Select your organization from the Sakai Partner list below. 
-	<br/>(If your Sakai Partner organization is not listed below, please contact <a mailto:mmiles@umich.edu">mmiles@umich.edu).</a><br/> <br/>If your organization is <strong>not</strong> a Sakai Partner, select <strong>Other </strong><br/> then enter the organization name into the box provided. 
+	<br/>(If your Sakai Partner organization is not listed below, please contact <a href="mailto:mmiles@umich.edu">mmiles@umich.edu</a>).<br/> <br/>If your organization is <strong>not</strong> a Sakai Partner, select <strong>Other </strong><br/> then enter the organization name into the box provided. 
 	  <span style=" color: #333;"> <br/></span>
 	</td>
 	</tr>
