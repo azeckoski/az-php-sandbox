@@ -20,7 +20,7 @@ CREATE TABLE `conf_proposals` (
   `co_bio` text,
   `approved` enum('Y','N') NOT NULL default 'N',
   PRIMARY KEY  (`id`)
-)
+) 
 
 ALTER TABLE `conf_proposals` ADD `sub_track` VARCHAR( 30 ) NOT NULL AFTER `track` ;
 
@@ -36,3 +36,5 @@ ALTER TABLE `conf_proposals` ADD `print` ENUM( 'Y', 'N' ) NOT NULL AFTER `poster
 ALTER TABLE `conf_proposals` ADD `podcast_url` VARCHAR( 255 ) NOT NULL AFTER `wiki_url` ,
 ADD `slides_url` VARCHAR( 255 ) NOT NULL AFTER `podcast_url` ;
 
+//March 19th - added order field to allow committees to refer to proposals by number
+ALTER TABLE `conf_proposals` ADD `order` INT( 4 ) NOT NULL AFTER `print` ;
