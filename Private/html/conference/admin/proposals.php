@@ -756,11 +756,21 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 
 			foreach($item['topics'] as $v) {
 				 //only display those with value higher than 1
+				 
 				 if ($v['choice'] == 3) { //high ranking
-				 	echo "<div style=\"white-space: nowrap; color:#000;\">" . $v['topic_name'],$v['role_name']," </div>";
+				 $topic_name=$v['topic_name'];
+			if (strlen($topic_name) > 25) {
+					$topic_name = substr($topic_name,0,22) . "...";
+				 	 } 
+				 	echo "<div style=\"white-space: nowrap; color:#000;\">" . $topic_name ." </div>";
+				 
 				 }
 				 if ($v['choice'] == 2) { // medium ranking
-				 	echo "<div style=\"white-space: nowrap; color: #666; \">" . $v['topic_name'],$v['role_name']," </div>"; 
+				 	 $topic_name=$v['topic_name'];
+			if (strlen($topic_name) > 25) {
+					$topic_name = substr($topic_name,0,22) . "...";
+				 	 } 
+			echo "<div style=\"white-space: nowrap; color: #666; \">" . $topic_name ." </div>"; 
 				 }
 			}
 		}
@@ -770,10 +780,18 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 			foreach($item['audiences'] as $v) {
 				 //only display those with value higher than 1
 				 if ($v['choice'] == 3) { //high ranking
-				 	echo "<div style=\"white-space: nowrap; color:#000;\">" . $v['topic_name'],$v['role_name']," </div>";
+					 $role_name=$v['role_name'];
+			if (strlen($role_name) > 25) {
+					$role_name = substr($role_name,0,22) . "...";
+				 	 } 
+		 	echo "<div style=\"white-space: nowrap; color:#000;\">" . $role_name ." </div>";
 				 }
 				 if ($v['choice'] == 2) { // medium ranking
-				 	echo "<div style=\"white-space: nowrap; color: #666; \">" . $v['topic_name'],$v['role_name']," </div>"; 
+					 $role_name=$v['role_name'];
+					if (strlen($role_name) > 25) {
+					$role_name = substr($role_name,0,22) . "...";
+				 	 }  	
+				 	 echo "<div style=\"white-space: nowrap; color: #666; \">" . $role_name ." </div>"; 
 				 }
 			}
 		}
