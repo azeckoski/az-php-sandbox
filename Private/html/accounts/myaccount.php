@@ -100,7 +100,6 @@ if ($_POST["save"]) {
 		$Message = "<div style=\"border:2px solid darkgreen;padding:3px;background:lightgreen;font-weight:bold;\"><b>Updated user information</b></div><br/>";
 	}
 }
-<<<<<<< .mine
 
 
 
@@ -126,27 +125,6 @@ if ($SCHEDULE) {
 		 }
 	
 	$EXTRA_LINKS.="</span>";
-=======
-
-
-
-if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) ) {
-// top header links for admins
-$EXTRA_LINKS = "<span class='extralinks'>" .
-	"<a href='$ACCOUNTS_URL/admin/admin_users.php'>Users</a>" .
-	"<a   href='$ACCOUNTS_URL/admin/admin_insts.php'>Institutions</a>" .
-	"<a href='$ACCOUNTS_URL/admin/admin_perms.php'>Permissions</a>" .
-	"<a href='$ACCOUNTS_URL/admin/admin_roles.php'>Roles</a>" .
-	"</span>";
-} else {
-// top header links
-$EXTRA_LINKS = "<span class='extralinks'>" .
-	"<a class='active' href='$ACCOUNTS_URL/index.php'><strong>Home</strong></a>:" .
-	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
-	"<a href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" .
-	"</span>";
->>>>>>> .r1233
-
 }
 	
 ?>
