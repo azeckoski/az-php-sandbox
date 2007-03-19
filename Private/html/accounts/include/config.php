@@ -92,12 +92,9 @@ $SUBMIT_PAPER= false;
 $PAPER_MSG="";
 
 $SUBMIT_PRES=true;
-$PRESENT_MSG="Select the most appropriate Presentation Topic Areas," .
-		" Intend Audiences, and Format for your presentation from the " .
-		"options provided below. Please note that these classifications " .
-		"and titles will be used by the program commitee for the proposal " .
-		"review and conference planning process, and may not be the " .
-		"classifications or titles used for the final conference program. ";
+$PRESENT_MSG="Presentations will take place at the conference hotel, during the conference's normal" .
+		" daytime schedule for June 12-14. You may choose from the following presentation types: " .
+		"Panel, Workshop, Discussion/Roundtable, Lecture/Presentation or Tool Carousel. ";
 
 $SUBMIT_BOF=false;
 $BOF_MSG="BOFs (Birds of a Feather meetings) are self-formed meetings set up by any conference attendee." .
@@ -116,8 +113,8 @@ $BOF_INSTRUCTIONS ="<blockquote style='width:70%;'><strong>Select a room/timeslo
 			 meeting room during this timeslot, please contact shardin@umich.edu.        
 		</blockquote>";
 $SUBMIT_POSTER=true;
-$POSTER_MSG=""; //Instructions for submitting a poster
-$POSTER_TEMPL="http://sakaiproject.org/conference/sakai_poster_templateAtlanta06.ppt";
+$POSTER_MSG="Posters will be displayed during the conference in the main dining/gathering hall.  Posters will also be displayed during the Technical Demonstrations on Wednesday evening, June 13th."; //Instructions for submitting a poster
+$POSTER_TEMPL="";
 $POSTER_REQS="<strong>Please Note:</strong>   We will provide one easel/stand for each poster you plan to submit." .
 		"The maximum poster size we can accomodate is 24 x 36 inches. You may bring more than one poster for a" .
 		" given topic. However, if you plan to present on multiple projects or topics, please complete a " .
@@ -126,11 +123,13 @@ $POSTER_REQS="<strong>Please Note:</strong>   We will provide one easel/stand fo
 		"simple PowerPoint poster template we have created for you. <br/><blockquote>" .
 		" [ <a href='$POSTER_TEMPL'>download template now </a>] </blockquote>";
 $SUBMIT_DEMO=true;
-$DEMO_MSG="Instructions for submitting a demo";
+$DEMO_MSG="Technology Demos will take place on Wednesday evening, June 13th.";
 
 $RANKING=true; //ask for topic or audience ranking for sessions
 $AVAILABLE=true; //find out when a speaker can present
-$not_available="availability message here"; 
+$not_available="<input name='conflict_tue' type='checkbox' value='Tue'  /> Tuesday, June 12 <br/>
+          <input name='conflict_wed' type='checkbox' value='Wed' /> Wednesday, June 13 <br/>
+          <input name='conflict_thu' type='checkbox' value='Thu'  /> Thursday, June 14 <br/       "; 
 
 $P_LENGTH=true; //user can select presentation length 
 $P_LAYOUT=true; //user can select presentation length 
