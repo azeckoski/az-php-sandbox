@@ -354,7 +354,7 @@ if ($filter_type && ($filter_type != $filter_type_default)) {
 }
 
 // sorting
-$sortorder = "date_created";
+$sortorder = "order_num";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 
@@ -368,7 +368,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql . $filter_items_sql .$filter_status_sql . $sqlsorting . $mysql_limit;
 
-//print "SQL=$sql<br/>";
+print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $items = array();
 
@@ -483,7 +483,7 @@ foreach ($items as $item) {
 <tr><td colspan="5" align="right"><div>
 <?= $Message ?></div></td></tr>
 <tr class="tableheader">
-<td>#</td>
+<td><a href="javascript:orderBy('order_num');">#</a></td>
 <td>&nbsp;<a href="javascript:orderBy('vote');">Vote</a></td>
 <td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a> </td>
 <td><a href="javascript:orderBy('speaker');"title="sort by primary speaker last name" >Speaker(s)</a></td>
@@ -559,7 +559,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: .9em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['order']?></strong></div></td>
+	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: .9em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['order_num']?></strong></div></td>
 	<td id="vb<?= $pk ?>" <?= $tdstyle ?>  width="9%" nowrap='y' style='border-right:1px dotted #ccc;border-left:1px dotted #ccc;'>
 <?php if ($item['type']=='demo')  {
 		echo "<strong>Demo </strong><br/>No voting<br/>";
