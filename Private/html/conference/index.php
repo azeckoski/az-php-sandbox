@@ -78,7 +78,7 @@ echo "<a class='mainlevellinks' href='../facebook/'>View the Facebook</a><br/>" 
 	echo "<a class='mainlevellinks' href='http://sakaiproject.org/sakaiamsterdam07' >Visit the Amsterdam conference website</a><br/>";
 	
 	if ( ($User->checkPerm("admin_conference")) ||  ($User->checkPerm("admin_accounts")) || ($User->checkPerm("proposals_dec2006")) || ($User->checkPerm("registration_dec2006")) ) {
-echo "<br/><br/><br/><strong>You may access the following Admin Tools: </strong><br/><br/>";   //need to see admin links
+echo "<br/><br/><br/><strong style='color:red;'>Your Adminstrator Tools: </strong><br/><br/>";   //need to see admin links
 	if ($User->checkPerm("admin_accounts")) {
 	
  echo "<a class='mainlevellinks' href='../conference/admin/proposals.php' >Accounts Administration</a> <br/>";
@@ -148,8 +148,9 @@ $inst_count = $Inst->getInstsBySearch("*","","pk",true);
 	</div>  
 	<div class="loginheader">Registration Admin</div>
 	<div class="padded">
-
+coming soon...<br/><br/>
 <?php
+	//TODO 
 	//attendance statistics
 	
 ?>
@@ -160,10 +161,11 @@ $inst_count = $Inst->getInstsBySearch("*","","pk",true);
 	<div class="loginheader">Proposals Admin</div>
 	<div class="padded">
 
-<?php//  get number of proposals submitted, number approved
+<?php//TODO
+	//  get number of proposals submitted, number approved
 	
 	
-?>
+?>coming soon...<br/><br/>
 	<br/>
 
 
