@@ -294,7 +294,7 @@ switch ($filter_sub_track){
   
 
 // sorting
-$sortorder = "date_created";
+$sortorder = "order_num";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 // First get the list of proposals and related users for the current conf 
@@ -449,7 +449,7 @@ if (!$_REQUEST["export"]) {
 <?= $Message ?></div>
 </td></tr>
 <tr class="tableheader">
-<td><a href="javascript:orderBy('order');"title="sort by number" >#</a>&nbsp;</td>
+<td><a href="javascript:orderBy('order_num');">#</a></td>
 <td>&nbsp;Voting</td>
 <td>Results</td>
 
