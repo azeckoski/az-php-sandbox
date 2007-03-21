@@ -368,7 +368,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql . $filter_items_sql .$filter_status_sql . $sqlsorting . $mysql_limit;
 
-print "SQL=$sql<br/>";
+//print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
 $items = array();
 
