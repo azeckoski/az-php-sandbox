@@ -590,7 +590,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 ?>
 
 <tr class="<?= $linestyle ?>" valign="top">
-	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: .9em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['order']?></strong>&nbsp;</div></td>
+	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: .9em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['order_num']?></strong>&nbsp;</div></td>
 	<td <?= $tdstyle ?> nowrap='y' style="text-align:right;">
 		<a name="anchor<?= $pk ?>"></a>
 <?php if ($item['type']=='demo')  {
