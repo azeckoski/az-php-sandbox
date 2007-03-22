@@ -316,7 +316,7 @@ if ($_POST['save']) {
 			//first add presentation information into --all data except role and topic data
 			$proposal_sql = "INSERT INTO `conf_proposals` ( `date_created` , `confID` , `users_pk` , `type`, " .
 			"`title` , `abstract` , `desc` , `speaker` , `URL` , `bio` , `layout` , `length` ," .
-			" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url`, `poster`, `order`)
+			" `conflict` , `co_speaker` , `co_bio` , `approved`, `track`, `wiki_url`, `poster`, `order_num`)
 							VALUES ( NOW() , '$CONF_ID', '$User->pk', '$type', '$title', '$abstract', " .
 			"'$desc', '$speaker', '$url', '$bio' , '$layout' , '$length', '$conflict' ," .
 			" '$co_speaker' , '$co_bio' , '$approved', '$track', '$wiki_url', '$num_posters', '$proposal_num')";
