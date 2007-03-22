@@ -619,9 +619,11 @@ foreach ($items as $item) { // loop through all of the proposal items
 	
 		<br/><br/>
 
-	 <?php  if ($AVAILABLE) {
+	 <?php  if ($AVAILABLE) {  ?>
+	 	<div class='description'>
+	 <?php
 	  if ($item['conflict']) {
-	  	echo "<div><strong>Availability: </strong>  <br/>" .
+	  	echo "<strong>Availability: </strong>  <br/>" .
 	  			"NOT on: "  ;
 	  	?>
 	  	<span style="color:red;"> <?= $item['conflict'] ?></span>
@@ -629,8 +631,8 @@ foreach ($items as $item) { // loop through all of the proposal items
 	  	<?php
 	  } else {
 	  	echo "<br/>  <strong>Availability:  </strong><br/>   available all days";
-	  }  echo "</div>";
-	 }
+	  }  
+	 }echo "</div>";
 	
 	  ?>
 	</td>

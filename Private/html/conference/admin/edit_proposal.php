@@ -926,5 +926,6 @@ if ($PK) {
 </div>
 <!-- end cfp -->
 
+</td></tr></table>
 
 <?php include $ACCOUNTS_PATH .'include/footer.php'; // Include the FOOTER ?>

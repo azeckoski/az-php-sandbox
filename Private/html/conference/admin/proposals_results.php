@@ -652,14 +652,16 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 			title="Delete this proposal"
 			onClick="return confirm('Are you sure you want to delete this proposal?');" >delete</a> --> 
 			
-<?php	  } 
+<?php	echo "</div>";
+  }  else {  echo "</div>";
+	 }
 	
 	
 	//TODO  
 	//provide a javascript or ajax warning for the delete link below  before
 	//letting people use this feature
 	
-}echo "</div>";
+}
 	?>
 	
 
@@ -696,19 +698,21 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 	
 		<br/><br/>
 
-	
-	 <?php  if ($AVAILABLE) {
+	 <?php  if ($AVAILABLE) {  ?>
+	 	<div class='description'>
+	 <?php
 	  if ($item['conflict']) {
-	  	echo "<div><strong>Availability: </strong> <br/> Not on:"  ;
+	  	echo "<strong>Availability: </strong>  <br/>" .
+	  			"NOT on: "  ;
 	  	?>
 	  	<span style="color:red;"> <?= $item['conflict'] ?></span>
 	  	
 	  	<?php
 	  } else {
 	  	echo "<br/>  <strong>Availability:  </strong><br/>   available all days";
-	  }  echo "</div>";
-	 }
-	 
+	  }  
+	 }echo "</div>";
+	
 	  ?>
 	</td>
 	

@@ -489,10 +489,11 @@ width:100%;
 padding:0;
 padding-left: 20px;
 margin:0;
+font-size:1.05em;
 font-weight:normal;
 }
 .extralinks a{
-color: #cccccc;
+color: #fff;
  padding: 2px 8px;
 padding-right:20px;
 }
