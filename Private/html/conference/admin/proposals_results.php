@@ -231,6 +231,24 @@ if ($filter_items == "show my voted items") {
 }
 
 
+
+// Session Length Filter
+$filter_length_default = "show all";
+$filter_length = "";
+if ($_REQUEST["filter_length"] && (!$_REQUEST["clearall"]) ) { $filter_length = $_REQUEST["filter_length"]; }
+
+$special_filter = "";
+$filter_length_sql = "";
+if ($filter_length == "30 min") {
+	$filter_length_sql = " and length='30' ";
+} else if ($filter_length == "60 min") {
+	$filter_length_sql = " and length='60' ";
+} else {
+	// show all length
+	$filter_length = $filter_length_default;
+	$filter_length_sql = "";
+}
+
 // Type Filter
 $filter_type_default = "show all types";
 $filter_type = "";
@@ -305,7 +323,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql . $filter_items_sql . $filter_track_sql .$filter_sub_track_sql .$filter_status_sql .$sqlsorting . $mysql_limit;
+	$filter_type_sql . $filter_items_sql . $filter_track_sql .$filter_sub_track_sql .$filter_status_sql .$filter_length_sql .$sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -424,9 +442,26 @@ if (!$_REQUEST["export"]) {
 	        	<?php } ?>	
 			<option value="show all subtracks">show all subtracks</option>
 		</select>
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		
+		
 		
 			&nbsp;
 		<?php }?>
+	&nbsp;
+		&nbsp;
+	  	<strong>Length:</strong>
+		<select name="filter_length" title="Filter the items by session length">
+			<option value="<?= $filter_length ?>" selected><?= $filter_length ?></option>
+	       	<option value="30 min">30 min</option>
+			<option value="60 min">60 min</option>
+			<option value="show all status">show all </option>
+		</select>
+		&nbsp;
+		&nbsp;
+		&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 		&nbsp;&nbsp;&nbsp;<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= count($items) ?> proposals shown<br/><br/>
