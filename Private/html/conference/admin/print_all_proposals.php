@@ -836,15 +836,11 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 				"&nbsp;<label title='Entered by $comment[username] on " .
 				date($DATE_FORMAT,strtotime($comment['date_created']))."' >&nbsp;</label>\n" .
 				"<em><a href='mailto:$comment[email]'>$short_username</a></em>" .
-				" - <label style='cursor:pointer;' title='Click to reveal the entire comment' " .
-				"onClick=\"javascript:this.style.display='none';getElementById('fullcmnt$pk$cline').style.display='inline';\">$short_comment</label>\n" .
-				"<div id='fullcmnt$pk$cline' >$comment[comment_text]</div></div>";
+					"<div id='fullcmnt$pk$cline' >$comment[comment_text]</div></div>";
 		}
 	}
 ?>
-			<div id="addComment<?= $pk ?>" style="display:none;">
-			<a href="<?= $_SERVER['PHP_SELF'] ?>" onClick="setAnchor('<?= $pk ?>');return false;" title="Save comments and any current votes" style="color:red;">Save New Comment</a><br/>
-			<textarea name="cmnt<?= $pk ?>" cols="40" rows="3"></textarea>
+		
 			</div>
 		</div>
 	</td>
