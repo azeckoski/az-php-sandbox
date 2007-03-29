@@ -222,3 +222,10 @@ color:#660000;
 	color:white;
 
 }
+
+
+.page {
+width:100%;
+page-break-after:always;
+padding:5px 0px;
+}
