@@ -475,17 +475,10 @@ if ($PK) {
 	<strong>Select/change track for this proposal:  </strong> 
 	
 		<select name="track" title="conference tracks">
-			<option value="<?= $_POST['track'] ?>" selected><?= $_POST['track'] ?></option>
-			<option value=""></option>
-			<option value="Community">Community</option>
-			<option value="Pedagogy">Pedagogy</option>
-			<option value="Implementation">Implementation</option>
-			<option value="Technology">Technology</option>
-			<option value="Multiple Audiences">Multiple Audiences</option>
-			<option value="Tool Carousel">Tool Carousel</option>
-			<option value="Poster">Poster</option>
-			<option value="Demo">Demo</option>
-			<option value="BOF">BOF</option>
+				<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
+			    <?php foreach ($track_list as $key => $value ) { ?>
+	        	<option value="<?=$value?>"><?=$value?></option>
+	        	<?php } ?>	
 			</select>
 		
 			<br/><br/>
