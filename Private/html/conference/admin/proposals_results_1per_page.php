@@ -122,8 +122,11 @@ function setAnchor(num) {
 </script>
 <script type="text/javascript" src="/accounts/ajax/validate.js"></script>
 
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
-
+<?php // INCLUDE THE HEADER 
+include $ACCOUNTS_PATH.'include/header.php';  ?>
+<style type="text/css">@media print {
+    BODY { font-size: 12px;  margin: 0; padding:0;  }
+  }</style>
 <?php
 	// Put in footer and stop the rest of the page from loading if not allowed -AZ
 	if (!$allowed) {
@@ -489,28 +492,10 @@ if (!$_REQUEST["export"]) {
 </div>
 
 
-<table id="proposals_vote" width="100%" cellspacing="0" cellpadding="0">
-<tr><td colspan="5"><div>
-<?= $Message ?></div>
-</td></tr>
-<tr class="tableheader">
-<td><a href="javascript:orderBy('order_num');">#</a></td>
-<td>&nbsp;Voting</td>
-<td>Results</td>
-
-<td><a href="javascript:orderBy('title');"title="sort by Title" >Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');" title="sort by submitter last name">Submitted&nbsp;by</a> </td>
-<td><a href="javascript:orderBy('speaker');"title="sort by primary speaker FIRST name" >Speaker(s)</a></td>
-<td>Details</td>
-<?php // if topic or audience ranking is required
-	 if ($RANKING){  ?>
-	 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
-	 <?php }  ?>
-	
-</tr>
-
 <?php 
 } /* export check */
-
+?>
+<?
 // now dump the data we currently have
 $line = 0;
 foreach ($items as $item) { // loop through all of the proposal items
@@ -634,6 +619,23 @@ foreach ($items as $item) { // loop through all of the proposal items
 		// normal display
 ?>
 
+<table width="100%" cellspacing="0" cellpadding="0"  style="page-break-after: always; ">
+
+<tr class="tableheader" style="background:#eee;" >
+<td><a href="javascript:orderBy('order_num');">#</a></td>
+<td>&nbsp;Voting</td>
+<td></td>
+
+<td><a href="javascript:orderBy('title');"title="sort by Title" >Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');" title="sort by submitter last name">Submitted&nbsp;by</a>
+&nbsp;/&nbsp;<a href="javascript:orderBy('approved');" title="sort by approval status">Approval Status</a> </td>
+<td><a href="javascript:orderBy('speaker');"title="sort by primary speaker FIRST name" >Speaker(s)</a></td>
+<td>Details</td>
+<?php // if topic or audience ranking is required
+	 if ($RANKING){  ?>
+	 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
+	 <?php }  ?>
+	
+</tr>
 <tr class="<?= $linestyle ?>" valign="top">
 	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: .9em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['order_num']?></strong>&nbsp;</div></td>
 	<td <?= $tdstyle ?> nowrap='y' style="text-align:right;">
@@ -672,7 +674,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 		</div>
 <?php } /* end demo check */ ?>
 	</td>
-	<td width="25%">
+	<td width="25%" style="padding-left:5px;">
 <?php
 if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'poster')){ 
 	if ($item['approved'] == "Y") {
@@ -720,7 +722,7 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 		<div style="padding-left:20px;">	<?= date($MED2_DATE_FORMAT,strtotime($item['date_created'])) ?><br/><br/></div>
 		
 	</td>
-<td style="border-bottom:1px solid black;" rowspan="2" width="20%">
+<td  rowspan="1" width="20%">
 	<div class="description">
 	<?php if ($item['type']=='paper')  { ?>
 	<br/><br/><br/>	<strong>Author:</strong><br/> 
@@ -756,12 +758,12 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 	  } else {
 	  	echo "<br/>  <strong>Availability:  </strong><br/>   available all days";
 	  }  
-	 }echo "</div>";
+	 }echo "<br/><br/></div>";
 	
 	  ?>
 	</td>
 	
-	<td style="border-bottom:1px solid black;" rowspan="2" width="40%"><br/><br/>
+	<td style="border-bottom:1px solid black; padding-left:5px;" rowspan="2" width="40%" ><br/><br/>
 		<div class="description"><br/><strong>
 	<?php	if ($item['type']=='paper')  {
 				echo "Paper ";
@@ -829,7 +831,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 			 	 echo $item['track'];
 			 }
 			 else {
-			  echo "<span style='color: #666666;'>not set </span><br/><br/>";  
+			  echo "<span style='color: #666666;'>not set </span> &nbsp;&nbsp;&nbsp;";  
 			 } 
 	
 		?></span>
@@ -893,8 +895,8 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 	<?php } ?>
 
 </tr>
-<tr class="<?= $linestyle ?>" valign="top" class="page">
-	<td colspan="4" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
+<tr class="<?= $linestyle ?>" valign="top">
+	<td colspan="5" style="border-bottom:1px solid black;border-right:1px dotted #999;border-top:1px dotted #999;border-left:1px dotted #999;">
 		<div>
 			<strong>Reviewer Comments</strong> (<?= count($item['comments']) ?>):
 <?php if ($commenting)  { ?>
@@ -910,22 +912,16 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 			$lineclass = "evenrow";
 			if (($cline+($line % 2)) % 2 == 0) { $lineclass = "evenrow"; } else { $lineclass = "oddrow"; }
 
-			$short_comment = $comment['comment_text'];
-			if (strlen($short_comment) > 43) {
-				$short_comment = substr($short_comment,0,40) . "...";
-			}
+			
 			$short_username = $comment['username'];
 			if (strlen($short_username) > 13) {
 				$short_username = substr($short_username,0,10) . "...";
 			}
 
-			echo "<div style='width:100%;font-size:1em;' class='$lineclass'>\n" .
-				"&nbsp;<label title='Entered by $comment[username] on " .
-				date($DATE_FORMAT,strtotime($comment['date_created']))."' >&nbsp;</label>\n" .
-				"<em><a href='mailto:$comment[email]'>$short_username</a></em>" .
-				" - <label style='cursor:pointer;' title='Click to reveal the entire comment' " .
-				"onClick=\"javascript:this.style.display='none';getElementById('fullcmnt$pk$cline').style.display='inline';\">$short_comment</label>\n" .
-				"<div id='fullcmnt$pk$cline' style='display:none;'>$comment[comment_text]</div></div>";
+			echo "<div style='width:100%;font-size:1em;' class='$lineclass'>" .
+				
+				"<em><a href='mailto:$comment[email]'>$short_username</a> - </em>" .
+				"<span id='fullcmnt$pk$cline' >$comment[comment_text]</span></div>";
 		}
 	}
 ?>
@@ -937,15 +933,15 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 		
 	</td>
 </tr>
+</table>
 
 <?php 	} /* export check */ ?>
 
 <?php } /* end the foreach loop */ ?>
+</form>
 
 <?php if (!$_REQUEST["export"]) { ?>
-</table>
 
-</form>
 <a name="colorkey"> </a>
 <div class="definitions">
 	<div class="defheader">Color Key</div>
