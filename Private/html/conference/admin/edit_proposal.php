@@ -475,7 +475,7 @@ if ($PK) {
 	<strong>Select/change track for this proposal:  </strong> 
 	
 		<select name="track" title="conference tracks">
-				<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
+				<option value="<?= $_POST['track']?>" selected><?= $_POST['track'] ?></option>
 			    <?php foreach ($track_list as $key => $value ) { ?>
 	        	<option value="<?=$value?>"><?=$value?></option>
 	        	<?php } ?>	
