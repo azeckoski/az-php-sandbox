@@ -420,7 +420,9 @@ if (!$_REQUEST["export"]) {
 		</select>
 		&nbsp;
 		&nbsp;
-		<?php } 
+		<?php }?>  <br/><br/>
+		<?php
+		 
 		if ($FILTER_TRACK) {  ?>
 		<strong>Track:</strong>
 		<select name="filter_track" title="Filter the items by track">
@@ -465,7 +467,8 @@ if (!$_REQUEST["export"]) {
 		&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 		&nbsp;&nbsp;&nbsp;<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
-    <br/><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= count($items) ?> proposals shown
+    <td>
 		
 
 	<input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>" maxlength="20" title="Enter search text here" />
@@ -473,7 +476,7 @@ if (!$_REQUEST["export"]) {
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
        	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 
        	 <input class="filter" type="submit" name="export" value="Download Report" title="Export results based on current filters" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= count($items) ?> proposals shown
+  
 	</td>
 	</tr>
 	</table>

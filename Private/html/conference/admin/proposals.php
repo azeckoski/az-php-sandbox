@@ -370,6 +370,39 @@ if ($filter_type && ($filter_type != $filter_type_default)) {
 	$filter_type = $filter_type_default;
 }
 
+// Track Filter
+$filter_track_default = "show all tracks";
+$filter_track = "";
+
+if ($_REQUEST["filter_track"] && (!$_REQUEST["clearall"]) ) { $filter_track = $_REQUEST["filter_track"]; }
+$filter_track_sql = "";
+if ($filter_track && ($filter_track != $filter_track_default)) {
+	$filter_track_sql = " and track='$filter_track' ";
+} else {
+	$filter_track = $filter_track_default;
+}
+
+// SubTrack Filter
+$filter_sub_track_default = "show all subtracks";
+$filter_sub_track = "";
+if ($_REQUEST["filter_sub_track"] && (!$_REQUEST["clearall"]) ) { $filter_sub_track = $_REQUEST["filter_sub_track"]; }
+
+$special_filter = "";
+$filter_sub_track_sql = "";
+switch ($filter_sub_track){
+   	case "OSP": $filter_sub_track_sql = " and sub_track='OSP' "; break;
+  	case "Cool Commercial Tool": $filter_sub_track_sql = " and sub_track='Cool Commercial Tool' "; break;
+ 	case "User Experience": $filter_sub_track_sql = " and sub_track='User Experience' "; break;
+ 	case "Library": $filter_sub_track_sql = " and sub_track='Library' "; break;
+ 	case "Cool New Tools": $filter_sub_track_sql = " and sub_track='Cool New Tools' "; break;
+ 	
+		case ""; // show all items
+		$filter_sub_track = $filter_sub_track_default;
+		$filter_sub_track_sql = "";
+		break;
+}
+  
+
 // sorting
 $sortorder = "order_num";
 if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
@@ -383,7 +416,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql . $filter_items_sql .$filter_status_sql .$filter_length_sql . $sqlsorting . $mysql_limit;
+	$filter_type_sql . $filter_items_sql .$filter_status_sql . $filter_track_sql .$filter_sub_track_sql .$filter_length_sql . $sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -443,10 +476,9 @@ foreach ($items as $item) {
 <div style="background:#ffffff;border:0px solid #ccc;padding:5px;margin-bottom:10px;">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 	<tr>
-	<td nowrap="y">
+	<td nowrap="y" valign=top>
 	<strong>Filters:</strong>&nbsp;&nbsp;
-	</td>
-	<td nowrap="y">
+	<td><td  nowrap="y">
 		<strong>Vote:</strong>
 		<select name="filter_items" title="Filter the items by my votes">
 			<option value="<?= $filter_items ?>" selected><?= $filter_items ?></option>
@@ -478,8 +510,7 @@ foreach ($items as $item) {
 		&nbsp;
 		&nbsp;
 		<?php } ?>
-		<?php 
-		if ($FILTER_TRACK) {  ?>
+		<br/><br/>
 		<strong>Track:</strong>
 		<select name="filter_track" title="Filter the items by track">
 			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
@@ -489,9 +520,7 @@ foreach ($items as $item) {
 	       	<option value="show all tracks">show all tracks</option>
 		</select>
 		
-	<?php }
-		 if ($FILTER_SUBTRACK) {  ?>
-		
+	
 			&nbsp;
 		&nbsp;
 		<strong>SubTrack:</strong>
@@ -505,7 +534,7 @@ foreach ($items as $item) {
 		&nbsp;
 		&nbsp;
 		&nbsp;
-		<?php } ?>
+		
 		
 		<strong>Length:</strong>
 		<select name="filter_length" title="Filter the items by session length">
@@ -514,20 +543,21 @@ foreach ($items as $item) {
 			<option value="60 min">60 min</option>
 			<option value="show all status">show all </option>
 		</select>
+		
 		&nbsp;
 		&nbsp;
 		&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
-		&nbsp;&nbsp;&nbsp;
-		<?= count($items) ?> proposals shown
-	</td>
-
-	<td nowrap="y" align="right">
-		<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
-        <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
+	<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
+  	&nbsp;&nbsp;&nbsp;
+		<?= count($items) ?> proposals shown 	</td>
+	<td nowrap="y">
+	
+	     <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	maxlength="20" title="Enter search text here" />
         <script type="text/javascript">document.voteform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
+        
 	</td>
 	</tr>
 	</table>
