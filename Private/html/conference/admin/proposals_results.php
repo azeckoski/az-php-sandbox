@@ -445,7 +445,17 @@ if (!$_REQUEST["export"]) {
 		&nbsp;
 		&nbsp;
 		&nbsp;
-		
+			
+		<strong>Length:</strong>
+		<select name="filter_length" title="Filter the items by session length">
+			<option value="<?= $filter_length ?>" selected><?= $filter_length ?></option>
+	       	<option value="30 min">30 min</option>
+			<option value="60 min">60 min</option>
+			<option value="show all status">show all </option>
+		</select>
+		&nbsp;
+		&nbsp;
+		&nbsp;
 		
 		
 			&nbsp;

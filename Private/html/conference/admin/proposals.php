@@ -478,6 +478,34 @@ foreach ($items as $item) {
 		&nbsp;
 		&nbsp;
 		<?php } ?>
+		<?php } 
+		if ($FILTER_TRACK) {  ?>
+		<strong>Track:</strong>
+		<select name="filter_track" title="Filter the items by track">
+			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
+			    <?php foreach ($track_list as $key => $value ) { ?>
+	        	<option value="<?=$value?>"><?=$value?></option>
+	        	<?php } ?>	
+	       	<option value="show all tracks">show all tracks</option>
+		</select>
+		
+	<?php }
+		 if ($FILTER_SUBTRACK) {  ?>
+		
+			&nbsp;
+		&nbsp;
+		<strong>SubTrack:</strong>
+		<select name="filter_sub_track" title="Filter the items by subtrack">
+			<option value="<?= $filter_sub_track ?>" selected><?= $filter_sub_track ?></option>
+			    <?php foreach ($subtrack_list as $key => $value ) { ?>
+	        	<option value="<?=$value?>"><?=$value?></option>
+	        	<?php } ?>	
+			<option value="show all subtracks">show all subtracks</option>
+		</select>
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		
 		<strong>Length:</strong>
 		<select name="filter_length" title="Filter the items by session length">
 			<option value="<?= $filter_length ?>" selected><?= $filter_length ?></option>
