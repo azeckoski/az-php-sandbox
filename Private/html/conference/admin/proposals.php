@@ -478,7 +478,7 @@ foreach ($items as $item) {
 		&nbsp;
 		&nbsp;
 		<?php } ?>
-		<?php } 
+		<?php 
 		if ($FILTER_TRACK) {  ?>
 		<strong>Track:</strong>
 		<select name="filter_track" title="Filter the items by track">
@@ -505,6 +505,7 @@ foreach ($items as $item) {
 		&nbsp;
 		&nbsp;
 		&nbsp;
+		<?php } ?>
 		
 		<strong>Length:</strong>
 		<select name="filter_length" title="Filter the items by session length">
