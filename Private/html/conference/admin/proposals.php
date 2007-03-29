@@ -540,7 +540,7 @@ foreach ($items as $item) {
 <tr class="tableheader">
 <td><a href="javascript:orderBy('order_num');">#</a></td>
 <td>&nbsp;<a href="javascript:orderBy('vote');">Vote</a></td>
-<td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a> </td>
+<td><a href="javascript:orderBy('title');">Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');">Submitted&nbsp;by</a>&nbsp;/&nbsp;</td>
 <td><a href="javascript:orderBy('speaker');"title="sort by primary speaker last name" >Speaker(s)</a></td>
 
 <td>Details</td>

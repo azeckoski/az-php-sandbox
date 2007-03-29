@@ -273,6 +273,7 @@ switch ($filter_status){
    	case "approved": $filter_status_sql = " and approved ='Y' and type!='demo' and type!='poster' and type !='BOF'"; break;
   	case "not approved": $filter_status_sql = " and approved !='Y' and approved !='P' "; break;
   	case "pending": $filter_status_sql = " and approved ='P' "; break;
+ 	case "pending + approved": $filter_status_sql = " and approved !='N' and approved !=''  and type!='demo' and type!='poster' and type !='BOF' "; break;
 	case ""; // show all items
 		$filter_status = $filter_status_default;
 		$filter_status_sql = "";
@@ -401,6 +402,7 @@ if (!$_REQUEST["export"]) {
 			<option value="<?= $filter_status ?>" selected><?= $filter_status ?></option>
 			<option value="approved">approved</option>
 			<option value="pending">pending</option>
+			<option value="pending + approved">pending + approved</option>
 			<option value="not approved">not approved</option>
 			<option value="show all status">show all status</option>
 		</select>
@@ -445,17 +447,6 @@ if (!$_REQUEST["export"]) {
 		&nbsp;
 		&nbsp;
 		&nbsp;
-			
-		<strong>Length:</strong>
-		<select name="filter_length" title="Filter the items by session length">
-			<option value="<?= $filter_length ?>" selected><?= $filter_length ?></option>
-	       	<option value="30 min">30 min</option>
-			<option value="60 min">60 min</option>
-			<option value="show all status">show all </option>
-		</select>
-		&nbsp;
-		&nbsp;
-		&nbsp;
 		
 		
 			&nbsp;
@@ -474,7 +465,7 @@ if (!$_REQUEST["export"]) {
 		&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 		&nbsp;&nbsp;&nbsp;<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= count($items) ?> proposals shown<br/><br/>
+    <br/><br/>
 		
 
 	<input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>" maxlength="20" title="Enter search text here" />
@@ -482,7 +473,7 @@ if (!$_REQUEST["export"]) {
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
        	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 
        	 <input class="filter" type="submit" name="export" value="Download Report" title="Export results based on current filters" />
-
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= count($items) ?> proposals shown
 	</td>
 	</tr>
 	</table>
@@ -498,7 +489,7 @@ if (!$_REQUEST["export"]) {
 <td>&nbsp;Voting</td>
 <td>Results</td>
 
-<td><a href="javascript:orderBy('title');"title="sort by Title" >Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');" title="sort by submitter last name">Submitted&nbsp;by</a> </td>
+<td><a href="javascript:orderBy('title');"title="sort by Title" >Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');" title="sort by submitter last name">Submitted&nbsp;by</a> &nbsp;/&nbsp;<a href="javascript:orderBy('approved');">Approval Status</a> </td>
 <td><a href="javascript:orderBy('speaker');"title="sort by primary speaker FIRST name" >Speaker(s)</a></td>
 <td>Details</td>
 <?php // if topic or audience ranking is required
