@@ -141,7 +141,7 @@ $P_FORMAT=true; //user can select presentation length
 //set filter options for proposal review
 $FILTER_TRACK=true;
 $track_list=array('Implementation', 'Technical', 'Research', 
-	'Teaching &amp; Learning', 'User Experience');
+	'Teaching &amp; Learning', 'User Experience', 'Tool Carousel', 'Other');
 
 $FILTER_SUBTRACK=false;
 $subtrack_list=array('OSP', 'Cool New Tool', 'Cool Commercial Tool', 'Library');
