@@ -377,119 +377,7 @@ if (!$_REQUEST["export"]) {
 ?>
 
 <div id="maindata">
-<?= $msg ?>
 
-
-
-<form name="voteform" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" style="margin:0px;">
-<input type="hidden" name="sortorder" value="<?= $sortorder ?>" />
-
-<div style="background:#fff;border:0px solid #ccc;padding:3px;margin-bottom:10px;">
-	<table border=0 cellspacing=0 cellpadding=0 width="100%">
-	<tr>
-	<td style="whitespace:nowrap;" valign=top>
-	<strong>Filters:</strong>&nbsp;&nbsp;
-	</td>
-	<td nowrap="y" style="font-size:.95em;">
-		<strong>Vote:</strong>
-		<select name="filter_items" title="Filter the items by my votes">
-			<option value="<?= $filter_items ?>" selected><?= $filter_items ?></option>
-			<option value="show all items">show all items</option>
-			<option value="show my voted items">show my voted items</option>
-			<option value="show my unvoted items">show my unvoted items</option>
-		</select>
-		&nbsp;&nbsp;
-		<strong>Status:</strong>
-		<select name="filter_status" title="Filter the items by approval status">
-			<option value="<?= $filter_status ?>" selected><?= $filter_status ?></option>
-			<option value="approved">approved</option>
-			<option value="pending">pending</option>
-			<option value="not approved">not approved</option>
-			<option value="show all status">show all status</option>
-		</select>
-		&nbsp;
-		&nbsp;	
-		<?php if ($FILTER_TYPE) {  ?>
-		<strong>Type:</strong>
-		<select name="filter_type" title="Filter the items by type">
-			<option value="<?= $filter_type ?>" selected><?= $filter_type ?></option>
-	        <?php foreach ($type_list as $key => $value ) { ?>
-	        	<option value="<?=$value?>"><?=$value?></option>
-	        	<?php } ?>
-	        	
-			<option value="show all types">show all types</option>
-		</select>
-		&nbsp;
-		&nbsp;
-		<?php } 
-		if ($FILTER_TRACK) {  ?>
-		<strong>Track:</strong>
-		<select name="filter_track" title="Filter the items by track">
-			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
-			    <?php foreach ($track_list as $key => $value ) { ?>
-	        	<option value="<?=$value?>"><?=$value?></option>
-	        	<?php } ?>	
-	       	<option value="show all tracks">show all tracks</option>
-		</select>
-		
-	<?php }
-		 if ($FILTER_SUBTRACK) {  ?>
-		
-			&nbsp;
-		&nbsp;
-		<strong>SubTrack:</strong>
-		<select name="filter_sub_track" title="Filter the items by subtrack">
-			<option value="<?= $filter_sub_track ?>" selected><?= $filter_sub_track ?></option>
-			    <?php foreach ($subtrack_list as $key => $value ) { ?>
-	        	<option value="<?=$value?>"><?=$value?></option>
-	        	<?php } ?>	
-			<option value="show all subtracks">show all subtracks</option>
-		</select>
-		&nbsp;
-		&nbsp;
-		&nbsp;
-			
-		<strong>Length:</strong>
-		<select name="filter_length" title="Filter the items by session length">
-			<option value="<?= $filter_length ?>" selected><?= $filter_length ?></option>
-	       	<option value="30 min">30 min</option>
-			<option value="60 min">60 min</option>
-			<option value="show all status">show all </option>
-		</select>
-		&nbsp;
-		&nbsp;
-		&nbsp;
-		
-		
-			&nbsp;
-		<?php }?>
-	&nbsp;
-		&nbsp;
-	  	<strong>Length:</strong>
-		<select name="filter_length" title="Filter the items by session length">
-			<option value="<?= $filter_length ?>" selected><?= $filter_length ?></option>
-	       	<option value="30 min">30 min</option>
-			<option value="60 min">60 min</option>
-			<option value="show all status">show all </option>
-		</select>
-		&nbsp;
-		&nbsp;
-		&nbsp;
-	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
-		&nbsp;&nbsp;&nbsp;<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= count($items) ?> proposals shown<br/><br/>
-		
-
-	<input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>" maxlength="20" title="Enter search text here" />
-        <script type="text/javascript">document.voteform.searchtext.focus();</script>
-        <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
-       	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 
-       	 <input class="filter" type="submit" name="export" value="Download Report" title="Export results based on current filters" />
-
-	</td>
-	</tr>
-	</table>
-</div>
 
 
 <?php 
@@ -622,17 +510,17 @@ foreach ($items as $item) { // loop through all of the proposal items
 <table width="100%" cellspacing="0" cellpadding="0"  style="page-break-after: always; ">
 
 <tr class="tableheader" style="background:#eee;" >
-<td><a href="javascript:orderBy('order_num');">#</a></td>
-<td>&nbsp;Voting</td>
-<td></td>
+<td>#</td>
+<td colspan="2" align="center">&nbsp;Voting</td>
 
-<td><a href="javascript:orderBy('title');"title="sort by Title" >Title</a>&nbsp;/&nbsp;<a href="javascript:orderBy('lastname');" title="sort by submitter last name">Submitted&nbsp;by</a>
-&nbsp;/&nbsp;<a href="javascript:orderBy('approved');" title="sort by approval status">Approval Status</a> </td>
-<td><a href="javascript:orderBy('speaker');"title="sort by primary speaker FIRST name" >Speaker(s)</a></td>
-<td>Details</td>
+
+<td>&nbsp;&nbsp;&nbsp;Title&nbsp;/&nbsp;Submitted&nbsp;by
+&nbsp;/&nbsp;Approval Status </td>
+<td>&nbsp;&nbsp;&nbsp;Speaker(s)</td>
+<td>&nbsp;&nbsp;&nbsp;Details</td>
 <?php // if topic or audience ranking is required
 	 if ($RANKING){  ?>
-	 <td>Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
+	 <td>&nbsp;&nbsp;&nbsp;Topic&nbsp;/&nbsp;Audience&nbsp;Rank</td>
 	 <?php }  ?>
 	
 </tr>
@@ -940,42 +828,5 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 <?php } /* end the foreach loop */ ?>
 </form>
 
-<?php if (!$_REQUEST["export"]) { ?>
-
-<a name="colorkey"> </a>
-<div class="definitions">
-	<div class="defheader">Color Key</div>
-	<div style="padding:3px;">
-		<b style="font-size:1.1em;">Key:</b> 
-	<?php if($User->pk) { ?>
-<!--		<div class="myvote" style='display:inline;'>&nbsp;Your vote&nbsp;</div>
-		&nbsp;
-		<div class="matchvote" style='display:inline;'><label title="Your vote matches the average">&nbsp;Your vote matches the average&nbsp;</label></div>
-		&nbsp;    --> 
-	<?php } ?> 
-<!--		<div class="avgvote" style='display:inline;'>&nbsp;Average vote&nbsp;</div>  -->
-		&nbsp;&nbsp; &nbsp;<div style='display:inline; padding-left:30px;'><strong>Status:&nbsp;&nbsp;</strong></div>
-		<div class="unapproved" style='display:inline;'>&nbsp;Unapproved&nbsp;</div>
-		&nbsp;
-		<div class="approved" style='display:inline;'>&nbsp;Approved&nbsp;</div>
-		&nbsp;
-		<div class="pending" style='display:inline;'>&nbsp;Pending&nbsp;</div>
-		&nbsp;
-	
-<?php if ($DEMO)	{ ?>
-		<div class="demo" style='display:inline;'>&nbsp;Demo&nbsp;</div>
-		&nbsp;   <?php } ?>
-	&nbsp; &nbsp;<div style='display:inline; padding-left:30px;'><strong>Voting:&nbsp;&nbsp;</strong></div>	<div class="saved_green" style='display:inline;'>&nbsp;yes&nbsp;</div>
-		&nbsp;
-		<div class="saved_yellow" style='display:inline;'>&nbsp;maybe&nbsp;</div>
-		&nbsp;
-		<div class="saved_red" style='display:inline;'>&nbsp;no&nbsp;</div>
-		&nbsp;	&nbsp;<div style='display:inline; padding-left:30px;'><strong>Not voted on:&nbsp;&nbsp;</strong></div>	
-			<div  style='background:#eee; display:inline;'>&nbsp;no vote&nbsp;</div>
-			&nbsp; 	<div  style='background:#ffffff; display:inline;'>&nbsp;no vote&nbsp;</div>
-	</div>
-</div>
 </div>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; // Include the FOOTER ?>
-
-<?php } /* export check */ ?>
