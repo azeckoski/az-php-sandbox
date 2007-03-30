@@ -67,6 +67,7 @@ if (strtotime($VOTE_CLOSE_DATE) < time()) {
 		" to " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 }
 $voting=true;
+$commenting=true;
 $Message .= "</div>";
 
 ?>
