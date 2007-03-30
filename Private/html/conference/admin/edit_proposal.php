@@ -485,13 +485,10 @@ if ($PK) {
 			<strong>Select/change subtrack for this proposal:  </strong> 
 	
 		<select name="sub_track" title="conference sub tracks">
-			<option value="<?= $_POST['sub_track'] ?>" selected><?= $_POST['sub_track'] ?></option>
-			<option value=""></option>
-			<option value="OSP">OSP</option>
-			<option value="Cool Commercial Tool">Cool Commercial Tool</option>
-			<option value="User Experience">User Experience</option>
-			<option value="Library">Library</option>
-			<option value="Cool New Tools">Cool New Tools</option>
+				<option value="<?= $_POST['sub_track']?>" selected><?= $_POST['sub_track'] ?></option>
+			    <?php foreach ($subtrack_list as $key => $value ) { ?>
+	        	<option value="<?=$value?>"><?=$value?></option>
+	        	<?php } ?>	
 		</select>
 		</td>
 </tr> 

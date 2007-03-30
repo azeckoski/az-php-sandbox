@@ -388,7 +388,7 @@ if (!$_REQUEST["export"]) {
 	<td style="whitespace:nowrap;" valign=top>
 	<strong>Filters:</strong>&nbsp;&nbsp;
 	</td>
-	<td nowrap="y" style="font-size:.95em;">
+	<td nowrap="y" style="padding-right:10px;">
 		<strong>Vote:</strong>
 		<select name="filter_items" title="Filter the items by my votes">
 			<option value="<?= $filter_items ?>" selected><?= $filter_items ?></option>
@@ -408,7 +408,7 @@ if (!$_REQUEST["export"]) {
 		</select>
 		&nbsp;
 		&nbsp;	
-		<?php if ($FILTER_TYPE) {  ?>
+	
 		<strong>Type:</strong>
 		<select name="filter_type" title="Filter the items by type">
 			<option value="<?= $filter_type ?>" selected><?= $filter_type ?></option>
@@ -419,11 +419,9 @@ if (!$_REQUEST["export"]) {
 			<option value="show all types">show all types</option>
 		</select>
 		&nbsp;
-		&nbsp;
-		<?php }?>  <br/><br/>
-		<?php
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= count($items) ?> proposals shown<br/><br/>
+		
 		 
-		if ($FILTER_TRACK) {  ?>
 		<strong>Track:</strong>
 		<select name="filter_track" title="Filter the items by track">
 			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
@@ -433,8 +431,6 @@ if (!$_REQUEST["export"]) {
 	       	<option value="show all tracks">show all tracks</option>
 		</select>
 		
-	<?php }
-		 if ($FILTER_SUBTRACK) {  ?>
 		
 			&nbsp;
 		&nbsp;
@@ -451,9 +447,7 @@ if (!$_REQUEST["export"]) {
 		&nbsp;
 		
 		
-			&nbsp;
-		<?php }?>
-	&nbsp;
+		
 		&nbsp;
 	  	<strong>Length:</strong>
 		<select name="filter_length" title="Filter the items by session length">
@@ -467,16 +461,16 @@ if (!$_REQUEST["export"]) {
 		&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 		&nbsp;&nbsp;&nbsp;<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= count($items) ?> proposals shown
-    <td>
+   
+    <td valign="top" style="border-left:1px dotted #ccc; padding-left:15px;" >
 		
 
 	<input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>" maxlength="20" title="Enter search text here" />
         <script type="text/javascript">document.voteform.searchtext.focus();</script>
         <input class="filter" type="submit" name="search" value="Search" title="Search the requirements" />
-       	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 	&nbsp;&nbsp;&nbsp;&nbsp; 
-       	 <input class="filter" type="submit" name="export" value="Download Report" title="Export results based on current filters" />
-  
+       	<br/><br/>
+       <input class="filter" type="submit" name="export" value="Export" title="Export results based on current filters" />
+ 
 	</td>
 	</tr>
 	</table>

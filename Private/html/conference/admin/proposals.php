@@ -352,6 +352,7 @@ switch ($filter_status){
    	case "approved": $filter_status_sql = " and approved ='Y' and type!='demo' and type!='poster' and type !='BOF'"; break;
   	case "not approved": $filter_status_sql = " and approved !='Y' and approved !='P' "; break;
   	case "pending": $filter_status_sql = " and approved ='P' "; break;
+	case "pending + approved": $filter_status_sql = " and approved !='N' and approved !=''  and type!='demo' and type!='poster' and type !='BOF' "; break;
 	case ""; // show all items
 		$filter_status = $filter_status_default;
 		$filter_status_sql = "";
@@ -478,7 +479,7 @@ foreach ($items as $item) {
 	<tr>
 	<td nowrap="y" valign=top>
 	<strong>Filters:</strong>&nbsp;&nbsp;
-	<td><td  nowrap="y">
+	<td><td  nowrap="y" style="padding-right:10px;">
 		<strong>Vote:</strong>
 		<select name="filter_items" title="Filter the items by my votes">
 			<option value="<?= $filter_items ?>" selected><?= $filter_items ?></option>
@@ -492,6 +493,7 @@ foreach ($items as $item) {
 			<option value="<?= $filter_status ?>" selected><?= $filter_status ?></option>
 			<option value="approved">approved</option>
 			<option value="pending">pending</option>
+			<option value="pending + approved">pending + approved</option>
 			<option value="not approved">not approved</option>
 			<option value="show all status">show all status</option>
 		</select>
@@ -509,7 +511,8 @@ foreach ($items as $item) {
 		</select>
 		&nbsp;
 		&nbsp;
-		<?php } ?>
+		<?php } ?>	&nbsp;&nbsp;&nbsp;
+		<?= count($items) ?> proposals shown 
 		<br/><br/>
 		<strong>Track:</strong>
 		<select name="filter_track" title="Filter the items by track">
@@ -549,9 +552,8 @@ foreach ($items as $item) {
 		&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 	<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
-  	&nbsp;&nbsp;&nbsp;
-		<?= count($items) ?> proposals shown 	</td>
-	<td nowrap="y">
+  	</td>
+	<td nowrap="y" style="border-left:1px dotted #ccc; padding-left:15px;">
 	
 	     <input class="filter" type="text" name="searchtext" value="<?= $searchtext ?>"
         	maxlength="20" title="Enter search text here" />
