@@ -144,7 +144,7 @@ $track_list=array('Implementation', 'Technical', 'Research',
 	'Teaching &amp; Learning', 'User Experience', 'Tool Carousel', 'Other');
 
 $FILTER_SUBTRACK=true;
-$subtrack_list=array('OSP', 'Cool New Tool', 'Cool Commercial Tool', 'Library', 'bundle');
+$subtrack_list=array('OSP', 'Cool New Tool', 'Cool Commercial Tool', 'Library');
 
 $FILTER_TYPE=true;
 $type_list=array('lecture', 'discussion', 'panel', 'workshop', 'demo', 'bof', 'paper');
