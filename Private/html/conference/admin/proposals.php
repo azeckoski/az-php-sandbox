@@ -66,6 +66,7 @@ if (strtotime($VOTE_CLOSE_DATE) < time()) {
 	$Message .= "Voting open from " . date($SHORT_DATE_FORMAT,strtotime($VOTE_OPEN_DATE)) .
 		" to " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 }
+$voting=true;
 $Message .= "</div>";
 
 ?>
