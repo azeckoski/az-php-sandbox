@@ -464,7 +464,7 @@ if (!$_REQUEST["export"]) {
 		&nbsp;
 		&nbsp;
 		&nbsp;  
-		<strong>bundled?</strong> <input name="filter_bundle" type="checkbox" value="Y" <?php if ($_POST['bundled']=="Y") { echo "checked"; } ?> /> 
+		<strong>bundled?</strong> <input name="filter_bundle" type="checkbox" value="Y" <?php if ($_POST['filter_bundle']=="Y") { echo "checked"; } ?> /> 
      &nbsp;&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 		&nbsp;&nbsp;&nbsp;<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
