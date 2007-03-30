@@ -843,7 +843,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 		
 		<br/><br/><span style="padding-right: 20px;"><strong>Bundle?&nbsp;&nbsp;</strong>
 	 <?php  
-	 if ($item['bundle']) {
+	 if ($item['bundle']=='Y') {
 			 	 echo "<span style='color: #666666;'>YES</span>";  
 			 }
 			 else {
