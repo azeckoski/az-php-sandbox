@@ -50,7 +50,7 @@ $VOTE_SCORE = array("2", "1", "0");
 
 // dates below in format: YYYY/MM/DD HH24:MI
 $VOTE_OPEN_DATE = "2007/1/1 8:00";
-$VOTE_CLOSE_DATE = "2007/3/30 5:00";
+$VOTE_CLOSE_DATE = "2007/4/30 5:00";
 
 // conference attendee reports
 $CONF_REPORT_PATH = realpath($_SERVER["DOCUMENT_ROOT"]."/../reports/");
