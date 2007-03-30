@@ -140,7 +140,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.speaker, CP.co_speaker, CP.bio, " .
-		"CP.type, CP.length, CP.URL, CP.approved,  CP.wiki_url, CP.podcast_url, CP.slides_url, CP.track, CP.print from conf_proposals CP " .
+		"CP.type, CP.length, CP.URL, CP.approved,  CP.wiki_url, CP.podcast_url, CP.slides_url, CP.track, CP.print, CP.bundle from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
 	$filter_type_sql .  $filter_days_sql . $filter_track_sql. $sqlsorting . $mysql_limit;
@@ -256,6 +256,7 @@ if ($_POST['save']) {
 		$conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
 		$approved=$_POST['approved'];
 		$print=$_POST['print'];
+		$bundle=$_POST['bundle'];
 	    
 	    if ($type=="demo") {
 	    	 $approved="Y";
@@ -276,7 +277,10 @@ if ($_POST['save']) {
 					" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
 						" `speaker`='$speaker' , `URL` ='$url',  `bio`='$bio' , `layout`='$layout', " .
 						"`length`='$length' , `conflict`='$conflict' ," .
-						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', `track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url', `podcast_url` ='$podcast_url', `slides_url` ='$slides_url',  `poster`='$num_posters', `print`='$print' where pk= '$PK'   ";
+						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', " .
+						"`track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url'," .
+						" `podcast_url` ='$podcast_url', `slides_url` ='$slides_url',  `poster`='$num_posters'," .
+						" `print`='$print', `bundle`='$bundle' where pk= '$PK'   ";
 						
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				" form submission. Please try to submit the form again. " .
@@ -499,6 +503,15 @@ if ($PK) {
 			<input name="approved" type="radio" value="N" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved&nbsp;&nbsp;&nbsp;&nbsp;
 			<input name="approved" type="radio" value="P" <?php if ($_POST['approved']=="P") { echo "checked"; } ?> /> Pending <br/>
 		
+		
+		</td>
+
+ </tr>
+  <tr>
+	<td><strong>Bundle with other proposals? </strong> </td>
+	<td><input name="bundle" type="radio" value="Y" <?php if ($_POST['bundle']=="Y") { echo "checked"; } ?> /> Yes &nbsp;&nbsp;&nbsp;&nbsp;
+			<input name="bundle" type="radio" value="N" <?php if ($_POST['bundle']=="N") { echo "checked"; } ?> /> No &nbsp;&nbsp;&nbsp;&nbsp;
+			
 		
 		</td>
 

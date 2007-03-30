@@ -311,6 +311,11 @@ switch ($filter_sub_track){
 		break;
 }
   
+  // SubTrack Filter
+$filter_bundle="";
+if ( ($_REQUEST['filter_bundle']=='Y') && (!$_REQUEST["clearall"])) {
+$filter_bundle_sql = " and bundle='Y' ";
+}
 
 // sorting
 $sortorder = "order_num";
@@ -324,7 +329,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
 	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
-	$filter_type_sql . $filter_items_sql . $filter_track_sql .$filter_sub_track_sql .$filter_status_sql .$filter_length_sql .$sqlsorting . $mysql_limit;
+	$filter_type_sql . $filter_items_sql . $filter_track_sql .$filter_sub_track_sql .$filter_status_sql .$filter_bundle_sql .$filter_length_sql .$sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
 $result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -458,7 +463,9 @@ if (!$_REQUEST["export"]) {
 		</select>
 		&nbsp;
 		&nbsp;
-		&nbsp;
+		&nbsp;  
+		<strong>bundled?</strong> <input name="filter_bundle" type="checkbox" value="Y" <?php if ($_POST['bundled']=="Y") { echo "checked"; } ?> /> 
+     &nbsp;&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 		&nbsp;&nbsp;&nbsp;<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
    
@@ -831,6 +838,18 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 			  echo "<span style='color: #666666;'>not set </span>";  
 			 } 
 	 }
+		
+		?></span>
+		
+		<br/><br/><span style="padding-right: 20px;"><strong>Bundle?&nbsp;&nbsp;</strong>
+	 <?php  
+	 if ($item['bundle']) {
+			 	 echo "<span style='color: #666666;'>YES</span>";  
+			 }
+			 else {
+			  echo "<span style='color: #666666;'>NO</span>";  
+			 } 
+	 
 		
 		?></span>
 		

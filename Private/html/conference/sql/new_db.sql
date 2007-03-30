@@ -25,6 +25,14 @@ CREATE TABLE conferences (
 // alter table conferences add printed_badge enum('Y','N') default 'N';
 //ALTER TABLE `conferences` ADD `attending` VARCHAR( 20 ) NULL ;
 
+//added Mar23 for payment_info.php
+ALTER TABLE `conferences` ADD `pmt_codes` INT( 3 ) NOT NULL AFTER `transID` ,
+ADD `pmt_msg` VARCHAR( 300 ) NOT NULL AFTER `pmt_codes` ;
+ ALTER TABLE `conf_proposals` ADD `bundle` ENUM( 'Y', 'N' ) NOT NULL DEFAULT 'N' AFTER `order_num` ;
+
+
+
+
 // new proposals table - conf_proposals
 
 CREATE TABLE conf_proposals ( 
