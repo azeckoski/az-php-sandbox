@@ -2,35 +2,27 @@
 /* 
 
 It is better to NOT use px sizes for fonts:
-
 IE users cannot resize a font size that is specified using px and that
-
 is an accessibility issue for people with poor eyesight.
-
 Here is a page that let's you compare sizes on browsers.
-
 em and % are the best ones to use in my opinion but I also use 
-
 pt a lot as it seems to offer better control.
-
 http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
+
+
 
 */
 
 
 
-html,body {
-    
+html,body { 
 	height: 100%;
-
 }
 
 
 
 tr,td {
-
 	height: 1%;
-
 }
 
 
