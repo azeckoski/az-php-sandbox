@@ -191,7 +191,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $CSS_FILE2 = "../include/proposals.css";
-$CSS_FILE2 = $TOOL_URL."/include/schedule.css";
+$CSS_FILE2 = "../include/schedule.css";
 
 $DATE_FORMAT = "M d, Y h:i A";
 
@@ -239,10 +239,7 @@ if ($User && $isAdmin) {
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
 
-<div style="text-align:center;font-style:italic;font-size:.8em;border:2px solid red;">
-<strong>Tentative Draft Schedule:</strong> Times and sessions may change and new sessions may be added<br/>
-Check back closer to the conference for the final schedule, contact <a href="mailto:mmiles@umich.edu">Mary Miles</a> with questions
-</div>
+
 
 
 <div class="filterarea">
@@ -270,7 +267,7 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 	<td nowrap="y">
 	<strong>Filters:</strong>&nbsp;&nbsp;
 	</td>
-	<td nowrap="y" style="font-size:0.9em;">
+	<td nowrap="y" style="font-size:0.95em;">
 	<?php 
 	
 	//TODO  fix the filter by day
@@ -331,7 +328,7 @@ Check back closer to the conference for the final schedule, contact <a href="mai
 	</table>
 </div>
 
-<table border="0" cellspacing="0" style='font-size:.9em; width:100%;height:100%;'>
+<table border="0" cellspacing="0" style='font-size:.95em; width:100%;height:100%;'>
 
 <?php
 // create the list

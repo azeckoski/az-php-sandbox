@@ -104,7 +104,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
-$CSS_FILE2 = $TOOL_URL."/include/schedule.css";
+$CSS_FILE2 = "../include/schedule.css";
 $DATE_FORMAT = "M d, Y h:i A";
 
 
@@ -149,7 +149,7 @@ if ($User && $isAdmin) {
 <?= $Message ?>
 
 <div style="padding: 10px;">
-<div style="text-align: left; padding: 5px 50px; font-style:normal; font-size:.9em; border:2px solid red;">
+<div style="text-align: left; padding: 5px 50px; font-style:normal; font-size:.95em; border:2px solid red;">
 <img src='../include/template/images/officialAtlantaSakaiLogo_sm.png' height=52 width=60 border=0 align=left alt="atlanta logo"  /><strong>Sakai Atlanta Conference podcasts and presentation materials: </strong><br/>  Click on the speaker icons <img src='../include/images/soundIcon-1.jpg' border=0 height=15 width=17  alt="speaker icon" /> &nbsp; or the presentation icons <img src='../include/images/pptIcon.jpg' border=0 height=13 width=15  alt="presentation icon" />&nbsp;  below to quickly access a session's presentation media. <br/><br/>Click on the session title to view sessions notes or comments (if provided by session presenters).  
 </div></div>
 

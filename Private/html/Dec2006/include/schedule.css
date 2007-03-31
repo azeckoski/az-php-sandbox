@@ -20,7 +20,7 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 
 
 html,body {
-
+    
 	height: 100%;
 
 }
@@ -114,7 +114,7 @@ tr,td {
 
 	background: white;
 
-	font-size: .9em;
+	font-size: .95em;
 
 	text-align: left;
 
@@ -134,7 +134,7 @@ tr,td {
 
 
 .grid_event {
-	font-size: .8em;
+	font-size: .95em;
 	color:#111; 
 	font-weight:normal;
 	background: white;
@@ -362,7 +362,7 @@ tr,td {
 
 .remaining {
 
-	font-size: .8em;
+	font-size: .95em;
 
 	font-style: italic;
 
@@ -394,7 +394,7 @@ tr,td {
 
 	text-align: center;
 
-	font-size: .9em;
+	font-size: .95em;
 
 }
 
@@ -402,7 +402,7 @@ tr,td {
 
 .small_text {
 
-	font-size: .9em;
+	font-size: .95em;
 
 }
 
@@ -412,7 +412,7 @@ tr,td {
 
 	text-align: center;
 
-	font-size: .9em;
+	font-size: .95em;
 
 }
 
