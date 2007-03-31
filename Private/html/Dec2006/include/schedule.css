@@ -106,7 +106,7 @@ tr,td {
 
 	background: white;
 
-	font-size: .95em;
+	font-size: 1em;
 
 	text-align: left;
 
@@ -126,7 +126,7 @@ tr,td {
 
 
 .grid_event {
-	font-size: .95em;
+	font-size: 1em;
 	color:#111; 
 	font-weight:normal;
 	background: white;
@@ -354,7 +354,7 @@ tr,td {
 
 .remaining {
 
-	font-size: .95em;
+	font-size: 1em;
 
 	font-style: italic;
 
@@ -386,7 +386,7 @@ tr,td {
 
 	text-align: center;
 
-	font-size: .95em;
+	font-size: 1em;
 
 }
 
@@ -394,7 +394,7 @@ tr,td {
 
 .small_text {
 
-	font-size: .95em;
+	font-size: 1em;
 
 }
 
@@ -404,7 +404,7 @@ tr,td {
 
 	text-align: center;
 
-	font-size: .95em;
+	font-size: 1em;
 
 }
 
