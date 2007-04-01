@@ -135,7 +135,7 @@ if($_REQUEST['gen'] == "email" || $_REQUEST['gen'] == "both") {
 	$headers .= "Content-Type: multipart/mixed; boundary=\"$mime_boundary\"\n";
 	
 	$recipient = $CONF_REPORT_TO;
-	$subject= "Attendee Report: " . date($SHORT_DATE_FORMAT,time());
+	$subject= "Attendee Report: " .$total_reg ."reg. on " . date($SHORT_DATE_FORMAT,time());
 	
 	// put in the attachment
 	$msg .= "--".$mime_boundary."\n";
@@ -148,7 +148,7 @@ if($_REQUEST['gen'] == "email" || $_REQUEST['gen'] == "both") {
 	$msg .= "--".$mime_boundary."\n";
 	$msg .= "Content-Type: text/plain; charset=\"iso-8859-1\""."\n";
 	$msg .= "Content-Transfer-Encoding: 8bit"."\n";
-	$msg .= "This mail is generated automatically by the sakaiproject.org website.\n" .
+	$msg .= "\n\nThis mail is generated automatically by the sakaiproject.org website.\n" .
 		"This is a report of the current conference attendees for: $CONF_NAME ($CONF_ID).\n" .
 		"Report is attached as $filename and was generated: " . date($SHORT_DATE_FORMAT,time()) . "\n";
 	$msg .= "\n";

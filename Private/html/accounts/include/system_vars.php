@@ -6,7 +6,7 @@
 // You should change the environment variable to correspond to the environment you're using.
 
 // supported options are "dev","test", and "prod"
-$ENVIRONMENT = "prod";
+$ENVIRONMENT = "devSusan";
 
 if ($ENVIRONMENT == "dev") {
 	// Set needed system variables

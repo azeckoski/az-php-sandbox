@@ -253,11 +253,15 @@ if ($_POST['save']) {
 		$type=$_POST['type'];
 		$layout=$_POST['layout'];
 		$length=$_POST['Length'];
+		
 		$conflict = trim($_POST['conflict_tue'] ." ". $_POST['conflict_wed'] ." ". $_POST['conflict_thu'] ." ". $_POST['conflict_fri']);
 		$approved=$_POST['approved'];
 		$print=$_POST['print'];
+		
 		$bundle=$_POST['bundle'];
-	    
+	    if ($bundle=="Y") {
+	 		 $bundle_id = trim($_POST['bundle_id0'] .":". $_POST['bundle_id1'] .":". $_POST['bundle_id2'] .":". $_POST['bundle_id3']);
+	    }
 	    if ($type=="demo") {
 	    	 $approved="Y";
 	    	  	 $track="Demo";
@@ -280,7 +284,7 @@ if ($_POST['save']) {
 						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', " .
 						"`track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url'," .
 						" `podcast_url` ='$podcast_url', `slides_url` ='$slides_url',  `poster`='$num_posters'," .
-						" `print`='$print', `bundle`='$bundle' where pk= '$PK'   ";
+						" `print`='$print', `bundle`='$bundle', `bundle_id`='$bundle_id' where pk= '$PK'   ";
 						
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				" form submission. Please try to submit the form again. " .
@@ -515,6 +519,23 @@ if ($PK) {
 			<input name="bundle" type="radio" value="N" <?php if ($_POST['bundle']=="N") { echo "checked"; } ?> /> No &nbsp;&nbsp;&nbsp;&nbsp;
 			
 		
+		</td>
+		 <tr>
+	<td><strong>Suggested Proposal bundles </strong> </td>
+	<td><?php  if ($item['bundle_id']) {
+				$bundleArray = explode(":",trim($item['bundle_id']));
+			if (is_array($bundleArray)) {
+				 foreach ($bundleArray as $key=> $value) {
+				$bundleID="bundle_id" .$key;
+				 $_POST[$bundleID]=$value;
+			 	 }
+			 }
+		 }?>
+		<input type="text" name="bundle_id0" size="3" maxlength="3" value="<?= $_POST['bundle_id0'] ?>" />&nbsp;&nbsp;
+    	<input type="text" name="bundle_id1" size="3" maxlength="3" value="<?= $_POST['bundle_id1'] ?>" /> &nbsp;&nbsp;
+    	<input type="text" name="bundle_id2" size="3" maxlength="3" value="<?= $_POST['bundle_id2'] ?>" /> &nbsp;&nbsp;
+    	<input type="text" name="bundle_id3" size="3" maxlength="3" value="<?= $_POST['bundle_id3'] ?>" />&nbsp;&nbsp;
+    	
 		</td>
 
  </tr>

@@ -46,13 +46,13 @@ $VOTE_SCORE = array("2", "1", "0");
 
 // dates below in format: YYYY/MM/DD HH24:MI
 $VOTE_OPEN_DATE = "2007/02/01 8:00";
-$VOTE_CLOSE_DATE = "2007/3/30 5:00";
+$VOTE_CLOSE_DATE = "2007/5/30 5:00";
 
 // conference attendee reports
 $CONF_REPORT_PATH = realpath($_SERVER["DOCUMENT_ROOT"]."/../reports/");
 if ($ENVIRONMENT == "prod") {
 	$CONF_REPORT_TO = "hardin@umich.edu,BCassidy@sefas.com,mmiles@umich.edu";
-	$CONF_REPORT_CC = "shardin@umich.edu,kreister@umich.edu";
+	$CONF_REPORT_CC = "shardin@umich.edu";
 } elseif ($ENVIRONMENT == "test") {
 	// TESTING
 	$CONF_REPORT_TO = "shardin@umich.edu";

@@ -39,37 +39,6 @@ $CONF_DAYS= "June 12-14, 2007";
 
 
 
-// proposals voting
-
-$VOTE_TEXT = array("yes", "maybe", "no");
-$VOTE_HELP = array(
-	"Proposal is appropriate",
-	"Proposal needs work but idea is sound",
-	"Proposal is inappropriate");
-$VOTE_SCORE = array("2", "1", "0");
-
-// dates below in format: YYYY/MM/DD HH24:MI
-$VOTE_OPEN_DATE = "2007/1/1 8:00";
-$VOTE_CLOSE_DATE = "2007/4/30 5:00";
-
-// conference attendee reports
-$CONF_REPORT_PATH = realpath($_SERVER["DOCUMENT_ROOT"]."/../reports/");
-if ($ENVIRONMENT == "prod") {
-	//$CONF_REPORT_TO = "hardin@umich.edu,BCassidy@sefas.com,mmiles@umich.edu";
-	//$CONF_REPORT_CC = "shardin@umich.edu,kreister@umich.edu";
-} elseif ($ENVIRONMENT == "test") {
-	// TESTING
-//	$CONF_REPORT_TO = "shardin@umich.edu";
-//	$CONF_REPORT_CC = "aaronz@vt.edu";
-} else { // assume dev environment
-//	$CONF_REPORT_TO = "aaronz@vt.edu";
-//	$CONF_REPORT_CC = "aaron@vt.edu";
-}
-
-// tool functions
-
-
-
 //what type of event is this -- used in messages regarding the event
 $EVENT_TYPE="conference";  //or conference, or event, or meeting
 

@@ -45,7 +45,7 @@ if (strtotime($VOTE_CLOSE_DATE) < time()) {
 	// no viewing allowed
 	$viewing = false;
 	$EXTRA_LINKS .= "Results visible after " . date($SHORT_DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
-	$Message .= "Results cannot be viewed until after " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
+	//$Message .= "Results cannot be viewed until after " . date($DATE_FORMAT,strtotime($VOTE_CLOSE_DATE));
 }
 $Message .= "</div>";
 
@@ -632,7 +632,7 @@ foreach ($items as $item) { // loop through all of the proposal items
 <tr class="<?= $linestyle ?>" valign="top">
 	<td style="padding-left:1px;" ><div><strong style="text-align:center;font-size: .9em; border:1px dotted #333333; background:#e9d06f; margin:0; margin-right:2px; padding: 3px 3px; "><?=$item['order_num']?></strong>&nbsp;</div></td>
 	<td <?= $tdstyle ?> nowrap='y' style="text-align:right;">
-		<a name="anchor<?= $pk ?>"></a>
+		<a name="anchor<?= $pk ?>"></a><a name="num<?= $item['order_num']?>"></a>
 <?php if ($item['type']=='demo')  {
 		echo "<strong>Demo:</strong><br/>No voting";
 	} else if ($item['type']=='poster')  {
@@ -842,10 +842,25 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 		?></span>
 		
 		<br/><br/><span style="padding-right: 20px;"><strong>Bundle?&nbsp;&nbsp;</strong>
-	 <?php  
+	 <?php  //check to see if the proposal should be bundled with another proposal
 	 if ($item['bundle']=='Y') {
 			 	 echo "<span style='color: #666666;'>YES</span>";  
+			 	
+		
+		 if ($item['bundle_id']) {
+				$bundleArray = explode(":",trim($item['bundle_id']));
+			if (is_array($bundleArray)) {
+				echo "&nbsp;&nbsp;&nbsp;&nbsp;<strong>suggested proposals: "; 
+			
+		 	 foreach ($bundleArray as $value) {
+				if ($value) {
+			
+			 	 echo " </strong> <a href='#num$value'> $value </a>,  ";
+					}
+			 	 }
 			 }
+		 }
+	 }
 			 else {
 			  echo "<span style='color: #666666;'>NO</span>";  
 			 } 

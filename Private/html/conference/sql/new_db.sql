@@ -29,7 +29,7 @@ CREATE TABLE conferences (
 ALTER TABLE `conferences` ADD `pmt_codes` INT( 3 ) NOT NULL AFTER `transID` ,
 ADD `pmt_msg` VARCHAR( 300 ) NOT NULL AFTER `pmt_codes` ;
  ALTER TABLE `conf_proposals` ADD `bundle` ENUM( 'Y', 'N' ) NOT NULL DEFAULT 'N' AFTER `order_num` ;
-
+ ALTER TABLE `conf_proposals` ADD `bundle_id` VARCHAR( 30 ) NOT NULL AFTER `bundle` ;
 
 
 
