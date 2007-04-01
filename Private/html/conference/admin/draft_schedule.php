@@ -157,10 +157,10 @@ function orderBy(newOrder) {
 
 <?= $Message ?>
 <h3>Draft Schedule</h3><p>For more information please visit the <a href="http://sakaiproject.org/conference/index.html">conference website.</a></p> 
-<table width="500px" cellpadding="2" cellspacing="0" border="0">
-<tbody><tr style="background-color: rgb(204, 204, 153);" align="center" ><td valign="top" colspan="2">
-<div><strong><font color="#000000">PRE-CONFERENCE WORKSHOPS <br />
- </font></strong><font color="#990000"><strong><font color="#000000">Location:</font>&nbsp; University of Amsterdam</strong></font></div></td></tr><tr><td width="200" valign="top"><strong>Monday, June 11<br />
+
+<table width="500" cellpadding="0" cellspacing="3" border="0"><tbody><tr style="background-color: rgb(204, 204, 153);" align="center"><td valign="top" colspan="2">
+<p><strong><font color="#000000">PRE-CONFERENCE WORKSHOPS <br />
+ </font></strong><font color="#990000"><strong><font color="#000000">Location:</font>&nbsp; Movenpick Hotel </strong></font> </p></td></tr><tr><td width="200" valign="top"><strong>Monday, June 11<br />
 </strong></td><td width="398"><br />
 </td></tr><tr><td valign="top" align="left">9:00 a.m. - 5:00 p.m.</td><td valign="top">
 <p><strong>Half-Day and Full-Day Workshops:</strong></p>
@@ -169,26 +169,38 @@ function orderBy(newOrder) {
 <li>
 Introduction to Sakai (1/2 day)<br />
  </li>
-<li>UI Camp -- User Support folks and Programmers welcome! (full day)
+<li>UI Camp -- User Support folks and Programmers welcome! (full day)<br />
 </li></ul></td></tr><tr><td valign="top" colspan="2"><br />
 </td></tr><tr style="background-color: rgb(204, 204, 153);" align="center"><td valign="top" colspan="2">
-<div><strong><font color="#000000">MAIN CONFERENCE SCHEDULE<br />
+<p><strong><font color="#000000">MAIN CONFERENCE SCHEDULE<br />
 </font></strong><font color="#990000"><strong><font color="#000000">Location:</font>&nbsp;&nbsp; Movenpick Hotel </strong></font><br />
- </div></td></tr><tr><td valign="top"><strong><u>Tuesday, June 12</u><br />
+ </p></td></tr><tr><td valign="top"><strong><u>Tuesday, June 12</u><br />
 </strong></td><td valign="top"><br />
 </td></tr><tr><td valign="top">8:00 a.m</td><td valign="top">
 <p><strong>Registration Opens<br />
-</strong></p></td></tr><tr><td valign="top">9:00 a.m. - 5:00 p.m.&nbsp; </td><td valign="top"><strong>Presentations and Breakout Sessions</strong></td></tr><tr><td valign="top">
+</strong></p></td></tr>
+<tr>
+  <td valign="top">9:00 a.m. - 9:30 p.m.&nbsp; </td>
+  <td valign="top"><strong>Welcome and Updates </strong></td>
+</tr>
+<tr>
+  <td valign="top">9:30 a.m. - 10:30 a.m.</td>
+  <td valign="top"><p><font color="#660000"><strong><em>Keynote Speaker: 
+  </em></strong></font></p>
+      <blockquote><font color="#660000"><strong><em> <font color="#000000">Hal Abelson, MIT</font></em></strong></font><br />
+    </blockquote></td>
+</tr>
+
+<tr>
+  <td valign="top">10:30 a.m. - 5:30 p.m.&nbsp; </td><td valign="top"><strong>Presentations and Breakout Sessions</strong></td></tr><tr><td valign="top">
 5:30 p.m. - 6:30 p.m.</td><td valign="top"><strong>Welcome Reception</strong></td></tr><tr><td valign="top" colspan="1">
 <p>6:30 pm&nbsp;&nbsp;&nbsp; - &nbsp; (?)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</p></td><td valign="top" colspan="1"><strong>Post-reception activities:&nbsp;&nbsp; TBA</strong><br />
 </td></tr><tr><td valign="top" colspan="2">&nbsp;</td></tr><tr><td valign="top"><u><strong>Wednesday, June 13<br />
 </strong></u></td><td valign="top"><br />
-</td></tr><tr><td valign="top">8:00 a.m.</td><td valign="top"><strong>Registration Opens</strong></td></tr><tr><td valign="top">9:00 a.m. - 10:15 a.m. </td><td valign="top"><strong>Welcome and&nbsp; Conference Updates </strong></td></tr><tr><td valign="top">10:30 a.m. - 11:30 a.m.</td><td valign="top">
-<p><font color="#660000"><strong><em>Keynote Speaker: <br />
-</em></strong></font></p>
-<blockquote><font color="#660000"><strong><em> <font color="#000000">Hal Abelson, MIT</font></em></strong></font><br />
-</blockquote></td></tr><tr><td valign="top">11:45 a.m. - 5:00 p.m. </td><td valign="top"><strong>Presentations and Breakout Sessions</strong></td></tr><tr><td valign="top" colspan="1">
-<p>5:30 p.m. - 8:00 p.m. </p></td><td valign="top" rowspan="1">
+</td></tr><tr><td valign="top">8:00 a.m.</td><td valign="top"><strong>Registration Opens</strong></td></tr><tr>
+  <td valign="top">9:00 a.m. - 9:30 a.m. </td><td valign="top"><strong>Welcome and&nbsp; Conference Updates </strong></td></tr><tr>
+  <td valign="top">9:30 a.m. - 5:30 p.m. </td><td valign="top"><strong>Presentations and Breakout Sessions</strong></td></tr><tr><td valign="top" colspan="1">
+<p>6:30 p.m. - 8:30 p.m. </p></td><td valign="top" rowspan="1">
 <p><strong>Technical Demonstrations and Posters Reception</strong> <br />
 </p></td></tr><tr><td valign="top" colspan="2">&nbsp;</td></tr><tr><td valign="top"><u><strong>Thursday, June&nbsp; 14<br />
 </strong></u></td><td valign="top"><br />
@@ -211,6 +223,5 @@ Introduction to Sakai (1/2 day)<br />
 </td><td valign="top"><br />
 </td></tr></tbody></table>
 <p>&nbsp;</p>
-
 </div>
 <?php include $ACCOUNTS_PATH.'include/footer.php'; ?>
