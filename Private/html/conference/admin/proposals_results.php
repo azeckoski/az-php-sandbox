@@ -850,12 +850,12 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 		 if ($item['bundle_id']) {
 				$bundleArray = explode(":",trim($item['bundle_id']));
 			if (is_array($bundleArray)) {
-				echo "&nbsp;&nbsp;&nbsp;&nbsp;<strong>suggested proposals: "; 
+				echo "&nbsp;&nbsp;&nbsp;&nbsp;<strong>suggested proposals:</strong> "; 
 			
 		 	 foreach ($bundleArray as $value) {
 				if ($value) {
 			
-			 	 echo " </strong> <a href='#num$value'> $value </a>,  ";
+			 	 echo "&nbsp; <span style='color:#333'>#</span><a href='#num$value'> $value </a>&nbsp; ";
 					}
 			 	 }
 			 }
