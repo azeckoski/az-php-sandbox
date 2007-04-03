@@ -12,7 +12,7 @@ if ($ENVIRONMENT == "dev") {
 	$dbhost = "bengali.web.itd.umich.edu";
 	$dbname = "sakai_stage";
 	$dbuser = "sakai";
-	$dbpass = "mujoIII";
+	$dbpass = "sk8t3rs";
 } elseif ($ENVIRONMENT == "prod") {
 	$dbhost = "bengali.web.itd.umich.edu";
 	$dbname = "sakai";
