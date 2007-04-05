@@ -707,10 +707,10 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 	 ?>	( <a style="<?=$editcolor?> font-weight:normal;" title="Edit this proposal" href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1&amp;location=0" ?>"> EDIT </a>  )
 	
 		 
-	&nbsp;&nbsp;( <a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;type=<?=$item['type']?>" 
+<!--	&nbsp;&nbsp;( <a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;type=<?=$item['type']?>" 
 			title="Delete this proposal"
 			onClick="return confirm('Are you sure you want to delete this proposal?');" >X </a>) 
-			
+-->			
 <?php	echo "</div>";
   }  else {  echo "</div>";
 	 }
