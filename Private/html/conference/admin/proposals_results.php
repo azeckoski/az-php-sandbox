@@ -724,8 +724,11 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 	?>
 	
 <?php if ($item['approved']=="B") { ?>
-<div class="summary" style="color:red">**This proposal has been replaced by a larger bundled proposal - #<a href="#num<?=$item['new_pk']?>"><?=$item['new_pk']?></a> </div>
-<?php }  ?>
+<div class="summary" style="color:red">**This proposal has been replaced by a larger bundled proposal -
+<?php if (!$item['new_pk']){ echo "<span style='color: #333333;'>(TBD).</span>"; } else { ?>
+ # <a href="#num<?=$item['new_pk']?>"><?=$item['new_pk']?></a> </div>
+<?php } 
+} ?>
 	<div class="summary"><br/><strong><?= $item['title'] ?></strong><br/><br/></div>
 		<div class="item_info"><strong>Submitted by:</strong><br/></div>
 		<div style="padding-left:20px;"> <a href="mailto:<?= $item['email'] ?>">
