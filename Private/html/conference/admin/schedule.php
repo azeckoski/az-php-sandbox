@@ -25,7 +25,7 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 // Make sure user is authorized for admin perms
 $isAdmin = false; // assume user is NOT allowed unless otherwise shown
 $hide_bof_rooms = false; // flag to hide the BOF rooms
-if (!$User->checkPerm("admin_conference")) {
+if (!$User->checkPerm("admin_conference") && !$User->checkPerm("proposals_Dec2006")) {
 	$isAdmin = false;
 	$hide_bof_rooms = true;
 } else {
@@ -48,7 +48,7 @@ if($_REQUEST['hbr']) {
 if($_REQUEST['sbr']) {
 	$hide_bof_rooms = false;
 }
-
+$CONF_ID="Jun2007";
 // fetch the conference rooms
 $sql = "select * from conf_rooms where confID = '$CONF_ID'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
@@ -104,7 +104,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
-$CSS_FILE2 = $TOOL_URL."/include/schedule.css";
+$CSS_FILE2 = "../include/schedule.css";
 $DATE_FORMAT = "M d, Y h:i A";
 
 if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) || ($User->checkPerm("proposals_dec2006")) || ($User->checkPerm("registration_dec2006"))   ) {
@@ -127,7 +127,7 @@ $EXTRA_LINKS.=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
 		 }  else {
 		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
-			header('Location:draft_schedule.php');
+			//header('Location:draft_schedule.php');
 		 	
 		 }
 		
@@ -156,11 +156,10 @@ function orderBy(newOrder) {
 
 
 <?= $Message ?>
-<p>coming soon...</p>
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
-<div class="padding50"></div>
+
 <table border="0" cellspacing="0" style='width:100%;height:100%;'>
 
 <?php
@@ -240,9 +239,9 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		if (($timeslot['type']=="lunch") || ($timeslot['type']=="break") ){ 
 			
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
-					"<div style='font-size:.9em; padding: 3px;'>";
+					"<div style='font-size:1em; padding: 3px;'>";
 				if ($isAdmin) { echo 	"<br/>"; }
-				echo "<strong>".$timeslot['title'].":</strong> <span style='font-size:.9em;'>" .
+				echo "<strong>".$timeslot['title'].":</strong> <span style='font-size:1em;'>" .
 					 date('l',strtotime($timeslot['start_time'])) . ", " .
 					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
 					date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
@@ -250,7 +249,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			    
 		} else {
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
-					"<div style='font-size:.9em;  padding: 3px;'>";
+					"<div style='font-size:1em;  padding: 3px;'>";
 			if ($isAdmin) {	echo 	"<br/>"; }
 			echo "<strong>".$timeslot['title']."</strong>" .
 					"</div></td>";
