@@ -275,7 +275,7 @@ if ($_POST['save']) {
 	    } 
 	    //items that are bundled into new sessions need the time set to 0
 	    if ($approved=="B") { $length='0';  }
-		
+		$new_pk=$_POST['new_pk'];
 		//this proposal has been edited
 			  // update proposal information  --all data except role and topic data
 			$proposal_sql="UPDATE conf_proposals" .
@@ -285,7 +285,7 @@ if ($_POST['save']) {
 						" `co_speaker`='$co_speaker' , `co_bio`='$co_bio', `approved`='$approved', " .
 						"`track`='$track',  `sub_track`='$sub_track',  `wiki_url` ='$wiki_url'," .
 						" `podcast_url` ='$podcast_url', `slides_url` ='$slides_url',  `poster`='$num_posters'," .
-						" `print`='$print', `bundle`='$bundle', `bundle_id`='$bundle_id' where pk= '$PK'   ";
+						" `print`='$print', `bundle`='$bundle', `bundle_id`='$bundle_id', `new_pk`='$new_pk' where pk= '$PK'   ";
 						
 			$result = mysql_query($proposal_sql) or die("Error:<br/>" . mysql_error() . "<br/>There was a problem with the " .
 				" form submission. Please try to submit the form again. " .
@@ -509,8 +509,14 @@ if ($PK) {
 	<td><input name="approved" type="radio" value="Y" <?php if ($_POST['approved']=="Y") { echo "checked"; } ?> /> Approved &nbsp;&nbsp;&nbsp;&nbsp;
 			<input name="approved" type="radio" value="N" title="mark as pending" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved&nbsp;&nbsp;&nbsp;&nbsp;
 			<input name="approved" type="radio" value="P" title="mark as pending"<?php if ($_POST['approved']=="P") { echo "checked"; } ?> /> Pending
-			<input name="approved" type="radio" value="B" title="this has been bundled into a NEW proposal" <?php if ($_POST['approved']=="B") { echo "checked"; } ?> /> Bundled <br/>
-		
+			<input name="approved" type="radio" value="B" title="this has been bundled into a NEW proposal" <?php if ($_POST['approved']=="B") { echo "checked"; } ?> /> *Bundled <br/>
+		<br/>
+		<div>*If you are bundling this proposal with other proposals, please create a new 
+		proposal which will replace the original set of proposals which are to be bundled.  Once you create the new proposal,
+		 please enter that proposal number in the box below: &nbsp;&nbsp;<br/><br/>
+		 <strong>New Proposal Number:  </strong>	
+		 <input type="text" name="new_pk" size="4" maxlength="4" value="<?= $_POST['new_pk'] ?>" />&nbsp;&nbsp;
+    </div>
 		
 		</td>
 

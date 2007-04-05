@@ -31,6 +31,9 @@ ADD `pmt_msg` VARCHAR( 300 ) NOT NULL AFTER `pmt_codes` ;
  ALTER TABLE `conf_proposals` ADD `bundle` ENUM( 'Y', 'N' ) NOT NULL DEFAULT 'N' AFTER `order_num` ;
  ALTER TABLE `conf_proposals` ADD `bundle_id` VARCHAR( 30 ) NOT NULL AFTER `bundle` ;
 
+//added Apr 5 for bundling approval
+ ALTER TABLE `conf_proposals` CHANGE `approved` `approved` ENUM( 'Y', 'N', 'P', 'B' )  NOT NULL DEFAULT 'N'
+ALTER TABLE `conf_proposals` ADD `new_pk` INT( 10 ) NOT NULL AFTER `bundle_id` ;
 
 
 // new proposals table - conf_proposals

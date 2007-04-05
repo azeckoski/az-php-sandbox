@@ -477,7 +477,7 @@ if (!$_REQUEST["export"]) {
 		&nbsp;
 		&nbsp;
 		&nbsp;  
-		<strong>bundled?</strong> <input name="filter_bundle" type="checkbox" value="Y" <?php if ($_POST['filter_bundle']=="Y") { echo "checked"; } ?> /> 
+		<strong>bundle candidate?</strong> <input name="filter_bundle" type="checkbox" value="Y" <?php if ($_POST['filter_bundle']=="Y") { echo "checked"; } ?> /> 
      &nbsp;&nbsp;
 	    <input class="filter" type="submit" name="filter" value="Filter" title="Apply the current filter settings to the page" />
 		&nbsp;&nbsp;&nbsp;<input class="filter" type="submit" name="clearall" value="Clear Filters" title="Reset all filters" />
@@ -723,8 +723,9 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 }
 	?>
 	
-
-
+<?php if ($item['approved']=="B") { ?>
+<div class="summary" style="color:red">**This proposal has been replaced by a larger bundled proposal - #<a href="#num<?=$item['new_pk']?>"><?=$item['new_pk']?></a> </div>
+<?php }  ?>
 	<div class="summary"><br/><strong><?= $item['title'] ?></strong><br/><br/></div>
 		<div class="item_info"><strong>Submitted by:</strong><br/></div>
 		<div style="padding-left:20px;"> <a href="mailto:<?= $item['email'] ?>">
@@ -863,7 +864,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 		
 		?></span>
 		
-		<br/><br/><span style="padding-right: 20px;"><strong>Bundle?&nbsp;&nbsp;</strong>
+		<br/><br/><span style="padding-right: 20px;"><strong>Bundle Candidate?&nbsp;&nbsp;</strong>
 	 <?php  //check to see if the proposal should be bundled with another proposal
 	 if ($item['bundle']=='Y') {
 			 	 echo "<span style='color: #666666;'>YES</span>";  
