@@ -119,7 +119,7 @@ textarea {
 }
 
 
-.approved, .pending, .unapproved {
+.approved, .pending, .unapproved, .bundled {
  background:#e9d06f;
  border:1px solid #999;
  padding:.3em .5em;
@@ -136,6 +136,14 @@ textarea {
 	background-color: #000000;
 
 	color : #000000;
+
+}
+
+.bundled {
+
+	background-color: #cccccc;
+
+	color : #333;
 
 }
 

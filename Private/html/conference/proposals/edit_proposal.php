@@ -78,16 +78,17 @@ if (!$PK) {
 					$title = $row['title'];
 		        
 					// if delete was passed then wipe out this item and related items
-					$delete_sql = "delete from conf_proposals where pk='$PK'";
+					//DO NOT DELETE - just mark as deleted
+					$delete_sql = "update conf_proposals set `approved`='D' where pk='$PK'";
 					$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
 
 					//now delete the audiences for this proposal
-					$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
-					$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+					//$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
+					//$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
 	
 					//now delete the topic ranking for this proposal
-					$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
-					$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
+					//$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
+					//$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): " . mysql_error());
 					// NOTE: Don't forget to handle the deletion below as needed
 	
 					$msg = "GREEN:Deleted proposal entitled $title.";

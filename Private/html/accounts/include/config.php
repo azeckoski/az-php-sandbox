@@ -116,7 +116,7 @@ $FILTER_SUBTRACK=true;
 $subtrack_list=array('OSP', 'Cool New Tool', 'Cool Commercial Tool', 'Library', 'Other');
 
 $FILTER_TYPE=true;
-$type_list=array('lecture', 'discussion', 'panel', 'workshop', 'demo', 'bof', 'paper');
+$type_list=array('lecture', 'discussion', 'panel', 'workshop', 'demo', 'bof', 'poster', 'paper');
 
 
 $OTHER_P_ROLE=false; // allow user to enter a primary role other than the preset roles

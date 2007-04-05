@@ -243,7 +243,9 @@ if ($filter_length == "30 min") {
 	$filter_length_sql = " and length='30' ";
 } else if ($filter_length == "60 min") {
 	$filter_length_sql = " and length='60' ";
-} else {
+} else if ($filter_length == "90 min") {
+	$filter_length_sql = " and length='90' ";
+}else {
 	// show all length
 	$filter_length = $filter_length_default;
 	$filter_length_sql = "";
@@ -256,7 +258,11 @@ if ($_REQUEST["filter_type"] && (!$_REQUEST["clearall"]) ) { $filter_type = $_RE
 
 $filter_type_sql = "";
 if ($filter_type && ($filter_type != $filter_type_default)) {
+	if ($filter_type=="all presentation types") {
+		$filter_type_sql = " and type!='demo' and type!='poster' and type !='BOF' ";
+	} else {
 	$filter_type_sql = " and type='$filter_type' ";
+	}
 } else {
 	$filter_type = $filter_type_default;
 }
@@ -271,9 +277,11 @@ $special_filter = "";
 $filter_status_sql = "";
 switch ($filter_status){
    	case "approved": $filter_status_sql = " and approved ='Y' and type!='demo' and type!='poster' and type !='BOF'"; break;
-  	case "not approved": $filter_status_sql = " and approved !='Y' and approved !='P' "; break;
+  	case "not approved": $filter_status_sql = " and approved !='Y' and approved !='B' and approved !='P' "; break;
   	case "pending": $filter_status_sql = " and approved ='P' "; break;
- 	case "pending + approved": $filter_status_sql = " and approved !='N' and approved !=''  and type!='demo' and type!='poster' and type !='BOF' "; break;
+ 	case "pending + approved": $filter_status_sql = " and approved !='N' and approved!='B' and approved!='' and type!='demo' and type!='poster' and type !='BOF' "; break;
+	case "bundled": $filter_status_sql = " and approved ='B'"; $msg.=" ** These BUNDLED proposals have been combined with others and replaced by a new combined proposal.";  break;
+ 	case "bundled + approved": $filter_status_sql = "  and approved !='N' and approved!='P' and approved!=''  and type!='demo' and type!='poster' and type !='BOF' "; break;
 	case ""; // show all items
 		$filter_status = $filter_status_default;
 		$filter_status_sql = "";
@@ -323,12 +331,13 @@ if ($_REQUEST["sortorder"]) { $sortorder = $_REQUEST["sortorder"]; }
 $sqlsorting = " order by $sortorder ";
 // First get the list of proposals and related users for the current conf 
 // (maybe limit this using a search later on)
+
 $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"U1.firstname||' '||U1.lastname as fullname, CV.vote, " .
 	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
-	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
+	"where CP.confID = '$CONF_ID' and CP.approved!='D' " . $sqlsearch . 
 	$filter_type_sql . $filter_items_sql . $filter_track_sql .$filter_sub_track_sql .$filter_status_sql .$filter_bundle_sql .$filter_length_sql .$sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
@@ -380,7 +389,7 @@ if (!$_REQUEST["export"]) {
 ?>
 
 <div id="maindata">
-<?= $msg ?>
+
 
 
 
@@ -408,6 +417,8 @@ if (!$_REQUEST["export"]) {
 			<option value="approved">approved</option>
 			<option value="pending">pending</option>
 			<option value="pending + approved">pending + approved</option>
+			<option value="bundled">bundled</option>
+			<option value="bundled + approved">bundled + approved</option>
 			<option value="not approved">not approved</option>
 			<option value="show all status">show all status</option>
 		</select>
@@ -420,6 +431,7 @@ if (!$_REQUEST["export"]) {
 	        <?php foreach ($type_list as $key => $value ) { ?>
 	        	<option value="<?=$value?>"><?=$value?></option>
 	        	<?php } ?>
+	        	<option value="all presentation types">all presentation types</option>
 	        	
 			<option value="show all types">show all types</option>
 		</select>
@@ -459,6 +471,7 @@ if (!$_REQUEST["export"]) {
 			<option value="<?= $filter_length ?>" selected><?= $filter_length ?></option>
 	       	<option value="30 min">30 min</option>
 			<option value="60 min">60 min</option>
+			<option value="90 min">90 min</option>
 			<option value="show all status">show all </option>
 		</select>
 		&nbsp;
@@ -485,8 +498,9 @@ if (!$_REQUEST["export"]) {
 
 
 <table id="proposals_vote" width="100%" cellspacing="0" cellpadding="0">
-<tr><td colspan="5"><div>
-<?= $Message ?></div>
+<tr><td colspan="4"><div>
+<?= $Message ?> </div></td>
+<td colspan=3><div style="color:#660000;text-align:center;"> &nbsp;&nbsp;<?= $msg ?></div>
 </td></tr>
 <tr class="tableheader">
 <td><a href="javascript:orderBy('order_num');">#</a></td>
@@ -679,18 +693,23 @@ if (($item['type'] != 'demo') && ($item['type'] != 'BOF') &&($item['type'] != 'p
 		echo "<div class='pending'>" .
 				"PENDING &nbsp; &nbsp; &nbsp; ";
 				$editcolor="color:#336699;";
+	} else if ($item['approved'] == "B"){
+
+		echo "<div class='bundled'>" .
+				"BUNDLED &nbsp; &nbsp; &nbsp; ";
+				$editcolor="color:#eeeeee;";
 	} else {
 		echo "<div class='unapproved'>" .
 				"NOT APPROVED &nbsp; &nbsp; &nbsp; ";
 				$editcolor="color:#336699;";
 	}		if ($User->checkPerm("admin_conference")) {
 		
-	 ?>	( <a style="<?=$editcolor?> font-weight:normal;" href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1&amp;location=0" ?>"> EDIT </a>  )
-	<!--	
+	 ?>	( <a style="<?=$editcolor?> font-weight:normal;" title="Edit this proposal" href="<?= "edit_proposal.php?pk=$item[pk]&amp;edit=1&amp;location=0" ?>"> EDIT </a>  )
+	
 		 
-	<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;type=<?=$item['type']?>" 
+	&nbsp;&nbsp;( <a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1&amp;type=<?=$item['type']?>" 
 			title="Delete this proposal"
-			onClick="return confirm('Are you sure you want to delete this proposal?');" >delete</a> --> 
+			onClick="return confirm('Are you sure you want to delete this proposal?');" >X </a>) 
 			
 <?php	echo "</div>";
   }  else {  echo "</div>";
@@ -806,7 +825,10 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 		 <span style="padding-right: 20px;">
 		 	<strong>Format: </strong><?= $item['type'] ?></span>
 		 <span style="padding-right: 20px;" ><strong>Length:</strong>
-<?php if ($item['length']=='0') {  echo "n/a "; } //this is a demo with no time limit
+<?php if ($item['approved']=='B') { 
+		$item['length']="0"; 
+		}
+ if ($item['length']=='0') {  echo "n/a "; } //this is a demo with no time limit
 	 		else { echo  $item['length'] ." min. "; 
 } echo "</span>";
 		}

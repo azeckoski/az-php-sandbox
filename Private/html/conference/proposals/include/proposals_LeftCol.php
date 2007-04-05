@@ -10,7 +10,7 @@
     <br/><a href="<?=$CONF_URL?>" class="mainlevel">Conference home</a><br/><br/><br/>
                      
 				  <?php 
-					$sql = "select CP.title, CP.type, CP.pk from conf_proposals CP " .
+					$sql = "select CP.title, CP.type, CP.pk, CP.approved from conf_proposals CP " .
 						"where CP.users_pk='$User->pk' and CP.confID = '$CONF_ID'";
 					//print "SQL=$sql<br/>";
 					$result = mysql_query($sql) or die("Query failed ($sql): " . mysql_error());
@@ -22,13 +22,17 @@
 						<div><strong>Your&nbsp;Proposals:</strong></div>
 				<?php
 					while($item=mysql_fetch_assoc($result)) {
+						//only show proposals that have not been marked as deleted
+					
+						if (!$item['approved']=="D") {
+					
 				?>
 					<p><a href="edit_proposal.php?type=<?=$item['type']?>&amp;pk=<?= $item['pk'] ?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
 						[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
 							title="Delete this proposal"
 							onClick="return confirm('Are you sure you want to delete this proposal?');" >X</a>]
 					</p>
-				<?php
+				<?php   } 
 						} // end while
 						echo "<hr/><p>[ <a title='Create a new proposal' href='index.php'>add a proposal</a> ]</p>";
 						echo "</div>";

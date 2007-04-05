@@ -77,16 +77,16 @@ if (!$PK) {
 			// entry is owned by current user or they are an admin
 			if ($_REQUEST["delete"]) {
 				// if delete was passed then wipe out this item and related items
-				$delete_sql = "delete from conf_proposals where pk='$PK'";
+				$delete_sql = "update conf_proposals set approved='D' where pk='$PK'";
 				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 		
 				//now delete the audiences for this proposal
-				$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				//$delete_sql = "delete from proposals_audiences where proposals_pk='$PK'";
+				//$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 		
 				//now delete the topic ranking for this proposal
-				$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
-				$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
+				//$delete_sql = "delete from proposals_topics where proposals_pk='$PK'";
+				//$result = mysql_query($delete_sql) or die("delete query failed ($delete_sql): ".mysql_error());
 				// NOTE: Don't forget to handle the deletion below as needed
                 
 				
@@ -260,7 +260,7 @@ if ($_POST['save']) {
 		
 		$bundle=$_POST['bundle'];
 	    if ($bundle=="Y") {
-	 		 $bundle_id = trim($_POST['bundle_id0'] .":". $_POST['bundle_id1'] .":". $_POST['bundle_id2'] .":". $_POST['bundle_id3']);
+	 		 $bundle_id = trim($_POST['bundle_id0'] .":". $_POST['bundle_id1'] .":". $_POST['bundle_id2'] .":". $_POST['bundle_id3'] .":". $_POST['bundle_id4']);
 	    }
 	    if ($type=="demo") {
 	    	 $approved="Y";
@@ -275,7 +275,11 @@ if ($_POST['save']) {
 	    	 $track="BOF";
 	    	 $approved="Y";
 	    	 $length="60";
-	    } //this proposal has been edited
+	    } 
+	    //items that are bundled into new sessions need the time set to 0
+	    if ($approved="B") { $length='0';  }
+		
+		//this proposal has been edited
 			  // update proposal information  --all data except role and topic data
 			$proposal_sql="UPDATE conf_proposals" .
 					" set  `type`='$type', `title`='$title' , `abstract`='$abstract', `desc`='$desc' ," .
@@ -506,22 +510,23 @@ if ($PK) {
 	 <tr>
 	<td><strong>Proposal Status: </strong> </td>
 	<td><input name="approved" type="radio" value="Y" <?php if ($_POST['approved']=="Y") { echo "checked"; } ?> /> Approved &nbsp;&nbsp;&nbsp;&nbsp;
-			<input name="approved" type="radio" value="N" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved&nbsp;&nbsp;&nbsp;&nbsp;
-			<input name="approved" type="radio" value="P" <?php if ($_POST['approved']=="P") { echo "checked"; } ?> /> Pending <br/>
+			<input name="approved" type="radio" value="N" title="mark as pending" <?php if ($_POST['approved']=="N") { echo "checked"; } ?> /> Not Approved&nbsp;&nbsp;&nbsp;&nbsp;
+			<input name="approved" type="radio" value="P" title="mark as pending"<?php if ($_POST['approved']=="P") { echo "checked"; } ?> /> Pending
+			<input name="approved" type="radio" value="B" title="this has been bundled into a NEW proposal" <?php if ($_POST['approved']=="B") { echo "checked"; } ?> /> Bundled <br/>
 		
 		
 		</td>
 
  </tr>
   <tr>
-	<td><strong>Bundle with other proposals? </strong> </td>
+	<td><strong>Could this be bundled with other proposals? </strong> </td>
 	<td><input name="bundle" type="radio" value="Y" <?php if ($_POST['bundle']=="Y") { echo "checked"; } ?> /> Yes &nbsp;&nbsp;&nbsp;&nbsp;
 			<input name="bundle" type="radio" value="N" <?php if ($_POST['bundle']=="N") { echo "checked"; } ?> /> No &nbsp;&nbsp;&nbsp;&nbsp;
 			
 		
 		</td>
 		 <tr>
-	<td><strong>Suggested Proposal bundles </strong> </td>
+	<td><strong>Suggested proposals this might be bundled with:</strong> </td>
 	<td><?php  if ($item['bundle_id']) {
 				$bundleArray = explode(":",trim($item['bundle_id']));
 			if (is_array($bundleArray)) {
@@ -535,6 +540,7 @@ if ($PK) {
     	<input type="text" name="bundle_id1" size="3" maxlength="3" value="<?= $_POST['bundle_id1'] ?>" /> &nbsp;&nbsp;
     	<input type="text" name="bundle_id2" size="3" maxlength="3" value="<?= $_POST['bundle_id2'] ?>" /> &nbsp;&nbsp;
     	<input type="text" name="bundle_id3" size="3" maxlength="3" value="<?= $_POST['bundle_id3'] ?>" />&nbsp;&nbsp;
+    	<input type="text" name="bundle_id3" size="3" maxlength="3" value="<?= $_POST['bundle_id4'] ?>" />&nbsp;&nbsp;
     	
 		</td>
 
@@ -914,6 +920,7 @@ if ($PK) {
 		<div class="small">Times are not guaranteed. We will do our best to match each session with an appropriate time block</div><br/>
           <input name="Length" type="radio" value="30" <?php if ($_POST['length']=="30") { echo "checked"; } ?> /> 30 minutes  <br/>
            <input name="Length" type="radio" value="60" <?php if ($_POST['length']=="60") { echo "checked"; } ?> /> 60 minutes  <br/>
+         <input name="Length" type="radio" value="90" <?php if ($_POST['length']=="90") { echo "checked"; } ?> /> 90 minutes  <br/>
     	<input type="hidden" id="LengthValidate" value="<?= $vItems['Length'] ?>" />
 		<span id="LengthMsg"></span>
      </td>
