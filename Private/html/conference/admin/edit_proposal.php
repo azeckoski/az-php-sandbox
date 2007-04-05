@@ -5,10 +5,7 @@
  * Aaron Zeckoski (aaronz@vt.edu) - Virginia Tech (http://www.vt.edu/)
  */
  
- // TODO
- // figure out the audience and  topic display code
- // add proper validation to this code
- //add a warning prior to deleting a proposal
+ 
 ?>
 <?php
 require_once '../include/tool_vars.php';
