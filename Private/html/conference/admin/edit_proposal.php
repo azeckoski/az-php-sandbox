@@ -277,7 +277,7 @@ if ($_POST['save']) {
 	    	 $length="60";
 	    } 
 	    //items that are bundled into new sessions need the time set to 0
-	    if ($approved="B") { $length='0';  }
+	    if ($approved=="B") { $length='0';  }
 		
 		//this proposal has been edited
 			  // update proposal information  --all data except role and topic data
