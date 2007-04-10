@@ -288,8 +288,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					//echo "<div class='grid_event'>\n";
 					
 					if ($counter >1){	 //more than one session in this room block
-						$break_time="10 min. ";
-						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
+						$break_time="5 min. ";
+						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (( $proposal['length'] + 5) *60));
 						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));
 
 					//print the break block	
