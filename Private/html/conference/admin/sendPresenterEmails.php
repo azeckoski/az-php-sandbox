@@ -272,10 +272,10 @@ foreach ($conf_proposals as $proposal) {
 			
 					
 		//set up mail for the speaker
-		$recipient = $this_email;
-		$subject= "Sakai Amsterdam Conference Presentation";
+	//	$recipient = $this_email;
+	//	$subject= "Sakai Amsterdam Conference Presentation";
 		//send the mail to attendee
-		@mail($recipient, $subject, $msg, $headers);
+	//	@mail($recipient, $subject, $msg, $headers);
 		
 				
 		//set up mail for susan
@@ -285,10 +285,10 @@ foreach ($conf_proposals as $proposal) {
 		//mail($recipient, $subject, $msg, $headers);
 
 		//set up mail for susan
-		$recipient = "shardin@umich.edu";
-		$subject= "COPY-Presentation email";
-		//send the mail to susan
-		@mail($recipient, $subject, $msg, $headers);
+	//	$recipient = "shardin@umich.edu";
+	//	$subject= "COPY-Presentation email";
+	//send the mail to susan
+	//	@mail($recipient, $subject, $msg, $headers);
 
 	//	echo $this_email ."<br/>";
 	//	echo "<pre>$msg <br/><br/></pre>";	
