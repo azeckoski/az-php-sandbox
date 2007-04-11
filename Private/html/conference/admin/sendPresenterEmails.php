@@ -48,7 +48,7 @@ if ($_REQUEST['send_emails']){
 $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"U1.firstname||' '||U1.lastname as fullname,  " .
 	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
-	"where CP.confID =  '$CONF_ID' and approved='Y'";
+	"where CP.confID =  '$CONF_ID' and approved='Y' and type!='BOF' and type!='demo' and type!='poster'";
 	$filter_type_sql . $filter_items_sql . $sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
@@ -247,7 +247,7 @@ foreach ($conf_proposals as $proposal) {
 
 	$msg.="Track Lead: $track_lead \r\n\r\n\r\n";
 	
-	$msg.="----------Important Reminders ---------\r\n\r\n";
+	$msg.="---Important Reminders---\r\n\r\n";
 	$msg.="- Hotel Information:  The Sakai room block is filling up, make your reservations now!\r\n See http://sakaiproject.org/conference/hotel.html \r\n\r\n";
 	
 	$msg.="- Have you registered for the conference?  If not, please do so now at \r\nhttp://sakaiproject.org/conference/register.html \r\n\r\n";
@@ -287,11 +287,11 @@ foreach ($conf_proposals as $proposal) {
 		//set up mail for susan
 		$recipient = "shardin@umich.edu";
 		$subject= "COPY-Presentation email";
-		//send the mail to attendee
-	//	@mail($recipient, $subject, $msg, $headers);
+		//send the mail to susan
+		@mail($recipient, $subject, $msg, $headers);
 
 	//	echo $this_email ."<br/>";
-	//	echo "<pre>$msg <br/>------------------------------------<br/></pre>";	
+	//	echo "<pre>$msg <br/><br/></pre>";	
 			
 			
 			?>
