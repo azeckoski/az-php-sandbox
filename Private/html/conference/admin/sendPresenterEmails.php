@@ -219,7 +219,7 @@ foreach ($conf_proposals as $proposal) {
 				
 			//the variables are from the old code and will need to be changed
 	$msg ="We are pleased to notify you that your presentation has been accepted for the\r\n".
-			"Sakai Amsterdam Conference, Jun 12 - 14, 2007.  More details regarding the date and\r\n" .
+			"Sakai Amsterdam Conference Jun 12 - 14, 2007.  More details regarding the date and\r\n" .
 			"time of your presentation will be sent out soon.  If you have any questions,\r\n" .
 			"please contact the track lead for your session.   \r\n\r\n";
 	
@@ -248,7 +248,7 @@ foreach ($conf_proposals as $proposal) {
 	$msg.="Track Lead: $track_lead \r\n\r\n\r\n";
 	
 	$msg.="---Important Reminders---\r\n\r\n";
-	$msg.="- Hotel Information:  The Sakai room block is filling up, make your reservations now!\r\n See http://sakaiproject.org/conference/hotel.html \r\n\r\n";
+	$msg.="- Hotel Information:  The Sakai room block is filling up, so make your reservations now!\r\n See http://sakaiproject.org/conference/hotel.html \r\n\r\n";
 	
 	$msg.="- Have you registered for the conference?  If not, please do so now at \r\nhttp://sakaiproject.org/conference/register.html \r\n\r\n";
 	//$msg.="- The draft conference schedule is available at \r\nhttps://sakaiproject.org/conference/admin/draft_schedule.php. \r\n\r\n\r\n";
@@ -272,10 +272,10 @@ foreach ($conf_proposals as $proposal) {
 			
 					
 		//set up mail for the speaker
-	//	$recipient = $this_email;
-	//	$subject= "Sakai Conference Presentation";
+		$recipient = $this_email;
+		$subject= "Sakai Amsterdam Conference Presentation";
 		//send the mail to attendee
-	//	@mail($recipient, $subject, $msg, $headers);
+		@mail($recipient, $subject, $msg, $headers);
 		
 				
 		//set up mail for susan
