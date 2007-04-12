@@ -305,6 +305,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					echo "<tr><td valign='top' class='grid_event'>";
 					if  ($counter=="2") {  //there is a second session so print that start time
 					$break_time="5 min. ";
+						$proposal = $conf_proposals[$session['proposals_pk']];
+				
 						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
 						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));	
 						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;( " .$proposal['length'] ." min. )";
@@ -314,6 +316,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						}
 					else	if  ($counter=="3") {  //there is a second session so print that start time
 							$break_time="5 min. ";
+					$proposal = $conf_proposals[$session['proposals_pk']];
 				
 						$start_time3=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
 						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
