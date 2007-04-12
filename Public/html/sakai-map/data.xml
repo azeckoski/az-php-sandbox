@@ -1,7 +1,7 @@
 <markers>
 	<!-- Australia -->
-	<marker lat="-35.283" lng="149.217" title="http://sakai.anu.edu.au/" country="au" status="Sakai partner in pilot" text="" color="green"/>
-	<marker lat="-36.0468782804617" lng="146.97114944458008" title="http://www.csu.edu.au/" country="au" status="In Production" text="Charles Sturt University Interact system (interact.csu.edu.au) is used for Research Collaboration" color="blue" />
+	<marker lat="-35.283" lng="149.217" title="http://sakai.anu.edu.au/" country="au" status="Sakai partner in pilot" text="Australian National University" color="green"/>
+	<marker lat="-36.0468782804617" lng="146.97114944458008" title="http://www.csu.edu.au/" country="au" status="production" text="Charles Sturt University Interact system (interact.csu.edu.au) is used for Research Collaboration" color="blue" />
 	<marker lat="-32.54681317351514" lng="-243.984375" title="http://www.harvestroad.com/" country="au" status="Sakai Commercial Affiliate" text="HarvestRoad Ltd." color="orange" />
 	<marker lat="-37.9090" lng="145.1310" title="http://monash.edu/" country="au" status="Pilot" text="Monash University" color="green" />
 	<marker lat="-37.7974" lng="144.9634" title="http://www.unimelb.edu.au" country="au" status="Sakai Partner" text="University of Melbourne" color="purple" />
@@ -10,7 +10,7 @@
 	<marker lat="51.05" lng="3.717" title="http://portfolio.hogent.be/portal" country="be" status="Sakai Server" text="Hogeschool Gent" color="yellow" />
 	
 	<!-- Canada -->
-	<marker lat="45.50709880534763" lng="-73.57157707214355" title="http://www.sakaiquebec.org/en/" country="ca" status="Sakai Quebec (CRIM)" text="" color="purple" />
+	<marker lat="45.50709880534763" lng="-73.57157707214355" title="http://www.sakaiquebec.org/en/" country="ca" status="Sakai Partner" text="Sakai Quebec (CRIM)" color="purple" />
 	<marker lat="49.278861" lng="-122.914450" title="http://www.sfu.ca" country="ca" status="Pilot" text="Simon Fraser University" color="green" />
 	<marker lat="49.25" lng="-123.133" title="http://www.ubc.ca" country="ca" status="Sakai Partner" text="University of British Columbia - Host of the June 2006 Sakai Conference" color="purple" />
 	<marker lat="43.667" lng="-79.417" title="http://kmdi.utoronto.ca" country="ca" status="Sakai Partner" text="University of Toronto, Knowledge Media Design Institute" color="purple" />
@@ -36,10 +36,10 @@
 	<marker lat="53.52" lng="10.41" title="http://sakai.oncampus.de/portal" country="de" status="production" text="Lubeck University of Applied Scienc" color="blue" />
 	
 	<!-- Guatemala -->
-	<marker lat="14.633" lng="-90.517" title="http://sakai.uvg.edu.gt/" country="gt" status="Sakai pilot" text="" color="yellow"/>
+	<marker lat="14.633" lng="-90.517" title="http://sakai.uvg.edu.gt/" country="gt" status="Sakai pilot" text="UVG" color="yellow"/>
 	
 	<!-- Hong Kong -->
-	<marker lat="22.283" lng="114.15" title="http://lmes2.ust.hk/" country="hk" status="Sakai partner in pilot" text="" color="green"/>
+	<marker lat="22.283" lng="114.15" title="http://lmes2.ust.hk/" country="hk" status="Sakai partner in pilot" text="UST" color="green"/>
 	
 	<!-- Italy -->
 	<marker lat="41.9" lng="12.483" title="http://rp.csedu.unisa.it" country="it" status="Sakai Server" text="Running Platform" color="yellow" />
@@ -77,21 +77,21 @@
 	<marker lat="41.1731303241809" lng="-8.611135482788086" title="http://elearning.ufp.pt/" country="pt" status="production" text="Unversidade Fernando Pessoa" color="blue"/>
 	
 	<!-- New Zealand -->
-	<marker  lat="-36.84775766525783" lng="174.7650146484375" title="http://www.auckland.ac.nz" country="nz" status="Sakai Partner" text="The University of Auckland"  color="purple" />
+	<marker  lat="-36.84775766525783" lng="174.7650146484375" title="http://www.auckland.ac.nz" country="nz" status="Sakai Partner" text="The University of Auckland" color="purple" />
 	
 	<!-- South Africa -->
 	<marker lat="-26.7167" lng="27.1000" title="http://www.nwu.ac.za" text="North-West University" country="za" status="production" color="blue"/>
 	<marker lat="-25.767741" lng="28.199346" title="https://my.unisa.ac.za" country="za" status="production" text="UNISA (120,000 users)" color="blue"/>
 	<marker lat="-33.956888" lng="18.461151" title="https://vula.uct.ac.za/portal" country="za" status="production" text="University of Cape Town" color="blue"/>
 	<marker lat="-30.3166667" lng="26.8" title="http://www.ufs.ac.za" country="za" status="Sakai partner" text="University of the Free State" color="purple"/>
-	<marker lat="-33.917" lng="18.417" title="http://qa1-za.sakaiproject.org/portal" country="za" status="QA Server" text="" color="red"/>
+	<marker lat="-33.917" lng="18.417" title="http://qa1-za.sakaiproject.org/portal" country="za" status="QA Server" text="UCT QA server" color="red"/>
 	
 	<!-- Spain -->
 	<marker lat="41.613645577064105" lng="0.6193435192108154" title="http://cv.udl.es/portal" country="es" status="production" text="Universitat de Lleida" color="blue" />
 	<marker lat="39.48205045504316" lng="-0.3426361083984375" title="http://poliformat.upv.es/portal" country="es" status="production" text="Universidad Politecnica de Valencia" color="blue" />
 	
 	<!-- Sweden -->
-	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="Using Sakai" text="" color="yellow"/>
+	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="Using Sakai" text="UMU" color="yellow"/>
 	
 	<!-- UK -->
 	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="Sakai Server" text="Bell College" color="yellow" />
@@ -102,8 +102,8 @@
 	<marker lat="53.73246635451261" lng="-0.38452148437554.15" title="http://vre.his.uea.ac.uk/portal/" country="uk" status="Sakai in Pilot" text="Universities of East Anglia and Hull" color="green" />
 	<marker lat="50.809" lng="-1.07" title="http://thresher.mech.port.ac.uk/portal" country="uk" status="Using Sakai" text="University of Portsmouth" color="yellow"/>
 	<marker lat="52.175" lng="0.144" title="http://qa1-uk.sakaiproject.org:9085/portal" country="uk" status="Sakai Foundation QA Server" color="red"/>
-	<marker lat="52.235" lng="0.144" title="http://groups.tlrp.org/" country="uk" status="production" text="" color="blue"/>
-	<marker lat="55.85257707574302" lng="-4.2606353759765625" title="http://blueridge.gcal.ac.uk/portal" country="uk" status="Using Sakai" text="" color="yellow"/>
+	<marker lat="52.235" lng="0.144" title="http://groups.tlrp.org/" country="uk" status="production" text="TLRP" color="blue"/>
+	<marker lat="55.85257707574302" lng="-4.2606353759765625" title="http://blueridge.gcal.ac.uk/portal" country="uk" status="Using Sakai" text="GCAL" color="yellow"/>
 	<marker lat="55.928528945583984" lng="-4.682064056396484" title="http://www.aers.org.uk/portal" country="uk" status="Sakai server" text="Sakai Virtual Research and Collaboration Environment for the Applied Educational Research Scheme of Scotland (hosted by CARET)" color="blue" />
 	
 	<!-- USA (Appalachian College Association) -->
@@ -111,7 +111,7 @@
 	<marker lat="40.204945" lng="-80.562555" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Bethany College" color="blue" />
 	<marker lat="35.238745" lng="-82.72599" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Brevard College" color="blue" />
 	<marker lat="37.344308" lng="-85.347985" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Campbellsville University" color="blue" />
-	<marker lat="38.931070" lng="-79.846800" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Davis & Elkins College" color="blue" />
+	<marker lat="38.931070" lng="-79.846800" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Davis and Elkins College" color="blue" />
 	<marker lat="36.916834" lng="-80.034923" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Ferrum College" color="blue" />
 	<marker lat="38.339333" lng="-82.945638" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Kentucky Christian University" color="blue" />
 	<marker lat="36.170461" lng="-81.841194" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Lees-McRae College" color="blue" />
@@ -251,9 +251,9 @@
 	<marker lat="33.9401" lng="-84.2053" title="http://webcenter.aahe.org" country="us" text="American Association of Higher Education" status="Sakai Partner" color="yellow" />
 	
 	<!--USA (QA servers) -->
-	<marker lat="33.4979" lng="-112.081" title="http://qa1-osp.sakaiproject.org:8081/portal" country="us" status="QA Server" text="" color="red" />
-	<marker lat="40.807519" lng="-73.964660" title="http://qa2-us.sakaiproject.org:9090/portal" country="us" status="QA Server" text="" color="red" />
-	<marker lat="39.8643" lng="-86.1477" title="http://qa2-osp.sakaiproject.org:8084/portal" country="us" status="QA Server" text="" color="red" />
-	<marker lat="42.3535" lng="-71.0627" title="http://qa1-us.sakaiproject.org:8580/portal" country="us" status="QA Server" text="" color="red" />
-	<marker lat="33.4979" lng="-112.081" title="http://osp-qa1.rsmart.com:8081/portal" country="us" status="QA Server" text="" color="red" />
+	<marker lat="33.4979" lng="-112.081" title="http://qa1-osp.sakaiproject.org:8081/portal" country="us" status="QA Server" text="Sakai Foundation" color="red" />
+	<marker lat="40.807519" lng="-73.964660" title="http://qa2-us.sakaiproject.org:9090/portal" country="us" status="QA Server" text="Sakai Foundation" color="red" />
+	<marker lat="39.8643" lng="-86.1477" title="http://qa2-osp.sakaiproject.org:8084/portal" country="us" status="QA Server" text="Sakai Foundation" color="red" />
+	<marker lat="42.3535" lng="-71.0627" title="http://qa1-us.sakaiproject.org:8580/portal" country="us" status="QA Server" text="Sakai Foundation" color="red" />
+	<marker lat="33.4979" lng="-112.081" title="http://osp-qa1.rsmart.com:8081/portal" country="us" status="QA Server" text="Sakai Foundation" color="red" />
 </markers>
