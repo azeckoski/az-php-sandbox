@@ -172,7 +172,7 @@
 	<marker lat="38.8748" lng="-77.0354" title="http://ospi.longsight.com/" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="38.8748" lng="-77.9754" title="http://tltc.optimizedlearn.com/portal" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="38.9048" lng="-77.0054" title="http://sakai.longsight.com/portal" country="us" status="Using Sakai" color="yellow"/>
-	<marker lat="40.8148" lng="-81.3767" title="http://sakai.walsh.edu/" country="us" status="Using Sakai" color="yellow"/>
+	<marker lat="40.8148" lng="-81.3767" title="http://sakai.walsh.edu/" country="us" status="production" color="blue"/>
 	<marker lat="37.9709" lng="-121.293" title="http://sakai.pacific.edu/portal/" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="33.4979" lng="-112.081" title="http://sakai.wofford.edu/portal" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="38.9424" lng="-92.3145" title="https://sakai.missouri.edu/portal" country="us" status="Sakai partner in pilot" color="green"/>
@@ -199,9 +199,9 @@
 	    status="Sakai partner in production (5000 students)" color="blue"/>
 	
 	<marker lat="41.3095" lng="-72.9276" title="http://classesv2.yale.edu/" country="us" status="Sakai partner in production" color="blue"/>
-	<marker lat="41.3188" lng="-81.3369" title="https://courses.hiram.edu/portal" country="us" status="Using Sakai" color="yellow"/>
+	<marker lat="41.3188" lng="-81.3369" title="https://courses.hiram.edu/portal" country="us" status="production" color="blue"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="Using Sakai" color="yellow"/>
-	<marker lat="41.7879" lng="-81.0546" title="http://ilearn.lec.edu/" text="Lake Erie College" country="us" status="Using Sakai" color="yellow"/>
+	<marker lat="41.7879" lng="-81.0546" title="http://ilearn.lec.edu/" text="Lake Erie College" country="us" status="production" color="blue"/>
 	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="42.28861181380811" lng="-83.72800827026367" title="http://garden.dmc.dc.umich.edu/portal" country="us" status="Sakai QA system" color="red"/>
 	<marker lat="42.27692773757575" lng="-83.73787879943848" title="http://www.maclearningenvironments.org/" country="us" status="Sakai partner in pilot" color="green"/>
