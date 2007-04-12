@@ -159,8 +159,8 @@ if ($_REQUEST['add'] && $allowed) {
 $sql = "select CP.*, CS.pk as sessions_pk, CT.start_time from conf_proposals CP " .
 	"left join conf_sessions CS on CS.proposals_pk = CP.pk " .
 	"left join conf_timeslots CT on CT.pk = CS.timeslots_pk " .
-	"where CP.confID = '$CONF_ID' and CP.approved='Y' and CP.type != 'demo'" .
-	"order by type desc, length, title";
+	"where CP.confID = '$CONF_ID' and CP.approved='Y' and CP.type != 'demo' and CP.type != 'poster'  " .
+	"order by track asc, order_num, length, title";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $conf_proposals = array();
 while($row=mysql_fetch_assoc($result)) { $conf_proposals[$row['pk']] = $row; }
@@ -267,12 +267,13 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 		$disabled = "disabled='Y'";
 	}
 
-	$current = $conf_proposal['type'];
+	$current = $conf_proposal['track'];
 	if ($line == 1 || $current != $last) {
-		// next item, print the header again
+		// next track, print the header again
 ?>
 		<tr>
 			<td class='time_header'><?= $current ?></td>
+			<td class='schedule_header'>#</td>
 			<td class='schedule_header'>Title</td>
 			<td class='schedule_header'>Track</td>
 			<td class='schedule_header'>Length</td>
@@ -285,7 +286,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 	<tr class="<?= $linestyle ?>">
 		<td class="grid">
 			<input type="submit" <?= $disabled ?> name="add" value="add" onClick="setConfProposal('<?= $conf_proposal['pk'] ?>');" />
-		</td>
+		</td><td><?=$conf_proposal['order_num']?></td>
 		<td class="proposal_title">
 			<label title="<?= str_replace("\"","'",htmlspecialchars($proposal['abstract'])) ?>">
 				<?= $conf_proposal['title'] ?>
