@@ -257,7 +257,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	} else {
 		// print the grid selector
 		foreach ($rooms as $room_pk=>$room) {
-
+			
 			$conf_room = $conf_rooms[$room_pk];
 			if ($conf_room && $conf_room['BOF'] == 'Y' && $hide_bof_rooms) { continue; }
 
@@ -270,28 +270,28 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			$total_length = 0;
 			if (is_array($room)) {
 				$counter = 0;
-
+					$start_time1="";
+					$start_time2="";
+					$start_time3="";
+					
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
-					//get the starttime for this timeslot
+				  if ($counter=="1") {	//get the starttime for this timeslot
 					$start_time1=date('g:i',strtotime($timeslot['start_time']) );
 					
-					//clear any previous time set for second timeslot 
-					$start_time2="";
-					  
+					//clear any previous time set for second and 3rd timeslots
+				 
 					$proposal = $conf_proposals[$session['proposals_pk']];
 					$end_time1=date('g:i',strtotime($timeslot['start_time']) + (($proposal['length']) *60));
-				
-					$total_length += $proposal['length'];
-                     if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
+						$total_length += $proposal['length'];
+            	
+				  }
+				 if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
                      	
 					//echo "<div class='grid_event'>\n";
-					
-					if ($counter >1){	 //more than one session in this room block
-						$break_time="5 min. ";
-						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (( $proposal['length'] + 5) *60));
-						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));
-
+                 	if ($counter>1){	 //more than one session in this room block
+				  
+					$breaktime="5 min";
 					//print the break block	
 ?>
 				<tr>
@@ -303,19 +303,39 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					}
 					
 					echo "<tr><td valign='top' class='grid_event'>";
-					if  ($start_time2) {  //there is a second session so print that start time
-						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp;";
+					if  ($counter=="2") {  //there is a second session so print that start time
+					$break_time="5 min. ";
+						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
+						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));	
+						echo "2&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp;---" .$proposal['length'];
+						$total_length += $proposal['length'] +5;
+            	
+					
+						}
+					else	if  ($counter=="3") {  //there is a second session so print that start time
+							$break_time="5 min. ";
+				
+						$start_time3=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
+						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
+				echo "3&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;---"  .$proposal['length'];
 					
 						} else { 
 						//	echo "<strong> "  . $conf_room['title'] ." " .  $start_time1 ."</strong>";
-							echo "&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."</strong>&nbsp;";
+							echo "&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."</strong>&nbsp;---"  .$proposal['length'];
 					
 							
 					}
 					if($proposal['track']) { 
+						if ($proposal['track'] =="Teaching & Learning") {
+						echo "<div class='grid_event_header pedagogy'>".$proposal['track'];
+						echo "</div>\n";
+						} else if ($proposal['track']=="unavailable") {
+							//do not print the type information
+						}  else {
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
 						echo "</div>\n";
+					}
 					}
 					if($proposal['sub_track']) { 
 						echo "<div class='grid_event_header $trackclass'>" ."(" .$proposal['sub_track'] .")";
@@ -327,7 +347,9 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					} else if($proposal['type']) {
 					 	$typeclass = "";
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
-						echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
+						if ($proposal['track']=="unavailable") {
+							//do not print the type information
+						}  else echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
 					
 					if ($isAdmin) { //let the admins link to the edit page
