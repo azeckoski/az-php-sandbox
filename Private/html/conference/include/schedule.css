@@ -189,6 +189,9 @@ tr,td {
 	background: #339933;
 }
 
+.user_experience {
+	background:#993300;
+}
 .tool_carousel {
 	background: #999933;
 }
@@ -197,13 +200,17 @@ tr,td {
 	background: #cadd99;
 }
 
+.research {
+	background: #ca3333;
+}
+
 
 
 .tool_overview {
 	background: #339999;
 }
 
-.multiple_audiences {
+.other {
 	background: #993399;
 }
 
