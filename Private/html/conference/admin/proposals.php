@@ -600,6 +600,10 @@ foreach ($items as $item) { // loop through all of the proposal items
  *	$printInst = substr($printInst,0,30) . "...";
  *	}
 ***/
+if ($item['track']=="unavailable") {
+	//do nothing -- we don't want this to appear'
+}  else {
+	
 
 	$linestyle = "oddrow";
 	if (($line % 2) == 0) { $linestyle = "evenrow"; } else { $linestyle = "oddrow"; }
@@ -935,7 +939,9 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 	</td>
 </tr>
 
-<?php } /* end the foreach loop */ ?>
+
+<?php  } 
+ } /* end the foreach loop */ ?>
 </table>
 
 </form>

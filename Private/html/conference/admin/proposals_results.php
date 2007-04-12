@@ -523,6 +523,11 @@ if (!$_REQUEST["export"]) {
 // now dump the data we currently have
 $line = 0;
 foreach ($items as $item) { // loop through all of the proposal items
+
+
+if ($item['track']=="unavailable") {
+	//do nothing
+}  else {
 	$line++;
 
 	$pk = $item['pk'];
@@ -987,7 +992,8 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 
 <?php 	} /* export check */ ?>
 
-<?php } /* end the foreach loop */ ?>
+<?php }
+ } /* end the foreach loop */ ?>
 
 <?php if (!$_REQUEST["export"]) { ?>
 </table>
