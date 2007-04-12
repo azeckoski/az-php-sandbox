@@ -307,7 +307,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					$break_time="5 min. ";
 						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
 						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));	
-						echo "2&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp;---" .$proposal['length'];
+						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;( " .$proposal['length'] ."min. )";
 						$total_length += $proposal['length'] +5;
             	
 					
@@ -317,11 +317,11 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				
 						$start_time3=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
 						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
-				echo "3&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;---"  .$proposal['length'];
+				echo "&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ."min. )";
 					
 						} else { 
 						//	echo "<strong> "  . $conf_room['title'] ." " .  $start_time1 ."</strong>";
-							echo "&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."</strong>&nbsp;---"  .$proposal['length'];
+							echo "&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ."min. )";
 					
 							
 					}
