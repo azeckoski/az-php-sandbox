@@ -65,13 +65,13 @@
 							<div><span><a <?=$active_accounts?> href="<?= $ACCOUNTS_URL ?>/admin/index.php">Accounts Admin</a></span><span class="righttab">&nbsp;</span></div>
 								<?php } ?>
 							<?php if ($User->checkPerm("admin_conference") || $User->checkPerm("registration_dec2006") ) { ?>
-							<div><span><a <?=$active_reg?> href="<?= $CONFADMIN_URL ?>/admin/registration_admin.php">Registration Admin</a></span><span class="righttab">&nbsp;</span></div>
+							<div><span><a <?=$active_reg?> href="<?= $CONFADMIN_URL ?>/admin/attendees.php">Registration Admin</a></span><span class="righttab">&nbsp;</span></div>
 							<?php }   if ($User->checkPerm("admin_conference") || $User->checkPerm("proposals_dec2006") ) { ?>
 					
 							<div><span><a <?=$active_prop?> href="<?= $CONFADMIN_URL ?>/admin/proposals_admin.php">Proposals Admin</a></span><span class="righttab">&nbsp;</span></div>
 								<?php }    ?> 
 							<?php if (($User->checkPerm("admin_conference")) || ($User->checkPerm("proposals_dec2006")) || ($User->checkPerm("registration_dec2006") )  ){ ?>
-							<div><span><a <?=$active_sched?> href="<?= $CONFADMIN_URL ?>/admin/schedule_admin.php">Schedule Admin</a></span><span class="righttab">&nbsp;</span></div>
+							<div><span><a <?=$active_sched?> href="<?= $CONFADMIN_URL ?>/admin/schedule.php">Schedule Admin</a></span><span class="righttab">&nbsp;</span></div>
 								 <?php } ?>
 							</div>
 							<?php } 
