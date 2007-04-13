@@ -320,6 +320,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				
 						$start_time3=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
 						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
+							$total_length += $proposal['length'];
+            	
 				echo "&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ." min. )";
 					
 						} else { 
