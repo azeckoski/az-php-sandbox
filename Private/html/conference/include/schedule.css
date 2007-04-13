@@ -20,6 +20,21 @@ tr,td {
 	
 }
 
+.graphic_legend, .color_legend {
+padding:0px 5px;
+line-height:1.5em;
+
+}
+
+.graphic_legend span  {
+padding: 0px 5px;
+}
+.color_legend span {
+margin-left: 10px;
+padding: 0px 5px;
+color: #fff;
+border: 1px solid #666;
+}
 .schedule_header {
 	background:#336699;
 	padding:.2em;
@@ -99,11 +114,13 @@ tr,td {
 	padding: 2px;
 }
 
-.grid_event_speaker {
+.grid_event_speaker,  grid_event_cospeaker, {
 	border-top: 2px dotted #AAAAAA;
 	font-style: italic;
 	background: white;
 }
+
+
 
 
 .list {
@@ -131,7 +148,7 @@ tr,td {
 	font-size: 1em;
 	font-weight: bold;
 	background-color: #339933;
-	color: white;
+	color: white; 
 	padding: 2px;
 }
 
@@ -170,7 +187,7 @@ tr,td {
 }
 
 .technology {
-	background: #993333;
+	background: #339966;
 }
 
 .community {
@@ -182,32 +199,34 @@ tr,td {
 }
 
 .pedagogy {
-	background: #CC00FF;
+	background: #C28547;
 }
 
 .implementation {
-	background: #339933;
+	background: #4785C2;
 }
 
 .user_experience {
-	background:#993300;
+	background:#EB0000;
 }
 .tool_carousel {
-	background: #999933;
+	background: #E67300;
 }
 
 .tool_demo {
-	background: #cadd99;
+	background: #E67300;
 }
 
 .research {
-	background: #ca3333;
+	background: #663300;
 }
 
 
 
 .tool_overview {
 	background: #339999;
+	
+	background: #ffffff;
 }
 
 .other {
@@ -217,18 +236,25 @@ tr,td {
 
 .workshop {
 	background: #FFDDDD;
+	background: #ffffff;
 }
 
 .discussion {
 	background: #FFFFCC;
+	
+	background: #ffffff;
 }
 
 .panel {
 	background: #CCFFCC;
+	
+	background: #ffffff;
 }
 
 .lecture {
 	background: #CCEEFF;
+	
+	background: #ffffff;
 }
 
 .remaining {

@@ -156,7 +156,23 @@ function orderBy(newOrder) {
 
 
 <?= $Message ?>
-
+<?php
+echo "<div class='page'><div class='pageheader'><strong>Sakai Atlanta Conference Session Details</strong><span class=program_legend> ( Page $page )</span>" .
+			"" ;
+	
+		
+			echo "<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
+			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
+			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
+			"<span><img src='../include/images/coolCommercialToolicon.gif' alt='' height=16 /> - Cool Commercial Tool </span>" .
+			"<span><img src='../include/images/people_icon.jpg' alt='' height=17/> - User Experience </span>" .
+				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
+				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span>" .
+				"<span class='multiple_audiences'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
+				"<span class='pedagogy'>Teaching &amp; Learning</span><span class='user_experience'>User Experience</span></div></div>" ;
+	
+echo "</div>";
+?>
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
@@ -201,7 +217,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				if ($hide_bof_rooms) { continue; }
 				$type = "bof_header";
 			}
-			echo "<td class='$type' nowrap='y'>".$conf_room['title']."</td>\n";
+			echo "<td class='$type' width=12%  nowrap='y'>".$conf_room['title']."</td>\n";
 		}
 		echo "</tr>\n\n";
 	}
@@ -343,8 +359,17 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					}
 					}
 					if($proposal['sub_track']) { 
-						echo "<div class='grid_event_header $trackclass'>" ."(" .$proposal['sub_track'] .")";
-						echo "</div>\n";
+						$image_file="";
+								switch ($proposal['sub_track']) {
+							case "OSP": $image_file = "ospiNEWicon2.jpg' height=15"; break;
+							case "Cool New Tools": $image_file = "coolToolicon.gif' height=17 width=17"; break;
+							case "Cool Commercial Tool": $image_file = "coolCommercialToolicon.gif' height=17 width=17"; break;
+							case "User Experience": $image_file = "people_icon.jpg' height=17 width=17"; break;
+							case "Library": $image_file = "book06.gif' height=17 width=17"; break;
+							
+	}
+						echo "<img style='padding: 2px 5px 0px 0px;' src='../include/images/" .$image_file ." align='left' alt=''  />";
+						
 					}
 
 					if($proposal['type']=="BOF") { //don't list the type on the schedule
@@ -354,7 +379,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
 						if ($proposal['track']=="unavailable") {
 							//do not print the type information
-						}  else echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
+						}  //else echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
 					}
 					
 					if ($isAdmin) { //let the admins link to the edit page
@@ -382,7 +407,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					if($proposal['speaker']) {
 						echo "<div class='grid_event_speaker'>".
 							htmlspecialchars($proposal['speaker'])."</div>\n";
-					echo "<div class='grid_event_speaker'>".
+					echo "<div class='grid_event_cospeaker'>".
 							htmlspecialchars($proposal['co_speaker'])."</div>\n";
 				}
 				echo "<div style='text-align:left;'>";
