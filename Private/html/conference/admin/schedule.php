@@ -157,7 +157,7 @@ function orderBy(newOrder) {
 
 <?= $Message ?>
 <?php
-echo "<div class='page'><div class='pageheader'><strong>Sakai Atlanta Conference Session Details</strong><span class=program_legend> ( Page $page )</span>" .
+echo "<div class='page'>" .
 			"" ;
 	
 		
