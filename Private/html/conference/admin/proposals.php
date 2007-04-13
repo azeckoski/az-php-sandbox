@@ -416,7 +416,7 @@ $sql = "select U1.firstname, U1.lastname, U1.email, U1.institution, " .
 	"CP.* from conf_proposals CP left join users U1 on U1.pk = CP.users_pk " .
 	"left join conf_proposals_vote CV on CV.conf_proposals_pk = CP.pk " .
 	"and CV.users_pk='$User->pk' " .
-	"where CP.confID = '$CONF_ID'" . $sqlsearch . 
+	"where CP.confID = '$CONF_ID'  and CP.approved!='D'  and CP.track!='unavailable'" . $sqlsearch . 
 	$filter_type_sql . $filter_items_sql .$filter_status_sql . $filter_track_sql .$filter_sub_track_sql .$filter_length_sql . $sqlsorting . $mysql_limit;
 
 //print "SQL=$sql<br/>";
@@ -600,9 +600,7 @@ foreach ($items as $item) { // loop through all of the proposal items
  *	$printInst = substr($printInst,0,30) . "...";
  *	}
 ***/
-if ($item['track']=="unavailable") {
-	//do nothing -- we don't want this to appear'
-}  else {
+
 	
 
 	$linestyle = "oddrow";
@@ -940,7 +938,7 @@ if (($item['type']!='demo') && ($item['type'] != 'BOF'))  {
 </tr>
 
 
-<?php  } 
+<?php  
  } /* end the foreach loop */ ?>
 </table>
 
