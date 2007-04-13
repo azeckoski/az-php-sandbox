@@ -168,7 +168,7 @@ echo "<div class='page'><div class='pageheader'><strong>Sakai Atlanta Conference
 			"<span><img src='../include/images/people_icon.jpg' alt='' height=17/> - User Experience </span>" .
 				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
 				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span>" .
-				"<span class='multiple_audiences'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
+				"<span class='other'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
 				"<span class='pedagogy'>Teaching &amp; Learning</span><span class='user_experience'>User Experience</span></div></div>" ;
 	
 echo "</div>";
@@ -350,7 +350,11 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						if ($proposal['track'] =="Teaching & Learning") {
 						echo "<div class='grid_event_header pedagogy'>".$proposal['track'];
 						echo "</div>\n";
-						} else if ($proposal['track']=="unavailable") {
+						} else 	if ($proposal['track'] =="Other") {
+						echo "<div class='grid_event_header other'>Multiple Audiences</div>\n";
+						
+						}
+						 else if ($proposal['track']=="unavailable") {
 							//do not print the type information
 						}  else {
 						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
