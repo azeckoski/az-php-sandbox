@@ -56,7 +56,7 @@ if (!$_REQUEST['room'] || !$_REQUEST['time']) {
 	$sql = "select sum(CP.length) as mins_used from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk and " .
 		"CS.rooms_pk='$roomPk' and CS.timeslots_pk='$timeslotPk'" .
-		"where CP.confID = 'Jun2006'";
+		"where CP.confID = '$CONF_ID'";
 	$result = mysql_query($sql) or die("Sessions fetch query failed ($sql): " . mysql_error());
 	$conf_sessions = array();
 	$row=mysql_fetch_assoc($result);
