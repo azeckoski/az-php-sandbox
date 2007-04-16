@@ -271,7 +271,7 @@
         <br/><br/>
          <img id="attending_monImg" src="/accounts/ajax/images/blank.gif" width="16" height="16" alt="validation indicator" />
   	
-      <input type="radio" name="attending_mon" value="MON"  <?php if ($_POST['attending_mon']=="MON") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_tue" value=" " /> No &nbsp;&nbsp;&nbsp;
+      <input type="radio" name="attending_mon" value="MON"  <?php if ($_POST['attending_mon']=="MON") { echo "checked"; } ?> /> Yes<input type="radio" name="attending_mon" value=" " /> No &nbsp;&nbsp;&nbsp;
        <strong>Mon, Jun. 11th </strong>(Pre-Conference sessions)<br><br/>
      <input type="hidden" id="attending_monValidate" value="<?= $vItems['attending_mon'] ?>"/> 
 	<span id="attending_monMsg"></span> 
