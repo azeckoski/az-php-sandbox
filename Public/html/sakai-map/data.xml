@@ -157,7 +157,7 @@
 	<marker lat="37.21057576283389" lng="-80.41502952575684" title="http://eportfolio.scholar.vt.edu/" country="us" status="Sakai partner in pilot" color="green"/>
 	<marker lat="37.20479936413613" lng="-80.4009532928466" title="http://collab.sakaiproject.org" country="us" status="production" text="Sakai Foundation Collaboration Server Hosted by Virginia Tech" color="red" />
 	<marker lat="37.42566996317141" lng="-122.16737866401672" title="http://coursework-pilot.stanford.edu/" country="us" status="Sakai partner in production" color="blue"/>
-	<marker lat="37.87040711546537" lng="-122.26031184196472" title="https://bspace.berkeley.edu/portal" country="us" status="production" text="UC Berkeley"color="blue"/>
+	<marker lat="37.87040711546537" lng="-122.26031184196472" title="https://bspace.berkeley.edu/portal" country="us" status="production" text="UC Berkeley" color="blue"/>
 	<marker lat="36.1543" lng="-115.17" title="http://sakai.ccsn.edu/portal" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="38.8448" lng="-77.0954" title="http://webcenter.msi-alliance.org/portal" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="38.8748" lng="-77.0354" title="http://ospi.longsight.com/" country="us" status="Using Sakai" color="yellow"/>
