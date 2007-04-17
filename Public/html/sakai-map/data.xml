@@ -250,7 +250,7 @@
 	<marker lat="41.9076" lng="-84.0644" title="http://sakai.adrian.edu:8080/portal" country="us" status="Sakai Server" text="Adrian College" color="yellow" />
 	<marker lat="33.9401" lng="-84.2053" title="http://webcenter.aahe.org" country="us" text="American Association of Higher Education" status="Sakai Partner" color="yellow" />
 	
-	<!--USA (QA servers) -->
+	<!-- USA (QA servers) -->
 	<marker lat="33.4979" lng="-112.081" title="http://qa1-osp.sakaiproject.org:8081/portal" country="us" status="QA Server" text="Sakai Foundation" color="red" />
 	<marker lat="40.807519" lng="-73.964660" title="http://qa2-us.sakaiproject.org:9090/portal" country="us" status="QA Server" text="Sakai Foundation" color="red" />
 	<marker lat="39.8643" lng="-86.1477" title="http://qa2-osp.sakaiproject.org:8084/portal" country="us" status="QA Server" text="Sakai Foundation" color="red" />
