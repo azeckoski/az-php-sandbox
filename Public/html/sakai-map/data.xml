@@ -5,6 +5,7 @@
 	<marker lat="-32.54681317351514" lng="-243.984375" title="http://www.harvestroad.com/" country="au" status="Sakai Commercial Affiliate" text="HarvestRoad Ltd." color="orange" />
 	<marker lat="-37.9090" lng="145.1310" title="http://monash.edu/" country="au" status="Pilot" text="Monash University" color="green" />
 	<marker lat="-37.7974" lng="144.9634" title="http://www.unimelb.edu.au" country="au" status="Sakai Partner" text="University of Melbourne" color="purple" />
+	<marker lat="-30.48682358610644" lng="151.6434931755066" title="http://www.une.edu.au" country="au" status="production" text="University of New England" color="blue" />
 	
 	<!-- Belgium -->
 	<marker lat="51.05" lng="3.717" title="http://portfolio.hogent.be/portal" country="be" status="Sakai Server" text="Hogeschool Gent" color="yellow" />
