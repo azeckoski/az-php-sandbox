@@ -30,7 +30,7 @@
 	<marker lat="30.05" lng="31.25" title="http://www.mpgc-heepf.eng.cu.edu.eg" country="eg" status="Sakai Server" text="Cairo University" color="yellow" />
 	
 	<!-- France -->
-	<marker lat="43.3071924816119" lng="-0.35121917724609375" title="http://amphi.pau.eisti.fr/portal" country="fr" status="Sakai Server" text="Ecole Internationale des Sciences du Traitement de l'Information" color="yellow" />
+	<marker lat="43.3071924816119" lng="-0.35121917724609375" title="http://amphi.pau.eisti.fr/portal" country="fr" status="Sakai Server" text="Ecole Internationale des Sciences du Traitement de l&apos;Information" color="yellow" />
 	
 	<!-- Germany -->
 	<marker lat="53.52" lng="10.41" title="http://sakai.oncampus.de/portal" country="de" status="production" text="Lubeck University of Applied Scienc" color="blue" />
@@ -152,10 +152,10 @@
 	<marker lat="29.7716" lng="-95.393" title="https://owlspace-ccm.rice.edu/portal" country="us" status="Sakai partner in pilot" color="green"/>
 	<marker lat="33.4979" lng="-112.081" title="http://www.osnext.org/" country="us" status="Sakai partner in pilot" color="green"/>
 	<marker lat="33.88619934077726" lng="-118.09751272201538" title="http://talonnet.cerritos.edu/portal/" country="us" status="Sakai Partner in Production" text="Cerritos Community College" color="blue" />
-	<marker lat="34.0724" lng="-118.4418" title="http://sakai.ucla.edu/portal" country="us" status="Sakai partner in pilot" text="UCLA's pilot Sakai installation" color="green"/>
+	<marker lat="34.0724" lng="-118.4418" title="http://sakai.ucla.edu/portal" country="us" status="Sakai partner in pilot" text="UCLA" color="green"/>
 	<marker lat="34.1928" lng="-119.176" title="http://sakai.oxnardcollege.edu/" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="37.21057576283389" lng="-80.41502952575684" title="http://eportfolio.scholar.vt.edu/" country="us" status="Sakai partner in pilot" color="green"/>
-	<marker lat="37.20479936413613" lng="-80.4009532928466" title="http://collab.sakaiproject.org" country="us" status="production" text="Sakai's Collaboration Server Hosted by Virginia Tech" color="red" />
+	<marker lat="37.20479936413613" lng="-80.4009532928466" title="http://collab.sakaiproject.org" country="us" status="production" text="Sakai Foundation Collaboration Server Hosted by Virginia Tech" color="red" />
 	<marker lat="37.42566996317141" lng="-122.16737866401672" title="http://coursework-pilot.stanford.edu/" country="us" status="Sakai partner in production" color="blue"/>
 	<marker lat="37.87040711546537" lng="-122.26031184196472" title="https://bspace.berkeley.edu/portal" country="us" status="production" text="UC Berkeley"color="blue"/>
 	<marker lat="36.1543" lng="-115.17" title="http://sakai.ccsn.edu/portal" country="us" status="Using Sakai" color="yellow"/>
@@ -215,7 +215,7 @@
 	<marker lat="43.0512" lng="-76.1493" title="http://www.syr.edu" country="us" status="Sakai Partner" text="Syracuse University" color="purple" />
 	<marker lat="42.35052027063755" lng="-71.06422662734985" title="http://www.tufts.edu" country="us" status="Sakai Partner" text="Tufts University" color="purple" />
 	<marker lat="53.333" lng="-6.25" title="http://www.ucd.ie" country="ie" status="Sakai Partner" text="University College Dublin" color="purple" />
-	<marker lat="38.533463138733936" lng="-121.76156044006348" title="https://cere.vetmed.ucdavis.edu/" country="us" status="Sakai Partner in Pilot" text="University of California Davis - Host of the 2006 Programmer's Workshop" color="blue" />
+	<marker lat="38.533463138733936" lng="-121.76156044006348" title="https://cere.vetmed.ucdavis.edu/" country="us" status="Sakai Partner in Pilot" text="University of California Davis" color="blue" />
 	<marker lat="34.4119" lng="-119.728" title="http://www.ucsb.edu" country="us" status="Sakai Partner" text="University of California, Santa Barbara" color="purple" />
 	<marker lat="41.790256834329455" lng="-87.59974479675293" title="http://www.uchicago.edu" country="us" status="Sakai Partner" text="University of Chicago" color="purple" />
 	<marker lat="40.016" lng="-105.263" title="http://www.colorado.edu" country="us" status="Sakai Partner" text="University of Colorado at Boulder" color="purple" />
