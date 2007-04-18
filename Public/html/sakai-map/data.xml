@@ -128,6 +128,29 @@
 	<marker lat="35.611975" lng="-82.440935" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Warren Wilson College" color="blue" />
 	<marker lat="40.071215" lng="-80.692225" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Wheeling Jesuit University" color="blue" />
 	
+	<!-- USA (ETUDES) -->
+	<marker lat="35.408835" lng="-118.972020" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Bakersfield College (ETUDES Consortium)" color="blue" />
+	<marker lat="37.870127" lng="-122.269321" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Berkeley City College (ETUDES Consortium)" color="blue" />
+	<marker lat="37.408267" lng="-122.023599" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Cogswell Polytechnical College (ETUDES Consortium)" color="blue" />
+	<marker lat="37.782365" lng="-122.278895" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="College of Alameda (ETUDES Consortium)" color="blue" />
+	<marker lat="41.413083" lng="-122.395324" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="College of the Siskiyous (ETUDES Consortium)" color="blue" />
+	<marker lat="34.041265" lng="-118.149670" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="East Los Angeles College (ETUDES Consortium)" color="blue" />
+	<marker lat="33.885500" lng="-118.326680" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="El Camino College  (ETUDES Consortium)" color="blue" />
+	<marker lat="37.361160" lng="-122.128455" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Foothill College (ETUDES Consortium)" color="blue" />
+	<marker lat="32.827900" lng="-115.505445" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Imperial Valley College (ETUDES Consortium)" color="blue" />
+	<marker lat="38.928540" lng="-119.969920" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Lake Tahoe Community College (ETUDES Consortium)" color="blue" />
+	<marker lat="37.796340" lng="-122.262845" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Laney College (ETUDES Consortium)" color="blue" />
+	<marker lat="34.087645" lng="-118.293355" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Los Angeles City College (ETUDES Consortium)" color="blue" />
+	<marker lat="33.783465" lng="-118.284290" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Los Angeles Harbor College (ETUDES Consortium)" color="blue" />
+	<marker lat="34.314620" lng="-118.418535" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Los Angeles Mission College (ETUDES Consortium)" color="blue" />
+	<marker lat="34.175755" lng="-118.418355" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Los Angeles Valley College (ETUDES Consortium)" color="blue" />
+	<marker lat="39.150278" lng="-123.206667" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Mendocino College (ETUDES Consortium)" color="blue" />
+	<marker lat="37.791311" lng="-122.167774" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Merritt College (ETUDES Consortium)" color="blue" />
+	<marker lat="36.048172" lng="-119.014634" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Porterville College (ETUDES Consortium)" color="blue" />
+	<marker lat="37.995690" lng="-121.319430" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="San Joaquin Delta College (ETUDES Consortium)" color="blue" />
+	<marker lat="35.149414" lng="-119.458501" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="Taft College (ETUDES Consortium)" color="blue" />
+	<marker lat="34.004835" lng="-118.387585" title="http://etudes-ng.fhda.edu/portal" country="US" status="production" text="West Los Angeles College (ETUDES Consortium)" color="blue" />
+
 	<!-- USA -->
 	<marker lat="42.256423774909216" lng="-72.57618248462677" title="http://ella.mtholyoke.edu" country="us" status="production" text="Mount Holyoke College" color="blue" />
 	<marker lat="40.007730174396315" lng="-83.04895877838135" title="http://ospilot.oln.org" country="us" status="Sakai Partner in pilot" text="Ohio Learning Network" color="purple" />
@@ -137,8 +160,7 @@
 	<marker lat="33.76773195605407" lng="-84.35165405273438" title="http://www.sakaiproject.org" country="zz" text="Atalnta, Georgia is the site of the next Sakai Conference, December 2006" color="white" />
 	<marker lat="37.36251701774281" lng="-120.42612075805664" title="https://ucmcrops.ucmerced.edu/portal" text="UC Merced" country="us" status="Sakai Partner in Production" color="blue" />
 	<marker lat="33.417877" lng="-111.932332" title=" https://sakai.asu.edu" text="ASU Sakai Pilot" status="Sakai partner in pilot" color="green" country="us" />
-	<marker lat="33.4208753223261" lng="-111.93871021270752" title=" https://sapp.ideal.azed.gov/portal" text="Arizona Department Of Education-Arizona State University CLE. Fall 06: 1 million preK-12 students. 70,000 Arizona teachers" status="Sakai partner in production" color="blue" country="us" /> 
-	<marker lat="37.36213328351577" lng="-122.12915182113647" title="http://etudes-ng.fhda.edu/portal" country="us" status="production" text="Etudes Consortium" color="blue" />
+	<marker lat="33.4208753223261" lng="-111.93871021270752" title=" https://sapp.ideal.azed.gov/portal" text="Arizona Department Of Education-Arizona State University CLE. Fall 06: 1 million preK-12 students. 70,000 Arizona teachers" status="Sakai partner in production" color="blue" country="us" />
 	<marker lat="39.16700255163836" lng="-86.52577757835388" title="https://oncourse.iu.edu/" country="us" text="Oncourse supports more than 100,000 users daily" status="Sakai Partner in Production" color="blue"/>
 	<marker lat="42.29096106747343" lng="-83.71745109558105" title="http://ctools.umich.edu/" country="us" status="Sakai Partner in Production" text="University of Michigan" color="blue"/>
 	<marker lat="29.875" lng="-97.9502" title="http://tracs.txstate.edu/" country="us" status="Sakai in production" color="blue"/>
