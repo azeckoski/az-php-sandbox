@@ -245,6 +245,7 @@
 	<marker lat="40.8148" lng="-81.3767" title="http://sakai.walsh.edu/" country="us" status="production" color="blue"/>
 	<marker lat="38.0613" lng="-78.4749" title="http://www.virginia.edu" country="us" status="Sakai Partner" text="University of Virginia" color="purple" />
 	<marker lat="47.6014" lng="-122.33" title="http://www.washington.edu" country="us" status="Sakai Partner" text="University of Washington" color="purple" />
+	<marker lat="35.651009" lng="-78.707074" title="http://www.optimizedlearn.com/" country="us" status="production" text="Wake Technical Community College" color="blue"/>
 	<marker lat="46.07270961255675" lng="-118.3292555809021" title="https://cleo.whitman.edu/portal/" country="us" status="Sakai partner in production" color="blue"/>
 	<marker lat="41.19221885042551" lng="-111.94313049316406" title="http://sakai.weber.edu" country="us" status="Sakai Partner" text="Weber State University" color="green" />
 	<marker lat="43.0725" lng="-89.3994" title="http://www.wisc.edu" country="us" status="Sakai Partner" text="University of Wisconsin, Madison" color="purple" />
