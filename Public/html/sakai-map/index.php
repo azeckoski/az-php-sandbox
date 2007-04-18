@@ -179,21 +179,16 @@ GDownloadUrl("<? echo($file); ?>", function(data, responseCode) {
     <a href=index.php> Show All </a> |
     <img src="http://labs.google.com/ridefinder/images/mm_20_blue.png"> 
     <a href=index.php?filtercolor=blue> Production </a> |
-    <img src="http://labs.google.com/ridefinder/images/mm_20_green.png"> 
-    <a href=index.php?filtercolor=green>
-    Sakai Partner Server </a> |
     <img src="http://labs.google.com/ridefinder/images/mm_20_purple.png"> 
-    <a href=index.php?filtercolor=purple>
-    Sakai Partner </a> |
+    <a href=index.php?filtercolor=purple> Pilots </a> |
+    <img src="http://labs.google.com/ridefinder/images/mm_20_green.png"> 
+    <a href=index.php?filtercolor=green> Sakai Partner </a> |
     <img src="http://labs.google.com/ridefinder/images/mm_20_orange.png"> 
-    <a href=index.php?filtercolor=orange>
-    Commercial Affiliate </a> |
+    <a href=index.php?filtercolor=orange> Commercial Affiliate </a> |
     <img src="http://labs.google.com/ridefinder/images/mm_20_red.png"> 
-    <a href=index.php?filtercolor=red>
-    Foundation Server </a> |
+    <a href=index.php?filtercolor=red> Foundation Server </a> |
     <img src="http://labs.google.com/ridefinder/images/mm_20_yellow.png"> 
-    <a href=index.php?filtercolor=yellow>
-    Sakai Server </a> <br>
+    <a href=index.php?filtercolor=yellow> Sakai Server </a> <br>
     <br>
     <div id="map" style="width: 1000px; height: 600px"></div>
     <hr>
@@ -203,18 +198,19 @@ GDownloadUrl("<? echo($file); ?>", function(data, responseCode) {
     Once you find yourself, produce an entry that looks like
 <pre>
 &lt;marker 
-  lat="41.19221885042551" lng="-111.94313049316406" 
+  lat="41.19221885042551" 
+  lng="-111.94313049316406" 
   title="http://sakai.weber.edu" 
   country="us" 
-  status="Sakai Partner in pilot" 
+  status="production" 
   text="Weber State University" 
-  color="green" />
+  color="blue" />
 </pre>
 You can test a single entry by putting the values on the commmand line as follows:
 <pre>
 http://www.sakaiproject.org/sakai-map/index.php?color=green&amp;lat=41.192&amp;lng=-111.943&amp;status=Pilot&amp;text=Weber%20State&amp;title=http://www.weber.edu&amp;country=us
 </pre>
-and then send that entry to Chuck.  
+and then send that entry to <a href="mailto:arwhyte@sakaifoundation.org">Anthony Whyte</a>.  
 Eventually this can be put into a database for easier updating.
 <!--  Remove Chuck's analytics
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
