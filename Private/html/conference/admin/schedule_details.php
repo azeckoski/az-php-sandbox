@@ -234,7 +234,6 @@ function orderBy(newOrder) {
 
 <?= $Message ?>
 
-<p>coming soon...</p>
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
@@ -452,10 +451,10 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 
 				//echo "</div>\n";
-				echo "</div></td>\n</td></tr>";
+				echo "</div></td></tr>";
 			}
 		}
-		echo "</td></tr>";
+		
 	}
   }
 } 
