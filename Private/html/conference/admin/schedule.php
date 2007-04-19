@@ -156,7 +156,9 @@ function orderBy(newOrder) {
 
 
 <?= $Message ?>
-<?php
+
+<div align=center style="width:50%; font-size:1.1em; background:#fff; font-weight:bold; border:1px solid red; color:#000; padding:5px 5px">DRAFT SCHEDULE - not all sessions have been scheduled. <br/> Dates and times may change for any of the sessions listed below. </div>
+<br/><br/><?php
 echo "<div class='page'>" .
 			"" ;
 	
@@ -177,7 +179,6 @@ echo "</div>";
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
 
 <table border="0" cellspacing="0" style='width:100%;height:100%;'>
-
 <?php
 // create the grid
 $line = 0;
