@@ -69,7 +69,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 
 // fetch the proposals that have sessions assigned
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.sub_track, CP.speaker, CP.co_speaker, CP.URL, CP.wiki_url, CP.podcast_url, CP.slides_url," .
-		"CP.type, CP.length from conf_proposals CP " .
+		"CP.type, CP.length, CP.order_num from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
 		"where CP.confID = '$CONF_ID' and CP.approved='Y'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
@@ -157,7 +157,7 @@ function orderBy(newOrder) {
 
 <?= $Message ?>
 
-<div align=center style="width:50%; font-size:1.1em; background:#fff; font-weight:bold; border:1px solid red; color:#000; padding:5px 5px">DRAFT SCHEDULE - not all sessions have been scheduled. <br/> Dates and times may change for any of the sessions listed below. </div>
+<div align=center style="width:50%; font-size:1.1em; background:#fff; font-weight:bold; border:1px solid red; color:#000; padding:5px 5px">DRAFT SCHEDULE - not all sessions have been scheduled. <br/> Dates and times may change for any of the sessions listed below.  </div>
 <br/><br/><?php
 echo "<div class='page'>" .
 			"" ;
@@ -389,7 +389,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					
 					if ($isAdmin) { //let the admins link to the edit page
 ?>
-						<div> ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=1">edit </a>) </div>
+						<div>
+					 ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=1">edit &nbsp;&nbsp;#<span style="color:#333; font-weight:bold;"><?=$proposal['order_num']?></span> </a>) </div>
 <?php 
 						
 					}
