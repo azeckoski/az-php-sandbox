@@ -388,11 +388,14 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					}
 					
 					if ($isAdmin) { //let the admins link to the edit page
+					
+					if ($proposal['track']!="unavailable" ) {
 ?>
 						<div>
-					 ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=1">edit &nbsp;&nbsp;#<span style="color:#333; font-weight:bold;"><?=$proposal['order_num']?></span> </a>) </div>
+					 ( <a href="edit_proposal.php?pk=<?=$proposal['pk']?>&amp;edit=1&amp;location=1">edit &nbsp;&nbsp;#<span style="color:#333; font-weight:bold;"><?=$proposal['order_num']?></span> </a>) 
+					 </div>
 <?php 
-						
+					}
 					}
 
 					echo "<div class='grid_event_text $typeclass'>";
