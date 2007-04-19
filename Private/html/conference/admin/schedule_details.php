@@ -64,27 +64,17 @@ switch ($filter_days){
 		$filter_days_sql = "";
 		break;
 }
+
 // Track Filter
 $filter_track_default = "show all tracks";
 $filter_track = "";
-if ($_REQUEST["filter_track"] && (!$_REQUEST["clearall"]) ) { $filter_track = $_REQUEST["filter_track"]; }
 
-$special_filter = "";
+if ($_REQUEST["filter_track"] && (!$_REQUEST["clearall"]) ) { $filter_track = $_REQUEST["filter_track"]; }
 $filter_track_sql = "";
-switch ($filter_track){
-   	case "Community": $filter_track_sql = " and track='Community' "; break;
-  	case "Pedagogy": $filter_track_sql = " and track='Pedagogy' "; break;
- 	case "Implementation": $filter_track_sql = " and track='Implementation' "; break;
- 	case "Technology": $filter_track_sql = " and track='Technology' "; break;
- 	case "Tool Carousel": $filter_track_sql = " and track='Tool Carousel' "; break;
-  	case "Multiple Audiences": $filter_track_sql = " and track='Multiple Audiences' "; break;
- 	case "BOF": $filter_track_sql = " and track='BOF' "; break;
- 	case "Demo": $filter_track_sql = " and track='Demo' "; break;
-	case "Poster": $filter_track_sql = " and track='Poster' "; break;
-		case ""; // show all items
-		$filter_track = $filter_track_default;
-		$filter_track_sql = "";
-		break;
+if ($filter_track && ($filter_track != $filter_track_default)) {
+	$filter_track_sql = " and track='$filter_track' ";
+} else {
+	$filter_track = $filter_track_default;
 }
 
 // SubTrack Filter
@@ -155,7 +145,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.sub_track, CP.speaker, CP.co_speaker, CP.bio, CP.URL, CP.wiki_url, " .
 		"CP.type, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
-		"where CP.confID = '$CONF_ID'" . $sqlsearch . 
+		"where CP.confID = '$CONF_ID' and CP.track!='unavailable'" . $sqlsearch . 
 	$filter_type_sql .  $filter_days_sql . $filter_track_sql.  $filter_sub_track_sql . $sqlsorting . $mysql_limit;
 
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
@@ -276,20 +266,13 @@ function orderBy(newOrder) {
 	 
 		
 		?>
-		
-			<strong>Track:</strong>
+		<strong>Track:</strong>
 		<select name="filter_track" title="Filter the items by track">
 			<option value="<?= $filter_track ?>" selected><?= $filter_track ?></option>
-			<option value="Community">Community</option>
-			<option value="Pedagogy">Pedagogy</option>
-			<option value="Implementation">Implementation</option>
-			<option value="Technology">Technology</option>
-			<option value="Tool Carousel">Tool Carousel</option>
-			<option value="Multiple Audiences">Multiple Audiences</option>
-			<option value="BOF">BOF</option>
-			<option value="Demo">Demo</option>
-			<option value="Poster">Poster</option>
-			<option value="show all tracks">show all tracks</option>
+			    <?php foreach ($track_list as $key => $value ) { ?>
+	        	<option value="<?=$value?>"><?=$value?></option>
+	        	<?php } ?>	
+	       	<option value="show all tracks">show all tracks</option>
 		</select>
 		
 			&nbsp;
@@ -316,7 +299,7 @@ function orderBy(newOrder) {
 	</table>
 </div>
 
-<table border="0" cellspacing="0" style='font-size:.9em; width:100%;height:100%;'>
+<table border="0" cellspacing="0" style='font-size:1em; width:100%;height:100%;'>
 
 <?php
 // create the list
