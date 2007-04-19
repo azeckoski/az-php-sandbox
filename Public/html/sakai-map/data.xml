@@ -222,7 +222,7 @@
 
 	<!-- USA (Academic: U-Z) -->
 	<marker lat="40.007730174396315" lng="-83.04895877838135" title="http://ospilot.oln.org" country="us" status="pilot" text="Ohio Learning Network" color="purple" />
-	<marker lat="32.2318615892926" lng="-110.95345973968506" title="http://www.arizona.edu" text="University of Arizona" country="us" status="Sakai partner" text="University of Arizona" color="green" />
+	<marker lat="32.2318615892926" lng="-110.95345973968506" title="http://www.arizona.edu" country="us" status="Sakai partner" text="University of Arizona" color="green" />
 	<marker lat="53.333" lng="-6.25" title="http://www.ucd.ie" country="ie" status="Sakai Partner" text="University College Dublin" color="purple" />
 	<marker lat="37.87040711546537" lng="-122.26031184196472" title="https://bspace.berkeley.edu/portal" country="us" status="production" text="UC Berkeley" color="blue"/>
 	<marker lat="38.533463138733936" lng="-121.76156044006348" title="https://cere.vetmed.ucdavis.edu/" country="us" status="production" text="University of California Davis" color="blue" />
