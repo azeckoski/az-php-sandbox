@@ -574,7 +574,7 @@ if ($type=="poster") { ?>
 					'community areas' within the hotel where you may gather for impromptu BOFS.   <br/><br />
 					We encourage you to create a BOF wiki pages in our <a href="http://bugs.sakaiproject.org/confluence/display/CONF07/BOF-Birds+of+a+Feather+meetings" target=blank>Conference Wiki</a> 
 					then enter your BOF's wiki page's URL into this form so we can easily link to your BOF page from our main schedule. <br/><br/>
-					[<a href="http://www.sakaiproject.org/conference/bof.html" target=blank>more information on BOF sessions</a>]
+					
 				</div>
 			
     </td>
