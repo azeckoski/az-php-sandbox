@@ -62,16 +62,18 @@ $SUBMIT_PAPER= false;
 $PAPER_MSG="";
 
 $SUBMIT_PRES=true;
-$PRESENT_MSG="Presentations will take place at the conference hotel, during the conference's normal" .
+$PRESENT_MSG="<strong>NOTE:</strong> Presentation call for proposals is now closed.  This option is left open for those who have been contacted by a committee member to update or submit a  proposal. <br/><br/> " .
+		"    Presentations Presentations will take place at the conference hotel, during the conference's normal" .
 		" daytime schedule for June 12-14. You may choose from the following presentation types: " .
 		"Panel, Workshop, Discussion/Roundtable, Lecture/Presentation or Tool Carousel. ";
-
-$SUBMIT_BOF=false;
+$ACCEPT_BOF=false;
+$SUBMIT_BOF=true;
 $BOF_MSG="BOFs (Birds of a Feather meetings) are self-formed meetings set up by any conference attendee." .
 		"The meetings may take place at any time during the conference. " .
-		" We have a limited group of rooms and timeslots which you may choose from. " .
+		" We have a limited group of rooms available for BOFs.  " .
 		" When rooms are filled, we will do our best to locate community areas" .
-		" within the hotel where you may gather for impromptu BOFS. ";
+		" within the hotel where you may gather for impromptu BOFS. <br/><br/>" .
+		"SCHEDULING:  We will not begin scheduling BOFS until after May 1st, when the main schedule is finalized. ";
 $BOF_INSTRUCTIONS ="<blockquote style='width:70%;'><strong>Select a room/timeslot: </strong><br/><br/>
 		       Please select the room that has a capacity which best matches
 		      your expected BOF group size. Contact Mary Miles at mmiles@sakaifoundation.org 

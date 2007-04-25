@@ -572,7 +572,7 @@ if ($type=="poster") { ?>
 					We have a limited group of rooms and timeslots which you may choose from. 
 					 When rooms are filled, we will do our best to locate 
 					'community areas' within the hotel where you may gather for impromptu BOFS.   <br/><br />
-					We encourage you to create your BOF wiki pages in our <a href="http://bugs.sakaiproject.org/confluence/display/CONF06/BOF+-Birds+of+a+Feather+meetings" target=blank>Conference Wiki</a> 
+					We encourage you to create a BOF wiki pages in our <a href="http://bugs.sakaiproject.org/confluence/display/CONF07/BOF-Birds+of+a+Feather+meetings" target=blank>Conference Wiki</a> 
 					then enter your BOF's wiki page's URL into this form so we can easily link to your BOF page from our main schedule. <br/><br/>
 					[<a href="http://www.sakaiproject.org/conference/bof.html" target=blank>more information on BOF sessions</a>]
 				</div>
@@ -582,7 +582,9 @@ if ($type=="poster") { ?>
 <?php
 
 		if (!$is_scheduled) { //show the list of open bof rooms
+		if ($ACCEPT_BOF) {
 ?>
+
 <tr><td colspan=2>
        
       <div><strong>Select a room/timeslot: </strong><br/><br/>
@@ -637,7 +639,8 @@ if ($type=="poster") { ?>
 	 
 		</td>
 	</tr>
-	   <?php } ?>
+	   <?php } 
+		}?>
 <?php } else {
 	if(!$PK)  {  //user is editing so no need to show this info
 	

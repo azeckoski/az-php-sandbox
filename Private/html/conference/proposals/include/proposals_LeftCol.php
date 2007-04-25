@@ -24,8 +24,10 @@
 					while($item=mysql_fetch_assoc($result)) {
 						//only show proposals that have not been marked as deleted
 					
-						if (!$item['approved']=="D") {
-					
+						if ($item['approved']=="D") { 
+							//do not show
+						}
+					else {
 				?>
 					<p><a href="edit_proposal.php?type=<?=$item['type']?>&amp;pk=<?= $item['pk'] ?>" title="Edit this proposal" ><?=  $item['title'] ?></a>
 						[<a style="color:red;" href="edit_proposal.php?pk=<?= $item['pk'] ?>&amp;delete=1" 
