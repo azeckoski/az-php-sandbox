@@ -43,7 +43,7 @@
 	<marker lat="40.8092" lng="-77.8868" title="http://www.psu.edu" country="us" status="partner" text="Penn State University" color="green" />
 	<marker lat="40.3563" lng="-74.6578" title="http://www.princeton.edu" country="us" status="partner" text="Princeton University" color="green" />
 	<marker lat="29.7716" lng="-95.393" title="http://www.rice.edu/portal" country="us" status="partner" text="Rice University" color="green"/>
-	<marker lat="40.4873" lng="-74.4497" title="http://www.rutgers.edu/" country="us" status="partner" text="Rutgers University color="green"/>
+	<marker lat="40.4873" lng="-74.4497" title="http://www.rutgers.edu/" country="us" status="partner" text="Rutgers University" color="green"/>
 	<marker lat="37.42566996317141" lng="-122.16737866401672" title="http://www.stanford.edu/" country="us" status="partner" text="Stanford University" color="green"/>
 	<marker lat="42.6612" lng="-73.7689" title="http://www.suny.edu" country="us" status="partner" text="State University of New York System Administration" color="green" />
 	<marker lat="59.333" lng="18.05" title="http://www.su.se" country="se" status="partner" text="Stockholm University" color="green" />
@@ -118,7 +118,7 @@
 	
 	<!-- Canada -->
 	<marker lat="49.278861" lng="-122.914450" title="http://www.sfu.ca" country="ca" status="pilot" text="Simon Fraser University" color="purple" />
-	<marker lat="42.30543561601805" lng="-83.06541681289673" title="https://lms2.uwindsor.ca/osp.portal" country="ca" status="production" text="University of Windsor" color="blue" />
+	<marker lat="42.30543561601805" lng="-83.06541681289673" title="https://lms2.uwindsor.ca/osp-portal" country="ca" status="production" text="University of Windsor" color="blue" />
 	<marker lat="49.883" lng="-97.167" title="http://learn.uwinnipeg.ca/portal" country="ca" status="pilot" text="University of Winnipeg" color="purple" />
 	
 	<!-- China -->
@@ -292,7 +292,7 @@
 	<marker lat="43.51402762358483" lng="-83.96369934082031" title="http://vspace.svsu.edu/" country="us" status="production" text="Saginaw Valley State University" color="blue" />
 	<marker lat="37.42566996317141" lng="-122.16737866401672" title="http://coursework-pilot.stanford.edu/" country="us" status="production" text="Stanford University" color="blue"/>
 	<marker lat="38.8748" lng="-77.9754" title="http://tltc.optimizedlearn.com/portal" country="us" status="pilot" text="TLTC" color="purple"/>
-	<marker lat="38.9648" lng="-77.0054" title="http://tltc-osp.optimizedlearn.com/portal" country="us" status="pilot" text=TLTC Portfolios" color="purple"/>
+	<marker lat="38.9648" lng="-77.0054" title="http://tltc-osp.optimizedlearn.com/portal" country="us" status="pilot" text="TLTC Portfolios" color="purple"/>
 	<marker lat="29.875" lng="-97.9502" title="http://tracs.txstate.edu/" country="us" status="production" text="Texas State University, San Marcos" color="blue"/>
 	<marker lat="29.5614" lng="-98.4126" title="http://sakai.trinity.edu/" country="us" status="Using Sakai" text="Trinity" color="yellow"/>
 
