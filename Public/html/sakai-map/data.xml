@@ -74,7 +74,7 @@
 	<marker lat="37.36251701774281" lng="-120.42612075805664" title="http://www.ucmerced.edu" country="us" status="partner" text="University of California, Merced" color="green" />
 	<marker lat="34.4119" lng="-119.728" title="http://www.ucsb.edu" country="us" status="partner" text="University of California, Santa Barbara" color="green" />
 	<marker lat="52.20194224761514" lng="0.1166224479675293" title="http://www.cam.ac.uk" country="uk" status="partner" text="University of Cambridge, CARET" color="green"/>
-	<marker lat="﻿-33.957098" lng="﻿﻿18.460508" title="http://www.uct.ac.za" country="za" status="partner" text="University of Cape Town" color="green"/>	
+	<marker lat="-33.957098" lng="18.460508" title="http://www.uct.ac.za" country="za" status="partner" text="University of Cape Town" color="green"/>	
 	<marker lat="41.790256834329455" lng="-87.59974479675293" title="http://www.uchicago.edu" country="us" status="partner" text="University of Chicago" color="green" />
 	<marker lat="40.016" lng="-105.263" title="http://www.colorado.edu" country="us" status="partner" text="University of Colorado at Boulder" color="green" />
 	<marker lat="39.6806" lng="-75.7409" title="http://www.udel.edu" country="us" status="partner" text="University of Delaware" color="green" />
