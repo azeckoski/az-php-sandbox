@@ -36,7 +36,7 @@
 ?>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Map of Sakai Stakeholders</title>
+    <title>Sakai World</title>
     <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAt2FEkOMaprvGohcmOYlhphT8pzdJ7dqRnCk1Ozev5zYCLwJOXBQDNhuil2W5jNTPuntOUPZ7GZaxtg"
       type="text/javascript"></script>
     <script type="text/javascript">
@@ -165,60 +165,65 @@ GDownloadUrl("<? echo($file); ?>", function(data, responseCode) {
     //]]>
     </script>
   </head>
-  <body onload="load()" onunload="GUnload()">
-      <?
-      if ( $domtext != null ) {
-      	echo ("<pre>\n");
-	echo("Testing this Text\n");
-    	echo(str_replace("<","&lt;",$domtext));
-	echo ("</pre>\n");
-	echo ("<hr>\n");
-      }
-      ?>
-    <center>
-    <a href=index.php> Show All </a> |
-    <img src="http://labs.google.com/ridefinder/images/mm_20_blue.png"> 
-    <a href=index.php?filtercolor=blue> Production </a> |
-    <img src="http://labs.google.com/ridefinder/images/mm_20_purple.png"> 
-    <a href=index.php?filtercolor=purple> Pilots </a> |
-    <img src="http://labs.google.com/ridefinder/images/mm_20_green.png"> 
-    <a href=index.php?filtercolor=green> Sakai Partner </a> |
-    <img src="http://labs.google.com/ridefinder/images/mm_20_orange.png"> 
-    <a href=index.php?filtercolor=orange> Commercial Affiliate </a> |
-    <img src="http://labs.google.com/ridefinder/images/mm_20_red.png"> 
-    <a href=index.php?filtercolor=red> Foundation Server </a> |
-    <img src="http://labs.google.com/ridefinder/images/mm_20_yellow.png"> 
-    <a href=index.php?filtercolor=yellow> Sakai Server </a> <br>
-    <br>
-    <div id="map" style="width: 1000px; height: 600px"></div>
-    <hr>
-    </center>
-    <b>Updating the map</b><br>
-    When you click on the map the coordinates change here: <div id="message2"></div> <br>
-    Once you find yourself, produce an entry that looks like
-<pre>
-&lt;marker 
-  lat="41.19221885042551" 
-  lng="-111.94313049316406" 
-  title="http://sakai.weber.edu" 
-  country="us" 
-  status="production" 
-  text="Weber State University" 
-  color="blue" />
-</pre>
-You can test a single entry by putting the values on the commmand line as follows:
-<pre>
-http://www.sakaiproject.org/sakai-map/index.php?color=green&amp;lat=41.192&amp;lng=-111.943&amp;status=Pilot&amp;text=Weber%20State&amp;title=http://www.weber.edu&amp;country=us
-</pre>
-and then send that entry to <a href="mailto:arwhyte@sakaifoundation.org">Anthony Whyte</a>.  
-Eventually this can be put into a database for easier updating.
-<!--  Remove Chuck's analytics
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-423997-1";
-urchinTracker();
-</script>
--->
+	  <body onload="load()" onunload="GUnload()">
+	      <?
+	      if ( $domtext != null ) {
+	      	echo ("<pre>\n");
+		echo("Testing this Text\n");
+	    	echo(str_replace("<","&lt;",$domtext));
+		echo ("</pre>\n");
+		echo ("<hr>\n");
+	      }
+	      ?>
+	    <center>
+	    <a href=index.php> Show All </a> |
+	    <img src="http://labs.google.com/ridefinder/images/mm_20_blue.png"> 
+	    <a href=index.php?filtercolor=blue> Production </a> |
+	    <img src="http://labs.google.com/ridefinder/images/mm_20_purple.png"> 
+	    <a href=index.php?filtercolor=purple> Pilots </a> |
+	    <img src="http://labs.google.com/ridefinder/images/mm_20_green.png"> 
+	    <a href=index.php?filtercolor=green> Partners </a> |
+	    <img src="http://labs.google.com/ridefinder/images/mm_20_orange.png"> 
+	    <a href=index.php?filtercolor=orange> Commercial Affiliates </a> |
+	    <img src="http://labs.google.com/ridefinder/images/mm_20_red.png"> 
+	    <a href=index.php?filtercolor=red> Community Servers </a> |
+	    <img src="http://labs.google.com/ridefinder/images/mm_20_yellow.png"> 
+	    <a href=index.php?filtercolor=yellow> Sakai Servers </a> <br>
+	    <br>
+	    <div id="map" style="width: 1000px; height: 600px"></div>
+	    <hr>
+	    </center>
+	    <b>Updating the map</b>
+	    <br><br>
+	    To add entries to the map, construct an XML element that includes the following attributes and values:<br>
+	    
+	    <ul>
+	     <li>lat (latitude)</li>
+	     <li>lng (longitude)</li>
+	     <li>title (site URL)</li>
+	     <li>country (country code)</li>
+	     <li>text (organization name)</li>
+	     <li>color (icon: blue=production, purple=pilot, green=partner, orange=commercial affiliate, red=community server)</li>
+	    </ul>
+	    
+	    The chunk of XML should resemble the following:    
+		<pre>
+		&lt;marker lat="41.19221885042551" lng="-111.94313049316406" title="http://sakai.weber.edu" country="us" status="production" text="Weber State University" color="blue" />
+		</pre>
+		You can test a single entry by putting the values on the commmand line as follows:
+		<pre>
+		http://www.sakaiproject.org/sakai-map/index.php?color=green&amp;lat=41.192&amp;lng=-111.943&amp;status=pilot&amp;text=Weber%20State&amp;title=http://www.weber.edu&amp;country=us
+		</pre>
+		An organization may submit more than one entry.  Indeed, some Sakai organizations have multiple entries indicating, for instance, their partner status, their pilot/production status and their hosting of a community server.
+		Once you are satisfied with your XML send your entry/entries to <a href="mailto:arwhyte@sakaifoundation.org">Anthony Whyte</a>, Sakai Community Liaison.  
+		
+		<!--  Remove Chuck's analytics
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+		</script>
+		<script type="text/javascript">
+		_uacct = "UA-423997-1";
+		urchinTracker();
+		</script>
+		-->
   </body>
 </html>

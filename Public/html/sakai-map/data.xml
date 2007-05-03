@@ -14,7 +14,7 @@
 	<marker lat="-36.0468782804617" lng="146.97114944458008" title="http://www.csu.edu.au/" country="au" status="partner" text="Charles Sturt University" color="green" />
 	<marker lat="34.1276" lng="-117.715" title="http://www.claremont.edu" country="us" status="partner" text="The Claremont Colleges" color="green"/>
 	<marker lat="33.67503" lng="-117.913955" title="http://www.cccd.edu/" country="us" status="partner" text="Coast Community College District" color="green"/>
-	<marker lat="40.8082" long="-73.9618" title="http://www.columbia.edu" country="us" status="partner" text="Columbia University" color="green"/>
+	<marker lat="40.808200" lng="-73.9619572" title="http://www.columbia.edu" country="us" status="partner" text="Columbia University" color="green"/>
 	<marker lat="42.4402" lng="-76.4922" title="http://www.cornell.edu" country="us" status="partner" text="Cornell University" color="green" />
 	<marker lat="43.7256" lng="-72.2368" title="http://www.dartmouth.edu" country="us" status="partner" text="Dartmouth University" color="green" />
 	<marker lat="30.1969" lng="-81.6279" title="http://www.edgenicslearning.org" country="us" status="partner" text="Edgeenics" color="green" />
@@ -202,9 +202,9 @@
 	<!-- Norway -->
 	
 	<!-- South Africa -->
-	<marker lat="-26.7167" lng="27.1000" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University" color="blue"/>
-	<marker lat="-25.767741" lng="28.199346" title="https://my.unisa.ac.za" country="za" status="production" text="University of South Africa (UNISA)" color="blue"/>
-	<marker lat="﻿-33.957098" lng="﻿﻿18.460508" title="https://vula.uct.ac.za/portal" country="za" status="production" text="University of Cape Town" color="blue"/>
+	<marker lat="-26.7167" lng="27.1000" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University" color="blue" />
+	<marker lat="-25.767741" lng="28.199346" title="https://my.unisa.ac.za" country="za" status="production" text="University of South Africa (UNISA)" color="blue" />
+	<marker lat="-33.957098" lng="18.460508" title="https://vula.uct.ac.za/portal" country="za" status="production" text="University of Cape Town" color="blue" />
 	
 	<!-- Spain -->
 	<marker lat="41.613645577064105" lng="0.6193435192108154" title="http://cv.udl.es/portal" country="es" status="production" text="Universitat de Lleida" color="blue" />
@@ -238,7 +238,7 @@
 	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="34.1276" lng="-117.715" title="http://sakai.claremont.edu:8080/portal" country="us" status="production" text="The Claremont Colleges: Claremont Graduate University, Claremont McKenna College, Harvey Mudd College, Keck Graduate Institute, Pitzer College, Pomona College, Scripps College" color="blue"/> 
 	<marker lat="36.1543" lng="-115.17" title="http://sakai.ccsn.edu/portal" country="us" status="Using Sakai" color="yellow"/>
-	<marker lat="40.8082" long="-73.9618" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
+	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="Using Sakai" color="yellow"/>
 	
 	<!-- USA (Appalachian College Association) -->
@@ -333,7 +333,7 @@
 	
 	<!-- USA (commercial, non-profits and others) -->
 	<marker lat="38.9048" lng="-77.0054" title="http://sakai.longsight.com/portal" country="us" status="production" text="Longsight Group" color="blue"/>
-	<marker lat="42.27692773757575" lng="-83.73787879943848" title="http://www.maclearningenvironments.org/" country="us" status="pilot" text="MacLearningEnvironments" color="purple"/>
+	<marker lat="37.3319485736073" lng="-122.02960968017578" title="http://www.maclearningenvironments.org/" country="us" status="production" text="MacLearningEnvironments" color="blue"/>
 	<marker lat="33.564" lng="-111.984" title="http://www.mysakai.com" country="us" status="production" text="rSmart - My Sakai" color="blue" />
 	
 	<marker lat="38.8448" lng="-77.0954" title="http://webcenter.msi-alliance.org/portal" country="us" status="Using Sakai" text="MSI Alliance" color="yellow"/>
@@ -345,7 +345,7 @@
 	<marker lat="32.26158802054523" lng="-111.04156494140625" title="http://bugs.sakaiproject.org" country="us"  status="Sakai Foundation server"  text="Sakai Jira/Confluence server (University of Arizona)" color="red" />
 	
 	<marker lat="42.3535" lng="-71.0627" title="http://qa1-us.sakaiproject.org" country="us" status="QA server" text="Sakai Community QA server (Boston University)" color="red"/>
-	<marker lat="40.80838" long="-73.96498" title="http://qa2-us.sakaiproject.org:9090/portal" country="us" status="QA server" text="Sakai Community QA server (Columbia University)" color="red" />
+	<marker lat="40.80778" lng="-73.96545" title="http://qa2-us.sakaiproject.org:9090/portal" country="us" status="QA server" text="Sakai Community QA server (Columbia University)" color="red" />
 	<marker lat="39.8643" lng="-86.1477" title="http://qa3-us.sakaiproject.org/" country="us" status="QA server" text="Sakai Community QA server (Indiana University)" color="red"/>
 	
 	<marker lat="52.175" lng="0.144" title="http://qa1-uk.sakaiproject.org:9085/portal" country="uk" status="QA server" text="Sakai Community QA server (University of Cambridge)" color="red"/>
