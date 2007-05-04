@@ -128,7 +128,7 @@
 	<marker lat="-30.48682358610644" lng="151.6434931755066" title="http://www.une.edu.au" country="au" status="production" text="University of New England" color="blue" />
 	
 	<!-- Belgium -->
-	<marker lat="51.05" lng="3.717" title="http://portfolio.hogent.be/portal" country="be" status="Sakai Server" text="Hogeschool Gent" color="yellow" />
+	<marker lat="51.083746" lng="3.714562" title="http://q-port.arteveldehs.be/portal" country="be" status="production" text="Arteveldehogeschool (Gent)" color="blue" />
 	
 	<!-- Brazil -->
 	<marker lat="-20.3034175184893" lng="-40.78125" title="http://sakai.moleque.com.br" country="br" status="pilot" text="Moleque de Idéias Educação e Tecnologia" color="purple" />
@@ -139,19 +139,20 @@
 	<marker lat="49.883" lng="-97.167" title="http://learn.uwinnipeg.ca/portal" country="ca" status="pilot" text="University of Winnipeg" color="purple" />
 	
 	<!-- China -->
-	<marker lat="38.8225909761771" lng="113.5546875" title="http://hpgc.gucas.cn/" country="cn" status="GUCAS is using Sakai as a research collaboration environment" text="EU-Asia Link Program (HPC/GC)" color="yellow"/>
+	<marker lat="38.8225909761771" lng="113.5546875" title="http://hpgc.gucas.cn/" country="cn" status="production" text="EU-Asia Link Program (HPC/GC)" color="blue"/>
 	
 	<!-- Columbia -->
-	<marker lat="6.25" lng="-75.583" title="http://www.ceipa.edu.co" country="co" status="Sakai Server" text="La Universidad de LA Empresa" color="yellow" />
+	<marker lat="6.25" lng="-75.583" title="http://www.ceipa.edu.co" country="co" status="production" text="La Universidad de LA Empresa" color="blue" />
 	
 	<!-- Denmark -->
 	<marker lat="55.655001364458364" lng="12.139227390289307" title="http://ecampus.ruc.dk" country="dk" status="production" text="Roskilde Universitetscenter" color="blue" />
 	
 	<!-- Egypt -->
-	<marker lat="30.05" lng="31.25" title="http://www.mpgc-heepf.eng.cu.edu.eg" country="eg" status="Sakai Server" text="Cairo University" color="yellow" />
+	<marker lat="30.05" lng="31.25" title="http://www.mpgc-heepf.eng.cu.edu.eg" country="eg" status="production" text="Cairo University" color="blue" />
 	
 	<!-- France -->
-	<marker lat="43.3071924816119" lng="-0.35121917724609375" title="http://amphi.pau.eisti.fr/portal" country="fr" status="Sakai Server" text="Ecole Internationale des Sciences du Traitement de l&apos;Information" color="yellow" />
+	<marker lat="43.3071924816119" lng="0.35121917724609375" title="http://amphi.pau.eisti.fr/portal" country="fr" status="pilot" text="Ecole Internationale des Sciences du Traitement de l&apos;Information (EISTI)" color="purple" />
+	<marker lat="46.585466" lng="0.345966" title="https://bv.ent.univ-poitiers.fr/" country="fr" status="pilot" text="Universite de Poitiers" color="purple" />
 	
 	<!-- Germany -->
 	<marker lat="53.52" lng="10.41" title="http://sakai.oncampus.de/portal" country="de" status="production" text="Lubeck University of Applied Science" color="blue" />
@@ -163,7 +164,7 @@
 	<marker lat="22.283" lng="114.15" title="http://lmes2.ust.hk/" country="hk" status="pilot" text="UST" color="purple"/>
 	
 	<!-- Italy -->
-	<marker lat="41.9" lng="12.483" title="http://rp.csedu.unisa.it" country="it" status="Sakai Server" text="Running Platform" color="yellow" />
+	<marker lat="41.9" lng="12.483" title="http://rp.csedu.unisa.it" country="it" status="production" text="Università degli Studi di Salerno (Running Platform)" color="blue" />
 	
 	<!-- Japan -->
 	<marker lat="34.25" lng="135.133" title="https://sakai.ulan.jp" country="jp" status="pilot" text="ULAN project" color="purple" />
@@ -211,23 +212,20 @@
 	<marker lat="39.48205045504316" lng="-0.3426361083984375" title="http://poliformat.upv.es/portal" country="es" status="production" text="Universidad Politecnica de Valencia" color="blue" />
 	
 	<!-- Sweden -->
-	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="Using Sakai" text="UMU" color="yellow"/>
+	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="pilot" text="Umeå universitet" color="purple"/>
 	
 	<!-- UK -->
-	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="Sakai Server" text="Bell College" color="yellow" />
+	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="production" text="Bell College" color="blue" />
 	<marker lat="53.343582946474655" lng="-2.632598876953125" title="http://rhine.dl.ac.uk:8080/portal" country="uk" status="pilot" text="Daresbury Laboratory, CCLRC" color="purple" />
 	<marker lat="54.047" lng="-2.802" title="http://redress.lancs.ac.uk:8080/portal" country="uk" status="pilot" text="Lancaster University" color="purple" />
 	<marker lat="52.20194224761514" lng="0.1166224479675293" title="https://camtools.caret.cam.ac.uk/portal" country="uk" status="production" text="University of Cambridge" color="blue"/>
 	<marker lat="52.621549015001584" lng="1.2415838241577148" title="http://vre.his.uea.ac.uk/portal" country="uk" status="pilot" text="Universities of East Anglia and Hull" color="purple" />
 	<marker lat="53.73246635451261" lng="-0.38452148437554.15" title="http://vre.his.uea.ac.uk/portal/" country="uk" status="pilot" text="Universities of East Anglia and Hull" color="purple" />
-	<marker lat="50.809" lng="-1.07" title="http://thresher.mech.port.ac.uk/portal" country="uk" status="Using Sakai" text="University of Portsmouth" color="yellow"/>
-	
 	<marker lat="52.235" lng="0.144" title="http://groups.tlrp.org/" country="uk" status="production" text="TLRP" color="blue"/>
-	<marker lat="55.85257707574302" lng="-4.2606353759765625" title="http://blueridge.gcal.ac.uk/portal" country="uk" status="Using Sakai" text="GCAL" color="yellow"/>
 	<marker lat="55.928528945583984" lng="-4.682064056396484" title="http://www.aers.org.uk/portal" country="uk" status="Sakai server" text="Sakai Virtual Research and Collaboration Environment for the Applied Educational Research Scheme of Scotland (hosted by CARET)" color="blue" />
 
 	<!-- USA (academic: A-G) -->
-	<marker lat="41.9076" lng="-84.0644" title="http://sakai.adrian.edu:8080/portal" country="us" status="Sakai Server" text="Adrian College" color="yellow" />
+	<marker lat="41.9076" lng="-84.0644" title="http://sakai.adrian.edu:8080/portal" country="us" status="pilot" text="Adrian College" color="purple" />
 	<marker lat="42.65315192577889" lng="-73.77503871917725" title="http://sakai.amc.edu" country="us" status="production" text="Albany Medical College" color="blue" />
 	<marker lat="33.9401" lng="-84.2053" title="http://webcenter.aahe.org" country="us" status="production" text="American Association of Higher Education" color="blue" />
 	<marker lat="33.417877" lng="-111.932332" title=" https://sakai.asu.edu" country="us" status="pilot" text="pilot" color="pilot" />
@@ -235,11 +233,10 @@
 	<marker lat="42.35331122051394" lng="-71.11896514892578" title="http://sakai.bu.edu/" country="us" status="pilot" text="Boston University School of Management" color="purple"/>
 	<marker lat="44.4726" lng="-93.1785" title="https://sakai.carleton.edu/portal" country="us" status="pilot" text="Carleton College" color="purple"/>
 	<marker lat="33.88619934077726" lng="-118.09751272201538" title="http://talonnet.cerritos.edu" country="us" status="production" text="Cerritos Community College" color="blue" />
-	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="Using Sakai" color="yellow"/>
-	<marker lat="34.1276" lng="-117.715" title="http://sakai.claremont.edu:8080/portal" country="us" status="production" text="The Claremont Colleges: Claremont Graduate University, Claremont McKenna College, Harvey Mudd College, Keck Graduate Institute, Pitzer College, Pomona College, Scripps College" color="blue"/> 
-	<marker lat="36.1543" lng="-115.17" title="http://sakai.ccsn.edu/portal" country="us" status="Using Sakai" color="yellow"/>
+	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="production" color="blue"/>
+	<marker lat="34.1276" lng="-117.715" title="http://sakai.claremont.edu:8080/portal" country="us" status="production" text="The Claremont Colleges" color="blue"/> 
 	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
-	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="Using Sakai" color="yellow"/>
+	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="pilot" color="purple"/>
 	
 	<!-- USA (Appalachian College Association) -->
 	<marker lat="39.158480" lng="-80.048985" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Alderson-Broaddus College" color="blue" />
@@ -289,7 +286,7 @@
 	<marker lat="41.3188" lng="-81.3369" title="https://courses.hiram.edu/portal" country="us" status="production" color="blue"/>
 	<marker lat="39.16700255163836" lng="-86.52577757835388" title="https://oncourse.iu.edu/" country="us" text="Oncourse supports more than 100,000 users daily" status="production" color="blue"/>
 	<marker lat="39.16736854956039" lng="-86.53600215911865" title="http://test.oncourse.iu.edu/" country="us" status="production" text="Indiana University (test server)" color="blue"/>
-	<marker lat="21.3084" lng="-157.846" title="http://eportfolio.kcc.hawaii.edu/" country="us" status="Using Sakai" color="yellow"/>
+	<marker lat="21.3084" lng="-157.846" title="http://eportfolio.kcc.hawaii.edu/" country="us" status="production" color="blue"/>
 	<marker lat="39.329" lng="-76.619" title="http://sakai-pilot.library.jhu.edu" country="us" status="pilot" text="Johns Hopkins University University" color="purple" />
 	<marker lat="41.7879" lng="-81.0546" title="http://ilearn.lec.edu/" text="Lake Erie College" country="us" status="production" color="blue"/>
 	<marker lat="38.9424" lng="-92.3145" title="https://sakai.missouri.edu/portal" country="us" status="pilot" text="University of Missouri" color="purple"/>
@@ -299,19 +296,17 @@
 	
 	<!-- USA (academic: O-T) -->
 	<marker lat="39.986" lng="-82.988" title="http://coeportfolio.coe.ohio-state.edu/" country="us" status="pilot" text="Ohio State University" color="purple"/>
-	<marker lat="34.1928" lng="-119.176" title="http://sakai.oxnardcollege.edu/" country="us" status="Using Sakai" color="yellow"/>
-	<marker lat="37.9709" lng="-121.293" title="http://sakai.pacific.edu/portal/" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="47.2272" lng="-122.449" title="http://sakai.plu.edu/portal" country="us" status="pilot" color="pilot"/>
 	<marker lat="45.5093" lng="-122.689" title="http://samla.pdx.edu/portal/" country="us" status="pilot" color="purple"/>
 	<marker lat="29.7716" lng="-95.393" title="https://owlspace-ccm.rice.edu/portal" country="us" status="production" text="Rice University" color="blue"/>
 	<marker lat="40.4873" lng="-74.4497" title="http://sakai.rutgers.edu/" country="us" status="production" text="Rutgers University" color="blue"/>
-	<marker lat="27.3595" lng="-82.5012" title="https://ontario.rsad.edu/portal" country="us" status="Using Sakai" color="yellow"/>
+	<marker lat="27.3595" lng="-82.5012" title="https://ontario.rsad.edu/portal" country="us" status="pilot" color="purple"/>
 	<marker lat="43.51402762358483" lng="-83.96369934082031" title="http://vspace.svsu.edu/" country="us" status="production" text="Saginaw Valley State University" color="blue" />
 	<marker lat="37.42566996317141" lng="-122.16737866401672" title="http://coursework-pilot.stanford.edu/" country="us" status="production" text="Stanford University" color="blue"/>
 	<marker lat="38.8748" lng="-77.9754" title="http://tltc.optimizedlearn.com/portal" country="us" status="pilot" text="TLTC" color="purple"/>
 	<marker lat="38.9648" lng="-77.0054" title="http://tltc-osp.optimizedlearn.com/portal" country="us" status="pilot" text="TLTC Portfolios" color="purple"/>
 	<marker lat="29.875" lng="-97.9502" title="http://tracs.txstate.edu/" country="us" status="production" text="Texas State University, San Marcos" color="blue"/>
-	<marker lat="29.5614" lng="-98.4126" title="http://sakai.trinity.edu/" country="us" status="Using Sakai" text="Trinity" color="yellow"/>
+	<marker lat="29.5614" lng="-98.4126" title="http://sakai.trinity.edu/" country="us" status="pilot" text="Trinity University" color="purple"/>
 
 	<!-- USA (academic: U-Z) -->
 	<marker lat="40.007730174396315" lng="-83.04895877838135" title="http://ospilot.oln.org" country="us" status="pilot" text="Ohio Learning Network" color="purple" />
@@ -327,7 +322,6 @@
 	<marker lat="35.651009" lng="-78.707074" title="http://www.optimizedlearn.com/" country="us" status="production" text="Wake Technical Community College" color="blue"/>
 	<marker lat="46.07270961255675" lng="-118.3292555809021" title="https://cleo.whitman.edu/portal/" country="us" status="production" text="Whitman College" color="blue"/>
 	<marker lat="41.19221885042551" lng="-111.94313049316406" title="http://sakai.weber.edu" country="us" status="production" text="Weber State University" color="blue" />
-	<marker lat="33.4979" lng="-112.081" title="http://sakai.wofford.edu/portal" country="us" status="Using Sakai" color="yellow"/>
 	<marker lat="41.3095" lng="-72.9276" title="http://classesv2.yale.edu/" country="us" status="production" text="Yale University" color="blue"/>
 	
 	
@@ -336,7 +330,7 @@
 	<marker lat="37.3319485736073" lng="-122.02960968017578" title="http://www.maclearningenvironments.org/" country="us" status="production" text="MacLearningEnvironments" color="blue"/>
 	<marker lat="33.564" lng="-111.984" title="http://www.mysakai.com" country="us" status="production" text="rSmart - My Sakai" color="blue" />
 	
-	<marker lat="38.8448" lng="-77.0954" title="http://webcenter.msi-alliance.org/portal" country="us" status="Using Sakai" text="MSI Alliance" color="yellow"/>
+	<marker lat="38.8448" lng="-77.0954" title="http://webcenter.msi-alliance.org/portal" country="us" status="production" text="MSI Alliance" color="blue"/>
 	<marker lat="33.4979" lng="-112.081" title="http://www.osnext.org/" country="us" status="pilot" text="Osnext" color="purple"/>
 	<marker lat="38.9348" lng="-77.0354" title="http://demo.osportfolio.org/portal/" country="us" status="production" text="OSP" color="blue"/>
 	
