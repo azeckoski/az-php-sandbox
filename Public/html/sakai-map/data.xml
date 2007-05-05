@@ -118,7 +118,7 @@
 	<marker lat="40.1575" lng="-75.2796" title="http://www.unisys.com" country="us" status="commercial affiliate" text="Unisys" color="orange" />
 	
 	<!-- Other (non-partners) -->
-	<marker lat="38.8748" lng="-77.0354" title="http://www.longsight.com/" country="us" status="commercial enterprise" text="Longsight Group" color="yellow"/>
+	<marker lat="38.8748" lng="-77.0354" title="http://www.longsight.com/" country="us" status="using Sakai" text="Longsight Group" color="yellow"/>
 	
 	<!-- PRODUCTION, PILOT, OTHER SITES -->
 	
@@ -200,7 +200,8 @@
 	
 	<!-- New Zealand -->
 	
-	<!-- Norway -->
+	<!-- Russia -->
+	<marker lat="59.951889" lng="30.453329" title="http://dl.smolny.nw.ru/portal" country="ru" status="pilot" text="Smolny College of Liberal Arts and Sciences" color="purple" />
 	
 	<!-- South Africa -->
 	<marker lat="-26.7167" lng="27.1000" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University" color="blue" />
@@ -213,6 +214,9 @@
 	
 	<!-- Sweden -->
 	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="pilot" text="Umeå universitet" color="purple"/>
+	
+	<!-- Turkey -->
+	<marker lat="37" lng="28" title="https://sukaipilot.sabanciuniv.edu/portal" country="tr" status="pilot" text="Sabanci Universitesi" color="purple" />
 	
 	<!-- UK -->
 	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="production" text="Bell College" color="blue" />
