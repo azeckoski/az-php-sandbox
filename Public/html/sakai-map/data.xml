@@ -216,7 +216,7 @@
 	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="pilot" text="Umeå universitet" color="purple"/>
 	
 	<!-- Turkey -->
-	<marker lat="37" lng="28" title="https://sukaipilot.sabanciuniv.edu/portal" country="tr" status="pilot" text="Sabanci Universitesi" color="purple" />
+	<marker lat="41.099998" lng="29" title="https://sukaipilot.sabanciuniv.edu/portal" country="tr" status="pilot" text="Sabanci Universitesi" color="purple" />
 	
 	<!-- UK -->
 	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="production" text="Bell College" color="blue" />
