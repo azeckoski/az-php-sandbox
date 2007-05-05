@@ -182,13 +182,16 @@ GDownloadUrl("<? echo($file); ?>", function(data, responseCode) {
 	    <img src="http://labs.google.com/ridefinder/images/mm_20_purple.png"> 
 	    <a href=index.php?filtercolor=purple> Pilots </a> |
 	    <img src="http://labs.google.com/ridefinder/images/mm_20_green.png"> 
-	    <a href=index.php?filtercolor=green> Partners </a> |
+	    <a href=index.php?filtercolor=green> Partners: Academic </a> |
 	    <img src="http://labs.google.com/ridefinder/images/mm_20_orange.png"> 
-	    <a href=index.php?filtercolor=orange> Commercial Affiliates </a> |
+	    <a href=index.php?filtercolor=orange> Partners: Commercial Affiliates </a> |
 	    <img src="http://labs.google.com/ridefinder/images/mm_20_red.png"> 
-	    <a href=index.php?filtercolor=red> Community Servers </a> |
-	    <img src="http://labs.google.com/ridefinder/images/mm_20_yellow.png"> 
-	    <a href=index.php?filtercolor=yellow> Sakai Servers </a> <br>
+	    <a href=index.php?filtercolor=red> Community Servers </a>
+	    <!--
+	    | <img src="http://labs.google.com/ridefinder/images/mm_20_yellow.png"> 
+	    <a href=index.php?filtercolor=yellow> Sakai Servers </a> 
+	    -->
+	    <br>
 	    <br>
 	    <div id="map" style="width: 1000px; height: 600px"></div>
 	    <hr>
