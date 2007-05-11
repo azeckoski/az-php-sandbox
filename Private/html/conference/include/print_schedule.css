@@ -10,7 +10,7 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 */
 
 html,body {
-font-size:.91em;
+font-size:.85em;
 margin:0;
 padding:0;
 }
@@ -75,30 +75,33 @@ tr,td {
 	vertical-align: top;
 	text-align: center;
 	border:.0em solid #666;
-	padding:3px;
+	padding:0px;
 	background:#eaefff;
 	
 }
 
 
-.grid_event{
-	color:#000; 
-	font-weight:normal;
-	font-size: .96em;
-	width:220px;
-	padding:0px;
-	
-}
 
-.grid_event_long {
+.grid_event_long, .grid_event_short, .grid_event_med {
 	font-size: .93em;
 	color:#111; 
 	font-weight:normal;
 	width:220px;
 	background:#fff;
 	border:1px solid #666666;
-	padding-bottom:182px;
+	padding:2px;
 	vertical-align:top;
+}
+.grid_event_long {
+height:300px;
+}
+
+.grid_event_short{
+	
+	height:75px;
+}
+.grid_event_med{
+height:198px;
 }
 .grid_event_longDay1{
 font-size: .93em;
@@ -108,26 +111,6 @@ font-size: .93em;
 	background:#fff;
 	border:1px solid #666666;
 	vertical-align:top;
-}
-.grid_event_short{
-	font-size: .93em;
-	color:#000; 
-	font-weight:normal;
-	background:#fff;
-	width:220px;
-	border:1px solid #666666;
- padding-bottom:0;
-vertical-align:top;
-}
-.grid_event_med{
-	font-size: .93em;
-	color:#000; 
-	font-weight:normal;
-	background:#fff;
-	width:220px;
-border:1px solid #666666;
-		padding-bottom:125px;
-vertical-align:top;
 }
 .grid_event_break{
 border: 1px solid #666666;
@@ -141,7 +124,7 @@ background:#fff;
 	background-color: #339933;
 	color: white;
 	padding-top:2px;
-	
+	white-space:nowrap;
 	height:1.2em;
 	
 }
@@ -154,13 +137,13 @@ background:#fff;
 }
 
 .grid_event_text, .grid_event_textDay1 {
-	padding: 2px 2px;
-	height: 35px;
+	padding: 2px 0px;
+	height:30px;
 }
 
 .grid_event_long .grid_event_text {
-	padding: 2px 1px;
-	height: 55px;
+	padding: 2px 0px;
+	
 }
 
 
@@ -172,19 +155,14 @@ background:#fff;
 	border-top: 0px dotted #AAAAAA;
 	font-style: italic;
 	background: white;
-	padding:4px;
-	padding-top:6px;
-	
-	height:45px;
+	height:30px;
 }
 
 .grid_event_long .grid_event_speaker {
 	border-top: 0px dotted #AAAAAA;
 	font-style: italic;
 	background: white;
-	padding:4px;
 	
-	height:60px;
 }
 
 .grid_event_speakerDay1 {
@@ -306,7 +284,7 @@ border-right:1px dotted #ccc;
 	color: #333;
 }
 
-.technology {
+.technical {
 	background: #fff;
 	
 	font-weight:strong;
@@ -522,7 +500,7 @@ background:#CCCCFF;
 
 .coffee {
 	background:#336699;
-	color: #000;
+	color: #fff;
 	font-size:1.1em;
 	
 	

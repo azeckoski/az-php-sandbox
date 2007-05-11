@@ -332,7 +332,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 				
 						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
 						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));	
-						echo "<div class='session_time'>&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."&nbsp; &nbsp;" .$conf_room['title'] ."</strong>  &nbsp;(" .$proposal['length'] ." min.) </div>";
+						echo "<div class='session_time'>&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;(" .$conf_room['title'] .") " .$proposal['length'] ." min. </div>";
 						$total_length += $proposal['length'] +5;
             	
 					
@@ -345,11 +345,11 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
 							$total_length += $proposal['length'];
             	
-				echo "<div class='session_time'>&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."&nbsp;&nbsp;" .$conf_room['title'] ."</strong>&nbsp;(" .$proposal['length'] ." min.)</div>";
+				echo "<div class='session_time'>&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp; &nbsp;(" .$conf_room['title'] .") " .$proposal['length'] ." min.</div>"; 
 					
 						} else { 
 						//	echo "<strong> "  . $conf_room['title'] ." " .  $start_time1 ."</strong>";
-							echo "<div class='session_time'>&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."&nbsp;&nbsp; " .$conf_room['title']."</strong>  &nbsp;(" .$proposal['length'] ." min).</div>";
+							echo "<div class='session_time'>&nbsp;<strong> "  . $start_time1 . " - " .$end_time1."</strong>&nbsp; &nbsp;(" .$conf_room['title'] .") " .$proposal['length'] ." min.</div>"; 
 					
 							
 					}
@@ -366,7 +366,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 							case "Library": $image_file = "book06.gif' height=14 width=14"; break;
 							
 	}
-						echo "<img style='padding: 0px 4px 0px 2px;' src='../include/images/" .$image_file ." align='left' alt=''/>";
+						echo "<img style='padding: 0px 4px 0px 0px;' src='../include/images/" .$image_file ." align='left' alt=''/>";
 						
 					}
 						echo "<div style='padding-top:5px;'><strong>"  .htmlspecialchars($proposal['title']) . "</strong></div>";
