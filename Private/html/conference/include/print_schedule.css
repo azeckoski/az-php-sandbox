@@ -97,7 +97,8 @@ tr,td {
 	width:220px;
 	background:#fff;
 	border:1px solid #666666;
-	padding-bottom: 90px;
+	padding-bottom:180px;
+	vertical-align:top;
 }
 .grid_event_longDay1{
 font-size: .7em;
@@ -106,6 +107,7 @@ font-size: .7em;
 	width:220px;
 	background:#fff;
 	border:1px solid #666666;
+	vertical-align:top;
 }
 .grid_event_short{
 	font-size: .7em;
@@ -114,12 +116,22 @@ font-size: .7em;
 	background:#fff;
 	width:220px;
 	border:1px solid #666666;
-	
+ padding-bottom:0;
+vertical-align:top;
+}
+.grid_event_med{
+	font-size: .7em;
+	color:#111; 
+	font-weight:normal;
+	background:#fff;
+	width:220px;
+	border:1px solid #666666;
+	padding-bottom:90px;
+vertical-align:top;
 }
 .grid_event_break{
-height:10px;	
 border: 1px solid #666666;
-font-size: .9em;
+font-size: .95em;
 	
 }
 .grid_event_header {
@@ -293,40 +305,38 @@ border-right:1px dotted #ccc;
 }
 
 .technology {
-	background: #993333;
-	
-	
+	background: #339966;
 }
 
 .community {
 	background: #333399;
-	
 }
 
 .faculty {
 	background: #CC00FF;
-	
 }
 
 .pedagogy {
-	background: #CC00FF;
-
+	background: #C28547;
 }
 
 .implementation {
-	background: #339933;
-	
-
+	background: #4785C2;
 }
 
+.user_experience {
+	background:#EB0000;
+}
 .tool_carousel {
-	background: #999933;
-	
+	background: #E67300;
 }
 
 .tool_demo {
-	background: #ffffff;
-	
+	background: #E67300;
+}
+
+.research {
+	background: #663300;
 }
 
 
@@ -334,6 +344,11 @@ border-right:1px dotted #ccc;
 .tool_overview {
 	background: #339999;
 	
+	background: #ffffff;
+}
+
+.other {
+	background: #993399;
 }
 
 .multiple_audiences {
