@@ -10,7 +10,7 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 */
 
 html,body {
-font-size:.9em;
+font-size:.91em;
 margin:0;
 padding:0;
 }
@@ -22,13 +22,13 @@ tr,td {
 
 
 .schedule_header {
-	background:#336699;
-	font-size:.9em;
-	padding:.1em;
-	font-weight:bold;
+	background:#000;
+	color:#fff;
+	font-size:1em;
+	padding:3px;
+	font-weight:normal;
 	text-align: center;
-	color:white;
-	border: 1px solid white;
+	border:1px solid #eee;
 }
 
 .bof_header {
@@ -42,11 +42,12 @@ tr,td {
 
 .date_header, .list_date_header {
 	padding: 4px;
-	font-size: .9em;
-	background: #CCC;
+	font-size: 1.15em;
+	background: #eaefff;
 	text-align: center;
 	font-weight:bold;
 	color:black;
+	border: 1px solid #000;
 }
 
 .time_header {
@@ -74,35 +75,34 @@ tr,td {
 	vertical-align: top;
 	text-align: center;
 	border:.0em solid #666;
-	padding:0px;
-	background:#ffcc33;
+	padding:3px;
+	background:#eaefff;
 	
 }
 
 
 .grid_event{
-	color:#111; 
+	color:#000; 
 	font-weight:normal;
-	
-	font-size: .9em;
+	font-size: .96em;
 	width:220px;
 	padding:0px;
 	
 }
 
 .grid_event_long {
-	font-size: .7em;
+	font-size: .93em;
 	color:#111; 
 	font-weight:normal;
 	width:220px;
 	background:#fff;
 	border:1px solid #666666;
-	padding-bottom:180px;
+	padding-bottom:182px;
 	vertical-align:top;
 }
 .grid_event_longDay1{
-font-size: .7em;
-	color:#111; 
+font-size: .93em;
+	color:#000; 
 	font-weight:normal;
 	width:220px;
 	background:#fff;
@@ -110,8 +110,8 @@ font-size: .7em;
 	vertical-align:top;
 }
 .grid_event_short{
-	font-size: .7em;
-	color:#111; 
+	font-size: .93em;
+	color:#000; 
 	font-weight:normal;
 	background:#fff;
 	width:220px;
@@ -120,18 +120,19 @@ font-size: .7em;
 vertical-align:top;
 }
 .grid_event_med{
-	font-size: .7em;
-	color:#111; 
+	font-size: .93em;
+	color:#000; 
 	font-weight:normal;
 	background:#fff;
 	width:220px;
-	border:1px solid #666666;
-	padding-bottom:90px;
+border:1px solid #666666;
+		padding-bottom:125px;
 vertical-align:top;
 }
 .grid_event_break{
 border: 1px solid #666666;
-font-size: .95em;
+font-size: 1em;
+background:#fff;
 	
 }
 .grid_event_header {
@@ -141,7 +142,7 @@ font-size: .95em;
 	color: white;
 	padding-top:2px;
 	
-	height:1.3em;
+	height:1.2em;
 	
 }
 
@@ -159,7 +160,7 @@ font-size: .95em;
 
 .grid_event_long .grid_event_text {
 	padding: 2px 1px;
-	height: 45px;
+	height: 55px;
 }
 
 
@@ -172,8 +173,9 @@ font-size: .95em;
 	font-style: italic;
 	background: white;
 	padding:4px;
+	padding-top:6px;
 	
-	height:40px;
+	height:45px;
 }
 
 .grid_event_long .grid_event_speaker {
@@ -221,7 +223,7 @@ padding: 0px 5px;
 .color_legend span {
 margin-left: 10px;
 padding: 0px 5px;
-color: #fff;
+color: #000;
 border: 1px solid #666;
 }
 
@@ -258,7 +260,7 @@ border-right:1px dotted #ccc;
 
 .list_event_header {
 
-	font-size: 1em;
+	font-size: 1.2em;
 	font-weight: bold;
 	background-color: #339933;
 	color: white;
@@ -305,38 +307,72 @@ border-right:1px dotted #ccc;
 }
 
 .technology {
-	background: #339966;
+	background: #fff;
+	
+	font-weight:strong;
+	color:#339966;
+	font-size:1.3em;
 }
 
 .community {
 	background: #333399;
+	
 }
 
 .faculty {
-	background: #CC00FF;
+	
+	background:#fff;
+	
+	font-weight:strong;
+	color:#CC00FF;
+	font-size:1.2em;
 }
 
 .pedagogy {
-	background: #C28547;
+	background:#fff;
+	
+	font-weight:strong;
+	color:#C28547;
+	font-size:1.2em;
 }
 
 .implementation {
-	background: #4785C2;
+	
+	background:#fff;
+	
+	font-weight:strong;
+	color:#4785C2;
+	font-size:1.2em;
 }
 
 .user_experience {
-	background:#EB0000;
+	background:#fff;
+	
+	font-weight:strong;
+	color:#EB0000;
+	font-size:1.2em;
 }
 .tool_carousel {
-	background: #E67300;
+	background: #fff;
+	
+	font-weight:strong;
+	color:#E67300;
+	font-size:1.2em;
 }
 
 .tool_demo {
-	background: #E67300;
+	background: #fff;
+	
+	font-weight:strong;
+	color:#E67300;
+	font-size:1.2em;
 }
 
 .research {
-	background: #663300;
+	background: #fff;
+	font-weight:strong;
+	color:#663300;
+	font-size:1.2em;
 }
 
 
@@ -348,11 +384,21 @@ border-right:1px dotted #ccc;
 }
 
 .other {
-	background: #993399;
+	
+	background: #fff;
+	font-weight:strong;
+	color:#993399;
+	font-size:1.2em;
+	
 }
 
 .multiple_audiences {
+
+	
 	background: #993399;
+	font-weight:strong;
+	color:#663300;
+	font-size:1em;
 }
 
 
@@ -386,6 +432,13 @@ border-right:1px dotted #ccc;
 
 .proposal_title {
 	font-size: 1em;
+}
+
+.session_time {
+background:#fff;
+	font-size: 1em;
+	color:#000000;
+	border-bottom:1px solid #ccc;
 }
 
 .session_date {
@@ -434,17 +487,18 @@ border-right:1px dotted #ccc;
 	color: #DDDDFF;
 }
 .lunch {
-	background:#FFCCFF; 
-	color:#000;
+	background:#336699; 
+	color:#fff;
 	
-	font-size:.9em;
+	
+	font-size:1.1em;
 }
 
 .break {
-	background:#CCCCFF; 
-	color:#000;
+	color:#fff;
+	background:#336699;
 	
-	font-size:.9em;
+	font-size:1.1em;
 }
 .short_break {
 
@@ -454,22 +508,22 @@ background:#CCCCFF;
 	font-size:.8em;
 }
 .keynote {
-	background:yellow; 
-	color:#000;
+	background:#663333; 
+	color:#fff;
 	
-	font-size:.9em;
+	font-size:1.1em;
 }
 
 .closed {
 	background:#666;
 	
-	font-size:.9em;
+	font-size:1.1em;
 }
 
 .coffee {
-	background:tan;
+	background:#336699;
 	color: #000;
-	font-size:.9em;
+	font-size:1.1em;
 	
 	
 }

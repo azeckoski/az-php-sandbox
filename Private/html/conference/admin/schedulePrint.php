@@ -71,7 +71,7 @@ while($row=mysql_fetch_assoc($result)) { $conf_sessions[$row['pk']] = $row; }
 $sql = "select CP.pk, CP.title, CP.abstract, CP.track, CP.sub_track, CP.speaker, CP.co_speaker, CP.URL, CP.wiki_url," .
 		"CP.type, CP.length from conf_proposals CP " .
 		"join conf_sessions CS on CS.proposals_pk = CP.pk " .
-		"where CP.confID = '$CONF_ID' and approved='Y' ";
+		"where CP.confID = '$CONF_ID' and approved='Y' and track!='unavailable'";
 $result = mysql_query($sql) or die("Fetch query failed ($sql): " . mysql_error());
 $conf_proposals = array();
 while($row=mysql_fetch_assoc($result)) { $conf_proposals[$row['pk']] = $row; }
@@ -138,10 +138,10 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		$conference_day++;
  if ($conference_day ==1) {
     
-	echo "<tr><td colspan=4 align=left valign=top>" .
+	echo "<tr><td colspan=3 align=left valign=top>" .
 		
 			"<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=70 align=left  alt='' /><br/>7th Sakai Conference<br/> " .
-		"Amsterdam, The Netherlands<br/> June 12-15, 2007</strong></td><td colspan=6>" ;
+		"Amsterdam, The Netherlands<br/> June 12-15, 2007</strong></td><td colspan=7>" ;
 echo "<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
@@ -218,16 +218,16 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 		if (($timeslot['type']=="lunch") || ($timeslot['type']=="break") ){ 
 			
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
-					"<div style='font-size:.95em;'>";
+					"<div>";
 				if ($isAdmin) { echo 	"<br/>"; }
-				echo "<strong>".$timeslot['title'].":</strong> <span style='font-size:.9em;'>" .
+				echo "<strong>".$timeslot['title'].":</strong> <span>" .
 					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
 					date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
 					"</span></div></td>";
 			    
 		} else {  
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
-					"<div style='font-size:.9em;  padding: 3px; '>";
+					"<div style='padding: 3px; '>";
 			if ($isAdmin) {	echo 	"<br/>"; }
 			echo "<strong>".$timeslot['title']."</strong>" .
 					"</div></td>";
@@ -272,7 +272,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 						$total_length += $proposal['length'];
             	
 				  }
-				 if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
+				 if (!$proposal==NULL){ //do not show the empty bof spaces as sessions
                      	
 					//echo "<div class='grid_event'>\n";
                  	if ($counter>1){	 //more than one session in this room block
@@ -281,8 +281,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 					//print the break block	
 ?>
 				<tr>
-					<td valign='top'>
-						<div class='grid_event break'><?php echo $break_time;?> break</div>
+					<td valign='top' style="line-height:5px;">&nbsp;
 					</td>
 				</tr>
 <?php
@@ -295,25 +294,45 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 						
 						
 					} else  if ( $proposal['length']=='30')  {
-					echo "<tr><td  class='grid_event_short'>short ";
+					echo "<tr><td  class='grid_event_short'> ";
 					}
 					else  if ( $proposal['length']=='60')  {
-					echo "<tr><td  class='grid_event_med'>med";
+					echo "<tr><td  class='grid_event_med'>";
 					}
 					 else  {
 					echo "<tr><td  class='grid_event_short'>";
 					}
-						echo $proposal['length'];
+					//	echo $proposal['length'];
 				
 					?>
 					<?php
-					if  ($counter=="2") {  //there is a second session so print that start time
+				
+					if($proposal['track']) { 
+					  
+					   
+					   	$trackclass = str_replace(" ","_",strtolower($proposal['track']));
+					   	 if ($proposal['track']=="Teaching & Learning") {
+					   	$trackclass="pedagogy";
+					   }
+						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
+					
+					
+						echo "</div>\n";
+					   }
+					
+
+					if($proposal['type']=="BOF") { //don't list the type on the schedule
+						$typeclass = "";
+					}
+					
+						
+						if  ($counter=="2") {  //there is a second session so print that start time
 					$break_time="5 min. ";
 						$proposal = $conf_proposals[$session['proposals_pk']];
 				
 						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
 						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));	
-						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;( " .$proposal['length'] ." min. )";
+						echo "<div class='session_time'>&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."&nbsp; &nbsp;" .$conf_room['title'] ."</strong>  &nbsp;(" .$proposal['length'] ." min.) </div>";
 						$total_length += $proposal['length'] +5;
             	
 					
@@ -326,48 +345,31 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
 							$total_length += $proposal['length'];
             	
-				echo "&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ." min. )";
+				echo "<div class='session_time'>&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."&nbsp;&nbsp;" .$conf_room['title'] ."</strong>&nbsp;(" .$proposal['length'] ." min.)</div>";
 					
 						} else { 
 						//	echo "<strong> "  . $conf_room['title'] ." " .  $start_time1 ."</strong>";
-							echo "&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ." min. )";
+							echo "<div class='session_time'>&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."&nbsp;&nbsp; " .$conf_room['title']."</strong>  &nbsp;(" .$proposal['length'] ." min).</div>";
 					
 							
 					}
-					if($proposal['track']) { 
-						$trackclass = str_replace(" ","_",strtolower($proposal['track']));
-						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
-					
-					
-						echo "</div>\n";
-					}
-
-					if($proposal['type']=="BOF") { //don't list the type on the schedule
-						$typeclass = "";
-					}
-					if ($conference_day ==1) {
-						echo "<div class='grid_event_textDay1 $typeclass'>";
-					
-					} else {
-						
-					
 					echo "<div class='grid_event_text $typeclass'>";
-					}
+					
 					echo "<label title=\"".str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">";
 					
 					if($proposal['sub_track']) { 
 						//echo "<br/> (" .$proposal['sub_track'] .")";
 						$image_file="";
 						switch ($proposal['sub_track']) {
-							case "OSP": $image_file = "ospiNEWicon.jpg' width=10"; break;
-							case "Cool New Tools": $image_file = "coolToolicon.gif' height=14 width=14"; break;
+							case "OSP": $image_file = "ospiNEWicon.jpg' width=14"; break;
+							case "Cool New Tools": $image_file = "coolToolicon.gif' height=15 width=16"; break;
 							case "Library": $image_file = "book06.gif' height=14 width=14"; break;
 							
 	}
-						echo "<img style='padding: 0px 0px 10px 0px;' src='../include/images/" .$image_file ." align='left' alt=''/>";
+						echo "<img style='padding: 0px 4px 0px 2px;' src='../include/images/" .$image_file ." align='left' alt=''/>";
 						
 					}
-						echo "<strong>"  .htmlspecialchars($proposal['title']) . "</strong>";
+						echo "<div style='padding-top:5px;'><strong>"  .htmlspecialchars($proposal['title']) . "</strong></div>";
 					
 					echo "</label>";
 
