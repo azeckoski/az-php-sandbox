@@ -10,7 +10,6 @@ http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
 */
 
 html,body {
-font-size:.85em;
 margin:0;
 padding:0;
 }
@@ -75,7 +74,7 @@ tr,td {
 	vertical-align: top;
 	text-align: center;
 	border:.0em solid #666;
-	padding:0px;
+	padding:0px 2px;
 	background:#eaefff;
 	
 }
@@ -93,24 +92,15 @@ tr,td {
 	vertical-align:top;
 }
 .grid_event_long {
-height:300px;
+height:245px;
 }
 
 .grid_event_short{
 	
-	height:75px;
+	height:85px;
 }
 .grid_event_med{
-height:198px;
-}
-.grid_event_longDay1{
-font-size: .93em;
-	color:#000; 
-	font-weight:normal;
-	width:220px;
-	background:#fff;
-	border:1px solid #666666;
-	vertical-align:top;
+height:155px;
 }
 .grid_event_break{
 border: 1px solid #666666;
@@ -137,8 +127,7 @@ background:#fff;
 }
 
 .grid_event_text, .grid_event_textDay1 {
-	padding: 2px 0px;
-	height:30px;
+	padding: 3px 0px;
 }
 
 .grid_event_long .grid_event_text {
@@ -155,7 +144,6 @@ background:#fff;
 	border-top: 0px dotted #AAAAAA;
 	font-style: italic;
 	background: white;
-	height:30px;
 }
 
 .grid_event_long .grid_event_speaker {
@@ -166,7 +154,6 @@ background:#fff;
 }
 
 .grid_event_speakerDay1 {
-	height:21px;
 }
 
 .page {
@@ -289,7 +276,7 @@ border-right:1px dotted #ccc;
 	
 	font-weight:strong;
 	color:#339966;
-	font-size:1.3em;
+	font-size:1.2em;
 }
 
 .community {

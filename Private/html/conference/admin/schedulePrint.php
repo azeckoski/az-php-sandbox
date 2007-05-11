@@ -140,7 +140,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
     
 	echo "<tr><td colspan=3 align=left valign=top>" .
 		
-			"<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=70 align=left  alt='' /><br/>7th Sakai Conference<br/> " .
+			"<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=70 align=left  alt='' /><strong><br/>7th Sakai Conference<br/> " .
 		"Amsterdam, The Netherlands<br/> June 12-15, 2007</strong></td><td colspan=7>" ;
 echo "<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
@@ -156,30 +156,30 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 				   }
 		// create a blank line if after first one
 		if ($line > 1) {
-			echo "<tr><td style='page-break-before: always;'>&nbsp;</td></tr>\n";
+			echo "<tr style='page-break-after:always;'><td colspan=10>&nbsp;</td></tr>";
 		}
 
 		// print date header
-		echo "<tr>\n";
-		echo "<td class='date_header' nowrap='y' colspan='" .
+		echo "<tr>";
+		echo "<td class='date_header page' nowrap='y' colspan='" .
 				(count($conf_rooms) + 1) . "'>" .
 				"Conference day $conference_day - " .
 				date('l, M j, Y',strtotime($timeslot['start_time'])) .
-				"</td>\n";
-		echo "</tr>\n\n";
+				"</td>";
+		echo "</tr>";
 		
 		// print the room header
 		echo "<tr>";
-		echo "<td class='time_header' nowrap='y'>$current_date</td>\n";
+		echo "<td class='time_header' nowrap='y'>$current_date</td>";
 		foreach($conf_rooms as $conf_room) {
 			$type = "schedule_header";
 			if ($conf_room['BOF'] == 'Y') {
 				if ($hide_bof_rooms) { continue; }
 				$type = "bof_header";
 			}
-			echo "<td class='$type' nowrap='y'>".$conf_room['title']."</td>\n";
+			echo "<td class='$type' nowrap='y'>".$conf_room['title']."</td>";
 		}
-		echo "</tr>\n\n";
+		echo "</tr>";
 	}
 	$last_date = $current_date;
 
@@ -220,7 +220,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
 					"<div>";
 				if ($isAdmin) { echo 	"<br/>"; }
-				echo "<strong>".$timeslot['title'].":</strong> <span>" .
+				echo "".$timeslot['title'].": <span>" .
 					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
 					date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
 					"</span></div></td>";
@@ -274,7 +274,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 				  }
 				 if (!$proposal==NULL){ //do not show the empty bof spaces as sessions
                      	
-					//echo "<div class='grid_event'>\n";
+					//echo "<div class='grid_event'>";
                  	if ($counter>1){	 //more than one session in this room block
 				  
 					$breaktime="5 min";
@@ -317,7 +317,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
 					
 					
-						echo "</div>\n";
+						echo "</div>";
 					   }
 					
 
@@ -355,26 +355,27 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 					}
 					echo "<div class='grid_event_text $typeclass'>";
 					
-					echo "<label title=\"".str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">";
+					//echo "<label title=\"".str_replace("\"","'",htmlspecialchars($proposal['abstract']))."\">";
 					
 					if($proposal['sub_track']) { 
 						//echo "<br/> (" .$proposal['sub_track'] .")";
 						$image_file="";
 						switch ($proposal['sub_track']) {
-							case "OSP": $image_file = "ospiNEWicon.jpg' width=14"; break;
-							case "Cool New Tools": $image_file = "coolToolicon.gif' height=15 width=16"; break;
-							case "Library": $image_file = "book06.gif' height=14 width=14"; break;
+							case "OSP": $image_file = "ospiNEWicon.jpg"; $width=" width=14"; break;
+							case "Cool New Tools": $image_file = "coolToolicon.gif"; $width="  height=15 width=16"; break;
+							case "Library": $image_file = "book06.gif"; $width=" height=14 width=14"; break;
 							
 	}
-						echo "<img style='padding: 0px 4px 0px 0px;' src='../include/images/" .$image_file ." align='left' alt=''/>";
+						?>
+						<img style="padding: 0px 4px 0px 0px;" src="../include/images/<?=$image_file?>" <?=$width?> align="left" alt="img" />
 						
-					}
-						echo "<div style='padding-top:5px;'><strong>"  .htmlspecialchars($proposal['title']) . "</strong></div>";
+			<?php		}
+						echo "<div><strong>"  .htmlspecialchars($proposal['title']) . "</strong></div>";
 					
-					echo "</label>";
+					//echo "</label>";
 
 					
-					echo "</div>\n";
+					echo "</div>";
 					
 					
 					 if ($conference_day ==1) {
@@ -428,6 +429,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 		}
 		
 		echo "</tr>";
+		
 	}
 	
 } 
