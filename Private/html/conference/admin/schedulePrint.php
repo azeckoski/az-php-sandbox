@@ -105,6 +105,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $CSS_FILE2 = $TOOL_URL."/include/print_schedule.css";
+
 $DATE_FORMAT = "M d, Y h:i A";
 
 
@@ -136,25 +137,20 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		// next date
 		$conference_day++;
  if ($conference_day ==1) {
-				   		
-	echo "<tr><td colspan=10 align=center valign=top>" .
-			"<div style='border: 1px solid #ccc; padding: 10px 0px;'> " .
-			"<div class='page'>" .
-			"<div class='pageheader'>" .
-			"<img style='padding:0px 30px;' src='../../../accounts/include/images/atlantaBadgeLogo.png' height=70 align=left  alt='' /> <strong>6th Sakai Conference with OSPI " .
-		"Atlanta, Georgia, December 5-8, 2006</strong><br/><br/></div>" .
-		"<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
+    
+	echo "<tr><td colspan=4 align=left valign=top>" .
+		
+			"<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=70 align=left  alt='' /><br/>7th Sakai Conference<br/> " .
+		"Amsterdam, The Netherlands<br/> June 12-15, 2007</strong></td><td colspan=6>" ;
+echo "<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
-			"<span><img src='../include/images/coolCommercialToolicon.gif' alt='' height=16 /> - Cool Commercial Tool </span>" .
-			"<span><img src='../include/images/people_icon.jpg' alt='' height=17/> - User Experience </span>" .
+			
 				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
 				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span>" .
-				"<span class='community'>Community</span><span class='multiple_audiences'>Multiple Audiences</span>" .
-				"<span class='implementation'>Implementation</span><span class='tool_carousel'>Tool Carousel</span>" .
-				"<span class='pedagogy'>Pedagogy</span></div>" .
+				"<span class='other'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
+				"<span class='pedagogy'>Teaching &amp; Learning</span><span class='user_experience'>User Experience</span></div></div>" ;
 				"</div>" .
-				"</div></div>" .
 		" </td></tr>";
 						
 				   }
@@ -222,7 +218,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		if (($timeslot['type']=="lunch") || ($timeslot['type']=="break") ){ 
 			
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
-					"<div style='font-size:.9em; padding: 3px;'>";
+					"<div style='font-size:.95em;'>";
 				if ($isAdmin) { echo 	"<br/>"; }
 				echo "<strong>".$timeslot['title'].":</strong> <span style='font-size:.9em;'>" .
 					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
@@ -254,59 +250,87 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			echo "<table border=0 cellpadding='0' cellspacing='0'>";
 				
 			// session check here
+	// session check here
 			$total_length = 0;
 			if (is_array($room)) {
 				$counter = 0;
-
+					$start_time1="";
+					$start_time2="";
+					$start_time3="";
+					
 				foreach ($room as $session_pk=>$session) {
-						$counter++;
-					//get the starttime for this timeslot
+					$counter++;
+					$proposal = $conf_proposals[$session['proposals_pk']];
+						$total_length += $proposal['length'];
+				  if ($counter=="1") {	//get the starttime for this timeslot
 					$start_time1=date('g:i',strtotime($timeslot['start_time']) );
 					
-					//clear any previous time set for second timeslot 
-					$start_time2="";
-					  
+					//clear any previous time set for second and 3rd timeslots
+				 
 					$proposal = $conf_proposals[$session['proposals_pk']];
 					$end_time1=date('g:i',strtotime($timeslot['start_time']) + (($proposal['length']) *60));
-				
-					$total_length += $proposal['length'];
-                     if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
-                     
-if ($proposal['type']=='BOF') { continue; }	
-					//echo "<div class='grid_event'>";
-					
-					if ($counter >1){	 //more than one session in this room block
-						$break_time="10 min. ";
-						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (( $proposal['length'] + 10) *60));
-						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));
-
+						$total_length += $proposal['length'];
+            	
+				  }
+				 if (!$proposal==NULL) { //do not show the empty bof spaces as sessions
+                     	
+					//echo "<div class='grid_event'>\n";
+                 	if ($counter>1){	 //more than one session in this room block
+				  
+					$breaktime="5 min";
 					//print the break block	
 ?>
-				
+				<tr>
+					<td valign='top'>
+						<div class='grid_event break'><?php echo $break_time;?> break</div>
+					</td>
+				</tr>
 <?php
 					}
 					
 				  
-					if ($total_length=='90') {
-						if ($conference_day==1){
-						echo "<tr><td  class='grid_event_longDay1'>'";
+					if ( $proposal['length']=='90') {
 					
-					} else {
+					echo "<tr><td class='grid_event_long' >" ;
 						
-					echo "<tr><td  class='grid_event_long'>'";
-						}
 						
-					} else {
+					} else  if ( $proposal['length']=='30')  {
+					echo "<tr><td  class='grid_event_short'>short ";
+					}
+					else  if ( $proposal['length']=='60')  {
+					echo "<tr><td  class='grid_event_med'>med";
+					}
+					 else  {
 					echo "<tr><td  class='grid_event_short'>";
 					}
+						echo $proposal['length'];
+				
 					?>
 					<?php
-					if  ($start_time2) {  //there is a second session so print that start time
-						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp;";
+					if  ($counter=="2") {  //there is a second session so print that start time
+					$break_time="5 min. ";
+						$proposal = $conf_proposals[$session['proposals_pk']];
+				
+						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
+						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));	
+						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;( " .$proposal['length'] ." min. )";
+						$total_length += $proposal['length'] +5;
+            	
+					
+						}
+					else	if  ($counter=="3") {  //there is a second session so print that start time
+							$break_time="5 min. ";
+					$proposal = $conf_proposals[$session['proposals_pk']];
+				
+						$start_time3=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
+						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
+							$total_length += $proposal['length'];
+            	
+				echo "&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ." min. )";
 					
 						} else { 
 						//	echo "<strong> "  . $conf_room['title'] ." " .  $start_time1 ."</strong>";
-							echo "&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."</strong>&nbsp;";
+							echo "&nbsp;<strong> "  . $start_time1 . " - " .$end_time1 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ." min. )";
 					
 							
 					}
@@ -320,14 +344,6 @@ if ($proposal['type']=='BOF') { continue; }
 
 					if($proposal['type']=="BOF") { //don't list the type on the schedule
 						$typeclass = "";
-					} else if($proposal['type']) {
-					 	$typeclass = "";
-						$typeclass = str_replace(" ","_",strtolower($proposal['type']));
-							echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
-						}
-					else {
-							echo "<div class='grid_event_type $typeclass'>- ".$proposal['type']." -</div>\n";
-						
 					}
 					if ($conference_day ==1) {
 						echo "<div class='grid_event_textDay1 $typeclass'>";
@@ -345,8 +361,6 @@ if ($proposal['type']=='BOF') { continue; }
 						switch ($proposal['sub_track']) {
 							case "OSP": $image_file = "ospiNEWicon.jpg' width=10"; break;
 							case "Cool New Tools": $image_file = "coolToolicon.gif' height=14 width=14"; break;
-							case "Cool Commercial Tool": $image_file = "coolCommercialToolicon.gif' height=14 width=14"; break;
-							case "User Experience": $image_file = "people_icon.jpg' height=14 width=14 "; break;
 							case "Library": $image_file = "book06.gif' height=14 width=14"; break;
 							
 	}
