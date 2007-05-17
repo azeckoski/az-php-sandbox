@@ -1,4 +1,19 @@
 <markers>
+	<!-- Collab, JIRA server, QA servers -->
+	<marker lat="37.20479936413613" lng="-80.4009532928466" title="http://collab.sakaiproject.org" country="us" status="Sakai Foundation server" text="Sakai Foundation Collaboration server (Virginia Tech)" color="red" />
+	<marker lat="32.26158802054523" lng="-111.04156494140625" title="http://bugs.sakaiproject.org" country="us"  status="Sakai Foundation server"  text="Sakai Jira/Confluence server (University of Arizona)" color="red" />
+	
+	<marker lat="42.3535" lng="-71.0627" title="http://qa1-us.sakaiproject.org" country="us" status="QA server" text="Sakai Community QA server (Boston University)" color="red"/>
+	<marker lat="40.80778" lng="-73.96545" title="http://qa2-us.sakaiproject.org:9090/portal" country="us" status="QA server" text="Sakai Community QA server (Columbia University)" color="red" />
+	<marker lat="39.16700255163836" lng="-86.52577757835388" title="http://qa3-us.sakaiproject.org/" country="us" status="QA server" text="Sakai Community QA server (Indiana University)" color="red"/>
+	
+	<marker lat="52.20194224761514" lng="0.1166224479675293" title="http://qa1-uk.sakaiproject.org:9085/portal" country="uk" status="QA server" text="Sakai Community QA server (University of Cambridge)" color="red"/>
+	<marker lat="-33.957098" lng="18.460508" title="http://qa1-za.sakaiproject.org" country="za" status="QA server" text="Sakai Community QA server (University of Cape Town)" color="red"/>
+	<marker lat="52.37458165397" lng="4.887005727275" title="http://qa1-nl.sakaiproject.org" country="nl" status="QA server" text="Sakai Community QA server (University of Amsterdam)" color="red"/>
+	
+	<marker lat="33.4979" lng="-112.081" title="http://qa1-osp.sakaiproject.org" country="us" status="QA server" text="OSP QA server (The rSmart Group)" color="red" />
+	<marker lat="39.77995029981427" lng="-86.17618882316002" title="http://qa2-osp.sakaiproject.org" country="us" status="QA server" text="OSP QA server (Indiana University)" color="red" />
+
 	<!-- academic partners (home url; production/pilot instances listed separately below) -->
 	<marker lat="42.65315192577889" lng="-73.77503871917725" title="http://www.amc.edu" country="us" status="partner" text="Albany Medical College" color="green" />
 	<marker lat="37.575" lng="-84.2637" title="http://www.acaweb.org" country="us" status="partner" text="Appalachian College Association" color="green"/>
@@ -25,7 +40,6 @@
 	<marker lat="33.776225" lng="-84.398436" title="http://www.gatech.edu/" country="us" status="partner" text="Georgia Tech" color="green" />
 	<marker lat="38.9048" lng="-77.0354" title="http://www.georgetown.edu" country="us" status="partner" text="Georgetown University" color="green" />
 	<marker lat="42.377441423897196" lng="-71.11810684204102" title="http://www.harvard.edu" country="us" status="partner" text="Harvard University" color="green" />
-	<marker lat="21.3084" lng="-157.846" title="http://www.hawaii.edu" country="us" status="partner" text="University of Hawaii" color="green" />
 	<marker lat="35.7" lng="139.767" title="http://www.hosei.jp" country="jp" status="partner" text="Hosei University" color="green" />
 	<marker lat="39.16700255163836" lng="-86.52577757835388" title="http://www.iu.edu/" country="us" status="partner" text="Indiana University" color="green"/>
 	<marker lat="39.329" lng="-76.619" title="http://www.jhu.edu" country="us" status="partner" text="Johns Hopkins University" color="green" />
@@ -244,6 +258,7 @@
 	<marker lat="34.1276" lng="-117.715" title="http://sakai.claremont.edu:8080/portal" country="us" status="production" text="The Claremont Colleges" color="blue"/> 
 	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="pilot" color="purple"/>
+	<marker lat="33.776225" lng="-84.398436" title="http://t-square.gatech.edu" country="us" status="pilot" text="Georgia Tech" color="purple" />
 	
 	<!-- USA (Appalachian College Association) -->
 	<marker lat="39.158480" lng="-80.048985" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Alderson-Broaddus College" color="blue" />
@@ -296,6 +311,7 @@
 	<marker lat="39.329" lng="-76.619" title="http://sakai-pilot.library.jhu.edu" country="us" status="pilot" text="Johns Hopkins University University" color="purple" />
 	<marker lat="41.7879" lng="-81.0546" title="http://ilearn.lec.edu/" text="Lake Erie College" country="us" status="production" color="blue"/>
 	<marker lat="41.72075" lng="-73.93274" title="https://ilearn.marist.edu/" country="us" status="production" text="Marist College" color="blue" />
+	<marker lat="41.89759" lng="-87.63382"  title="http://archway.moody.edu" country="us" status="pilot" text="Moody Bible Institute" color="purple" />
 	<marker lat="42.256423774909216" lng="-72.57618248462677" title="http://ella.mtholyoke.edu" country="us" status="production" text="Mount Holyoke College" color="blue" />
 	<marker lat="42.280211" lng="-83.73349" title="https://portal.ncibi.org/portal" country="us" status="pilot" text="National Center for Integrative Biomedical Informatics (NCIBI)" color="purple" />
 	<marker lat="41.087856" lng="-81.183922" title="http://aims.neoucom.edu" country="us" status="production" text="Northeastern Ohio Universities College of Medicine and Pharmacy (NEOUCOM)" color="blue" />
@@ -349,19 +365,4 @@
 	<marker lat="33.4979" lng="-112.081" title="http://www.osnext.org/" country="us" status="production" text="Osnext" color="blue"/>
 	<marker lat="38.9348" lng="-77.0354" title="http://demo.osportfolio.org/portal/" country="us" status="production" text="OSP" color="blue"/>
 	<marker lat="33.34816781235172" lng="-111.84322357177734" title="http://www.testdrivesakai.com/" country="us" status="production" text="Unicon" color="blue" />
-	
-	<!-- Collab, JIRA server, QA servers -->
-	<marker lat="37.20479936413613" lng="-80.4009532928466" title="http://collab.sakaiproject.org" country="us" status="Sakai Foundation server" text="Sakai Foundation Collaboration server (Virginia Tech)" color="red" />
-	<marker lat="32.26158802054523" lng="-111.04156494140625" title="http://bugs.sakaiproject.org" country="us"  status="Sakai Foundation server"  text="Sakai Jira/Confluence server (University of Arizona)" color="red" />
-	
-	<marker lat="42.3535" lng="-71.0627" title="http://qa1-us.sakaiproject.org" country="us" status="QA server" text="Sakai Community QA server (Boston University)" color="red"/>
-	<marker lat="40.80778" lng="-73.96545" title="http://qa2-us.sakaiproject.org:9090/portal" country="us" status="QA server" text="Sakai Community QA server (Columbia University)" color="red" />
-	<marker lat="39.8643" lng="-86.1477" title="http://qa3-us.sakaiproject.org/" country="us" status="QA server" text="Sakai Community QA server (Indiana University)" color="red"/>
-	
-	<marker lat="52.175" lng="0.144" title="http://qa1-uk.sakaiproject.org:9085/portal" country="uk" status="QA server" text="Sakai Community QA server (University of Cambridge)" color="red"/>
-	<marker lat="-33.957098" lng="18.460508" title="http://qa1-za.sakaiproject.org" country="za" status="QA server" text="Sakai Community QA server (University of Cape Town)" color="red"/>
-	<marker lat="52.37458165397" lng="4.887005727275" title="http://qa1-nl.sakaiproject.org" country="nl" status="QA server" text="Sakai Community QA server (University of Amsterdam)" color="red"/>
-	
-	<marker lat="33.4979" lng="-112.081" title="http://qa1-osp.sakaiproject.org" country="us" status="QA server" text="OSP QA server (The rSmart Group)" color="red" />
-	<marker lat="39.8643" lng="-86.1477" title="http://qa2-osp.sakaiproject.org" country="us" status="QA server" text="OSP QA server (Indiana University)" color="red" />
 </markers>
