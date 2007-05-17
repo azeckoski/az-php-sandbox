@@ -27,7 +27,7 @@
 	<marker lat="40.3484" lng="-79.9221" title="http://www.cmu.edu" country="us" status="partner" text="Carnegie Mellon University" color="green" />
 	<marker lat="33.88619934077726" lng="-118.09751272201538" title="http://www.cerritos.edu" country="us" status="partner" text="Cerritos Community College" color="green" />
 	<marker lat="-36.0468782804617" lng="146.97114944458008" title="http://www.csu.edu.au/" country="au" status="partner" text="Charles Sturt University" color="green" />
-	<marker lat="34.1276" lng="-117.715" title="http://www.claremont.edu" country="us" status="partner" text="The Claremont Colleges" color="green"/>
+	<marker lat="34.101214" lng="-117.712942" title="http://www.claremont.edu" country="us" status="partner" text="The Claremont Colleges" color="green"/>
 	<marker lat="33.67503" lng="-117.913955" title="http://www.cccd.edu/" country="us" status="partner" text="Coast Community College District" color="green"/>
 	<marker lat="40.808200" lng="-73.9619572" title="http://www.columbia.edu" country="us" status="partner" text="Columbia University" color="green"/>
 	<marker lat="42.4402" lng="-76.4922" title="http://www.cornell.edu" country="us" status="partner" text="Cornell University" color="green" />
@@ -254,8 +254,7 @@
 	<marker lat="42.35331122051394" lng="-71.11896514892578" title="http://sakai.bu.edu/" country="us" status="production" text="Boston University, School of Management" color="blue"/>
 	<marker lat="36.810557" lng="-119.745222" title="http://sakai.csufresno.edu" country="us" status="demo" text="California State University, Fresno" color="purple"/>
 	<marker lat="33.88619934077726" lng="-118.09751272201538" title="http://talonnet.cerritos.edu" country="us" status="production" text="Cerritos College" color="blue" />
-	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="production" color="blue"/>
-	<marker lat="34.1276" lng="-117.715" title="http://sakai.claremont.edu:8080/portal" country="us" status="production" text="The Claremont Colleges" color="blue"/> 
+	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="production" color="blue"/> 
 	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="pilot" color="purple"/>
 	<marker lat="33.776225" lng="-84.398436" title="http://t-square.gatech.edu" country="us" status="pilot" text="Georgia Tech" color="purple" />
@@ -280,6 +279,15 @@
 	<marker lat="35.204639" lng="-85.920938" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="University of the South" color="blue" />
 	<marker lat="35.611975" lng="-82.440935" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Warren Wilson College" color="blue" />
 	<marker lat="40.071215" lng="-80.692225" title="http://lamp.acaweb.org/portal/" country="us" status="production" text="Wheeling Jesuit University" color="blue" />
+	
+	<!-- USA (Claremont Colleges) -->
+	<marker lat="34.102990" lng="-117.713210" title="https://sakai.claremont.edu" country="us" status="production" text="Claremont Graduate University" color="blue"/>
+	<marker lat="34.101590" lng="-117.707225" title="https://sakai.claremont.edu" country="us" status="production" text="Claremont McKenna College" color="blue"/>
+	<marker lat="34.105890" lng="-117.708670" title="https://sakai.claremont.edu" country="us" status="production" text="Harvey Mudd College" color="blue"/>
+	<marker lat="34.091655" lng="-117.722394" title="https://sakai.claremont.edu" country="us" status="production" text="Keck Graduate Institute" color="blue"/>
+	<marker lat="34.104660" lng="-117.705055" title="https://sakai.claremont.edu" country="us" status="production" text="Pitzer College" color="blue"/>
+	<marker lat="34.098125" lng="-117.711845" title="https://sakai.claremont.edu" country="us" status="production" text="Pomona College" color="blue"/>
+	<marker lat="34.103980" lng="-117.710140" title="https://sakai.claremont.edu" country="us" status="production" text="Scripps College" color="blue"/>
 	
 	<!-- USA (ETUDES) -->
 	<marker lat="35.408835" lng="-118.972020" title="http://etudes-ng.fhda.edu/portal" country="us" status="production" text="Bakersfield College (ETUDES Consortium)" color="blue" />
