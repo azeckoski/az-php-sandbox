@@ -103,7 +103,7 @@ include 'include/top_header.php';  ?>
 <td width="10%" valign="top" height="100" style="padding:10px;">
 	<div class="login" style="padding:10px;">
 	<div><span style="color:#660000;"><strong>LOGIN REQUIRED: </strong></span><br/>You must login to register or<br/> submit a proposal for this event. <br/>
-		<br/>If you do not have an account, please <a href='$ACCOUNTS_URL/createaccount.php'><strong>create one</strong>.</a><br/><br/><br/></div>
+		<br/>If you do not have an account, please <a href="<?=$ACCOUNTS_URL?>/createaccount.php"><strong>create one</strong>.</a><br/><br/><br/></div>
 	<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <?php if($REF) { ?>
 	<input type="hidden" name="ref" value="<?= $REF ?>" />
