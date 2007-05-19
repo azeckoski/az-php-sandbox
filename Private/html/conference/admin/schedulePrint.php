@@ -415,8 +415,8 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 					$break_time="5 min. ";
 						$proposal = $conf_proposals[$session['proposals_pk']];
 				
-						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
-						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));	
+						$start_time2=date('H:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
+						$end_time2=date('H:i',strtotime($start_time2) + (( $proposal['length']) *60));	
 						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;( " .$proposal['length'] ." min. )";
 						$total_length += $proposal['length'] +5;
             	
@@ -426,8 +426,8 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 							$break_time="5 min. ";
 					$proposal = $conf_proposals[$session['proposals_pk']];
 				
-						$start_time3=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
-						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
+						$start_time3=date('H:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
+						$end_time3=date('H:i',strtotime($start_time3) + (( $proposal['length']) *60));
 							$total_length += $proposal['length'];
             	
 				echo "&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ." min. )";
