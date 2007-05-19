@@ -104,7 +104,7 @@ foreach($conf_timeslots as $conf_timeslot) {
 
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
-$CSS_FILE2 = $TOOL_URL."/include/print_schedule.css";
+$CSS_FILE2 = $TOOL_URL."/include/print_scheduleTabloidWidecss.css";
 
 $DATE_FORMAT = "M d, Y h:i A";
 
@@ -117,10 +117,87 @@ $DATE_FORMAT = "M d, Y h:i A";
 	echo "</head><body>";
 
 ?>
+ <table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
+ <tr><td colspan=5 align=left valign=top style='font-size: 1.8em; font-weight:200;'><img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=150 align=left  alt='' /><strong><br/>7th Sakai Conference<br/> Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></td>
+
+ <tr><td colspan=5><div style="height:250px; margin: 10px; border: 1px dotted #336699; font-size: 1.3em;"><br/><br/>&nbsp;Special notes/reminders maybe a map to the rooms:</div></td></tr>	<tr><td class='date_header page' nowrap='y' colspan='4'>Pre-Conference - Monday, Jun 11, 2007</td></tr>
+	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'>Matterhorn 1</td><td class='schedule_header' nowrap='y'>Matterhorn 2</td><td class='schedule_header' nowrap='y'>Matterhorn 3</td></tr>
+	
+	<tr class="event">
+	<td class="time" nowrap='y'>
+		09:05 - 
+		12:40
+	</td>
+       		
+ 		
+		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='session_time'>&nbsp;<strong> 09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text' style="text-align:left"><div>
+<strong>Full Day Workshop</strong>(part 1)<br/><br/>
+We will be doing a more hands-on workshop this time (by popular
+demand) and will be writing a function tool (similar to Vancouver) in RSF.<br/><br/>
+There will be short special sessions after lunch.
+1) Developer involvement in Sakai (Peter Knoop)
+2)  Licensing issues in Sakai development (TBD) (maybe)
+<br/><br/>
+There will also be a combined Designer/Developer session at the end of the
+day.   </div></div><div class='grid_event_speakerDay1'></div></table></td>       		
+		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header implementation'>Introduction to Sakai</div><div class='session_time'>&nbsp;<strong>09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header user_experience'>U-Camp</div><div class='session_time'>&nbsp;<strong>09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+		    </tr>
+		    
+<tr class="coffee">
+	<td class="time" nowrap='y'>
+		12:30 - 
+		13:40	
+	</td>
+<td align='center' colspan='3'><div style='padding: 3px; '><strong>LUNCH - box lunch provided</strong></div></td></tr>
+
+	<tr class="event">
+	<td class="time" nowrap='y'>
+		13:40  - 
+		18:40	
+	</td>
+       		
+	    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='session_time'>&nbsp;<strong> 09:00 - 17:00</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text' style="text-align:left"><div><strong>Full Day Workshop</strong>(part 2)<br/><br/>
+Continuation of the Programmers' Cafe with a combined Designer/Developer session at the end of the
+day.  We will be bringing
+together the U-Camp attendees and the Programmers Cafe attendees and talking
+about Designers and Developers working together to improve the Sakai user
+experience. Practical tips and examples will be presented to help both
+groups work together more closely and to assist developers without the
+benefit of a local UI expert. We hope this will result in questions,
+discussion, and new friendships and alliances. </div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header pedagogy'>Introduction to OSP</div><div class='session_time'>&nbsp;<strong>09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header user_experience'>U-Camp</div><div class='session_time'>&nbsp;<strong>09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+		</tr>
+
+</table>
+<table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
+ 
+ <tr><td><div style="height:90px;">&nbsp;</div></td></tr>	<tr><td class='date_header page' nowrap='y' colspan='4'>Post-Conference - Friday, Jun 15, 2007</td></tr>
+	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'><strong>LOCATION: </strong> Universiteit van Amsterdam</td><td class='schedule_header' nowrap='y'><strong>LOCATION: </strong> TBA</td></tr>
+	
+	<tr class="event">
+	<td class="time" nowrap='y'>
+		09:00 - 
+		15:00
+	</td>
+       		
+ 		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_long'> 					<div class='grid_event_header implementation'>OSP Post-Conference Workshop</div><div class='session_time'>&nbsp;<strong> 09:00 - 15:00</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div style="text-align:left;"><strong>OSP post conference meeting</strong><br/><br/>
+This day long meeting is being hosted by Universiteit van Amsterdam<br/>
+Time: 	9am - 3pm	<br/>
+Location:	Universiteit van Amsterdam, Herengracht 182, room 007	<br/>
+Features:	Wireless (and probably wired also) Beamer, Whiteboard, Flipover and Lunch.
+</div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+		   <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_long'> 					<div class='grid_event_header implementation'>TBA</div><div class='session_time'>&nbsp;<strong> 09:00 - 15:00</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>Other post-conference meetings...
+TBA
+</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>     </tr>
+		    
+<tr style='page-break-before:always;'><td colspan=8><hr /></td></tr>
+</table>
 
 
-<table border="0" cellspacing="0" cellpadding="2" style='width:100%;height:100%;'>
-
+<table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
 <?php
 // create the grid
 $line = 0;
@@ -138,36 +215,38 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		$conference_day++;
  if ($conference_day ==1) {
     
-	echo "<tr><td colspan=3 align=left valign=top>" .
+	echo "
+<tr><td colspan=4 align=left valign=top style='font-size: 1.1em; font-weight:200;'>" .
 		
-			"<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=70 align=left  alt='' /><strong><br/>7th Sakai Conference<br/> " .
-		"Amsterdam, The Netherlands<br/> June 12-15, 2007</strong></td><td colspan=7>" ;
+			"<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=60 align=left  alt='' />" .
+			"<strong><br/>7th Sakai Conference<br/> " .
+		"Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></td><td colspan=4>" ;
 echo "<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
-			
-				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
-				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span>" .
-				"<span class='other'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
-				"<span class='pedagogy'>Teaching &amp; Learning</span><span class='user_experience'>User Experience</span></div></div>" ;
+		
+				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - Open Source Portfolio </span></div>" .
+				"</div>" ;
 				"</div>" .
 		" </td></tr>";
 						
 				   }
 		// create a blank line if after first one
+	?> 
+	<?php
 		if ($line > 1) {
-			echo "<tr style='page-break-after:always;'><td colspan=10>&nbsp;</td></tr>";
+			echo "<tr style='page-break-after:always;'><td colspan=8>&nbsp;</td></tr>";
 		}
-
+        else {
 		// print date header
 		echo "<tr>";
 		echo "<td class='date_header page' nowrap='y' colspan='" .
 				(count($conf_rooms) + 1) . "'>" .
-				"Conference day $conference_day - " .
+				"Conference Day $conference_day - " .
 				date('l, M j, Y',strtotime($timeslot['start_time'])) .
 				"</td>";
 		echo "</tr>";
-		
+        }
 		// print the room header
 		echo "<tr>";
 		echo "<td class='time_header' nowrap='y'>$current_date</td>";
@@ -204,9 +283,9 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 
 	if (($timeslot['type']!="lunch") && ($timeslot['type']!="break") ){ 
 ?>
-		<?=  date('g:i a',strtotime($timeslot['start_time'])) ?>
-		 -<br/>
-		<?= date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
+		<?=  date('H:i',strtotime($timeslot['start_time'])) ?>
+		 - 
+		<?= date('H:i',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
 <?php } else { ?>
 	&nbsp;
 <?php } ?>	
@@ -221,8 +300,8 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 					"<div>";
 				if ($isAdmin) { echo 	"<br/>"; }
 				echo "".$timeslot['title'].": <span>" .
-					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
-					date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
+					date('H:i',strtotime($timeslot['start_time'])) . " - " .
+					date('H:i',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
 					"</span></div></td>";
 			    
 		} else {  
@@ -263,12 +342,12 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 					$proposal = $conf_proposals[$session['proposals_pk']];
 						$total_length += $proposal['length'];
 				  if ($counter=="1") {	//get the starttime for this timeslot
-					$start_time1=date('g:i',strtotime($timeslot['start_time']) );
+					$start_time1=date('H:i',strtotime($timeslot['start_time']) );
 					
 					//clear any previous time set for second and 3rd timeslots
 				 
 					$proposal = $conf_proposals[$session['proposals_pk']];
-					$end_time1=date('g:i',strtotime($timeslot['start_time']) + (($proposal['length']) *60));
+					$end_time1=date('H:i',strtotime($timeslot['start_time']) + (($proposal['length']) *60));
 						$total_length += $proposal['length'];
             	
 				  }
@@ -299,9 +378,6 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 					else  if ( $proposal['length']=='60')  {
 					echo "<tr><td  class='grid_event_med'>";
 					}
-					 else  {
-					echo "<tr><td  class='grid_event_short'>";
-					}
 					//	echo $proposal['length'];
 				
 					?>
@@ -309,16 +385,25 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 				
 					if($proposal['track']) { 
 					  
+					   $trackclass = str_replace(" ","_",strtolower($proposal['track']));
 					   
-					   	$trackclass = str_replace(" ","_",strtolower($proposal['track']));
-					   	 if ($proposal['track']=="Teaching & Learning") {
+					   if ($proposal['track']=="Other") {
+					   	echo "<div class='grid_event_header $trackclass'>"."Multiple Audiences";
+					
+					echo "</div>";
+						
+					   } else {
+					   	
+					    		 if ($proposal['track']=="Teaching & Learning") {
 					   	$trackclass="pedagogy";
 					   }
+					   	
 						echo "<div class='grid_event_header $trackclass'>".$proposal['track'];
+					echo "</div>";
 					
-					
-						echo "</div>";
-					   }
+					}
+					}
+					   
 					
 
 					if($proposal['type']=="BOF") { //don't list the type on the schedule
@@ -326,13 +411,13 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 					}
 					
 						
-						if  ($counter=="2") {  //there is a second session so print that start time
+					if  ($counter=="2") {  //there is a second session so print that start time
 					$break_time="5 min. ";
 						$proposal = $conf_proposals[$session['proposals_pk']];
 				
 						$start_time2=date('g:i',strtotime($timeslot['start_time']) + (($total_length + 5) *60));
 						$end_time2=date('g:i',strtotime($start_time2) + (( $proposal['length']) *60));	
-						echo "<div class='session_time'>&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;(" .$conf_room['title'] .") " .$proposal['length'] ." min. </div>";
+						echo "&nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;( " .$proposal['length'] ." min. )";
 						$total_length += $proposal['length'] +5;
             	
 					
@@ -345,11 +430,13 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 						$end_time3=date('g:i',strtotime($start_time3) + (( $proposal['length']) *60));
 							$total_length += $proposal['length'];
             	
-				echo "<div class='session_time'>&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp; &nbsp;(" .$conf_room['title'] .") " .$proposal['length'] ." min.</div>"; 
+				echo "&nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;&nbsp;( " .$proposal['length'] ." min. )";
 					
+							
 						} else { 
-						//	echo "<strong> "  . $conf_room['title'] ." " .  $start_time1 ."</strong>";
-							echo "<div class='session_time'>&nbsp;<strong> "  . $start_time1 . " - " .$end_time1."</strong>&nbsp; &nbsp;(" .$conf_room['title'] .") " .$proposal['length'] ." min.</div>"; 
+							echo "<div class='session_time'>&nbsp;<strong> "  . $start_time1 . " - " .$end_time1."</strong>&nbsp; &nbsp;";
+							echo "<br/>(" .$conf_room['title'] .") " .$proposal['length'] ." min.";
+							echo "</div>"; 
 					
 							
 					}
@@ -361,10 +448,12 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 						//echo "<br/> (" .$proposal['sub_track'] .")";
 						$image_file="";
 						switch ($proposal['sub_track']) {
-							case "OSP": $image_file = "ospiNEWicon.jpg"; $width=" width=14"; break;
-							case "Cool New Tools": $image_file = "coolToolicon.gif"; $width="  height=15 width=16"; break;
-							case "Library": $image_file = "book06.gif"; $width=" height=14 width=14"; break;
-							
+								case "OSP": $image_file = "ospiNEWicon.jpg"; $width="width=12"; break;
+							case "Cool New Tool": $image_file = "coolToolicon.gif"; $width="height=17 width=17"; break;
+							case "Cool Commercial Tool": $image_file = "coolCommercialToolicon.gif"; $width="height=17 width=17"; break;
+							case "User Experience": $image_file = "people_icon.jpg"; $width="height=17 width=17"; break;
+							case "Library": $image_file = "book06.gif"; $width="height=17 width=17"; break;
+						
 	}
 						?>
 						<img style="padding: 0px 4px 0px 0px;" src="../include/images/<?=$image_file?>" <?=$width?> align="left" alt="img" />
