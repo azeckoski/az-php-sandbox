@@ -205,6 +205,7 @@ $last_date = 0;
 $conference_day = 0;
 foreach ($timeslots as $timeslot_pk=>$rooms) {
 	$line++;
+	
 
 	$timeslot = $conf_timeslots[$timeslot_pk];
 
@@ -237,7 +238,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 		if ($line > 1) {
 			echo "<tr style='page-break-after:always;'><td colspan=8>&nbsp;</td></tr>";
 		}
-        else {
+       
 		// print date header
 		echo "<tr>";
 		echo "<td class='date_header page' nowrap='y' colspan='" .
@@ -246,7 +247,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 				date('l, M j, Y',strtotime($timeslot['start_time'])) .
 				"</td>";
 		echo "</tr>";
-        }
+        
 		// print the room header
 		echo "<tr>";
 		echo "<td class='time_header' nowrap='y'>$current_date</td>";
@@ -328,7 +329,6 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 		   // try tables instead of divs
 			echo "<table border=0 cellpadding='0' cellspacing='0'>";
 				
-			// session check here
 	// session check here
 			$total_length = 0;
 			if (is_array($room)) {
@@ -340,7 +340,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 				foreach ($room as $session_pk=>$session) {
 					$counter++;
 					$proposal = $conf_proposals[$session['proposals_pk']];
-						$total_length += $proposal['length'];
+					
 				  if ($counter=="1") {	//get the starttime for this timeslot
 					$start_time1=date('H:i',strtotime($timeslot['start_time']) );
 					
