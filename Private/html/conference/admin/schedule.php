@@ -166,8 +166,7 @@ echo "<div class='page'>" .
 			echo "<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
-			"<span><img src='../include/images/coolCommercialToolicon.gif' alt='' height=16 /> - Cool Commercial Tool </span>" .
-			"<span><img src='../include/images/people_icon.jpg' alt='' height=17/> - User Experience </span>" .
+		
 				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
 				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span>" .
 				"<span class='other'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
