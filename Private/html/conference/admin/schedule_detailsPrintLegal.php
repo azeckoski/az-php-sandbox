@@ -227,7 +227,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 							$session_info=  "<div class='session_time'>$current_date .". ". &nbsp;<strong> "  . $start_time1 . " - " .$end_time1."</strong>&nbsp; &nbsp;";
 						$session_info.=   $conf_room['title'] ."  " ." ( " .$proposal['length'] ." min. )" ;
 						
-					$session_info.=  "<span style='color:#000;'><strong>-- 1</strong></span> $total_length</div>"; 
+					$session_info.=  "</div>"; 
 					
 							
 					
@@ -241,7 +241,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						$end_time2=date('H:i',strtotime($start_time2) + (( $proposal['length']) *60));	
 						$session_info=  "<div class='session_time'>$current_date .". ". &nbsp;<strong> "  . $start_time2 . " - " .$end_time2 ."</strong>&nbsp; &nbsp;";
 							$session_info.=   $conf_room['title'] ."  " ." ( " .$proposal['length'] ." min. )" ;
-						$session_info.=  "<span style='color:#000;'><strong>-- 2</strong></span> $total_length</div>"; 
+						$session_info.=  "</div>"; 
 						
 						$total_length += $proposal['length']+ (5);
 						}
@@ -253,7 +253,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					
 				$session_info= "<div class='session_time'>$current_date .". ". &nbsp;<strong> "  . $start_time3 . " - " .$end_time3 ."</strong>&nbsp;&nbsp;";
 							$session_info .=   $conf_room['title'] ."  " ." ( " .$proposal['length'] ." min. )" ;
-							$session_info .=  "<span style='color:#000;'><strong>-- 3</strong></span> $total_length</div>"; 
+							$session_info .=  "</div>"; 
 							
 							
 						}
@@ -324,9 +324,9 @@ echo "<div class=list>";
 						$image_file="";
 								switch ($proposal['sub_track']) {
 							case "OSP": $image_file = "ospiNEWicon2.jpg' height=15"; break;
-							case "Cool New Tools": $image_file = "coolToolicon.gif' height=17 width=17"; break;
-							case "Cool Commercial Tool": $image_file = "coolCommercialToolicon.gif' height=17 width=17"; break;
-					//		case "User Experience": $image_file = "people_icon.jpg' height=17 width=17"; break;
+							case "Cool New Tool": $image_file = "coolToolicon.gif' height=17 width=17"; break;
+						//	case "Cool Commercial Tool": $image_file = "coolCommercialToolicon.gif' height=17 width=17"; break;
+							case "User Experience": $image_file = "people_icon.jpg' height=17 width=17"; break;
 							case "Library": $image_file = "book06.gif' height=17 width=17"; break;
 							
 	}
