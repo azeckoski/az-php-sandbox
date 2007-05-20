@@ -29,16 +29,6 @@ tr,td {
 	color:white;
 	border: 1px solid white;
 }
-
-.bof_header {
-	background:#336699;
-	padding:.2em;
-	font-weight:bold;
-	text-align: center;
-	color: yellow;
-	border: 1px solid white;
-}
-
 .date_header, .list_date_header {
 	padding: 4px;
 	font-size: .9em;
@@ -69,107 +59,14 @@ tr,td {
 	
 	
 }
-.grid {
-	vertical-align: top;
-	text-align: center;
-	border:.0em solid #666;
-	padding:0px;
-	background:#ffcc33;
-	
-}
-
-
-.grid_event{
-	color:#111; 
-	font-weight:normal;
-	
-	font-size: .9em;
-	width:220px;
-	padding:0px;
-	
-}
-
-.grid_event_long {
-	font-size: .7em;
-	color:#111; 
-	font-weight:normal;
-	width:220px;
-	background:#fff;
-	border:1px solid #666666;
-	padding-bottom: 118px;
-}
-.grid_event_longDay1{
-font-size: .7em;
-	color:#111; 
-	font-weight:normal;
-	width:220px;
-	background:#fff;
-	border:1px solid #666666;
-}
-.grid_event_short{
-	font-size: .7em;
-	color:#111; 
-	font-weight:normal;
-	background:#fff;
-	width:220px;
-	border:1px solid #666666;
-	
-}
-.grid_event_break{
-height:10px;	
-border: 1px solid #666666;
-font-size: .9em;
-	
-}
-.grid_event_header {
-	font-size: 1em;
-	font-weight: bold;
-	background-color: #339933;
-	color: white;
-	padding-top:2px;
-	
-	height:1.3em;
-	
-}
-
-.grid_event_type {
-	font-weight: normal;
-	font-style: italic;
-	border-bottom: 1px dashed black;
-	
-}
-
-.grid_event_text, .grid_event_textDay1 {
-	padding: 4px 2px;
-	height: 35px;
-}
-
-.grid_event_textDay1 {
-	height: 19px;
-}
-
-.grid_event_speaker, .grid_event_speakerDay1 {
-	border-top: 0px dotted #AAAAAA;
-	font-style: italic;
-	background: white;
-	padding:4px;
-	
-	height:30px;
-}
-
-.grid_event_speakerDay1 {
-	height:15px;
-}
-
 .page {
 page-break-after:always;
 clear:both;
 padding:0px;
-width:100%;
 height:100%;
 }
 .pageheader{
-font-size:1.2em;
+font-size:1.1em;
 padding-bottom:0px;
 margin-bottom:  5px;
 border-bottom: 1px solid #000;
@@ -179,7 +76,7 @@ font-size:.75em;
 }
 
 .program_legend div{
-padding: 0px 5px 4px 0px;
+padding: 0px 2px 4px 0px;
 
 }
 .graphic_legend, .color_legend {
@@ -192,17 +89,17 @@ padding:0px 5px;
 padding: 0px 5px;
 }
 .color_legend span {
-margin-left: 10px;
-padding: 0px 5px;
+margin-left: 5px;
+padding: 0px 2px;
 color: #fff;
 border: 1px solid #666;
 }
 
 .column {
 float:left;
-padding:2px 10px;
+padding:2px 2px;
 border-left:1px dotted #ccc;
-width:30%;
+width:48%;
 
 border-right:1px dotted #ccc;
 }
@@ -213,7 +110,7 @@ border-right:1px dotted #ccc;
 	font-style:normal;
 	font-size: .8em;
 	width:100%;
-	height:181px;
+	height:131px;
 }
 
 .list_date_header {
@@ -277,41 +174,39 @@ border-right:1px dotted #ccc;
 	color: #333;
 }
 
-.technology {
-	background: #993333;
-	
-	
+.technology, .technical{
+	background: #339966;
 }
 
 .community {
 	background: #333399;
-	
 }
 
 .faculty {
 	background: #CC00FF;
-	
 }
 
 .pedagogy {
-	background: #CC00FF;
-
+	background: #C28547;
 }
 
 .implementation {
-	background: #339933;
-	
-
+	background: #4785C2;
 }
 
+.user_experience {
+	background:#EB0000;
+}
 .tool_carousel {
-	background: #999933;
-	
+	background: #E67300;
 }
 
 .tool_demo {
-	background: #ffffff;
-	
+	background: #E67300;
+}
+
+.research {
+	background: #663300;
 }
 
 
@@ -319,9 +214,10 @@ border-right:1px dotted #ccc;
 .tool_overview {
 	background: #339999;
 	
+	background: #ffffff;
 }
 
-.multiple_audiences {
+.other {
 	background: #993399;
 }
 
