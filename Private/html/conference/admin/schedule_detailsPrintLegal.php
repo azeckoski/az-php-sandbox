@@ -267,9 +267,9 @@ if (($proposal['type']=='BOF') || ($proposal['print']=='N')) { continue; }
 
 		
 
-				if ( ($count==10) || ($count==20) ){
+				if ( ($count==11) || ($count==22) ){
 				echo "</div>";
-			}  	if ($count==20) {
+			}  	if ($count==22) {
 				echo "</div>";
 				$page++;
 				$count=0;
@@ -296,7 +296,7 @@ echo "<div class='page'><div class='pageheader'><strong>Sakai Amsterdam Conferen
 echo "</div>";
 
 } 
- if (($count==1) || ($count==11)  ){
+ if (($count==1) || ($count==12)  ){
 	echo "<div class='column'>";
 }
 echo "<div class=list>";
