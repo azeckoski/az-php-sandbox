@@ -120,8 +120,11 @@ $DATE_FORMAT = "M d, Y h:i A";
  <table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
  <tr><td colspan=5 align=left valign=top style='font-size: 1.8em; font-weight:200;'><img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=150 align=left  alt='' /><strong><br/>7th Sakai Conference<br/> Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></td>
 
- <tr><td colspan=5><div style="height:250px; margin: 10px; border: 1px dotted #336699; font-size: 1.3em;"><br/><br/>&nbsp;Special notes/reminders maybe a map to the rooms:</div></td></tr>	<tr><td class='date_header page' nowrap='y' colspan='4'>Pre-Conference - Monday, Jun 11, 2007</td></tr>
-	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'>Matterhorn 1</td><td class='schedule_header' nowrap='y'>Matterhorn 2</td><td class='schedule_header' nowrap='y'>Matterhorn 3</td></tr>
+ <tr><td colspan=5><div style="height:250px; margin: 10px; border: 1px dotted #336699; font-size: 1.3em;">
+ <br/><br/>&nbsp;Special notes/reminders maybe a map to the rooms:</div></td></tr>	
+ <tr><td class='date_header page' nowrap='y' colspan='5'>Pre-Conference - Monday, Jun 11, 2007</td></tr>
+	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'>Matterhorn 1</td>
+	<td class='schedule_header' nowrap='y'>Matterhorn 2</td><td class='schedule_header' nowrap='y'>Matterhorn 3</td><td class='schedule_header' nowrap='y'>Matterhorn 3</td></tr>
 	
 	<tr class="event">
 	<td class="time" nowrap='y'>
@@ -130,8 +133,8 @@ $DATE_FORMAT = "M d, Y h:i A";
 	</td>
        		
  		
-		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='session_time'>&nbsp;<strong> 09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text' style="text-align:left"><div>
-<strong>Full Day Workshop</strong>(part 1)<br/><br/>
+		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 					<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='grid_event_text' style="text-align:left"><div>
+<strong>Full Day Workshop</strong> (part 1)<br/><br/>
 We will be doing a more hands-on workshop this time (by popular
 demand) and will be writing a function tool (similar to Vancouver) in RSF.<br/><br/>
 There will be short special sessions after lunch.
@@ -140,8 +143,13 @@ There will be short special sessions after lunch.
 <br/><br/>
 There will also be a combined Designer/Developer session at the end of the
 day.   </div></div><div class='grid_event_speakerDay1'></div></table></td>       		
-		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header implementation'>Introduction to Sakai</div><div class='session_time'>&nbsp;<strong>09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
-		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header user_experience'>U-Camp</div><div class='session_time'>&nbsp;<strong>09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 				
+		     	<div class='grid_event_header implementation'>Introduction to Sakai</div><div class='grid_event_text ' >
+		     	<div style="text-align:left;"><strong>1/2 Day Workshop</strong><br/><div class='grid_event_speakerDay1'>Anthony Whyte</div><br/>Newcomers to the Sakai Community and those looking to understand Sakai's Collaboration and Learning Environment (CLE) should consider attending this session. It traces the evolution of Sakai from project to foundation; describes Sakai's community-source approach to software design, development, and distribution; showcases Sakai's CLE feature set with a live demonstration; outlines current community processes covering design, development,
+		      documentation, and testing; and ends with a discussion on ways to get involved in the community.
+		      </div></div></table></td>       		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 					<div class='grid_event_header user_experience'>U-Camp</div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+			    <td  class='grid'>&nbsp;</td>       		
 		    </tr>
 		    
 <tr class="coffee">
@@ -149,7 +157,7 @@ day.   </div></div><div class='grid_event_speakerDay1'></div></table></td>
 		12:30 - 
 		13:40	
 	</td>
-<td align='center' colspan='3'><div style='padding: 3px; '><strong>LUNCH - box lunch provided</strong></div></td></tr>
+<td align='center' colspan='4'><div style='padding: 3px; '><strong>LUNCH - box lunch provided</strong></div></td></tr>
 
 	<tr class="event">
 	<td class="time" nowrap='y'>
@@ -157,7 +165,9 @@ day.   </div></div><div class='grid_event_speakerDay1'></div></table></td>
 		18:40	
 	</td>
        		
-	    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='session_time'>&nbsp;<strong> 09:00 - 17:00</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text' style="text-align:left"><div><strong>Full Day Workshop</strong>(part 2)<br/><br/>
+	    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+	    <td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 			
+	    		<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='grid_event_text' style="text-align:left"><div><strong>Full Day Workshop</strong> (part 2)<br/><br/>
 Continuation of the Programmers' Cafe with a combined Designer/Developer session at the end of the
 day.  We will be bringing
 together the U-Camp attendees and the Programmers Cafe attendees and talking
@@ -165,15 +175,30 @@ about Designers and Developers working together to improve the Sakai user
 experience. Practical tips and examples will be presented to help both
 groups work together more closely and to assist developers without the
 benefit of a local UI expert. We hope this will result in questions,
-discussion, and new friendships and alliances. </div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
-		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header pedagogy'>Introduction to OSP</div><div class='session_time'>&nbsp;<strong>09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
-		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med'> 					<div class='grid_event_header user_experience'>U-Camp</div><div class='session_time'>&nbsp;<strong>09:05 - 12:40</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+discussion, and new friendships and alliances.<br/><br/> Final session led by Colin Clark, Daphne Ogle, Harriet Truscott, Aaron Zeckoski 
+ </div></div></table></td>       		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+		    <td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 			
+		    		<div class='grid_event_header pedagogy'>Introduction to OSP</div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+		    <td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 				
+		    	<div class='grid_event_header user_experience'>U-Camp</div><div class='grid_event_text '><div><strong>title here...</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
+			    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+			    <td  class='grid_event_med' style="height:250px;"> <div class='grid_event_header user_experience'><strong> Special Workshop</strong></div>
+			    
+			    <div class='grid_event_text '><div style="text-align:left; padding: 2px 5px;"><strong>
+ContentHostingHandler &amp; ResourceTypeRegistry</strong><br/><div class='grid_event_speakerDay1'>Ian Boston, John Ellis, Jim Eng</div><br/>
+This workshop will explore two features new in the 2.4.0 release that allow developers to define new
+ functionality for Sakai's Content Hosting Service and Resources tool.  We will give an overview of the features in these two APIs and some possible uses, and work through 
+    examples in which a CHH is used to enable access to parts of a packaged resource and in which type 
+    registrations define the way in which the Resources tool affords user access to resources.
+</div></div></table></td>       		
 		</tr>
 
 </table>
 <table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
  
- <tr><td><div style="height:90px;">&nbsp;</div></td></tr>	<tr><td class='date_header page' nowrap='y' colspan='4'>Post-Conference - Friday, Jun 15, 2007</td></tr>
+ <tr><td><div style="height:30px;">&nbsp;</div></td></tr>	<tr><td class='date_header page' nowrap='y' colspan='4'>Post-Conference - Friday, Jun 15, 2007</td></tr>
 	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'><strong>LOCATION: </strong> Universiteit van Amsterdam</td><td class='schedule_header' nowrap='y'><strong>LOCATION: </strong> TBA</td></tr>
 	
 	<tr class="event">
@@ -183,15 +208,15 @@ discussion, and new friendships and alliances. </div></div><div class='grid_even
 	</td>
        		
  		
-		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_long'> 					<div class='grid_event_header implementation'>OSP Post-Conference Workshop</div><div class='session_time'>&nbsp;<strong> 09:00 - 15:00</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div style="text-align:left;"><strong>OSP post conference meeting</strong><br/><br/>
-This day long meeting is being hosted by Universiteit van Amsterdam<br/>
-Time: 	9am - 3pm	<br/>
-Location:	Universiteit van Amsterdam, Herengracht 182, room 007	<br/>
-Features:	Wireless (and probably wired also) Beamer, Whiteboard, Flipover and Lunch.
-</div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>       		
-		   <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_long'> 					<div class='grid_event_header implementation'>TBA</div><div class='session_time'>&nbsp;<strong> 09:00 - 15:00</strong>&nbsp; &nbsp;<br/></div><div class='grid_event_text '><div><strong>Other post-conference meetings...
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_short' style="padding: 2px 5px; height:130px;"> 					<div class='grid_event_header implementation'>OSP Post-Conference Workshop</div><div class='grid_event_text '><div style="text-align:left;"><strong>OSP post conference meeting</strong><br/><br/>
+This day long meeting is being hosted by Universiteit van Amsterdam<br/><br/>
+<strong>Time: </strong>	9am - 3pm	<br/>
+<strong>Location:</strong>	Universiteit van Amsterdam, Herengracht 182, room 007	<br/>
+<strong>Features:</strong>	Wireless (and probably wired also) Beamer, Whiteboard, Flipover and Lunch.
+</div></div><div class='grid_event_speakerDay1'></div></table></td>       		
+		   <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_short' style="padding: 2px 5px; height:130px;"> 					<div class='grid_event_header implementation'>TBA</div><div class='grid_event_text '><div><strong>Other post-conference meetings...
 TBA
-</strong></div></div><div class='grid_event_speakerDay1'>TBA</div></table></td>     </tr>
+</strong></div></div><div class='grid_event_speakerDay1'></div></table></td>     </tr>
 		    
 <tr style='page-break-before:always;'><td colspan=8><hr /></td></tr>
 </table>
