@@ -238,38 +238,25 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 <tr class="<?= $linestyle ?>">
 	<td class="time" nowrap='y'>
 <?php 
-	if (($timeslot['type']!="lunch") && ($timeslot['type']!="break") ){ 
+	
 ?>
 		
 		 <?=  date('g:i a',strtotime($timeslot['start_time'])) ?>
-		 -<br/>
+		 - 
 		<?= date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
-<?php } else { ?>
-	&nbsp;
-<?php } ?>	
+
 	</td>
 
 
 <?php
 	if ($timeslot['type'] != "event") {
-		if (($timeslot['type']=="lunch") || ($timeslot['type']=="break") ){ 
 			
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
 					"<div style='font-size:1em; padding: 3px;'>";
 				if ($isAdmin) { echo 	"<br/>"; }
-				echo "<strong>".$timeslot['title'].":</strong> <span style='font-size:1em;'>" .
-					 date('l',strtotime($timeslot['start_time'])) . ", " .
-					date('g:i a',strtotime($timeslot['start_time'])) . " - " .
-					date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) .
-					"</span></div></td>";
+				echo "<strong>".$timeslot['title']."</strong> </div></td>";
 			    
-		} else {
-			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
-					"<div style='font-size:1em;  padding: 3px;'>";
-			if ($isAdmin) {	echo 	"<br/>"; }
-			echo "<strong>".$timeslot['title']."</strong>" .
-					"</div></td>";
-		}
+		
 	} else {
 		// print the grid selector
 		foreach ($rooms as $room_pk=>$room) {
