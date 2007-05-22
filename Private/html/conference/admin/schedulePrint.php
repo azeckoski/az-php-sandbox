@@ -147,7 +147,7 @@ $DATE_FORMAT = "M d, Y h:i A";
 					 Paul Doop, Vice Chancellor of the University of Amsterdam will provide a local welcome to all, in the Matterhorn
 					 rooms at 18:00, which will be followed by the Welcome Reception in the atrium.<br/><br/>
 					 <br/><br/><br/>
-					 <strong>Event Sponsored by:</strong>  Thompson Learning<br/>
+					 <strong>Event Sponsored by:</strong>  Thomson Learning<br/>
 					 
 					 </div>
 					 </td>
