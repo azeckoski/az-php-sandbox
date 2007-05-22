@@ -25,7 +25,7 @@ require $ACCOUNTS_PATH.'include/check_authentic.php';
 // Make sure user is authorized for admin perms
 $isAdmin = false; // assume user is NOT allowed unless otherwise shown
 $hide_bof_rooms = false; // flag to hide the BOF rooms
-if (!$User->checkPerm("admin_conference") && !$User->checkPerm("proposals_Dec2006")) {
+if (!$User->checkPerm("admin_conference")) {
 	$isAdmin = false;
 	$hide_bof_rooms = true;
 } else {
@@ -157,8 +157,7 @@ function orderBy(newOrder) {
 
 <?= $Message ?>
 
-<div align=center style="width:50%; font-size:1.1em; background:#fff; font-weight:bold; border:1px solid red; color:#000; padding:5px 5px">DRAFT SCHEDULE - not all sessions have been scheduled. <br/> Dates and times may change for any of the sessions listed below.  </div>
-<br/><br/><?php
+<?php
 echo "<div class='page'>" .
 			"" ;
 	
