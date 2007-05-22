@@ -279,7 +279,8 @@ if (($proposal['type']=='BOF') || ($proposal['print']=='N')) { continue; }
 if ($count==1)  {
 	
 	
-echo "<div class='page'><div class='pageheader'><strong>Sakai Amsterdam Conference Session Details-</strong><span class=program_legend> ( Page $page )</span>" .
+echo "<div class='page'><div class='pageheader'><strong>Sakai Amsterdam Conference Session Details</strong>&nbsp;&nbsp; <span style='color:red; width:100%; font-size:.95em; '>- Sorted alphabetically by <strong>Session Title</strong></span>" .
+		"<span class=program_legend>&nbsp;&nbsp;&nbsp;&nbsp; ( Page $page )</span><br/><br/>" .
 			"" ;
 	if ($page==1) {
 		
@@ -291,7 +292,8 @@ echo "<div class='page'><div class='pageheader'><strong>Sakai Amsterdam Conferen
 				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
 				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span>" .
 				"<span class='other'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
-				"<span class='pedagogy'>Teaching &amp; Learning</span><span class='user_experience'>User Experience</span></div></div>" ;
+				"<span class='pedagogy'>Teaching &amp; Learning</span><span class='user_experience'>User Experience</span></div>" .
+				"</div>" ;
 		} 
 echo "</div>";
 

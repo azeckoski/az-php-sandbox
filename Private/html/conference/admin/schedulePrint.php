@@ -118,13 +118,64 @@ $DATE_FORMAT = "M d, Y h:i A";
 
 ?>
  <table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
- <tr><td colspan=5 align=left valign=top style='font-size: 1.8em; font-weight:200;'><img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=150 align=left  alt='' /><strong><br/>7th Sakai Conference<br/> Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></td>
-
- <tr><td colspan=5><div style="height:250px; margin: 10px; border: 1px dotted #336699; font-size: 1.3em;">
- <br/><br/>&nbsp;Special notes/reminders maybe a map to the rooms:</div></td></tr>	
- <tr><td class='date_header page' nowrap='y' colspan='5'>Pre-Conference - Monday, Jun 11, 2007</td></tr>
+ <tr>
+ 	<td colspan=5 align=left valign=top style='font-size: 1.8em; font-weight:200;'>
+ 	<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=150 align=left  alt='' />
+ 	<strong><br/><br/>7th Sakai Conference<br/> Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></td>
+</tr>
+ <tr><td colspan=5 style="font-size:1.1em;">
+	 <br/>
+		 <table border='0' cellspacing='0' cellpadding="2" width=100%>
+			<tr>
+				<td colspan=3 class="grid" style="border: 1px solid #ccc;">
+			 <h1>Special Events</h1>
+			 	</td>
+			 </tr>
+			 <tr>
+				 <td class="grid_event_med" valign=top  style="padding:2px 15px; border:1px dotted #ccc;; width:28%; text-align:left; background:#ffffff; ">
+					 <br/><div><strong> Keynote Speaker: <em style="color:#660000;"> Hal Abelson</em>  </strong>
+					 <br/><em>09:00 to 10:00 - Tuesday, June 12 <br/> (Matterhorn 1, 2, & 3)</em><br/>
+					 <br/>Hal Abelson is a founding director of the Free Software Foundation and of Creative Commons.
+					  He also serves as consultant to Hewlett-Packard Laboratories.  At MIT, Abelson is co-director 
+					  of the MIT-Microsoft Research Alliance in educational technology and co-head of MIT's Council on Educational Technology.
+					  He is also active in MIT's OpenCourseWare and DSpace (institutional digital archiving) initiatives.
+					 </div>
+			 	</td>
+				 <td class="grid_event_med" valign=top style="padding:2px 15px; border:1px dotted #ccc;  width:28%; text-align:left; background:#ffffff;  ">
+					<br/> <div><strong>Local Welcome and Reception<br/></strong><em>18:00 to 19:30 - Tuesday, June 12  </em>
+					 <br/><em>(Matterhorn 1, 2, &amp; 3)</em><br/><br/>
+					 Paul Doop, Vice Chancellor of the University of Amsterdam will provide a local welcome to all, in the Matterhorn
+					 rooms at 18:00, which will be followed by the Welcome Reception in the atrium.<br/><br/>
+					 <br/><br/><br/>
+					 <strong>Event Sponsored by:</strong>  Thompson Learning<br/>
+					 
+					 </div>
+					 </td>
+				 <td class="grid_event_med" valign=top style="padding:2px 15px; border:1px dotted #ccc; width:28%; text-align:left; background:#ffffff;  ">
+					<br/>		<div><strong>Technology Demonstrations<br/></strong><em>18:00 to 20:30 - Wednesday, June 13  </em>
+							<br/><em>(Matterhorn 1, 2, & 3)</em><br/><br/>
+						 The Technology Demos and Reception continues to be one of the most highly anticipated events of the conference.  
+						   It's a chance to relax, network, and share in the success and growth of so many Sakai projects.  Technology demos 
+						 have added significant value to previous Sakai conferences and we know that it will be 
+						 true of this conference as well. <br/>
+						 
+						 	 <br/>
+					 <strong>Event Sponsored by:</strong> rSmart, IBM, and Stoas<br/>
+				 </div>
+						
+				  </td>
+		  </tr><tr>
+				<td colspan=3 class="grid" style="border: 1px solid #ccc; padding:3px">
+			<div style="font-size:.95em;"><strong>Enhanced Internet Services Sponsored by</strong> :  SURF</div>
+			 	</td>
+			 </tr></table>
+  
+</td></tr><tr><td colspan=5 style="font-size:1em;">&nbsp;
+<tr><td><div style="height:30px;">&nbsp;</div></td></tr>	
+	
+	 <tr><td class='date_header page' nowrap='y' colspan='5'>Pre-Conference  - Monday, Jun 11, 2007</td></tr>
 	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'>Matterhorn 1</td>
-	<td class='schedule_header' nowrap='y'>Matterhorn 2</td><td class='schedule_header' nowrap='y'>Matterhorn 3</td><td class='schedule_header' nowrap='y'>Matterhorn 3</td></tr>
+	<td class='schedule_header' nowrap='y'>Matterhorn 2</td><td class='schedule_header' nowrap='y'>Zurich 2</td><td class='schedule_header' nowrap='y'>Winterthur</td></tr>
 	
 	<tr class="event">
 	<td class="time" nowrap='y'>
@@ -169,12 +220,12 @@ end of the day.
 		12:40 - 
 		13:40	
 	</td>
-<td align='center' colspan='4'><div style='padding: 3px; '><strong>LUNCH - box lunch provided</strong></div></td></tr>
+<td align='center' colspan='4'><div style='padding: 3px; '><strong>LUNCH</strong></div></td></tr>
 
 	<tr class="event">
 	<td class="time" nowrap='y'>
 		13:40  - 
-		17:00	
+		17:40	
 	</td>
        		
 	    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
@@ -231,7 +282,7 @@ There will also be a combined session with the Programmers Cafe at the end of th
 	    	</div>
 		    	<div class='grid_event_speakerDay1'></div></table></td>       		
 			    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
-			    <td  class='grid_event_med' style="height:340px;"> <div class='grid_event_header user_experience'><strong> Special Workshop</strong></div>
+			    <td  class='grid_event_med' style="height:340px;"> <div class='grid_event_header technical'><strong> Special Workshop</strong></div>
 			    
 			    <div class='grid_event_text '><div style="text-align:left; padding: 2px 5px;"><strong>
 ContentHostingHandler &amp; ResourceTypeRegistry</strong><br/><div class='grid_event_speakerDay1'>Ian Boston, John Ellis, Jim Eng</div><br/>
@@ -262,7 +313,7 @@ This workshop will explore these two features new in the 2.4.0 release that allo
  		
 		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_short' style="padding: 2px 5px; height:130px;"> 					<div class='grid_event_header implementation'>OSP Post-Conference Workshop</div><div class='grid_event_text '><div style="text-align:left;"><strong>OSP post conference meeting</strong><br/><br/>
 This day long meeting is being hosted by Universiteit van Amsterdam<br/><br/>
-<strong>Time: </strong>	9am - 3pm	<br/>
+<strong>Time: </strong>	09:00 - 15:00	<br/>
 <strong>Location:</strong>	Universiteit van Amsterdam, Herengracht 182, room 007	<br/>
 <strong>Features:</strong>	Wireless (and probably wired also) Beamer, Whiteboard, Flipover and Lunch.
 </div></div><div class='grid_event_speakerDay1'></div></table></td>       		
@@ -270,7 +321,7 @@ This day long meeting is being hosted by Universiteit van Amsterdam<br/><br/>
 TBA
 </strong></div></div><div class='grid_event_speakerDay1'></div></table></td>     </tr>
 		    
-<tr style='page-break-before:always;'><td colspan=8><hr /></td></tr>
+<tr style='page-break-before:always;'><td colspan=8>&nbsp;</td></tr>
 </table>
 
 
@@ -303,7 +354,7 @@ echo "<div class='program_legend'><div class='graphic_legend'><strong>Special In
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
 		
-				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - Open Source Portfolio </span></div>" .
+				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - Open Source Portfolio </span></div><div style='color:red; ;'> Session descriptions can be found at the back of this program (Sorted alphabetically by <strong>session title</strong>)</div>" .
 				"</div>" ;
 				"</div>" .
 		" </td></tr>";
