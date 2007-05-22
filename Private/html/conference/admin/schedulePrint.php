@@ -208,7 +208,7 @@ end of the day.
 		    	experience of Sakai to meet, learn, and contribute to the future of Sakai. The U-Camp 
 		    	includes a combination of talks and hands-on workshops that will provide effective techniques 
 		    	for how to design more usable and inclusive user interfaces. 
-		    	<br/><br/>See workshop topics listed in afternon session. 
+		    	<br/><br/>See workshop topics listed in afternoon session. 
 		    	</div>
 		    	
 	    	</div>
@@ -254,8 +254,7 @@ Daphne Ogle, Harriet Truscott, Aaron Zeckoski
 		    		will begin with an overview of the goals and motivations universities have for using portfolios, and include 
 		    		examples of different types of portfolios implemented at various institutions.Ê
 <br/><br/>
-The session will also provide a roadmap for the rest of the OSP conference sessions so participants can attend the sessions 
-that make the best use of their time. 
+The session will also provide a roadmap for the rest of the OSP conference sessions to help participants make the best use of their time during the conference. 
 <br/><br/>
 <div class='grid_event_speakerDay1'>
 This session will be led by a diverse group of panelists from the University of Amsterdam, University of Michigan, 
@@ -266,7 +265,7 @@ Indiana University, Syracuse University, Weber State University, Portland State 
 		    <td  class='grid_event_med' style="height:340px; padding: 2px 5px;"> 				
 		    	<div class='grid_event_header user_experience'>U-Camp</div><div class='grid_event_text '>
 		    	<div style="text-align:left; padding: 2px 5px;"><strong>Full day workshop.</strong> (part 2)<br/><br/>
-		    	Full day workshop topics to include:
+		    	Full day workshop topics  include:
 <ul>
 <li> - Design Patterns</li>
 <li> - Accessibility & Design</li>
@@ -286,7 +285,7 @@ There will also be a combined session with the Programmers Cafe at the end of th
 			    
 			    <div class='grid_event_text '><div style="text-align:left; padding: 2px 5px;"><strong>
 ContentHostingHandler &amp; ResourceTypeRegistry</strong><br/><div class='grid_event_speakerDay1'>Ian Boston, John Ellis, Jim Eng</div><br/>
-This workshop will explore these two features new in the 2.4.0 release that allow developers to define new
+This workshop will explore these two features new in the 2.4.0 release, that allow developers to define new
  functionality for Sakai's Content Hosting Service and Resources tool.  A CHH might act as a proxy for  an external 
  repository or file system, 
  giving remote access to folders and files.  Another CHH might mediate interactions with a packaged resource, to 
