@@ -135,14 +135,15 @@ $DATE_FORMAT = "M d, Y h:i A";
  		
 		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 					<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='grid_event_text' style="text-align:left"><div>
 <strong>Full Day Workshop</strong> (part 1)<br/><br/>
-We will be doing a more hands-on workshop this time (by popular
-demand) and will be writing a function tool (similar to Vancouver) in RSF.<br/><br/>
-There will be short special sessions after lunch.
-1) Developer involvement in Sakai (Peter Knoop)
-2)  Licensing issues in Sakai development (TBD) (maybe)
-<br/><br/>
-There will also be a combined Designer/Developer session at the end of the
-day.   </div></div><div class='grid_event_speakerDay1'></div></table></td>       		
+We will be doing a hands-on workshop (by popular demand) and will be writing a functional tool (similar to Vancouver) in RSF. <br/><br/>
+
+There will be short special sessions after lunch.<br/>
+1) Developer involvement in Sakai (Peter Knoop)<br/>
+2) Licensing issues in Sakai development (TBD) (maybe)<br/>
+
+There will also be a combined Designer/Developer session at the
+end of the day.
+  </div></div><div class='grid_event_speakerDay1'></div></table></td>       		
 		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 				
 		     	<div class='grid_event_header implementation'>Introduction to Sakai</div><div class='grid_event_text ' >
 		     	<div style="text-align:left;"><strong>1/2 Day Workshop</strong><br/><div class='grid_event_speakerDay1'>Anthony Whyte</div><br/>Newcomers to the Sakai Community and those looking to understand Sakai's Collaboration and Learning Environment (CLE) should consider attending this session. It traces the evolution of Sakai from project to foundation; describes Sakai's community-source approach to software design, development, and distribution; showcases Sakai's CLE feature set with a live demonstration; outlines current community processes covering design, development,
@@ -179,15 +180,18 @@ day.   </div></div><div class='grid_event_speakerDay1'></div></table></td>
 	    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
 	    <td  class='grid_event_med' style="height:340px; padding: 2px 5px;"> 			
 	    		<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='grid_event_text' style="text-align:left"><div><strong>Full Day Workshop</strong> (part 2)<br/><br/>
-Continuation of the Programmers' Cafe with a combined Designer/Developer session at the end of the
-day.  We will be bringing
-together the U-Camp attendees and the Programmers Cafe attendees and talking
-about Designers and Developers working together to improve the Sakai user
-experience. Practical tips and examples will be presented to help both
-groups work together more closely and to assist developers without the
-benefit of a local UI expert. We hope this will result in questions,
-discussion, and new friendships and alliances.<br/><br/> Final session led by Colin Clark, Daphne Ogle, Harriet Truscott, Aaron Zeckoski 
- </div></div></table></td>       		
+
+Continuation of the Programmers'
+Cafe<br/><br/>
+
+Complete the development of the RSF tool.
+<br/><br/>
+<strong>Combined session:</strong><br/>
+We will be bringing together the U-Camp attendees and the Programmers Cafe attendees and talking about Designers and Developers working together to
+improve the Sakai user experience. Practical tips and examples will be presented to help both groups work together more closely and to assist developers
+without the benefit of a local UI expert. Combined session led by Colin Clark,
+Daphne Ogle, Harriet Truscott, Aaron Zeckoski
+</div></div></table></td>       		
 		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
 		    <td  class='grid_event_med' style="height:340px; padding: 2px 5px;"> 			
 		    		<div class='grid_event_header pedagogy'>Introduction to OSP </div><div class='grid_event_text ' style="text-align:left">
