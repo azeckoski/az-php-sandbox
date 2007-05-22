@@ -119,9 +119,9 @@ $DATE_FORMAT = "M d, Y h:i A";
 ?>
  <table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
  <tr>
- 	<td colspan=5 align=left valign=top style='font-size: 1.8em; font-weight:200;'>
- 	<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png' height=150 align=left  alt='' />
- 	<strong><br/><br/>7th Sakai Conference<br/> Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></td>
+ 	<td colspan=5 align=left valign=top style='font-size: 1.5em; font-weight:200;'>
+ 	<img style='padding:0px 30px;' src='../include/images/amsterdamWebnLogo3.png'  align=left  alt='' />
+ 	<div style="padding-top:5px;"><strong><br/>7th Sakai Conference<br/> Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></div></td>
 </tr>
  <tr><td colspan=5 style="font-size:1.1em;">
 	 <br/>
