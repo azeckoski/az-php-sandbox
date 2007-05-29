@@ -138,7 +138,7 @@ include $ACCOUNTS_PATH.'include/header.php';  ?>
 
 		<div class="convenor_exists" style='display:inline;'>&nbsp;Covenor set&nbsp;</div>
 		&nbsp;
-		<div class="no_convenor" style='display:inline;'>&nbsp;No Convenor&nbsp;</div>
+		<div class="oddrow" style='display:inline;'>&nbsp;No Convenor&nbsp;</div>
 		
 		&nbsp;
 	</div>
@@ -163,7 +163,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 	}
 
 	if (!$conf_proposal['convenor_pk']) {
-		$linestyle = "no_convenor";
+		//$linestyle = "no_convenor";
 	} else {
 		$linestyle = "convenor_exists";
 	}
@@ -187,7 +187,7 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 		<tr>
 			<td class='time_header'><?= $current ?></td>
 			<td class='schedule_header'>Convenor</td>
-			<td class='schedule_header'>Recorder</td>
+			<!-- <td class='schedule_header'>Recorder</td> --> 
 			<td class='schedule_header'>Title</td>
 			<td class='schedule_header'>Track</td>
 			<td class='schedule_header'>Room</td>
@@ -214,23 +214,16 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 		echo "<em>None</em>";
 ?>
 		</td>
-		<td class="small_centered">
-<?php
-	if($conf_proposal['recorder_pk'])
-		echo "<label title='".$conf_proposal['recorder']." - ".$conf_proposal['recorder_email']."'>".$conf_proposal['recorder']."</label>";
-	else
-		echo "<em>None</em>";
-?>
-		</td>
+	
 		<td class="small_text">
 			<label title="<?= stripslashes($conf_proposal['abstract']) ?>">
 				<?= $conf_proposal['title'] ?>
 			</label>
 		</td>
-		<td class="small_centered">
+		<td >
 			<?= $conf_proposal['track'] ?>
 		</td>
-		<td class="small_centered" nowrap='y'>
+		<td nowrap='y'>
 			<?= $conf_proposal['room_title'] ?>
 		</td>
 		<td class="small_centered" valign="middle">
