@@ -18,7 +18,7 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 
 // adding volunteer
@@ -115,16 +115,30 @@ $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $CSS_FILE2 = $TOOL_URL."/include/schedule.css";
 $DATE_FORMAT = "M d, Y h:i A";
 
-// set header links
-$EXTRA_LINKS = 
-	"<br/><span style='font-size:9pt;'>" .
-	"<a href='registration/'>Registration</a> - " .
-	"<a href='proposals/'>Proposals</a> - " .
-	"<a href='volunteer.php'><strong>Volunteer</strong></a> " .
-	"</span>";
+
+$CSS_FILE = $ACCOUNTS_URL.'/include/accounts.css';
+// top header links
+$EXTRA_LINKS = "<span class='extralinks'>";
+	$EXTRA_LINKS .= "<a  class='active' href='$ACCOUNTS_URL/index.php' title='Sakai accounts home'><strong>Home</strong></a>:";
+
+$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
+"<a  href='$CONFADMIN_URL/proposals/index.php'>Call for Proposals</a>" ;
+if ($SCHEDULE_PUBLISHED) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/volunteer.php'>VOLUNTEER</a>";
+		 }  else {
+		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
+	
+		 	
+		 }
+	
+	$EXTRA_LINKS.="</span>";
+
 ?>
 
-<?php include $ACCOUNTS_PATH.'include/top_header.php'; ?>
+<?php //INCLUDE THE HEADER
+ include $ACCOUNTS_PATH.'include/top_header.php'; ?>
 <script type="text/javascript">
 <!--
 function orderBy(newOrder) {
@@ -142,11 +156,7 @@ function setSessions(pk) {
 }
 // -->
 </script>
-<?php include $TOOL_PATH.'include/admin_header.php'; ?><div style="height:100px;">
-<img style='padding:0px 30px;' src='include/images/amsterdamWebnLogo3.png'  align=left  alt='' />
- 	<div style="padding-top:5px;"><strong><br/>7th Sakai Conference<br/> Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></div>
-<br/><br/><strong> Volunteer to convene a session at the conference.  <a href="#help">See instructions below</a></div>
-
+<?php include $ACCOUNTS_PATH.'include/header.php'; ?>
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sessions_pk" value=""/>
 

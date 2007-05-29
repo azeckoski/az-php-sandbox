@@ -125,6 +125,8 @@ $EXTRA_LINKS.=	"<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
 	if ($SCHEDULE_PUBLISHED) { 
 		$EXTRA_LINKS .= "<a class='active' href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+			$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/volunteer.php'>VOLUNTEER</a>";
+	
 		 }  else {
 		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
 			//header('Location:draft_schedule.php');
@@ -167,7 +169,7 @@ echo "<div class='page'>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
 		
 				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
-				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technology</span>" .
+				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technical</span>" .
 				"<span class='other'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
 				"<span class='pedagogy'>Teaching &amp; Learning</span><span class='user_experience'>User Experience</span></div></div>" ;
 	

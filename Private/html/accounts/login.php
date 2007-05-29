@@ -76,6 +76,8 @@ $EXTRA_LINKS .= "<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
 if ($SCHEDULE_PUBLISHED) { 
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+		
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/volunteer.php'>VOLUNTEER</a>";
 		 }  else {
 		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
 	
@@ -102,7 +104,7 @@ include 'include/top_header.php';  ?>
 <tr>
 <td width="10%" valign="top" height="100" style="padding:10px;">
 	<div class="login" style="padding:10px;">
-	<div><span style="color:#660000;"><strong>LOGIN REQUIRED: </strong></span><br/>You must login to register or<br/> submit a proposal for this event. <br/>
+	<div><span style="color:#660000;"><strong>LOGIN REQUIRED: </strong></span><br/>You must login to <strong>register</strong>, to <strong>submit a proposal</strong> or to <strong>volunteer</strong> to convene a session for this event. <br/>
 		<br/>If you do not have an account, please <a href="<?=$ACCOUNTS_URL?>/createaccount.php"><strong>create one</strong>.</a><br/><br/><br/></div>
 	<form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <?php if($REF) { ?>
