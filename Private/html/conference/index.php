@@ -33,7 +33,7 @@ $EXTRA_LINKS .= "<a href='$CONFADMIN_URL/registration/index.php'>Register</a>" .
 if ($SCHEDULE_PUBLISHED) { 
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
-			$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/volunteer.php'>VOLUNTEER</a>";
+			$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/volunteer.php'>Volunteer</a>";
 	
 		 }  else {
 		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
@@ -71,7 +71,7 @@ echo "<a class='mainlevellinks' href='../conference/proposals/index.php' >Submit
 	if ($SCHEDULE) { 
 echo "<a class='mainlevellinks' href='../conference/admin/schedule.php'>View the Conference Schedule</a><br/>" ;
 	}
-	$VOLUNTEER=true;
+	
 	if ($VOLUNTEER) { 
 echo "<a class='mainlevellinks' href='../conference/volunteer.php'>Volunteer to help at the conference</a><br/>" ;
 	}
@@ -93,6 +93,9 @@ if (($User->checkPerm("admin_conference")) || ($User->checkPerm("proposals_dec20
  echo "<a class='mainlevellinks' href='../conference/admin/proposals.php' >Proposals Voting</a> <br/>";
 echo "<a class='mainlevellinks' href='../conference/admin/proposals_results.php' >Proposals Results</a> <br/>";
 
+	if ($VOLUNTEER) { 
+echo "<a class='mainlevellinks' href='../conference/admin/volunteers.php'>Volunteer Conveners List</a><br/>" ;
+	}
 }
 if (($User->checkPerm("admin_conference")) || ($User->checkPerm("registration_dec2006")) ) {
 	

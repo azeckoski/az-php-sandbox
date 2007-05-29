@@ -117,7 +117,23 @@ $DATE_FORMAT = "M d, Y h:i A";
 
 
 $CSS_FILE = $ACCOUNTS_URL.'/include/accounts.css';
+
 // top header links
+
+
+if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) || ($User->checkPerm("proposals_dec2006")) || ($User->checkPerm("registration_dec2006"))   ) {
+// top header links for admins
+	$EXTRA_LINKS = "<span class='extralinks'>" ;
+	$EXTRA_LINKS .= "<a class='active' href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
+			if ($VOLUNTEER) { 
+		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/volunteer.php'>Volunteer</a>"; 
+			$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/volunteers.php'>Convener List</a>"; 
+	
+	
+		}
+	$EXTRA_LINKS .="</span>";
+} else {
 $EXTRA_LINKS = "<span class='extralinks'>";
 	$EXTRA_LINKS .= "<a  class='active' href='$ACCOUNTS_URL/index.php' title='Sakai accounts home'><strong>Home</strong></a>:";
 
@@ -132,9 +148,10 @@ if ($SCHEDULE_PUBLISHED) {
 	
 		 	
 		 }
+		
 	
 	$EXTRA_LINKS.="</span>";
-
+}
 ?>
 
 <?php //INCLUDE THE HEADER

@@ -46,7 +46,7 @@ $EVENT_TYPE="conference";  //or conference, or event, or meeting
 $ACCEPT_PMT=true;  //no payment required for this event
 
 		
-$VOLUNTEER=false; //do not show the volunteer tools or menu link
+$VOLUNTEER=true; //do not show the volunteer tools or menu link
 
 $SCHEDULE=true; //do not show the schedule tool or menu link
 $SCHEDULE_PUBLISHED=true; //the schedule is not available to the public yet

@@ -195,7 +195,7 @@ $EXTRA_LINKS.=	"<a class='active'  href='$CONFADMIN_URL/registration/index.php'>
 	if ($SCHEDULE_PUBLISHED) { 
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule.php'>Schedule (table view)</a>";
 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/schedule_details.php'>Schedule (list view)</a>";
-			$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/volunteer.php'>VOLUNTEER</a>";
+			$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/volunteer.php'>Volunteer</a>";
 	
 		 }  else {
 		 		$EXTRA_LINKS .= "<a href='$CONFADMIN_URL/admin/draft_schedule.php'>Schedule</a>";
