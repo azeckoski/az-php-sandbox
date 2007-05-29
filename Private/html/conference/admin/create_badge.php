@@ -60,11 +60,18 @@ $badge_height             = 216;
 $base_width               = round(($badge_width-($margin*2))/12);
 $base_height			  = round(($badge_height-($margin*2))/12);
 
-// Vancouver logo
+// Vancouver logo - works
 //$logo_file		          = "../../accounts/include/images/sakai-logo-6inch.png";
 
-// Atlanta logo
-$logo_file		          = "../../accounts/include/images/atlantaBadgeLogo.png";
+// Atlanta logo - works
+//$logo_file		          = "../../accounts/include/images/atlantaBadgeLogo.png";
+
+// Amsterdam logo - works but is a rough image capture,  pasted into the original atlantaBadgeLogo.png file
+//$logo_file		          = "../../accounts/include/images/atlantaBadgeLogo2.png";
+
+
+// Amsterdam logo - does not work
+$logo_file		          = "../../accounts/include/images/Final_amsterdamPoloLogo.png";
 
 $logo_width               = 72;
 $logo_height              = 72;
