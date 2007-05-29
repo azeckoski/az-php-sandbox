@@ -18,7 +18,7 @@ require $ACCOUNTS_PATH.'sql/mysqlconnect.php';
 require $ACCOUNTS_PATH.'include/check_authentic.php';
 
 // login if not autheticated
-require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
+//require $ACCOUNTS_PATH.'include/auth_login_redirect.php';
 
 
 // adding volunteer
@@ -180,9 +180,12 @@ function setSessions(pk) {
 		<div class="recorder_convenor_exist" style='display:inline;'>&nbsp;Covenor and Recorder set&nbsp;</div>
 		&nbsp;
 		-->
-		<div style='display:inline;''>
+	<div style='display:inline;'>
 				&nbsp; &nbsp;<a href="http://localhost/conference/volunteer.php#help"><img src="include/images/question_red.png" border="0" width="12" height="12"/><em> Help</em></a>&nbsp;
-			</div>
+		<?php if(!$User->pk) { ?>	
+		<span style="font-size:1.1em;">	&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;<strong>You must <a style="color:red" href="<?=$ACCOUNTS_URL?>/login.php?ref=/conference/volunteer.php">login</a>
+		 in order to volunteer for a session</span>
+		 <?php } ?>	</div>
 	</div>
 </div>
 
@@ -256,21 +259,21 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 	<tr class="<?= $linestyle ?>">
 		<td valign="middle" align="center">
 <?php if (!$User->pk) { ?>
-			<label title="Login to enable the volunteer buttons" style="font-size:.8em;">
+			<label title="Login to enable the volunteer buttons" style="font-size:.95em;">
 <?php
 	if ($conf_proposal['convenor_pk']) { echo "<strong>Conv</strong>"; } else { echo "NC"; }
-	echo ", ";
-	if ($conf_proposal['recorder_pk']) { echo "<strong>Rec</strong>"; } else { echo "NR"; }
+	//echo ", ";
+	//if ($conf_proposal['recorder_pk']) { echo "<strong>Rec</strong>"; } else { echo "NR"; }
 ?>
 			</label>
 <?php } else if ($conf_proposal['convenor_pk'] == $User->pk) { ?>
 			<label title="Remove yourself as a volunteer to convene this session">
-				<span style="font-size:.7em;">Convenor</span>
+				<span style="font-size:.9em;">Convenor</span>
 				<input class="filter" type="submit" <?= $disabledN ?> name="NC" value="X" onClick="setSessions('<?= $conf_proposal['sessions_pk'] ?>');" />
 			</label>
 <?php } else if ($conf_proposal['recorder_pk'] == $User->pk) { ?>
 			<label title="Remove yourself as a volunteer to record this session">
-				<span style="font-size:.7em;">Recorder</span>
+				<span style="font-size:.9em;">Recorder</span>
 				<input class="filter" type="submit" <?= $disabledN ?> name="NR" value="X" onClick="setSessions('<?= $conf_proposal['sessions_pk'] ?>');" />
 			</label>
 <?php } else { ?>
@@ -288,10 +291,16 @@ foreach ($conf_proposals as $proposal_pk=>$conf_proposal) {
 				<?= $conf_proposal['title'] ?>
 			</label>
 		</td>
-		<td class="small_centered">
-		<?= $conf_proposal['track'] ?>
+		<td >
+		<?php 
+		if ($conf_proposal['track']=="Other"){
+			echo "Multiple Audiences";
+		} else { 
+			echo $conf_proposal['track'];
+		}
+	 ?>
 		</td>
-		<td class="small_centered" nowrap='y'>
+		<td  nowrap='y'>
 			<?= $conf_proposal['room_title'] ?>
 		</td>
 		<td class="grid">
