@@ -145,7 +145,7 @@ function setSessions(pk) {
 <?php include $TOOL_PATH.'include/admin_header.php'; ?><div style="height:100px;">
 <img style='padding:0px 30px;' src='include/images/amsterdamWebnLogo3.png'  align=left  alt='' />
  	<div style="padding-top:5px;"><strong><br/>7th Sakai Conference<br/> Amsterdam, The Netherlands <br/>June 12-15, 2007</strong></div>
-</div>
+<br/><br/><strong> Volunteer to convene a session at the conference.  <a href="#help">See instructions below</a></div>
 
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sessions_pk" value=""/>
