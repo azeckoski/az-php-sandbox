@@ -71,7 +71,7 @@ $base_height			  = round(($badge_height-($margin*2))/12);
 
 
 // Amsterdam logo - does not work
-$logo_file		          = "../../accounts/include/images/Final_amsterdamPoloLogo.png";
+$logo_file		          = "../../accounts/include/images/Final_amsterdamPoloLogo2.png";
 
 $logo_width               = 72;
 $logo_height              = 72;
