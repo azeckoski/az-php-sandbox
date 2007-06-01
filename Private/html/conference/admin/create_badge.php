@@ -74,7 +74,7 @@ $base_height			  = round(($badge_height-($margin*2))/12);
 $logo_file		          = "../../accounts/include/images/Final_amsterdamPoloLogo2.png";
 
 $logo_width               = 72;
-$logo_height              = 72;
+$logo_height              = 52;
 
 /* one or more PKs for badges pulled from the database */
 $USERS_PK      = $_REQUEST["USERS_PK"];
@@ -185,7 +185,7 @@ foreach ($people as $person) {
 		$center      = $left_edge + ($badge_width-$margin-($base_height/2))/2;
 
 	 	$logoY = $top_edge - $logo_height - ($base_height*1.5);
-		$pdf->addPngFromFile($logo_file, $left_edge + $badge_width/2 - $logo_width/2 , $logoY, $logo_width, $logo_height);
+		$pdf->addPngFromFile($logo_file, $left_edge + $badge_width/2 - $logo_width/2 -12 , $logoY, $logo_width, $logo_height);
 
 		$nameString = ucfirst($person["FIRSTNAME"]) . " " . ucfirst($person["LASTNAME"]);
 		$nameSize = 32;
