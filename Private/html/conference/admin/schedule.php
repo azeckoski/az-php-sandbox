@@ -261,8 +261,12 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			echo "<td align='center' colspan='".count($conf_rooms)."'>" .
 					"<div style='font-size:1em; padding: 3px;'>";
 				if ($isAdmin) { echo 	"<br/>"; }
-				echo "<strong>".$timeslot['title']."</strong> </div></td>";
-			    
+				if ($timeslot['type'] == "lunch" || $timeslot['type'] == "break") {
+					echo "<strong>".$timeslot['title']." - ". date('l, M d, Y',strtotime($timeslot['start_time'])) ."</strong> </div></td>";
+				}
+				else {
+					echo "<strong>".$timeslot['title']."</strong> </div></td>";
+				}			    
 		
 	} else {
 		// print the grid selector
