@@ -76,6 +76,9 @@ $logo_file		          = "../../accounts/include/images/Final_amsterdamPoloLogo2.
 $logo_width               = 72;
 $logo_height              = 52;
 
+// new variable for "print all" link when there are too many records.  Should be divisible by 3.
+$recordsPerPage = 99;
+
 /* one or more PKs for badges pulled from the database */
 $USERS_PK      = $_REQUEST["USERS_PK"];
 
@@ -98,6 +101,15 @@ if (isset($USERS_PK) && is_array($USERS_PK)) {
 	if ($USERS_PK[0] != "all") {
 		$where_clause= "where U.pk in ('" . join("','", $USERS_PK) . "') ";
 	}
+	else {
+		$pageNumber = $_REQUEST["pageNumber"];
+		$numRecords = $_REQUEST["numRecords"];
+
+		if (isset($pageNumber) && $pageNumber != "") { 
+			$startRecord=( $pageNumber * $recordsPerPage) + 1;
+			$limit_clause="limit $startRecord,$recordsPerPage";
+		}
+	}
 	
 	$select_statement = 
 			"select U.firstname as FIRSTNAME, " .
@@ -112,9 +124,14 @@ if (isset($USERS_PK) && is_array($USERS_PK)) {
 			"left join roles R1 on R1.role_name=U.primaryRole " .
 			"left join roles R2 on R2.role_name=U.secondaryRole " .
 			$where_clause .
-			"order by U.lastname, U.firstname";
-	
+			"order by U.lastname, U.firstname " .
+			"$limit_clause";
+			
 	$result = mysql_query($select_statement) or die("Fetch query failed ($select_statement): " . mysql_error());
+
+	if (!isset($numRecords) || $numRecords == "") {
+		$numRecords = mysql_num_rows($result);
+	}
 	
 	if (mysql_num_rows($result) < 1) {
 		die("No information found for user $USERS_PK.");
@@ -327,10 +344,29 @@ $len = strlen($buf);
 
 $date = date("Ymd_His");
 
-header("Content-type: application/pdf");
-header("Content-Length: $len");
-header("Content-Disposition: inline; filename=sakaiBadge$date.pdf");
-print $buf;
+if ($USERS_PK[0] == "all" && !isset($pageNumber) && ( $numRecords > $recordsPerPage) ) {
+	print "<div style=\"padding:2em;background-color:#ccccff;border:1px solid #0000ff\">";
+	print "<p>There are too many records to display in a single file.  Please download each of the following files individually:</p>";
+	print "<ul>";
+	for ($a=0; $a<$numRecords/$recordsPerPage; $a++) {
+		$startRecord=1+($a*$recordsPerPage);
+		if ($numRecords > $startRecord+$recordsPerPage) {
+			$endRecord=$startRecord+$recordsPerPage-1;
+		}
+		else {
+			$endRecord=$numRecords-1;
+		}
+		print "<li><a href=\"create_badge.php?USERS_PK[]=all&numRecords=$numRecords&pageNumber=$a\">PDF file for records $startRecord-$endRecord</a></li>";
+	}
+	print "</ul>";
+	print "</div>";
+}
+else {
+	header("Content-type: application/pdf");
+	header("Content-Length: $len");
+	header("Content-Disposition: inline; filename=sakaiBadge$date.pdf");
+	print $buf;
+}
 
 function get_color($hex_string="999999") {
 	$color[0] = (hexdec(substr($hex_string, 0,2))/255);	
