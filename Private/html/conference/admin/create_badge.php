@@ -77,7 +77,7 @@ $logo_width               = 72;
 $logo_height              = 52;
 
 // new variable for "print all" link when there are too many records.  Should be divisible by 3.
-$recordsPerPage = 99;
+$recordsPerPage = 33;
 
 /* one or more PKs for badges pulled from the database */
 $USERS_PK      = $_REQUEST["USERS_PK"];
@@ -126,7 +126,7 @@ if (isset($USERS_PK) && is_array($USERS_PK)) {
 			$where_clause .
 			"order by U.lastname, U.firstname " .
 			"$limit_clause";
-			
+
 	$result = mysql_query($select_statement) or die("Fetch query failed ($select_statement): " . mysql_error());
 
 	if (!isset($numRecords) || $numRecords == "") {
@@ -171,179 +171,6 @@ else {
 	die("Can't continue without a value for USERS_PK or a custom user record.");
 }
 
-
-
-
-
-// this is the closest predefined page size matching the labels
-$pdf = new Cezpdf('LETTER','portrait');
-$pdf->ezSetMargins($top_margin,$bottom_margin,$left_margin,$right_margin);
-$pdf->selectFont('../../accounts/include/fonts/Helvetica.afm');
-$pdf->setFontFamily('b');   
-
-$pdf->addInfo("Creator", "Sakai Conference Badge Generator");
-$pdf->addInfo("Author", "Educational Technologies at Virginia Tech");
-$pdf->addInfo("Title", "Sakai Conference Badges");
-$pdf->addInfo("CreationDate", localtime());
-
-$pageCount = 0;
-$offsetRow = 2;
-
-foreach ($people as $person) {
-	if ($pageCount > 0 && $offsetRow == 2) { 
-		$pdf->ezNewPage(); 
-	}
-	
-	for ($columnOffset=0; $columnOffset<=1; $columnOffset++) {
-		$left_edge   = $left_margin + (($badge_width) * $columnOffset) + $margin;
-		$right_edge  = $left_edge + $badge_width - ($margin*2);
-		$top_edge    = $top_margin + (($offsetRow+1) * $badge_height) - $margin;
-		$bottom_edge = $top_edge - $badge_height + ($margin*2);
-		$center      = $left_edge + ($badge_width-$margin-($base_height/2))/2;
-
-	 	$logoY = $top_edge - $logo_height - ($base_height*1.5);
-		$pdf->addPngFromFile($logo_file, $left_edge + $badge_width/2 - $logo_width/2 -12 , $logoY, $logo_width, $logo_height);
-
-		$nameString = ucfirst($person["FIRSTNAME"]) . " " . ucfirst($person["LASTNAME"]);
-		$nameSize = 32;
-
-		while ($pdf->getTextWidth($nameSize, $nameString) > ($badge_width-($margin*4))) {
-			$nameSize-=2;	
-		}
-
-		$nameX=$center-($pdf->getTextWidth($nameSize,$nameString)/2);
-		$nameY=$logoY-$pdf->getFontHeight($nameSize)+6;
-		$pdf->addText($nameX,$nameY, $nameSize, $nameString);
-		
-		$institutionString = $person["INSTITUTION"];
-		$institutionSize = 18;
-	
-//		while ($pdf->getTextWidth($institutionSize, $institutionString) > 568) {
-//			$institutionSize-=2;	
-//		}
-
-		// new "guesstimated" cutoff width for resizing text
-		while ($pdf->getTextWidth($institutionSize, $institutionString) > 300) {
-			$institutionSize-=2;	
-		}
-	
-		$institutionX=$center-($pdf->getTextWidth($institutionSize,$institutionString)/2);
-		$institutionY=$nameY - $pdf->getFontHeight($institutionSize);
-		
-		/* display shorter institutions on a single line */
-		if ($pdf->getTextWidth($institutionSize, $institutionString) < 234) {
-			$pdf->addText($institutionX, $institutionY, $institutionSize, $institutionString);
-		}
-		/* split longer institutions up over two lines */
-		else {
-			$institutionStringArray=split(' ',$institutionString);
-			$institutionString1="";
-			$institutionString2="";
-			
-			$gotoSecondLine = 0;
-			for ($a=0;$a<count($institutionStringArray);$a++) {
-				if ($gotoSecondLine == 0 && $pdf->getTextWidth($institutionSize, "$institutionString1 " . $institutionStringArray[$a]) < 234) {
-					if ($institutionString1 != "") { $institutionString1 .= " "; }
-					$institutionString1 .= $institutionStringArray[$a];	
-				}
-				else {
-					$gotoSecondLine = 1;
-					if ($institutionString2 != "") { $institutionString2 .= " "; }
-					$institutionString2 .= $institutionStringArray[$a];
-				}
-			}
-	
-			$institutionX = $center-($pdf->getTextWidth($institutionSize,$institutionString1)/2);
-//			$pdf->addText($institutionX,$institutionY,$institutionSize, $pdf->getTextWidth($institutionSize, $institutionString) . ":" . $institutionString1);
-			$pdf->addText($institutionX,$institutionY,$institutionSize, $institutionString1);
-	
-	
-			$institutionX2 = $center-($pdf->getTextWidth($institutionSize,$institutionString2)/2);
-			$institutionY2 = $institutionY - $pdf->getFontHeight($institutionSize);
-			$pdf->addText($institutionX2,$institutionY2,$institutionSize,$institutionString2);
-		}
-
-		$lpoints = array($left_edge,$bottom_edge,
-						 $left_edge+($base_width*1),$bottom_edge,
-						 $left_edge+($base_width*2),$bottom_edge+($base_height*1.25),
-						 $left_edge+$base_width/2, $bottom_edge+($base_height*1.25),
-						 $left_edge+$base_width/2, $top_edge - ($base_height*1.25),
-						 $left_edge+(9.5*$base_width), $top_edge - ($base_height*1.25),
-					 	 $left_edge+(10.5*$base_width), $top_edge,
-					 	 $left_edge, $top_edge
-						);
-	
-		$rpoints = array($right_edge,$bottom_edge,
-						 $right_edge-($base_width*10.5),$bottom_edge,
-						 $right_edge-($base_width*9.5),$bottom_edge+($base_height*1.25),
-						 $right_edge-($base_width/2), $bottom_edge+($base_height*1.25),
-						 $right_edge-($base_width/2), ($top_edge-($base_height*1.25)),
-						 $right_edge-(2*$base_width), ($top_edge-($base_height*1.25)),
-					 	 $right_edge-(1*$base_width), $top_edge,
-					 	 $right_edge, $top_edge
-						);
-	
-		if (!isset($person["PRIMARY_ROLE"]) || $person["PRIMARY_ROLE"] == "") {
-			$person["PRIMARY_ROLE"]="Unknown";		
-		}
-		if (!isset($person["PRIMARY_COLOR"]) || $person["PRIMARY_COLOR"] == "") {
-			$person["PRIMARY_COLOR"]="999999";
-		}
-	
-		if (!isset($person["SECONDARY_ROLE"]) || $person["SECONDARY_ROLE"] == "") {
-			$person["SECONDARY_ROLE"]=$person["PRIMARY_ROLE"];		
-		}
-		if (!isset($person["SECONDARY_COLOR"]) || $person["SECONDARY_COLOR"] == "") {
-			$person["SECONDARY_COLOR"]=$person["PRIMARY_COLOR"];
-		}
-	
-		/* present a uniform outline if the roles are the same */
-		if ($person["PRIMARY_ROLE"] == $person["SECONDARY_ROLE"]) {
-			$rpoints[2]=($right_edge-($base_width*11));
-			$rpoints[4]=($right_edge-($base_width*10));
-			$rpoints[10]=($right_edge - (3*$base_width));
-			$rpoints[12]=($right_edge - (2*$base_width));
-		}
-	
-		/* don't display the outline if the person has no role */
-		if ($person["PRIMARY_ROLE"] != "Unknown") {
-			$color = get_color($person["PRIMARY_COLOR"]);
-			$pdf->setcolor($color[0],$color[1],$color[2]);	
-	
-		    $pdf->polygon($lpoints,8,1);
-	
-			$color = get_text_color($person["PRIMARY_COLOR"]);
-			$pdf->setcolor($color[0],$color[1],$color[2]);	
-			$role1Width = $pdf->getTextWidth(12, $person["PRIMARY_ROLE"]);
-			$pdf->addText($left_edge+$base_width/2, $top_edge-12, 12, $person["PRIMARY_ROLE"]);
-		
-			$color = get_color($person["SECONDARY_COLOR"]);
-			$pdf->setcolor($color[0],$color[1],$color[2]);	
-	
-		    $pdf->polygon($rpoints,8,1);
-		
-			$color = get_text_color($person["SECONDARY_COLOR"]);
-			$pdf->setcolor($color[0],$color[1],$color[2]);	
-			$role2Width = $pdf->getTextWidth(12, $person["SECONDARY_ROLE"]);
-			$pdf->addText($right_edge-$base_width/2-$role2Width, $bottom_edge+6, 12, $person["SECONDARY_ROLE"]);
-	
-			$pdf->setcolor(0,0,0);
-		}
-
-	}
-
-	if ($offsetRow == 0) {
-		$offsetRow=2;
-		$pageCount++;
-	}
-	else { $offsetRow--; }
-}
-
-$buf = $pdf->ezOutput();
-$len = strlen($buf);
-
-$date = date("Ymd_His");
-
 if ($USERS_PK[0] == "all" && !isset($pageNumber) && ( $numRecords > $recordsPerPage) ) {
 	print "<div style=\"padding:2em;background-color:#ccccff;border:1px solid #0000ff\">";
 	print "<p>There are too many records to display in a single file.  Please download each of the following files individually:</p>";
@@ -362,6 +189,175 @@ if ($USERS_PK[0] == "all" && !isset($pageNumber) && ( $numRecords > $recordsPerP
 	print "</div>";
 }
 else {
+	// this is the closest predefined page size matching the labels
+	$pdf = new Cezpdf('LETTER','portrait');
+	$pdf->ezSetMargins($top_margin,$bottom_margin,$left_margin,$right_margin);
+	$pdf->selectFont('../../accounts/include/fonts/Helvetica.afm');
+	$pdf->setFontFamily('b');   
+
+	$pdf->addInfo("Creator", "Sakai Conference Badge Generator");
+	$pdf->addInfo("Author", "Educational Technologies at Virginia Tech");
+	$pdf->addInfo("Title", "Sakai Conference Badges");
+	$pdf->addInfo("CreationDate", localtime());
+
+	$pageCount = 0;
+	$offsetRow = 2;
+
+	foreach ($people as $person) {
+		if ($pageCount > 0 && $offsetRow == 2) { 
+			$pdf->ezNewPage(); 
+		}
+	
+		for ($columnOffset=0; $columnOffset<=1; $columnOffset++) {
+			$left_edge   = $left_margin + (($badge_width) * $columnOffset) + $margin;
+			$right_edge  = $left_edge + $badge_width - ($margin*2);
+			$top_edge    = $top_margin + (($offsetRow+1) * $badge_height) - $margin;
+			$bottom_edge = $top_edge - $badge_height + ($margin*2);
+			$center      = $left_edge + ($badge_width-$margin-($base_height/2))/2;
+
+	 		$logoY = $top_edge - $logo_height - ($base_height*1.5);
+			$pdf->addPngFromFile($logo_file, $left_edge + $badge_width/2 - $logo_width/2 -12 , $logoY, $logo_width, $logo_height);
+
+			$nameString = ucfirst($person["FIRSTNAME"]) . " " . ucfirst($person["LASTNAME"]);
+			$nameSize = 32;
+
+			while ($pdf->getTextWidth($nameSize, $nameString) > ($badge_width-($margin*4))) {
+				$nameSize-=2;	
+			}
+
+			$nameX=$center-($pdf->getTextWidth($nameSize,$nameString)/2);
+			$nameY=$logoY-$pdf->getFontHeight($nameSize)+6;
+			$pdf->addText($nameX,$nameY, $nameSize, $nameString);
+		
+			$institutionString = $person["INSTITUTION"];
+			$institutionSize = 18;
+	
+//			while ($pdf->getTextWidth($institutionSize, $institutionString) > 568) {
+//				$institutionSize-=2;	
+//			}
+
+			// new "guesstimated" cutoff width for resizing text
+			while ($pdf->getTextWidth($institutionSize, $institutionString) > 300) {
+				$institutionSize-=2;	
+			}	
+	
+			$institutionX=$center-($pdf->getTextWidth($institutionSize,$institutionString)/2);
+			$institutionY=$nameY - $pdf->getFontHeight($institutionSize);
+		
+			/* display shorter institutions on a single line */
+			if ($pdf->getTextWidth($institutionSize, $institutionString) < 234) {
+				$pdf->addText($institutionX, $institutionY, $institutionSize, $institutionString);
+			}	
+			/* split longer institutions up over two lines */
+			else {
+				$institutionStringArray=split(' ',$institutionString);
+				$institutionString1="";
+				$institutionString2="";
+				
+				$gotoSecondLine = 0;
+				for ($a=0;$a<count($institutionStringArray);$a++) {
+					if ($gotoSecondLine == 0 && $pdf->getTextWidth($institutionSize, "$institutionString1 " . $institutionStringArray[$a]) < 234) {
+						if ($institutionString1 != "") { $institutionString1 .= " "; }
+						$institutionString1 .= $institutionStringArray[$a];	
+					}
+					else {
+						$gotoSecondLine = 1;
+						if ($institutionString2 != "") { $institutionString2 .= " "; }
+						$institutionString2 .= $institutionStringArray[$a];
+					}
+				}
+	
+				$institutionX = $center-($pdf->getTextWidth($institutionSize,$institutionString1)/2);
+//				$pdf->addText($institutionX,$institutionY,$institutionSize, $pdf->getTextWidth($institutionSize, $institutionString) . ":" . $institutionString1);
+				$pdf->addText($institutionX,$institutionY,$institutionSize, $institutionString1);
+	
+	
+				$institutionX2 = $center-($pdf->getTextWidth($institutionSize,$institutionString2)/2);
+				$institutionY2 = $institutionY - $pdf->getFontHeight($institutionSize);
+				$pdf->addText($institutionX2,$institutionY2,$institutionSize,$institutionString2);
+			}
+
+			$lpoints = array($left_edge,$bottom_edge,
+						 $left_edge+($base_width*1),$bottom_edge,
+						 $left_edge+($base_width*2),$bottom_edge+($base_height*1.25),
+						 $left_edge+$base_width/2, $bottom_edge+($base_height*1.25),
+						 $left_edge+$base_width/2, $top_edge - ($base_height*1.25),
+						 $left_edge+(9.5*$base_width), $top_edge - ($base_height*1.25),
+					 	 $left_edge+(10.5*$base_width), $top_edge,
+					 	 $left_edge, $top_edge
+						);
+	
+			$rpoints = array($right_edge,$bottom_edge,
+						 $right_edge-($base_width*10.5),$bottom_edge,
+						 $right_edge-($base_width*9.5),$bottom_edge+($base_height*1.25),
+						 $right_edge-($base_width/2), $bottom_edge+($base_height*1.25),
+						 $right_edge-($base_width/2), ($top_edge-($base_height*1.25)),
+						 $right_edge-(2*$base_width), ($top_edge-($base_height*1.25)),
+					 	 $right_edge-(1*$base_width), $top_edge,
+					 	 $right_edge, $top_edge
+						);
+	
+			if (!isset($person["PRIMARY_ROLE"]) || $person["PRIMARY_ROLE"] == "") {
+				$person["PRIMARY_ROLE"]="Unknown";		
+			}
+			if (!isset($person["PRIMARY_COLOR"]) || $person["PRIMARY_COLOR"] == "") {
+				$person["PRIMARY_COLOR"]="999999";
+			}
+	
+			if (!isset($person["SECONDARY_ROLE"]) || $person["SECONDARY_ROLE"] == "") {
+				$person["SECONDARY_ROLE"]=$person["PRIMARY_ROLE"];		
+			}
+			if (!isset($person["SECONDARY_COLOR"]) || $person["SECONDARY_COLOR"] == "") {
+				$person["SECONDARY_COLOR"]=$person["PRIMARY_COLOR"];
+			}
+	
+			/* present a uniform outline if the roles are the same */
+			if ($person["PRIMARY_ROLE"] == $person["SECONDARY_ROLE"]) {
+				$rpoints[2]=($right_edge-($base_width*11));
+				$rpoints[4]=($right_edge-($base_width*10));
+				$rpoints[10]=($right_edge - (3*$base_width));
+				$rpoints[12]=($right_edge - (2*$base_width));
+			}
+	
+			/* don't display the outline if the person has no role */
+			if ($person["PRIMARY_ROLE"] != "Unknown") {
+				$color = get_color($person["PRIMARY_COLOR"]);
+				$pdf->setcolor($color[0],$color[1],$color[2]);	
+		
+				$pdf->polygon($lpoints,8,1);
+	
+				$color = get_text_color($person["PRIMARY_COLOR"]);
+				$pdf->setcolor($color[0],$color[1],$color[2]);	
+				$role1Width = $pdf->getTextWidth(12, $person["PRIMARY_ROLE"]);
+				$pdf->addText($left_edge+$base_width/2, $top_edge-12, 12, $person["PRIMARY_ROLE"]);
+		
+				$color = get_color($person["SECONDARY_COLOR"]);
+				$pdf->setcolor($color[0],$color[1],$color[2]);	
+		
+				$pdf->polygon($rpoints,8,1);
+		
+				$color = get_text_color($person["SECONDARY_COLOR"]);
+				$pdf->setcolor($color[0],$color[1],$color[2]);	
+				$role2Width = $pdf->getTextWidth(12, $person["SECONDARY_ROLE"]);
+				$pdf->addText($right_edge-$base_width/2-$role2Width, $bottom_edge+6, 12, $person["SECONDARY_ROLE"]);
+		
+				$pdf->setcolor(0,0,0);
+			}
+
+		}
+
+		if ($offsetRow == 0) {
+			$offsetRow=2;
+			$pageCount++;
+		}
+		else { $offsetRow--; }
+	}
+
+	$buf = $pdf->ezOutput();
+	$len = strlen($buf);
+
+	$date = date("Ymd_His");
+
 	header("Content-type: application/pdf");
 	header("Content-Length: $len");
 	header("Content-Disposition: inline; filename=sakaiBadge$date.pdf");
