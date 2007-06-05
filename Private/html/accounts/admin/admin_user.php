@@ -32,6 +32,7 @@ if (!$User->checkPerm("admin_accounts")) {
 		"Try out this one instead: <a href='$TOOL_PATH/'>$TOOL_NAME</a>";
 	$MessageColor = "#ff0000";
 } else {
+	$INSTREP = true;
 	$allowed = true;
 }
 
