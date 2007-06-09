@@ -105,6 +105,8 @@ foreach($conf_timeslots as $conf_timeslot) {
 // custom CSS file
 $CSS_FILE = $ACCOUNTS_URL."/include/accounts.css";
 $CSS_FILE2 = "../include/schedule.css";
+
+$CSS_FILE3 = $TOOL_URL."/include/print_scheduleTabloidWidecss.css";
 $DATE_FORMAT = "M d, Y h:i A";
 
 if ( ($User->checkPerm("admin_accounts")) || ($User->checkPerm("admin_conference")) || ($User->checkPerm("proposals_dec2006")) || ($User->checkPerm("registration_dec2006"))   ) {
@@ -160,7 +162,8 @@ function orderBy(newOrder) {
 // -->
 </script>
 
-<?php include $ACCOUNTS_PATH.'include/header.php'; // INCLUDE THE HEADER ?>
+<?php // INCLUDE THE HEADER 
+include $ACCOUNTS_PATH.'include/header.php'; ?>
 
 
 <?= $Message ?>
@@ -183,6 +186,212 @@ echo "</div>";
 ?>
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
+<table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
+
+ <tr><td colspan=5 style="font-size:1.1em;">
+	 <br/>
+		 <table border='0' cellspacing='0' cellpadding="2" width=100%>
+			<tr><td colspan=3 style="font-size:1.1em;"><span id="special"></span><strong>Go to: </strong>&nbsp;&nbsp;&nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif" border="0"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif" border="0"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#2'>Day 2 <img src="../include/images/arrow.gif" border="0"></a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif" border="0"></a></td></tr>
+			<tr>
+				<td colspan=3 class="grid" style="border: 1px solid #ccc;"><span id="special"> </span>
+			 <h1>Special Events</h1>
+			 	</td>
+			 </tr>
+			 <tr>
+				 <td class="grid_event_med" valign=top  style="padding:2px 15px; border:1px dotted #ccc;; width:28%; text-align:left; background:#ffffff; ">
+					 <br/><div><strong> Keynote Speaker: <em style="color:#660000;"> Hal Abelson</em>  </strong>
+					 <br/><em>09:00 to 10:00 - Tuesday, June 12 <br/> (Matterhorn 1, 2, & 3)</em><br/>
+					 <br/>Hal Abelson is a founding director of the Free Software Foundation and of Creative Commons.
+					  He also serves as consultant to Hewlett-Packard Laboratories.  At MIT, Abelson is co-director 
+					  of the MIT-Microsoft Research Alliance in educational technology and co-head of MIT's Council on Educational Technology.
+					  He is also active in MIT's OpenCourseWare and DSpace (institutional digital archiving) initiatives.
+					 </div>
+			 	</td>
+				 <td class="grid_event_med" valign=top style="padding:2px 15px; border:1px dotted #ccc;  width:28%; text-align:left; background:#ffffff;  ">
+					<br/> <div><strong>Local Welcome and Reception<br/></strong><em>18:00 to 19:30 - Tuesday, June 12  </em>
+					 <br/><em>(Matterhorn 1, 2, &amp; 3)</em><br/><br/>
+					 Paul Doop, Vice Chancellor of the University of Amsterdam will provide a local welcome to all, in the Matterhorn
+					 rooms at 18:00, which will be followed by the Welcome Reception in the atrium.<br/><br/>
+					 <br/><br/><br/>
+					 <strong>Event Sponsored by:</strong>  Thomson Learning<br/>
+					 
+					 </div>
+					 </td>
+				 <td class="grid_event_med" valign=top style="padding:2px 15px; border:1px dotted #ccc; width:28%; text-align:left; background:#ffffff;  ">
+					<br/>		<div><strong>Technology Demonstrations<br/></strong><em>18:00 to 20:30 - Wednesday, June 13  </em>
+							<br/><em>(Matterhorn 1, 2, & 3)</em><br/><br/>
+						 The Technology Demos and Reception continues to be one of the most highly anticipated events of the conference.  
+						   It's a chance to relax, network, and share in the success and growth of so many Sakai projects.  Technology demos 
+						 have added significant value to previous Sakai conferences and we know that it will be 
+						 true of this conference as well. <br/>
+						 
+						 	 <br/>
+					 <strong>Event Sponsored by:</strong> rSmart, IBM, and Stoas<br/>
+				 </div>
+						
+				  </td>
+		  </tr><tr>
+				<td colspan=3 class="grid" style="border: 1px solid #ccc; padding:3px">
+			<div style="font-size:.95em;"><strong>Enhanced Internet Services Sponsored by</strong> :  SURF</div>
+			 	</td>
+			 </tr></table>
+  
+</td></tr><tr><td colspan=5 style="font-size:1em;">&nbsp;
+<tr><td><div style="height:30px;">&nbsp;</div></td></tr>	
+		<tr><td colspan=3 style="font-size:1.1em;"><span id="preconf"></span><strong>Go to: </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#special'>Special Events <img src="../include/images/arrow.gif"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#2'>Day 2 <img src="../include/images/arrow.gif"></a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif"></a></td></tr>
+		
+	 <tr><td class='date_header page' nowrap='y' colspan='5'>Pre-Conference  - Monday, Jun 11, 2007</td></tr>
+	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'>Matterhorn 1</td>
+	<td class='schedule_header' nowrap='y'>Matterhorn 2</td><td class='schedule_header' nowrap='y'>Zurich 2</td><td class='schedule_header' nowrap='y'>Winterthur</td></tr>
+	
+	<tr class="event">
+	<td class="time" nowrap='y'>
+		09:00 - 
+		12:40
+	</td>
+       		
+ 		
+		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%>
+		     <tr><td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 		
+		     			<div class='grid_event_header techincal'>Programmer's Cafe</div>
+		     			<div class='grid_event_text' style="text-align:left"><div>
+<strong>Full Day Workshop</strong> (part 1)<br/><br/>
+We will be doing a hands-on workshop (by popular demand) and will be writing a functional tool (similar to Vancouver) in RSF. <br/><br/>
+
+There will be short special sessions after lunch.<br/>
+1) Developer involvement in Sakai (Peter Knoop)<br/>
+2) Licensing issues in Sakai development (TBD) (maybe)<br/>
+
+There will also be a combined Designer/Developer session at the
+end of the day.
+  </div></div><div class='grid_event_speakerDay1'></div></table></td>       		
+		     <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 				
+		     	<div class='grid_event_header implementation'>Introduction to Sakai</div><div class='grid_event_text ' >
+		     	<div style="text-align:left;"><strong>1/2 Day Workshop</strong><br/><div class='grid_event_speakerDay1'>Anthony Whyte</div><br/>Newcomers to the Sakai Community and those looking to understand Sakai's Collaboration and Learning Environment (CLE) should consider attending this session. It traces the evolution of Sakai from project to foundation; describes Sakai's community-source approach to software design, development, and distribution; showcases Sakai's CLE feature set with a live demonstration; outlines current community processes covering design, development,
+		      documentation, and testing; and ends with a discussion on ways to get involved in the community.
+		      </div></div></table></td>       		
+		      <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+		    <td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 				
+		    	<div class='grid_event_header user_experience'>U-Camp</div><div class='grid_event_text '>
+		    	<div style="text-align:left;"><strong>Full day workshop.</strong> (part 1)<br/><br/>
+		    	This full-day workshop will provide an opportunity for those interested in the user 
+		    	experience of Sakai to meet, learn, and contribute to the future of Sakai. The U-Camp 
+		    	includes a combination of talks and hands-on workshops that will provide effective techniques 
+		    	for how to design more usable and inclusive user interfaces. 
+		    	<br/><br/>See workshop topics listed in afternoon session. 
+		    	</div>
+		    	
+	    	</div>
+		    	<div class='grid_event_speakerDay1'></div></table></td>   <td  class='grid'>&nbsp;</td>       		
+		    </tr>
+		    
+<tr class="coffee">
+	<td class="time" nowrap='y'>
+		12:40 - 
+		13:40	
+	</td>
+<td align='center' colspan='4'><div style='padding: 3px; '><strong>LUNCH</strong></div></td></tr>
+
+	<tr class="event">
+	<td class="time" nowrap='y'>
+		13:40  - 
+		17:40	
+	</td>
+       		
+	    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+	    <td  class='grid_event_med' style="height:340px; padding: 2px 5px;"> 			
+	    		<div class='grid_event_header techincal'>Programmer's Cafe</div><div class='grid_event_text' style="text-align:left"><div><strong>Full Day Workshop</strong> (part 2)<br/><br/>
+
+Continuation of the Programmers'
+Cafe<br/><br/>
+
+Complete the development of the RSF tool.
+<br/><br/>
+<strong>Combined session:</strong><br/>
+We will be bringing together the U-Camp attendees and the Programmers Cafe attendees and talking about Designers and Developers working together to
+improve the Sakai user experience. Practical tips and examples will be presented to help both groups work together more closely and to assist developers
+without the benefit of a local UI expert. Combined session led by Colin Clark,
+Daphne Ogle, Harriet Truscott, Aaron Zeckoski
+</div></div></table></td>       		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+		    <td  class='grid_event_med' style="height:340px; padding: 2px 5px;"> 			
+		    		<div class='grid_event_header pedagogy'>Introduction to OSP </div><div class='grid_event_text ' style="text-align:left">
+		    		<div><strong>1/2 day workshop</strong><br/><br/></div>Explore the varied uses of portfolios (from institutional assessment 
+		    		to achieving learning goals to personal presentations), recieve a tour of several OSP implementations, 
+		    		and gain a detailed overview of the functionality of each component of OSP. 
+		    		
+		    		 The session 
+		    		will begin with an overview of the goals and motivations universities have for using portfolios, and include 
+		    		examples of different types of portfolios implemented at various institutions.Ê
+<br/><br/>
+The session will also provide a roadmap for the rest of the OSP conference sessions to help participants make the best use of their time during the conference. 
+<br/><br/>
+<div class='grid_event_speakerDay1'>
+This session will be led by a diverse group of panelists from the University of Amsterdam, University of Michigan, 
+Indiana University, Syracuse University, Weber State University, Portland State University, and
+ LaGuardia Community College as well representatives from rSmart and portfolio4u.</div>
+		    		</div></table></td>       		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+		    <td  class='grid_event_med' style="height:340px; padding: 2px 5px;"> 				
+		    	<div class='grid_event_header user_experience'>U-Camp</div><div class='grid_event_text '>
+		    	<div style="text-align:left; padding: 2px 5px;"><strong>Full day workshop.</strong> (part 2)<br/><br/>
+		    	Full day workshop topics  include:
+<ul>
+<li> - Design Patterns</li>
+<li> - Accessibility & Design</li>
+<li> - RSF</li>
+<li> - The Fluid Project</li>
+<li> - Panel Discussion: Design that Works</li>
+<li> - Hands-on design workshop with Mark Notess</li>
+<li> - Redesigning Sakai tools based on requirements</li>
+</ul>
+There will also be a combined session with the Programmers Cafe at the end of the day. We will be bringing together attendees of the U-Camp and the Programmers Cafe to talk about how designers and developers can work together to improve the Sakai user experience. Practical tips and examples will be presented to help both groups work together more effectively. We hope this will result in questions, discussion, and new friendships and alliances.
+	</div>
+		    	
+	    	</div>
+		    	<div class='grid_event_speakerDay1'></div></table></td>       		
+			    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
+			    <td  class='grid_event_med' style="height:340px;"> <div class='grid_event_header technical'><strong> Special Workshop</strong></div>
+			    
+			    <div class='grid_event_text '><div style="text-align:left; padding: 2px 5px;"><strong>
+ContentHostingHandler &amp; ResourceTypeRegistry</strong><br/><div class='grid_event_speakerDay1'>Ian Boston, John Ellis, Jim Eng</div><br/>
+This workshop will explore these two features new in the 2.4.0 release, that allow developers to define new
+ functionality for Sakai's Content Hosting Service and Resources tool.  A CHH might act as a proxy for  an external 
+ repository or file system, 
+ giving remote access to folders and files.  Another CHH might mediate interactions with a packaged resource, to 
+ provide direct access to their contents without downloading or unpacking the entire resource. ResourceTypeRegistry 
+ manages definitions types of resources for the Resources tool. The registration for a resource type can define custom 
+ actions and behaviors for resources.<br/><br/>   We will give an overview of the features in these two APIs and some possible uses, and work through 
+    examples in which a CHH is used to enable access to parts of a packaged resource and in which type 
+    registrations define the way in which the Resources tool affords user access to resources.
+</div></div></table></td>       		
+		</tr>
+
+</table>
+<table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
+ 
+ <tr><td><div style="height:30px;">&nbsp;</div></td></tr>	<tr><td class='date_header page' nowrap='y' colspan='4'>Post-Conference - Friday, Jun 15, 2007</td></tr>
+	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'><strong>LOCATION: </strong> Universiteit van Amsterdam</td><td class='schedule_header' nowrap='y'><strong>LOCATION: </strong> TBA</td></tr>
+	
+	<tr class="event">
+	<td class="time" nowrap='y'>
+		09:00 - 
+		15:00
+	</td>
+       		
+ 		
+		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_short' style="padding: 2px 5px; height:130px;"> 					<div class='grid_event_header implementation'>OSP Post-Conference Workshop</div><div class='grid_event_text '><div style="text-align:left;"><strong>OSP post conference meeting</strong><br/><br/>
+This day long meeting is being hosted by Universiteit van Amsterdam<br/><br/>
+<strong>Time: </strong>	09:00 - 15:00	<br/>
+<strong>Location:</strong>	Universiteit van Amsterdam, Herengracht 182, room 007	<br/>
+<strong>Features:</strong>	Wireless (and probably wired also) Beamer, Whiteboard, Flipover and Lunch.
+</div></div><div class='grid_event_speakerDay1'></div></table></td>       		
+		   <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr><td  class='grid_event_short' style="padding: 2px 5px; height:130px;"> 					<div class='grid_event_header implementation'>TBA</div><div class='grid_event_text '><div><strong>Other post-conference meetings...
+TBA
+</strong></div></div><div class='grid_event_speakerDay1'></div></table></td>     </tr>
+		    
+<tr style='page-break-before:always;'><td colspan=8>&nbsp;</td></tr>
+</table>
 
 <table border="0" cellspacing="0" style='width:100%;height:100%;'>
 <?php
@@ -205,7 +414,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		if ($line > 1) {
 			echo "<tr><td style='page-break-before: always;'>&nbsp;</td></tr>\n";
 		}
-
+		echo "<tr><td><br/><br/><span id=$conference_day></span></td></tr>";
+		echo "<tr><td colspan=5 style='font-size:1.1em;'><strong>Go to: </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#special'>Special Events <img src='../include/images/arrow.gif'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#preconf'>Pre-Conference <img src='../include/images/arrow.gif'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#1'>Day 1 <img src='../include/images/arrow.gif'></a> &nbsp;&nbsp;&nbsp;<a href='#2'>Day 2 <img src='../include/images/arrow.gif'></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<a href='#3'>Day 3 <img src='../include/images/arrow.gif'></a></td></tr>";
 		// print date header
 		echo "<tr>\n";
 		echo "<td class='date_header' nowrap='y' colspan='" .
