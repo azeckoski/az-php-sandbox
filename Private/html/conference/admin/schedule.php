@@ -173,7 +173,7 @@ echo "<div class='page'>" .
 			"" ;
 	
 		
-			echo "<div class='program_legend'><div class='graphic_legend'><strong>Special Interest: </strong>" .
+			echo "<div class='program_legend' style=' padding:0px 10px;'><div class='graphic_legend'><strong>Special Interest: </strong>" .
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
 		
@@ -186,7 +186,7 @@ echo "</div>";
 ?>
 <form name="adminform" method="post" action="<?=$_SERVER['PHP_SELF']; ?>" style="margin:0px;">
 <input type="hidden" name="sortorder" value="<?= $sortorder ?>"/>
-<table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
+<table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;  padding:10px;'>
 
  <tr><td colspan=5 style="font-size:1.1em;">
 	 <br/>
