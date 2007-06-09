@@ -471,16 +471,12 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 ?>
 <tr class="<?= $linestyle ?>">
 	<td class="time" nowrap='y'>
-<?php 
 
-	if (($timeslot['type']!="lunch") && ($timeslot['type']!="break") ){ 
-?>
-		<?=  date('H:i',strtotime($timeslot['start_time'])) ?>
+		
+		 <?=  date('H:i ',strtotime($timeslot['start_time'])) ?>
 		 - 
-		<?= date('H:i',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
-<?php } else { ?>
-	&nbsp;
-<?php } ?>	
+		<?= date('H:i ',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
+
 	</td>
 
 
