@@ -173,12 +173,14 @@ echo "<div class='page'>" .
 			"" ;
 	
 		
-			echo "<div class='program_legend' style=' padding:0px 10px;'><div class='graphic_legend'><strong>Special Interest: </strong>" .
+			echo "<div class='program_legend' style=' padding:0px 10px;'>" .
+					"<div class='graphic_legend'><strong>Special Interest: </strong>" .
 			"<span><img src='../include/images/book06.gif' alt='' height=17 /> - Library </span>" .
 			"<span><img src='../include/images/coolToolicon.gif' alt='' height=16 /> - Cool New Tool </span>" .
 		
 				"<span><img src='../include/images/ospiNEWicon2.jpg' alt='' height=15 /> - OSP (Open Source Portfolio) </span></div>" .
-				"<div class='color_legend'><strong>Color Legend: </strong><span class='technology'>Technical</span>" .
+				"<div class='color_legend'>" .
+				"<strong>Color Legend: </strong><span class='technology'>Technical</span>" .
 				"<span class='other'>Multiple Audiences</span><span class='implementation'>Implementation</span><span class='research'>Research</span><span class='tool_carousel'>Tool Carousel</span>" .
 				"<span class='pedagogy'>Teaching &amp; Learning</span><span class='user_experience'>User Experience</span></div></div>" ;
 	
@@ -379,7 +381,7 @@ This workshop will explore these two features new in the 2.4.0 release, that all
 		</tr>
 
 </table>
-<table border='0' cellspacing='0' cellpadding="2" style='width:100%;height:100%;'>
+<table border='0' cellspacing='0' cellpadding="2" style='width:100%;'>
  
  <tr><td><div style="height:30px;">&nbsp;</div></td></tr>	<tr><td class='date_header page' nowrap='y' colspan='4'>Post-Conference - Friday, Jun 15, 2007</td></tr>
 	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'><strong>LOCATION: </strong> Universiteit van Amsterdam</td><td class='schedule_header' nowrap='y'><strong>LOCATION: </strong> TBA</td></tr>
