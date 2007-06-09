@@ -244,7 +244,7 @@ echo "</div>";
   
 </td></tr><tr><td colspan=5 style="font-size:1em;">&nbsp;
 <tr><td><div style="height:30px;">&nbsp;</div></td></tr>	
-		<tr><td colspan=3 style="font-size:1.1em;"><span id="preconf"></span><strong>Go to: </strong>
+		<tr><td colspan=5 style="font-size:1.1em;"><span id="preconf"></span><strong>Go to: </strong>
 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#special'>Special Events <img src="../include/images/arrow.gif" border="0"></a>
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif"  border="0"></a>
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif" border="0"></a>
@@ -472,13 +472,15 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 <tr class="<?= $linestyle ?>">
 	<td class="time" nowrap='y'>
 <?php 
-	
-?>
-		
-		 <?=  date('g:i a',strtotime($timeslot['start_time'])) ?>
-		 - 
-		<?= date('g:i a',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
 
+	if (($timeslot['type']!="lunch") && ($timeslot['type']!="break") ){ 
+?>
+		<?=  date('H:i',strtotime($timeslot['start_time'])) ?>
+		 - 
+		<?= date('H:i',strtotime($timeslot['start_time']) + ($timeslot['length_mins']*60)) ?>
+<?php } else { ?>
+	&nbsp;
+<?php } ?>	
 	</td>
 
 
