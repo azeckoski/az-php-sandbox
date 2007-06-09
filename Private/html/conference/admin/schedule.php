@@ -191,7 +191,13 @@ echo "</div>";
  <tr><td colspan=5 style="font-size:1.1em;">
 	 <br/>
 		 <table border='0' cellspacing='0' cellpadding="2" width=100%>
-			<tr><td colspan=3 style="font-size:1.1em;"><span id="special"></span><strong>Go to: </strong>&nbsp;&nbsp;&nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif" border="0"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif" border="0"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#2'>Day 2 <img src="../include/images/arrow.gif" border="0"></a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif" border="0"></a></td></tr>
+			<tr><td colspan=3 style="font-size:1em;">
+			<span id="special"></span><strong>Go to: </strong>
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#special'>Special Events <img src="../include/images/arrow.gif" border="0"></a>
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif" border="0"></a> 
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif" border="0"></a>
+			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#2'>Day 2 <img src="../include/images/arrow.gif" border="0"></a>
+			  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif" border="0"></a></td></tr>
 			<tr>
 				<td colspan=3 class="grid" style="border: 1px solid #ccc;"><span id="special"> </span>
 			 <h1>Special Events</h1>
@@ -238,7 +244,12 @@ echo "</div>";
   
 </td></tr><tr><td colspan=5 style="font-size:1em;">&nbsp;
 <tr><td><div style="height:30px;">&nbsp;</div></td></tr>	
-		<tr><td colspan=3 style="font-size:1.1em;"><span id="preconf"></span><strong>Go to: </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#special'>Special Events <img src="../include/images/arrow.gif"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#2'>Day 2 <img src="../include/images/arrow.gif"></a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif"></a></td></tr>
+		<tr><td colspan=3 style="font-size:1.1em;"><span id="preconf"></span><strong>Go to: </strong>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#special'>Special Events <img src="../include/images/arrow.gif" border="0"></a>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif"  border="0"></a>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif" border="0"></a>
+		 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#2'>Day 2 <img src="../include/images/arrow.gif" border="0"></a> 
+		  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif" border="0"></a></td></tr>
 		
 	 <tr><td class='date_header page' nowrap='y' colspan='5'>Pre-Conference  - Monday, Jun 11, 2007</td></tr>
 	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'>Matterhorn 1</td>
@@ -415,7 +426,13 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			echo "<tr><td style='page-break-before: always;'>&nbsp;</td></tr>\n";
 		}
 		echo "<tr><td><br/><br/><span id=$conference_day></span></td></tr>";
-		echo "<tr><td colspan=5 style='font-size:1.1em;'><strong>Go to: </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#special'>Special Events <img src='../include/images/arrow.gif'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#preconf'>Pre-Conference <img src='../include/images/arrow.gif'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#1'>Day 1 <img src='../include/images/arrow.gif'></a> &nbsp;&nbsp;&nbsp;<a href='#2'>Day 2 <img src='../include/images/arrow.gif'></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<a href='#3'>Day 3 <img src='../include/images/arrow.gif'></a></td></tr>";
+		echo "<tr><td colspan=5 style='font-size:1.1em;'>" .
+				"<strong>Go to: </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" .
+				"<a href='#special'>Special Events <img src='../include/images/arrow.gif'  border='0'></a>" .
+				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#preconf'>Pre-Conference <img src='../include/images/arrow.gif' border='0'></a>" .
+				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#1'>Day 1 <img src='../include/images/arrow.gif'  border='0'></a> " .
+				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#2'>Day 2 <img src='../include/images/arrow.gif'  border='0'></a>" .
+				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src='../include/images/arrow.gif'  border='0'></a></td></tr>";
 		// print date header
 		echo "<tr>\n";
 		echo "<td class='date_header' nowrap='y' colspan='" .
