@@ -252,7 +252,9 @@ echo "</div>";
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif"  border="0"></a>
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif" border="0"></a>
 		 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#2'>Day 2 <img src="../include/images/arrow.gif" border="0"></a> 
-		  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif" border="0"></a></td></tr>
+		  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif" border="0"></a>
+		  	  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='https://collab.sakaiproject.org/direct/eval-evalcategory/Sakai%20Amsterdam%2007' style="color:green; font-weight:bold;">*Evaluations &nbsp;<img src="../include/images/arrow.gif" border="0"></a>
+		  	  </td></tr>
 		
 	 <tr><td class='date_header page' nowrap='y' colspan='5'>Pre-Conference  - Monday, Jun 11, 2007</td></tr>
 	<tr><td class='time_header' nowrap='y'>Jun 12</td><td class='schedule_header' nowrap='y'>Matterhorn 1</td>
@@ -435,7 +437,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#preconf'>Pre-Conference <img src='../include/images/arrow.gif' border='0'></a>" .
 				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#1'>Day 1 <img src='../include/images/arrow.gif'  border='0'></a> " .
 				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#2'>Day 2 <img src='../include/images/arrow.gif'  border='0'></a>" .
-				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src='../include/images/arrow.gif'  border='0'></a></td></tr>";
+				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src='../include/images/arrow.gif'  border='0'></a>" .
+				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='https://collab.sakaiproject.org/direct/eval-evalcategory/Sakai%20Amsterdam%2007' style='color:green; font-weight:bold;'>*Evaluations &nbsp;<img src='../include/images/arrow.gif' border='0'></a></td></tr>";
 		// print date header
 		echo "<tr>\n";
 		echo "<td class='date_header' nowrap='y' colspan='" .
