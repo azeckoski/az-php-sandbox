@@ -199,7 +199,8 @@ echo "</div>";
 			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#preconf'>Pre-Conference <img src="../include/images/arrow.gif" border="0"></a> 
 			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#1'>Day 1 <img src="../include/images/arrow.gif" border="0"></a>
 			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#2'>Day 2 <img src="../include/images/arrow.gif" border="0"></a>
-			  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif" border="0"></a></td></tr>
+			  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='#3'>Day 3 <img src="../include/images/arrow.gif" border="0"></a>
+			  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href='https://collab.sakaiproject.org/direct/eval-evalcategory/Sakai%20Amsterdam%2007' style="color:green; font-weight:bold;">*Evaluations &nbsp;<img src="../include/images/arrow.gif" border="0"></a></td></tr>
 			<tr>
 				<td colspan=3 class="grid" style="border: 1px solid #ccc;"><span id="special"> </span>
 			 <h1>Special Events</h1>
