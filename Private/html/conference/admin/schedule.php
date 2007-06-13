@@ -641,12 +641,20 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 						<img style="padding: 0px 4px 0px 0px;" src="../include/images/<?=$image_file?>" <?=$width?> align="left" alt="img" />
 						
 			<?php		}
-						if ($proposal['wiki_url']) {
+								if ($proposal['wiki_url']) {
 						
-						echo "<div><strong><a href='" .$proposal['wiki_url'] ."' title='this session wiki page'>"  .htmlspecialchars($proposal['title']) . "</a></strong></div>";
+						echo "<div><strong><a href='" .$proposal['wiki_url'] ."' title='this session wiki page'>"  .htmlspecialchars($proposal['title']) . "</a></strong>";
+							if ($isAdmin) {
+						echo "&nbsp;<a href='delete_session.php?pk=".$session_pk ."&amp;type=" .$proposal['type'] ." ' style='color:red'>x</a>";
+					}
+					echo "</div>";
 				 }
 				 else  {
-				 echo "<div><strong>"  .htmlspecialchars($proposal['title']) . "</strong></div>";
+				 echo "<div><strong>"  .htmlspecialchars($proposal['title']) . "</strong>";
+				 		if ($isAdmin) {
+						echo "&nbsp;<a href='delete_session.php?pk=".$session_pk ."&amp;type=" .$proposal['type'] ." ' style='color:red'>x</a>";
+					}
+                 echo "</div>";
 				}
 				
 					//echo "</label>";
@@ -694,8 +702,8 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 			// time check here
 			$remaining_time = $timeslot['length_mins'] - $total_length;
 			if ($remaining_time > 0 && $isAdmin) {
-				echo "<span  class='remaining'>$remaining_time</span>";
-				echo "&nbsp;<a href='add_session.php?room=$room_pk&amp;time=$timeslot_pk'>+</a><br/>";
+				echo "<span  class='remaining' style='font-size:.9em;'>$remaining_time</span>";
+				echo "&nbsp;<a href='add_session.php?room=$room_pk&amp;time=$timeslot_pk' style='color:yellow;'>+</a><br/>";
 			}
 			
 					
