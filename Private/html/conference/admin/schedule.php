@@ -419,7 +419,6 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 	$line++;
 
 	$timeslot = $conf_timeslots[$timeslot_pk];
-
 	// HANDLE HEADER
 	$current_date = date('M d',strtotime($timeslot['start_time']));
 	if ($line == 1 || $current_date != $last_date) {
@@ -462,7 +461,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		echo "</tr>\n\n";
 	}
 	$last_date = $current_date;
-
+   
 	$linestyle = "event";
 	switch ($timeslot['type']) {
 		case "break": $linestyle = "break"; break;
@@ -473,6 +472,22 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 		case "special": $linestyle = "keynote"; break;
 		case "closed": $linestyle = "closed"; break;
 		default: $linestyle = "event";
+	}
+	if ($timeslot['type'] == "event") {
+	$block++;
+	$block_id="block".$block;
+		// print the room header
+		echo "<tr>";
+		echo "<td class='time' nowrap='y' id='$block_id'></td>\n";
+		foreach($conf_rooms as $conf_room) {
+			$type = "schedule_header";
+			if ($conf_room['BOF'] == 'Y') {
+				if ($hide_bof_rooms) { continue; }
+				$type = "bof_header";
+			}
+			echo "<td class='$type' width=12%  nowrap='y'>".$conf_room['title']."</td>\n";
+		}
+		echo "</tr>\n\n";
 	}
 ?>
 <tr class="<?= $linestyle ?>">
