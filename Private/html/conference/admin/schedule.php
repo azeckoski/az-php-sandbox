@@ -676,22 +676,7 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 
 					
 					echo "</div>";
-					
-					
-					 if ($conference_day ==1) {
-					 	if($proposal['speaker']) {
-						echo "<div class='grid_event_speakerDay1'>".
-							htmlspecialchars($proposal['speaker']);
-					
-					if ($proposal['co_speaker']) {
-						echo ", ". htmlspecialchars($proposal['co_speaker']);
-						
-					} 
-					echo "</div>";
-					
-				}
-					 }
-					 else {
+				
 
 					if($proposal['speaker']) {
 						echo "<div class='grid_event_speaker'>".
@@ -704,7 +689,18 @@ foreach ($timeslots as $timeslot_pk=>$rooms) {
 					echo "</div>";
 					
 				}
-					 }
+				echo "<div style='text-align:left;'>";
+				
+				if ($proposal['slides_url']) { /* a wiki URL was provided */
+						echo "<a href='".$proposal['slides_url']."' title='download presentation materials'>" .
+							"<img src='../include/images/pptIcon.jpg' border=0 height=13 width=15 style='padding: 7px 10px;' alt='link to presentation' /></a>";
+					}
+				if ($proposal['podcast_url']) { /* a wiki URL was provided */
+						echo "<a href='".$proposal['podcast_url'] ."' title='listen to the podcast'>" .
+							"<img src='../include/images/soundIcon-1.jpg' alt='link to podcast' border=0 height=15 width=17 style='padding: 5px 10px;'  /></a>";
+					}
+					echo "</div>";
+					 
 				 
                      }
 					
