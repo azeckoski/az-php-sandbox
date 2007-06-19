@@ -285,6 +285,8 @@ end of the day.
 		     	<div class='grid_event_header implementation'>Introduction to Sakai</div><div class='grid_event_text ' >
 		     	<div style="text-align:left;"><strong>1/2 Day Workshop</strong><br/><div class='grid_event_speakerDay1'>Anthony Whyte</div><br/>Newcomers to the Sakai Community and those looking to understand Sakai's Collaboration and Learning Environment (CLE) should consider attending this session. It traces the evolution of Sakai from project to foundation; describes Sakai's community-source approach to software design, development, and distribution; showcases Sakai's CLE feature set with a live demonstration; outlines current community processes covering design, development,
 		      documentation, and testing; and ends with a discussion on ways to get involved in the community.
+		      <br/><br/><a href="http://confluence.sakaiproject.org/confluence/pages/viewpageattachments.action?pageId=45506" title="download presentation materials">
+							<img src='../include/images/pptIcon.jpg' border=0 height=13 width=15 style='padding: 7px 10px;' alt='link to presentation' /></a>
 		      </div></div></table></td>       		
 		      <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
 		    <td  class='grid_event_med' style="height:250px; padding: 2px 5px;"> 				
@@ -295,6 +297,7 @@ end of the day.
 		    	includes a combination of talks and hands-on workshops that will provide effective techniques 
 		    	for how to design more usable and inclusive user interfaces. 
 		    	<br/><br/>See workshop topics listed in afternoon session. 
+		    	Introduction to S
 		    	</div>
 		    	
 	    	</div>
@@ -341,12 +344,9 @@ Daphne Ogle, Harriet Truscott, Aaron Zeckoski
 		    		examples of different types of portfolios implemented at various institutions.Ê
 <br/><br/>
 The session will also provide a roadmap for the rest of the OSP conference sessions to help participants make the best use of their time during the conference. 
-<br/><br/>
-<div class='grid_event_speakerDay1'>
-This session will be led by a diverse group of panelists from the University of Amsterdam, University of Michigan, 
-Indiana University, Syracuse University, Weber State University, Portland State University, and
- LaGuardia Community College as well representatives from rSmart and portfolio4u.</div>
-		    		</div></table></td>       		
+<br/><br/> <a href="http://bugs.sakaiproject.org/confluence/pages/viewpageattachments.action?pageId=45149" title="download presentation materials">
+							<img src='../include/images/pptIcon.jpg' border=0 height=13 width=15 style='padding: 7px 10px;' alt='link to presentation' /></a>
+</table></td>       		
 		    <td  class='grid'><table border=0 cellpadding='0' cellspacing='0' width=100%><tr>
 		    <td  class='grid_event_med' style="height:340px; padding: 2px 5px;"> 				
 		    	<div class='grid_event_header user_experience'>U-Camp</div><div class='grid_event_text '>
