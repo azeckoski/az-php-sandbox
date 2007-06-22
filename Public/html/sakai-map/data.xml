@@ -243,9 +243,10 @@
 	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="production" text="Bell College" color="blue" />
 	<marker lat="53.343582946474655" lng="-2.632598876953125" title="http://rhine.dl.ac.uk:8080/portal" country="uk" status="pilot" text="Daresbury Laboratory, CCLRC" color="purple" />
 	<marker lat="54.047" lng="-2.802" title="http://redress.lancs.ac.uk:8080/portal" country="uk" status="pilot" text="Lancaster University" color="purple" />
-	<marker lat="52.20194224761514" lng="0.1166224479675293" title="https://camtools.caret.cam.ac.uk/portal" country="uk" status="production" text="University of Cambridge" color="blue"/>
+	<marker lat="52.20194224761514" lng="0.1166224479675293" title="https://camtools.caret.cam.ac.uk/portal" country="uk" status="production" text="University of Cambridge" color="blue" />
 	<marker lat="52.625036" lng="1.24049" title="http://vre.earlymoderntexts.org/portal/" country="uk" status="production" text="Universities of East Anglia and Hull" color="blue" />
 	<marker lat="52.625037" lng="1.24050" title="http://vre.politicaldiscourse.org.uk/portal/" country="uk" status="production" text="Universities of East Anglia and Hull" color="blue" />
+	<marker lat="-4.23025" lng="57.47191" title="http://preview.sakai.uhi.ac.uk/" country="uk" status="pilot" text="University of the Highlands and Islands" color="purple" />
 	<marker lat="52.235" lng="0.144" title="http://groups.tlrp.org/" country="uk" status="production" text="TLRP" color="blue"/>
 	<marker lat="55.928528945583984" lng="-4.682064056396484" title="http://www.aers.org.uk/portal" country="uk" status="Sakai server" text="Sakai Virtual Research and Collaboration Environment for the Applied Educational Research Scheme of Scotland (hosted by CARET)" color="blue" />
 
@@ -327,7 +328,8 @@
 	<marker lat="42.256423774909216" lng="-72.57618248462677" title="http://ella.mtholyoke.edu" country="us" status="production" text="Mount Holyoke College" color="blue" />
 	<marker lat="42.280211" lng="-83.73349" title="https://portal.ncibi.org/portal" country="us" status="pilot" text="National Center for Integrative Biomedical Informatics (NCIBI)" color="purple" />
 	<marker lat="41.087856" lng="-81.183922" title="http://aims.neoucom.edu" country="us" status="production" text="Northeastern Ohio Universities College of Medicine and Pharmacy (NEOUCOM)" color="blue" />
-	<marker lat="40.731145066213685" lng="-73.99699687957764" title="http://www.nyu.edu" country="us" status="pilot" text="New York University" color="purple" />
+	<marker lat="40.731145066213685" lng="-73.99699687957764" title="http://alex.nyu.edu" country="us" status="pilot" text="New York University" color="purple" />
+	<marker lat="35.18885597026174" lng="-111.65731430053711" title="http://sakai.nau.edu" country="us" status="pilot" text="Northern Arizona University" color="purple"   />
 	<marker lat="42.053117" lng="-87.673988" title="http://arch.northwestern.edu/portal" country="us" status="production" text="Northwestern University" color="blue" />
 	
 	<!-- USA (academic: O-T) -->
@@ -340,7 +342,7 @@
 	<marker lat="27.3595" lng="-82.5012" title="https://ontario.rsad.edu/portal" country="us" status="pilot" text="Ringling School of Art and Design" color="purple"/>
 	<marker lat="43.51402762358483" lng="-83.96369934082031" title="http://vspace.svsu.edu/" country="us" status="production" text="Saginaw Valley State University" color="blue" />
 	<marker lat="37.530567" lng="-122.337688" title="http://smcweb1.smccd.net:8080/portal" country="us" status="demo" text="San Mateo County Community College District" color="purple" />
-	<marker lat="37.42566996317141" lng="-122.16737866401672" title="http://coursework-pilot.stanford.edu/" country="us" status="production" text="Stanford University" color="blue"/>
+	<marker lat="37.42566996317141" lng="-122.16737866401672" title="https://coursework.stanford.edu/" country="us" status="production" text="Stanford University" color="blue"/>
 	<marker lat="43.041736" lng="-76.134664" title="http://eportfolio.syr.edu" country="us" status="pilot" text="Syracuse University School of Education" color="purple" />
 	<marker lat="38.8748" lng="-77.9754" title="http://tltc.optimizedlearn.com/portal" country="us" status="pilot" text="TLTC" color="purple"/>
 	<marker lat="38.9648" lng="-77.0054" title="http://tltc-osp.optimizedlearn.com/portal" country="us" status="pilot" text="TLTC Portfolios" color="purple"/>
