@@ -246,7 +246,7 @@
 	<marker lat="52.20194224761514" lng="0.1166224479675293" title="https://camtools.caret.cam.ac.uk/portal" country="uk" status="production" text="University of Cambridge" color="blue" />
 	<marker lat="52.625036" lng="1.24049" title="http://vre.earlymoderntexts.org/portal/" country="uk" status="production" text="Universities of East Anglia and Hull" color="blue" />
 	<marker lat="52.625037" lng="1.24050" title="http://vre.politicaldiscourse.org.uk/portal/" country="uk" status="production" text="Universities of East Anglia and Hull" color="blue" />
-	<marker lat="-4.23025" lng="57.47191" title="http://preview.sakai.uhi.ac.uk/" country="uk" status="pilot" text="University of the Highlands and Islands" color="purple" />
+	<marker lat="57.47191" lng="-4.23025" title="http://preview.sakai.uhi.ac.uk/" country="uk" status="pilot" text="University of the Highlands and Islands" color="purple" />
 	<marker lat="52.235" lng="0.144" title="http://groups.tlrp.org/" country="uk" status="production" text="TLRP" color="blue"/>
 	<marker lat="55.928528945583984" lng="-4.682064056396484" title="http://www.aers.org.uk/portal" country="uk" status="Sakai server" text="Sakai Virtual Research and Collaboration Environment for the Applied Educational Research Scheme of Scotland (hosted by CARET)" color="blue" />
 
