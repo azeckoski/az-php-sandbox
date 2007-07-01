@@ -188,6 +188,7 @@
 	<marker lat="20.67500277777778" lng="-103.3589416666667" title="http://investigacion.udgvirtual.udg.mx:8080/portal" country="mx" status="production" text="UDG Virtual, Universidad de Guadalajara" color="blue" />
 	
 	<!-- Netherlands -->
+	<marker lat="51.81719" lng="4.630938" title="http://www.anewspring.nl" country="nl" status="production" text="Elsevier Opleidingen" color="blue" />
 	<marker lat="52.16814123636245" lng="4.517097473144531" title="http://www.loi.nl" country="nl" status="production" text="Leidse Onderwijsinstellingen" color="blue" />
 	<marker lat="52.37458165397" lng="4.887005727275" title="https://portfolio.uva.nl" country="nl" status="production" text="Universiteit van Amsterdam" color="blue" />
 	<marker lat="52.245460541432486" lng="6.851348876953125" title="http://www.sakai-pilot.utwente.nl" country="nl" status="pilot" text="Universiteit Twente" color="purple" />
@@ -251,6 +252,7 @@
 	<marker lat="55.928528945583984" lng="-4.682064056396484" title="http://www.aers.org.uk/portal" country="uk" status="Sakai server" text="Sakai Virtual Research and Collaboration Environment for the Applied Educational Research Scheme of Scotland (hosted by CARET)" color="blue" />
 
 	<!-- USA (academic: A-G) -->
+	<marker lat="32.47" lng="-99.71" title=" http://eportfolio.acu.edu" country="us" status="production" text="Abilene Christian University" color="blue"/>
 	<marker lat="41.9076" lng="-84.0644" title="http://sakai.adrian.edu:8080/portal" country="us" status="pilot" text="Adrian College" color="purple" />
 	<marker lat="42.65315192577889" lng="-73.77503871917725" title="http://sakai.amc.edu" country="us" status="production" text="Albany Medical College" color="blue" />
 	<marker lat="33.9401" lng="-84.2053" title="http://webcenter.aahe.org" country="us" status="production" text="Alliance for Equity in Higher Education" color="blue" />
@@ -369,6 +371,8 @@
 	<marker lat="41.3095" lng="-72.9276" title="http://classesv2.yale.edu/" country="us" status="production" text="Yale University" color="blue"/>
 	
 	<!-- USA (commercial, non-profits and others) -->
+	
+	
 	<marker lat="37.6949" lng="-122.466" title="http://cfws.carnegiefoundation.org/" country="us" status="production" text="Carnegie Foundation for the Advancement of Teaching" color="blue" />
 	<marker lat="38.9048" lng="-77.0054" title="http://sakai.longsight.com/portal" country="us" status="pilot" text="Longsight Group" color="purple"/>
 	<marker lat="37.3319485736073" lng="-122.02960968017578" title="http://www.maclearningenvironments.org/" country="us" status="production" text="MacLearningEnvironments" color="blue"/>
