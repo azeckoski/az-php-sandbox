@@ -8,7 +8,7 @@
 <?php
 require_once '../include/tool_vars.php';
 
-$PAGE_NAME = "Users Control";
+$PAGE_NAME = "Admin LDAP";
 
 $ACTIVE_MENU="ACCOUNTS";  //for managing active links on multiple menus
 
@@ -59,6 +59,13 @@ $EXTRA_LINKS = "<br/><span style='font-size:.9em;'>" .
 		exit;
 	}
 ?>
+
+<table border=0 cellpadding=0 cellspacing=3 width="100%">
+<tr>
+<td valign="top" width="80%">
+
+<div class="info">
+
 
 <?php
 if ($_REQUEST['usersLdapToDb']) {
@@ -121,6 +128,37 @@ Username: <input type="input" name="username" size="30" value="<?= $_REQUEST['us
 </form>
 
 <a href="<?= $ACCOUNTS_URL ?>/ldapadmin/index.php">Access the phpLDAPAdmin tool</a><br/>
+
+</div>
+</td>
+<td valign="top" width="20%">
+	<div class="right">
+	<div class="rightheader"><?= $TOOL_NAME ?> information</div>
+	<div class="padded">
+
+<?php
+$user_count = $User->getUsersBySearch("*","","pk",true);
+$Inst = new Institution();
+$inst_count = $Inst->getInstsBySearch("*","","pk",true);
+?>
+
+	<span style="font-weight:bold;text-decoration:underline;">Statistics:</span><br/>
+	<b>Accounts:</b> <?= $user_count['db'] ?><br/>
+<?php if ($USE_LDAP) { ?>
+	&nbsp;&nbsp;- LDAP: <?= $user_count['ldap'] ?><br/>
+<?php } ?>
+	<b>Institutions:</b> <?= $inst_count['db'] ?><br/>
+<?php if ($USE_LDAP) { ?>
+	&nbsp;&nbsp;- LDAP: <?= $inst_count['ldap'] ?><br/>
+<?php } ?>
+	<br/>
+
+	</div>
+	</div>
+</td>
+</tr>
+</table>
+
 
 
 <?php include $ACCOUNTS_PATH.'include/footer.php'; ?>
