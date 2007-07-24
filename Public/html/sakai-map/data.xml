@@ -339,6 +339,7 @@
 	<marker lat="42.053117" lng="-87.673988" title="http://arch.northwestern.edu/portal" country="us" status="production" text="Northwestern University" color="blue" />
 	
 	<!-- USA (academic: O-T) -->
+	<marker lat="45.5" lng="-122.687" title="http://sakai.ohsu.edu" country="us" status="production" text="OHSU" color="blue" />
 	<marker lat="40.007730174396315" lng="-83.04895877838135" title="http://ospilot.oln.org" country="us" status="pilot" text="Ohio Learning Network" color="purple" />
 	<marker lat="39.986" lng="-82.988" title="http://coeportfolio.coe.ohio-state.edu/" country="us" status="pilot" text="Ohio State University" color="purple"/>
 	<marker lat="47.2272" lng="-122.449" title="http://sakai.plu.edu/portal" country="us" status="pilot" text="Pacific Lutheran University" color="purple"/>
