@@ -154,6 +154,7 @@
 	
 	<!-- Columbia -->
 	<marker lat="6.25" lng="-75.583" title="http://www.ceipa.edu.co" country="co" status="production" text="La Universidad de LA Empresa" color="blue" />
+	<marker lat="4.636681" lng="-74.084222" title="http://www.sofia.unal.edu.co:8080" country="co" status="production" text="Universidad Nacional de Colombia" color="blue"  />
 	
 	<!-- Denmark -->
 	<marker lat="55.655001364458364" lng="12.139227390289307" title="http://ecampus.ruc.dk" country="dk" status="production" text="Roskilde Universitetscenter" color="blue" />
@@ -264,9 +265,6 @@
 	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="production" color="blue"/> 
 	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="pilot" text="Dana College" color="purple"/>
-	
-	<marker lat="39.73749" lng="-84.17474" title="http://www.udayton.edu" country="us" status="pilot" text="University of Dayton" color="purple"/>
-	
 	<marker lat="35.60893" lng="-77.36619" title="http://sakai.aos.ecu.edu" country="us" status="pilot" text="East Carolina University" color="purple"/>
 	<marker lat="33.776225" lng="-84.398436" title="http://t-square.gatech.edu" country="us" status="pilot" text="Georgia Tech" color="purple" />
 	
@@ -361,6 +359,7 @@
 	<marker lat="37.87040711546537" lng="-122.26031184196472" title="https://bspace.berkeley.edu/portal" country="us" status="production" text="UC Berkeley" color="blue"/>
 	<marker lat="38.533463138733936" lng="-121.76156044006348" title="http://smartsite.ucdavis.edu/" country="us" status="production" text="University of California-Davis" color="blue" />
 	<marker lat="38.540602" lng="-121.748151" title="https://cere.vetmed.ucdavis.edu/" country="us" status="production" text="University of California-Davis, School of Veterinary Medicine" color="blue" />
+	<marker lat="39.73749" lng="-84.17474" title="http://isidore.udayton.edu" country="us" status="pilot" text="University of Dayton" color="purple"/>
 	<marker lat="37.36251701774281" lng="-120.42612075805664" title="https://ucmcrops.ucmerced.edu/portal" country="us" status="production" text="UC Merced" color="blue" />
 	<marker lat="42.29096106747343" lng="-83.71745109558105" title="http://ctools.umich.edu/" country="us" status="production" text="University of Michigan" color="blue"/>
 	<marker lat="38.937335" lng="-92.33320000000001" title="https://sakai.missouri.edu/portal" country="us" status="pilot" text="University of Missouri" color="purple"/>
