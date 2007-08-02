@@ -136,7 +136,6 @@
 	<!-- Australia -->
 	<marker lat="-35.283" lng="149.217" title="http://sakai.anu.edu.au/" country="au" status="pilot" text="Australian National University" color="purple"/>
 	<marker lat="-36.0468782804617" lng="146.97114944458008" title="http://www.csu.edu.au/" country="au" status="production" text="Charles Sturt University Interact system (interact.csu.edu.au) is used for Research Collaboration" color="blue" />
-	<marker lat="-37.9090" lng="145.1310" title="http://sakai.buseco.monash.edu.au/" country="au" status="pilot" text="Monash University" color="purple" />
 	<marker lat="-30.48682358610644" lng="151.6434931755066" title="http://www.une.edu.au" country="au" status="production" text="University of New England" color="blue" />
 	
 	<!-- Belgium -->
@@ -323,6 +322,7 @@
 
 	<!-- USA (academic: H-N) -->
 	<marker lat="41.3188" lng="-81.3369" title="https://courses.hiram.edu/portal" country="us" status="production" text="Hiram College" color="blue"/>
+	<marker lat="42.617033" lng="-83.618064" title="http://sakai.huronvalley.k12.mi.us" country="us" status="production" text="Huron Valley Schools" color="blue" />
 	<marker lat="39.16700255163836" lng="-86.52577757835388" title="https://oncourse.iu.edu/" country="us" text="Indiana University" status="production" color="blue"/>
 	<marker lat="21.3084" lng="-157.846" title="http://eportfolio.kcc.hawaii.edu/" country="us" status="production" text="Kapi'oloni Community College (Univ. of Hawaii)" color="blue"/>
 	<marker lat="39.329" lng="-76.619" title="http://sakai-pilot.library.jhu.edu" country="us" status="pilot" text="Johns Hopkins University University" color="purple" />
