@@ -1,0 +1,381 @@
+/* ---------------------schedule css--------------------- */
+/* 
+It is better to NOT use px sizes for fonts:
+IE users cannot resize a font size that is specified using px and that
+is an accessibility issue for people with poor eyesight.
+Here is a page that let's you compare sizes on browsers.
+em and % are the best ones to use in my opinion but I also use 
+pt a lot as it seems to offer better control.
+http://www.sam-i-am.com/work/sandbox/css/fontsizes.html
+*/
+
+html,body {
+font-size:.9em;
+margin:0;
+padding:0;
+}
+
+tr,td {
+	
+}
+
+
+.schedule_header {
+	background:#336699;
+	font-size:.9em;
+	padding:.1em;
+	font-weight:bold;
+	text-align: center;
+	color:white;
+	border: 1px solid white;
+}
+.date_header, .list_date_header {
+	padding: 4px;
+	font-size: .9em;
+	background: #CCC;
+	text-align: center;
+	font-weight:bold;
+	color:black;
+}
+
+.time_header {
+	margin: 0px;
+	padding: 0px;
+	font-size: .9em;
+	background: #CCC;
+	text-align: center;
+	font-weight:bold;
+	color:black;
+}
+
+.time {
+	color: darkgreen;
+	background: white;
+	font-size: .9em;
+	text-align: left;
+	font-weight: normal;
+	padding-left: 10px;
+	border-bottom: 1px dotted black;
+	
+	
+}
+.page {
+page-break-after:always;
+clear:both;
+padding:0px;
+height:100%;
+}
+.pageheader{
+font-size:1.1em;
+padding-bottom:0px;
+margin-bottom:  5px;
+border-bottom: 1px solid #000;
+}
+.program_legend{
+font-size:.75em;
+}
+
+.program_legend div{
+padding: 0px 2px 4px 0px;
+
+}
+.graphic_legend, .color_legend {
+padding:0px 5px;
+
+}
+
+
+.graphic_legend span  {
+padding: 0px 5px;
+}
+.color_legend span {
+margin-left: 5px;
+padding: 0px 2px;
+color: #fff;
+border: 1px solid #666;
+}
+
+.column {
+float:left;
+padding:2px 2px;
+border-left:1px dotted #ccc;
+width:48%;
+
+border-right:1px dotted #ccc;
+}
+
+.list {
+	text-align: left;
+	padding: 0px 0px ;
+	font-style:normal;
+	font-size: .8em;
+	width:100%;
+	height:121px;
+}
+
+.list_date_header {
+	text-align: left;
+	padding-left: 120px;
+	}
+
+.list_event {
+	color:#111; 
+	font-weight:normal;
+	background: white;
+	border: 1px solid #666666;
+	
+}
+
+.list_event_header {
+
+	font-size: 1em;
+	font-weight: bold;
+	background-color: #339933;
+	color: white;
+	padding: 2px;
+	
+	
+}
+
+.list_event_type {
+	font-size: 1em;
+	font-weight: bold;
+	font-style: normal;
+	padding:2px 3px;
+	color:#fff;
+	border: 1px solid #666;
+	
+}
+
+.list_event_text {
+	color:#000;
+	padding:2px 5px;
+	
+	
+}
+
+.list_event_speaker {
+	font-style: normal;
+	background: white;
+	padding:3px 5px;
+}
+
+
+.list_time, .list_room {
+	color: darkgreen;
+	background: white;
+	font-size: 1em;
+	text-align: center;
+	font-weight: normal;
+	padding:0px 0px 5px 0px;
+	margin-top:5px;
+}
+.list_room {
+	color: #333;
+}
+
+.technology, .technical{
+	background: #339966;
+}
+
+.community {
+	background: #333399;
+}
+
+.faculty {
+	background: #CC00FF;
+}
+
+.pedagogy {
+	background: #C28547;
+}
+
+.implementation {
+	background: #4785C2;
+}
+
+.user_experience {
+	background:#EB0000;
+}
+.tool_carousel {
+	background: #E67300;
+}
+
+.tool_demo {
+	background: #E67300;
+}
+
+.research {
+	background: #663300;
+}
+
+
+
+.tool_overview {
+	background: #339999;
+	
+	background: #ffffff;
+}
+
+.other {
+	background: #993399;
+}
+
+
+.workshop {
+	background: #ffffff;
+	
+}
+
+.discussion {
+	background: #ffffff;
+}
+
+.panel {
+	background: #ffffff;
+}
+
+.lecture {
+	background: #ffffff;
+}
+
+.remaining {
+	font-size: .7em;
+	font-style: italic;
+	vertical-align: middle;
+}
+
+.session_exists {
+	background: #FFCCCC;
+	color: #666666;
+}
+
+.proposal_title {
+	font-size: 1em;
+}
+
+.session_date {
+	text-align: center;
+	font-size: .6em;
+}
+
+.small_text {
+	font-size: .6em;
+}
+
+.small_centered {
+	text-align: center;
+	font-size: .6em;
+}
+
+.message {
+	border: 3px solid darkblue;
+	color: black;
+	background: #CCCCFF;
+	font-size: 1.1em;
+	text-align: left;
+	padding: 3px;
+	margin:3px;
+}
+
+.blackbar {
+	background: #000000;
+	color:#fff;
+}
+
+
+.event {
+	background:#fff; 
+	color:#000; 
+	font-weight:bold;
+}
+
+.bof {
+	background:#336699;
+	color: yellow;
+	font-style: italic;
+}
+
+.bof A {
+	color: #DDDDFF;
+}
+.lunch {
+	background:#FFCCFF; 
+	color:#000;
+	
+	font-size:.9em;
+}
+
+.break {
+	background:#CCCCFF; 
+	color:#000;
+	
+	font-size:.9em;
+}
+.short_break {
+
+background:#CCCCFF; 
+	color:#000;
+	
+	font-size:.8em;
+}
+.keynote {
+	background:yellow; 
+	color:#000;
+	
+	font-size:.9em;
+}
+
+.closed {
+	background:#666;
+	
+	font-size:.9em;
+}
+
+.coffee {
+	background:tan;
+	color: #000;
+	font-size:.9em;
+	
+	
+}
+
+.convenor_exists {
+	background: #AAFFAA;
+	color: #000;
+}
+
+.recorder_exists {
+	background: #AACCFF;
+	color: #000;
+}
+
+.recorder_convenor_exist {
+	background: #AAFFFF;
+	color: #000;
+}
+
+.convenor_user {
+	background: #009933;
+	color: white;
+}
+
+.recorder_user {
+	background: #333399;
+	color: white;
+}
+
+.no_convenor {
+	background: #999933;
+	color: white;
+}
+
+.no_recorder {
+	background: #996633;
+	color: white;
+}
+
+.no_recorder_convenor {
+	background: #993333;
+	color: white;
+}
