@@ -150,6 +150,7 @@
 	
 	<!-- China -->
 	<marker lat="38.8225909761771" lng="113.5546875" title="http://hpgc.gucas.cn/" country="cn" status="production" text="EU-Asia Link Program (HPC/GC)" color="blue"/>
+	<marker lat="39.95165045056692" lng="116.3678261874494" title="http://train.bupticet.com" country="cn" status="pilot" text="Institution of Cyber Education Technology (ICET), Beijing University of Posts and Telecommunication (BUPT)" color="purple"/>
 	
 	<!-- Columbia -->
 	<marker lat="6.25" lng="-75.583" title="http://www.ceipa.edu.co" country="co" status="production" text="La Universidad de LA Empresa" color="blue" />
@@ -163,6 +164,7 @@
 	
 	<!-- France -->
 	<marker lat="43.3071924816119" lng="0.35121917724609375" title="http://amphi.pau.eisti.fr/portal" country="fr" status="pilot" text="Ecole Internationale des Sciences du Traitement de l&apos;Information (EISTI)" color="purple" />
+	<marker lat="48.845245" lng="2.356803" title="https://australe.upmc.fr/portal" country="fr" status="pilot" text="Université Pierre et Marie Curie" color="purple" />
 	<marker lat="46.585466" lng="0.345966" title="https://bv.ent.univ-poitiers.fr/" country="fr" status="pilot" text="Universite de Poitiers" color="purple" />
 	
 	<!-- Germany -->
@@ -238,7 +240,7 @@
 	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="pilot" text="Umeå universitet" color="purple"/>
 	
 	<!-- Turkey -->
-	<marker lat="41.099998" lng="29" title="https://sukaipilot.sabanciuniv.edu/portal" country="tr" status="pilot" text="Sabanci Universitesi" color="purple" />
+	<marker lat="41.099998" lng="29" title="https://sukaipilot.sabanciuniv.edu/portal" country="tr" status="production" text="Sabanci Universitesi" color="blue" />
 	
 	<!-- UK -->
 	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="production" text="Bell College" color="blue" />
