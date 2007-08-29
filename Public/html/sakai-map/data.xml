@@ -216,6 +216,9 @@
 	<marker lat="52.220309" lng="5.496014" title="http://www.portfolio4u.nl/" country="nl" status="production" text="Stichting Consortium Beroepsonderwijs" color="blue" />
 	<marker lat="52.512794" lng="6.091539" title="http://www.portfolio4u.nl/" country="nl" status="production" text="Talentstad" color="blue" />
 	
+	<!-- Pakistan -->
+	<marker lat="31.47026162217302" lng="74.40890900530066" title=" http://www.lums.edu.pk" country="pk" status="pilot" text="Lahore University of Management Sciences" color="purple"/>
+	
 	<!-- Portugal -->
 	<marker lat="41.1731303241809" lng="-8.611135482788086" title="http://elearning.ufp.pt/" country="pt" status="production" text="Unversidade Fernando Pessoa" color="blue"/>
 	
@@ -232,7 +235,9 @@
 	
 	<!-- Spain -->
 	<marker lat="41.53585000000069" lng="2.447027999999973" title="http://www.cetemmsa.es" country="es" status="pilot" text="Textile Technological Center" color="purple" />
+	<marker lat="40.430809" lng="-3.793243" title="http://www.ucm.es/" country="es" status="pilot" text="Universidad Complutense de Madrid" color="purple" />
 	<marker lat="41.613645577064105" lng="0.6193435192108154" title="http://cv.udl.es/portal" country="es" status="production" text="Universitat de Lleida" color="blue" />
+	
 	<marker lat="39.48205045504316" lng="-0.3426361083984375" title="http://poliformat.upv.es/portal" country="es" status="production" text="Universidad Politecnica de Valencia" color="blue" />
 	
 	<!-- Sweden -->
