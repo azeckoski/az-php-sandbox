@@ -226,7 +226,9 @@
 	<marker lat="-36.84775766525783" lng="174.7650146484375" title=" http://sakai.bestgrid.org" country="nz" status="production" text="The University of Auckland" color="blue" />
 	
 	<!-- Russia -->
+	<marker lat="60.00113" lng="30.36629" title="https://dcn.ftk.spbstu.ru/portal" country="ru" status="pilot" text="Saint-Petersburg State Polytechnic University, Distributed Computing and Networking Department" color="purple" />
 	<marker lat="59.951889" lng="30.453329" title="http://dl.smolny.nw.ru/portal" country="ru" status="pilot" text="Smolny College of Liberal Arts and Sciences" color="purple" />
+	
 	
 	<!-- South Africa -->
 	<marker lat="-26.7167" lng="27.1000" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University" color="blue" />
