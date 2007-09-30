@@ -186,6 +186,9 @@
 	<marker lat="35.7" lng="139.767" title="http://sakai.huric.org" country="jp" status="pilot" text="Hosei University" color="purple" />
 	<marker lat="34.25" lng="135.133" title="https://sakai.ulan.jp" country="jp" status="pilot" text="ULAN project" color="purple" />
 	
+	<!-- Korea -->
+	<marker lat="36.319551259461186" lng="127.36587524414062" title=" http://www.pcu.ac.kr" country="kr" status="pilot" text="Pai-Chai University" color="purple" />
+	
 	<!-- Mexico -->
 	<marker lat="20.67500277777778" lng="-103.3589416666667" title="http://investigacion.udgvirtual.udg.mx:8080/portal" country="mx" status="production" text="UDG Virtual, Universidad de Guadalajara" color="blue" />
 	
