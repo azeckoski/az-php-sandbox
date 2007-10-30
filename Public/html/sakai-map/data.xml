@@ -340,6 +340,7 @@
 	<marker lat="39.329" lng="-76.619" title="http://sakai-pilot.library.jhu.edu" country="us" status="pilot" text="Johns Hopkins University University" color="purple" />
 	<marker lat="41.7879" lng="-81.0546" title="http://ilearn.lec.edu/" text="Lake Erie College" country="us" status="production" color="blue"/>
 	<marker lat="41.72075" lng="-73.93274" title="https://ilearn.marist.edu/" country="us" status="production" text="Marist College" color="blue" />
+	<marker lat="41.3841" lng="-74.5157" title="http://sakai.minisink.com/" country="us" status="pilot" text="Minisink Valley Central School District, Slate Hill, NY" color="purple" />
 	<marker lat="41.89759" lng="-87.63382"  title="http://archway.moody.edu" country="us" status="pilot" text="Moody Bible Institute" color="purple" />
 	<marker lat="42.256423774909216" lng="-72.57618248462677" title="http://ella.mtholyoke.edu" country="us" status="production" text="Mount Holyoke College" color="blue" />
 	<marker lat="42.280211" lng="-83.73349" title="https://portal.ncibi.org/portal" country="us" status="pilot" text="National Center for Integrative Biomedical Informatics (NCIBI)" color="purple" />
