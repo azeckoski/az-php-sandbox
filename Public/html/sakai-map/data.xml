@@ -177,7 +177,7 @@
 	<marker lat="22.283" lng="114.15" title="http://lmes2.ust.hk/" country="hk" status="production" text="Hong Kong University of Science and Technology" color="blue"/>
 	
 	<!-- Italy -->
-	<marker lat="41.9" lng="12.483" title="http://rp.csedu.unisa.it" country="it" status="production" text="Università degli Studi di Salerno (Running Platform)" color="blue" />
+	<marker lat="40.769102" lng="14.786911" title="http://rp.csedu.unisa.it" country="it" status="production" text="Università degli Studi di Salerno (Running Platform)" color="blue" />
 	
 	<!-- Ireland -->
 	<marker lat="52.665" lng="-8.623" title="" country="ie" status="production" text="University of Limerick" color="blue" />
