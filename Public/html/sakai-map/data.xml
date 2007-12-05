@@ -388,8 +388,6 @@
 	<marker lat="41.3095" lng="-72.9276" title="http://classesv2.yale.edu/" country="us" status="production" text="Yale University" color="blue"/>
 	
 	<!-- USA (commercial, non-profits and others) -->
-	
-	
 	<marker lat="37.6949" lng="-122.466" title="http://cfws.carnegiefoundation.org/" country="us" status="production" text="Carnegie Foundation for the Advancement of Teaching" color="blue" />
 	<marker lat="38.9048" lng="-77.0054" title="http://sakai.longsight.com/portal" country="us" status="pilot" text="Longsight Group" color="purple"/>
 	<marker lat="37.3319485736073" lng="-122.02960968017578" title="http://www.maclearningenvironments.org/" country="us" status="production" text="MacLearningEnvironments" color="blue"/>
