@@ -164,7 +164,7 @@
 	
 	<!-- France -->
 	<marker lat="43.3071924816119" lng="0.35121917724609375" title="http://amphi.pau.eisti.fr/portal" country="fr" status="pilot" text="Ecole Internationale des Sciences du Traitement de l&apos;Information (EISTI)" color="purple" />
-	<marker lat="48.845245" lng="2.356803" title="https://australe.upmc.fr/portal" country="fr" status="pilot" text="Université Pierre et Marie Curie" color="purple" />
+	<marker lat="48.845245" lng="2.356803" title="http://australe.upmc.fr/portal" country="fr" status="production" text="Université Pierre et Marie Curie" color="blue" />
 	<marker lat="46.585466" lng="0.345966" title="https://bv.ent.univ-poitiers.fr/" country="fr" status="pilot" text="Universite de Poitiers" color="purple" />
 	
 	<!-- Germany -->
