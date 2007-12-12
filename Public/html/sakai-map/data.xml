@@ -142,6 +142,7 @@
 	<marker lat="51.083746" lng="3.714562" title="http://q-port.arteveldehs.be/portal" country="be" status="production" text="Arteveldehogeschool (Gent)" color="blue" />
 	
 	<!-- Brazil -->
+	<marker lat="-23.536517" lng="-46.713859" title="http://tidia-ae.incubadora.fapesp.br" status="pilot" country="br" text="FAPESP Tidia Ae Project" color="purple" />
 	<marker lat="-20.3034175184893" lng="-40.78125" title="http://sakai.moleque.com.br" country="br" status="pilot" text="Moleque de Idéias Educação e Tecnologia" color="purple" />
 	
 	<!-- Canada -->
