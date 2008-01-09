@@ -172,7 +172,7 @@
 	<marker lat="53.52" lng="10.41" title="http://sakai.oncampus.de/portal" country="de" status="production" text="Lubeck University of Applied Science" color="blue" />
 	
 	<!-- Guatemala -->
-	<marker lat="14.633" lng="-90.517" title="http://sakai.uvg.edu.gt/" country="gt" status="pilot" text="Universidad del Valle de Guatemala" color="purple"/>
+	<marker lat="14.605056" lng="-90.489219" title="http://sakai.uvg.edu.gt" country="gt" status="production" text="Universidad del Valle de Guatemala" color="blue" />
 	
 	<!-- Hong Kong -->
 	<marker lat="22.283" lng="114.15" title="http://lmes2.ust.hk/" country="hk" status="production" text="Hong Kong University of Science and Technology" color="blue"/>
