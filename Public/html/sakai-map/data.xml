@@ -231,9 +231,9 @@
 	<marker lat="-36.84775766525783" lng="174.7650146484375" title=" http://sakai.bestgrid.org" country="nz" status="production" text="The University of Auckland" color="blue" />
 	
 	<!-- Russia -->
+	<marker lat="56.8" lng="60.6" title="http://www.tandemservice.ru" country="ru" status="pilot" text="Institute of Development of Regional Education" color="purple" />
 	<marker lat="60.00113" lng="30.36629" title="https://dcn.ftk.spbstu.ru/portal" country="ru" status="pilot" text="Saint-Petersburg State Polytechnic University, Distributed Computing and Networking Department" color="purple" />
 	<marker lat="59.951889" lng="30.453329" title="http://dl.smolny.nw.ru/portal" country="ru" status="pilot" text="Smolny College of Liberal Arts and Sciences" color="purple" />
-	
 	
 	<!-- South Africa -->
 	<marker lat="-26.7167" lng="27.1000" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University" color="blue" />
@@ -258,6 +258,7 @@
 	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="production" text="Bell College" color="blue" />
 	<marker lat="53.343582946474655" lng="-2.632598876953125" title="http://rhine.dl.ac.uk:8080/portal" country="uk" status="pilot" text="Daresbury Laboratory, CCLRC" color="purple" />
 	<marker lat="54.047" lng="-2.802" title="http://redress.lancs.ac.uk:8080/portal" country="uk" status="pilot" text="Lancaster University" color="purple" />
+	<marker lat="54.9804361598525" lng="-1.61544671288399" title="http://www.ncl.ac.uk" country="uk" status="pilot" text="Newcastle University" color="purple" />
 	<marker lat="52.20194224761514" lng="0.1166224479675293" title="https://camtools.caret.cam.ac.uk/portal" country="uk" status="production" text="University of Cambridge" color="blue" />
 	<marker lat="52.625036" lng="1.24049" title="http://vre.earlymoderntexts.org/portal/" country="uk" status="production" text="Universities of East Anglia and Hull" color="blue" />
 	<marker lat="52.625037" lng="1.24050" title="http://vre.politicaldiscourse.org.uk/portal/" country="uk" status="production" text="Universities of East Anglia and Hull" color="blue" />
