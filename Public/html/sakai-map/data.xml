@@ -167,7 +167,7 @@
 	<!-- France -->
 	<marker lat="43.3071924816119" lng="0.35121917724609375" title="http://amphi.pau.eisti.fr/portal" country="fr" status="pilot" text="Ecole Internationale des Sciences du Traitement de l&apos;Information (EISTI)" color="purple" />
 	<marker lat="48.845245" lng="2.356803" title="http://australe.upmc.fr/portal" country="fr" status="production" text="Université Pierre et Marie Curie" color="blue" />
-	<marker lat="46.585466" lng="0.345966" title="https://bv.ent.univ-poitiers.fr/" country="fr" status="pilot" text="Universite de Poitiers" color="purple" />
+	<marker lat="46.585466" lng="0.345966" title="https://bv.ent.univ-poitiers.fr/" country="fr" status="production" text="Universite de Poitiers" color="blue" />
 	
 	<!-- Germany -->
 	<marker lat="53.52" lng="10.41" title="http://sakai.oncampus.de/portal" country="de" status="production" text="Lubeck University of Applied Science" color="blue" />
@@ -280,6 +280,7 @@
 	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="pilot" text="Dana College" color="purple"/>
 	<marker lat="35.60893" lng="-77.36619" title="http://sakai.aos.ecu.edu" country="us" status="pilot" text="East Carolina University" color="purple"/>
+	<marker lat="34.044061" lng="118.259969" title="http://www.fidm.edu" country="us" status="production" text="The Fashion Institute of Design and Merchandising (FIDM)" color="blue" />
 	<marker lat="33.776225" lng="-84.398436" title="http://t-square.gatech.edu" country="us" status="production" text="Georgia Tech" color="blue" />
 	
 	<!-- USA (Appalachian College Association) -->
