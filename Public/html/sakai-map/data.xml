@@ -223,7 +223,7 @@
 	<marker lat="52.512794" lng="6.091539" title="http://www.portfolio4u.nl/" country="nl" status="production" text="Talentstad" color="blue" />
 	
 	<!-- Pakistan -->
-	<marker lat="31.47026162217302" lng="74.40890900530066" title=" http://www.lums.edu.pk" country="pk" status="production" text="Lahore University of Management Sciences" color="blue"/>
+	<marker lat="31.47026162217302" lng="74.40890900530066" title=" http://ecampus.lums.edu.pk" country="pk" status="production" text="Lahore University of Management Sciences" color="blue"/>
 	
 	<!-- Portugal -->
 	<marker lat="41.1731303241809" lng="-8.611135482788086" title="http://elearning.ufp.pt/" country="pt" status="production" text="Unversidade Fernando Pessoa" color="blue"/>
