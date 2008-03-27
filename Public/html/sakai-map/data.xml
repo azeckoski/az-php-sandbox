@@ -158,7 +158,7 @@
 	<!-- Columbia -->
 	<marker lat="6.25" lng="-75.583" title="http://www.ceipa.edu.co" country="co" status="production" text="La Universidad de LA Empresa" color="blue" />
 	<marker lat="4.636681" lng="-74.084222" title="http://www.sofia.unal.edu.co:8080" country="co" status="production" text="Universidad Nacional de Colombia" color="blue"  />
-	
+	<marker lat="4.636731" lng="-74.084144" title="http://168.176.135.29:8080" country="co" status="pilot" text="Universidad Nacional de Colombia" color="purple" />
 	
 	<!-- Denmark -->
 	<marker lat="55.655001364458364" lng="12.139227390289307" title="http://ecampus.ruc.dk" country="dk" status="production" text="Roskilde Universitetscenter" color="blue" />
