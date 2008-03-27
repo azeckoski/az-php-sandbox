@@ -144,7 +144,7 @@
 	
 	<!-- Brazil -->
 	<marker lat="-23.536517" lng="-46.713859" title="http://tidia-ae.incubadora.fapesp.br" status="pilot" country="br" text="FAPESP Tidia Ae Project" color="purple" />
-	<marker lat="-20.3034175184893" lng="-40.78125" title="http://sakai.moleque.com.br" country="br" status="pilot" text="Moleque de Idéias Educação e Tecnologia" color="purple" />
+	<marker lat="-20.3034175184893" lng="-40.78125" title="http://sakai.moleque.com.br" country="br" status="pilot" text="Moleque de Id√©ias Educa√ß√£o e Tecnologia" color="purple" />
 	
 	<!-- Canada -->
 	<marker lat="42.30543561601805" lng="-83.06541681289673" title="https://lms2.uwindsor.ca/osp-portal" country="ca" status="production" text="University of Windsor" color="blue" />
@@ -167,7 +167,7 @@
 	
 	<!-- France -->
 	<marker lat="43.3071924816119" lng="0.35121917724609375" title="http://amphi.pau.eisti.fr/portal" country="fr" status="pilot" text="Ecole Internationale des Sciences du Traitement de l&apos;Information (EISTI)" color="purple" />
-	<marker lat="48.845245" lng="2.356803" title="http://australe.upmc.fr/portal" country="fr" status="production" text="Université Pierre et Marie Curie" color="blue" />
+	<marker lat="48.845245" lng="2.356803" title="http://australe.upmc.fr/portal" country="fr" status="production" text="Universit√© Pierre et Marie Curie" color="blue" />
 	<marker lat="46.585466" lng="0.345966" title="https://bv.ent.univ-poitiers.fr/" country="fr" status="production" text="Universite de Poitiers" color="blue" />
 	
 	<!-- Germany -->
@@ -180,7 +180,7 @@
 	<marker lat="22.283" lng="114.15" title="http://lmes2.ust.hk/" country="hk" status="production" text="Hong Kong University of Science and Technology" color="blue"/>
 	
 	<!-- Italy -->
-	<marker lat="40.769102" lng="14.786911" title="http://rp.csedu.unisa.it" country="it" status="production" text="Università degli Studi di Salerno (Running Platform)" color="blue" />
+	<marker lat="40.769102" lng="14.786911" title="http://rp.csedu.unisa.it" country="it" status="production" text="Universit√† degli Studi di Salerno (Running Platform)" color="blue" />
 	
 	<!-- Ireland -->
 	<marker lat="52.665" lng="-8.623" title="" country="ie" status="production" text="University of Limerick" color="blue" />
@@ -237,7 +237,11 @@
 	<marker lat="59.951889" lng="30.453329" title="http://dl.smolny.nw.ru/portal" country="ru" status="pilot" text="Smolny College of Liberal Arts and Sciences" color="purple" />
 	
 	<!-- South Africa -->
-	<marker lat="-26.7167" lng="27.1000" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University" color="blue" />
+	<marker lat="-26.5183" lng="29.9845" title="http://www.gscollege.co.za/" country="za" status="pilot" text="Gert Sibande FET College, Ermelo" color="purple" />
+	<marker lat="-25.9636" lng="28.1378" title="http://www.mgiweb.co.za/" country="za" status="pilot" text="Midrand Graduate Institute" color="purple" />
+	<marker lat="-26.7167" lng="27.1000" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University, Potchestroom" color="blue" />
+	<marker lat="-25.8688" lng="25.6495" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University, Mafikeng" color="blue" />
+	<marker lat="-26.7063" lng="27.836" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University, Vanderbijlpark" color="blue" />
 	<marker lat="-25.767741" lng="28.199346" title="https://my.unisa.ac.za" country="za" status="production" text="University of South Africa (UNISA)" color="blue" />
 	<marker lat="-33.957098" lng="18.460508" title="https://vula.uct.ac.za/portal" country="za" status="production" text="University of Cape Town" color="blue" />
 	
@@ -250,7 +254,7 @@
 	
 	<!-- Sweden -->
 	<marker lat="59.333" lng="18.05" title="http://mondo.su.se" country="se" status="production" text="Stockholm University" color="blue" />
-	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="pilot" text="Umeå universitet" color="purple"/>
+	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="pilot" text="Ume√• universitet" color="purple"/>
 	
 	<!-- Turkey -->
 	<marker lat="41.099998" lng="29" title="http://www.sabanciuniv.edu/sucourse/eng" country="tr" status="production" text="Sabanci Universitesi" color="blue" />
