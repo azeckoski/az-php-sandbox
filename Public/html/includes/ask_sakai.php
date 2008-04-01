@@ -123,8 +123,8 @@ echo "<br /><br /><br /><br /><br /><br />";
 			//send the mail
 			mail($recipient, $subject, $msg, $mailheaders);
 				
-			// backup copy to anthony
-			$recipient="arwhyte@umich.edu";
+			// backup copy
+			$recipient="arwhyte@umich.edu, mmiles@umich.edu";
 
 			$subject= "COPY: $_POST[summary]";
 			$mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
@@ -132,8 +132,7 @@ echo "<br /><br /><br /><br /><br /><br />";
 			$mailheaders .="Reply-To: $_POST[email]";
 
 			// send the mail
-			// mail($recipient, $subject, $msg, $mailheaders);
-	
+			mail($recipient, $subject, $msg, $mailheaders);
 }
 }
 }
