@@ -87,52 +87,81 @@ echo "<br /><br /><br /><br /><br /><br />";
 
 			$msg.="Subject:   $_POST[summary] \r\n";
 			$msg.="Question or Comment:\r\n   $_POST[description] \r\n";
-					
-	$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org arwhyte@umich.edu knoop@umich.edu";
 	
-	if ($_POST['components'] == 'SAK')
-	$recipient="knoop@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	// Defaults				
+	$to="mmiles@umich.edu mkorcuska@sakaifoundation.org arwhyte@umich.edu knoop@umich.edu";
+	$cc="mmiles@umich.edu mkorcuska@sakaifoundation.org arwhyte@umich.edu";
+	$bcc="arwhyte@umich.edu";
 	
-	if ($_POST['components'] == 'TECH')
-	$recipient="arwhyte@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	if ($_POST['components'] == 'SAK') {
+	$to="knoop@umich.edu";
+	$cc="mmiles@umich.edu mkorcuska@sakaifoundation.org arwhyte@umich.edu";
+	}
 	
-	if ($_POST['components'] == 'SPP')
-	$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	if ($_POST['components'] == 'TECH') {
+	$to="arwhyte@umich.edu";
+	$cc="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	}
 	
-	if ($_POST['components'] == 'SCA')
-	$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	if ($_POST['components'] == 'SPP') {
+	$to="arwhyte@umich.edu";
+	$cc="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	}
 	
-	if ($_POST['components'] == 'CONF')
-	$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	if ($_POST['components'] == 'SCA') {
+	$to="mmiles@umich.edu";
+	$cc="mkorcuska@sakaifoundation.org arwhyte@umich.edu";
+	}
 	
-	if ($_POST['components'] == 'SPOT')
-	$recipient="arwhyte@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	if ($_POST['components'] == 'CONF') {
+	$to="mmiles@umich.edu";
+	$cc="mkorcuska@sakaifoundation.org arwhyte@umich.edu";
+	}
 	
-	if ($_POST['components'] == 'WEB')
- 	$recipient="arwhyte@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	if ($_POST['components'] == 'SPOT') {
+	$to="arwhyte@umich.edu";
+	$cc="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	}
+	
+	if ($_POST['components'] == 'WEB') {
+ 	$to="arwhyte@umich.edu";
+ 	$cc="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	}
  	
- 	if ($_POST['components'] == 'OTHER')
-	$recipient="knoop@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
+ 	if ($_POST['components'] == 'OTHER') {
+	$to="knoop@umich.edu";
+	$cc="mmiles@umich.edu mkorcuska@sakaifoundation.org arwhyte@umich.edu";
+ 	}
+ 	
+	//set up mail for Sakai Staff
+	$subject= "Ask Sakai: $_POST[summary]";
+	
+	$mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
+	$mailheaders .="From: sakaiproject_webmaster@umich.edu\r\n";
+	$mailheaders .="Reply-To: $_POST[email]\r\n";
+	$mailheaders .= "CC: $cc\r\n";
+	//$mailheaders .= "BCC: $bcc\r\n";
+	
+	//send the mail
+	mail($to, $subject, $msg, $mailheaders);
+	
+	//set up mail for Sakai Staff
+	//$subject= "Ask Sakai: $_POST[summary]";
+	//$mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
+	//$mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
+	//$mailheaders .="Reply-To: $_POST[email]";
+	
+	//send the mail
+	//mail($to, $subject, $msg, $mailheaders);
+		
+	// backup copy
+	$subject= "[COPY] Ask Sakai: $_POST[summary]";
+	$mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
+	$mailheaders .="From: www.sakaiproject.org \n";
+	$mailheaders .="Reply-To: $_POST[email]";
 
-			//set up mail for Sakai Staff
-			$subject= "Ask Sakai: $_POST[summary]";
-			$mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-			$mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-			$mailheaders .="Reply-To: $_POST[email]";
-
-			//send the mail
-			mail($recipient, $subject, $msg, $mailheaders);
-				
-			// backup copy
-			$recipient="arwhyte@umich.edu, mmiles@umich.edu";
-
-			$subject= "COPY: $_POST[summary]";
-			$mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-			$mailheaders .="From: www.sakaiproject.org \n";
-			$mailheaders .="Reply-To: $_POST[email]";
-
-			// send the mail
-			mail($recipient, $subject, $msg, $mailheaders);
+	// send the mail
+	//mail($cc, $subject, $msg, $mailheaders);
 }
 }
 }
