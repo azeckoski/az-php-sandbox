@@ -76,7 +76,7 @@ echo "<p><strong>Your request was successfully submitted. </strong></p>
 <p>Thank you for your interest in the Sakai Project.</p>";
 echo "<br /><br /><br /><br /><br /><br />";
 
-//set up the email confirmations
+	//set up the email confirmations
 
 	// $msg ="Please do not reply to this email.  Someone will be in touch with you soon.\r\n\r\n";
 		
@@ -88,17 +88,31 @@ echo "<br /><br /><br /><br /><br /><br />";
 			$msg.="Subject:   $_POST[summary] \r\n";
 			$msg.="Question or Comment:\r\n   $_POST[description] \r\n";
 					
-	//$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org";
-	$recipient="arwhyte@umich.edu mkorcuska@sakaifoundation.org";
-
-	if ($_POST['components'] == 'Tech')
-	$recipient="arwhyte@umich.edu mkorcuska@sakaifoundation.org";
+	$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org arwhyte@umich.edu knoop@umich.edu";
+	
+	if ($_POST['components'] == 'SAK')
+	$recipient="knoop@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	
+	if ($_POST['components'] == 'TECH')
+	$recipient="arwhyte@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	
+	if ($_POST['components'] == 'SPP')
+	$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	
+	if ($_POST['components'] == 'SCA')
+	$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org";
+	
+	if ($_POST['components'] == 'CONF')
+	$recipient="mmiles@umich.edu mkorcuska@sakaifoundation.org";
 	
 	if ($_POST['components'] == 'SPOT')
-	$recipient="arwhyte@umich.edu mwagner@umich.edu mkorcuska@sakaifoundation.org";
+	$recipient="arwhyte@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
 	
-	if ($_POST['components'] == 'Web')
- 	$recipient="arwhyte@umich.edu mkorcuska@sakaifoundation.org";
+	if ($_POST['components'] == 'WEB')
+ 	$recipient="arwhyte@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
+ 	
+ 	if ($_POST['components'] == 'OTHER')
+	$recipient="knoop@umich.edu mmiles@umich.edu mkorcuska@sakaifoundation.org";
 
 			//set up mail for Sakai Staff
 			$subject= "Ask Sakai: $_POST[summary]";
@@ -142,14 +156,14 @@ echo "<br /><br /><br /><br /><br /><br />";
 <input type="text" name="Institute" size="40" maxlength="150" value="<?php echo $_POST['Institute']; ?>"> </td></tr><tr><td valign="top" align="right" class="fieldLabelArea"><em><span title="Fields in italics are required">
 <sup>*</sup>Select a category</span></em>: </td><td nowrap="nowrap" class="fieldValueArea"><select name="components">
 <option value="">---Select---</option>
-<option value="SEPP"> Sakai Foundation Partners Program </option>
+<option value="SAK"> Sakai Project-general </option>
+<option value="TECH"> Technical-User Support </option>
+<option value="SPP"> Sakai Foundation Partners Program </option>
 <option value="SCA"> Sakai Commercial Affiliates </option>
+<option value="CONF"> Sakai Conferences </option>
 <option value="SPOT"> Sakai Spotlight or Implementations </option>
-<option value="Sakai"> Sakai Project- general </option>
-<option value="Tech"> Technical-User Support </option>
-<option value="Conf"> Sakai Conferences </option>
-<option value="Web"> WebSite </option>
-<option value="Other">Other</option></select></td></tr><tr><td valign="top" align="right" class="fieldLabelArea"><em><span title="Fields in italics are required"><sup>*</sup> Subject</span></em> </td><td nowrap="nowrap" class="fieldValueArea">
+<option value="WEB"> sakaiproject.org web site </option>
+<option value="OTHER">Other</option></select></td></tr><tr><td valign="top" align="right" class="fieldLabelArea"><em><span title="Fields in italics are required"><sup>*</sup> Subject</span></em> </td><td nowrap="nowrap" class="fieldValueArea">
 <input type="text" name="summary" size="40" maxlength="200" value="<?php echo $_POST['summary']; ?>"> </td></tr>
 <tr><td valign="top" align="right" class="fieldLabelArea"><em> <span title="Fields in italics are required"><sup>*</sup> Question or Comment</span></em>: </td>
 <td nowrap="nowrap" class="fieldValueArea"> <textarea style="width: 80%;" name="description" cols="50" rows="5" wrap="virtual"><?php echo $_POST['description']; ?></textarea></td></tr><tr class="hidden"><td>
