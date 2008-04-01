@@ -144,24 +144,6 @@ echo "<br /><br /><br /><br /><br /><br />";
 	
 	//send the mail
 	mail($to, $subject, $msg, $mailheaders);
-	
-	//set up mail for Sakai Staff
-	//$subject= "Ask Sakai: $_POST[summary]";
-	//$mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	//$mailheaders .="From: sakaiproject_webmaster@umich.edu \n";
-	//$mailheaders .="Reply-To: $_POST[email]";
-	
-	//send the mail
-	//mail($to, $subject, $msg, $mailheaders);
-		
-	// backup copy
-	$subject= "[COPY] Ask Sakai: $_POST[summary]";
-	$mailheaders = "Content-type: text/plain; charset=ISO-8859-1\r\n";
-	$mailheaders .="From: www.sakaiproject.org \n";
-	$mailheaders .="Reply-To: $_POST[email]";
-
-	// send the mail
-	//mail($cc, $subject, $msg, $mailheaders);
 }
 }
 }
