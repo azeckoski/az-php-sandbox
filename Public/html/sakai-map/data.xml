@@ -135,6 +135,9 @@
 	
 	<!-- PRODUCTION, PILOT, OTHER SITES -->
 	
+	<!-- Algeria -->
+	<marker lat="36.54" lng="7.47" title="http:// http://193.194.84.215:8080/portal" country="dz" status="production" text="POLLES Algeria Annaba University" color="blue" />
+	
 	<!-- Australia -->
 	<marker lat="-35.283" lng="149.217" title="http://sakai.anu.edu.au/" country="au" status="pilot" text="Australian National University" color="purple"/>
 	<marker lat="-36.0468782804617" lng="146.97114944458008" title="http://www.csu.edu.au/" country="au" status="production" text="Charles Sturt University Interact system (interact.csu.edu.au) is used for Research Collaboration" color="blue" />
