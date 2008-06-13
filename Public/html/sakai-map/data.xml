@@ -67,6 +67,7 @@
 	<marker lat="27.359895" lng="-82.54911199999999" title="http://www.ringling.edu/" country="us" status="partner" text="Ringling College of Art and Design" color="green"/>
 	<marker lat="55.655001364458364" lng="12.139227390289307" title="http://www.ruc.dk" country="dk" status="partner" text="Roskilde Universitetscenter" color="green" />
 	<marker lat="40.4873" lng="-74.4497" title="http://www.rutgers.edu/" country="us" status="partner" text="Rutgers University" color="green"/>
+	<marker lat="43.51402762358483" lng="-83.96369934082031" title="http://vspace.svsu.edu/" country="us" status="partner" text="Saginaw Valley State University" color="green" />
 	<marker lat="45.50709880534763" lng="-73.57157707214355" title="http://www.sakaiquebec.org/en/" country="ca" status="partner" text="Sakai Quebec (CRIM)" color="green" />
 	<marker lat="49.27671" lng="-122.91825" title="http://www.sfu.ca/" country="ca" status="partner" text="Simon Fraser University" color="green" />
 	<marker lat="37.42566996317141" lng="-122.16737866401672" title="http://www.stanford.edu/" country="us" status="partner" text="Stanford University" color="green"/>
@@ -392,6 +393,7 @@
 	<marker lat="38.937335" lng="-92.33320000000001" title="https://sakai.missouri.edu/portal" country="us" status="pilot" text="University of Missouri" color="purple"/>
 	<marker lat="40.8166" lng="-96.6738" title="http://sakai3.unl.edu:8080/portal" country="us" status="pilot" text="University of Nebraska-Lincoln" color="purple" />
 	<marker lat="41.701759" lng="-86.233519" title="http://www.nd.edu" country="us" status="pilot" text="University of Notre Dame" color="purple" />
+	<marker lat="35.908784" lng="-79.049886" title="http://www.unc.edu" country="us" status="pilot" text="University of North Carolina at Chapel Hill" color="purple" />
 	<marker lat="33.21196922314295" lng="-97.14687466621399" title="http://sakai.unt.edu" country="us" status="pilot" text="University of North Texas" color="purple" />
 	<marker lat="38.05002" lng="-78.50145" title="https://collab.itc.virginia.edu/" country="us" status="pilot" text="University of Virginia" color="purple"/>
 	<marker lat="37.21057576283389" lng="-80.41502952575684" title="http://eportfolio.scholar.vt.edu/" country="us" status="production" text="Virginia Tech" color="blue"/>
