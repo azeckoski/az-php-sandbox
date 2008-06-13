@@ -17,29 +17,23 @@
 
 	<!-- academic partners (home url; production/pilot instances listed separately below) -->
 	<marker lat="42.65315192577889" lng="-73.77503871917725" title="http://www.amc.edu" country="us" status="partner" text="Albany Medical College" color="green" />
-	<marker lat="37.575" lng="-84.2637" title="http://www.acaweb.org" country="us" status="partner" text="Appalachian College Association" color="green"/>
 	<marker lat="33.417877" lng="-111.932332" title=" http://www.asu.edu" country="us" status="partner" text="Arizona State University" color="green" />
 	<marker lat="-35.283" lng="149.217" title="http://www.anu.edu.au" country="au" status="partner" text="Australian National University" color="green"/>
 	<marker lat="42.35331122051394" lng="-71.11896514892578" title="http://www.bu.edu" country="us" status="partner" text="Boston University, School of Management" color="green"/>
 	<marker lat="41.8231" lng="-71.4204" title="http://www.brown.edu" country="us" status="partner" text="Brown University" color="green" />	
 	<marker lat="33.763808" lng="-118.200578" title="http://www.calstate.edu/" country="us" status="partner" text="California State University, Office of the Chancellor" color="green" />
-	<marker lat="44.4726" lng="-93.1785" title="http://www.carleton.edu" country="us" status="partner" text="Carleton College" color="green"/>
 	<marker lat="37.6949" lng="-122.466" title="http://www.carnegiefoundation.org" country="us" status="partner" text="The Carnegie Foundation for the Advancement of Teaching" color="green" />
-	<marker lat="40.3484" lng="-79.9221" title="http://www.cmu.edu" country="us" status="partner" text="Carnegie Mellon University" color="green" />
 	<marker lat="33.88619934077726" lng="-118.09751272201538" title="http://www.cerritos.edu" country="us" status="partner" text="Cerritos Community College" color="green" />
 	<marker lat="-36.0468782804617" lng="146.97114944458008" title="http://www.csu.edu.au/" country="au" status="partner" text="Charles Sturt University" color="green" />
 	<marker lat="34.101214" lng="-117.712942" title="http://www.claremont.edu" country="us" status="partner" text="The Claremont Colleges" color="green"/>
-	<marker lat="33.67503" lng="-117.913955" title="http://www.cccd.edu/" country="us" status="partner" text="Coast Community College District" color="green"/>
 	<marker lat="40.808200" lng="-73.9619572" title="http://www.columbia.edu" country="us" status="partner" text="Columbia University" color="green"/>
 	<marker lat="42.4402" lng="-76.4922" title="http://www.cornell.edu" country="us" status="partner" text="Cornell University" color="green" />
 	<marker lat="43.7256" lng="-72.2368" title="http://www.dartmouth.edu" country="us" status="partner" text="Dartmouth University" color="green" />
-	<marker lat="30.1969" lng="-81.6279" title="http://www.edgenicslearning.org" country="us" status="partner" text="Edgeenics" color="green" />
-	<marker lat="37.361160" lng="-122.128455" title="http://www.fhda.edu" country="us" status="partner" text="Foothill College" color="green" />
-	<marker lat="30.1969" lng="-81.6279" title="http://www.fccj.org" country="us" status="partner" text="Florida Community College at Jacksonville" color="green" />
+	<marker lat="30.1969" lng="-81.6279" title="http://www.edgenicslearning.org" country="us" status="partner" text="Edgenics" color="green" />
 	<marker lat="30.442295" lng="-84.298665" title="http://www.fsu.edu/" country="us" status="partner" text="Florida State University" color="green" />
-	<marker lat="39.986" lng="-82.988" title="http://www.franklin.edu" country="us" status="partner" text="Franklin University" color="green" />
 	<marker lat="33.776225" lng="-84.398436" title="http://www.gatech.edu/" country="us" status="partner" text="Georgia Tech" color="green" />
 	<marker lat="38.9048" lng="-77.0354" title="http://www.georgetown.edu" country="us" status="partner" text="Georgetown University" color="green" />
+	<marker lat="-26.5183" lng="29.9845" title="http://www.gscollege.co.za/" country="za" status="partner" text="Gert Sibande FET College" color="green" />
 	<marker lat="42.377441423897196" lng="-71.11810684204102" title="http://www.harvard.edu" country="us" status="partner" text="Harvard University" color="green" />
 	<marker lat="35.7" lng="139.767" title="http://www.hosei.jp" country="jp" status="partner" text="Hosei University" color="green" />
 	<marker lat="39.16700255163836" lng="-86.52577757835388" title="http://www.iu.edu/" country="us" status="partner" text="Indiana University" color="green"/>
@@ -47,8 +41,6 @@
 	<marker lat="40.744938" lng="-73.935205" title="http://www.lagcc.cuny.edu/" country="us" status="partner" text="LaGuardia Community College" color="green" />
 	<marker lat="54.047" lng="-2.802" title="http://www.lancs.ac.uk/" country="uk" status="partner" text="Lancaster University" color="green" />
 	<marker lat="53.52" lng="10.41" title="http://www.fh-luebeck.de/" country="de" status="partner" text="Lubeck University of Applied Science" color="green" />
-	<marker lat="30.47286" lng="-92.43588" title="http://www.lsu.edu/" country="us" status="partner" text="Louisiana State University" color="green" />
-	<marker lat="33.4979" lng="-112.081" title="http://www.maricopa.edu" country="us" status="partner" text="Maricopa County Community College District" color="green" />
 	<marker lat="41.72075" lng="-73.93274" title="http://www.marist.edu" country="us" status="partner" text="Marist College" color="green" />
 	<marker lat="42.35955869313479" lng="-71.09115600585938" title="http://www.mit.edu" country="us" status="partner" text="Massachusetts Institute of Technology" color="green" />
 	<marker lat="42.7287936982978" lng="-84.48040008544922" title="http://www.msu.edu" country="us" status="partner" text="Michigan State University" color="green" />	
@@ -62,37 +54,34 @@
 	<marker lat="39.986" lng="-82.988" title="http://www.ohio-state.edu/" country="us" status="partner" text="Ohio State University" color="green"/>
 	<marker lat="40.8092" lng="-77.8868" title="http://www.psu.edu" country="us" status="partner" text="Penn State University" color="green" />
 	<marker lat="45.512085" lng="-122.68509" title="http://www.pdx.edu/" country="us" status="partner" text="Portland State University" color="green" />
-	<marker lat="40.3563" lng="-74.6578" title="http://www.princeton.edu" country="us" status="partner" text="Princeton University" color="green" />
 	<marker lat="29.7716" lng="-95.393" title="http://www.rice.edu/portal" country="us" status="partner" text="Rice University" color="green"/>
 	<marker lat="27.359895" lng="-82.54911199999999" title="http://www.ringling.edu/" country="us" status="partner" text="Ringling College of Art and Design" color="green"/>
 	<marker lat="55.655001364458364" lng="12.139227390289307" title="http://www.ruc.dk" country="dk" status="partner" text="Roskilde Universitetscenter" color="green" />
 	<marker lat="40.4873" lng="-74.4497" title="http://www.rutgers.edu/" country="us" status="partner" text="Rutgers University" color="green"/>
 	<marker lat="43.51402762358483" lng="-83.96369934082031" title="http://vspace.svsu.edu/" country="us" status="partner" text="Saginaw Valley State University" color="green" />
 	<marker lat="45.50709880534763" lng="-73.57157707214355" title="http://www.sakaiquebec.org/en/" country="ca" status="partner" text="Sakai Quebec (CRIM)" color="green" />
-	<marker lat="49.27671" lng="-122.91825" title="http://www.sfu.ca/" country="ca" status="partner" text="Simon Fraser University" color="green" />
 	<marker lat="37.42566996317141" lng="-122.16737866401672" title="http://www.stanford.edu/" country="us" status="partner" text="Stanford University" color="green"/>
-	<marker lat="52.37458165397" lng="4.887005727275" title="http://www.uva.nl" country="nl" status="partner" text="SURF/Universiteit van Amsterdam" color="green" />
-	<marker lat="42.6612" lng="-73.7689" title="http://www.suny.edu" country="us" status="partner" text="State University of New York System" color="green" />
 	<marker lat="59.333" lng="18.05" title="http://www.su.se" country="se" status="partner" text="Stockholm University" color="green" />
 	<marker lat="43.0512" lng="-76.1493" title="http://www.syr.edu" country="us" status="partner" text="Syracuse University" color="green" />
 	<marker lat="29.875" lng="-97.9502" title="http://www.txstate.edu/" country="us" status="partner" text="Texas State University, San Marcos" color="green"/>
-	<marker lat="42.35052027063755" lng="-71.06422662734985" title="http://www.tufts.edu" country="us" status="partner" text="Tufts University" color="green" />
+	<marker lat="-23.536517" lng="-46.713859" title="http://tidia-ae.incubadora.fapesp.br" status="partner" country="br" text="FAPESP Tidia Ae Project" color="green" />
 	<marker lat="29.941105" lng="-90.11906" title="http://www2.tulane.edu/" country="us" status="partner" text="Tulane University" color="green" />
-	<marker lat="41.613645577064105" lng="0.6193435192108154" title="http://www.udl.es" country="es" status="partner" text="Universitat de Lleida" color="green" />
 	<marker lat="39.48205045504316" lng="-0.3426361083984375" title="http://www.upv.es" country="es" status="partner" text="Universidad Politecnica de Valencia" color="green" />
+	<marker lat="41.613645577064105" lng="0.6193435192108154" title="http://www.udl.es" country="es" status="partner" text="Universitat de Lleida" color="green" />
+	<marker lat="48.845245" lng="2.356803" title="http://australe.upmc.fr/portal" country="fr" status="partner" text="Universit√© Pierre et Marie Curie" color="green" />
 	<marker lat="53.333" lng="-6.25" title="http://www.ucd.ie" country="ie" status="partner" text="University College Dublin" color="green" />
+	<marker lat="52.37458165397" lng="4.887005727275" title="https://www.uva.nl" country="nl" status="partner" text="Universiteit van Amsterdam" color="green" />
 	<marker lat="32.2318615892926" lng="-110.95345973968506" title="http://www.arizona.edu" country="us" status="partner" text="University of Arizona" color="green" />
 	<marker lat="-36.84775766525783" lng="174.7650146484375" title="http://www.auckland.ac.nz" country="nz" status="Sakai Partner" text="The University of Auckland" color="green" />
 	<marker lat="49.25" lng="-123.133" title="http://www.ubc.ca" country="ca" status="partner" text="University of British Columbia" color="green" />
 	<marker lat="37.87040711546537" lng="-122.26031184196472" title="http://www.berkeley.edu" country="us" status="partner" text="University of California, Berkeley" color="green"/>
-	<marker lat="38.533463138733936" lng="-121.76156044006348" title="http://www.ucdavis.edu/" country="us" status="partner" text="University of California-Davis" color="green" />
+	<marker lat="38.533463138733936" lng="-121.76156044006348" title="http://www.ucdavis.edu/" country="us" status="partner" text="University of California, Davis" color="green" />
 	<marker lat="34.0724" lng="-118.4418" title="http://www.ucla.edu" country="us" status="partner" text="UCLA" color="green"/>
 	<marker lat="37.36251701774281" lng="-120.42612075805664" title="http://www.ucmerced.edu" country="us" status="partner" text="University of California, Merced" color="green" />
 	<marker lat="34.4119" lng="-119.728" title="http://www.ucsb.edu" country="us" status="partner" text="University of California, Santa Barbara" color="green" />
 	<marker lat="52.20194224761514" lng="0.1166224479675293" title="http://www.cam.ac.uk" country="uk" status="partner" text="University of Cambridge, CARET" color="green"/>
 	<marker lat="-33.957098" lng="18.460508" title="http://www.uct.ac.za" country="za" status="partner" text="University of Cape Town" color="green"/>	
 	<marker lat="41.790256834329455" lng="-87.59974479675293" title="http://www.uchicago.edu" country="us" status="partner" text="University of Chicago" color="green" />
-	<marker lat="40.016" lng="-105.263" title="http://www.colorado.edu" country="us" status="partner" text="University of Colorado at Boulder" color="green" />
 	<marker lat="39.6806" lng="-75.7409" title="http://www.udel.edu" country="us" status="partner" text="University of Delaware" color="green" />
 	<marker lat="21.296713" lng="-157.819201" title="http://www.hawaii.edu/" country="us" status="partner" text="University of Hawaii" color="green" />
 	<marker lat="53.771832" lng="-0.367727" title="http://www.hull.ac.uk/" country="uk" status="partner" text="University of Hull" color="green" />
@@ -103,35 +92,33 @@
 	<marker lat="44.9631" lng="-93.4943" title="http://www.umn.edu" country="us" status="partner" text="University of Minnesota" color="green" />
 	<marker lat="38.937335" lng="-92.33320000000001" title="http://www.missouri.edu/" country="us" status="partner" text="University of Missouri-Columbia" color="green" />
 	<marker lat="40.8166" lng="-96.6738" title="http://www.unl.edu" country="us" status="partner" text="University of Nebraska-Lincoln" color="green" />
-	<marker lat="-25.767741" lng="28.199346" title="http://www.unisa.ac.za" country="za" status="partner" text="University of South Africa (UNISA)" color="green"/>
 	<marker lat="33.21196922314295" lng="-97.14687466621399" title="http://www.unt.edu" country="us" status="partner" text="University of North Texas" color="green" />
+	<marker lat="-25.767741" lng="28.199346" title="http://www.unisa.ac.za" country="za" status="partner" text="University of South Africa (UNISA)" color="green"/>
 	<marker lat="59.917" lng="10.75" title="http://www.uio.no" country="no" status="partner" text="University of Oslo" color="green" />
 	<marker lat="30.3811" lng="-97.7581" title="http://www.utexas.edu" country="us" status="partner" text="University of Texas at Austin" color="green" />
 	<marker lat="43.667" lng="-79.417" title="http://kmdi.utoronto.ca" country="ca" status="partner" text="University of Toronto" color="green" />
-	<marker lat="52.245460541432486" lng="6.851348876953125" title="http://www.utwente.nl" country="nl" status="partner" text="University of Twente" color="green" />
 	<marker lat="38.05002" lng="-78.50145" title="http://www.virginia.edu" country="us" status="partner" text="University of Virginia" color="green" />
 	<marker lat="47.6014" lng="-122.33" title="http://www.washington.edu" country="us" status="partner" text="University of Washington" color="green" />
 	<marker lat="42.30543561601805" lng="-83.06541681289673" title="http://www.uwindsor.ca" country="ca" status="partner" text="University of Windsor" color="green" />
 	<marker lat="49.883" lng="-97.167" title="http://www.uwinnipeg.ca/" country="ca" status="partner" text="University of Winnipeg" color="green" />
-	<marker lat="43.0725" lng="-89.3994" title="http://www.wisc.edu" country="us" status="partner" text="University of Wisconsin, Madison" color="green" />
 	<marker lat="37.21057576283389" lng="-80.41502952575684" title="http://www.vt.edu/" country="us" status="partner" text="Virginia Tech" color="green"/>
 	<marker lat="41.19221885042551" lng="-111.94313049316406" title="http://www.weber.edu" country="us" status="partner" text="Weber State University" color="green" />
 	<marker lat="46.07270961255675" lng="-118.3292555809021" title="http://www..whitman.edu" country="us" status="partner" text="Whitman College" color="green"/>
 	<marker lat="41.3095" lng="-72.9276" title="http://www.yale.edu/" country="us" status="partner" text="Yale University" color="green"/>
 	
 	<!-- commercial affiliates, non-profits and others (home url; production/pilot instances listed separately below) -->
-	<marker lat="37.3319485736073" lng="-122.02960968017578" title="http://www.apple.com" country="us" status="commercial affiliate" text="Apple Computer" color="orange" />
+	<marker lat="41.500319" lng="-81.689381" title="http://www.campuseai.org" country="us" status="commercial affiliate" text="CampusEAI" color="orange" />
+	<marker lat="38.9989" lng="-84.6267" title="http://www.cengage.com" country="us" status="commercial affiliate" text="Cengage Learning" color="orange" />
 	<marker lat="41.1347" lng="-73.7005" title="http://www.ibm.com" country="us" status="commercial affiliate" text="IBM" color="orange" />
+	<marker lat="40.737378" lng="-74.028307" title="http://www.wiley.com" country="us" status="commercial affiliate" text="John Wiley & Sons" color="orange" />
 	<marker lat="37.529927389361106" lng="-122.26540803909302" title="http://www.oracle.com" country="us" status="commercial affiliate" text="Oracle" color="orange" />
-	<marker lat="38.9048" lng="-77.0354" title="http://www.pearsoned.com" country="us" status="commercial affiliate" text="Pearson Education" color="orange" />
 	<marker lat="52.356661" lng="4.955231" title="http://www.portfolio4u.nl/" country="nl" status="commercial affiliate" text="Portfolio4u" color="orange" />
 	<marker lat="33.5084805802834" lng="-111.98810577392578" title="http://www.rsmart.com" country="us" status="commercial affiliate" text="rSmart" color="orange" />
 	<marker lat="43.077082" lng="-70.759404" title="http://www.serensoft.com" country="us" status="commercial affiliate" text="Serensoft" color="orange" />
 	<marker lat="51.977187" lng="5.646612" title="http://www.stoas.nl" country="nl" status="commercial affiliate" text="Stoas" color="orange" />
-	<marker lat="37.48383195888229" lng="-122.14876413345337" title="http://www.sun.com" country="us" status="commercial affiliate" text="Sun" color="orange" />
+	<marker lat="37.48383195888229" lng="-122.14876413345337" title="http://www.sun.com" country="us" status="commercial affiliate" text="Sun Microsystems" color="orange" />
 	<marker lat="40.0637527974602" lng="-75.53323745727539" title="http://www.sungardhe.com" country="us" status="commercial affiliate" text="SunGard Higher Education" color="orange" />
 	<marker lat="33.34816781235172" lng="-111.84322357177734" title="http://www.unicon.net" country="us" status="commercial affiliate" text="Unicon" color="orange" />
-	<marker lat="40.1575" lng="-75.2796" title="http://www.unisys.com" country="us" status="commercial affiliate" text="Unisys" color="orange" />
 	
 	<!-- PRODUCTION, PILOT, OTHER SITES -->
 	
@@ -411,7 +398,7 @@
 	<!-- USA (commercial, non-profits and others) -->
 	<marker lat="37.6949" lng="-122.466" title="http://cfws.carnegiefoundation.org/" country="us" status="production" text="Carnegie Foundation for the Advancement of Teaching" color="blue" />
 	<marker lat="38.9048" lng="-77.0054" title="http://sakai.longsight.com/portal" country="us" status="pilot" text="Longsight Group" color="purple"/>
-	<marker lat="37.3319485736073" lng="-122.02960968017578" title="http://www.maclearningenvironments.org/" country="us" status="production" text="MacLearningEnvironments" color="blue"/>
+	<!-- <marker lat="37.3319485736073" lng="-122.02960968017578" title="http://www.maclearningenvironments.org/" country="us" status="production" text="MacLearningEnvironments" color="blue"/> -->
 	<marker lat="33.5084805802834" lng="-111.98810577392578" title="http://www.mysakai.com" country="us" status="production" text="The rSmart Group - My Sakai" color="blue" />
 	<marker lat="33.5084805802834" lng="-111.98810577392578" title="http://www.sakaisandbox.com/osp-portal" country="us" status="demo" text="The rSmart Group sandbox" color="purple" />
 	
