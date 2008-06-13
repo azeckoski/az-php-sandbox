@@ -136,7 +136,7 @@
 	<!-- PRODUCTION, PILOT, OTHER SITES -->
 	
 	<!-- Algeria -->
-	<marker lat="36.54" lng="7.47" title="http:// http://193.194.84.215:8080/portal" country="dz" status="production" text="POLLES Algeria Annaba University" color="blue" />
+	<marker lat="36.54" lng="7.47" title="http://193.194.84.215:8080/portal" country="dz" status="production" text="POLLES Algeria, Annaba University" color="blue" />
 	
 	<!-- Australia -->
 	<marker lat="-35.283" lng="149.217" title="http://sakai.anu.edu.au/" country="au" status="pilot" text="Australian National University" color="purple"/>
