@@ -187,6 +187,9 @@
 	<!-- Mexico -->
 	<marker lat="20.67500277777778" lng="-103.3589416666667" title="http://investigacion.udgvirtual.udg.mx:8080/portal" country="mx" status="production" text="UDG Virtual, Universidad de Guadalajara" color="blue" />
 	
+	<!-- Morocco -->
+	<marker lat="33.968935" lng="-6.8284711" title="http://my.iihem.ac.ma:8080/portal" country="ma" status="pilot" text="International Institute for Higher Education in Morocco - IIHEM" color="purple" />
+	
 	<!-- Netherlands -->
 	<marker lat="51.81719" lng="4.630938" title="http://www.anewspring.nl" country="nl" status="production" text="Elsevier Opleidingen" color="blue" />
 	<marker lat="52.16814123636245" lng="4.517097473144531" title="http://www.loi.nl" country="nl" status="production" text="Leidse Onderwijsinstellingen" color="blue" />
