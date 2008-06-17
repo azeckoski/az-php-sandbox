@@ -110,7 +110,7 @@
 	<marker lat="41.500319" lng="-81.689381" title="http://www.campuseai.org" country="us" status="commercial affiliate" text="CampusEAI" color="orange" />
 	<marker lat="38.9989" lng="-84.6267" title="http://www.cengage.com" country="us" status="commercial affiliate" text="Cengage Learning" color="orange" />
 	<marker lat="41.1347" lng="-73.7005" title="http://www.ibm.com" country="us" status="commercial affiliate" text="IBM" color="orange" />
-	<marker lat="40.737378" lng="-74.028307" title="http://www.wiley.com" country="us" status="commercial affiliate" text="John Wiley & Sons" color="orange" />
+	<marker lat="40.737378" lng="-74.028307" title="http://www.wiley.com" country="us" status="commercial affiliate" text="John Wiley and Sons" color="orange" />
 	<marker lat="37.529927389361106" lng="-122.26540803909302" title="http://www.oracle.com" country="us" status="commercial affiliate" text="Oracle" color="orange" />
 	<marker lat="52.356661" lng="4.955231" title="http://www.portfolio4u.nl/" country="nl" status="commercial affiliate" text="Portfolio4u" color="orange" />
 	<marker lat="33.5084805802834" lng="-111.98810577392578" title="http://www.rsmart.com" country="us" status="commercial affiliate" text="rSmart" color="orange" />
@@ -219,6 +219,7 @@
 	
 	<!-- Portugal -->
 	<marker lat="41.1731303241809" lng="-8.611135482788086" title="http://elearning.ufp.pt/" country="pt" status="production" text="Unversidade Fernando Pessoa" color="blue"/>
+	<marker lat="41.796300" lng="-6.768100" title="http://www.virtual.ipb.pt" country="pt" status="pilot" text="Instituto Politecnico de Braganca - IPB.Virtual" color="purple" />
 	
 	<!-- New Zealand -->
 	<marker lat="-36.84775766525783" lng="174.7650146484375" title=" http://sakai.bestgrid.org" country="nz" status="production" text="The University of Auckland" color="blue" />
