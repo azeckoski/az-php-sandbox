@@ -233,7 +233,7 @@
 	<marker lat="59.951889" lng="30.453329" title="http://dl.smolny.nw.ru/portal" country="ru" status="pilot" text="Smolny College of Liberal Arts and Sciences" color="purple" />
 	
 	<!-- South Africa -->
-	<marker lat="-26.5183" lng="29.9845" title="http://www.gscollege.co.za/" country="za" status="pilot" text="Gert Sibande FET College, Ermelo" color="purple" />
+	<marker lat="-26.5183" lng="29.9845" title="http://www.gscollege.co.za/" country="za" status="pilot" text="Gert Sibande FET College, Ermelo" color="blue" />
 	<marker lat="-25.9636" lng="28.1378" title="http://www.mgiweb.co.za/" country="za" status="pilot" text="Midrand Graduate Institute" color="purple" />
 	<marker lat="-26.7167" lng="27.1000" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University, Potchestroom" color="blue" />
 	<marker lat="-25.8688" lng="25.6495" title="http://efundi.nwu.ac.za/portal/" country="za" status="production" text="North-West University, Mafikeng" color="blue" />
