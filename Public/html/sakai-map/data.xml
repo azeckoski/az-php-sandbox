@@ -387,7 +387,6 @@
 	<marker lat="37.36251701774281" lng="-120.42612075805664" title="https://ucmcrops.ucmerced.edu/portal" country="us" status="production" text="UC Merced" color="blue" />
 	<marker lat="42.29096106747343" lng="-83.71745109558105" title="http://ctools.umich.edu/" country="us" status="production" text="University of Michigan" color="blue"/>
 	<marker lat="38.937335" lng="-92.33320000000001" title="https://sakai.missouri.edu/portal" country="us" status="pilot" text="University of Missouri" color="purple"/>
-	<marker lat="40.8166" lng="-96.6738" title="http://sakai3.unl.edu:8080/portal" country="us" status="pilot" text="University of Nebraska-Lincoln" color="purple" />
 	<marker lat="41.701759" lng="-86.233519" title="http://www.nd.edu" country="us" status="pilot" text="University of Notre Dame" color="purple" />
 	<marker lat="35.908784" lng="-79.049886" title="http://www.unc.edu" country="us" status="pilot" text="University of North Carolina at Chapel Hill" color="purple" />
 	<marker lat="33.21196922314295" lng="-97.14687466621399" title="http://sakai.unt.edu" country="us" status="pilot" text="University of North Texas" color="purple" />
