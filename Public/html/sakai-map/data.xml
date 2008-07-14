@@ -257,7 +257,13 @@
 	
 	<!-- UK -->
 	<marker lat="55.78053120570189" lng="-4.047174453735352" title="http://pdp.bell.ac.uk" country="uk" status="production" text="Bell College" color="blue" />
+	
+	<!-- UK: Daresbury Lab -->
 	<marker lat="53.343582946474655" lng="-2.632598876953125" title="http://rhine.dl.ac.uk:8080/portal" country="uk" status="production" text="NW-Grid, Daresbury Laboratory" color="blue" />
+	<marker lat="53.464749" lng="-2.23234" title="http://portal.ncess.ac.uk" country="uk" status="production" text="NCeSS portal" color="blue" />
+	<marker lat="53.34" lng="-2.64" title="http://yukon.dl.ac.uk:8080/portal" country="uk" status="production" text="Hartree Centre for Computational Science" color="blue" />
+	<marker lat="53.343394" lng="-2.641226" title="http://cselnx9.dl.ac.uk:8080/portal " country="uk" status="production" text="Psi-K portal" color="blue" />
+	
 	<marker lat="54.047" lng="-2.802" title="http://redress.lancs.ac.uk:8080/portal" country="uk" status="pilot" text="Lancaster University" color="purple" />
 	<marker lat="54.9804361598525" lng="-1.61544671288399" title="http://www.ncl.ac.uk" country="uk" status="pilot" text="Newcastle University" color="purple" />
 	<marker lat="52.20194224761514" lng="0.1166224479675293" title="https://camtools.caret.cam.ac.uk/portal" country="uk" status="production" text="University of Cambridge" color="blue" />
