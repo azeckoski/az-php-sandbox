@@ -390,6 +390,7 @@
 	<marker lat="38.533463138733936" lng="-121.76156044006348" title="http://smartsite.ucdavis.edu/" country="us" status="production" text="University of California-Davis" color="blue" />
 	<marker lat="38.540602" lng="-121.748151" title="https://cere.vetmed.ucdavis.edu/" country="us" status="production" text="University of California-Davis, School of Veterinary Medicine" color="blue" />
 	<marker lat="39.73749" lng="-84.17474" title="http://isidore.udayton.edu" country="us" status="pilot" text="University of Dayton" color="purple"/>
+	<marker lat="39.6806" lng="-75.7409" title="http://www.udel.edu" country="us" status="production" text="University of Delaware" color="blue" />
 	<marker lat="37.36251701774281" lng="-120.42612075805664" title="https://ucmcrops.ucmerced.edu/portal" country="us" status="production" text="UC Merced" color="blue" />
 	<marker lat="42.29096106747343" lng="-83.71745109558105" title="http://ctools.umich.edu/" country="us" status="production" text="University of Michigan" color="blue"/>
 	<marker lat="38.937335" lng="-92.33320000000001" title="https://sakai.missouri.edu/portal" country="us" status="pilot" text="University of Missouri" color="purple"/>
