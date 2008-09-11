@@ -97,7 +97,7 @@
 	<marker lat="59.917" lng="10.75" title="http://www.uio.no" country="no" status="partner" text="University of Oslo" color="green" />
 	<marker lat="30.3811" lng="-97.7581" title="http://www.utexas.edu" country="us" status="partner" text="University of Texas at Austin" color="green" />
 	<marker lat="43.667" lng="-79.417" title="http://kmdi.utoronto.ca" country="ca" status="partner" text="University of Toronto" color="green" />
-	<marker lat="-0.3786570000000001" lng="39.478977" title="http://www.fundacionviu.es" country="us" status="partner" text="Valencia International University" color="green" />
+	<marker lat="39.478977" lng="-0.3786570000000001" title="http://www.fundacionviu.es" country="us" status="partner" text="Valencia International University" color="green" />
 	<marker lat="38.05002" lng="-78.50145" title="http://www.virginia.edu" country="us" status="partner" text="University of Virginia" color="green" />
 	<marker lat="47.6014" lng="-122.33" title="http://www.washington.edu" country="us" status="partner" text="University of Washington" color="green" />
 	<marker lat="42.30543561601805" lng="-83.06541681289673" title="http://www.uwindsor.ca" country="ca" status="partner" text="University of Windsor" color="green" />
@@ -244,7 +244,7 @@
 	<marker lat="-33.957098" lng="18.460508" title="https://vula.uct.ac.za/portal" country="za" status="production" text="University of Cape Town" color="blue" />
 	
 	<!-- Spain -->
-	<marker lat="-0.3786570000000001" lng="39.478977" title="http://www.campusviu.com" country="es" status="pilot" text="Valencia International University" color="purple" />
+	<marker lat="39.478977" lng="-0.3786570000000001" title="http://www.campusviu.com" country="es" status="pilot" text="Valencia International University" color="purple" />
 	<marker lat="41.53585000000069" lng="2.447027999999973" title="http://www.cetemmsa.es" country="es" status="pilot" text="Textile Technological Center" color="purple" />
 	<marker lat="40.430809" lng="-3.793243" title="http://www.ucm.es/" country="es" status="pilot" text="Universidad Complutense de Madrid" color="purple" />
 	<marker lat="41.613645577064105" lng="0.6193435192108154" title="http://cv.udl.es/portal" country="es" status="production" text="Universitat de Lleida" color="blue" />
