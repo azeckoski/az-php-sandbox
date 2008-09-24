@@ -189,6 +189,7 @@
 	<!-- Mexico -->
 	<marker lat="20.67500277777778" lng="-103.3589416666667" title="http://investigacion.udgvirtual.udg.mx:8080/portal" country="mx" status="production" text="UDG Virtual, Universidad de Guadalajara" color="blue" />
 	<marker lat="18.962189" lng="-99.22927700000001" title="http://www.virtual.unila.edu.mx:8080/portal" country="mx" status="production" text="Universidad Latina" color="blue" />
+	<marker lat="19.332100" lng="-99188238" title="http://www.consejouniversitario.unam.mx" country="mx" status="production" text="Universidad Nacional Autónoma de México" color="blue" />
 	
 	<!-- Morocco -->
 	<marker lat="33.968935" lng="-6.8284711" title="http://my.iihem.ac.ma:8080/portal" country="ma" status="pilot" text="International Institute for Higher Education in Morocco - IIHEM" color="purple" />
