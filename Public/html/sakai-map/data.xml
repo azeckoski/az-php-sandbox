@@ -297,7 +297,7 @@
 	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="pilot" text="Dana College" color="purple"/>
 	<marker lat="35.60893" lng="-77.36619" title="http://sakai.aos.ecu.edu" country="us" status="pilot" text="East Carolina University" color="purple"/>
-	<marker lat="34.044061" lng="118.259969" title="http://www.fidm.edu" country="us" status="production" text="The Fashion Institute of Design and Merchandising (FIDM)" color="blue" />
+	<marker lat="34.044061" lng="118.259969" title="https://elearning.fidm.edu/portal" country="us" status="production" text="The Fashion Institute of Design and Merchandising (FIDM)" color="blue" />
 	<marker lat="33.776225" lng="-84.398436" title="http://t-square.gatech.edu" country="us" status="production" text="Georgia Tech" color="blue" />
 	
 	<!-- USA (Appalachian College Association) -->
