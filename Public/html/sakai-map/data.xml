@@ -149,7 +149,7 @@
 	<marker lat="39.95165045056692" lng="116.3678261874494" title="http://train.bupticet.com" country="cn" status="pilot" text="Institution of Cyber Education Technology (ICET), Beijing University of Posts and Telecommunication (BUPT)" color="purple"/>
 	
 	<!-- Columbia -->
-	<marker lat="6.25" lng="-75.583" title="http://www.ceipa.edu.co" country="co" status="production" text="La Universidad de LA Empresa" color="blue" />
+	<marker lat="6.25" lng="-75.583" title="http://www.ceipa.edu.co/portal" country="co" status="production" text="La Universidad de LA Empresa" color="blue" />
 	<marker lat="4.636681" lng="-74.084222" title="http://www.sofia.unal.edu.co:8080" country="co" status="production" text="Universidad Nacional de Colombia" color="blue"  />
 	<marker lat="4.636731" lng="-74.084144" title="http://168.176.135.29:8080" country="co" status="pilot" text="Universidad Nacional de Colombia" color="purple" />
 	
