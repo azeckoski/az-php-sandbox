@@ -358,7 +358,7 @@
 	<marker lat="41.3188" lng="-81.3369" title="https://courses.hiram.edu/portal" country="us" status="production" text="Hiram College" color="blue"/>
 	<marker lat="42.617033" lng="-83.618064" title="http://sakai.huronvalley.k12.mi.us" country="us" status="production" text="Huron Valley Schools" color="blue" />
 	<marker lat="39.16700255163836" lng="-86.52577757835388" title="https://oncourse.iu.edu/" country="us" text="Indiana University" status="production" color="blue"/>
-	<marker lat="40.62179" lng="-79.15923" title="www.iup.edu/" country="us" text="Indiana University of Pennsylvania" status="pilot" color="purple"/>
+	<marker lat="40.62179" lng="-79.15923" title="https://sakaipilot.cc.iup.edu/" country="us" text="Indiana University of Pennsylvania" status="pilot" color="purple"/>
 	<marker lat="21.3084" lng="-157.846" title="http://eportfolio.kcc.hawaii.edu/" country="us" status="production" text="Kapi'oloni Community College (Univ. of Hawaii)" color="blue"/>
 	<marker lat="39.329" lng="-76.619" title="http://sakai-pilot.library.jhu.edu" country="us" status="pilot" text="Johns Hopkins University University" color="purple" />
 	<marker lat="33.04" lng="-85.04" title="http://mentor.lagrange.edu" country="us" status="pilot" text="LaGrange College" color="purple" />
