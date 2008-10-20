@@ -177,7 +177,7 @@
 	<marker lat="40.769102" lng="14.786911" title="http://rp.csedu.unisa.it" country="it" status="production" text="Universit√† degli Studi di Salerno (Running Platform)" color="blue" />
 	
 	<!-- Ireland -->
-	<marker lat="52.665" lng="-8.623" title="" country="ie" status="production" text="University of Limerick" color="blue" />
+	<marker lat="52.665" lng="-8.623" title="https://sulis.ul.ie/xsl-portal" country="ie" status="production" text="University of Limerick" color="blue" />
 	
 	<!-- Japan -->
 	<marker lat="35.7" lng="139.767" title="http://sakai.huric.org" country="jp" status="pilot" text="Hosei University" color="purple" />
