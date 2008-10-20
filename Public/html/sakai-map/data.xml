@@ -362,6 +362,7 @@
 	<marker lat="39.329" lng="-76.619" title="http://sakai-pilot.library.jhu.edu" country="us" status="pilot" text="Johns Hopkins University University" color="purple" />
 	<marker lat="33.04" lng="-85.04" title="http://mentor.lagrange.edu" country="us" status="pilot" text="LaGrange College" color="purple" />
 	<marker lat="41.7879" lng="-81.0546" title="http://ilearn.lec.edu/" text="Lake Erie College" country="us" status="production" color="blue"/>
+	<marker lat="40.039276" lng="-75.152908" title="http://sakai.lasalle.edu/xsl-portal" text="Lasalle University" country="us" status="production" color="blue"/>
 	<marker lat="41.70815000000001" lng="-83.708279" title="https://elearning.lourdes.edu/portal" text="Lourdes College" country="us" status="production" color="blue"/>
 	<marker lat="41.72075" lng="-73.93274" title="https://ilearn.marist.edu/" country="us" status="production" text="Marist College" color="blue" />
 	<marker lat="41.3841" lng="-74.5157" title="http://sakai.minisink.com/" country="us" status="pilot" text="Minisink Valley Central School District, Slate Hill, NY" color="purple" />
