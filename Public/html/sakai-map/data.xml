@@ -409,6 +409,7 @@
 	<marker lat="41.701759" lng="-86.233519" title="http://www.nd.edu" country="us" status="pilot" text="University of Notre Dame" color="purple" />
 	<marker lat="35.908784" lng="-79.049886" title="http://www.unc.edu" country="us" status="pilot" text="University of North Carolina at Chapel Hill" color="purple" />
 	<marker lat="33.21196922314295" lng="-97.14687466621399" title="http://sakai.unt.edu" country="us" status="pilot" text="University of North Texas" color="purple" />
+	<marker lat="18.3995" lng="-66.04920199999999" title="http://www.upr.edu" country="us" status="pilot" text="﻿University of Puerto Rico, Rio Piedras Campus" color="purple" />
 	<marker lat="38.05002" lng="-78.50145" title="https://collab.itc.virginia.edu/" country="us" status="pilot" text="University of Virginia" color="purple"/>
 	<marker lat="41.312295" lng="-105.578995" title="http://wyosakai.uwyo.edu/" country="us" status="pilot" text="University of Wyoming" color="purple"/>
 	<marker lat="37.21057576283389" lng="-80.41502952575684" title="http://eportfolio.scholar.vt.edu/" country="us" status="production" text="Virginia Tech" color="blue"/>
