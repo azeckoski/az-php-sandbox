@@ -426,6 +426,7 @@
 	<marker lat="37.6949" lng="-122.466" title="http://cfws.carnegiefoundation.org/" country="us" status="production" text="Carnegie Foundation for the Advancement of Teaching" color="blue" />
 	<marker lat="38.9048" lng="-77.0054" title="http://sakai.longsight.com/portal" country="us" status="pilot" text="Longsight Group" color="purple"/>
 	<!-- <marker lat="37.3319485736073" lng="-122.02960968017578" title="http://www.maclearningenvironments.org/" country="us" status="production" text="MacLearningEnvironments" color="blue"/> -->
+	<marker lat="36.866176" lng="-87.81316700000001" title="http://pls.rsmart.com/xsl-portal" country="us" status="production" text="Performance Learning Systems" color="blue" />
 	<marker lat="33.5084805802834" lng="-111.98810577392578" title="http://www.mysakai.com" country="us" status="production" text="The rSmart Group - My Sakai" color="blue" />
 	<marker lat="33.5084805802834" lng="-111.98810577392578" title="http://www.sakaisandbox.com/osp-portal" country="us" status="demo" text="The rSmart Group sandbox" color="purple" />
 	
