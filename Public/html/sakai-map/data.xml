@@ -284,6 +284,7 @@
 	<marker lat="41.9076" lng="-84.0644" title="http://sakai.adrian.edu:8080/portal" country="us" status="pilot" text="Adrian College" color="purple" />
 	<marker lat="42.65315192577889" lng="-73.77503871917725" title="http://sakai.amc.edu" country="us" status="production" text="Albany Medical College" color="blue" />
 	<marker lat="33.9401" lng="-84.2053" title="http://webcenter.aahe.org" country="us" status="production" text="Alliance for Equity in Higher Education" color="blue" />
+	<marker lat="39.798903" lng="-83.89175" title="http://sakai.antioch.edu/xsl-portal" country="us" status="production" text="Antioch University" color="blue" />
 	<marker lat="33.417877" lng="-111.932332" title=" https://sakai.asu.edu" country="us" status="pilot" text="Arizona State University" color="purple" />
 	<marker lat="33.4208753223261" lng="-111.93871021270752" title=" https://sapp.ideal.azed.gov/portal" country="us" status="production" text="Arizona Department Of Education-Arizona State University CLE" color="blue" />
 	<marker lat="42.35331122051394" lng="-71.11896514892578" title="http://sakai.bu.edu/" country="us" status="production" text="Boston University, School of Management" color="blue"/>
