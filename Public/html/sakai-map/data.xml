@@ -289,6 +289,7 @@
 	<marker lat="33.4208753223261" lng="-111.93871021270752" title=" https://sapp.ideal.azed.gov/portal" country="us" status="production" text="Arizona Department Of Education-Arizona State University CLE" color="blue" />
 	<marker lat="42.35331122051394" lng="-71.11896514892578" title="http://sakai.bu.edu/" country="us" status="production" text="Boston University, School of Management" color="blue"/>
 	<marker lat="36.810557" lng="-119.745222" title="http://sakai.csufresno.edu" country="us" status="demo" text="California State University, Fresno" color="purple"/>
+	<marker lat="38.580745" lng="-121.288516" title="https://calpharm.rsmart.com/xsl-portal" country="us" status="production" text="California Northstate College of Pharmacy" color="blue"/>
 	<marker lat="38.933566" lng="-77.000404" title="http://www.cua.edu" country="us" status="production" text="Catholic University of America" color="blue" />
 	<marker lat="33.88619934077726" lng="-118.09751272201538" title="http://talonnet.cerritos.edu" country="us" status="production" text="Cerritos College" color="blue" />
 	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="production" color="blue"/> 
