@@ -165,7 +165,6 @@
 	<marker lat="46.585466" lng="0.345966" title="https://bv.ent.univ-poitiers.fr/" country="fr" status="production" text="Universite de Poitiers" color="blue" />
 	
 	<!-- Germany -->
-	<marker lat="53.52" lng="10.41" title="http://sakai.oncampus.de/portal" country="de" status="production" text="Lubeck University of Applied Science" color="blue" />
 	
 	<!-- Guatemala -->
 	<marker lat="14.605056" lng="-90.489219" title="http://sakai.uvg.edu.gt" country="gt" status="production" text="Universidad del Valle de Guatemala" color="blue" />
