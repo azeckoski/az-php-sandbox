@@ -394,6 +394,7 @@
 
 	<!-- USA (academic: U-Z) -->
 	<marker lat="39.946517" lng="-75.16487600000001" title="https://sakai.uarts.edu/" country="us" status="pilot" text="University of the Arts" color="purple"/>
+	<marker lat="39.305993" lng="-76.616466" title="http://cissakaip.net.ubalt.edu:8080/" country="us" status="pilot" text="University of Baltimore" color="purple"/>
 	<marker lat="37.87040711546537" lng="-122.26031184196472" title="https://bspace.berkeley.edu/portal" country="us" status="production" text="UC Berkeley" color="blue"/>
 	<marker lat="38.533463138733936" lng="-121.76156044006348" title="http://smartsite.ucdavis.edu/" country="us" status="production" text="University of California-Davis" color="blue" />
 	<marker lat="38.540602" lng="-121.748151" title="https://cere.vetmed.ucdavis.edu/" country="us" status="production" text="University of California-Davis, School of Veterinary Medicine" color="blue" />
