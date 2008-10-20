@@ -294,6 +294,7 @@
 	<marker lat="33.88619934077726" lng="-118.09751272201538" title="http://talonnet.cerritos.edu" country="us" status="production" text="Cerritos College" color="blue" />
 	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="production" color="blue"/> 
 	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
+	<marker lat="42.455719" lng="-76.477718" title="http://cornell.rsmart.com/xsl-portal" country="us" status="pilot" text="Cornell University" color="purple"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="pilot" text="Dana College" color="purple"/>
 	<marker lat="35.60893" lng="-77.36619" title="http://sakai.aos.ecu.edu" country="us" status="pilot" text="East Carolina University" color="purple"/>
 	<marker lat="34.044061" lng="118.259969" title="https://elearning.fidm.edu/portal" country="us" status="production" text="The Fashion Institute of Design and Merchandising (FIDM)" color="blue" />
