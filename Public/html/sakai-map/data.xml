@@ -381,6 +381,7 @@
 	<marker lat="47.2272" lng="-122.449" title="http://sakai.plu.edu/portal" country="us" status="pilot" text="Pacific Lutheran University" color="purple"/>
 	<marker lat="45.5093" lng="-122.689" title="http://samla.pdx.edu/portal/" country="us" status="pilot" text="Portland State University" color="purple"/>
 	<marker lat="29.7716" lng="-95.393" title="https://owlspace-ccm.rice.edu/portal" country="us" status="production" text="Rice University" color="blue"/>
+	<marker lat="40.278802" lng="-74.73226600000001" title="http://rider.rsmart.com" country="us" status="production" text="Rider University" color="blue"/>
 	<marker lat="41.591042" lng="-71.435886" title="https://portfolio.ri.net" country="us" status="production" text="Rhode Island Electronic Portfolio System (RIEPS)" color="blue"/>
 	<marker lat="40.4873" lng="-74.4497" title="http://sakai.rutgers.edu/" country="us" status="production" text="Rutgers University" color="blue"/>
 	<marker lat="27.3595" lng="-82.5012" title="https://ontario.rsad.edu/portal" country="us" status="pilot" text="Ringling School of Art and Design" color="purple"/>
