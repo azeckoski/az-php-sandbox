@@ -177,6 +177,7 @@
 	<marker lat="40.769102" lng="14.786911" title="http://rp.csedu.unisa.it" country="it" status="production" text="Universit√† degli Studi di Salerno (Running Platform)" color="blue" />
 	
 	<!-- Ireland -->
+	<marker lat="53.353058" lng="-6.264725" title="http://daybreak.ie/" country="ie" status="production" text="Daybreak School" color="blue" />
 	<marker lat="52.665" lng="-8.623" title="https://sulis.ul.ie/xsl-portal" country="ie" status="production" text="University of Limerick" color="blue" />
 	
 	<!-- Japan -->
