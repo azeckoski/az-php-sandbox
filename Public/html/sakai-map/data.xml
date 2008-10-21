@@ -356,6 +356,7 @@
 	<!-- USA (academic: H-N) -->
 	
 	<marker lat="21.294755" lng="-157.858979" title="http://www.educatehawaii.org" country="us" status="pilot" text="State of Hawaii, Department of Public Safety" color="purple"/>
+	<marker lat="40.72846" lng="-73.99428600000002 " title="http://huc.cle.rsmart.com/xsl-portal" country="us" status="production" text="Hebrew Union College" color="blue"/>
 	<marker lat="41.3188" lng="-81.3369" title="https://courses.hiram.edu/portal" country="us" status="production" text="Hiram College" color="blue"/>
 	<marker lat="42.617033" lng="-83.618064" title="http://sakai.huronvalley.k12.mi.us" country="us" status="production" text="Huron Valley Schools" color="blue" />
 	<marker lat="39.16700255163836" lng="-86.52577757835388" title="https://oncourse.iu.edu/" country="us" text="Indiana University" status="production" color="blue"/>
