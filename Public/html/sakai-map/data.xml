@@ -424,6 +424,7 @@
 	<marker lat="35.651009" lng="-78.707074" title="http://www.optimizedlearn.com/" country="us" status="production" text="Wake Technical Community College" color="blue"/>
 	<marker lat="45.72462300000001" lng="-122.633378" title="http://wsu.van.rsmart.com/portal" country="us" status="production" text="Washington State University, Vancouver" color="blue" />
 	<marker lat="41.19221885042551" lng="-111.94313049316406" title="http://sakai.weber.edu" country="us" status="production" text="Weber State University" color="blue" />
+	<marker lat="39.953516" lng="-75.19795499999999" title="http://whartonsakai.rsmart.com/xsl-portal" country="us" status="pilot" text="Wharton Center, University of Pennsylvania" color="purple" />
 	<marker lat="46.07270961255675" lng="-118.3292555809021" title="https://cleo.whitman.edu/portal/" country="us" status="production" text="Whitman College" color="blue"/>
 	<marker lat="36.12638" lng="-90.94031" title="http://sakai.wbcoll.edu:8080/portal" country="us" status="production" text="Williams Baptist College" color="blue"/>
 	<marker lat="41.3095" lng="-72.9276" title="http://classesv2.yale.edu/" country="us" status="production" text="Yale University" color="blue"/>
