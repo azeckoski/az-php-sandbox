@@ -294,6 +294,7 @@
 	<marker lat="33.88619934077726" lng="-118.09751272201538" title="http://talonnet.cerritos.edu" country="us" status="production" text="Cerritos College" color="blue" />
 	<marker lat="41.8231" lng="-71.4204" title="http://portfolio.chariho.k12.ri.us/" country="us" status="production" color="blue"/> 
 	<marker lat="40.808200" lng="-73.9619572" title="http://sakaipilot.cc.columbia.edu" country="us" status="production" text="Columbia University" color="blue"/>
+	<marker lat="40.808200" lng="-73.9619572" title="http://mdp.rsmart.com/xsl-portal" country="us" status="production" text="Earth Institute, Columbia University" color="blue"/>
 	<marker lat="42.455719" lng="-76.477718" title="http://cornell.rsmart.com/xsl-portal" country="us" status="pilot" text="Cornell University" color="purple"/>
 	<marker lat="41.55" lng="-96.1873" title="http://sakai2.dana.edu/portal" country="us" status="pilot" text="Dana College" color="purple"/>
 	<marker lat="35.60893" lng="-77.36619" title="http://sakai.aos.ecu.edu" country="us" status="pilot" text="East Carolina University" color="purple"/>
@@ -384,6 +385,7 @@
 	<marker lat="29.7716" lng="-95.393" title="https://owlspace-ccm.rice.edu/portal" country="us" status="production" text="Rice University" color="blue"/>
 	<marker lat="40.278802" lng="-74.73226600000001" title="http://rider.rsmart.com" country="us" status="production" text="Rider University" color="blue"/>
 	<marker lat="41.591042" lng="-71.435886" title="https://portfolio.ri.net" country="us" status="production" text="Rhode Island Electronic Portfolio System (RIEPS)" color="blue"/>
+	<marker lat="40.723854" lng="-73.997466" title="http://ross.rsmart.com/xsl-portal" country="us" status="pilot" text="Ross Institute" color="purple"/>
 	<marker lat="40.4873" lng="-74.4497" title="http://sakai.rutgers.edu/" country="us" status="production" text="Rutgers University" color="blue"/>
 	<marker lat="27.3595" lng="-82.5012" title="https://ontario.rsad.edu/portal" country="us" status="pilot" text="Ringling School of Art and Design" color="purple"/>
 	<marker lat="43.51402762358483" lng="-83.96369934082031" title="http://vspace.svsu.edu/" country="us" status="production" text="Saginaw Valley State University" color="blue" />
