@@ -137,6 +137,7 @@
 	<marker lat="-22.880766" lng="-43.104335" title="http://ambientevirtual.moleque.com.br" country="br" status="pilot" text="Moleque de Idéias Educação e Tecnologia Ltda" color="purple" />
 	
 	<!-- Canada -->
+	<marker lat="43.671458" lng="-79.381343" title="http://cpm.cpacertificationonline.ca/xsl-portal" country="ca" status="production" text="Certified Payroll Management Program" color="blue" />
 	<marker lat="43.11922" lng="-79.248713" title="https://ibson.brocku.ca" country="ca" status="pilot" text="Brock University" color="purple" />
 	<marker lat="42.30543561601805" lng="-83.06541681289673" title="https://clew.uwindsor.ca/osp-portal/" country="ca" status="production" text="University of Windsor" color="blue" />
 	<marker lat="49.883" lng="-97.167" title="http://learn.uwinnipeg.ca/portal" country="ca" status="production" text="University of Winnipeg" color="blue" />
