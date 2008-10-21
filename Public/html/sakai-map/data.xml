@@ -390,6 +390,7 @@
 	<marker lat="27.3595" lng="-82.5012" title="https://ontario.rsad.edu/portal" country="us" status="pilot" text="Ringling School of Art and Design" color="purple"/>
 	<marker lat="43.51402762358483" lng="-83.96369934082031" title="http://vspace.svsu.edu/" country="us" status="production" text="Saginaw Valley State University" color="blue" />
 	<marker lat="37.530567" lng="-122.337688" title="http://smcweb1.smccd.net:8080/portal" country="us" status="demo" text="San Mateo County Community College District" color="purple" />
+	<marker lat="39.432039" lng="-77.80889000000001" title="http://courses.shepherd.edu/xsl-portal" country="us" status="pilot" text="Shepherd University" color="purple" />
 	<marker lat="37.42566996317141" lng="-122.16737866401672" title="https://coursework.stanford.edu/" country="us" status="production" text="Stanford University" color="blue"/>
 	<marker lat="42.459252" lng="-83.23933100000001" title="http://www.specshoward.edu/" country="us" status="pilot" text="Specs Howard School of Broadcast Arts" color="purple"/>
 	<marker lat="43.041736" lng="-76.134664" title="http://eportfolio.syr.edu" country="us" status="pilot" text="Syracuse University School of Education" color="purple" />
