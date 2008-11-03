@@ -269,7 +269,7 @@
 	<marker lat="53.464749" lng="-2.23234" title="http://portal.ncess.ac.uk" country="uk" status="production" text="NCeSS portal" color="blue" />
 	
 	<marker lat="54.047" lng="-2.802" title="http://redress.lancs.ac.uk" country="uk" status="production" text="Lancaster University" color="blue" />
-	<marker lat="54.9804361598525" lng="-1.61544671288399" title="http://www.ncl.ac.uk" country="uk" status="pilot" text="Newcastle University" color="purple" />
+	<marker lat="54.9804361598525" lng="-1.61544671288399" title="https://researchtools.ncl.ac.uk/" country="uk" status="pilot" text="Newcastle University" color="purple" />
 	<marker lat="52.625036" lng="1.24049" title="http://vre.earlymoderntexts.org/portal/" country="uk" status="production" text="Universities of East Anglia and Hull" color="blue" />
 	<marker lat="52.625037" lng="1.24050" title="http://vre.politicaldiscourse.org.uk/portal/" country="uk" status="production" text="Universities of East Anglia and Hull" color="blue" />
 	
