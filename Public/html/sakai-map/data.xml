@@ -233,7 +233,7 @@
 	<!-- Russia -->
 	<marker lat="56.8" lng="60.6" title="http://www.tandemservice.ru" country="ru" status="pilot" text="Institute of Development of Regional Education" color="purple" />
 	<marker lat="60.00113" lng="30.36629" title="https://dcn.ftk.spbstu.ru/portal" country="ru" status="pilot" text="Saint-Petersburg State Polytechnic University, Distributed Computing and Networking Department" color="purple" />
-	<marker lat="59.930205" lng="30.284479" title="http://sakai.spbu.ru" country="ru" status="pilot" text="Smolny College of Liberal Arts and Sciences" color="purple" />
+	<marker lat="59.930205" lng="30.284479" title="http://sakai.spbu.ru" country="ru" status="production" text="Smolny College of Liberal Arts and Sciences" color="blue" />
 	
 	<!-- South Africa -->
 	<marker lat="-26.5183" lng="29.9845" title="http://www.gscollege.co.za/" country="za" status="pilot" text="Gert Sibande FET College, Ermelo" color="blue" />
