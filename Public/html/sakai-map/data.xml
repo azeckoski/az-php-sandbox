@@ -253,8 +253,8 @@
 	<marker lat="39.48205045504316" lng="-0.3426361083984375" title="http://poliformat.upv.es/portal" country="es" status="production" text="Universidad Politecnica de Valencia" color="blue" />
 	
 	<!-- Sweden -->
-	<marker lat="59.333" lng="18.05" title="http://mondo.su.se" country="se" status="production" text="Stockholm University" color="blue" />
-	<marker lat="63.833" lng="20.25" title="http://sakai.informatik.umu.se/" country="se" status="pilot" text="Ume√• universitet" color="purple"/>
+	<marker lat="59.333" lng="18.05" title="http://mondo.su.se/" country="se" status="production" text="Stockholm University" color="blue" />
+	<marker lat="63.833" lng="20.25" title="https://www.cambro.umu.se/portal/" country="se" status="production" text="Ume√• universitet" color="blue"/>
 	
 	<!-- Turkey -->
 	<marker lat="41.099998" lng="29" title="http://www.sabanciuniv.edu/sucourse/eng" country="tr" status="production" text="Sabanci Universitesi" color="blue" />
