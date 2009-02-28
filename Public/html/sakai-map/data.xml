@@ -225,7 +225,7 @@
 	
 	<!-- Portugal -->
 	<marker lat="41.1731303241809" lng="-8.611135482788086" title="http://elearning.ufp.pt/" country="pt" status="production" text="Unversidade Fernando Pessoa" color="blue"/>
-	<marker lat="41.796300" lng="-6.768100" title="http://www.virtual.ipb.pt" country="pt" status="pilot" text="Instituto Politecnico de Braganca - IPB.Virtual" color="purple" />
+	<marker lat="41.796300" lng="-6.768100" title="http://www.virtual.ipb.pt" country="pt" status="production" text="Instituto Politecnico de Braganca - IPB.Virtual" color="blue" />
 	
 	<!-- New Zealand -->
 	<marker lat="-36.84775766525783" lng="174.7650146484375" title=" http://sakai.bestgrid.org" country="nz" status="production" text="The University of Auckland" color="blue" />
