@@ -251,8 +251,7 @@
 	<marker lat="39.478977" lng="-0.3786570000000001" title="http://www.campusviu.com" country="es" status="pilot" text="Valencia International University" color="purple" />
 	<marker lat="41.53585000000069" lng="2.447027999999973" title="http://www.cetemmsa.es" country="es" status="pilot" text="Textile Technological Center" color="purple" />
 	<marker lat="40.430809" lng="-3.793243" title="http://www.ucm.es/" country="es" status="pilot" text="Universidad Complutense de Madrid" color="purple" />
-	
-	<marker lat="" lng="" title="https://miaulario.unavarra.es" country="es" status="production" text="Universidad Pública de Navarra" color="blue" />
+	<marker lat="42.79834495505207" lng="-1.6333580017089844" title="https://miaulario.unavarra.es" country="es" status="production" text="Universidad Pública de Navarra" color="blue" />
 	
 	<marker lat="41.613645577064105" lng="0.6193435192108154" title="http://cv.udl.es/portal" country="es" status="production" text="Universitat de Lleida" color="blue" />
 	<marker lat="39.48205045504316" lng="-0.3426361083984375" title="http://poliformat.upv.es/portal" country="es" status="production" text="Universidad Politecnica de Valencia" color="blue" />
