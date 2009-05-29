@@ -1,3 +1,0 @@
-shardin;20060817 12:07:14;/accounts/login.php;user logged in (internal):64.235.110.195:https://sakaiproject.org/accounts/login.php?ref=/conference/admin/index.php
-ajax;20060817 18:57:56;/accounts/ajax/validate.php;validate:email:chri
-ajax;20060817 18:57:56;/accounts/ajax/validate.php;return=error|username|Invalid email address

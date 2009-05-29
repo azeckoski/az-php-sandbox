@@ -1,7 +1,0 @@
-shardin;20070201 09:48:41;/accounts/login.php;user logged in (ldap):141.213.120.97:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
-shardin.umich@gmail.com;20070201 09:49:06;/accounts/login.php;user logged in (ldap):141.213.120.97:https://sakaiproject.org/accounts/login.php?ref=/conference/proposals/index.php&msg=You+must+login+to+register+or+submit+a+proposal+for+the+Sakai+Amsterdam+Conference+-+June+2007+conference.+If+you+do+not+have+an+account%2C+please+create+one.
-ajax;20070201 09:50:43;/conference/proposals/index.php;validate:required:presentation
-ajax;20070201 11:51:00;/accounts/ajax/validate.php;validate:email:shardin.umich@gmail.com
-ajax;20070201 11:51:00;/accounts/ajax/validate.php;validate:uniquesql:shardin.umich@gmail.com
-ajax;20070201 11:51:00;/accounts/ajax/validate.php;return=ok|email|
-stephen@cetl.gatech.edu;20070201 14:30:39;/accounts/login.php;user logged in (ldap):130.207.46.43:https://www.sakaiproject.org/accounts/login.php
